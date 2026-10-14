@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { authCopy } from '../../lib/auth/copy';
 import { localeOf } from '../../lib/auth/policy';
+import { progressCopy } from '../../lib/progress-copy';
 export const prerender = false;
 if (!['fr', 'en'].includes(Astro.params.locale ?? ''))
   return new Response('Not found', { status: 404 });
@@ -45,6 +46,9 @@ if (unavailable) Astro.response.status = 503;
           </strong>
         </p>
         <p class="lede">{text.next}</p>
+        <p>
+          <a href={`/${locale}/progress/`}>{progressCopy[locale].nav}</a>
+        </p>
         <form method="post" action="/auth/logout/">
           <input type="hidden" name="locale" value={locale} />
           <button class="primary-link auth-button" type="submit">

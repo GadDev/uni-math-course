@@ -49,7 +49,7 @@ Acceptance:
 - Switching language preserves location and activity state.
 - Relevant unit/integration/browser tests and a production build pass.
 
-M2 feature 1: the public reading foundation is implemented; see [READING_FOUNDATION.md](READING_FOUNDATION.md). M2 feature 2: configurable Supabase authentication/sessions are implemented; see [AUTHENTICATION.md](AUTHENTICATION.md). Hosted provider/deployment acceptance remains pending. Remaining feature PRs: authenticated exercise delivery/server grading, idempotent persistence, then mistake review/private progress. Those features need end-to-end deployment evidence before M2 is complete.
+M2 feature 1: the public reading foundation is implemented; see [READING_FOUNDATION.md](READING_FOUNDATION.md). M2 feature 2: email/password Supabase authentication/sessions for an invited group are implemented; see [AUTHENTICATION.md](AUTHENTICATION.md). M2 features 3 and 4: authenticated exercise delivery, server grading, idempotent attempt persistence, mistake review and a private progress page are implemented locally for the L05 pilot; see [PRACTICE.md](PRACTICE.md). Hosted provider/deployment acceptance, two-account isolation evidence and an end-to-end browser test of the practice flow remain pending, so M2 is not complete.
 
 The source-wide public glossary is delivered as an early M3 reading feature; see [glossary review](content/GLOSSARY_REVIEW.md). This does not complete M2 practice or M3 class-pilot acceptance.
 
@@ -123,4 +123,4 @@ Ranges assume a small class, one maintainer, usable auth accounts, and no unexpe
 
 ## Current decisions awaiting confirmation
 
-The budget is confirmed as zero recurring software cost and the implementation stack is approved. Remaining decisions: urgent chapter sequence; Google versus other sign-in providers; pilot size; free-plan limitations and recovery acceptance; original-content/publication permission; whether goodies are digital or physical. The reading/authentication scaffold has application dependencies; no cloud project, learner accounts, or scheduled tasks have been activated by these feature PRs.
+The budget is confirmed as zero recurring software cost and the implementation stack is approved. Remaining decisions: urgent chapter sequence; pilot size; free-plan limitations and recovery acceptance; original-content/publication permission; whether goodies are digital or physical. The reading/authentication scaffold has application dependencies; no cloud project, learner accounts, or scheduled tasks have been activated by these feature PRs.

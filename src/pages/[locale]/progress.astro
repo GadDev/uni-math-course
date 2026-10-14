@@ -1,0 +1,236 @@
+---
+import Base from '../../layouts/Base.astro';
+import { localeOf } from '../../lib/auth/policy';
+import { progressCopy } from '../../lib/progress-copy';
+import { exerciseBank } from '../../lib/exercises/bank';
+import { summarise, type Progress } from '../../lib/exercises/progress';
+import {
+  ATTEMPT_COLUMNS,
+  toAttemptRow,
+  type AttemptDbRow,
+} from '../../lib/exercises/store';
+// On demand and server-only: it reads the answer-bearing bank to explain mistakes.
+export const prerender = false;
+if (!['fr', 'en'].includes(Astro.params.locale ?? ''))
+  return new Response('Not found', { status: 404 });
+const locale = localeOf(Astro.params.locale);
+const text = progressCopy[locale];
+const auth = Astro.locals.auth;
+let user = null;
+let unavailable = !auth;
+if (auth) {
+  try {
+    user = await auth.verifiedUser();
+  } catch {
+    unavailable = true;
+  }
+}
+if (!unavailable && !user)
+  return Astro.redirect(
+    `/${locale}/sign-in/?${new URLSearchParams({ next: `/${locale}/progress/` })}`,
+    303,
+  );
+let progress: Progress | null = null;
+if (auth && user && !unavailable) {
+  // The signed-in session client: row-level security limits it to own rows.
+  const { data, error } = await auth.client
+    .from('attempts')
+    .select(ATTEMPT_COLUMNS)
+    .eq('user_id', user.id)
+    .order('created_at', { ascending: false })
+    .limit(500);
+  if (error || !data) unavailable = true;
+  else
+    progress = summarise(
+      (data as unknown as AttemptDbRow[]).map(toAttemptRow),
+      exerciseBank,
+    );
+}
+if (unavailable) Astro.response.status = 503;
+const format = new Intl.DateTimeFormat(locale, {
+  dateStyle: 'medium',
+  timeStyle: 'short',
+  timeZone: 'Europe/Luxembourg',
+});
+const when = (iso: string) => format.format(new Date(iso));
+const number = (id: string) => Number(id.split('-E')[1]);
+const lessonLink = (lessonId: string) =>
+  `/${locale}/lessons/${lessonId}/#practice`;
+const totals = progress && {
+  attempted: progress.lessons.reduce((sum, l) => sum + l.attempted, 0),
+  mastered: progress.lessons.reduce((sum, l) => sum + l.mastered, 0),
+  total: progress.lessons.reduce((sum, l) => sum + l.total, 0),
+};
+---
+
+<Base
+  locale={locale}
+  title={text.nav}
+  description={text.intro}
+  path="progress/"
+>
+  <main id="main" class="auth-page progress-page">
+    <p class="eyebrow">{text.nav}</p>
+    <h1>{text.title}</h1>
+    {unavailable || !progress || !totals ? (
+      <p role="alert">{text.unavailable}</p>
+    ) : (
+      <>
+        <p class="lede">{text.intro}</p>
+        <dl class="progress-stats">
+          <div>
+            <dt>{text.attempts}</dt>
+            <dd>{progress.totalAttempts}</dd>
+          </div>
+          <div>
+            <dt>{text.attempted}</dt>
+            <dd>
+              {totals.attempted} / {totals.total}
+            </dd>
+          </div>
+          <div>
+            <dt>{text.mastery}</dt>
+            <dd>
+              {totals.mastered} / {totals.total}
+            </dd>
+          </div>
+        </dl>
+
+        {progress.totalAttempts === 0 && (
+          <p>
+            {text.empty} <a href={lessonLink('L05')}>{text.start}</a>
+          </p>
+        )}
+
+        {progress.lessons.map((lesson) => {
+          const rows = new Map(
+            lesson.exercises.map((item) => [item.exerciseId, item]),
+          );
+          const ids = [...exerciseBank.values()]
+            .filter((exercise) => exercise.lessonId === lesson.lessonId)
+            .map((exercise) => exercise.id);
+          return (
+            <section aria-labelledby={`lesson-${lesson.lessonId}`}>
+              <h2 id={`lesson-${lesson.lessonId}`}>
+                {text.lesson} {lesson.lessonId.slice(1)}
+              </h2>
+              <div class="progress-table-wrap">
+                <table class="progress-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">{text.exercise}</th>
+                      <th scope="col">{text.tries}</th>
+                      <th scope="col">{text.correctTries}</th>
+                      <th scope="col">{text.latest}</th>
+                      <th scope="col">{text.evidence}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {ids.map((id) => {
+                      const row = rows.get(id);
+                      return (
+                        <tr>
+                          <th scope="row">{number(id)}</th>
+                          {row ? (
+                            <>
+                              <td>{row.attempts}</td>
+                              <td>{row.correctAttempts}</td>
+                              <td>
+                                <span
+                                  class={
+                                    row.latestCorrect
+                                      ? 'practice-ok'
+                                      : 'practice-bad'
+                                  }
+                                >
+                                  {row.latestCorrect ? '✓ ' : '✗ '}
+                                  {row.latestCorrect ? text.right : text.wrong}
+                                </span>
+                              </td>
+                              <td>
+                                {row.masteryEvidence ? text.yes : text.no}
+                              </td>
+                            </>
+                          ) : (
+                            <td colspan="4">{text.notTried}</td>
+                          )}
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          );
+        })}
+
+        <section aria-labelledby="mistakes">
+          <h2 id="mistakes">{text.review}</h2>
+          {progress.mistakes.length === 0 ? (
+            <p>{progress.totalAttempts === 0 ? '' : text.noMistakes}</p>
+          ) : (
+            <>
+              <p>{text.reviewIntro}</p>
+              {progress.mistakes.map((mistake) => (
+                <article class="practice-exercise">
+                  <h3>
+                    {text.exercise} {number(mistake.exerciseId)}
+                    <small> · {when(mistake.at)}</small>
+                  </h3>
+                  <p>{mistake.prompt[locale]}</p>
+                  {mistake.chosen && (
+                    <p>
+                      <strong>{text.yourAnswer} :</strong>{' '}
+                      {mistake.chosen[locale]}
+                    </p>
+                  )}
+                  {mistake.wrongRows && mistake.wrongRows.length > 0 && (
+                    <p>
+                      <strong>{text.wrongRows} :</strong>{' '}
+                      {mistake.wrongRows.join(' ; ')}
+                    </p>
+                  )}
+                  <p class="practice-bad">{mistake.feedback[locale]}</p>
+                  <p>{mistake.explanation[locale]}</p>
+                  <a href={lessonLink(mistake.exerciseId.slice(0, 3))}>
+                    {text.retry}
+                  </a>
+                </article>
+              ))}
+            </>
+          )}
+        </section>
+
+        {progress.history.length > 0 && (
+          <section aria-labelledby="history">
+            <h2 id="history">{text.history}</h2>
+            <ol class="progress-history">
+              {progress.history.map((item) => (
+                <li>
+                  <span>{when(item.at)}</span> ·{' '}
+                  <span>
+                    {text.exercise} {number(item.exerciseId)}
+                  </span>{' '}
+                  ·{' '}
+                  <span class={item.correct ? 'practice-ok' : 'practice-bad'}>
+                    {item.correct ? '✓ ' + text.right : '✗ ' + text.wrong}
+                  </span>{' '}
+                  <small>
+                    (
+                    {item.independentEvidence
+                      ? text.counted
+                      : text.practiceOnly}
+                    {item.hintUsed ? ', ' + text.hintUsed : ''})
+                  </small>
+                </li>
+              ))}
+            </ol>
+          </section>
+        )}
+      </>
+    )}
+    <a class="back-link" href={`/${locale}/account/`}>
+      {text.back}
+    </a>
+  </main>
+</Base>

@@ -1,19 +1,22 @@
 // Isolated Auth protocol fixture, never imported into application code.
-// Exercises the real SDK/HTTP/cookie flow; it is not a hosted Supabase/Google proof.
+// Exercises the real SDK/HTTP/cookie flow; it is not a hosted Supabase proof.
 import { createServer } from 'node:http';
-import {
-  createHash,
-  createHmac,
-  randomUUID,
-  timingSafeEqual,
-} from 'node:crypto';
+import { createHmac, randomUUID, timingSafeEqual } from 'node:crypto';
 const secret = 'only-for-local-protocol-tests';
 const encode = (value) =>
   Buffer.from(JSON.stringify(value)).toString('base64url');
 
 export async function startAuthFixture(port = 54329) {
-  const codes = new Map();
   const sessions = new Map();
+  const knownUser = {
+    id: randomUUID(),
+    aud: 'authenticated',
+    role: 'authenticated',
+    email: 'learner@example.invalid',
+    created_at: new Date().toISOString(),
+    app_metadata: { provider: 'email' },
+    user_metadata: {},
+  };
   const refreshes = new Map();
   const sign = (payload) => {
     const body = encode({ alg: 'HS256', typ: 'JWT' }) + '.' + encode(payload);
@@ -34,7 +37,7 @@ export async function startAuthFixture(port = 54329) {
       role: 'authenticated',
       email: 'learner-' + randomUUID().slice(0, 6) + '@example.invalid',
       created_at: new Date().toISOString(),
-      app_metadata: { provider: 'google' },
+      app_metadata: { provider: 'email' },
       user_metadata: {},
     };
     const exp = Math.floor(Date.now() / 1000) + (expired ? -60 : 3600);
@@ -118,36 +121,18 @@ export async function startAuthFixture(port = 54329) {
         if (record) record.active = false;
         return json(200, {});
       }
-      if (url.pathname === '/auth/v1/authorize') {
-        if (
-          url.searchParams.get('provider') !== 'google' ||
-          url.searchParams.get('code_challenge_method') !== 's256'
-        )
-          return failure(400);
-        const code = randomUUID();
-        const callback = new URL(url.searchParams.get('redirect_to'));
-        if (
-          callback.origin !== 'http://127.0.0.1:4321' ||
-          callback.pathname !== '/auth/callback/'
-        )
-          return failure(400);
-        codes.set(code, url.searchParams.get('code_challenge'));
-        callback.searchParams.set('code', code);
-        res.writeHead(302, { Location: callback.href });
-        return res.end();
-      }
       if (url.pathname === '/auth/v1/token' && req.method === 'POST') {
-        if (url.searchParams.get('grant_type') === 'pkce') {
-          const challenge = codes.get(data.auth_code);
-          codes.delete(data.auth_code);
+        if (url.searchParams.get('grant_type') === 'password') {
+          // One known learner; anything else looks like unknown credentials.
           if (
-            !challenge ||
-            createHash('sha256')
-              .update(data.code_verifier ?? '')
-              .digest('base64url') !== challenge
+            data.email !== 'learner@example.invalid' ||
+            data.password !== 'correct-horse-battery'
           )
-            return failure(400);
-          return json(200, issue());
+            return json(400, {
+              code: 'invalid_credentials',
+              msg: 'Invalid login credentials',
+            });
+          return json(200, issue({ user: knownUser }));
         }
         if (url.searchParams.get('grant_type') === 'refresh_token') {
           const record = refreshes.get(data.refresh_token);

@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import ReadingNotice from '../../../components/ReadingNotice';
+import PracticeActivity from '../../../components/PracticeActivity';
 import { copy } from '../../../lib/i18n';
 import { glossaryCopy } from '../../../lib/glossary';
 import SignalGeometry from '../../../components/SignalGeometry.astro';
@@ -41,6 +42,8 @@ const releasedIds = new Set(
     .map((entry) => entry.data.lessonId),
 );
 const lessonNumber = lesson.data.lessonId.slice(1);
+// Lessons whose exercise bank has been reviewed and is served by the API.
+const practiceLessons = ['L05'];
 // One representative glossary entry per lesson, linked at the end of the page.
 const glossaryLinks: Record<string, [string, string]> = {
   L01: ['E02', '0, 1'],
@@ -147,6 +150,13 @@ const [glossaryId, glossaryLabel] = glossaryLinks[lesson.data.lessonId] ?? [
       <article class="lesson-prose" data-lesson-id={lesson.data.lessonId}>
         <Content />
       </article>
+      {practiceLessons.includes(lesson.data.lessonId) && (
+        <PracticeActivity
+          lessonId={lesson.data.lessonId}
+          locale={locale}
+          client:visible
+        />
+      )}
       <p>
         <a href={'/' + locale + '/glossary/#' + glossaryId}>
           {glossaryCopy[locale].nav} : {glossaryLabel}

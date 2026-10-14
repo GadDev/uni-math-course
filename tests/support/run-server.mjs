@@ -22,7 +22,7 @@ for (const port of [4321, 4323]) {
         ...process.env,
         HOST: '127.0.0.1',
         PORT: String(port),
-        AUTH_PROVIDER: port === 4321 ? 'google' : '',
+        AUTH_PROVIDER: port === 4321 ? 'password' : '',
         AUTH_SITE_URL: `http://127.0.0.1:${port}`,
         SUPABASE_URL: port === 4321 ? 'http://127.0.0.1:54329' : '',
         SUPABASE_PUBLISHABLE_KEY:

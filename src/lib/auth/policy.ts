@@ -1,4 +1,10 @@
-export type AuthConfig = { url: string; key: string; origin: string };
+export type AuthConfig = {
+  url: string;
+  key: string;
+  origin: string;
+  // Lower-cased emails permitted to sign in; null means no extra restriction.
+  allowedEmails: ReadonlySet<string> | null;
+};
 export type AuthLocale = 'fr' | 'en';
 
 export function localeOf(value: unknown): AuthLocale {
@@ -27,14 +33,32 @@ export function safeOrigin(value: string): URL | null {
 export function authConfig(
   env: Record<string, string | undefined>,
 ): AuthConfig | null {
-  if (env.AUTH_PROVIDER !== 'google') return null;
+  // Accounts are created by the course owner; there is no public sign-up.
+  if (env.AUTH_PROVIDER !== 'password') return null;
+  const listed = (env.AUTH_ALLOWED_EMAILS ?? '')
+    .split(/[,\s;]+/)
+    .map((email) => email.trim().toLowerCase())
+    .filter(Boolean);
   const url = safeOrigin(env.SUPABASE_URL ?? '');
   const site = safeOrigin(env.AUTH_SITE_URL ?? '');
   const key = env.SUPABASE_PUBLISHABLE_KEY ?? '';
   // Never accept a privileged key in the application session client.
   if (!url || !site || !key.startsWith('sb_publishable_') || /\s/.test(key))
     return null;
-  return { url: url.origin, key, origin: site.origin };
+  return {
+    url: url.origin,
+    key,
+    origin: site.origin,
+    allowedEmails: listed.length ? new Set(listed) : null,
+  };
+}
+
+export function emailAllowed(
+  config: AuthConfig,
+  email: string | null | undefined,
+): boolean {
+  if (!config.allowedEmails) return true;
+  return !!email && config.allowedEmails.has(email.trim().toLowerCase());
 }
 
 export function safeReturn(value: unknown, locale: AuthLocale): string {
@@ -42,7 +66,7 @@ export function safeReturn(value: unknown, locale: AuthLocale): string {
   if (typeof value !== 'string' || value.length > 300 || value !== value.trim())
     return fallback;
   // Explicit released routes only; reject encoding tricks and external origins.
-  return /^\/(fr|en)\/(?:account\/|(?:lessons\/L05\/)?)(?:#[a-zA-Z0-9_-]+)?$/.test(
+  return /^\/(fr|en)\/(?:account\/|progress\/|(?:lessons\/L05\/)?)(?:#[a-zA-Z0-9_-]+)?$/.test(
     value,
   )
     ? value
@@ -59,7 +83,7 @@ export function sameOriginPost(request: Request, config: AuthConfig): boolean {
 }
 
 export function authRoute(path: string): boolean {
-  return /^\/(?:auth\/(?:start|callback|logout)|api\/auth\/session|(?:fr|en)\/(?:sign-in|account))\/?$/.test(
+  return /^\/(?:auth\/(?:login|logout)|api\/(?:auth\/session|attempts|exercises\/L[0-9]{2})|(?:fr|en)\/(?:sign-in|account|progress))\/?$/.test(
     path,
   );
 }
@@ -93,4 +117,34 @@ export async function smallForm(
     offset += chunk.byteLength;
   }
   return new URLSearchParams(new TextDecoder().decode(data));
+}
+
+// Reads a small JSON body; undefined when the type, size or syntax is wrong.
+export async function smallJson(
+  request: Request,
+  limit = 8192,
+): Promise<unknown> {
+  if (request.headers.get('content-type')?.split(';')[0] !== 'application/json')
+    return undefined;
+  const reader = request.body?.getReader();
+  if (!reader) return undefined;
+  const chunks: Uint8Array[] = [];
+  let size = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    size += value.byteLength;
+    if (size > limit) {
+      await reader.cancel();
+      return undefined;
+    }
+    chunks.push(value);
+  }
+  try {
+    return JSON.parse(
+      new TextDecoder().decode(Buffer.concat(chunks)),
+    ) as unknown;
+  } catch {
+    return undefined;
+  }
 }

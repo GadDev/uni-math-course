@@ -13,7 +13,7 @@ Status: **reading foundation** · Maintainer: [GadDev](https://github.com/GadDev
 - Mathematical notation with visual KaTeX and MathML output.
 - Same-lesson language switching and a React/Radix reading disclosure.
 - Six reviewed exercise contracts and content/mathematical checks.
-- Configurable Google/Supabase sign-in, verified server sessions and local logout.
+- Configurable email/password Supabase sign-in for an invited group, verified server sessions and local logout.
 
 Interactive exercise delivery/grading, saved attempts and private progress are the next M2 features. Sign-in is disabled until configured; hosted authentication acceptance and production deployment remain pending. Planned lesson cards are explicitly marked as coming later.
 
