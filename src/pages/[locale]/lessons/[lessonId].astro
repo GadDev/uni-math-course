@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import ReadingNotice from '../../../components/ReadingNotice';
 import { copy } from '../../../lib/i18n';
+import { glossaryCopy } from '../../../lib/glossary';
 import SignalGeometry from '../../../components/SignalGeometry.astro';
 export async function getStaticPaths() {
   const lessons = await getCollection('lessons');
@@ -105,6 +106,11 @@ const sections = headings.filter((heading) => heading.depth === 2);
       <article class="lesson-prose" data-lesson-id={lesson.data.lessonId}>
         <Content />
       </article>
+      <p>
+        <a href={'/' + locale + '/glossary/#E13'}>
+          {glossaryCopy[locale].nav} : ⇒
+        </a>
+      </p>
       <p class="content-provenance">{text.review}</p>
       <ReadingNotice locale={locale} client:load />
       <a class="back-link" href={'/' + locale + '/'}>

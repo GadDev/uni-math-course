@@ -51,6 +51,8 @@ Acceptance:
 
 M2 feature 1: the public reading foundation is implemented; see [READING_FOUNDATION.md](READING_FOUNDATION.md). M2 feature 2: configurable Supabase authentication/sessions are implemented; see [AUTHENTICATION.md](AUTHENTICATION.md). Hosted provider/deployment acceptance remains pending. Remaining feature PRs: authenticated exercise delivery/server grading, idempotent persistence, then mistake review/private progress. Those features need end-to-end deployment evidence before M2 is complete.
 
+The source-wide public glossary is delivered as an early M3 reading feature; see [glossary review](content/GLOSSARY_REVIEW.md). This does not complete M2 practice or M3 class-pilot acceptance.
+
 A mock account or static progress card does not complete this milestone.
 
 ## M3 - Four-lesson class pilot

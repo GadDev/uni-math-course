@@ -3,6 +3,7 @@ import '@radix-ui/themes/styles.css';
 import 'katex/dist/katex.min.css';
 import '../styles/global.css';
 import { copy, type Locale } from '../lib/i18n';
+import { glossaryCopy } from '../lib/glossary';
 import { authCopy } from '../lib/auth/copy';
 interface Props {
   locale: Locale;
@@ -58,10 +59,10 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
           {text.course}
         </a>
         <a
-          href={'/' + locale + '/lessons/L05/'}
-          aria-current={path === 'lessons/L05/' ? 'page' : undefined}
+          href={'/' + locale + '/glossary/'}
+          aria-current={path === 'glossary/' ? 'page' : undefined}
         >
-          {text.lessonNav}
+          {glossaryCopy[locale].nav}
         </a>
       </nav>
       <div class="header-actions">

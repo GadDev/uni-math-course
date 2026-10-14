@@ -88,13 +88,12 @@ test('English/French shell reports practice development state and links to real 
 });
 
 for (const locale of ['fr', 'en']) {
-  test(`Signal public pages retain header geometry around breakpoints (${locale})`, async ({
-    page,
-  }) => {
-    test.setTimeout(90_000);
-    for (const width of [
-      320, 375, 768, 859, 860, 861, 1099, 1100, 1101, 1280, 1440,
-    ]) {
+  for (const width of [
+    320, 375, 768, 859, 860, 861, 1099, 1100, 1101, 1280, 1440,
+  ]) {
+    test(`Signal public pages retain header geometry (${locale}, ${width}px)`, async ({
+      page,
+    }) => {
       await page.setViewportSize({ width, height: 900 });
       for (const path of [`/${locale}/`, `/${locale}/lessons/L05/`]) {
         await page.goto(path);
@@ -117,8 +116,8 @@ for (const locale of ['fr', 'en']) {
           expect(size!.height).toBeLessThanOrEqual(48);
         }
       }
-    }
-  });
+    });
+  }
 }
 
 test('section navigation preserves the guided example when switching language', async ({

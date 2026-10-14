@@ -1,0 +1,153 @@
+.glossary-page {
+  margin: 3rem 0;
+}
+.glossary-heading {
+  max-width: 52rem;
+  margin-bottom: 2rem;
+}
+.glossary-heading h1 {
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  margin: 1rem 0;
+}
+.glossary-guide {
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding: 1.25rem 0;
+}
+.glossary-guide h2 {
+  margin-top: 0;
+}
+.glossary-guide p {
+  max-width: 80ch;
+}
+.glossary-page summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0.75rem 0;
+  line-height: 1.5;
+}
+.glossary-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: end;
+  margin: 2rem 0 1rem;
+}
+.glossary-filters label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.glossary-filters input,
+.glossary-filters select,
+.glossary-filters button {
+  width: 100%;
+  min-width: 0;
+  min-height: 48px;
+  padding: 0.75rem;
+  font: inherit;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  color: var(--ink);
+  background: var(--card);
+}
+.glossary-filters button {
+  background: var(--ink);
+  color: white;
+  cursor: pointer;
+}
+.glossary-filters :focus-visible,
+.glossary-page [tabindex='0']:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.glossary-count,
+.glossary-provenance {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.glossary-group {
+  margin: 3rem 0;
+}
+.glossary-group > h2 {
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 1rem;
+}
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+.glossary-entry {
+  min-width: 0;
+  border: 1px solid var(--soft-line);
+  background: var(--card);
+  padding: 1.5rem;
+  scroll-margin-top: 1rem;
+  overflow-wrap: anywhere;
+}
+.glossary-entry:target {
+  border: 2px solid var(--accent);
+}
+.glossary-entry h3 {
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.4;
+}
+.glossary-entry h3 a {
+  color: var(--ink);
+}
+.glossary-symbol {
+  font-size: 1.45rem;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid var(--signal-red);
+}
+.glossary-symbol,
+.glossary-formula {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-wrap: normal;
+}
+.glossary-formula {
+  padding: 0.5rem;
+  background: var(--paper);
+}
+.glossary-formula .katex-display {
+  text-align: left;
+  margin: 0.5rem 0;
+}
+.glossary-formula code,
+.glossary-symbol code {
+  white-space: pre;
+  font-size: 0.9em;
+}
+.glossary-confusion {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+}
+.glossary-translation {
+  border-top: 1px solid var(--soft-line);
+}
+.glossary-page [hidden] {
+  display: none !important;
+}
+@media (max-width: 860px) {
+  .glossary-filters {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .glossary-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .glossary-page {
+    margin-top: 2rem;
+  }
+  .glossary-entry {
+    padding: 1rem;
+  }
+  .glossary-symbol {
+    font-size: 1.15rem;
+  }
+}
