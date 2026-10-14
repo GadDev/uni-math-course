@@ -1,23 +1,49 @@
 # Uni Math Course
 
-A planned French/English mathematics learning application for university students and adults returning to mathematics.
+A French/English mathematics learning pilot for university students and adults returning to mathematics.
 
-The first course is **logic and sets**. The intended learning loop is: understand a concept, inspect a worked example, practise, receive feedback, and revisit mistakes.
+The first course is **logic and sets**. The learning loop is: understand a concept, inspect a worked example, practise, receive feedback, and revisit mistakes.
 
-Status: **experimental** · Maintainer: [GadDev](https://github.com/GadDev) · Last status review: 2026-10-14
+Status: **reading foundation** · Maintainer: [GadDev](https://github.com/GadDev) · Last status review: 2026-10-14
 
-## Project status
+## What works
 
-Repository foundation only. The application, accounts, quizzes, and progress tracking have not been implemented. Architecture and hosting decisions are still provisional.
+- Public French/English programme pages and the original implication lesson (L05).
+- Mathematical notation with visual KaTeX and MathML output.
+- Same-lesson language switching and a React/Radix reading disclosure.
+- Six reviewed exercise contracts and content/mathematical checks.
 
-The proposed first release covers assertions, logical connectives, truth tables, and implication. The following planning documents define the proposed scope and unresolved choices before application scaffolding.
+Accounts, interactive exercise delivery/grading, saved attempts and private progress are the next M2 features. They are not implemented, and no production deployment is claimed. Planned lesson cards are explicitly marked as coming later.
+
+## Local development
+
+Use Node 24.19.0 and pnpm 11.25.0. Dependencies are exact and the lockfile is committed.
+
+```sh
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+Open http://localhost:4321/fr/ or http://localhost:4321/en/. The root redirects to French.
+
+## Quality gate
+
+```sh
+pnpm check
+pnpm exec playwright install chromium
+pnpm test:e2e
+```
+
+The check covers repository links/structure, content parity/contracts, types, formatting, mathematical tests and production build. Browser checks cover reading, language switching, math markup, Radix keyboard behaviour and narrow layouts. These checks do not certify independent mathematical peer review or a working authentication deployment.
 
 ## Project direction
 
-- [Mission](docs/MISSION.md): audience, outcomes and first teaching slice.
-- [Constitution](docs/CONSTITUTION.md): mathematics, bilingual content, privacy and learning principles.
-- [Roadmap](docs/ROADMAP.md): milestones, full course map and acceptance criteria.
-- [Tech stack](docs/TECHSTACK.md): architecture proposal, alternatives, costs and open decisions.
+- [Mission](docs/MISSION.md)
+- [Constitution](docs/CONSTITUTION.md)
+- [Roadmap](docs/ROADMAP.md)
+- [Tech stack](docs/TECHSTACK.md)
+- [Content pilot review](docs/content/L05_REVIEW.md)
+- [Reading foundation](docs/READING_FOUNDATION.md)
 
 ## Repository guide
 
@@ -30,22 +56,12 @@ The proposed first release covers assertions, logical connectives, truth tables,
 - [Content rights and attribution](CONTENT_LICENSE.md)
 - [Repository setup record](docs/REPOSITORY_SETUP.md)
 
-## Repository checks
-
-With Python 3.10 or newer installed, run:
-
-```sh
-python3 scripts/check_repository.py
-```
-
-This checks the repository foundation, Markdown titles/fences/whitespace, local file links and heading anchors, and planning-document completeness when those documents are present. It does not certify mathematical correctness or application behaviour.
-
 ## Course material and attribution
 
 The planning source is Bruno Teheux's *Mathématiques Générales - Logique et ensembles*, BINFO-FCE 2026-2027, University of Luxembourg.
 
-No source PDF or third-party slide artwork is distributed in this repository. Permission to republish or adapt that material has not been verified. Original explanations and exercises must distinguish their authorship from source-course references. This is an independent student project; university endorsement is not claimed.
+The lesson and examples are original project work. No source PDF or copied slide artwork is distributed. Third-party republication permission remains unverified; attribution does not itself establish permission. This independent project does not claim university endorsement.
 
 ## Licence
 
-Original repository code and documentation are covered by the [MIT licence](LICENSE). Third-party course material is excluded; its rights remain with the respective rights holders.
+Original project code and documentation are covered by the [MIT licence](LICENSE). Dependencies retain their own notices; bundled reading assets are listed in [CONTENT_LICENSE.md](CONTENT_LICENSE.md) and [third-party notices](public/THIRD_PARTY_NOTICES.txt).

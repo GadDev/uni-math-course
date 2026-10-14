@@ -1,37 +1,33 @@
-# Design validation and reproduction
+# Signal asset validation
 
-Scope: original design fixture and image exports only. No production authentication, grading, persistence, privacy policy, deployment or assistive-technology behaviour is certified.
+Scope: selected raster concepts and format conversion. These are not browser screenshots or application acceptance evidence.
 
 ## Checks performed
 
-- Exported and inspected all 14 WebP proposals. RIFF/WEBP signatures, actual image format, width and full-page height checked. Lossless encoding retains small mathematical text. File hashes are recorded in [render evidence](render-evidence.json).
-- DOM layout checks passed for all exports and 64 additional layouts: eight screens × French/English × 320/375/768/1280 px. No viewport overflow, elements outside the horizontal viewport, or clipped horizontal containers. Desktop navigation stays on one line at 1280 and 1440.
-- Contact-sheet review covered all 14 exports; individual inspection confirmed French lesson and phone practice text and formula rendering. No visible clipped copy, corrupted symbols, accidental header wraps or inconsistent core components found. Legitimate multi-line French labels remain readable at 320.
-- Local fixture checks passed: French → English preserves the selected option and shown hint on practice; skip link receives first keyboard focus; hint has a visible focus outline; glossary query filters original entries.
-- Contrast calculations cover body/supporting text, teal on tint, white action text, review text, disabled text, focus and radio boundary. Each tested pair exceeds 4.5:1. These are token-level checks, not an automated accessibility audit of the complete UI. Decorative pale dividers do not carry status or replace radio boundaries.
-- Mathematical self-check: full implication truth table plus negated-implication derivation; worked n=7 example checked by truth assignments and odd-number decomposition. Bilingual copy/notation compared within the authoring session. Details and limitations in [content review](CONTENT_REVIEW.md).
-- Repository Markdown/link check: `python3 scripts/check_repository.py`. JavaScript parse checks cover the renderer and inline fixture script. No application test/build command exists yet.
+- Exactly nine selected Signal files, including corrected practice/progress variants and corrected homepage implication caption.
+- Actual RIFF/WEBP format, native dimensions, SHA-256 hashes and byte sizes recorded in [asset evidence](asset-evidence.json).
+- Lossless conversion checked by byte equality of decoded RGBA pixels between each selected PNG and WebP. No resizing, cropping, palette substitution or UI regeneration occurs in conversion.
+- Visual review of the selected concepts: course IDs, practice option values, feedback truth table, natural numbers including zero and French interval readings. Original sample-content derivations and limitations are in [content review](CONTENT_REVIEW.md).
+- Repository quality gate: `pnpm check`. Converter syntax: `node --check docs/design/proposals/source/prepare-signal.mjs`. No reading/interaction code changes in this PR; no new browser acceptance claim.
 
-## Reproduce the exports
+## Convert again from the selected originals
 
-Files: [presentation fixture](source/prototype.html), [renderer](source/render.mjs). Open the fixture locally with `?screen=lesson&lang=fr` or `?screen=feedback&lang=en`; screens are overview, lesson, worked, glossary, practice, feedback, progress and gate. There are no network requests, backend services or learner records. Exercise submit only states that the fixture does not grade/save.
-
-Use an isolated tooling environment with Node, Playwright and sharp available; install Chromium through that environment if needed. This design does not add an application dependency manifest. The recorded run used Node 24, Playwright 1.62.1, sharp 0.35.5 and Chromium 153 supplied by external `@sparticuz/chromium@153.0.0` tooling. No browser binary or tooling package is committed.
-
-From the repository root:
+The [manifest](source/signal-screens.json) maps each source PNG to its WebP. Source PNGs remain outside Git; the requested repository assets are WebP only. If the selected originals are available, use an isolated Node environment with sharp:
 
 ```sh
-node docs/design/proposals/source/render.mjs
+node docs/design/proposals/source/prepare-signal.mjs /absolute/path/to/selected-originals
 ```
 
-The renderer resolves normal installed modules, or the Work runtime's `CODEX_PRIMARY_RUNTIME_NODE_MODULES` when set. Set `DESIGN_CHROMIUM_PATH` if Chromium lives outside Playwright's default browser directory. Captured fonts use host DejaVu Sans/Serif fallbacks; exact raster results depend on fonts/browser. Do not require byte-identical images across different rendering environments. The source hash and image dimensions make the supplied run auditable.
+The converter can resolve sharp from the normal environment or `CODEX_PRIMARY_RUNTIME_NODE_MODULES`. It writes images and evidence, and rejects an unexpected image set. It does not recreate a layout from code. Image generation is nondeterministic; prompt summaries and selection notes do not guarantee regeneration of an identical concept.
 
-Rendering updates `images/` and `render-evidence.json`; inspect changed images before committing. Full-page exports prevent content from being silently omitted beyond an arbitrary viewport height.
+## Dimensions and coverage
 
-## Limitations and follow-up
+Most desktop concepts are 1505 × 1045 pixels; the gate is 1504 × 1046; mobile is 809 × 1942. These are native raster dimensions. The mobile concept was requested to explore 375 px composition, but no actual CSS viewport or responsive DOM was measured. The selected set is eight desktop concepts and one phone concept, not the old 14-screen bilingual/320 px browser matrix.
 
-- Static screens cannot prove keyboard completion, screen-reader equation readings, live feedback announcements, touch behaviour or zoom/reflow. Test those against the real application on actual assistive technology.
-- The source PDF was not inspected; locators are explicitly taken from the roadmap. Direct verification and content approval are release gates.
-- Language preservation is exercised in a presentation fixture, not a real authenticated session or saved-progress backend.
-- The phone feedback page is long by design (submitted response → explanation → table → retry). Test this reading burden with adult learners before implementation; an alternative compact response summary may improve it.
-- Sign-in provider, architecture, hosting, data policies and mastery evaluation remain proposals. No automatic proof checker or fictional production service is implied.
+Most page copy is French; the glossary contains both languages. Matched English lessons/feedback, additional mobile states and 320 px implementation checks remain to be done.
+
+## Limits of the evidence
+
+The old HTML fixture, browser renderer and render-evidence file are removed. Their 64-layout, keyboard-state and contrast results do not apply to Signal. No new contrast, screen-reader, keyboard, responsiveness, grading, authentication or persistence pass is claimed from these images.
+
+Generated explanatory text is reviewed as design copy, not released lesson content. The original sample has been self-checked, not independently peer-reviewed. Direct source inspection and maintainer approval remain publication gates. The actual application must provide semantic text and mathematical markup rather than bitmap-based interaction.

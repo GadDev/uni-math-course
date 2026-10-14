@@ -1,0 +1,72 @@
+---
+import '@radix-ui/themes/styles.css';
+import 'katex/dist/katex.min.css';
+import '../styles/global.css';
+import { copy, type Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  path?: string;
+}
+const { locale, title, description, path = '' } = Astro.props;
+const text = copy[locale];
+const alternate = locale === 'fr' ? 'en' : 'fr';
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title} · Uni Math Course</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" hreflang="fr" href={'/fr/' + path} />
+    <link rel="alternate" hreflang="en" href={'/en/' + path} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">
+      {text.skip}
+    </a>
+    <header class="site-header">
+      <a class="brand" href={'/' + locale + '/'}>
+        <span class="brand-mark" aria-hidden="true">
+          ⇒
+        </span>
+        <span>{text.brand}</span>
+      </a>
+      <nav aria-label={text.language} class="language-switch">
+        <span lang={locale} aria-current="page">
+          {locale.toUpperCase()}
+        </span>
+        <a
+          lang={alternate}
+          hreflang={alternate}
+          href={'/' + alternate + '/' + path}
+          data-language-link
+        >
+          {alternate.toUpperCase()}
+        </a>
+      </nav>
+    </header>
+    <div class="page">
+      <slot />
+    </div>
+    <footer class="site-footer">
+      <p>{text.footer}</p>
+      <p>
+        © 2026 · <a href="https://github.com/GadDev/uni-math-course">GadDev</a>
+      </p>
+    </footer>
+    <script>
+      document
+        .querySelectorAll<HTMLAnchorElement>('[data-language-link]')
+        .forEach((link) => {
+          link.addEventListener('click', () => {
+            link.hash = window.location.hash;
+          });
+        });
+    </script>
+  </body>
+</html>

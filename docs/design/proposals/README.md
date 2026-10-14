@@ -1,141 +1,121 @@
-# Application screen proposals
+# Signal screen gallery
 
-Status: draft visual direction, prepared 2026-10-14. All screens and counters are proposals or fictional fixtures; no application features are implemented.
+Status: selected art direction; visual concepts for review. Updated 2026-10-14.
 
-Selected direction: **Annotated notebook** — warm paper, restrained teal, generous mathematical reading space and explanatory feedback.
+**Signal** brings bold Swiss editorial typography, black rules, vermilion chapter numerals and geometric artwork to Uni Math. The nine selected concepts below replace all previous annotated-notebook proposals.
 
 ## Review guide
 
-- [Design brief and three-direction comparison](DESIGN_BRIEF.md)
-- [Tokens, components and accessibility contracts](DESIGN_SYSTEM.md)
-- [Original mathematics, bilingual review and answer contract](CONTENT_REVIEW.md)
+- [Signal design brief](DESIGN_BRIEF.md)
+- [Tokens, components and accessibility intent](DESIGN_SYSTEM.md)
+- [Sample mathematics and publication review](CONTENT_REVIEW.md)
 - [Constitution-to-design checklist](CONSTITUTION_CHECKLIST.md)
-- [Validation and reproduction](VALIDATION.md)
-- [Machine-readable rendering evidence](render-evidence.json)
+- [Asset validation and conversion](VALIDATION.md)
+- [Machine-readable asset evidence](asset-evidence.json)
 
-## Screen index
+## Selected screen index
 
-All widths are CSS viewports at device scale 1. Images are full-page lossless WebP exports; height follows content, rather than cropping a phone screen. The blue outline in unanswered practice deliberately illustrates keyboard focus on the hint control.
+Native image dimensions are listed below; they are not measured CSS viewports. Most screens are French, with paired French/English glossary readings. English page layouts and additional responsive states remain implementation/design follow-up.
 
-| Screen | Language | Viewport | Export |
+| Screen | Language | Composition | Native WebP dimensions |
 | --- | --- | --- | --- |
-| [Public course overview](images/01-overview-fr-1440.webp) | FR | 1440 px | 1440 × 1302 px |
-| [Implication lesson](images/02-lesson-fr-1440.webp) | FR | 1440 px | 1440 × 1291 px |
-| [Original worked example](images/03-worked-example-fr-1440.webp) | FR | 1440 px | 1440 × 1490 px |
-| [Bilingual glossary](images/04-glossary-fr-1440.webp) | FR | 1440 px | 1440 × 1895 px |
-| [Signed-in practice · unanswered](images/05-practice-unanswered-fr-1440.webp) | FR | 1440 px | 1440 × 1328 px |
-| [Signed-in feedback · incorrect option C](images/06-feedback-incorrect-fr-1440.webp) | FR | 1440 px | 1440 × 1534 px |
-| [Private progress and mistake review](images/07-private-progress-fr-1440.webp) | FR | 1440 px | 1440 × 1301 px |
-| [Sign-in gate · unavailable preview](images/08-sign-in-gate-fr-1440.webp) | FR | 1440 px | 1440 × 1183 px |
-| [French lesson · mobile](images/09-lesson-fr-375.webp) | FR | 375 px | 375 × 2059 px |
-| [French practice · mobile](images/10-practice-unanswered-fr-375.webp) | FR | 375 px | 375 × 1662 px |
-| [French feedback · mobile](images/11-feedback-incorrect-fr-375.webp) | FR | 375 px | 375 × 2459 px |
-| [English lesson · desktop](images/12-lesson-en-1440.webp) | EN | 1440 px | 1440 × 1269 px |
-| [English feedback · desktop](images/13-feedback-incorrect-en-1440.webp) | EN | 1440 px | 1440 × 1534 px |
-| [French practice · narrow mobile](images/14-practice-unanswered-fr-320.webp) | FR | 320 px | 320 × 1775 px |
+| [Course overview](images/01-signal-overview-fr.webp) | FR | desktop | 1505 × 1045 px |
+| [Implication lesson](images/02-signal-lesson-fr.webp) | FR | desktop | 1505 × 1045 px |
+| [Worked counterexample](images/03-signal-worked-example-fr.webp) | FR | desktop | 1505 × 1045 px |
+| [Bilingual glossary](images/04-signal-glossary-fr.webp) | FR/EN | desktop | 1505 × 1045 px |
+| [Unanswered private practice](images/05-signal-practice-fr.webp) | FR | desktop | 1505 × 1045 px |
+| [Incorrect-answer feedback](images/06-signal-feedback-fr.webp) | FR | desktop | 1505 × 1045 px |
+| [Private progress and mistake review](images/07-signal-progress-fr.webp) | FR | desktop | 1505 × 1045 px |
+| [Sign-in gate](images/08-signal-sign-in-gate-fr.webp) | FR | desktop | 1504 × 1046 px |
+| [Mobile unanswered practice](images/09-signal-practice-mobile-fr.webp) | FR | mobile | 809 × 1942 px |
 
 ## Previews
 
-Expand a screen to review its full-page image. Start with lesson → worked example → gate; practice, feedback and progress represent separate proposed signed-in states.
+Homepage caption, practice navigation and progress navigation use their corrected versions. Expand each concept to view it.
 
-<details>
-<summary>Public course overview · FR · 1440 px</summary>
+<details open>
+<summary>01 · Course overview</summary>
 
-![Public course overview; FR, 1440 pixel viewport](images/01-overview-fr-1440.webp)
+![Signal: Course overview](images/01-signal-overview-fr.webp)
 
-</details>
-
-<details>
-<summary>Implication lesson · FR · 1440 px</summary>
-
-![Implication lesson; FR, 1440 pixel viewport](images/02-lesson-fr-1440.webp)
+Approved Signal homepage; material implication caption corrected.
 
 </details>
 
 <details>
-<summary>Original worked example · FR · 1440 px</summary>
+<summary>02 · Implication lesson</summary>
 
-![Original worked example; FR, 1440 pixel viewport](images/03-worked-example-fr-1440.webp)
+![Signal: Implication lesson](images/02-signal-lesson-fr.webp)
 
-</details>
-
-<details>
-<summary>Bilingual glossary · FR · 1440 px</summary>
-
-![Bilingual glossary; FR, 1440 pixel viewport](images/04-glossary-fr-1440.webp)
+Domain, definition, necessary/sufficient conditions and four-row truth table.
 
 </details>
 
 <details>
-<summary>Signed-in practice · unanswered · FR · 1440 px</summary>
+<summary>03 · Worked counterexample</summary>
 
-![Signed-in practice · unanswered; FR, 1440 pixel viewport](images/05-practice-unanswered-fr-1440.webp)
+![Signal: Worked counterexample](images/03-signal-worked-example-fr.webp)
 
-</details>
-
-<details>
-<summary>Signed-in feedback · incorrect option C · FR · 1440 px</summary>
-
-![Signed-in feedback · incorrect option C; FR, 1440 pixel viewport](images/06-feedback-incorrect-fr-1440.webp)
+Original n=7 counterexample, with natural numbers including zero.
 
 </details>
 
 <details>
-<summary>Private progress and mistake review · FR · 1440 px</summary>
+<summary>04 · Bilingual glossary</summary>
 
-![Private progress and mistake review; FR, 1440 pixel viewport](images/07-private-progress-fr-1440.webp)
+![Signal: Bilingual glossary](images/04-signal-glossary-fr.webp)
 
-</details>
-
-<details>
-<summary>Sign-in gate · unavailable preview · FR · 1440 px</summary>
-
-![Sign-in gate · unavailable preview; FR, 1440 pixel viewport](images/08-sign-in-gate-fr-1440.webp)
+French/English readings; membership and inclusion separated; French interval preserved.
 
 </details>
 
 <details>
-<summary>French lesson · mobile · FR · 375 px</summary>
+<summary>05 · Unanswered private practice</summary>
 
-![French lesson · mobile; FR, 375 pixel viewport](images/09-lesson-fr-375.webp)
+![Signal: Unanswered private practice](images/05-signal-practice-fr.webp)
 
-</details>
-
-<details>
-<summary>French practice · mobile · FR · 375 px</summary>
-
-![French practice · mobile; FR, 375 pixel viewport](images/10-practice-unanswered-fr-375.webp)
+Final corrected course navigation: 01, 02, 03, 05; no selected answer.
 
 </details>
 
 <details>
-<summary>French feedback · mobile · FR · 375 px</summary>
+<summary>06 · Incorrect-answer feedback</summary>
 
-![French feedback · mobile; FR, 375 pixel viewport](images/11-feedback-incorrect-fr-375.webp)
+![Signal: Incorrect-answer feedback](images/06-signal-feedback-fr.webp)
 
-</details>
-
-<details>
-<summary>English lesson · desktop · EN · 1440 px</summary>
-
-![English lesson · desktop; EN, 1440 pixel viewport](images/12-lesson-en-1440.webp)
+Submitted option C, explicit explanation, sole falsifying row and respectful retry.
 
 </details>
 
 <details>
-<summary>English feedback · desktop · EN · 1440 px</summary>
+<summary>07 · Private progress and mistake review</summary>
 
-![English feedback · desktop; EN, 1440 pixel viewport](images/13-feedback-incorrect-en-1440.webp)
+![Signal: Private progress and mistake review](images/07-signal-progress-fr.webp)
+
+Final corrected chapter 05 and active Mon parcours; all counters fictional.
 
 </details>
 
 <details>
-<summary>French practice · narrow mobile · FR · 320 px</summary>
+<summary>08 · Sign-in gate</summary>
 
-![French practice · narrow mobile; FR, 320 pixel viewport](images/14-practice-unanswered-fr-320.webp)
+![Signal: Sign-in gate](images/08-signal-sign-in-gate-fr.webp)
+
+Provider-neutral access concept; return to public reading.
 
 </details>
 
-## Review priorities
+<details>
+<summary>09 · Mobile unanswered practice</summary>
 
-Confirm the visual direction, mobile feedback length and bilingual glossary. Approve original mathematical content and source mapping before publication. Select authentication and data policies before real practice. Evaluate the proposed mastery heuristic during the pilot. See the checklist for the implementation gates.
+![Signal: Mobile unanswered practice](images/09-signal-practice-mobile-fr.webp)
+
+Portrait concept intended for 375 px study; not a measured browser viewport.
+
+</details>
+
+## What these concepts establish
+
+A selected visual identity and page hierarchy for public reading, worked examples, bilingual notation, private practice, explanatory feedback, progress and access. They do not prove implemented interactions, authentication, grading, responsive geometry, contrast or screen-reader behaviour. The old browser-fixture evidence has been removed.
+
+Next refine heading height and decorative geometry on repeated-task pages, unify component measurements, complete English layouts and implement the documented accessibility/content contracts.

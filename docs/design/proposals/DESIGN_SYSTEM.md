@@ -1,55 +1,50 @@
-# Design tokens and component guidance
+# Signal tokens and component guidance
 
-Status: proposed. Implement only after design review; no UI-library decision is made here.
+Status: visual direction selected; implementation measurements and accessibility checks pending.
 
-## Tokens
+## Proposed tokens
 
-| Token | Value | Purpose |
+| Token | Target value | Purpose |
 | --- | --- | --- |
-| Paper | `#F6F3EB` | Reading canvas |
-| Surface | `#FFFEFA` | Content and response surfaces |
-| Ink | `#243832` | Body, headings |
-| Muted | `#56645E` | Supporting copy; keep readable |
-| Teal | `#175A50` | Actions and selected navigation |
-| Teal soft | `#E8EFE8` | Formula and context backgrounds |
-| Rust | `#834528` | Error-review text and border |
-| Rust soft | `#FBEFE5` | Review background |
-| Divider | `#D5D9CC` | Decorative structure, not sole input boundary |
-| Focus | `#075CAB`, 3 px, 4 px offset | Visible keyboard focus |
-| Radii | 6, 9, 12, 16 px | Controls → content surfaces |
-| Spacing | 4, 8, 12, 16, 20, 24, 32, 48 px | Consistent rhythm |
+| Canvas | `#F4F4EF` | Bright reading surface |
+| Ink | `#111111` | Headings, body, rules, primary actions |
+| Vermilion | `#F13E2B` | Large chapter numerals and geometric artwork |
+| Functional red | `#B92819` | Proposed darker red for small text; validate before use |
+| Review tint | `#FCE7E3` | Response-review background with explicit text |
+| Focus | `#075CAB` | Keyboard outline distinct from brand red |
+| Corners | 0–2 px | Square editorial controls |
+| Rules | 1 px ink | Structure and grouping |
+| Spacing | 8, 16, 24, 32, 48, 64 px | Proposed reading rhythm |
 
-Headings: Georgia / DejaVu Serif fallback, 48 px desktop, 36 px mobile, 33 px at 320. Body: Arial / DejaVu Sans fallback, 16 px desktop, 15 px mobile. Math: DejaVu Serif, 30 px desktop, 24–26 px phone. Supporting copy: 12–14 px; 10–11 px is restricted to nonessential proposal annotations and compact metadata. Production should validate actual font rendering before keeping small annotations.
+These are implementation targets, not sampled pixel guarantees: generated images include texture and local colour variation. The raster palette is not a passing contrast audit. Use black/white primary actions; test foreground/background combinations rather than assuming white text on vermilion is readable at every size.
 
-Desktop header: 88 px; page max width 1312 px including padding; sidebar 216 px and 52 px gap. At 1050 px, compact spacing and single-column teaching panels. At 700 px and below, hide the sidebar, show a course-outline link, use a two-row header and stack panels in reading order. Phone gutters: 20 px, 16 px at 320. No truncation or forced single-line French explanations.
+Typography: bold condensed grotesk display face for brand, chapter numerals and headings; ordinary sans-serif for explanations and controls; correctly typeset mathematics through KaTeX HTML/MathML. No font family has been selected or bundled. Use large display type for entry pages, then reduce it for repeat activities. Test French accents, English expansion and mathematical glyph coverage in the chosen fonts.
 
-## Components
+## Component contracts
 
-| Component | Contract |
-| --- | --- |
-| Header and locale pair | Reading language stays in the action area. FR and EN have full accessible names. Keyboard-operable buttons, active pressed state, preserve content identity and response state. |
-| Course outline | Four pilot topics; only implication has a designed lesson. Others are clearly to be authored. Unreleased later chapters do not pretend to be available. |
-| Domain card | State assertions, truth-value domain and logical framework before the mathematical definition or question. |
-| Formula block | Meaningful MathML, visible equation and adjacent spoken reading; never use a raster formula as the sole accessible representation in production. |
-| Truth table | Caption, scoped headings, readable row labels. False row says “Faux / False”, not colour alone. Keep notation V/F in English and explain it explicitly. |
-| Response group | Native fieldset, legend, radio inputs, whole-label target. Use stable answer IDs and arrow-key radio behaviour. |
-| Hint | Separate deliberate action, visible focus, contextual note after reveal. Production must announce its expansion and flag the response as aided. |
-| Feedback | Original submitted response remains visible and read-only. Text identifies the error and explains repair. Production moves focus to a feedback heading or announces one complete update; avoid duplicate announcements. |
-| Progress | Three independent measures, no public ranking. Mastery explicitly a proposal. Attempts retain exercise/version and hint/reveal context. |
-| Sign-in gate | Return-to-reading action; provider-agnostic until selected. Do not imply implemented auth, promised storage periods or approved policy. |
+| Component | Signal treatment | Behaviour to implement |
+| --- | --- | --- |
+| Header | Wordmark, short navigation, thin rule, boxed FR/EN control | Full accessible language names, current section, keyboard access; preserve content and response identity |
+| Course outline | Numbered ruled list, red active chapter | Stable IDs 01/02/03/05; practice remains inside chapter 05 |
+| Lesson | Assumptions, formula, plain reading, truth table | Accessible semantic equations and table headings; no bitmap-only mathematics |
+| Worked example | Three numbered steps, concise derivation | Identify original authorship and domain before evaluating |
+| Glossary | Symbol / French / English ruled columns | Separate membership/inclusion identities; search labels and announced result counts |
+| Answer group | Full-width outlined rows with radio controls | Native fieldset/legend and radio arrow-key behaviour; stable answer IDs; preserve unfinished answer |
+| Hint | Separate underlined or outlined action | Optional, expanded state and announcement; mark aided evidence |
+| Feedback | Submitted choice beside explicit repair explanation | Read-only response, one announced update or focused heading, retry without shame |
+| Progress | Reading / attempts / proposed mastery in separate columns | Server-derived records, immutable exercise versions, private data, no rankings |
+| Sign-in gate | Provider-neutral preview, useful reading exit | Real provider and sessions in the separate authentication feature; no invented policy |
 
-## Keyboard, input and status behaviour
+## Keyboard and responsive acceptance
 
-Proposed order: skip link → brand → course/glossary/private-space navigation → language buttons → sign-in/private-space action → course outline → main content/actions. On mobile the visual sidebar is removed from the focus order. The first fixture Tab lands on the skip link; Enter brings navigation to main.
+Proposed order: skip link → brand → primary navigation → locale actions → account action → course outline → main content. For practice: radio group → optional hint → submit → worked-example link. Show visible focus and associate validation text with the group. Preserve response on network failure and use the same submission identity on retry.
 
-Exercise: radio group → optional hint → enabled submit → worked-example link. No response selected: disable submit and explain why in text. Invalid/missing response returned by the future server: preserve input, render a labelled error adjacent to the group, associate it through `aria-describedby`, and focus the group or error summary. Network failure: say no saved result was received, retain the selection, and retry the same submission identity. These error states are specified, not implemented.
+The mobile concept uses two navigation rows and full-width answers. Actual implementation must support 320 px, zoom and reflow without horizontal overflow, maintain adequate targets and prevent header/action collisions. Do not derive CSS viewport measurements from the raster size. Long headings should wrap naturally; decorative artwork should shrink or disappear when it displaces tasks.
 
-Hint controls should use `aria-expanded`/`aria-controls` and a clear announced hint. Feedback should use an announced status region after a submission; the static fixture's status markup is not proof that a real asynchronous update is announced. The disabled sign-in fixture is illustrative; a real gate needs an enabled action only once authentication is functional.
+Feedback, hint expansion, form errors, equations and truth-table navigation need manual keyboard and assistive-technology checks. Screenshots cannot prove announcements, focus movement, screen-reader readings or usable touch targets.
 
-Production acceptance: manually traverse the whole journey with keyboard; test NVDA/Firefox and VoiceOver/Safari for equations, radio choices, errors, hints and feedback; inspect zoom/reflow and touch input. A checked screenshot cannot establish these behaviours.
+## Asset register and rights
 
-## Assets and rights
+The nine images are generated original UI concepts in the selected Signal direction, converted without resizing to lossless WebP. The [manifest](source/signal-screens.json) records selected source variants; [asset evidence](asset-evidence.json) records hashes and conversion checks. The corrected practice/progress versions and the homepage caption correction are included.
 
-All WebP files are original UI renders of the [local fixture](source/prototype.html), authored for this proposal. No third-party artwork, source slide image, copied course passage or PDF is embedded. The abstract ∴ mark is original text styling, not a university logo. Original code and documentation use the repository MIT licence.
-
-No fonts are bundled. Screens use host-installed DejaVu Sans/Serif through system fallbacks; DejaVu's glyph designs derive from Bitstream Vera with the DejaVu/Bitstream licence and applicable notices in the host font package. Browser/rendering dependencies are external tooling, not shipped app assets. A future bundled web font requires its own licence/notices record under [the content policy](../../../CONTENT_LICENSE.md).
+No source PDF, slide artwork, university logo, external illustration or font file is bundled. Typography inside the generated raster does not identify an actual licensed web font. Any implementation font must receive its own origin/licence/notices record under [the content policy](../../../CONTENT_LICENSE.md). Original project documentation and conversion code use the repository MIT licence.

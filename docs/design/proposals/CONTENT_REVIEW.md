@@ -4,7 +4,7 @@ Status: design-sample self-check, not independently peer-reviewed or approved fo
 
 ## Provenance and source boundary
 
-All displayed lesson prose, exercise wording, feedback and worked derivation were authored for this proposal. Topic locators come from [the roadmap](../../ROADMAP.md): implication L05, PDF pp. 20–23; connectives pp. 6–12; number sets and membership/inclusion pp. 41–43 and 57. These are indirect locators, not a claim that the PDF was inspected. Screens say so. The PDF must be inspected before approving course-aligned content. No source PDF or substantial course text is reproduced.
+All displayed lesson prose, exercise wording, feedback and worked derivation were authored for this proposal. Topic locators come from [the roadmap](../../ROADMAP.md): implication L05, PDF pp. 20–23; connectives pp. 6–12; number sets and membership/inclusion pp. 41–43 and 57. These are indirect locators, not a claim that the PDF was inspected. The selected raster screens do not all display these locators; implementation must add original-authorship and source/coverage metadata. The PDF must be inspected before approving course-aligned content. No source PDF or substantial course text is reproduced.
 
 The page-48 warning repeats the known issue recorded in [the constitution](../../CONSTITUTION.md), not a new verification of that source. No quiz is based on that disputed example. Proof prompts on pages 19/25/31, ambient complements on 60–65, duplicate-free database teaching on 71–89 and the maximum task on page 94 are outside this sample's assessed scope; they remain publication review requirements.
 
@@ -27,7 +27,7 @@ The page-48 warning repeats the known issue recorded in [the constitution](../..
 | Coverage | Source-taught topic; original application-authored wording |
 | Provenance | This design proposal; topic locator L05/pp. 20–23 from the roadmap; direct source review pending |
 
-Hints/reveals/retries must affect independent-evidence eligibility. The public design source necessarily exposes the answer; this is learning content, not examination security. The local fixture performs no grading or storage; this table specifies intended production behaviour only.
+Hints/reveals/retries must affect independent-evidence eligibility. The public design source necessarily exposes the answer; this is learning content, not examination security. The raster concepts perform no grading or storage; this table specifies intended production behaviour only.
 
 ### All options and bilingual feedback
 
@@ -44,7 +44,7 @@ Distractors model alternative misunderstandings: A may come from negating the wh
 
 ### Check 1: direct truth-table enumeration
 
-Material implication P ⇒ Q has outputs V, F, V, V for inputs (V,V), (V,F), (F,V), (F,F), respectively. Thus exactly option B is correct. The submitted fixture uses C and is incorrect. Lesson, practice, feedback and English variants share this table and answer.
+Material implication P ⇒ Q has outputs V, F, V, V for inputs (V,V), (V,F), (F,V), (F,F), respectively. Thus exactly option B is correct. The submitted raster concept uses C and is incorrect. The French lesson, practice and feedback concepts share this table and answer. Matched English page concepts are not included in the selected set.
 
 ### Check 2: a different derivation
 
@@ -54,11 +54,17 @@ Worked example `logic.implication.worked.01`: n belongs to ℕ={0,1,2,…}; fix 
 
 ## Translation and notation check
 
-Self-check compared each paired lesson/feedback sentence for truth conditions, antecedent/consequent roles, necessity/sufficiency and retry eligibility. FR “P est suffisante pour Q ; Q est nécessaire pour P” matches EN “P is sufficient for Q; Q is necessary for P”. Neither language asserts the converse. V/F notation is explicitly defined even in English; mathematical identity does not change with the presentation language.
+The earlier bilingual authored wording was self-checked for truth conditions, antecedent/consequent roles, necessity/sufficiency and retry eligibility. The current Signal raster set presents these pages in French only; that earlier wording review is not evidence of English Signal page layouts. FR “P est suffisante pour Q ; Q est nécessaire pour P” matches EN “P is sufficient for Q; Q is necessary for P”. Neither language asserts the converse. V/F notation is explicitly defined even in English; mathematical identity does not change with the presentation language.
 
-Natural numbers include zero. The glossary interval `]0; 1]` remains in both languages and means real x with 0<x≤1. FR reading “de zéro exclu à un inclus” and EN “from zero excluded to one included” preserve endpoints. The glossary describes ↔ as a connective producing an assertion; semantic equivalence concerns two formulas' identical truth tables. Membership ∈ relates an element to a set; inclusion ⊆ relates a set to a set.
+Natural numbers include zero. The glossary interval `]0; 1]` remains in both languages and means real x with 0<x≤1. FR reading “de zéro exclu à un inclus” and EN “from zero excluded to one included” preserve endpoints. The reduced Signal glossary does not show ↔. The implementation must distinguish the biconditional connective from semantic equivalence between formulas' truth tables. Membership ∈ relates an element to a set; inclusion ⊆ relates a set to a set.
 
-Proposed glossary identities: `logic.implication`, `logic.biconditional`, `sets.membership`, `sets.inclusion`, `numbers.naturals`, `intervals.half-open`. Membership and inclusion have separate entries and identities. ℕ and interval support are labelled prerequisite support; membership/inclusion mark upcoming course coverage. No enrichment chapter is invented.
+Proposed glossary identities: `logic.implication`, `logic.biconditional`, `sets.membership`, `sets.inclusion`, `numbers.naturals`, `intervals.half-open`. Membership and inclusion have separate entries and identities. The selected raster glossary does not label coverage per row: ℕ/interval prerequisite support and source-taught membership/inclusion must receive explicit coverage labels in implementation. No enrichment chapter is invented.
+
+## Signal raster review
+
+The selected lesson/feedback tables show exactly (V,V,V), (V,F,F), (F,V,V), (F,F,V). Practice remains unanswered; feedback selects C and correctly identifies its implication as true. The n=7 worked example and the interval readings preserve the checked sample meaning. The homepage caption was corrected to the sole falsifying case without changing the selected visual direction. Generated lettering remains a design reference: implementation must use real mathematical markup, review glyph fidelity and attach proper provenance.
+
+The glossary shows five entries (⇒, ∈, ⊆, ℕ, ]0;1]); full bilingual lessons, all-option interaction feedback and source-discrepancy UI are not demonstrated in this raster set.
 
 ## Publication gates remaining
 
