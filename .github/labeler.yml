@@ -1,0 +1,74 @@
+"ci/cd":
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"
+          - "scripts/**"
+
+"documentation":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.md"
+
+"content":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "content/**"
+          - "exercises/**"
+          - "glossary/**"
+
+"area: content":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "content/**"
+          - "exercises/**"
+          - "glossary/**"
+
+"area: frontend":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "app/**"
+          - "public/**"
+
+"area: backend":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "server/**"
+
+"area: infrastructure":
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"
+          - "scripts/**"
+          - "package.json"
+          - "pnpm-lock.yaml"
+          - "pnpm-workspace.yaml"
+          - ".npmrc"
+          - ".node-version"
+          - ".nvmrc"
+          - "tsconfig.json"
+          - "nuxt.config.*"
+          - "vitest.config.*"
+          - "playwright.config.*"
+
+"dependencies":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "package.json"
+          - "pnpm-lock.yaml"
+          - "pnpm-workspace.yaml"
+
+"design":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "design/**"
+          - "docs/DESIGN_SYSTEM.md"
+          - "docs/ART_DIRECTION.md"
+
+"tests":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "tests/**"
+          - "**/*.test.*"
+          - "**/*.spec.*"
+          - "vitest.config.*"
+          - "playwright.config.*"

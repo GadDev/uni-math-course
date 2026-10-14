@@ -1,0 +1,59 @@
+name: Sync repository labels
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/labels.json"
+      - ".github/labeler.yml"
+      - ".github/workflows/label-sync.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: repository-label-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Synchronize labels
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out trusted main revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Validate label catalogue
+        shell: bash
+        run: |
+          set -euo pipefail
+          jq -e '
+            type == "array" and length > 0
+            and all(.[];
+              (.name | type == "string" and length > 0 and length <= 50)
+              and (.color | type == "string" and test("^[0-9A-Fa-f]{6}$"))
+              and (.description | type == "string" and length > 0 and length <= 100)
+            )
+            and ([.[].name | ascii_downcase] | length == (unique | length))
+          ' .github/labels.json > /dev/null
+      - name: Create or update declared labels
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          jq -c '.[]' .github/labels.json | while IFS= read -r label; do
+            name="$(jq -r '.name' <<<"$label")"
+            color="$(jq -r '.color' <<<"$label")"
+            description="$(jq -r '.description' <<<"$label")"
+            gh label create "$name" \
+              --repo "$GITHUB_REPOSITORY" \
+              --color "$color" \
+              --description "$description" \
+              --force
+          done
