@@ -1,0 +1,277 @@
+---
+import Base from '../../layouts/Base.astro';
+import { locales } from '../../lib/i18n';
+import { glossary, glossaryCopy, searchText } from '../../lib/glossary';
+import katex from 'katex';
+import '../../styles/glossary.css';
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+const { locale } = Astro.props;
+const other = locale === 'fr' ? 'en' : 'fr';
+const text = glossaryCopy[locale];
+const otherText = glossaryCopy[other];
+const math = (value: string, displayMode = false) =>
+  katex.renderToString(value, {
+    output: 'htmlAndMathml',
+    throwOnError: true,
+    trust: false,
+    displayMode,
+  });
+---
+
+<Base
+  locale={locale}
+  title={text.title}
+  description={text.intro}
+  path="glossary/"
+>
+  <main id="main" tabindex="-1" class="glossary-page">
+    <header class="glossary-heading">
+      <p class="eyebrow">{text.label}</p>
+      <h1>
+        {text.title}
+        <span class="signal-stop">.</span>
+      </h1>
+      <p class="lede">{text.intro}</p>
+    </header>
+    <aside class="glossary-guide" aria-labelledby="guide-title">
+      <h2 id="guide-title">{text.review}</h2>
+      <p>{text.conventions}</p>
+      <p>
+        {text.sourceNote} <cite>{glossary.source.title}</cite> (
+        {glossary.source.year}).
+      </p>
+      <details>
+        <summary>{text.discrepancyTitle}</summary>
+        <p>{text.discrepancy}</p>
+      </details>
+    </aside>
+    <form class="glossary-filters" hidden role="search" aria-label={text.nav}>
+      <div>
+        <label for="glossary-search">{text.search}</label>
+        <input
+          id="glossary-search"
+          name="q"
+          type="search"
+          placeholder={text.placeholder}
+          autocomplete="off"
+        />
+      </div>
+      <div>
+        <label for="glossary-category">{text.category}</label>
+        <select id="glossary-category" name="category">
+          <option value="">{text.all}</option>
+          {glossary.categories.map((category) => (
+            <option value={category.id}>{category.title[locale]}</option>
+          ))}
+        </select>
+      </div>
+      <button type="reset">{text.reset}</button>
+    </form>
+    <noscript>
+      <p>{text.noScript}</p>
+    </noscript>
+    <p
+      class="glossary-count"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+      data-count
+      data-label={text.count}
+    >
+      {glossary.entries.length} / {glossary.entries.length} {text.count}
+    </p>
+    <p data-empty hidden>
+      {text.empty}
+    </p>
+    {glossary.categories.map((category) => (
+      <section
+        class="glossary-group"
+        data-group={category.id}
+        aria-labelledby={'family-' + category.id}
+      >
+        <h2 id={'family-' + category.id}>{category.title[locale]}</h2>
+        <div class="glossary-grid">
+          {glossary.entries
+            .filter((entry) => entry.category === category.id)
+            .map((entry) => {
+              const current = entry[locale];
+              const translated = entry[other];
+              return (
+                <article
+                  id={entry.id}
+                  class="glossary-entry"
+                  data-entry
+                  data-category={category.id}
+                  data-search={searchText(entry)}
+                >
+                  <div
+                    class="glossary-symbol"
+                    tabindex="0"
+                    role="region"
+                    aria-label={current.name}
+                  >
+                    {entry.format === 'code' ? (
+                      <code>{entry.notation}</code>
+                    ) : (
+                      <span set:html={math(entry.notation)} />
+                    )}
+                  </div>
+                  <h3>
+                    <a
+                      href={'#' + entry.id}
+                      aria-label={text.link + ': ' + current.name}
+                    >
+                      {current.name}
+                    </a>
+                  </h3>
+                  <p>{current.meaning}</p>
+                  <p class="glossary-provenance">
+                    {text.pages}: {entry.sourcePages.join(', ')} ·{' '}
+                    {entry.exampleOrigin === 'teaching-example'
+                      ? text.teaching
+                      : text.sourceExample}
+                  </p>
+                  <p class="eyebrow">{text.example}</p>
+                  <div
+                    class="glossary-formula"
+                    tabindex="0"
+                    role="region"
+                    aria-label={text.example + ': ' + current.name}
+                  >
+                    {entry.format === 'code' ? (
+                      <code>{entry.example}</code>
+                    ) : (
+                      <span set:html={math(entry.example, true)} />
+                    )}
+                  </div>
+                  <p>
+                    <strong>{text.reading} : </strong>
+                    {current.reading}
+                  </p>
+                  <p>
+                    <strong>{text.explanation} : </strong>
+                    {current.explanation}
+                  </p>
+                  {current.confusion && (
+                    <p class="glossary-confusion">
+                      <strong>{text.confusion} : </strong>
+                      {current.confusion}
+                    </p>
+                  )}
+                  <details class="glossary-translation">
+                    <summary>{text.otherLanguage}</summary>
+                    <div lang={other}>
+                      <p>
+                        <strong>{translated.name}</strong> —{' '}
+                        {translated.meaning}
+                      </p>
+                      <p>
+                        <strong>{otherText.reading}: </strong>
+                        {translated.reading}
+                      </p>
+                      <p>
+                        <strong>{otherText.explanation}: </strong>
+                        {translated.explanation}
+                      </p>
+                      {translated.confusion && (
+                        <p>
+                          <strong>{otherText.confusion}: </strong>
+                          {translated.confusion}
+                        </p>
+                      )}
+                    </div>
+                  </details>
+                </article>
+              );
+            })}
+        </div>
+      </section>
+    ))}
+    <p class="content-provenance">{text.policy}</p>
+  </main>
+</Base>
+
+<script>
+  import { normalizeSearch } from '../../lib/glossary';
+  const form = document.querySelector<HTMLFormElement>('.glossary-filters');
+  const search = document.querySelector<HTMLInputElement>('#glossary-search');
+  const category =
+    document.querySelector<HTMLSelectElement>('#glossary-category');
+  const count = document.querySelector<HTMLElement>('[data-count]');
+  const empty = document.querySelector<HTMLElement>('[data-empty]');
+  const entries = [...document.querySelectorAll<HTMLElement>('[data-entry]')];
+  const groups = [...document.querySelectorAll<HTMLElement>('[data-group]')];
+  if (form && search && category && count && empty) {
+    form.hidden = false;
+    const update = (save = true) => {
+      const terms = normalizeSearch(search.value)
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean);
+      let visible = 0;
+      for (const entry of entries) {
+        entry.hidden =
+          !!(category.value && entry.dataset.category !== category.value) ||
+          !terms.every((term) => entry.dataset.search?.includes(term));
+        if (!entry.hidden) visible++;
+      }
+      for (const group of groups)
+        group.hidden = !group.querySelector('[data-entry]:not([hidden])');
+      count.textContent = `${visible} / ${entries.length} ${count.dataset.label}`;
+      empty.hidden = visible !== 0;
+      const url = new URL(location.href);
+      for (const [key, value] of [
+        ['q', search.value],
+        ['category', category.value],
+      ] as const) {
+        if (value) url.searchParams.set(key, value);
+        else url.searchParams.delete(key);
+      }
+      if (save) history.replaceState(null, '', url);
+      document
+        .querySelectorAll<HTMLAnchorElement>('[data-language-link]')
+        .forEach((link) => {
+          const target = new URL(link.href);
+          target.search = url.search;
+          link.href = target.href;
+        });
+    };
+    const restore = () => {
+      const params = new URL(location.href).searchParams;
+      search.value = params.get('q') ?? '';
+      category.value = params.get('category') ?? '';
+      update(false);
+    };
+    const revealAnchor = () => {
+      const entry = entries.find((item) => '#' + item.id === location.hash);
+      if (entry?.hidden) {
+        search.value = '';
+        category.value = '';
+        update();
+        entry.scrollIntoView();
+      }
+    };
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      update();
+    });
+    form.addEventListener('input', () => update());
+    form.addEventListener('change', () => update());
+    form.addEventListener('reset', (event) => {
+      event.preventDefault();
+      search.value = '';
+      category.value = '';
+      update();
+      search.focus();
+    });
+    window.addEventListener('popstate', () => {
+      restore();
+      revealAnchor();
+    });
+    window.addEventListener('hashchange', revealAnchor);
+    restore();
+    revealAnchor();
+  }
+</script>
