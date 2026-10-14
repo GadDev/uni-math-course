@@ -69,14 +69,16 @@ for (const width of [320, 375, 768, 1280]) {
   });
 }
 
-test('English/French shell reports development state without fake sign-in', async ({
+test('English/French shell reports practice development state and links to real sign-in', async ({
   page,
 }) => {
   await page.goto('/en/');
   await expect(
-    page.getByText('Accounts, interactive exercises and progress tracking'),
+    page.getByText('Interactive exercises and progress tracking'),
   ).toBeVisible();
-  await expect(page.locator('main input')).toHaveCount(0);
+  await expect(
+    page.getByRole('link', { name: 'Sign in', exact: true }),
+  ).toHaveAttribute('href', '/en/sign-in/');
   await page.goto('/en/lessons/missing/');
   await expect(
     page.getByRole('heading', { name: 'Page introuvable' }),

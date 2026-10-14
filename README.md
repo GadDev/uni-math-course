@@ -12,8 +12,9 @@ Status: **reading foundation** · Maintainer: [GadDev](https://github.com/GadDev
 - Mathematical notation with visual KaTeX and MathML output.
 - Same-lesson language switching and a React/Radix reading disclosure.
 - Six reviewed exercise contracts and content/mathematical checks.
+- Configurable Google/Supabase sign-in, verified server sessions and local logout.
 
-Accounts, interactive exercise delivery/grading, saved attempts and private progress are the next M2 features. They are not implemented, and no production deployment is claimed. Planned lesson cards are explicitly marked as coming later.
+Interactive exercise delivery/grading, saved attempts and private progress are the next M2 features. Sign-in is disabled until configured; hosted authentication acceptance and production deployment remain pending. Planned lesson cards are explicitly marked as coming later.
 
 ## Local development
 
@@ -24,7 +25,7 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open http://localhost:4321/fr/ or http://localhost:4321/en/. The root redirects to French.
+Open http://localhost:4321/fr/ or http://localhost:4321/en/. The root redirects to French. See [authentication setup](docs/AUTHENTICATION.md) and .env.example to configure a development Supabase project. Reading works without those settings.
 
 ## Quality gate
 
@@ -34,7 +35,7 @@ pnpm exec playwright install chromium
 pnpm test:e2e
 ```
 
-The check covers repository links/structure, content parity/contracts, types, formatting, mathematical tests and production build. Browser checks cover reading, language switching, math markup, Radix keyboard behaviour and narrow layouts. These checks do not certify independent mathematical peer review or a working authentication deployment.
+The check covers repository links/structure, content parity/contracts, types, formatting, mathematical tests and production build. Browser checks cover reading, language switching, math markup, Radix keyboard behaviour, narrow layouts and authentication/session flows through the real SDK and an isolated local Auth fixture. These checks do not certify independent mathematical peer review or a working authentication deployment.
 
 ## Project direction
 
@@ -44,6 +45,7 @@ The check covers repository links/structure, content parity/contracts, types, fo
 - [Tech stack](docs/TECHSTACK.md)
 - [Content pilot review](docs/content/L05_REVIEW.md)
 - [Reading foundation](docs/READING_FOUNDATION.md)
+- [Authentication and sessions](docs/AUTHENTICATION.md)
 
 ## Repository guide
 

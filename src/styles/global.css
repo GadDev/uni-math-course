@@ -404,3 +404,38 @@ h2 {
   min-height: 0;
   background: transparent;
 }
+
+.auth-page {
+  max-width: 640px;
+  margin: 3rem auto 4rem;
+}
+.auth-card {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: var(--card);
+}
+.auth-button {
+  border: 0;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: normal;
+  min-height: 44px;
+  max-width: 100%;
+}
+.auth-button:disabled {
+  background: var(--muted);
+  cursor: not-allowed;
+}
+.auth-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.auth-message {
+  padding: 1rem;
+  border-left: 3px solid var(--accent);
+  background: #f1eadf;
+}
+.account-identity {
+  overflow-wrap: anywhere;
+}
