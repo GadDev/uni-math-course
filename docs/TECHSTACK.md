@@ -61,7 +61,7 @@ Store original lessons as Markdown with validated bilingual metadata in Git. Ast
 | Localisation | Explicit /fr/ and /en/ routes; stable language-independent IDs |
 | Mathematics | KaTeX HTML + MathML plus plain-language readings |
 | Validation | Zod at authored-content and API boundaries |
-| Accounts | Supabase Auth; Google OAuth pending classmate availability |
+| Accounts | Supabase Auth; email/password for an invited group, accounts created by the owner |
 | Persistence | Supabase PostgreSQL; SQL migrations and ownership policies |
 | Verification | Vitest grading/content checks; auth/persistence integration; Playwright critical journeys |
 | CI and releases | One quality gate; manual changelog until Release Please is activated |
@@ -116,7 +116,7 @@ Library claims do not establish the accessibility of our lessons. Verify long Fr
 
 Use the selected framework's server cookie adapter with current [Supabase SSR guidance](https://supabase.com/docs/guides/auth/server-side/creating-a-client). Astro has a [Supabase integration guide](https://docs.astro.build/en/guides/backend/supabase/), but examples do not replace current session/security requirements. Verify identity through getClaims or an appropriate server-confirmed lookup; do not trust an unvalidated getSession user.
 
-Public pages make no private data requests during prerendering. Mark OAuth callbacks, exercise delivery, grading and private progress as on-demand. Protect direct API calls, not only navigation. A browser redirect or disabled control cannot enforce access.
+Public pages make no private data requests during prerendering. Mark login, exercise delivery, grading and private progress as on-demand. Protect direct API calls, not only navigation. A browser redirect or disabled control cannot enforce access.
 
 The grading endpoint verifies identity and request origin, loads the immutable exercise version, validates bounded inputs, computes feedback and writes one idempotent attempt. Derive ownership from verified authentication and reject caller-supplied scores/owner IDs. Authenticated questions and explanations may reach the browser; this is a learning tool, not an examination system.
 
@@ -131,7 +131,7 @@ Use database grants and [RLS](https://supabase.com/docs/guides/database/postgres
 
 Exercise corrections create new versions; never silently reinterpret historical attempts. Derive progress from attempts rather than a separate mutable score store. Preserve the distinction between reading completion, history and mastery evidence.
 
-Google OAuth is the initial implemented flow, gated by explicit configuration; classmate suitability and hosted acceptance remain open. See [AUTHENTICATION.md](AUTHENTICATION.md). Email/password or magic links need a suitable SMTP plan: Supabase's [default email service](https://supabase.com/docs/guides/auth/auth-smtp) is restricted to project-team addresses and currently two messages/hour. Do not introduce a paid email dependency without revisiting the budget.
+Email/password sign-in is the implemented flow (owner-created accounts, public sign-up disabled); Google and Microsoft OAuth were dropped for this pilot; hosted acceptance remains open. See [AUTHENTICATION.md](AUTHENTICATION.md). Magic links need a suitable SMTP plan: Supabase's [default email service](https://supabase.com/docs/guides/auth/auth-smtp) is restricted to project-team addresses and currently two messages/hour. Do not introduce a paid email dependency without revisiting the budget.
 
 ## Data-platform alternatives and free-plan operations
 
@@ -164,7 +164,7 @@ After the bilingual content pilot, prove the same complete learning journey on t
 | --- | --- |
 | Framework/runtime | Public lesson plus on-demand auth/grade/progress routes deploy correctly |
 | State/languages | Switch FR/EN and navigate/reload without losing a compatible draft; no cross-account draft leakage |
-| Session/integrity | Callback, refresh/expiry and logout work; unauthenticated writes fail; grades and ownership stay server-derived |
+| Session/integrity | Login, refresh/expiry and logout work; unauthenticated writes fail; grades and ownership stay server-derived |
 | Content/UI | Both activities usable at 320/375/768/1280 px and by keyboard; no hydration errors; correct math readings |
 | Cost/operations | Accepted free quotas/pauses, isolated test data, export/restore and checked rollback evidence |
 | Decision | Astro boundaries remain small; otherwise revisit Nuxt or Next with recorded reasons |

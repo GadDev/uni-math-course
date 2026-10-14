@@ -12,12 +12,13 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
 const alternateNext = next.replace(/^\/(fr|en)\//, `/${alternate}/`);
 const alternateHref = `/${alternate}/sign-in/?${new URLSearchParams({ next: alternateNext })}`;
 const auth = Astro.locals.auth;
-let error: 'unavailable' | 'callback' | 'logout' | null = null;
+let error: 'unavailable' | 'invalid' | 'logout' | 'denied' | null = null;
 const supplied = Astro.url.searchParams.get('error');
 if (
   supplied === 'unavailable' ||
-  supplied === 'callback' ||
-  supplied === 'logout'
+  supplied === 'invalid' ||
+  supplied === 'logout' ||
+  supplied === 'denied'
 )
   error = supplied;
 if (auth) {
@@ -52,11 +53,31 @@ if (auth) {
       </p>
     )}
     <section class="auth-card" aria-label={text.signIn}>
-      <form method="post" action="/auth/start/">
+      <form method="post" action="/auth/login/" class="auth-form">
         <input type="hidden" name="locale" value={locale} />
         <input type="hidden" name="next" value={next} />
+        <label for="email">{text.email}</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="username"
+          required
+          maxlength="254"
+          disabled={!auth}
+        />
+        <label for="password">{text.password}</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          required
+          maxlength="256"
+          disabled={!auth}
+        />
         <button class="primary-link auth-button" type="submit" disabled={!auth}>
-          {text.google}
+          {text.submit}
         </button>
       </form>
       {!auth && <p role="status">{text.disabled}</p>}

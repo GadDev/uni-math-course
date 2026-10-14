@@ -2,13 +2,14 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   authConfig,
+  emailAllowed,
   safeReturn,
   sameOriginPost,
   smallForm,
 } from '../../src/lib/auth/policy.ts';
 
 const env = {
-  AUTH_PROVIDER: 'google',
+  AUTH_PROVIDER: 'password',
   SUPABASE_URL: 'https://pilot.supabase.co',
   SUPABASE_PUBLISHABLE_KEY: 'sb_publishable_fixture',
   AUTH_SITE_URL: 'https://pilot.example',
@@ -78,4 +79,19 @@ test('bound forms without trusting content-length', async () => {
   assert.equal((await smallForm(request('locale=en')))?.get('locale'), 'en');
   assert.equal(await smallForm(request('x'.repeat(2049))), null);
   assert.equal(await smallForm(request('{}', 'application/json')), null);
+});
+test('only the password provider is enabled and the allowlist is case-insensitive', () => {
+  assert.equal(authConfig({ ...env, AUTH_PROVIDER: 'google' }), null);
+  assert.equal(authConfig({ ...env, AUTH_PROVIDER: 'azure' }), null);
+  assert.equal(authConfig(env)!.allowedEmails, null);
+  const config = authConfig({
+    ...env,
+    AUTH_ALLOWED_EMAILS: 'Ada.Lovelace@uni.lu, bob@uni.lu;carol@uni.lu',
+  })!;
+  assert.equal(emailAllowed(config, 'ada.lovelace@UNI.LU'), true);
+  assert.equal(emailAllowed(config, 'carol@uni.lu'), true);
+  assert.equal(emailAllowed(config, 'mallory@uni.lu'), false);
+  assert.equal(emailAllowed(config, 'bob@uni.lu.evil.example'), false);
+  assert.equal(emailAllowed(config, null), false);
+  assert.equal(emailAllowed(authConfig(env)!, 'anyone@example.com'), true);
 });

@@ -18,7 +18,7 @@
     "typecheck": "astro check",
     "format": "prettier --write 'src/**/*.{astro,ts,tsx,css}' 'scripts/*.mjs' 'tests/**/*.{mjs,ts}' '*.{json,mjs,ts}' '.github/workflows/check.yml'",
     "format:check": "prettier --check 'src/**/*.{astro,ts,tsx,css}' 'scripts/*.mjs' 'tests/**/*.{mjs,ts}' '*.{json,mjs,ts}' '.github/workflows/check.yml'",
-    "test": "node --test tests/claude/*.test.mjs tests/content/*.test.mjs tests/repository/*.test.mjs tests/auth/*.test.ts",
+    "test": "node --test tests/claude/*.test.mjs tests/content/*.test.mjs tests/repository/*.test.mjs tests/auth/*.test.ts tests/attempts/*.test.ts",
     "check": "pnpm check:docs && pnpm check:content && pnpm typecheck && pnpm format:check && pnpm test && pnpm build",
     "test:e2e": "playwright test",
     "build:test": "ASTRO_TEST_BUILD=1 astro build"

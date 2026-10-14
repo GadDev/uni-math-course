@@ -5,13 +5,16 @@ export const authCopy = {
     title: 'Retrouver votre espace',
     intro:
       'La lecture reste libre. Connectez-vous pour préparer votre futur parcours de pratique.',
-    google: 'Continuer avec Google',
+    email: 'Adresse e-mail',
+    password: 'Mot de passe',
+    submit: 'Se connecter',
     disabled: 'La connexion sera disponible une fois le service configuré.',
-    note: 'Google transmet votre identité et votre adresse e-mail au service de connexion. Aucun exercice ni historique de progrès n’est enregistré pour le moment.',
+    note: 'L’accès est réservé aux personnes invitées. Votre compte est créé par la personne qui gère le cours ; en cas d’oubli du mot de passe, contactez-la. Aucun exercice ni historique de progrès n’est enregistré pour le moment.',
+    invalid: 'Adresse e-mail ou mot de passe incorrect.',
+    denied:
+      'Ce compte n’est pas autorisé à accéder à cet espace. Contactez la personne qui gère le cours.',
     unavailable:
       'Le service de connexion est momentanément indisponible. Réessayez dans quelques instants.',
-    callback:
-      'La connexion n’a pas abouti ou a expiré. Recommencez depuis cette page.',
     logout:
       'Vous êtes déconnecté de ce navigateur. Le service n’a pas confirmé la fermeture de la session.',
     signedOut: 'Vous êtes déconnecté de ce navigateur.',
@@ -27,13 +30,16 @@ export const authCopy = {
     title: 'Return to your space',
     intro:
       'Reading stays open. Sign in to prepare for your future practice journey.',
-    google: 'Continue with Google',
+    email: 'Email address',
+    password: 'Password',
+    submit: 'Sign in',
     disabled: 'Sign-in will be available once the service is configured.',
-    note: 'Google shares your identity and email address with the sign-in service. No exercises or progress history are saved yet.',
+    note: 'Access is limited to invited people. The course owner creates your account; if you forget your password, contact them. No exercises or progress history are saved yet.',
+    invalid: 'Incorrect email address or password.',
+    denied:
+      'This account is not authorised to access this space. Contact the person running the course.',
     unavailable:
       'The sign-in service is temporarily unavailable. Please try again shortly.',
-    callback:
-      'Sign-in did not complete or has expired. Start again from this page.',
     logout:
       'You are signed out of this browser. The service did not confirm that the session was closed.',
     signedOut: 'You are signed out of this browser.',

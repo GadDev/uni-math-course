@@ -1,7 +1,7 @@
 import { createServerClient, parseCookieHeader } from '@supabase/ssr';
 import type { SupabaseClient, User } from '@supabase/supabase-js';
 import type { APIContext } from 'astro';
-import { authConfig, type AuthConfig } from './policy';
+import { authConfig, emailAllowed, type AuthConfig } from './policy';
 
 export type RequestAuth = {
   config: AuthConfig;
@@ -18,6 +18,8 @@ export function createRequestAuth(context: APIContext): RequestAuth | null {
       import.meta.env.SUPABASE_PUBLISHABLE_KEY,
     AUTH_SITE_URL: process.env.AUTH_SITE_URL ?? import.meta.env.AUTH_SITE_URL,
     AUTH_PROVIDER: process.env.AUTH_PROVIDER ?? import.meta.env.AUTH_PROVIDER,
+    AUTH_ALLOWED_EMAILS:
+      process.env.AUTH_ALLOWED_EMAILS ?? import.meta.env.AUTH_ALLOWED_EMAILS,
   });
   if (!config) return null;
   const jar = new Map(
@@ -42,11 +44,7 @@ export function createRequestAuth(context: APIContext): RequestAuth | null {
           context.cookies.set(name, value, {
             ...options,
             ...cookieOptions,
-            maxAge: value
-              ? name.includes('-code-verifier')
-                ? 600
-                : 7 * 24 * 60 * 60
-              : 0,
+            maxAge: value ? 7 * 24 * 60 * 60 : 0,
           });
         }
         // Middleware adds no-store headers to every auth response, including redirects.
@@ -81,7 +79,8 @@ export function createRequestAuth(context: APIContext): RequestAuth | null {
             return null;
           throw new Error('Authentication service unavailable');
         }
-        return data.user;
+        // Every protected route goes through here: unlisted users are anonymous.
+        return emailAllowed(config, data.user?.email) ? data.user : null;
       })()),
     clearCookies: () => {
       for (const name of jar.keys()) {
@@ -94,7 +93,6 @@ export function createRequestAuth(context: APIContext): RequestAuth | null {
           jar.delete(name);
         }
       }
-      context.cookies.set('um-auth-flow', '', { ...cookieOptions, maxAge: 0 });
     },
   };
 }

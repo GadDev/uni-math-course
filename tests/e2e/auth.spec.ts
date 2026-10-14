@@ -3,6 +3,7 @@ import {
   expect,
   type BrowserContext,
   type APIRequestContext,
+  type Page,
 } from '@playwright/test';
 const fixtureURL = 'http://127.0.0.1:54329';
 const appURL = 'http://127.0.0.1:4321';
@@ -30,57 +31,45 @@ test('two concurrent browsers retain their own server-verified identity', async 
   }
 });
 
-test('valid flow needs its PKCE verifier and a consumed callback cannot sign in again', async ({
+test('wrong credentials fail generically and create no session', async ({
   context,
-  browser,
 }) => {
-  const start = await context.request.post(appURL + '/auth/start/', {
-    headers: { Origin: appURL },
-    form: { locale: 'en' },
-    maxRedirects: 0,
-  });
-  expect(start.status()).toBe(303);
-  const authorize = await context.request.get(start.headers().location!, {
-    maxRedirects: 0,
-  });
-  const callback = authorize.headers().location!;
-  const stranger = await browser.newContext();
-  try {
-    const stolen = await stranger.request.get(callback, { maxRedirects: 0 });
-    expect(stolen.headers().location).toContain('error=callback');
-    expect(
-      (await stranger.request.get(appURL + '/api/auth/session/')).status(),
-    ).toBe(401);
-  } finally {
-    await stranger.close();
+  for (const form of [
+    { email: 'learner@example.invalid', password: 'wrong-password' },
+    { email: 'stranger@example.invalid', password: 'correct-horse-battery' },
+    { email: '', password: '' },
+  ]) {
+    const response = await context.request.post(appURL + '/auth/login/', {
+      headers: { Origin: appURL },
+      form: { locale: 'en', ...form },
+      maxRedirects: 0,
+    });
+    expect(response.status()).toBe(303);
+    expect(response.headers().location).toBe('/en/sign-in/?error=invalid');
+    expect(response.headers()['cache-control']).toBe('private, no-store');
+    expect(await response.text()).not.toContain('Invalid login credentials');
   }
-  const completed = await context.request.get(callback, { maxRedirects: 0 });
-  expect(completed.headers().location).toBe('/en/account/');
-  const replay = await context.request.get(callback, { maxRedirects: 0 });
-  expect(replay.headers().location).toContain('error=callback');
-  expect(
-    (await context.request.get(appURL + '/api/auth/session/')).status(),
-  ).toBe(200);
-});
-
-test('a matching browser flow with a bad code cannot authenticate', async ({
-  context,
-}) => {
-  const start = await context.request.post(appURL + '/auth/start/', {
-    headers: { Origin: appURL },
-    form: { locale: 'en' },
-    maxRedirects: 0,
-  });
-  const authorize = await context.request.get(start.headers().location!, {
-    maxRedirects: 0,
-  });
-  const callback = new URL(authorize.headers().location!);
-  callback.searchParams.set('code', 'invalid-code');
-  const failed = await context.request.get(callback.href, { maxRedirects: 0 });
-  expect(failed.headers().location).toBe('/en/sign-in/?error=callback');
   expect(
     (await context.request.get(appURL + '/api/auth/session/')).status(),
   ).toBe(401);
+});
+
+test('valid credentials sign in through a server-set HttpOnly cookie', async ({
+  context,
+}) => {
+  const response = await context.request.post(appURL + '/auth/login/', {
+    headers: { Origin: appURL },
+    form: {
+      locale: 'en',
+      email: 'learner@example.invalid',
+      password: 'correct-horse-battery',
+    },
+    maxRedirects: 0,
+  });
+  expect(response.headers().location).toBe('/en/account/');
+  expect(
+    (await context.request.get(appURL + '/api/auth/session/')).status(),
+  ).toBe(200);
 });
 
 test('a provider lookup outage fails closed with an unavailable response', async ({
@@ -99,7 +88,7 @@ test('a provider lookup outage fails closed with an unavailable response', async
 test('same-origin malformed and oversized forms fail before any auth mutation', async ({
   context,
 }) => {
-  for (const path of ['/auth/start/', '/auth/logout/']) {
+  for (const path of ['/auth/login/', '/auth/logout/']) {
     const malformed = await context.request.post(path, {
       headers: { Origin: appURL },
       data: { locale: 'en' },
@@ -115,6 +104,14 @@ test('same-origin malformed and oversized forms fail before any auth mutation', 
     expect(large.status()).toBe(400);
   }
 });
+
+async function signIn(page: Page, button: string) {
+  await page
+    .getByLabel(/Email address|Adresse e-mail/)
+    .fill('learner@example.invalid');
+  await page.getByLabel(/Password|Mot de passe/).fill('correct-horse-battery');
+  await page.getByRole('button', { name: button }).click();
+}
 
 async function session(
   request: APIRequestContext,
@@ -160,12 +157,12 @@ test('private requests reject anonymous users and never cache sessions', async (
   );
 });
 
-test('real SDK PKCE callback, verified account and local logout work together', async ({
+test('real SDK password sign-in, verified account and local logout work together', async ({
   page,
   context,
 }) => {
   await page.goto('/en/sign-in/');
-  await page.getByRole('button', { name: 'Continue with Google' }).click();
+  await signIn(page, 'Sign in');
   await expect(page).toHaveURL('/en/account/');
   await expect(
     page.getByRole('heading', { name: 'Your session is active' }),
@@ -212,7 +209,7 @@ test('sign-in language switching preserves the released lesson and fragment', as
   await expect(page.locator('input[name="next"]')).toHaveValue(
     '/en/lessons/L05/#main',
   );
-  await page.getByRole('button', { name: 'Continue with Google' }).click();
+  await signIn(page, 'Sign in');
   await expect(page).toHaveURL('/en/lessons/L05/#main');
 });
 
@@ -221,36 +218,20 @@ test('external return targets fall back to the local account', async ({
 }) => {
   await page.goto('/en/sign-in/?next=https%3A%2F%2Fevil.example');
   await expect(page.locator('input[name="next"]')).toHaveValue('/en/account/');
-  await page.getByRole('button', { name: 'Continue with Google' }).click();
+  await signIn(page, 'Sign in');
   await expect(page).toHaveURL('/en/account/');
 });
 
-test('failed, replayed and mismatched callbacks expose no provider error or session', async ({
-  request,
-}) => {
-  for (const query of [
-    'code=bogus',
-    'error=access_denied&error_description=private-provider-detail',
-    'flow=' + 'a'.repeat(64) + '&code=bogus',
-  ]) {
-    const response = await request.get('/auth/callback/?' + query, {
-      maxRedirects: 0,
-    });
-    expect(response.status()).toBe(303);
-    expect(response.headers().location).toBe('/fr/sign-in/?error=callback');
-    expect(response.headers()['referrer-policy']).toBe('no-referrer');
-    expect(response.headers()['cache-control']).toBe('private, no-store');
-    expect(await response.text()).not.toContain('private-provider-detail');
-  }
-  expect((await request.get('/api/auth/session/')).status()).toBe(401);
-});
-
-test('an unrelated callback does not log an existing user out', async ({
+test('a failed login attempt does not log an existing user out', async ({
   request,
   context,
 }) => {
   await session(request, context);
-  await context.request.get('/auth/callback/?code=bogus');
+  await context.request.post('/auth/login/', {
+    headers: { Origin: appURL },
+    form: { locale: 'en', email: 'x@example.invalid', password: 'nope' },
+    maxRedirects: 0,
+  });
   expect((await context.request.get('/api/auth/session/')).status()).toBe(200);
 });
 
@@ -336,7 +317,7 @@ test('cross-site and GET mutations fail without disturbing a signed-in session',
   context,
 }) => {
   await session(request, context);
-  for (const path of ['/auth/start/', '/auth/logout/']) {
+  for (const path of ['/auth/login/', '/auth/logout/']) {
     expect((await context.request.get(path)).status()).toBe(405);
     for (const headers of [{ Origin: 'https://evil.example' }, {}] as Record<
       string,
@@ -373,7 +354,7 @@ test('unconfigured deployment stays disabled and public reading still works', as
 }) => {
   await page.goto('http://127.0.0.1:4323/fr/sign-in/');
   await expect(
-    page.getByRole('button', { name: 'Continuer avec Google' }),
+    page.getByRole('button', { name: 'Se connecter' }),
   ).toBeDisabled();
   await expect(page.getByRole('status')).toContainText(
     'une fois le service configuré',
@@ -391,9 +372,9 @@ for (const width of [320, 375, 768, 1280]) {
     async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
       await page.goto('/fr/sign-in/');
-      const button = page.getByRole('button', {
-        name: 'Continuer avec Google',
-      });
+      await page.getByLabel('Adresse e-mail').fill('learner@example.invalid');
+      await page.getByLabel('Mot de passe').fill('correct-horse-battery');
+      const button = page.getByRole('button', { name: 'Se connecter' });
       await button.focus();
       await expect(button).toBeFocused();
       expect(

@@ -2,7 +2,7 @@
 
 ## Current scope
 
-This is a bilingual mathematics learning project with public reading and configurable Supabase authentication/session code. Hosted authentication acceptance is pending. Do not describe planned quizzes or saved progress as implemented. Product and architecture proposals must preserve unresolved decisions explicitly.
+This is a bilingual mathematics learning project with public reading, email/password Supabase sign-in for an invited group, and locally implemented L05 practice (server grading, saved attempts, private progress). Hosted acceptance is pending and only L05 is released. Do not describe other lessons' quizzes or unverified deployment as implemented. Product and architecture proposals must preserve unresolved decisions explicitly.
 
 ## Working conventions
 

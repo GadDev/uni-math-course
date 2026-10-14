@@ -54,9 +54,11 @@ async function walk(path) {
   return files.sort();
 }
 export async function validateRepository(
-  directory = root,
+  requested = root,
   mandatory = required,
 ) {
+  // Resolve once so every path comparison uses real paths (macOS temp dirs are symlinks).
+  const directory = await realpath(requested);
   const errors = [];
   const exists = async (path) => {
     try {
