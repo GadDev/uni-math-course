@@ -6,7 +6,7 @@ Status: implementation stack approved; integration and operational evidence pend
 
 Deliver a correct four-lesson French/English learning pilot with one maintainer, **€0 recurring software cost**, public reading, signed-in practice, server grading and private saved progress. Use provider subdomains initially. Do not depend on trials, paid add-ons or an assumed future upgrade.
 
-The approved implementation stack is **Astro + React activities, Vercel Hobby, Supabase Free, and a small Radix Themes component set** (owner decision, 2026-10-14). The comparisons below retain the rationale and alternatives. The public reading foundation now implements Astro/React, the Vercel adapter and Radix Themes; accounts, Supabase integration and configured deployment remain pending.
+The approved implementation stack is **Astro + React activities, Vercel Hobby, Supabase Free, and a small Radix Themes component set** (owner decision, 2026-10-14). The comparisons below retain the rationale and alternatives. The public reading foundation now implements Astro/React, the Vercel adapter and Radix Themes. Configurable Supabase authentication/session code is implemented; hosted acceptance and configured deployment remain pending.
 
 | Decision | Proposed choice | Reason / condition |
 | --- | --- | --- |
@@ -43,7 +43,7 @@ Use one React root per cohesive activity, not an island per input. Hydrate the a
 
 Astro adds a boundary between reading templates and React state. If the pilot needs persistent app-wide state, many cooperating islands or a React SPA embedded across most pages, reconsider Next.js or Nuxt. Nuxt and Next can also prerender content and limit client work: Astro is not automatically faster, cheaper or more accessible. Measure the actual first journey before declaring the journey ready.
 
-No application exists yet, so this is a proposal change rather than a code migration. Keep grading, content schemas and persistence independent of page-framework APIs to make later changes manageable.
+The reading scaffold and configurable Supabase authentication/session code are implemented; hosted acceptance remains pending. Keep grading, content schemas and persistence independent of page-framework APIs to make later changes manageable.
 
 ## Proposed application and content model
 
@@ -131,7 +131,7 @@ Use database grants and [RLS](https://supabase.com/docs/guides/database/postgres
 
 Exercise corrections create new versions; never silently reinterpret historical attempts. Derive progress from attempts rather than a separate mutable score store. Preserve the distinction between reading completion, history and mastery evidence.
 
-Google OAuth is provisional. Email/password or magic links need a suitable SMTP plan: Supabase's [default email service](https://supabase.com/docs/guides/auth/auth-smtp) is restricted to project-team addresses and currently two messages/hour. Do not introduce a paid email dependency without revisiting the budget.
+Google OAuth is the initial implemented flow, gated by explicit configuration; classmate suitability and hosted acceptance remain open. See [AUTHENTICATION.md](AUTHENTICATION.md). Email/password or magic links need a suitable SMTP plan: Supabase's [default email service](https://supabase.com/docs/guides/auth/auth-smtp) is restricted to project-team addresses and currently two messages/hour. Do not introduce a paid email dependency without revisiting the budget.
 
 ## Data-platform alternatives and free-plan operations
 

@@ -8,8 +8,9 @@ interface Props {
   title: string;
   description: string;
   path?: string;
+  alternateHref?: string;
 }
-const { locale, title, description, path = '' } = Astro.props;
+const { locale, title, description, path = '', alternateHref } = Astro.props;
 const text = copy[locale];
 const alternate = locale === 'fr' ? 'en' : 'fr';
 ---
@@ -43,7 +44,7 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
         <a
           lang={alternate}
           hreflang={alternate}
-          href={'/' + alternate + '/' + path}
+          href={alternateHref ?? '/' + alternate + '/' + path}
           data-language-link
         >
           {alternate.toUpperCase()}

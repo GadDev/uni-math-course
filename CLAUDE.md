@@ -2,7 +2,7 @@
 
 Read [AGENTS.md](AGENTS.md) for shared repository instructions; do not duplicate policy here.
 
-The public reading foundation is implemented. Accounts, grading and saved progress remain separate M2 features.
+Public reading and configurable Supabase authentication/sessions are implemented. Hosted authentication acceptance is pending; grading and saved progress remain separate M2 features.
 
 ```sh
 pnpm check

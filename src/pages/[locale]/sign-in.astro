@@ -1,0 +1,72 @@
+---
+import Base from '../../layouts/Base.astro';
+import { authCopy } from '../../lib/auth/copy';
+import { localeOf, safeReturn } from '../../lib/auth/policy';
+export const prerender = false;
+if (!['fr', 'en'].includes(Astro.params.locale ?? ''))
+  return new Response('Not found', { status: 404 });
+const locale = localeOf(Astro.params.locale);
+const text = authCopy[locale];
+const next = safeReturn(Astro.url.searchParams.get('next'), locale);
+const alternate = locale === 'fr' ? 'en' : 'fr';
+const alternateNext = next.replace(/^\/(fr|en)\//, `/${alternate}/`);
+const alternateHref = `/${alternate}/sign-in/?${new URLSearchParams({ next: alternateNext })}`;
+const auth = Astro.locals.auth;
+let error: 'unavailable' | 'callback' | 'logout' | null = null;
+const supplied = Astro.url.searchParams.get('error');
+if (
+  supplied === 'unavailable' ||
+  supplied === 'callback' ||
+  supplied === 'logout'
+)
+  error = supplied;
+if (auth) {
+  try {
+    if (await auth.verifiedUser()) return Astro.redirect(next, 303);
+  } catch {
+    error = 'unavailable';
+    Astro.response.status = 503;
+  }
+}
+---
+
+<Base
+  locale={locale}
+  title={text.signIn}
+  description={text.intro}
+  path="sign-in/"
+  alternateHref={alternateHref}
+>
+  <main id="main" class="auth-page">
+    <p class="eyebrow">{text.signIn}</p>
+    <h1>{text.title}</h1>
+    <p class="lede">{text.intro}</p>
+    {error && (
+      <p class="auth-message" role="alert">
+        {text[error]}
+      </p>
+    )}
+    {!error && Astro.url.searchParams.get('signedOut') === '1' && (
+      <p class="auth-message" role="status">
+        {text.signedOut}
+      </p>
+    )}
+    <section class="auth-card" aria-label={text.signIn}>
+      <form method="post" action="/auth/start/">
+        <input type="hidden" name="locale" value={locale} />
+        <input type="hidden" name="next" value={next} />
+        <button class="primary-link auth-button" type="submit" disabled={!auth}>
+          {text.google}
+        </button>
+      </form>
+      {!auth && <p role="status">{text.disabled}</p>}
+      <p class="auth-note">{text.note}</p>
+    </section>
+    <a
+      class="back-link"
+      href={next.includes('/account/') ? `/${locale}/` : next}
+    >
+      {text.back}
+    </a>
+  </main>
+</Base>

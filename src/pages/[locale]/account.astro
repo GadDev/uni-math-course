@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import { authCopy } from '../../lib/auth/copy';
+import { localeOf } from '../../lib/auth/policy';
+export const prerender = false;
+if (!['fr', 'en'].includes(Astro.params.locale ?? ''))
+  return new Response('Not found', { status: 404 });
+const locale = localeOf(Astro.params.locale);
+const text = authCopy[locale];
+const auth = Astro.locals.auth;
+let user = null;
+let unavailable = !auth;
+if (auth) {
+  try {
+    user = await auth.verifiedUser();
+  } catch {
+    unavailable = true;
+  }
+}
+if (!unavailable && !user)
+  return Astro.redirect(
+    `/${locale}/sign-in/?${new URLSearchParams({ next: `/${locale}/account/` })}`,
+    303,
+  );
+if (unavailable) Astro.response.status = 503;
+---
+
+<Base
+  locale={locale}
+  title={text.account}
+  description={text.next}
+  path="account/"
+>
+  <main id="main" class="auth-page">
+    <p class="eyebrow">{text.account}</p>
+    <h1>{unavailable ? text.account : text.active}</h1>
+    {unavailable ? (
+      <p role="alert">{text.unavailable}</p>
+    ) : (
+      <>
+        <p>
+          {text.identity}{' '}
+          <strong class="account-identity">
+            {user?.email ?? text.account}
+          </strong>
+        </p>
+        <p class="lede">{text.next}</p>
+        <form method="post" action="/auth/logout/">
+          <input type="hidden" name="locale" value={locale} />
+          <button class="primary-link auth-button" type="submit">
+            {text.signOut}
+          </button>
+        </form>
+      </>
+    )}
+    <a class="back-link" href={`/${locale}/`}>
+      {text.back}
+    </a>
+  </main>
+</Base>
