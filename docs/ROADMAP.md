@@ -29,7 +29,7 @@ Acceptance:
 
 - Each exercise has an ID/version, objective, difficulty, prerequisites, both languages, hints, correct answer, justification, feedback, grading contract, misconception tags, and source pages.
 - All options have feedback where applicable; mathematical and translation checks are recorded.
-- Clarify the urgent chapter order, sign-in availability, pilot size/budget, and rights boundary.
+- Clarify the urgent chapter order, sign-in availability, pilot size and free-plan constraints, and rights boundary.
 - Choose the smallest working architecture before adding application packages.
 
 Deliverable: reviewed content/schema and confirmed implementation decisions, not a full course bank.
@@ -113,8 +113,8 @@ Consider spaced review, richer set/quantifier visualisations, digital mastery mi
 | Remaining pilot content, glossary, mobile/accessibility/privacy QA and rollout | 22-36 additional hours |
 | Total first pilot | 46-74 hours |
 
-Ranges assume a small class, one maintainer, usable auth accounts, and no unexpected hosting integration issues. They are planning estimates, not delivery promises. Account setup, source rights, unfamiliar Nuxt/provider integration, and bilingual review can extend elapsed time. Estimate full-course authoring after pilot experience rather than extrapolating from slide count.
+Ranges assume a small class, one maintainer, usable auth accounts, and no unexpected hosting integration issues. They are planning estimates, not delivery promises. Account setup, source rights, unfamiliar framework/provider integration, and bilingual review can extend elapsed time. Estimate full-course authoring after pilot experience rather than extrapolating from slide count.
 
 ## Current decisions awaiting confirmation
 
-The urgent chapter sequence; Google versus other sign-in providers; pilot size; zero-cost versus small paid budget; hosting preference; original-content/publication permission; whether goodies are digital or physical. No cloud resources, accounts, scheduled tasks, or application dependencies are activated by this roadmap.
+The budget is confirmed as zero recurring software cost. Remaining decisions: urgent chapter sequence; Google versus other sign-in providers; pilot size; free-plan limitations and recovery acceptance; framework and hosting; original-content/publication permission; whether goodies are digital or physical. No cloud resources, accounts, scheduled tasks, or application dependencies are activated by this roadmap.

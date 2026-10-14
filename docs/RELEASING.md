@@ -8,7 +8,7 @@ The repository currently contains documentation and repository tooling. No appli
 
 Maintain [CHANGELOG.md](../CHANGELOG.md) manually under Unreleased for meaningful learner or contributor changes. Do not invent a package version, add Changesets files, or create an application release for every documentation or tooling PR. Small internal edits that do not affect users or contributors need no separate changelog entry.
 
-This policy adds no release workflow, package dependency, publishing token, tag, GitHub release, or deployment. The implementation of release automation belongs in a focused PR after the Nuxt scaffold introduces an application version.
+This policy adds no release workflow, package dependency, publishing token, tag, GitHub release, or deployment. The implementation of release automation belongs in a focused PR after the chosen application scaffold introduces an application version.
 
 ## Contribution and commit convention
 
@@ -39,7 +39,7 @@ Once the application scaffold has a versioned package manifest, adopt [Release P
 
 Preserve existing manual history during adoption. Record the bootstrap boundary explicitly so initial automation does not infer a fictional application release from documentation-only commits. The package manifest becomes the canonical application version when it exists; align the release manifest, tag and notes to it rather than inventing multiple independently edited version files.
 
-After adoption, ordinary product PRs do not manually rewrite generated released sections of CHANGELOG.md. Review and edit proposed release notes in the release PR through the supported Release Please mechanisms so regeneration does not lose corrections. GitHub release notes derive from that same reviewed release information.
+Keep the changelog manual until the automation is enabled; introducing a package version alone does not end that responsibility. After activation, ordinary product PRs do not manually add Unreleased entries or rewrite generated sections of CHANGELOG.md. Review and edit proposed release notes in the release PR through the supported Release Please mechanisms so regeneration does not lose corrections. GitHub release notes derive from that same reviewed release information.
 
 ## Version policy
 

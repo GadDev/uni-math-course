@@ -20,4 +20,4 @@ Each published exercise needs French/English wording and feedback, a correct ans
 
 ## Implementation decisions
 
-A single Nuxt application with Nitro and Supabase is a proposal, not an approved scaffold. Nx, Convex, authentication providers, hosting, costs, and rewards remain subject to documented decisions. Do not add dependencies or infrastructure solely because they appear among the options.
+Astro with React, Vercel Hobby, Supabase and Radix Themes is the leading proposal, not an approved scaffold. Nuxt and Next.js remain alternatives. Framework, UI library, auth providers, free-plan limitations, data location and rewards require the documented decision gate. Do not introduce a paid dependency or enable billing under the current zero-recurring-cost constraint. Do not add dependencies or infrastructure solely because they appear among the options.
