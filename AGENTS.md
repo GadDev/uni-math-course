@@ -20,4 +20,4 @@ Each published exercise needs French/English wording and feedback, a correct ans
 
 ## Implementation decisions
 
-Astro with React, Vercel Hobby, Supabase and Radix Themes is the leading proposal, not an approved scaffold. Nuxt and Next.js remain alternatives. Framework, UI library, auth providers, free-plan limitations, data location and rewards require the documented decision gate. Do not introduce a paid dependency or enable billing under the current zero-recurring-cost constraint. Do not add dependencies or infrastructure solely because they appear among the options.
+Astro with React, Vercel Hobby, Supabase Free and Radix Themes is the approved implementation stack. Nuxt and Next.js are evaluated alternatives, not implementation requirements. Auth-provider suitability, free-plan limitations, data location, rewards and the complete learning journey still require the documented checks. Do not introduce a paid dependency or enable billing under the current zero-recurring-cost constraint. Do not add dependencies or infrastructure solely because they appear among the options.

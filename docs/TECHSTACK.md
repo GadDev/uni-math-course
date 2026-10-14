@@ -1,12 +1,12 @@
 # Tech stack
 
-Status: revised proposal; framework and deployment require a pilot · Owner: GadDev · Last reviewed: 2026-10-14
+Status: implementation stack approved; integration and operational evidence pending · Owner: GadDev · Last reviewed: 2026-10-14
 
 ## Constraints and recommendation
 
 Deliver a correct four-lesson French/English learning pilot with one maintainer, **€0 recurring software cost**, public reading, signed-in practice, server grading and private saved progress. Use provider subdomains initially. Do not depend on trials, paid add-ons or an assumed future upgrade.
 
-The leading proposal is **Astro + React activities, Vercel Hobby, Supabase Free, and a small Radix Themes component set**. Nuxt remains a strong alternative; no framework, library or provider is approved or implemented by this document.
+The approved implementation stack is **Astro + React activities, Vercel Hobby, Supabase Free, and a small Radix Themes component set** (owner decision, 2026-10-14). The comparisons below retain the rationale and alternatives. Approval authorises implementation; no working application or configured deployment is claimed here.
 
 | Decision | Proposed choice | Reason / condition |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ Nuxt provides a coherent Vue application, server routes, localisation options an
 
 | Candidate | Strongest fit | Main cost for this project | Assessment |
 | --- | --- | --- | --- |
-| Astro + React | Markdown lessons, glossary and contained exercises | Astro/React boundary; draft persistence across page navigation; explicit API/session integration | Leading MVP proposal |
+| Astro + React | Markdown lessons, glossary and contained exercises | Astro/React boundary; draft persistence across page navigation; explicit API/session integration | Selected MVP stack |
 | Nuxt | A cohesive Vue app with tightly connected interactive pages | Vue/Nuxt learning if unfamiliar; content-module and hydration choices still need testing | Best alternative if Vue or continuous app navigation is prioritised |
 | Next.js | React expertise and an increasingly app-like practice workspace | App Router server/client boundaries and cache behaviour need discipline; content authoring still needs a pipeline | Prefer if rich dashboards or long connected practice sessions become central |
 | SvelteKit | Server forms, progressive enhancement and compact full-stack code | New Svelte skills plus content/UI decisions | Sound technically; no clear delivery advantage for this maintainer |
@@ -41,7 +41,7 @@ Astro supports [React integration](https://docs.astro.build/en/guides/integratio
 
 Use one React root per cohesive activity, not an island per input. Hydrate the activity when available; keep private questions behind authenticated delivery. Persist unfinished responses explicitly by stable activity ID/version so page or language navigation cannot silently discard them. Do not store tokens or learner histories in that draft store; clear drafts at logout/account changes and handle incompatible exercise versions.
 
-Astro adds a boundary between reading templates and React state. If the pilot needs persistent app-wide state, many cooperating islands or a React SPA embedded across most pages, reconsider Next.js or Nuxt. Nuxt and Next can also prerender content and limit client work: Astro is not automatically faster, cheaper or more accessible. Measure the actual first journey before final selection.
+Astro adds a boundary between reading templates and React state. If the pilot needs persistent app-wide state, many cooperating islands or a React SPA embedded across most pages, reconsider Next.js or Nuxt. Nuxt and Next can also prerender content and limit client work: Astro is not automatically faster, cheaper or more accessible. Measure the actual first journey before declaring the journey ready.
 
 No application exists yet, so this is a proposal change rather than a code migration. Keep grading, content schemas and persistence independent of page-framework APIs to make later changes manageable.
 
@@ -104,7 +104,7 @@ Classic Hosting also [forwards only the __session cookie](https://firebase.googl
 | [shadcn/ui](https://ui.shadcn.com/docs) with React | Attractive editable component source | Copied-code updates and styling become project work; choose if customisation justifies it |
 | [Nuxt UI](https://ui.nuxt.com/) with Nuxt | Free styled Vue controls, Reka UI/Tailwind and Nuxt integration | Best if Nuxt wins; do not choose Vue solely to use this library |
 
-Recommend Radix Themes provisionally for the Astro/React candidate. There is no demonstrated need for two UI kits, a data grid or a separate forms framework. Use ordinary CSS for the notebook reading layout; a React provider cannot style or share context across unrelated Astro islands automatically.
+Use the approved Radix Themes library for the Astro/React implementation. There is no demonstrated need for two UI kits, a data grid or a separate forms framework. Use ordinary CSS for the notebook reading layout; a React provider cannot style or share context across unrelated Astro islands automatically.
 
 Start with labelled radios/inputs, buttons, deliberate hints and feedback. TruthTableExercise, WorkedExample and MathExpression remain custom teaching components. Use semantic table headers/cell labels and component-local scrolling. Keep the FR/EN switch visible and preserve activity identity/drafts.
 
@@ -169,4 +169,4 @@ After the bilingual content pilot, prove the same complete learning journey on t
 | Cost/operations | Accepted free quotas/pauses, isolated test data, export/restore and checked rollback evidence |
 | Decision | Astro boundaries remain small; otherwise revisit Nuxt or Next with recorded reasons |
 
-Confirm framework, personal noncommercial eligibility, Supabase pauses/backups, auth-provider availability, pilot size, data region, rights and rewards before implementation. See [ROADMAP.md](ROADMAP.md) and [CONSTITUTION.md](CONSTITUTION.md). No dependencies, account setup, billing change or deployment is activated here.
+Framework and hosting are approved. Confirm personal noncommercial eligibility, Supabase pauses/backups, auth-provider availability, pilot size, data region, rights and rewards before implementation. See [ROADMAP.md](ROADMAP.md) and [CONSTITUTION.md](CONSTITUTION.md). No dependencies, account setup, billing change or deployment is activated here.

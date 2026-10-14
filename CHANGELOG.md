@@ -15,4 +15,4 @@ Notable changes are recorded here. No application version has been released.
 - GitHub Actions documentation validation and Dependabot updates for GitHub Actions.
 - Proposed mission, constitution, four-lesson MVP roadmap and architecture, with a full 20-lesson course map and explicit open decisions.
 - Playbook-aligned Markdown validation, shared agent instructions, content-rights policy and setup evidence record.
-- Release policy and contribution conventions: manual changelog now, with Release Please deferred until a versioned application exists.
+- Release policy and contribution conventions: manual changelog now, with Release Please deferred until a versioned Nuxt application exists.

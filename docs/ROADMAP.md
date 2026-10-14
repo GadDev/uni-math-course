@@ -6,7 +6,7 @@ Status: proposed delivery plan · Owner: GadDev · Last reviewed: 2026-10-14
 
 Deliver a small French/English learning journey with correct content, real sign-in, server grading, saved attempts, and private progress. The repository is in its documentation/foundation stage. No application, deployed service, user account flow, or completed exercise bank exists yet.
 
-The [mission](MISSION.md) defines the outcome; the [constitution](CONSTITUTION.md) defines content and product constraints. Architecture choices remain provisional in [TECHSTACK.md](TECHSTACK.md).
+The [mission](MISSION.md) defines the outcome; the [constitution](CONSTITUTION.md) defines content and product constraints. The Astro/React, Vercel Hobby, Supabase Free and Radix Themes stack is approved in [TECHSTACK.md](TECHSTACK.md); implementation and operational acceptance remain to be demonstrated.
 
 ## M0 - Repository and product foundation
 
@@ -117,4 +117,4 @@ Ranges assume a small class, one maintainer, usable auth accounts, and no unexpe
 
 ## Current decisions awaiting confirmation
 
-The budget is confirmed as zero recurring software cost. Remaining decisions: urgent chapter sequence; Google versus other sign-in providers; pilot size; free-plan limitations and recovery acceptance; framework and hosting; original-content/publication permission; whether goodies are digital or physical. No cloud resources, accounts, scheduled tasks, or application dependencies are activated by this roadmap.
+The budget is confirmed as zero recurring software cost and the implementation stack is approved. Remaining decisions: urgent chapter sequence; Google versus other sign-in providers; pilot size; free-plan limitations and recovery acceptance; original-content/publication permission; whether goodies are digital or physical. No cloud resources, accounts, scheduled tasks, or application dependencies are activated by this roadmap.
