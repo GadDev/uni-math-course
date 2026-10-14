@@ -25,12 +25,14 @@ export const copy = {
     lessonTitle: 'L’implication',
     description:
       'Une promesse avec un seul échec. Découvrez A ⇒ B, sa table de vérité et les conditions nécessaires et suffisantes.',
-    future: 'Les premières idées',
+    future: 'Tout le programme',
     planned: 'À venir',
     practiceTitle: 'La pratique arrive ensuite',
     practice:
       'Les exercices interactifs et le suivi des progrès sont en développement. La lecture reste libre ; la connexion sera disponible une fois le service configuré.',
     review: 'Texte original du projet · Leçon pilote · Version 1',
+    reviewExtended:
+      'Texte original du projet · Cours étendu, hors pilote de classe · Version 1',
     language: 'Langue',
     footer:
       'Projet étudiant indépendant. Aucune affiliation ou approbation universitaire revendiquée.',
@@ -39,7 +41,28 @@ export const copy = {
     readingNotice:
       'Vous pouvez lire cette leçon librement. La connexion sera nécessaire pour les futurs exercices.',
     next: 'Revenir au programme',
-    lessons: ['Assertions', 'Connecteurs logiques', 'Tables de vérité'],
+    programme: [
+      { id: 'L01', title: 'Assertions' },
+      { id: 'L02', title: 'Connecteurs logiques' },
+      { id: 'L03', title: 'Tables de vérité' },
+      { id: 'L04', title: 'Équivalence sémantique' },
+      { id: 'L05', title: 'L’implication' },
+      { id: 'L06', title: 'Réciproque et contraposée' },
+      { id: 'L07', title: 'Biconditionnelle et équivalence' },
+      { id: 'L08', title: 'Complétude fonctionnelle' },
+      { id: 'L09', title: 'Ensembles et paradoxe de Russell' },
+      { id: 'L10', title: 'Nombres, énumération et inclusion' },
+      { id: 'L11', title: 'Prédicats et quantificateurs' },
+      { id: 'L12', title: 'Nier les quantificateurs' },
+      { id: 'L13', title: 'Ensembles par compréhension' },
+      { id: 'L14', title: 'Ensembles des parties' },
+      { id: 'L15', title: 'Opérations sur les ensembles' },
+      { id: 'L16', title: 'Quantificateurs bornés' },
+      { id: 'L17', title: 'Produits, relations et ordre des quantificateurs' },
+      { id: 'L18', title: 'SQL, EXISTS et NOT EXISTS' },
+      { id: 'L19', title: 'Python : all et any' },
+      { id: 'L20', title: 'Contrôle d’accès et « seuls »' },
+    ],
     showGuide: 'Comment utiliser ce carnet',
     guide:
       'Lisez un exemple, puis reformulez la règle avec vos propres mots. Les activités guidées font partie de la lecture ; les réponses indépendantes viendront avec la pratique connectée.',
@@ -70,12 +93,14 @@ export const copy = {
     lessonTitle: 'Implication',
     description:
       'A promise with one failure case. Explore A ⇒ B, its truth table, and necessary and sufficient conditions.',
-    future: 'The first ideas',
+    future: 'The whole programme',
     planned: 'Coming later',
     practiceTitle: 'Practice comes next',
     practice:
       'Interactive exercises and progress tracking are in development. Reading stays open; sign-in becomes available once the service is configured.',
     review: 'Original project text · Pilot lesson · Version 1',
+    reviewExtended:
+      'Original project text · Extended course, outside the class pilot · Version 1',
     language: 'Language',
     footer:
       'Independent student project. No university affiliation or endorsement claimed.',
@@ -84,7 +109,28 @@ export const copy = {
     readingNotice:
       'You can read this lesson freely. Sign-in will be required for future exercises.',
     next: 'Back to the programme',
-    lessons: ['Assertions', 'Logical connectives', 'Truth tables'],
+    programme: [
+      { id: 'L01', title: 'Assertions' },
+      { id: 'L02', title: 'Logical connectives' },
+      { id: 'L03', title: 'Truth tables' },
+      { id: 'L04', title: 'Semantic equivalence' },
+      { id: 'L05', title: 'Implication' },
+      { id: 'L06', title: 'Converse and contrapositive' },
+      { id: 'L07', title: 'Biconditional and equivalence' },
+      { id: 'L08', title: 'Functional completeness' },
+      { id: 'L09', title: 'Sets and Russell’s paradox' },
+      { id: 'L10', title: 'Number sets, enumeration and inclusion' },
+      { id: 'L11', title: 'Predicates and quantifiers' },
+      { id: 'L12', title: 'Negating quantifiers' },
+      { id: 'L13', title: 'Set comprehension' },
+      { id: 'L14', title: 'Power sets' },
+      { id: 'L15', title: 'Set operations' },
+      { id: 'L16', title: 'Bounded quantifiers' },
+      { id: 'L17', title: 'Products, relations and quantifier order' },
+      { id: 'L18', title: 'SQL, EXISTS and NOT EXISTS' },
+      { id: 'L19', title: 'Python: all and any' },
+      { id: 'L20', title: 'Access control and “only”' },
+    ],
     showGuide: 'How to use this notebook',
     guide:
       'Read an example, then explain the rule in your own words. Guided work belongs to reading; independent answers will arrive with signed-in practice.',

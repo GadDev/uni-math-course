@@ -1,0 +1,541 @@
+{
+  "lessonId": "L01",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L01-E01",
+      "objectiveId": "L01-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "question-or-command-as-assertion",
+        "vague-sentence-as-assertion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Parmi ces phrases, laquelle est une assertion ?",
+        "en": "Which of these sentences is an assertion?"
+      },
+      "hint": {
+        "fr": "Demandez-vous si la phrase est vraie ou fausse, sans contexte supplémentaire.",
+        "en": "Ask whether the sentence is true or false, without any extra context."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Il fait chaud.",
+            "en": "It is hot."
+          },
+          "feedback": {
+            "fr": "Phrase vague : le seuil de « chaud », le lieu et le moment ne sont pas précisés.",
+            "en": "Vague sentence: the threshold for “hot”, the place and the time are not specified."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Le nombre 7 est impair.",
+            "en": "The number 7 is odd."
+          },
+          "feedback": {
+            "fr": "Exact : cet énoncé est vrai, donc c’est une assertion.",
+            "en": "Correct: this statement is true, so it is an assertion."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Quelle heure est-il ?",
+            "en": "What time is it?"
+          },
+          "feedback": {
+            "fr": "C’est une question : elle n’est ni vraie ni fausse.",
+            "en": "This is a question: it is neither true nor false."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Ferme la fenêtre.",
+            "en": "Close the window."
+          },
+          "feedback": {
+            "fr": "C’est un ordre : il ne se déclare pas vrai ou faux.",
+            "en": "This is a command: it is not declared true or false."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Seule l’affirmation « Le nombre 7 est impair. » a une valeur de vérité claire : elle est vraie.",
+        "en": "Only “The number 7 is odd.” has a clear truth value: it is true."
+      },
+      "lessonId": "L01",
+      "version": 1,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [3, 4, 5],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E02",
+      "objectiveId": "L01-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "self-reference-has-a-value",
+        "unknown-value-means-no-value"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "On considère la phrase « Cette phrase est fausse. ». Quelle affirmation est correcte ?",
+        "en": "Consider the sentence “This sentence is false.” Which claim is correct?"
+      },
+      "hint": {
+        "fr": "Supposez-la vraie, puis supposez-la fausse, et regardez ce que chaque hypothèse impose.",
+        "en": "Assume it is true, then assume it is false, and check what each assumption forces."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Elle est vraie.",
+            "en": "It is true."
+          },
+          "feedback": {
+            "fr": "Si elle était vraie, ce qu’elle affirme serait exact, donc elle serait fausse : contradiction.",
+            "en": "If it were true, what it says would hold, so it would be false: a contradiction."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Elle est fausse.",
+            "en": "It is false."
+          },
+          "feedback": {
+            "fr": "Si elle était fausse, ce qu’elle affirme serait inexact, donc elle serait vraie : contradiction.",
+            "en": "If it were false, what it says would fail, so it would be true: a contradiction."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Aucune valeur cohérente ne lui est attribuable : ce n’est pas une assertion au sens du cours.",
+            "en": "No consistent value can be assigned to it: it is not an assertion in the course’s sense."
+          },
+          "feedback": {
+            "fr": "Exact : les deux hypothèses mènent à une contradiction.",
+            "en": "Correct: both assumptions lead to a contradiction."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "C’est une assertion vraie ou fausse, mais nous ne pouvons pas savoir laquelle.",
+            "en": "It is an assertion that is true or false, but we cannot tell which."
+          },
+          "feedback": {
+            "fr": "Une assertion ordinaire serait dans ce cas, mais ici aucune valeur ne tient : l’hypothèse vraie et l’hypothèse fausse se contredisent.",
+            "en": "An ordinary assertion would fit this description, but here no value survives: the true and false assumptions contradict each other."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Une assertion doit recevoir une valeur cohérente. La phrase menteuse n’en reçoit aucune, donc elle n’est pas une assertion. Ignorer une valeur n’est pas la même chose que ne pas en avoir.",
+        "en": "An assertion must receive a consistent value. The liar sentence receives none, so it is not an assertion. Not knowing a value is not the same as having none."
+      },
+      "lessonId": "L01",
+      "version": 1,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [3, 4, 5],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E03",
+      "objectiveId": "L01-O05",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "unknown-value-not-assertion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "On considère « Il pleut à Luxembourg-Ville le 14 octobre 2026 à midi. ». Quelle affirmation est correcte ?",
+        "en": "Consider “It rains in Luxembourg City on 14 October 2026 at noon.” Which claim is correct?"
+      },
+      "hint": {
+        "fr": "Une fois le lieu et le moment fixés, combien de valeurs de vérité la phrase peut-elle recevoir ?",
+        "en": "Once the place and time are fixed, how many truth values can the sentence have?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Ce n’est pas une assertion, car la météo change.",
+            "en": "It is not an assertion, because the weather changes."
+          },
+          "feedback": {
+            "fr": "La météo change dans le temps, mais une fois le lieu et l’instant fixés, la phrase désigne un seul fait.",
+            "en": "The weather changes over time, but once the place and instant are fixed, the sentence refers to a single fact."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "C’est une assertion : une fois le lieu et l’instant fixés, elle est vraie ou fausse, même si nous ne savons pas laquelle.",
+            "en": "It is an assertion: once the place and instant are fixed, it is true or false, even if we do not know which."
+          },
+          "feedback": {
+            "fr": "Exact : la valeur existe même si nous ne la connaissons pas encore.",
+            "en": "Correct: the value exists even if we do not yet know it."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "C’est une assertion toujours vraie.",
+            "en": "It is an assertion that is always true."
+          },
+          "feedback": {
+            "fr": "Rien dans la phrase n’impose qu’elle soit vraie : elle peut être fausse.",
+            "en": "Nothing in the sentence forces it to be true: it could be false."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Ce n’est pas une assertion, car nous ne savons pas si elle est vraie.",
+            "en": "It is not an assertion, because we do not know whether it is true."
+          },
+          "feedback": {
+            "fr": "Le critère est l’existence d’une valeur, pas la connaissance de celle-ci.",
+            "en": "The criterion is whether a value exists, not whether we know it."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Une assertion a une valeur de vérité une fois son contexte fixé. Notre ignorance ne change pas cette valeur.",
+        "en": "An assertion has a truth value once its context is fixed. Our ignorance does not change that value."
+      },
+      "lessonId": "L01",
+      "version": 1,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [3, 4, 5],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E04",
+      "objectiveId": "L01-O03",
+      "difficulty": "application",
+      "misconceptions": [
+        "vague-sentence-as-assertion",
+        "unstated-threshold"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle des phrases suivantes est une version précisée de « Il fait chaud. » qui est une assertion ?",
+        "en": "Which of the following is a precise version of “It is hot.” that is an assertion?"
+      },
+      "hint": {
+        "fr": "Cherchez la version qui fixe le seuil, le lieu et le moment.",
+        "en": "Look for the version that fixes the threshold, the place and the time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Il fait chaud.",
+            "en": "It is hot."
+          },
+          "feedback": {
+            "fr": "C’est la phrase d’origine : elle reste vague.",
+            "en": "This is the original sentence: it remains vague."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Il fait plus de 25 °C à Luxembourg-Ville le 14 octobre 2026 à 14 h.",
+            "en": "It is more than 25 °C in Luxembourg City on 14 October 2026 at 14:00."
+          },
+          "feedback": {
+            "fr": "Exact : le seuil, le lieu et le moment sont fixés, donc l’énoncé est vrai ou faux.",
+            "en": "Correct: the threshold, place and time are fixed, so the statement is true or false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Il fait chaud, n’est-ce pas ?",
+            "en": "It is hot, isn’t it?"
+          },
+          "feedback": {
+            "fr": "C’est une question : elle n’est pas une assertion, même si elle parle de chaleur.",
+            "en": "This is a question: it is not an assertion, even though it mentions heat."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "À mon avis, il fait très chaud.",
+            "en": "In my opinion, it is very hot."
+          },
+          "feedback": {
+            "fr": "C’est un avis : il dépend du goût et ne fixe aucun seuil vérifiable.",
+            "en": "This is an opinion: it depends on taste and fixes no checkable threshold."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Pour transformer une phrase vague en assertion, il faut fixer ce qui la rend vague : le seuil, le lieu et le moment.",
+        "en": "To turn a vague sentence into an assertion, fix what makes it vague: the threshold, the place and the time."
+      },
+      "lessonId": "L01",
+      "version": 1,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [3, 4, 5],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E05",
+      "objectiveId": "L01-O06",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "letter-confused-with-value",
+        "sentence-confused-with-truth-value"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "On pose $A$ : « Deux est un nombre pair. ». Quelle est la valeur de vérité de $A$, notée $1$ ou $0$ ?",
+        "en": "Let $A$ be “Two is an even number.” What is the truth value of $A$, written $1$ or $0$?"
+      },
+      "hint": {
+        "fr": "Notez $1$ pour vrai et $0$ pour faux.",
+        "en": "Write $1$ for true and $0$ for false."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "$0$ signifie faux. Or deux est bien pair : l’énoncé est vrai.",
+            "en": "$0$ means false. But two is indeed even: the statement is true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Exact : $A$ est vraie, donc $A = 1$.",
+            "en": "Correct: $A$ is true, so $A = 1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A$",
+            "en": "$A$"
+          },
+          "feedback": {
+            "fr": "$A$ est le nom de l’assertion, pas sa valeur de vérité.",
+            "en": "$A$ is the name of the assertion, not its truth value."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "« Deux est un nombre pair. »",
+            "en": "“Two is an even number.”"
+          },
+          "feedback": {
+            "fr": "C’est l’énoncé lui-même, pas sa valeur de vérité.",
+            "en": "This is the statement itself, not its truth value."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "On distingue trois choses : la lettre $A$ qui nomme l’assertion, l’énoncé qu’elle représente, et sa valeur $1$ ou $0$.",
+        "en": "Three things must be kept apart: the letter $A$ that names the assertion, the statement it stands for, and its value $1$ or $0$."
+      },
+      "lessonId": "L01",
+      "version": 1,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [3, 4, 5],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E06",
+      "objectiveId": "L01-O01",
+      "difficulty": "application",
+      "misconceptions": [
+        "question-with-true-words-is-assertion",
+        "false-assertion-looks-like-opinion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle phrase est une assertion fausse ?",
+        "en": "Which sentence is a false assertion?"
+      },
+      "hint": {
+        "fr": "Il faut d’abord une assertion, puis une valeur fausse.",
+        "en": "First find an assertion, then a false value."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Deux est un nombre pair.",
+            "en": "Two is an even number."
+          },
+          "feedback": {
+            "fr": "C’est une assertion vraie, donc elle ne convient pas.",
+            "en": "This is a true assertion, so it does not fit."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Dix est un nombre premier.",
+            "en": "Ten is a prime number."
+          },
+          "feedback": {
+            "fr": "Exact : dix est divisible par deux et par cinq, donc l’assertion est fausse.",
+            "en": "Correct: ten is divisible by two and by five, so the assertion is false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Combien vaut dix ?",
+            "en": "What is ten?"
+          },
+          "feedback": {
+            "fr": "C’est une question : elle n’est ni vraie ni fausse.",
+            "en": "This is a question: it is neither true nor false."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Dix est premier, n’est-ce pas ?",
+            "en": "Ten is prime, isn’t it?"
+          },
+          "feedback": {
+            "fr": "Cette phrase est une question, même si elle contient une affirmation.",
+            "en": "This sentence is a question, even though it contains an assertion."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "« Dix est un nombre premier. » est une assertion fausse, car dix a les diviseurs 1, 2, 5 et 10.",
+        "en": "“Ten is a prime number.” is a false assertion, because ten has the divisors 1, 2, 5 and 10."
+      },
+      "lessonId": "L01",
+      "version": 1,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [3, 4, 5],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

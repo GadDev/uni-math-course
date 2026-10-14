@@ -1,0 +1,567 @@
+{
+  "lessonId": "L06",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L06-E01",
+      "objectiveId": "L06-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "converse-confused-with-contrapositive"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la réciproque de $A \\Rightarrow B$ ?",
+        "en": "What is the converse of $A \\Rightarrow B$?"
+      },
+      "hint": {
+        "fr": "La réciproque échange simplement les deux côtés.",
+        "en": "The converse simply swaps the two sides."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$B \\Rightarrow A$",
+            "en": "$B \\Rightarrow A$"
+          },
+          "feedback": {
+            "fr": "Exact : on échange l’antécédent et le conséquent.",
+            "en": "Correct: the antecedent and the consequent are swapped."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg A \\Rightarrow \\neg B$",
+            "en": "$\\neg A \\Rightarrow \\neg B$"
+          },
+          "feedback": {
+            "fr": "On nie chaque côté sans les échanger : ce n’est pas la réciproque.",
+            "en": "This negates each side without swapping them: it is not the converse."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg B \\Rightarrow \\neg A$",
+            "en": "$\\neg B \\Rightarrow \\neg A$"
+          },
+          "feedback": {
+            "fr": "C’est la contraposée : on échange et on nie.",
+            "en": "This is the contrapositive: swap and negate."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A \\Rightarrow \\neg B$",
+            "en": "$A \\Rightarrow \\neg B$"
+          },
+          "feedback": {
+            "fr": "Cette formule n’est obtenue ni en échangeant les côtés ni en les niant tous les deux.",
+            "en": "This is obtained neither by swapping the sides nor by negating both."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La réciproque de $A \\Rightarrow B$ est $B \\Rightarrow A$.",
+        "en": "The converse of $A \\Rightarrow B$ is $B \\Rightarrow A$."
+      },
+      "lessonId": "L06",
+      "version": 1,
+      "prerequisites": [
+        "L05"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L06-E02",
+      "objectiveId": "L06-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "contrapositive-confused-with-converse",
+        "negation-without-swap"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la contraposée de $A \\Rightarrow B$ ?",
+        "en": "What is the contrapositive of $A \\Rightarrow B$?"
+      },
+      "hint": {
+        "fr": "Échangez les côtés, puis niez les deux.",
+        "en": "Swap the sides, then negate both."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg A \\Rightarrow \\neg B$",
+            "en": "$\\neg A \\Rightarrow \\neg B$"
+          },
+          "feedback": {
+            "fr": "On a nié sans échanger : ce n’est pas la contraposée.",
+            "en": "This negates without swapping: it is not the contrapositive."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg B \\Rightarrow \\neg A$",
+            "en": "$\\neg B \\Rightarrow \\neg A$"
+          },
+          "feedback": {
+            "fr": "Exact : on échange et on nie les deux côtés.",
+            "en": "Correct: the sides are swapped and both are negated."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$B \\Rightarrow A$",
+            "en": "$B \\Rightarrow A$"
+          },
+          "feedback": {
+            "fr": "C’est la réciproque : on échange sans nier.",
+            "en": "This is the converse: it swaps without negating."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\neg (A \\Rightarrow B)$",
+            "en": "$\\neg (A \\Rightarrow B)$"
+          },
+          "feedback": {
+            "fr": "C’est la négation de l’implication, qui est une autre assertion : $A \\land \\neg B$.",
+            "en": "This is the negation of the implication, a different assertion: $A \\land \\neg B$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La contraposée de $A \\Rightarrow B$ est $\\neg B \\Rightarrow \\neg A$.",
+        "en": "The contrapositive of $A \\Rightarrow B$ is $\\neg B \\Rightarrow \\neg A$."
+      },
+      "lessonId": "L06",
+      "version": 1,
+      "prerequisites": [
+        "L05"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L06-E03",
+      "objectiveId": "L06-O03",
+      "difficulty": "application",
+      "misconceptions": [
+        "implication-equivalent-to-converse",
+        "implication-equivalent-to-inverse"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces équivalences est vraie pour toutes assertions $A$ et $B$ ?",
+        "en": "Which of these equivalences holds for all assertions $A$ and $B$?"
+      },
+      "hint": {
+        "fr": "Cherchez une ligne de table qui réfute chaque mauvaise option.",
+        "en": "Look for a table row that refutes each wrong option."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(A \\Rightarrow B) \\equiv (B \\Rightarrow A)$",
+            "en": "$(A \\Rightarrow B) \\equiv (B \\Rightarrow A)$"
+          },
+          "feedback": {
+            "fr": "Fausse : pour $A = 0$ et $B = 1$, la première vaut $1$ et la seconde $0$.",
+            "en": "False: for $A = 0$ and $B = 1$, the first is $1$ and the second $0$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(A \\Rightarrow B) \\equiv (\\neg B \\Rightarrow \\neg A)$",
+            "en": "$(A \\Rightarrow B) \\equiv (\\neg B \\Rightarrow \\neg A)$"
+          },
+          "feedback": {
+            "fr": "Exact : une implication est équivalente à sa contraposée.",
+            "en": "Correct: an implication is equivalent to its contrapositive."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(A \\Rightarrow B) \\equiv (\\neg A \\Rightarrow \\neg B)$",
+            "en": "$(A \\Rightarrow B) \\equiv (\\neg A \\Rightarrow \\neg B)$"
+          },
+          "feedback": {
+            "fr": "Fausse : pour $A = 0$ et $B = 1$, la première vaut $1$ et la seconde $0$.",
+            "en": "False: for $A = 0$ and $B = 1$, the first is $1$ and the second $0$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$(A \\Rightarrow B) \\equiv \\neg (B \\Rightarrow A)$",
+            "en": "$(A \\Rightarrow B) \\equiv \\neg (B \\Rightarrow A)$"
+          },
+          "feedback": {
+            "fr": "Fausse : pour $A = 1$ et $B = 1$, la première vaut $1$ et la seconde $0$.",
+            "en": "False: for $A = 1$ and $B = 1$, the first is $1$ and the second $0$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Seule l’équivalence avec la contraposée est valide ; les autres sont réfutées par une ligne de la table.",
+        "en": "Only the equivalence with the contrapositive is valid; a row of the table refutes each other option."
+      },
+      "lessonId": "L06",
+      "version": 1,
+      "prerequisites": [
+        "L05"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L06-E04",
+      "objectiveId": "L06-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "converse-read-as-original"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Complétez la colonne de la réciproque $B \\Rightarrow A$.",
+        "en": "Complete the column of the converse $B \\Rightarrow A$."
+      },
+      "hint": {
+        "fr": "La réciproque est fausse seulement lorsque $B$ est vraie et $A$ est fausse.",
+        "en": "The converse is false only when $B$ is true and $A$ is false."
+      },
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "10": true,
+        "11": true,
+        "00": true,
+        "01": false
+      },
+      "feedback": {
+        "fr": "La réciproque est fausse seulement à la ligne 01. Or $A \\Rightarrow B$ y est vraie : les deux assertions ne sont pas équivalentes.",
+        "en": "The converse is false only in row 01. But $A \\Rightarrow B$ is true there: the two assertions are not equivalent."
+      },
+      "explanation": {
+        "fr": "Dans la ligne 01, $A = 0$ et $B = 1$, donc $B \\Rightarrow A$ vaut $1 \\Rightarrow 0 = 0$.",
+        "en": "In row 01, $A = 0$ and $B = 1$, so $B \\Rightarrow A$ is $1 \\Rightarrow 0 = 0$."
+      },
+      "lessonId": "L06",
+      "version": 1,
+      "prerequisites": [
+        "L05"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L06-E05",
+      "objectiveId": "L06-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "valid-deduction-confused-with-invalid",
+        "denying-the-antecedent"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Règle : « Si tu termines le rapport, tu as un jour de congé. » Un employé n’a pas de jour de congé. Quelle conclusion découle logiquement de la règle ?",
+        "en": "Rule: “If you finish the report, you get a day off.” An employee gets no day off. Which conclusion follows logically from the rule?"
+      },
+      "hint": {
+        "fr": "Utilisez la contraposée de la règle.",
+        "en": "Use the contrapositive of the rule."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Le rapport n’a pas été terminé.",
+            "en": "The report was not finished."
+          },
+          "feedback": {
+            "fr": "Exact : la contraposée donne « pas de congé, donc rapport non terminé ».",
+            "en": "Correct: the contrapositive gives “no day off, so the report is not finished”."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Le rapport a été terminé.",
+            "en": "The report was finished."
+          },
+          "feedback": {
+            "fr": "Si le rapport avait été terminé, la règle aurait donné un jour de congé.",
+            "en": "If the report had been finished, the rule would have given a day off."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "On ne peut rien conclure.",
+            "en": "Nothing can be concluded."
+          },
+          "feedback": {
+            "fr": "Si : la contraposée de la règle permet une conclusion valide.",
+            "en": "Yes it can: the contrapositive of the rule allows a valid conclusion."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "La règle a été violée.",
+            "en": "The rule was broken."
+          },
+          "feedback": {
+            "fr": "La règle n’est violée que si le rapport est terminé sans congé ; or on conclut ici qu’il ne l’est pas.",
+            "en": "The rule is broken only if the report is finished and there is no day off; here we conclude it was not finished."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "De $A \\Rightarrow B$ et $\\neg B$, on déduit $\\neg A$ : c’est l’usage de la contraposée.",
+        "en": "From $A \\Rightarrow B$ and $\\neg B$, we deduce $\\neg A$: this uses the contrapositive."
+      },
+      "lessonId": "L06",
+      "version": 1,
+      "prerequisites": [
+        "L05"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L06-E06",
+      "objectiveId": "L06-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "if-read-as-only-if",
+        "natural-language-direction"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une responsable veut qu’un jour de congé soit accordé seulement à ceux qui ont terminé le rapport. Quelle phrase exprime cette intention ?",
+        "en": "A manager intends that a day off is given only to people who finished the report. Which sentence expresses this?"
+      },
+      "hint": {
+        "fr": "Posez $A$ : « tu termines le rapport » et $B$ : « tu as un jour de congé ». Quelle implication faut-il ?",
+        "en": "Let $A$ be “you finish the report” and $B$ “you get a day off”. Which implication is needed?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Si tu termines le rapport, tu as un jour de congé.",
+            "en": "If you finish the report, you get a day off."
+          },
+          "feedback": {
+            "fr": "Cette phrase ne dit rien des personnes qui n’ont pas terminé : elles pourraient aussi avoir un congé.",
+            "en": "This sentence says nothing about people who did not finish: they might get a day off too."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Si tu as un jour de congé, tu as terminé le rapport.",
+            "en": "If you get a day off, you finished the report."
+          },
+          "feedback": {
+            "fr": "Exact : c’est $B \\Rightarrow A$, qui exprime « seulement ».",
+            "en": "Correct: this is $B \\Rightarrow A$, which expresses “only”."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Si tu ne termines pas le rapport, tu as un jour de congé.",
+            "en": "If you do not finish the report, you get a day off."
+          },
+          "feedback": {
+            "fr": "C’est presque l’inverse de l’intention.",
+            "en": "This is nearly the opposite of the intention."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Tu termines le rapport et tu as un jour de congé.",
+            "en": "You finish the report and you get a day off."
+          },
+          "feedback": {
+            "fr": "Cette phrase affirme deux faits ; ce n’est pas une règle.",
+            "en": "This sentence asserts two facts; it is not a rule."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "« Congé seulement pour ceux qui ont terminé » se traduit par $B \\Rightarrow A$, la réciproque de la phrase prononcée.",
+        "en": "“Day off only for those who finished” translates to $B \\Rightarrow A$, the converse of the spoken sentence."
+      },
+      "lessonId": "L06",
+      "version": 1,
+      "prerequisites": [
+        "L05"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

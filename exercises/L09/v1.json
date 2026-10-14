@@ -1,0 +1,566 @@
+{
+  "lessonId": "L09",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L09-E01",
+      "objectiveId": "L09-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "set-confused-with-statement"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Informellement, qu’est-ce qu’un ensemble ?",
+        "en": "Informally, what is a set?"
+      },
+      "hint": {
+        "fr": "Pensez à une structure de données qui regroupe des objets.",
+        "en": "Think of a data structure that gathers objects."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Une collection d’objets.",
+            "en": "A collection of objects."
+          },
+          "feedback": {
+            "fr": "Exact : c’est la notion informelle d’ensemble.",
+            "en": "Correct: this is the informal notion of a set."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Seulement une collection de nombres.",
+            "en": "Only a collection of numbers."
+          },
+          "feedback": {
+            "fr": "Un ensemble peut contenir des objets de toute nature, par exemple des lettres.",
+            "en": "A set can contain objects of any kind, for example letters."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Un énoncé vrai ou faux.",
+            "en": "A true or false statement."
+          },
+          "feedback": {
+            "fr": "C’est une assertion, pas un ensemble.",
+            "en": "That is an assertion, not a set."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Une phrase avec une variable.",
+            "en": "A sentence with a variable."
+          },
+          "feedback": {
+            "fr": "C’est un prédicat, pas un ensemble.",
+            "en": "That is a predicate, not a set."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Un ensemble est, informellement, une collection d’objets.",
+        "en": "Informally, a set is a collection of objects."
+      },
+      "lessonId": "L09",
+      "version": 1,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E02",
+      "objectiveId": "L09-O02",
+      "difficulty": "application",
+      "misconceptions": [
+        "any-collection-is-a-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi « toute collection est un ensemble » est-il trop naïf ?",
+        "en": "Why is “every collection is a set” too naive?"
+      },
+      "hint": {
+        "fr": "Pensez à la collection des ensembles qui ne sont pas éléments d’eux-mêmes.",
+        "en": "Think of the collection of sets that are not elements of themselves."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Cela autorise la collection $E$ des ensembles qui ne se contiennent pas, ce qui mène à une contradiction.",
+            "en": "It allows the collection $E$ of sets that do not contain themselves, which leads to a contradiction."
+          },
+          "feedback": {
+            "fr": "Exact : c’est le paradoxe de Russell.",
+            "en": "Correct: this is Russell’s paradox."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Cela interdit les collections infinies.",
+            "en": "It forbids infinite collections."
+          },
+          "feedback": {
+            "fr": "Ce n’est pas le problème : les ensembles infinis comme $\\mathbb{N}$ sont acceptés.",
+            "en": "That is not the problem: infinite sets such as $\\mathbb{N}$ are accepted."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Cela rend impossible la collection vide.",
+            "en": "It makes the empty collection impossible."
+          },
+          "feedback": {
+            "fr": "L’ensemble vide est parfaitement acceptable.",
+            "en": "The empty set is perfectly acceptable."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Cela oblige tout ensemble à se contenir lui-même.",
+            "en": "It forces every set to contain itself."
+          },
+          "feedback": {
+            "fr": "Rien de tel : le problème vient des ensembles qui ne se contiennent pas.",
+            "en": "Nothing like that: the problem comes from sets that do not contain themselves."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "L’hypothèse « toute collection est un ensemble » permet la collection de Russell, qui est contradictoire.",
+        "en": "The assumption “every collection is a set” allows Russell’s collection, which is contradictory."
+      },
+      "lessonId": "L09",
+      "version": 1,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E03",
+      "objectiveId": "L09-O03",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "russell-collection-misdescribed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces descriptions est la collection $E$ de Russell ?",
+        "en": "Which of these describes Russell’s collection $E$?"
+      },
+      "hint": {
+        "fr": "Elle rassemble les ensembles $x$ vérifiant $x \\notin x$.",
+        "en": "It gathers the sets $x$ satisfying $x \\notin x$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "La collection des ensembles $x$ tels que $x \\notin x$.",
+            "en": "The collection of sets $x$ such that $x \\notin x$."
+          },
+          "feedback": {
+            "fr": "Exact : $E$ rassemble les ensembles qui ne se contiennent pas.",
+            "en": "Correct: $E$ gathers the sets that do not contain themselves."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "La collection des ensembles $x$ tels que $x \\in x$.",
+            "en": "The collection of sets $x$ such that $x \\in x$."
+          },
+          "feedback": {
+            "fr": "Ce serait l’inverse : les ensembles qui se contiennent eux-mêmes.",
+            "en": "That would be the reverse: sets that do contain themselves."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "La collection vide.",
+            "en": "The empty collection."
+          },
+          "feedback": {
+            "fr": "Rien n’impose que $E$ soit vide.",
+            "en": "Nothing forces $E$ to be empty."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "La collection de tous les nombres.",
+            "en": "The collection of all numbers."
+          },
+          "feedback": {
+            "fr": "Les nombres ne sont pas la définition de $E$.",
+            "en": "Numbers are not the definition of $E$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$E$ est définie par la condition $x \\notin x$.",
+        "en": "$E$ is defined by the condition $x \\notin x$."
+      },
+      "lessonId": "L09",
+      "version": 1,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E04",
+      "objectiveId": "L09-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "contradiction-missed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Supposons $E \\in E$. Que dit alors la condition de définition de $E$ ?",
+        "en": "Suppose $E \\in E$. What does the defining condition of $E$ then say?"
+      },
+      "hint": {
+        "fr": "Si $E$ est élément de $E$, alors $E$ doit vérifier la condition qui définit $E$.",
+        "en": "If $E$ is an element of $E$, then $E$ must satisfy the condition defining $E$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$E \\notin E$ : c’est une contradiction.",
+            "en": "$E \\notin E$: this is a contradiction."
+          },
+          "feedback": {
+            "fr": "Exact : $E$ doit vérifier $x \\notin x$ avec $x = E$.",
+            "en": "Correct: $E$ must satisfy $x \\notin x$ with $x = E$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$E \\in E$ : aucun problème.",
+            "en": "$E \\in E$: no problem."
+          },
+          "feedback": {
+            "fr": "Cela répète l’hypothèse sans utiliser la définition de $E$.",
+            "en": "This repeats the assumption without using the definition of $E$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$E$ est vide.",
+            "en": "$E$ is empty."
+          },
+          "feedback": {
+            "fr": "Rien dans l’argument ne rend $E$ vide.",
+            "en": "Nothing in the argument makes $E$ empty."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Rien n’en découle.",
+            "en": "Nothing follows."
+          },
+          "feedback": {
+            "fr": "Au contraire, on obtient une contradiction.",
+            "en": "On the contrary, we reach a contradiction."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "De $E \\in E$ on déduit $E \\notin E$ ; de $E \\notin E$ on déduit $E \\in E$.",
+        "en": "From $E \\in E$ we get $E \\notin E$; from $E \\notin E$ we get $E \\in E$."
+      },
+      "lessonId": "L09",
+      "version": 1,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E05",
+      "objectiveId": "L09-O05",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "accepted-set-kinds"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces collections n’est pas acceptée comme ensemble dans le cours ?",
+        "en": "Which of these collections is not accepted as a set in the course?"
+      },
+      "hint": {
+        "fr": "Cherchez la collection qui ne puise dans aucun ensemble donné.",
+        "en": "Look for the collection that draws from no given set."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\mathbb{N}$",
+            "en": "$\\mathbb{N}$"
+          },
+          "feedback": {
+            "fr": "C’est un ensemble de nombres : accepté.",
+            "en": "This is a set of numbers: accepted."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{1, 2, 4\\}$",
+            "en": "$\\{1, 2, 4\\}$"
+          },
+          "feedback": {
+            "fr": "C’est un ensemble défini par énumération : accepté.",
+            "en": "This is a set defined by enumeration: accepted."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{x \\in \\mathbb{R} \\mid x > 2\\}$",
+            "en": "$\\{x \\in \\mathbb{R} \\mid x > 2\\}$"
+          },
+          "feedback": {
+            "fr": "C’est un ensemble défini par compréhension sur $\\mathbb{R}$ : accepté.",
+            "en": "This is a set defined by comprehension over $\\mathbb{R}$: accepted."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "La collection de tous les ensembles qui ne sont pas éléments d’eux-mêmes.",
+            "en": "The collection of all sets that are not elements of themselves."
+          },
+          "feedback": {
+            "fr": "Exact : elle ne puise dans aucun ensemble donné, et mène au paradoxe de Russell.",
+            "en": "Correct: it draws from no given set and leads to Russell’s paradox."
+          }
+        }
+      ],
+      "answer": "d",
+      "explanation": {
+        "fr": "Le cours accepte les ensembles de nombres, les énumérations, les compréhensions et les ensembles construits à partir d’eux.",
+        "en": "The course accepts sets of numbers, enumerations, comprehensions and sets built from them."
+      },
+      "lessonId": "L09",
+      "version": 1,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E06",
+      "objectiveId": "L09-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "comprehension-without-ambient-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi $\\{a \\in X \\mid P(a)\\}$ est-il plus sûr que « la collection des $a$ tels que $P(a)$ » ?",
+        "en": "Why is $\\{a \\in X \\mid P(a)\\}$ safer than “the collection of all $a$ such that $P(a)$”?"
+      },
+      "hint": {
+        "fr": "Regardez d’où viennent les éléments.",
+        "en": "Look at where the elements come from."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Ses éléments sont pris dans un ensemble $X$ déjà donné.",
+            "en": "Its elements are taken from a set $X$ that is already given."
+          },
+          "feedback": {
+            "fr": "Exact : on filtre un ensemble existant au lieu de rassembler tout ce qui vérifie une condition.",
+            "en": "Correct: one filters an existing set instead of gathering everything that satisfies a condition."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Elle n’a jamais d’éléments.",
+            "en": "It never has elements."
+          },
+          "feedback": {
+            "fr": "Elle peut avoir des éléments, par exemple $\\{n \\in \\{1, 2, 3\\} \\mid n > 1\\}$.",
+            "en": "It can have elements, for example $\\{n \\in \\{1, 2, 3\\} \\mid n > 1\\}$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Elle n’utilise que des nombres.",
+            "en": "It uses only numbers."
+          },
+          "feedback": {
+            "fr": "$X$ peut être n’importe quel ensemble donné.",
+            "en": "$X$ can be any given set."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Elle autorise les ensembles à se contenir eux-mêmes.",
+            "en": "It allows sets to contain themselves."
+          },
+          "feedback": {
+            "fr": "Ce n’est pas son rôle.",
+            "en": "That is not its purpose."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Filtrer un ensemble donné $X$ évite de rassembler des collections trop vastes comme celle de Russell.",
+        "en": "Filtering a given set $X$ avoids gathering collections as large as Russell’s."
+      },
+      "lessonId": "L09",
+      "version": 1,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

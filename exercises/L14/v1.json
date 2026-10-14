@@ -1,0 +1,550 @@
+{
+  "lessonId": "L14",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L14-E01",
+      "objectiveId": "L14-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "power-set-count-as-n"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Combien d’éléments contient $\\mathcal{P}(\\{1, 2\\})$ ?",
+        "en": "How many elements does $\\mathcal{P}(\\{1, 2\\})$ have?"
+      },
+      "hint": {
+        "fr": "Listez toutes les parties de $\\{1, 2\\}$, y compris les deux extrêmes.",
+        "en": "List all the parts of $\\{1, 2\\}$, including the two extreme ones."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Exact : $\\varnothing$, $\\{1\\}$, $\\{2\\}$ et $\\{1, 2\\}$.",
+            "en": "Correct: $\\varnothing$, $\\{1\\}$, $\\{2\\}$ and $\\{1, 2\\}$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Cela ne compte que les éléments de $\\{1, 2\\}$, pas ses parties.",
+            "en": "This only counts the elements of $\\{1, 2\\}$, not its parts."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Il manque une partie : $\\varnothing$ ou $\\{1, 2\\}$ est oubliée.",
+            "en": "A part is missing: $\\varnothing$ or $\\{1, 2\\}$ was forgotten."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$8$",
+            "en": "$8$"
+          },
+          "feedback": {
+            "fr": "$8$ est le nombre de parties d’un ensemble à trois éléments.",
+            "en": "$8$ is the number of parts of a three-element set."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\mathcal{P}(\\{1, 2\\}) = \\{\\varnothing, \\{1\\}, \\{2\\}, \\{1, 2\\}\\}$ a quatre éléments.",
+        "en": "$\\mathcal{P}(\\{1, 2\\}) = \\{\\varnothing, \\{1\\}, \\{2\\}, \\{1, 2\\}\\}$ has four elements."
+      },
+      "lessonId": "L14",
+      "version": 1,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E02",
+      "objectiveId": "L14-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "part-with-foreign-element",
+        "element-instead-of-part"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Lequel de ces objets est un élément de $\\mathcal{P}(\\{1, 2, 3\\})$ ?",
+        "en": "Which of these objects is an element of $\\mathcal{P}(\\{1, 2, 3\\})$?"
+      },
+      "hint": {
+        "fr": "Les éléments de $\\mathcal{P}(A)$ sont des parties de $A$.",
+        "en": "The elements of $\\mathcal{P}(A)$ are parts of $A$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{1, 3\\}$",
+            "en": "$\\{1, 3\\}$"
+          },
+          "feedback": {
+            "fr": "Exact : c’est une partie de $\\{1, 2, 3\\}$.",
+            "en": "Correct: this is a part of $\\{1, 2, 3\\}$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "$1$ est un élément de $\\{1, 2, 3\\}$, pas une partie.",
+            "en": "$1$ is an element of $\\{1, 2, 3\\}$, not a part."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{1, 4\\}$",
+            "en": "$\\{1, 4\\}$"
+          },
+          "feedback": {
+            "fr": "$4 \\notin \\{1, 2, 3\\}$ : ce n’est pas une partie.",
+            "en": "$4 \\notin \\{1, 2, 3\\}$: this is not a part."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "$4$ n’est ni élément ni partie de $\\{1, 2, 3\\}$.",
+            "en": "$4$ is neither an element nor a part of $\\{1, 2, 3\\}$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Un élément de $\\mathcal{P}(\\{1, 2, 3\\})$ est un sous-ensemble de $\\{1, 2, 3\\}$.",
+        "en": "An element of $\\mathcal{P}(\\{1, 2, 3\\})$ is a subset of $\\{1, 2, 3\\}$."
+      },
+      "lessonId": "L14",
+      "version": 1,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E03",
+      "objectiveId": "L14-O03",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "empty-set-missing-from-power-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle affirmation est vraie pour tout ensemble $A$ ?",
+        "en": "Which statement is true for every set $A$?"
+      },
+      "hint": {
+        "fr": "$\\varnothing$ est inclus dans tout ensemble.",
+        "en": "$\\varnothing$ is included in every set."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\varnothing \\in \\mathcal{P}(A)$",
+            "en": "$\\varnothing \\in \\mathcal{P}(A)$"
+          },
+          "feedback": {
+            "fr": "Exact : $\\varnothing \\subseteq A$, donc $\\varnothing$ est une partie de $A$.",
+            "en": "Correct: $\\varnothing \\subseteq A$, so $\\varnothing$ is a part of $A$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\varnothing \\notin \\mathcal{P}(A)$",
+            "en": "$\\varnothing \\notin \\mathcal{P}(A)$"
+          },
+          "feedback": {
+            "fr": "C’est faux : l’ensemble vide est toujours une partie.",
+            "en": "This is false: the empty set is always a part."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A \\notin \\mathcal{P}(A)$",
+            "en": "$A \\notin \\mathcal{P}(A)$"
+          },
+          "feedback": {
+            "fr": "C’est faux : $A \\subseteq A$, donc $A$ est une partie de lui-même.",
+            "en": "This is false: $A \\subseteq A$, so $A$ is a part of itself."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\mathcal{P}(A) = A$",
+            "en": "$\\mathcal{P}(A) = A$"
+          },
+          "feedback": {
+            "fr": "$\\mathcal{P}(A)$ contient des ensembles, pas les éléments de $A$.",
+            "en": "$\\mathcal{P}(A)$ contains sets, not the elements of $A$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\varnothing$ et $A$ appartiennent toujours à $\\mathcal{P}(A)$.",
+        "en": "$\\varnothing$ and $A$ always belong to $\\mathcal{P}(A)$."
+      },
+      "lessonId": "L14",
+      "version": 1,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E04",
+      "objectiveId": "L14-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "power-set-count-linear",
+        "power-set-count-square"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un ensemble $A$ a $4$ éléments. Combien de parties a-t-il ? (remarque d’enrichissement)",
+        "en": "A set $A$ has $4$ elements. How many parts does it have? (enrichment remark)"
+      },
+      "hint": {
+        "fr": "Chaque élément est soit dans la partie, soit en dehors : $2$ choix par élément.",
+        "en": "Each element is either in the part or out of it: $2$ choices per element."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$8$",
+            "en": "$8$"
+          },
+          "feedback": {
+            "fr": "$8 = 2^3$ correspond à trois éléments.",
+            "en": "$8 = 2^3$ corresponds to three elements."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$16$",
+            "en": "$16$"
+          },
+          "feedback": {
+            "fr": "Exact : $2^4 = 16$.",
+            "en": "Correct: $2^4 = 16$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Cela compte les éléments, pas les parties.",
+            "en": "This counts the elements, not the parts."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$12$",
+            "en": "$12$"
+          },
+          "feedback": {
+            "fr": "$12$ n’est pas une puissance de $2$.",
+            "en": "$12$ is not a power of $2$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Un ensemble à $n$ éléments a $2^n$ parties ; ici $2^4 = 16$.",
+        "en": "A set with $n$ elements has $2^n$ parts; here $2^4 = 16$."
+      },
+      "lessonId": "L14",
+      "version": 1,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E05",
+      "objectiveId": "L14-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "element-confused-with-part"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle affirmation sur $\\mathcal{P}(\\{1, 2\\})$ est vraie ?",
+        "en": "Which statement about $\\mathcal{P}(\\{1, 2\\})$ is true?"
+      },
+      "hint": {
+        "fr": "Les éléments de $\\mathcal{P}(\\{1, 2\\})$ sont des ensembles.",
+        "en": "The elements of $\\mathcal{P}(\\{1, 2\\})$ are sets."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{1\\} \\in \\mathcal{P}(\\{1, 2\\})$",
+            "en": "$\\{1\\} \\in \\mathcal{P}(\\{1, 2\\})$"
+          },
+          "feedback": {
+            "fr": "Exact : $\\{1\\}$ est une partie de $\\{1, 2\\}$.",
+            "en": "Correct: $\\{1\\}$ is a part of $\\{1, 2\\}$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1 \\in \\mathcal{P}(\\{1, 2\\})$",
+            "en": "$1 \\in \\mathcal{P}(\\{1, 2\\})$"
+          },
+          "feedback": {
+            "fr": "Faux : $1$ est un nombre, pas une partie.",
+            "en": "False: $1$ is a number, not a part."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{1, 2\\} \\notin \\mathcal{P}(\\{1, 2\\})$",
+            "en": "$\\{1, 2\\} \\notin \\mathcal{P}(\\{1, 2\\})$"
+          },
+          "feedback": {
+            "fr": "Faux : $\\{1, 2\\}$ est une partie de lui-même.",
+            "en": "False: $\\{1, 2\\}$ is a part of itself."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\varnothing \\notin \\mathcal{P}(\\{1, 2\\})$",
+            "en": "$\\varnothing \\notin \\mathcal{P}(\\{1, 2\\})$"
+          },
+          "feedback": {
+            "fr": "Faux : $\\varnothing$ est toujours une partie.",
+            "en": "False: $\\varnothing$ is always a part."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Un élément de $\\mathcal{P}(\\{1, 2\\})$ est un ensemble inclus dans $\\{1, 2\\}$.",
+        "en": "An element of $\\mathcal{P}(\\{1, 2\\})$ is a set included in $\\{1, 2\\}$."
+      },
+      "lessonId": "L14",
+      "version": 1,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E06",
+      "objectiveId": "L14-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "power-set-of-empty-is-empty"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "À quoi est égal $\\mathcal{P}(\\varnothing)$ ?",
+        "en": "What is $\\mathcal{P}(\\varnothing)$ equal to?"
+      },
+      "hint": {
+        "fr": "L’ensemble vide a une seule partie : lui-même.",
+        "en": "The empty set has a single part: itself."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{\\varnothing\\}$",
+            "en": "$\\{\\varnothing\\}$"
+          },
+          "feedback": {
+            "fr": "Exact : un seul élément, la partie $\\varnothing$.",
+            "en": "Correct: a single element, the part $\\varnothing$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\varnothing$",
+            "en": "$\\varnothing$"
+          },
+          "feedback": {
+            "fr": "$\\mathcal{P}(\\varnothing)$ contient la partie $\\varnothing$ : il n’est pas vide.",
+            "en": "$\\mathcal{P}(\\varnothing)$ contains the part $\\varnothing$: it is not empty."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{0\\}$",
+            "en": "$\\{0\\}$"
+          },
+          "feedback": {
+            "fr": "$0$ n’est pas une partie de $\\varnothing$.",
+            "en": "$0$ is not a part of $\\varnothing$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\{\\varnothing, \\{\\varnothing\\}\\}$",
+            "en": "$\\{\\varnothing, \\{\\varnothing\\}\\}$"
+          },
+          "feedback": {
+            "fr": "Cela ferait deux éléments ; or $\\varnothing$ n’a qu’une partie.",
+            "en": "That would make two elements; but $\\varnothing$ has only one part."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\mathcal{P}(\\varnothing) = \\{\\varnothing\\}$ a un élément.",
+        "en": "$\\mathcal{P}(\\varnothing) = \\{\\varnothing\\}$ has one element."
+      },
+      "lessonId": "L14",
+      "version": 1,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

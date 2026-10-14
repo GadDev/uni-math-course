@@ -6,11 +6,17 @@ import { authCopy } from '../../lib/auth/copy';
 import { glossaryCopy } from '../../lib/glossary';
 import SignalGeometry from '../../components/SignalGeometry.astro';
 import katex from 'katex';
+import { getCollection } from 'astro:content';
 export function getStaticPaths() {
   return locales.map((locale) => ({ params: { locale }, props: { locale } }));
 }
 const { locale } = Astro.props;
 const text = copy[locale];
+const releasedIds = new Set(
+  (await getCollection('lessons'))
+    .filter((entry) => entry.data.locale === locale)
+    .map((entry) => entry.data.lessonId),
+);
 const implication = katex.renderToString('A \\Rightarrow B', {
   output: 'htmlAndMathml',
   throwOnError: true,
@@ -69,20 +75,23 @@ const implication = katex.renderToString('A \\Rightarrow B', {
     <section class="planned-section" aria-labelledby="planned-title">
       <h2 id="planned-title">{text.future}</h2>
       <ul class="planned-list">
-        {text.lessons.map((title, i) => (
-          <li>
-            <span class="planned-number">{String(i + 1).padStart(2, '0')}</span>
-            <span>{title}</span>
-            <span class="planned-label">{text.planned}</span>
+        {text.programme.map((topic) => (
+          <li class={releasedIds.has(topic.id) ? 'available-topic' : undefined}>
+            <span class="planned-number" aria-hidden="true">
+              {topic.id.slice(1)}
+            </span>
+            {releasedIds.has(topic.id) ? (
+              <a href={'/' + locale + '/lessons/' + topic.id + '/'}>
+                {topic.title}
+              </a>
+            ) : (
+              <span>{topic.title}</span>
+            )}
+            <span class="planned-label">
+              {releasedIds.has(topic.id) ? text.public : text.planned}
+            </span>
           </li>
         ))}
-        <li class="available-topic">
-          <span class="planned-number" aria-hidden="true">
-            05
-          </span>
-          <a href={'/' + locale + '/lessons/L05/'}>{text.lessonTitle}</a>
-          <span class="planned-label">{text.public}</span>
-        </li>
       </ul>
     </section>
     <section class="planned-section" aria-labelledby="glossary-title">

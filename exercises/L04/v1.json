@@ -1,0 +1,532 @@
+{
+  "lessonId": "L04",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L04-E01",
+      "objectiveId": "L04-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "equivalence-means-agreement-on-some-rows",
+        "equivalence-as-connective"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que signifie $A \\equiv B$ ?",
+        "en": "What does $A \\equiv B$ mean?"
+      },
+      "hint": {
+        "fr": "Pensez à la table de vérité complète, et non à une seule ligne.",
+        "en": "Think about the complete truth table, not a single row."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A$ et $B$ ont la même valeur pour au moins une affectation.",
+            "en": "$A$ and $B$ have the same value for at least one assignment."
+          },
+          "feedback": {
+            "fr": "Un accord sur une seule ligne ne suffit pas : des formules différentes peuvent coïncider à un endroit.",
+            "en": "Agreement on one row is not enough: different formulas can coincide somewhere."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A$ et $B$ ont la même valeur pour toute affectation, donc la même table de vérité.",
+            "en": "$A$ and $B$ have the same value for every assignment, hence the same truth table."
+          },
+          "feedback": {
+            "fr": "Exact : l’équivalence sémantique exige l’accord sur toutes les lignes.",
+            "en": "Correct: semantic equivalence requires agreement on every row."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A$ et $B$ utilisent les mêmes lettres.",
+            "en": "$A$ and $B$ use the same letters."
+          },
+          "feedback": {
+            "fr": "Des formules peuvent utiliser les mêmes lettres sans être équivalentes, comme $A \\land B$ et $A \\lor B$.",
+            "en": "Formulas can use the same letters without being equivalent, such as $A \\land B$ and $A \\lor B$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A \\land B$ est une tautologie.",
+            "en": "$A \\land B$ is a tautology."
+          },
+          "feedback": {
+            "fr": "Ce n’est pas la définition : $A \\land B$ est fausse, par exemple, pour $A = 0$.",
+            "en": "This is not the definition: $A \\land B$ is false, for example, when $A = 0$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$A \\equiv B$ signifie que les deux formules ont la même table de vérité. $\\equiv$ compare deux formules ; ce n’est pas un connecteur à l’intérieur d’une formule.",
+        "en": "$A \\equiv B$ means that the two formulas have the same truth table. $\\equiv$ compares two formulas; it is not a connective inside a formula."
+      },
+      "lessonId": "L04",
+      "version": 1,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [15, 16, 17, 18, 19],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E02",
+      "objectiveId": "L04-O03",
+      "difficulty": "application",
+      "misconceptions": [
+        "negating-each-part-of-a-conjunction",
+        "de-morgan-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces formules est équivalente à $\\neg (A \\land B)$ ?",
+        "en": "Which of these formulas is equivalent to $\\neg (A \\land B)$?"
+      },
+      "hint": {
+        "fr": "Une loi de de Morgan indique comment la négation traverse la conjonction.",
+        "en": "A De Morgan law says how negation passes through a conjunction."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg A \\land \\neg B$",
+            "en": "$\\neg A \\land \\neg B$"
+          },
+          "feedback": {
+            "fr": "Non : pour $A = 0$ et $B = 1$, la formule vaut $0$ alors que $\\neg (A \\land B)$ vaut $1$.",
+            "en": "No: for $A = 0$ and $B = 1$, this formula is $0$ while $\\neg (A \\land B)$ is $1$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg A \\lor \\neg B$",
+            "en": "$\\neg A \\lor \\neg B$"
+          },
+          "feedback": {
+            "fr": "Exact : la négation traverse la conjonction et la transforme en disjonction.",
+            "en": "Correct: negation passes through the conjunction and turns it into a disjunction."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg A \\lor B$",
+            "en": "$\\neg A \\lor B$"
+          },
+          "feedback": {
+            "fr": "Non : pour $A = 1$ et $B = 0$, cette formule vaut $0$ alors que $\\neg (A \\land B)$ vaut $1$.",
+            "en": "No: for $A = 1$ and $B = 0$, this formula is $0$ while $\\neg (A \\land B)$ is $1$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A \\lor \\neg B$",
+            "en": "$A \\lor \\neg B$"
+          },
+          "feedback": {
+            "fr": "Non : pour $A = 0$ et $B = 1$, cette formule vaut $0$ alors que $\\neg (A \\land B)$ vaut $1$.",
+            "en": "No: for $A = 0$ and $B = 1$, this formula is $0$ while $\\neg (A \\land B)$ is $1$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La loi de de Morgan donne $\\neg (A \\land B) \\equiv \\neg A \\lor \\neg B$. Les trois autres formules diffèrent sur au moins une ligne.",
+        "en": "De Morgan’s law gives $\\neg (A \\land B) \\equiv \\neg A \\lor \\neg B$. The other three formulas differ on at least one row."
+      },
+      "lessonId": "L04",
+      "version": 1,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [15, 16, 17, 18, 19],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E03",
+      "objectiveId": "L04-O02",
+      "difficulty": "application",
+      "misconceptions": [
+        "distributivity-with-wrong-operator",
+        "row-skipped"
+      ],
+      "type": "truth-table",
+      "variables": ["A", "B", "C"],
+      "prompt": {
+        "fr": "Complétez la colonne de $(A \\lor B) \\land (A \\lor C)$ pour les huit affectations. Comparez-la ensuite à $A \\lor (B \\land C)$.",
+        "en": "Complete the column of $(A \\lor B) \\land (A \\lor C)$ for all eight assignments. Then compare it with $A \\lor (B \\land C)$."
+      },
+      "hint": {
+        "fr": "Dans chaque ligne, calculez $A \\lor B$ et $A \\lor C$ séparément, puis combinez-les.",
+        "en": "In each row, compute $A \\lor B$ and $A \\lor C$ separately, then combine them."
+      },
+      "rows": [
+        { "id": "000", "A": false, "B": false, "C": false },
+        { "id": "001", "A": false, "B": false, "C": true },
+        { "id": "010", "A": false, "B": true, "C": false },
+        { "id": "011", "A": false, "B": true, "C": true },
+        { "id": "100", "A": true, "B": false, "C": false },
+        { "id": "101", "A": true, "B": false, "C": true },
+        { "id": "110", "A": true, "B": true, "C": false },
+        { "id": "111", "A": true, "B": true, "C": true }
+      ],
+      "answer": {
+        "000": false,
+        "001": false,
+        "010": false,
+        "011": true,
+        "100": true,
+        "101": true,
+        "110": true,
+        "111": true
+      },
+      "feedback": {
+        "fr": "Les colonnes coïncident avec $A \\lor (B \\land C)$ sur les huit lignes : l’équivalence de distributivité est vraie.",
+        "en": "The column matches $A \\lor (B \\land C)$ on all eight rows: the distributive equivalence holds."
+      },
+      "explanation": {
+        "fr": "Les lignes 000, 001 et 010 donnent $0$ des deux côtés ; à partir de la ligne 011, les deux membres valent $1$. La vérification exige les huit lignes.",
+        "en": "Rows 000, 001 and 010 give $0$ on both sides; from row 011 onward, both sides are $1$. The check requires all eight rows."
+      },
+      "lessonId": "L04",
+      "version": 1,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [15, 16, 17, 18, 19],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E04",
+      "objectiveId": "L04-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "tautology-confused-with-satisfiable",
+        "contradiction-confused-with-tautology"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces formules est une tautologie ?",
+        "en": "Which of these formulas is a tautology?"
+      },
+      "hint": {
+        "fr": "Une tautologie est vraie pour toute affectation. Vérifiez les deux lignes possibles pour chaque lettre.",
+        "en": "A tautology is true for every assignment. Check both values of each letter."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(A \\land B) \\lor \\neg(A \\land B)$",
+            "en": "$(A \\land B) \\lor \\neg(A \\land B)$"
+          },
+          "feedback": {
+            "fr": "Exact : la formule est de la forme $X \\lor \\neg X$, vraie pour toute valeur de $X$.",
+            "en": "Correct: the formula has the form $X \\lor \\neg X$, which is true for every value of $X$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A \\land \\neg A$",
+            "en": "$A \\land \\neg A$"
+          },
+          "feedback": {
+            "fr": "C’est une contradiction : elle est fausse pour toute valeur de $A$.",
+            "en": "This is a contradiction: it is false for every value of $A$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A \\lor B$",
+            "en": "$A \\lor B$"
+          },
+          "feedback": {
+            "fr": "Elle est vraie pour $A = 1$, mais fausse pour $A = B = 0$ : ni tautologie ni contradiction.",
+            "en": "It is true for $A = 1$, but false for $A = B = 0$: neither a tautology nor a contradiction."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\neg\\top$",
+            "en": "$\\neg\\top$"
+          },
+          "feedback": {
+            "fr": "C’est une contradiction, car $\\top$ est toujours vraie.",
+            "en": "This is a contradiction, because $\\top$ is always true."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Une tautologie est vraie sur toutes les lignes. $(A \\land B) \\lor \\neg(A \\land B)$ est vraie quelles que soient $A$ et $B$.",
+        "en": "A tautology is true on every row. $(A \\land B) \\lor \\neg(A \\land B)$ is true whatever $A$ and $B$ are."
+      },
+      "lessonId": "L04",
+      "version": 1,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [15, 16, 17, 18, 19],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E05",
+      "objectiveId": "L04-O06",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "excluded-middle-misremembered",
+        "non-contradiction-confused-with-tautology"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces équivalences est fausse ?",
+        "en": "Which of these equivalences is false?"
+      },
+      "hint": {
+        "fr": "Le membre de gauche de la bonne réponse est toujours fausse, alors que $\\top$ est toujours vraie.",
+        "en": "The left side of the correct answer is always false, while $\\top$ is always true."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A \\lor \\neg A \\equiv \\top$",
+            "en": "$A \\lor \\neg A \\equiv \\top$"
+          },
+          "feedback": {
+            "fr": "Vraie : c’est la loi du tiers exclu.",
+            "en": "True: this is the excluded middle law."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A \\land \\neg A \\equiv \\neg\\top$",
+            "en": "$A \\land \\neg A \\equiv \\neg\\top$"
+          },
+          "feedback": {
+            "fr": "Vraie : c’est la loi de non-contradiction.",
+            "en": "True: this is the non-contradiction law."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A \\land \\neg A \\equiv \\top$",
+            "en": "$A \\land \\neg A \\equiv \\top$"
+          },
+          "feedback": {
+            "fr": "Fausse : $A \\land \\neg A$ est toujours fausse, alors que $\\top$ est toujours vraie.",
+            "en": "False: $A \\land \\neg A$ is always false, whereas $\\top$ is always true."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\neg\\neg A \\equiv A$",
+            "en": "$\\neg\\neg A \\equiv A$"
+          },
+          "feedback": {
+            "fr": "Vraie : c’est la double négation.",
+            "en": "True: this is double negation."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$A \\land \\neg A$ est une contradiction, donc équivalente à $\\neg\\top$, et non à $\\top$.",
+        "en": "$A \\land \\neg A$ is a contradiction, so it is equivalent to $\\neg\\top$, not to $\\top$."
+      },
+      "lessonId": "L04",
+      "version": 1,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [15, 16, 17, 18, 19],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E06",
+      "objectiveId": "L04-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "agreement-on-some-rows-taken-as-equivalence",
+        "counterexample-row-misread"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle affectation réfute l’équivalence $A \\land (B \\lor C) \\equiv A \\land B$ ?",
+        "en": "Which assignment refutes the equivalence $A \\land (B \\lor C) \\equiv A \\land B$?"
+      },
+      "hint": {
+        "fr": "Cherchez une ligne où les deux membres ne prennent pas la même valeur. Une ligne suffit.",
+        "en": "Look for a row where the two sides differ. One row is enough."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A = 1$, $B = 0$, $C = 0$",
+            "en": "$A = 1$, $B = 0$, $C = 0$"
+          },
+          "feedback": {
+            "fr": "Les deux membres valent $0$ : cette ligne ne réfute rien.",
+            "en": "Both sides equal $0$: this row refutes nothing."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A = 0$, $B = 1$, $C = 1$",
+            "en": "$A = 0$, $B = 1$, $C = 1$"
+          },
+          "feedback": {
+            "fr": "Avec $A = 0$, les deux membres valent $0$ : cette ligne ne réfute rien.",
+            "en": "With $A = 0$, both sides equal $0$: this row refutes nothing."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A = 1$, $B = 0$, $C = 1$",
+            "en": "$A = 1$, $B = 0$, $C = 1$"
+          },
+          "feedback": {
+            "fr": "Exact : le membre de gauche vaut $1 \\land (0 \\lor 1) = 1$, celui de droite $1 \\land 0 = 0$.",
+            "en": "Correct: the left side is $1 \\land (0 \\lor 1) = 1$, the right side $1 \\land 0 = 0$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A = 1$, $B = 1$, $C = 1$",
+            "en": "$A = 1$, $B = 1$, $C = 1$"
+          },
+          "feedback": {
+            "fr": "Les deux membres valent $1$ : cette ligne ne réfute rien.",
+            "en": "Both sides equal $1$: this row refutes nothing."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Une seule ligne où les valeurs diffèrent suffit à réfuter l’équivalence. Ici, la ligne $A = 1$, $B = 0$, $C = 1$ convient.",
+        "en": "A single row where the values differ is enough to refute the equivalence. Here, the row $A = 1$, $B = 0$, $C = 1$ works."
+      },
+      "lessonId": "L04",
+      "version": 1,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [15, 16, 17, 18, 19],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}
