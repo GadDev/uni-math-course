@@ -25,6 +25,7 @@ The proposed first release covers assertions, logical connectives, truth tables,
 - [Code of conduct](CODE_OF_CONDUCT.md)
 - [Security policy](SECURITY.md)
 - [Changelog](CHANGELOG.md)
+- [Release policy](docs/RELEASING.md)
 - [Licence](LICENSE)
 - [Content rights and attribution](CONTENT_LICENSE.md)
 - [Repository setup record](docs/REPOSITORY_SETUP.md)
