@@ -6,6 +6,8 @@ Notable changes are recorded here. No application version has been released.
 
 ### Added
 
+- Architecture and free-deployment benchmark: Astro/React versus Nuxt, Next.js and SvelteKit; Vercel Hobby recommendation, UI alternatives, session/privacy boundaries, free-plan operations and a pilot decision gate.
+
 - Repository label sync and PR path labelling, with a mathematics-specific catalogue, trusted metadata-only workflows, and a small jq catalogue check.
 
 - Repository foundation: README, MIT licence, contribution guidance, conduct and security policies, ownership, and GitHub issue/pull-request templates.
