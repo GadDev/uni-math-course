@@ -6,7 +6,7 @@ Notable changes are recorded here. No application version has been released.
 
 ### Added
 
-- Repository label sync and PR path labelling, with a mathematics-specific catalogue, trusted metadata-only workflows, and configuration validation.
+- Repository label sync and PR path labelling, with a mathematics-specific catalogue, trusted metadata-only workflows, and a small jq catalogue check.
 
 - Repository foundation: README, MIT licence, contribution guidance, conduct and security policies, ownership, and GitHub issue/pull-request templates.
 - Editor settings, ignore rules, line-ending conventions, and a dependency-free repository documentation check.

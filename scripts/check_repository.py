@@ -2,7 +2,6 @@
 from pathlib import Path
 import re
 import sys
-import subprocess
 from urllib.parse import unquote, urlsplit
 
 root = Path(__file__).resolve().parents[1]
@@ -116,8 +115,4 @@ for path, (visible, anchors, definitions) in documents.items():
 if errors:
     print('\n'.join(errors), file=sys.stderr)
     sys.exit(1)
-if (root / ".github/labels.json").exists() or (root / ".github/labeler.yml").exists():
-    result = subprocess.run([sys.executable, str(root / "scripts/check_labels.py")], check=False)
-    if result.returncode:
-        sys.exit(result.returncode)
 print(f'Validated {len(files)} Markdown files: structure and internal links passed.')
