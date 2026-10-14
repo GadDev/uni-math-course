@@ -1,6 +1,7 @@
 {
   "permissions": {
     "blockReadsOutsideWorkingDirectories": true,
+    "disableBypassPermissionsMode": "disable",
     "deny": [
       "Read(**/.env)",
       "Read(**/.env.local)",
@@ -8,20 +9,43 @@
       "Read(**/.env.production)",
       "Read(**/.env.test)",
       "Read(**/.env.*.local)",
+      "Read(~/Downloads/**)",
+      "Read(~/Desktop/**)",
+      "Read(~/Library/Mobile Documents/**)",
+      "Read(~/Library/CloudStorage/**)",
+      "Edit(**/.env)",
+      "Edit(**/.env.local)",
+      "Edit(**/.env.development)",
+      "Edit(**/.env.production)",
+      "Edit(**/.env.test)",
+      "Edit(**/.env.*.local)",
       "Edit(.claude/settings.json)",
       "Edit(.claude/settings.local.json)",
-      "Edit(.claude/hooks/**)"
-    ]
+      "Edit(.claude/hooks/**)",
+      "Edit(.github/workflows/**)",
+      "Edit(.vscode/**)",
+      "Edit(tests/claude/**)",
+      "mcp__ide__executeCode"
+    ],
+    "ask": ["WebFetch", "Artifact"]
   },
   "sandbox": {
     "enabled": true,
+    "allowUnsandboxedCommands": false,
+    "failIfUnavailable": true,
     "filesystem": {
       "denyRead": [
-        ".env",
-        ".env.local",
-        ".env.development",
-        ".env.production",
-        ".env.test",
+        "**/.env",
+        "**/.env.local",
+        "**/.env.development",
+        "**/.env.production",
+        "**/.env.test",
+        "**/.env.staging",
+        "**/.env.*.local",
+        "~/Downloads",
+        "~/Desktop",
+        "~/Library/Mobile Documents",
+        "~/Library/CloudStorage",
         "~/.ssh",
         "~/.aws",
         "~/.gnupg",
@@ -33,11 +57,17 @@
       "denyWrite": [
         ".claude/settings.json",
         ".claude/settings.local.json",
-        ".claude/hooks"
+        ".claude/hooks",
+        ".mcp.json",
+        "**/.env",
+        "**/.env.local",
+        "**/.env.development",
+        "**/.env.production",
+        "**/.env.test",
+        "**/.env.*.local"
       ]
     },
     "network": {
-      "allowLocalBinding": true,
       "allowedDomains": [
         "registry.npmjs.org",
         "github.com",
