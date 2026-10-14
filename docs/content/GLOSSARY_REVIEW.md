@@ -29,7 +29,7 @@ This is an author self-check, with concrete truth-table, set-element and self-co
 
 ## Validation
 
-Run `pnpm check` and `pnpm test:e2e`. Content tests validate all 64 IDs, categories, required bilingual fields, source-page bounds and KaTeX HTML/MathML rendering. Browser checks cover public discovery, bilingual/glyph search, category filtering, empty state, keyboard reset, native translation disclosures, language/query/fragment preservation, filtered deep links, no-JavaScript reading and 320/375/768/1280 px layouts in both languages. The existing reading/auth suite also remains required.
+Run `pnpm check` and `pnpm test:e2e`. Content tests validate all 64 IDs, categories, required bilingual fields, source-page bounds and KaTeX HTML/MathML rendering. Browser checks cover public discovery, bilingual/glyph search, category filtering, empty state, keyboard reset, native translation disclosures, language/query/fragment preservation, filtered deep links, no-JavaScript reading and 320/375/768/1280 px layouts in both languages. The existing reading/auth suite also remains required. The two pre-existing tests that looped through every header breakpoint under a shared 90-second budget are split into one test per language and width, preserving all geometry assertions and the same widths. This avoids a whole matrix timing out without identifying a failing breakpoint.
 
 ## Integration
 
