@@ -6,6 +6,8 @@ Notable changes are recorded here. No application version has been released.
 
 ### Added
 
+- Critical deployment and UI review: Cloud Run/Firebase options, Supabase session constraints, Nuxt UI recommendation, costs, and implementation decision gates.
+
 - Repository label sync and PR path labelling, with a mathematics-specific catalogue, trusted metadata-only workflows, and a small jq catalogue check.
 
 - Repository foundation: README, MIT licence, contribution guidance, conduct and security policies, ownership, and GitHub issue/pull-request templates.
