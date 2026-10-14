@@ -12,7 +12,7 @@ The user approved the artistic direction, not production behaviour or publicatio
 
 ## Current repository and implementation boundary
 
-PR #5 is brought up to main at `664f031db160964e5b4b607eafeb8f914b6828bb` to retain the public reading foundation and resolve the changelog conflict. [The approved stack](../../TECHSTACK.md) is Astro + React, Vercel Hobby, Supabase Free and Radix Themes. The public reading foundation exists; complete authenticated practice, server grading and saved private progress remain separate work. This PR changes design references, not application behaviour.
+PR #5 is brought up to main at `eded66590fee2021f401785616f110a1936835d2` to retain the public reading foundation and resolve the changelog conflict. [The approved stack](../../TECHSTACK.md) is Astro + React, Vercel Hobby, Supabase Free and Radix Themes. Public reading and configurable Google/Supabase authentication/session code exist; hosted authentication acceptance, private practice, server grading and saved private progress remain separate work. This PR changes design references, not application behaviour.
 
 The supplied constitution matches [the governing principles](../../CONSTITUTION.md). No mathematical, bilingual, access or privacy principle changes with this visual replacement.
 

@@ -21,7 +21,7 @@ export const copy = {
     planned: 'À venir',
     practiceTitle: 'La pratique arrive ensuite',
     practice:
-      'Les comptes, les exercices interactifs et le suivi des progrès sont en développement. La lecture est déjà disponible sans connexion.',
+      'Les exercices interactifs et le suivi des progrès sont en développement. La lecture reste libre ; la connexion sera disponible une fois le service configuré.',
     review: 'Texte original du projet · Leçon pilote · Version 1',
     language: 'Langue',
     footer:
@@ -58,7 +58,7 @@ export const copy = {
     planned: 'Coming later',
     practiceTitle: 'Practice comes next',
     practice:
-      'Accounts, interactive exercises and progress tracking are in development. Reading is already available without signing in.',
+      'Interactive exercises and progress tracking are in development. Reading stays open; sign-in becomes available once the service is configured.',
     review: 'Original project text · Pilot lesson · Version 1',
     language: 'Language',
     footer:

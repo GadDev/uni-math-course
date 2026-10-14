@@ -36,5 +36,5 @@ jobs:
         run: pnpm check
       - name: Install Chromium
         run: pnpm exec playwright install --with-deps chromium
-      - name: Verify bilingual reading and keyboard/mobile behaviour
+      - name: Verify reading, authentication and session behaviour
         run: pnpm test:e2e

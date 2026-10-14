@@ -2,6 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import ReadingNotice from '../../components/ReadingNotice';
 import { copy, locales } from '../../lib/i18n';
+import { authCopy } from '../../lib/auth/copy';
 export function getStaticPaths() {
   return locales.map((locale) => ({ params: { locale }, props: { locale } }));
 }
@@ -57,6 +58,9 @@ const text = copy[locale];
     <section class="practice-status" aria-labelledby="practice-title">
       <h2 id="practice-title">{text.practiceTitle}</h2>
       <p>{text.practice}</p>
+      <p>
+        <a href={`/${locale}/sign-in/`}>{authCopy[locale].signIn}</a>
+      </p>
       <ReadingNotice locale={locale} client:load />
     </section>
   </main>

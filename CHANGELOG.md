@@ -8,6 +8,8 @@ Notable changes are recorded here. No application version has been released.
 
 - Selected Signal art direction: nine WebP course, learning, access and mobile concepts, with updated design guidance and asset evidence.
 
+- Configurable bilingual Google/Supabase sign-in, server-verified cookie sessions, PKCE callback, refresh and local logout, with credential-free protocol/browser checks and hosted setup guidance.
+
 - Astro/React public reading foundation: bilingual programme and implication pages, accessible mathematics, Radix reading disclosure, locked toolchain, Node checks and browser verification.
 
 - Original bilingual implication lesson and six versioned exercise contracts, with mathematical and translation self-check evidence.

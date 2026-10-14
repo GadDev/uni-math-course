@@ -7,6 +7,7 @@ const ignored = new Set([
   '.git',
   'node_modules',
   '.astro',
+  '.test-build',
   '.vercel',
   'dist',
   'coverage',

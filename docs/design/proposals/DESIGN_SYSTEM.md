@@ -33,7 +33,7 @@ Typography: bold condensed grotesk display face for brand, chapter numerals and 
 | Hint | Separate underlined or outlined action | Optional, expanded state and announcement; mark aided evidence |
 | Feedback | Submitted choice beside explicit repair explanation | Read-only response, one announced update or focused heading, retry without shame |
 | Progress | Reading / attempts / proposed mastery in separate columns | Server-derived records, immutable exercise versions, private data, no rankings |
-| Sign-in gate | Provider-neutral preview, useful reading exit | Real provider and sessions in the separate authentication feature; no invented policy |
+| Sign-in gate | Provider-neutral preview, useful reading exit | Reuse the Google/Supabase session foundation now on main; hosted acceptance and data policy remain pending |
 
 ## Keyboard and responsive acceptance
 

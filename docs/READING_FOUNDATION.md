@@ -2,7 +2,7 @@
 
 ## Implemented feature
 
-M2 feature 1 provides French/English programme pages and the original L05 lesson. Reading is public. The programme labels future lessons as coming later and explicitly describes accounts/practice/progress as in development.
+M2 feature 1 provides French/English programme pages and the original L05 lesson. Reading is public. The programme labels future lessons as coming later and links to configurable sign-in and describes practice/progress as in development.
 
 Astro prerenders the pages. React/Radix adds a reading-tip disclosure, not an anonymous exercise. KaTeX emits HTML and MathML; mathematical readings are explained in the lesson. Switching language preserves the current lesson and fragment.
 
@@ -18,11 +18,11 @@ Formatting covers application/configuration and JavaScript/TypeScript checks rat
 
 Run pnpm check and pnpm test:e2e as described in README.md. Browser checks cover both languages, lesson identity/fragment switching, KaTeX MathML, a working hydrated Radix disclosure by keyboard, a missing route and 320/375/768/1280 px geometry.
 
-The production build targets Vercel through the selected adapter. Browser tests exercise the local production build; a future Vercel preview must still verify deployed adapter/session behaviour. There is no production deployment, auth integration or saved-progress claim.
+The production build targets Vercel through the selected adapter. Browser tests exercise the local production build; a future Vercel preview must still verify deployed adapter/session behaviour. Authentication/session integration is now described in [AUTHENTICATION.md](AUTHENTICATION.md); hosted acceptance, production deployment and saved progress are still pending.
 
 ## Next features
 
-1. Supabase account/session integration after project configuration and provider suitability are known.
+1. Hosted Supabase account/session acceptance after project configuration and provider suitability are known.
 2. Authenticated exercise delivery and server grading against immutable versions.
 3. Idempotent attempt persistence and owner-only access.
 4. Mistake review/private progress and full deployment acceptance.

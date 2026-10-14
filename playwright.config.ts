@@ -10,9 +10,10 @@ export default defineConfig({
     },
   },
   webServer: {
-    command: 'pnpm preview --host 127.0.0.1 --port 4321 --ignore-lock',
+    command: 'node tests/support/run-server.mjs',
     url: 'http://127.0.0.1:4321/fr/',
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: false,
+    timeout: 120_000,
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
 });
