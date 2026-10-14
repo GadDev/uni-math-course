@@ -1,0 +1,35 @@
+# See docs/LABELS.md. Never check out PR head code in this workflow.
+name: Label pull requests
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: Existing pull request number to label after label sync
+        required: true
+        type: number
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: pr-labeler-${{ github.event.pull_request.number || inputs.pr_number }}
+  cancel-in-progress: false
+
+jobs:
+  label:
+    name: Apply changed-area labels
+    if: github.event_name == 'pull_request_target' || github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Label from trusted repository configuration
+        uses: actions/labeler@bf12e9b00b37c5c0ca2b87b79b2daf7891dbda13 # v7.0.0
+        with:
+          configuration-path: .github/labeler.yml
+          pr-number: ${{ github.event.pull_request.number || inputs.pr_number }}
+          dot: true
+          sync-labels: false
