@@ -9,6 +9,7 @@ Status: **reading foundation** · Maintainer: [GadDev](https://github.com/GadDev
 ## What works
 
 - Public French/English programme pages and the original implication lesson (L05).
+- Public searchable French/English symbol glossary, with bilingual readings, source pages and stable entry links.
 - Mathematical notation with visual KaTeX and MathML output.
 - Same-lesson language switching and a React/Radix reading disclosure.
 - Six reviewed exercise contracts and content/mathematical checks.
@@ -44,6 +45,7 @@ The check covers repository links/structure, content parity/contracts, types, fo
 - [Roadmap](docs/ROADMAP.md)
 - [Tech stack](docs/TECHSTACK.md)
 - [Content pilot review](docs/content/L05_REVIEW.md)
+- [Symbol glossary](docs/content/GLOSSARY_REVIEW.md)
 - [Reading foundation](docs/READING_FOUNDATION.md)
 - [Authentication and sessions](docs/AUTHENTICATION.md)
 
