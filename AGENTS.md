@@ -12,6 +12,10 @@ This is a bilingual mathematics learning project with public reading and configu
 - Use the pinned Node/pnpm versions and committed lockfile. Keep server-held exercise answers out of client imports and generated pages.
 - Keep secrets, learner records, source PDFs, and unlicensed third-party assets out of Git.
 
+## Claude Code confinement
+
+`.claude/settings.json` keeps Claude Code inside this checkout. The OS sandbox limits Bash reads and writes (home folders, credentials and `.env*` files are denied; network is limited to an allowlist and prompts otherwise). `.claude/hooks/confine-paths.mjs` refuses file-tool and Bash paths outside the project and edits to these guardrail files. The Bash check is a heuristic; the sandbox is the boundary. Change them by hand, not through Claude, and run `pnpm test` after editing the hook. Put personal overrides in the gitignored `.claude/settings.local.json`.
+
 ## Mathematics and content
 
 Use stable language-independent content IDs, version changed exercises, state domains, and preserve French course notation in both languages. Natural numbers include zero for this course. A biconditional connective and semantic equivalence are different concepts. Flag source errors with page references and clear explanations.
