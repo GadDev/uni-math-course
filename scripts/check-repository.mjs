@@ -57,6 +57,9 @@ export async function validateRepository(
   directory = root,
   mandatory = required,
 ) {
+  // Resolve symlinks (macOS temp directories live behind /var) so document
+  // paths and link destinations are compared in the same form.
+  directory = await realpath(directory);
   const errors = [];
   const exists = async (path) => {
     try {
