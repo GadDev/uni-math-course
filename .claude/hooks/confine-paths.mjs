@@ -276,7 +276,8 @@ const run = async () => {
 
   // Writes may not land in the read-only system locations that reads allow.
   const checkWrites = (command, tokens, where) => {
-    for (const match of command.matchAll(/\d?>>?\s*([^\s;&|<>()]+)/g)) {
+    // `->` and `=>` are arrows in text or code, not redirections.
+    for (const match of command.matchAll(/(?<![-=])\d?>>?\s*([^\s;&|<>()]+)/g)) {
       const target = expand(match[1].replace(/^["'`]|["'`]$/g, ''));
       if (!isAbsolute(target) && !target.split('/').includes('..')) continue;
       if (!DEVICES.has(target) && !inside(resolve(where, target)))
