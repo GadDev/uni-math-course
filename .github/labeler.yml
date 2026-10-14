@@ -27,12 +27,18 @@
   - changed-files:
       - any-glob-to-any-file:
           - "app/**"
+          - "src/components/**"
+          - "src/layouts/**"
+          - "src/pages/**"
+          - "src/styles/**"
+          - "src/lib/**"
           - "public/**"
 
 "area: backend":
   - changed-files:
       - any-glob-to-any-file:
           - "server/**"
+          - "src/pages/api/**"
 
 "area: infrastructure":
   - changed-files:
@@ -47,6 +53,8 @@
           - ".nvmrc"
           - "tsconfig.json"
           - "nuxt.config.*"
+          - "astro.config.*"
+          - "src/content.config.*"
           - "vitest.config.*"
           - "playwright.config.*"
 

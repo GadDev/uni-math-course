@@ -19,15 +19,15 @@ The labeler configuration uses ordinary YAML and the action's changed-files / an
 | --- | --- |
 | documentation | Markdown files, including original teaching text where applicable |
 | content / area: content | content/, exercises/, glossary/ |
-| area: frontend | Nuxt app/ and public/ |
-| area: backend | Nitro server/ |
+| area: frontend | Astro src/components/, src/layouts/, src/pages/, src/styles/, src/lib/, and public/; app/ retained for the evaluated Nuxt alternative |
+| area: backend | src/pages/api/ for future Astro endpoints; server/ retained for the evaluated Nitro alternative |
 | ci/cd / area: infrastructure | GitHub configuration, scripts, build/runtime/tooling files |
 | dependencies | Package manifests and pnpm lock/workspace files |
 | design | design/ and named design-system/art-direction documents |
 | tests | Test directories, test/spec files, and test-runner configuration |
 | bug, enhancement, accessibility, security, needs-triage | Maintainer-assigned intent or triage labels; not inferred from generic file changes |
 
-Nuxt and content paths prepare routing for the proposed scaffold; their presence in label rules does not claim these components already exist. Workflow action updates get infrastructure labels from paths; Dependabot may add dependencies through its own metadata. Labels do not determine version bumps, approve PRs, or skip required checks. The security label is not a private reporting channel.
+Astro reading paths now exist; API and alternative-framework paths prepare future routing without claiming those features are implemented. Workflow action updates get infrastructure labels from paths; Dependabot may add dependencies through its own metadata. Labels do not determine version bumps, approve PRs, or skip required checks. The security label is not a private reporting channel.
 
 ## Sync behaviour
 

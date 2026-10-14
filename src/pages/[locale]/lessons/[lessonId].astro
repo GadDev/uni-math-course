@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../layouts/Base.astro';
+import ReadingNotice from '../../../components/ReadingNotice';
+import { copy } from '../../../lib/i18n';
+export async function getStaticPaths() {
+  const lessons = await getCollection('lessons');
+  return lessons.map((lesson) => ({
+    params: { locale: lesson.data.locale, lessonId: lesson.data.lessonId },
+    props: { lesson },
+  }));
+}
+const { lesson } = Astro.props;
+const { Content } = await render(lesson);
+const locale = lesson.data.locale;
+const text = copy[locale];
+---
+
+<Base
+  locale={locale}
+  title={lesson.data.title}
+  description={lesson.data.summary}
+  path={'lessons/' + lesson.data.lessonId + '/'}
+>
+  <main id="main" class="lesson-page">
+    <nav
+      class="breadcrumb"
+      aria-label={locale === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'}
+    >
+      <a href={'/' + locale + '/'}>{text.course}</a>
+      <span aria-hidden="true"> / </span>
+      <span>{lesson.data.lessonId}</span>
+    </nav>
+    <p class="eyebrow">
+      {text.lesson} · {lesson.data.minutes} min
+    </p>
+    <article class="lesson-prose">
+      <Content />
+    </article>
+    <p class="content-provenance">{text.review}</p>
+    <ReadingNotice locale={locale} client:load />
+    <a class="back-link" href={'/' + locale + '/'}>
+      ← {text.next}
+    </a>
+  </main>
+</Base>

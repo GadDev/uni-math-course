@@ -6,6 +6,8 @@ Notable changes are recorded here. No application version has been released.
 
 ### Added
 
+- Astro/React public reading foundation: bilingual programme and implication pages, accessible mathematics, Radix reading disclosure, locked toolchain, Node checks and browser verification.
+
 - Original bilingual implication lesson and six versioned exercise contracts, with mathematical and translation self-check evidence.
 
 - Architecture and free-deployment benchmark: Astro/React versus Nuxt, Next.js and SvelteKit; Vercel Hobby recommendation, UI alternatives, session/privacy boundaries, free-plan operations and a pilot decision gate.

@@ -1,11 +1,10 @@
 # Claude Code instructions
 
-Read [AGENTS.md](AGENTS.md) for the shared repository instructions. That file is the single source of agent guidance; do not duplicate policies here.
+Read [AGENTS.md](AGENTS.md) for shared repository instructions; do not duplicate policy here.
 
-The current repository is documentation-only. The applicable local check is:
+The public reading foundation is implemented. Accounts, grading and saved progress remain separate M2 features.
 
 ```sh
-python3 scripts/check_repository.py
+pnpm check
+pnpm test:e2e
 ```
-
-Application commands will be documented when an application scaffold exists.

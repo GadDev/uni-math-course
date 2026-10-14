@@ -4,7 +4,7 @@ Status: proposed delivery plan · Owner: GadDev · Last reviewed: 2026-10-14
 
 ## Delivery goal and current state
 
-Deliver a small French/English learning journey with correct content, real sign-in, server grading, saved attempts, and private progress. The repository is in its documentation/foundation stage. No application, deployed service, user account flow, or completed exercise bank exists yet.
+Deliver a small French/English learning journey with correct content, real sign-in, server grading, saved attempts, and private progress. The public Astro/React reading foundation and the L05 content pilot are implemented. No deployed production service, user account flow or full exercise bank exists yet.
 
 The [mission](MISSION.md) defines the outcome; the [constitution](CONSTITUTION.md) defines content and product constraints. The Astro/React, Vercel Hobby, Supabase Free and Radix Themes stack is approved in [TECHSTACK.md](TECHSTACK.md); implementation and operational acceptance remain to be demonstrated.
 
@@ -19,7 +19,7 @@ Acceptance:
 - Project owner, source rights, and unresolved choices are explicit.
 - GitHub settings and missing evidence are recorded separately in [REPOSITORY_SETUP.md](REPOSITORY_SETUP.md), without claiming that files configure branch protection.
 
-Status: proposed in the bootstrap PR. The documentation gate does not test an application.
+Status: repository documentation and the expanded CI gate are implemented. The gate now checks the reading scaffold as well as documentation; GitHub settings and remaining evidence are tracked in REPOSITORY_SETUP.md.
 
 ## M1 - Validate one teaching slice
 
@@ -48,6 +48,8 @@ Acceptance:
 - A caller cannot forge grades or duplicate an attempt by resubmitting the same submission ID.
 - Switching language preserves location and activity state.
 - Relevant unit/integration/browser tests and a production build pass.
+
+M2 feature 1: the public reading foundation is implemented; see [READING_FOUNDATION.md](READING_FOUNDATION.md). Remaining feature PRs: account/session integration, authenticated exercise delivery/server grading, idempotent persistence, then mistake review/private progress. Those features need end-to-end deployment evidence before M2 is complete.
 
 A mock account or static progress card does not complete this milestone.
 
@@ -119,4 +121,4 @@ Ranges assume a small class, one maintainer, usable auth accounts, and no unexpe
 
 ## Current decisions awaiting confirmation
 
-The budget is confirmed as zero recurring software cost and the implementation stack is approved. Remaining decisions: urgent chapter sequence; Google versus other sign-in providers; pilot size; free-plan limitations and recovery acceptance; original-content/publication permission; whether goodies are digital or physical. No cloud resources, accounts, scheduled tasks, or application dependencies are activated by this roadmap.
+The budget is confirmed as zero recurring software cost and the implementation stack is approved. Remaining decisions: urgent chapter sequence; Google versus other sign-in providers; pilot size; free-plan limitations and recovery acceptance; original-content/publication permission; whether goodies are digital or physical. The reading scaffold has application dependencies; no cloud project, learner accounts, or scheduled tasks have been activated.

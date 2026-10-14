@@ -6,7 +6,7 @@ Status: implementation stack approved; integration and operational evidence pend
 
 Deliver a correct four-lesson French/English learning pilot with one maintainer, **€0 recurring software cost**, public reading, signed-in practice, server grading and private saved progress. Use provider subdomains initially. Do not depend on trials, paid add-ons or an assumed future upgrade.
 
-The approved implementation stack is **Astro + React activities, Vercel Hobby, Supabase Free, and a small Radix Themes component set** (owner decision, 2026-10-14). The comparisons below retain the rationale and alternatives. Approval authorises implementation; no working application or configured deployment is claimed here.
+The approved implementation stack is **Astro + React activities, Vercel Hobby, Supabase Free, and a small Radix Themes component set** (owner decision, 2026-10-14). The comparisons below retain the rationale and alternatives. The public reading foundation now implements Astro/React, the Vercel adapter and Radix Themes; accounts, Supabase integration and configured deployment remain pending.
 
 | Decision | Proposed choice | Reason / condition |
 | --- | --- | --- |
@@ -152,7 +152,7 @@ Use Supabase's HTTPS data API where it fits before adding direct-connection pool
 
 ## Delivery, validation and decision gate
 
-Run the existing python3 scripts/check_repository.py today. After the chosen application scaffold, consolidate repository checks into Node tooling and define one gate for format/lint, types, grading/content tests, translation parity and production build. Extend Dependabot only for actual manifests. Manual changelog maintenance continues until Release Please is enabled; a versioned application enables its separate implementation PR.
+Repository checks are consolidated in Node tooling. Run pnpm check for repository/content validation, types, formatting, mathematical tests and production build, plus pnpm test:e2e for browser checks. The existing required docs job retains its identity while running the expanded gate. Extend Dependabot only for actual manifests. Manual changelog maintenance continues until Release Please is enabled; a versioned application enables its separate implementation PR.
 
 Keep PR checks free of production credentials. Separate preview/production configuration and data, register exact auth callbacks, verify deployed revision identity, and smoke-test login plus one saved attempt. Private/session responses use Cache-Control: private, no-store; test that secrets, private questions and grading keys do not enter static output or browser bundles.
 

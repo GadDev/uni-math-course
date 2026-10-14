@@ -2,13 +2,13 @@
 
 Status: adopted workflow policy; automation deferred · Owner: GadDev · Last reviewed: 2026-10-14
 
-## Current stage: manual changelog, no application release
+## Current stage: manual changelog, unreleased application
 
-The repository currently contains documentation and repository tooling. No application package manifest, application version, or deployable learning journey exists.
+The reading foundation has a private package manifest at 0.0.0, which is an unreleased scaffold version. No class-pilot release or complete read/sign-in/practise/progress journey exists.
 
 Maintain [CHANGELOG.md](../CHANGELOG.md) manually under Unreleased for meaningful learner or contributor changes. Do not invent a package version, add Changesets files, or create an application release for every documentation or tooling PR. Small internal edits that do not affect users or contributors need no separate changelog entry.
 
-This policy adds no release workflow, package dependency, publishing token, tag, GitHub release, or deployment. The implementation of release automation belongs in a focused PR after the chosen application scaffold introduces an application version.
+This policy adds no release workflow, package dependency, publishing token, tag, GitHub release, or deployment. The scaffold now introduces an application version; Release Please implementation remains a separate focused PR. Do not activate it merely by merging the scaffold.
 
 ## Contribution and commit convention
 

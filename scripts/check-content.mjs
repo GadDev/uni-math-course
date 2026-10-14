@@ -11,7 +11,8 @@ export function validateBank(bank) {
   const ids = new Set();
   const bilingual = (value) => {
     assert.deepEqual(Object.keys(value).sort(), ['en', 'fr']);
-    for (const text of Object.values(value)) assert.ok(typeof text === 'string' && text.trim());
+    for (const text of Object.values(value))
+      assert.ok(typeof text === 'string' && text.trim());
   };
   for (const exercise of bank.exercises) {
     assert.ok(/^L05-E0[1-6]$/.test(exercise.id));
@@ -42,8 +43,16 @@ export function validateBank(bank) {
     } else {
       assert.equal(exercise.type, 'truth-table');
       assert.equal(exercise.grading.kind, 'labelled-boolean-cells');
-      assert.deepEqual(exercise.rows.map((row) => row.id), ['00', '01', '10', '11']);
-      assert.deepEqual(Object.keys(exercise.answer).sort(), ['00', '01', '10', '11']);
+      assert.deepEqual(
+        exercise.rows.map((row) => row.id),
+        ['00', '01', '10', '11'],
+      );
+      assert.deepEqual(Object.keys(exercise.answer).sort(), [
+        '00',
+        '01',
+        '10',
+        '11',
+      ]);
       for (const row of exercise.rows) {
         assert.equal(typeof row.A, 'boolean');
         assert.equal(typeof row.B, 'boolean');
@@ -58,24 +67,51 @@ export function validateBank(bank) {
 }
 
 export async function checkContent() {
-  const bank = validateBank(JSON.parse(await readFile(new URL('../exercises/L05/v1.json', import.meta.url), 'utf8')));
-  const lessons = await Promise.all(['fr', 'en'].map((locale) =>
-    readFile(new URL('../content/lessons/L05/' + locale + '.md', import.meta.url), 'utf8')));
+  const bank = validateBank(
+    JSON.parse(
+      await readFile(
+        new URL('../exercises/L05/v1.json', import.meta.url),
+        'utf8',
+      ),
+    ),
+  );
+  const lessons = await Promise.all(
+    ['fr', 'en'].map((locale) =>
+      readFile(
+        new URL('../content/lessons/L05/' + locale + '.md', import.meta.url),
+        'utf8',
+      ),
+    ),
+  );
   for (let i = 0; i < lessons.length; i++) {
     const text = lessons[i];
     assert.ok(text.startsWith('---\n'));
     assert.ok(text.includes('lessonId: L05\n'));
     assert.ok(text.includes('locale: ' + ['fr', 'en'][i] + '\n'));
     assert.ok(text.includes('version: 1\n'));
-    assert.ok(text.includes('objectives: [L05-O01, L05-O02, L05-O03, L05-O04, L05-O05, L05-O06]'));
+    assert.ok(
+      text.includes(
+        'objectives: [L05-O01, L05-O02, L05-O03, L05-O04, L05-O05, L05-O06]',
+      ),
+    );
     assert.ok(text.includes('sourcePages: [20, 21, 22, 23]'));
   }
-  const math = (text) => [...text.matchAll(/\2([^$]+)\2/g)].map((match) => match[1].trim());
-  assert.deepEqual(math(lessons[0]), math(lessons[1]), 'French/English mathematical notation diverged');
-  console.log('Validated L05 in French/English and six versioned exercise contracts.');
+  const math = (text) =>
+    [...text.matchAll(/\2([^$]+)\2/g)].map((match) => match[1].trim());
+  assert.deepEqual(
+    math(lessons[0]),
+    math(lessons[1]),
+    'French/English mathematical notation diverged',
+  );
+  console.log(
+    'Validated L05 in French/English and six versioned exercise contracts.',
+  );
   return bank;
 }
 
-if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (
+  process.argv[1] &&
+  resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+) {
   await checkContent();
 }
