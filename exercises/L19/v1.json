@@ -1,0 +1,576 @@
+{
+  "lessonId": "L19",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L19-E01",
+      "objectiveId": "L19-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "off-by-one-in-range",
+        "strict-instead-of-non-strict"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle expression Python teste que `t` est triée (croissante au sens large) ?",
+        "en": "Which Python expression tests that `t` is sorted (non-decreasing)?"
+      },
+      "hint": {
+        "fr": "Toutes les paires voisines doivent être dans l’ordre, avec le bon nombre de paires.",
+        "en": "All neighbouring pairs must be in order, with the right number of pairs."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "`all(t[i] <= t[i+1] for i in range(n-1))`",
+            "en": "`all(t[i] <= t[i+1] for i in range(n-1))`"
+          },
+          "feedback": {
+            "fr": "Exact : $n - 1$ comparaisons, toutes vraies.",
+            "en": "Correct: $n - 1$ comparisons, all true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "`any(t[i] <= t[i+1] for i in range(n-1))`",
+            "en": "`any(t[i] <= t[i+1] for i in range(n-1))`"
+          },
+          "feedback": {
+            "fr": "`any` demande une seule paire en ordre, pas toutes.",
+            "en": "`any` asks for a single pair in order, not all."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "`all(t[i] < t[i+1] for i in range(n-1))`",
+            "en": "`all(t[i] < t[i+1] for i in range(n-1))`"
+          },
+          "feedback": {
+            "fr": "Avec `<`, les doublons seraient refusés : c’est le tri strict.",
+            "en": "With `<`, duplicates would be rejected: this is strict sorting."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "`all(t[i] <= t[i+1] for i in range(n))`",
+            "en": "`all(t[i] <= t[i+1] for i in range(n))`"
+          },
+          "feedback": {
+            "fr": "Pour `i = n-1`, `t[i+1]` sort de la liste : erreur d’indice.",
+            "en": "For `i = n-1`, `t[i+1]` is outside the list: an index error."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\forall i \\in \\{0, \\ldots, n-2\\}\\ t[i] \\leq t[i+1]$ s’écrit `all(... for i in range(n-1))`.",
+        "en": "$\\forall i \\in \\{0, \\ldots, n-2\\}\\ t[i] \\leq t[i+1]$ is written `all(... for i in range(n-1))`."
+      },
+      "lessonId": "L19",
+      "version": 1,
+      "prerequisites": [
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          90,
+          91,
+          92,
+          93,
+          94
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L19-E02",
+      "objectiveId": "L19-O02",
+      "difficulty": "application",
+      "misconceptions": [
+        "negation-of-sorted-as-reversed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule dit que `t` n’est pas triée ?",
+        "en": "Which formula says that `t` is not sorted?"
+      },
+      "hint": {
+        "fr": "Niez l’assertion « pour tout $i$, $t[i] \\leq t[i+1]$ ».",
+        "en": "Negate “for all $i$, $t[i] \\leq t[i+1]$”."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists i \\in \\{0, \\ldots, n-2\\}\\ t[i] > t[i+1]$",
+            "en": "$\\exists i \\in \\{0, \\ldots, n-2\\}\\ t[i] > t[i+1]$"
+          },
+          "feedback": {
+            "fr": "Exact : une paire voisine est dans le mauvais ordre.",
+            "en": "Correct: some neighbouring pair is in the wrong order."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall i \\in \\{0, \\ldots, n-2\\}\\ t[i] > t[i+1]$",
+            "en": "$\\forall i \\in \\{0, \\ldots, n-2\\}\\ t[i] > t[i+1]$"
+          },
+          "feedback": {
+            "fr": "Cela dit que la liste est strictement décroissante, ce qui est plus fort.",
+            "en": "This says that the list is strictly decreasing, which is stronger."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists i \\in \\{0, \\ldots, n-2\\}\\ t[i] \\leq t[i+1]$",
+            "en": "$\\exists i \\in \\{0, \\ldots, n-2\\}\\ t[i] \\leq t[i+1]$"
+          },
+          "feedback": {
+            "fr": "Cette assertion est vraie pour beaucoup de listes triées.",
+            "en": "This statement is true for many sorted lists."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall i \\in \\{0, \\ldots, n-2\\}\\ t[i] \\geq t[i+1]$",
+            "en": "$\\forall i \\in \\{0, \\ldots, n-2\\}\\ t[i] \\geq t[i+1]$"
+          },
+          "feedback": {
+            "fr": "Cela dit que la liste est décroissante : une autre propriété.",
+            "en": "This says the list is non-increasing: a different property."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La négation de $\\forall i\\ t[i] \\leq t[i+1]$ est $\\exists i\\ t[i] > t[i+1]$.",
+        "en": "The negation of $\\forall i\\ t[i] \\leq t[i+1]$ is $\\exists i\\ t[i] > t[i+1]$."
+      },
+      "lessonId": "L19",
+      "version": 1,
+      "prerequisites": [
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          90,
+          91,
+          92,
+          93,
+          94
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L19-E03",
+      "objectiveId": "L19-O03",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "pair-count-confused-with-length"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une liste a $n$ éléments. Combien de paires voisines $(t[i], t[i+1])$ compare-t-on, et quelle plage utilise-t-on ?",
+        "en": "A list has $n$ elements. How many neighbouring pairs $(t[i], t[i+1])$ are compared, and which range is used?"
+      },
+      "hint": {
+        "fr": "Chaque comparaison utilise `t[i+1]` : le dernier indice ne peut pas démarrer une paire.",
+        "en": "Each comparison uses `t[i+1]`: the last index cannot start a pair."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$n - 1$ paires, `range(n-1)`",
+            "en": "$n - 1$ pairs, `range(n-1)`"
+          },
+          "feedback": {
+            "fr": "Exact.",
+            "en": "Correct."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$n$ paires, `range(n)`",
+            "en": "$n$ pairs, `range(n)`"
+          },
+          "feedback": {
+            "fr": "La dernière paire sortirait de la liste.",
+            "en": "The last pair would fall outside the list."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$n + 1$ paires, `range(n+1)`",
+            "en": "$n + 1$ pairs, `range(n+1)`"
+          },
+          "feedback": {
+            "fr": "Il y a moins de paires que d’éléments.",
+            "en": "There are fewer pairs than elements."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$n - 2$ paires, `range(n-2)`",
+            "en": "$n - 2$ pairs, `range(n-2)`"
+          },
+          "feedback": {
+            "fr": "Cela oublie une paire : les indices vont de $0$ à $n - 2$ compris.",
+            "en": "This forgets a pair: indices run from $0$ to $n - 2$ inclusive."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Les indices de comparaison sont $0, \\ldots, n-2$ : il y en a $n - 1$.",
+        "en": "The comparison indices are $0, \\ldots, n-2$: there are $n - 1$ of them."
+      },
+      "lessonId": "L19",
+      "version": 1,
+      "prerequisites": [
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          90,
+          91,
+          92,
+          93,
+          94
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L19-E04",
+      "objectiveId": "L19-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "self-equality-counted-as-duplicate",
+        "all-equal-confused-with-duplicate"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule dit que `t` contient un doublon ?",
+        "en": "Which formula says that `t` contains a duplicate?"
+      },
+      "hint": {
+        "fr": "Deux positions différentes doivent porter la même valeur.",
+        "en": "Two different positions must hold the same value."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists i\\ \\exists j\\ (i < j \\land t[i] = t[j])$",
+            "en": "$\\exists i\\ \\exists j\\ (i < j \\land t[i] = t[j])$"
+          },
+          "feedback": {
+            "fr": "Exact : deux positions distinctes, même valeur.",
+            "en": "Correct: two distinct positions, same value."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists i\\ \\exists j\\ (i \\leq j \\land t[i] = t[j])$",
+            "en": "$\\exists i\\ \\exists j\\ (i \\leq j \\land t[i] = t[j])$"
+          },
+          "feedback": {
+            "fr": "Avec $i = j$, tout élément est égal à lui-même : toujours vraie pour une liste non vide.",
+            "en": "With $i = j$, every element equals itself: always true for a nonempty list."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall i\\ \\forall j\\ (i < j \\Rightarrow t[i] = t[j])$",
+            "en": "$\\forall i\\ \\forall j\\ (i < j \\Rightarrow t[i] = t[j])$"
+          },
+          "feedback": {
+            "fr": "Cela dit que tous les éléments sont égaux.",
+            "en": "This says that all elements are equal."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\exists i\\ \\forall j\\ t[i] \\neq t[j]$",
+            "en": "$\\exists i\\ \\forall j\\ t[i] \\neq t[j]$"
+          },
+          "feedback": {
+            "fr": "Avec $j = i$, cette formule est toujours fausse.",
+            "en": "With $j = i$, this formula is always false."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Un doublon demande deux indices $i < j$ avec $t[i] = t[j]$.",
+        "en": "A duplicate needs two indices $i < j$ with $t[i] = t[j]$."
+      },
+      "lessonId": "L19",
+      "version": 1,
+      "prerequisites": [
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          90,
+          91,
+          92,
+          93,
+          94
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L19-E05",
+      "objectiveId": "L19-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "quantifier-order-in-maximum",
+        "trivially-true-statement"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule dit que `t` contient son maximum (liste finie non vide de nombres) ?",
+        "en": "Which formula says that `t` contains its maximum (finite nonempty list of numbers)?"
+      },
+      "hint": {
+        "fr": "Un indice $i$ doit dominer tous les indices $j$.",
+        "en": "One index $i$ must dominate every index $j$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists i\\ \\forall j\\ t[j] \\leq t[i]$",
+            "en": "$\\exists i\\ \\forall j\\ t[j] \\leq t[i]$"
+          },
+          "feedback": {
+            "fr": "Exact : il existe une position dont la valeur est au moins celle de toutes les autres.",
+            "en": "Correct: some position holds a value at least as large as all the others."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall i\\ \\exists j\\ t[j] \\leq t[i]$",
+            "en": "$\\forall i\\ \\exists j\\ t[j] \\leq t[i]$"
+          },
+          "feedback": {
+            "fr": "Avec $j = i$, cette formule est toujours vraie : elle ne dit rien.",
+            "en": "With $j = i$, this formula is always true: it says nothing."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists i\\ \\exists j\\ t[j] \\leq t[i]$",
+            "en": "$\\exists i\\ \\exists j\\ t[j] \\leq t[i]$"
+          },
+          "feedback": {
+            "fr": "Avec $j = i$, cette formule est toujours vraie.",
+            "en": "With $j = i$, this formula is always true."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall i\\ \\forall j\\ t[j] \\leq t[i]$",
+            "en": "$\\forall i\\ \\forall j\\ t[j] \\leq t[i]$"
+          },
+          "feedback": {
+            "fr": "Cela dit que tous les éléments sont égaux.",
+            "en": "This says that all elements are equal."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\exists i\\ \\forall j\\ t[j] \\leq t[i]$ : l’ordre $\\exists\\forall$ est essentiel.",
+        "en": "$\\exists i\\ \\forall j\\ t[j] \\leq t[i]$: the order $\\exists\\forall$ is essential."
+      },
+      "lessonId": "L19",
+      "version": 1,
+      "prerequisites": [
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          90,
+          91,
+          92,
+          93,
+          94
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L19-E06",
+      "objectiveId": "L19-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "empty-all-false",
+        "empty-any-true"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour `t = []` (liste vide), que renvoient `all(...)` et `any(...)` sur `range(n-1)` ?",
+        "en": "For `t = []` (empty list), what do `all(...)` and `any(...)` return over `range(n-1)`?"
+      },
+      "hint": {
+        "fr": "Sur une plage vide, aucune condition n’est testée.",
+        "en": "On an empty range, no condition is tested."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "`all` renvoie `True` et `any` renvoie `False`.",
+            "en": "`all` returns `True` and `any` returns `False`."
+          },
+          "feedback": {
+            "fr": "Exact : « pour tout » est vrai à vide, « il existe » est faux à vide.",
+            "en": "Correct: “for all” is vacuously true, “exists” is false on nothing."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Les deux renvoient `False`.",
+            "en": "Both return `False`."
+          },
+          "feedback": {
+            "fr": "`all` d’une plage vide renvoie `True`.",
+            "en": "`all` of an empty range returns `True`."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Les deux renvoient `True`.",
+            "en": "Both return `True`."
+          },
+          "feedback": {
+            "fr": "`any` d’une plage vide renvoie `False`.",
+            "en": "`any` of an empty range returns `False`."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Les deux lèvent une erreur.",
+            "en": "Both raise an error."
+          },
+          "feedback": {
+            "fr": "`range(-1)` est une plage vide, pas une erreur.",
+            "en": "`range(-1)` is an empty range, not an error."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Une liste de longueur $0$ ou $1$ est triée, et « contient son maximum » est faux pour la liste vide.",
+        "en": "A list of length $0$ or $1$ is sorted, and “contains its maximum” is false for the empty list."
+      },
+      "lessonId": "L19",
+      "version": 1,
+      "prerequisites": [
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          90,
+          91,
+          92,
+          93,
+          94
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,596 @@
+{
+  "lessonId": "L18",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L18-E01",
+      "objectiveId": "L18-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "query-result-confused-with-table"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Table `Student(id)` : lia, max, noa. Table `Enrolled(student, course)` : (lia, art), (max, bio), (noa, bio). Que renvoie `SELECT e.student FROM Enrolled e WHERE e.course = 'bio';` ?",
+        "en": "Table `Student(id)`: lia, max, noa. Table `Enrolled(student, course)`: (lia, art), (max, bio), (noa, bio). What does `SELECT e.student FROM Enrolled e WHERE e.course = 'bio';` return?"
+      },
+      "hint": {
+        "fr": "Gardez les étudiants dont la ligne a le cours bio.",
+        "en": "Keep the students whose row has the course bio."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{\\text{max}, \\text{noa}\\}$",
+            "en": "$\\{\\text{max}, \\text{noa}\\}$"
+          },
+          "feedback": {
+            "fr": "Exact : ce sont les étudiants inscrits en bio.",
+            "en": "Correct: these are the students enrolled in bio."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{\\text{lia}\\}$",
+            "en": "$\\{\\text{lia}\\}$"
+          },
+          "feedback": {
+            "fr": "lia est inscrite en art, pas en bio.",
+            "en": "lia is enrolled in art, not bio."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{\\text{lia}, \\text{max}, \\text{noa}\\}$",
+            "en": "$\\{\\text{lia}, \\text{max}, \\text{noa}\\}$"
+          },
+          "feedback": {
+            "fr": "Le filtre n’a pas été appliqué.",
+            "en": "The filter was not applied."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\{\\text{art}, \\text{bio}\\}$",
+            "en": "$\\{\\text{art}, \\text{bio}\\}$"
+          },
+          "feedback": {
+            "fr": "La requête sélectionne des étudiants, pas des cours.",
+            "en": "The query selects students, not courses."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La requête se lit $\\{x \\in E \\mid I(x, \\text{bio})\\} = \\{\\text{max}, \\text{noa}\\}$.",
+        "en": "The query reads $\\{x \\in E \\mid I(x, \\text{bio})\\} = \\{\\text{max}, \\text{noa}\\}$."
+      },
+      "lessonId": "L18",
+      "version": 1,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E02",
+      "objectiveId": "L18-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "predicate-confused-with-select-list"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans `SELECT e.student FROM Enrolled e WHERE e.course = 'bio'`, quelle partie joue le rôle du prédicat ?",
+        "en": "In `SELECT e.student FROM Enrolled e WHERE e.course = 'bio'`, which part plays the role of the predicate?"
+      },
+      "hint": {
+        "fr": "Le prédicat est la condition qui filtre les lignes.",
+        "en": "The predicate is the condition that filters the rows."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "La condition `e.course = 'bio'` après `WHERE`.",
+            "en": "The condition `e.course = 'bio'` after `WHERE`."
+          },
+          "feedback": {
+            "fr": "Exact : c’est un prédicat sur la ligne `e`.",
+            "en": "Correct: it is a predicate on the row `e`."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "La liste `e.student` après `SELECT`.",
+            "en": "The list `e.student` after `SELECT`."
+          },
+          "feedback": {
+            "fr": "Elle choisit ce qu’on renvoie ; elle ne filtre pas.",
+            "en": "It chooses what is returned; it does not filter."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Le nom de table `Enrolled`.",
+            "en": "The table name `Enrolled`."
+          },
+          "feedback": {
+            "fr": "C’est l’ensemble parcouru, pas le prédicat.",
+            "en": "It is the set being scanned, not the predicate."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Le point-virgule final.",
+            "en": "The final semicolon."
+          },
+          "feedback": {
+            "fr": "Il termine l’instruction.",
+            "en": "It ends the statement."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La variable `e` parcourt les lignes ; la condition `WHERE` est le prédicat ; le résultat est une table.",
+        "en": "The variable `e` ranges over rows; the `WHERE` condition is the predicate; the result is a table."
+      },
+      "lessonId": "L18",
+      "version": 1,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E03",
+      "objectiveId": "L18-O03",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "and-or-swapped"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "À quels symboles logiques correspondent `AND`, `OR` et `NOT` ?",
+        "en": "Which logical symbols do `AND`, `OR` and `NOT` correspond to?"
+      },
+      "hint": {
+        "fr": "Dans l’ordre : conjonction, disjonction, négation.",
+        "en": "In order: conjunction, disjunction, negation."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\land$, $\\lor$, $\\neg$",
+            "en": "$\\land$, $\\lor$, $\\neg$"
+          },
+          "feedback": {
+            "fr": "Exact.",
+            "en": "Correct."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\lor$, $\\land$, $\\neg$",
+            "en": "$\\lor$, $\\land$, $\\neg$"
+          },
+          "feedback": {
+            "fr": "`AND` et `OR` sont échangés.",
+            "en": "`AND` and `OR` are swapped."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\Rightarrow$, $\\Leftrightarrow$, $\\neg$",
+            "en": "$\\Rightarrow$, $\\Leftrightarrow$, $\\neg$"
+          },
+          "feedback": {
+            "fr": "`AND` et `OR` ne sont pas des implications.",
+            "en": "`AND` and `OR` are not implications."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall$, $\\exists$, $\\neg$",
+            "en": "$\\forall$, $\\exists$, $\\neg$"
+          },
+          "feedback": {
+            "fr": "`AND` et `OR` sont des connecteurs, pas des quantificateurs.",
+            "en": "`AND` and `OR` are connectives, not quantifiers."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "`AND` est $\\land$, `OR` est $\\lor$, `NOT` est $\\neg$.",
+        "en": "`AND` is $\\land$, `OR` is $\\lor$, `NOT` is $\\neg$."
+      },
+      "lessonId": "L18",
+      "version": 1,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E04",
+      "objectiveId": "L18-O04",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "not-exists-as-exists-not"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "À quoi correspond `NOT EXISTS` ?",
+        "en": "What does `NOT EXISTS` correspond to?"
+      },
+      "hint": {
+        "fr": "`EXISTS` correspond à $\\exists$.",
+        "en": "`EXISTS` corresponds to $\\exists$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg\\exists$",
+            "en": "$\\neg\\exists$"
+          },
+          "feedback": {
+            "fr": "Exact : « il n’existe pas ».",
+            "en": "Correct: “there does not exist”."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists\\neg$",
+            "en": "$\\exists\\neg$"
+          },
+          "feedback": {
+            "fr": "Cela dirait qu’un élément ne vérifie pas la condition.",
+            "en": "This would say that some element fails the condition."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall$",
+            "en": "$\\forall$"
+          },
+          "feedback": {
+            "fr": "Un $\\forall$ n’est pas la même chose que $\\neg\\exists$, sauf avec une négation interne.",
+            "en": "A $\\forall$ is not the same as $\\neg\\exists$, except with an inner negation."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\neg\\forall$",
+            "en": "$\\neg\\forall$"
+          },
+          "feedback": {
+            "fr": "Cela dirait que tous ne vérifient pas la condition.",
+            "en": "This would say that not all satisfy the condition."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "`EXISTS` est $\\exists$ et `NOT EXISTS` est $\\neg\\exists$.",
+        "en": "`EXISTS` is $\\exists$ and `NOT EXISTS` is $\\neg\\exists$."
+      },
+      "lessonId": "L18",
+      "version": 1,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E05",
+      "objectiveId": "L18-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "not-exists-misread-as-all-rows"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Table `Student(id)` : lia, max, noa. Table `Enrolled(student, course)` : (lia, art), (max, bio), (noa, bio). Que renvoie `SELECT s.id FROM Student s WHERE NOT EXISTS (SELECT * FROM Enrolled e WHERE e.student = s.id AND e.course = 'art');` ?",
+        "en": "Table `Student(id)`: lia, max, noa. Table `Enrolled(student, course)`: (lia, art), (max, bio), (noa, bio). What does `SELECT s.id FROM Student s WHERE NOT EXISTS (SELECT * FROM Enrolled e WHERE e.student = s.id AND e.course = 'art');` return?"
+      },
+      "hint": {
+        "fr": "Gardez les étudiants pour lesquels il n’existe aucune inscription en art.",
+        "en": "Keep the students for whom no enrolment in art exists."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{\\text{lia}\\}$",
+            "en": "$\\{\\text{lia}\\}$"
+          },
+          "feedback": {
+            "fr": "lia est inscrite en art : elle est exclue.",
+            "en": "lia is enrolled in art: she is excluded."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{\\text{max}, \\text{noa}\\}$",
+            "en": "$\\{\\text{max}, \\text{noa}\\}$"
+          },
+          "feedback": {
+            "fr": "Exact : max et noa n’ont aucune inscription en art.",
+            "en": "Correct: max and noa have no enrolment in art."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{\\text{lia}, \\text{max}, \\text{noa}\\}$",
+            "en": "$\\{\\text{lia}, \\text{max}, \\text{noa}\\}$"
+          },
+          "feedback": {
+            "fr": "Le filtre `NOT EXISTS` n’a pas été appliqué.",
+            "en": "The `NOT EXISTS` filter was not applied."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\varnothing$",
+            "en": "$\\varnothing$"
+          },
+          "feedback": {
+            "fr": "Deux étudiants ne sont pas inscrits en art.",
+            "en": "Two students are not enrolled in art."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le résultat est $\\{x \\in E \\mid \\neg I(x, \\text{art})\\} = \\{\\text{max}, \\text{noa}\\}$.",
+        "en": "The result is $\\{x \\in E \\mid \\neg I(x, \\text{art})\\} = \\{\\text{max}, \\text{noa}\\}$."
+      },
+      "lessonId": "L18",
+      "version": 1,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E06",
+      "objectiveId": "L18-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "forall-replacement-misformed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "SQL n’a pas de $\\forall$. Par quoi remplacer $\\forall x\\ P(x)$ ?",
+        "en": "SQL has no $\\forall$. What replaces $\\forall x\\ P(x)$?"
+      },
+      "hint": {
+        "fr": "Dire que tous vérifient $P$, c’est dire qu’aucun ne la viole.",
+        "en": "Saying all satisfy $P$ means none violates it."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg\\exists x\\ \\neg P(x)$",
+            "en": "$\\neg\\exists x\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Exact : il n’existe aucun contre-exemple.",
+            "en": "Correct: no counterexample exists."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists x\\ \\neg P(x)$",
+            "en": "$\\exists x\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "C’est la négation de $\\forall x\\ P(x)$.",
+            "en": "This is the negation of $\\forall x\\ P(x)$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg\\exists x\\ P(x)$",
+            "en": "$\\neg\\exists x\\ P(x)$"
+          },
+          "feedback": {
+            "fr": "Cela dit qu’aucun élément ne vérifie $P$.",
+            "en": "This says that no element satisfies $P$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\exists x\\ P(x)$",
+            "en": "$\\exists x\\ P(x)$"
+          },
+          "feedback": {
+            "fr": "Cela dit seulement qu’un élément vérifie $P$.",
+            "en": "This only says that some element satisfies $P$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\forall x\\ P(x) \\equiv \\neg\\exists x\\ \\neg P(x)$.",
+        "en": "$\\forall x\\ P(x) \\equiv \\neg\\exists x\\ \\neg P(x)$."
+      },
+      "lessonId": "L18",
+      "version": 1,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

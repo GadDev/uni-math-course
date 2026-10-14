@@ -342,7 +342,10 @@ h3 {
   padding: 0 1.5rem;
   border-left: 1px solid var(--line);
 }
-.planned-list li:first-child {
+.planned-list {
+  row-gap: 2rem;
+}
+.planned-list li:nth-child(4n + 1) {
   padding-left: 0;
   border-left: 0;
 }
@@ -435,6 +438,11 @@ h3 {
   align-self: start;
   position: sticky;
   top: 1.5rem;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+}
+.outline-topics a {
+  color: inherit;
 }
 .course-outline > .eyebrow {
   margin: 0 0 1rem;
@@ -751,7 +759,11 @@ h3 {
     grid-template-columns: 1fr 1fr;
     row-gap: 1.8rem;
   }
-  .planned-list li:nth-child(3) {
+  .planned-list li:nth-child(4n + 1) {
+    border-left: 1px solid var(--line);
+    padding-left: 1.5rem;
+  }
+  .planned-list li:nth-child(odd) {
     border-left: 0;
     padding-left: 0;
   }

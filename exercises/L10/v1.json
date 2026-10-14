@@ -1,0 +1,568 @@
+{
+  "lessonId": "L10",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L10-E01",
+      "objectiveId": "L10-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "number-set-chain-reversed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle chaîne d’inclusions est correcte ?",
+        "en": "Which chain of inclusions is correct?"
+      },
+      "hint": {
+        "fr": "Les naturels sont des entiers, les entiers sont des rationnels, les rationnels sont des réels.",
+        "en": "Naturals are integers, integers are rationals, rationals are reals."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$",
+            "en": "$\\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$"
+          },
+          "feedback": {
+            "fr": "Exact : chaque ensemble est inclus dans le suivant.",
+            "en": "Correct: each set is included in the next."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\mathbb{R} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{N}$",
+            "en": "$\\mathbb{R} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{N}$"
+          },
+          "feedback": {
+            "fr": "C’est l’ordre inverse : $\\pi \\in \\mathbb{R}$ n’est pas dans $\\mathbb{Q}$.",
+            "en": "This is the reverse order: $\\pi \\in \\mathbb{R}$ is not in $\\mathbb{Q}$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\mathbb{Z} \\subseteq \\mathbb{N} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$",
+            "en": "$\\mathbb{Z} \\subseteq \\mathbb{N} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$"
+          },
+          "feedback": {
+            "fr": "$-1 \\in \\mathbb{Z}$ n’est pas dans $\\mathbb{N}$ : $\\mathbb{Z} \\subseteq \\mathbb{N}$ est faux.",
+            "en": "$-1 \\in \\mathbb{Z}$ is not in $\\mathbb{N}$: $\\mathbb{Z} \\subseteq \\mathbb{N}$ is false."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\mathbb{N} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{R}$",
+            "en": "$\\mathbb{N} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{R}$"
+          },
+          "feedback": {
+            "fr": "$\\frac{1}{2} \\in \\mathbb{Q}$ n’est pas dans $\\mathbb{Z}$ : $\\mathbb{Q} \\subseteq \\mathbb{Z}$ est faux.",
+            "en": "$\\frac{1}{2} \\in \\mathbb{Q}$ is not in $\\mathbb{Z}$: $\\mathbb{Q} \\subseteq \\mathbb{Z}$ is false."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Dans ce cours, $\\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$, et $\\mathbb{N}$ contient $0$.",
+        "en": "In this course, $\\mathbb{N} \\subseteq \\mathbb{Z} \\subseteq \\mathbb{Q} \\subseteq \\mathbb{R}$, and $\\mathbb{N}$ contains $0$."
+      },
+      "lessonId": "L10",
+      "version": 1,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E02",
+      "objectiveId": "L10-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "enumeration-order-or-repetition-matters"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel ensemble est égal à $\\{1, 2, 4\\}$ ? (appui préalable)",
+        "en": "Which set equals $\\{1, 2, 4\\}$? (prerequisite support)"
+      },
+      "hint": {
+        "fr": "Un ensemble est déterminé par ses éléments.",
+        "en": "A set is determined by its elements."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{4, 1, 2\\}$",
+            "en": "$\\{4, 1, 2\\}$"
+          },
+          "feedback": {
+            "fr": "Exact : mêmes éléments, donc même ensemble.",
+            "en": "Correct: same elements, so the same set."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{1, 2\\}$",
+            "en": "$\\{1, 2\\}$"
+          },
+          "feedback": {
+            "fr": "Il manque l’élément $4$.",
+            "en": "The element $4$ is missing."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{1, 2, 3, 4\\}$",
+            "en": "$\\{1, 2, 3, 4\\}$"
+          },
+          "feedback": {
+            "fr": "Cet ensemble contient en plus $3$.",
+            "en": "This set also contains $3$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\{1, 4\\}$",
+            "en": "$\\{1, 4\\}$"
+          },
+          "feedback": {
+            "fr": "Il manque l’élément $2$.",
+            "en": "The element $2$ is missing."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Deux ensembles sont égaux lorsqu’ils ont les mêmes éléments, quel que soit l’ordre de la liste.",
+        "en": "Two sets are equal when they have the same elements, whatever the order of the list."
+      },
+      "lessonId": "L10",
+      "version": 1,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E03",
+      "objectiveId": "L10-O03",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "empty-set-as-element",
+        "empty-set-has-no-subset-relation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle affirmation sur l’ensemble vide est vraie ?",
+        "en": "Which statement about the empty set is true?"
+      },
+      "hint": {
+        "fr": "Tout élément de $\\varnothing$ est dans $\\{1, 2\\}$, faute d’élément.",
+        "en": "Every element of $\\varnothing$ is in $\\{1, 2\\}$, since there is none."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\varnothing \\subseteq \\{1, 2\\}$",
+            "en": "$\\varnothing \\subseteq \\{1, 2\\}$"
+          },
+          "feedback": {
+            "fr": "Exact : $\\varnothing$ n’a aucun élément qui pourrait ne pas être dans $\\{1, 2\\}$.",
+            "en": "Correct: $\\varnothing$ has no element that could fail to be in $\\{1, 2\\}$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\varnothing \\in \\{1, 2\\}$",
+            "en": "$\\varnothing \\in \\{1, 2\\}$"
+          },
+          "feedback": {
+            "fr": "Les éléments de $\\{1, 2\\}$ sont $1$ et $2$, pas $\\varnothing$.",
+            "en": "The elements of $\\{1, 2\\}$ are $1$ and $2$, not $\\varnothing$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{1, 2\\} \\subseteq \\varnothing$",
+            "en": "$\\{1, 2\\} \\subseteq \\varnothing$"
+          },
+          "feedback": {
+            "fr": "$1$ est dans $\\{1, 2\\}$ mais pas dans $\\varnothing$.",
+            "en": "$1$ is in $\\{1, 2\\}$ but not in $\\varnothing$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\varnothing = \\{0\\}$",
+            "en": "$\\varnothing = \\{0\\}$"
+          },
+          "feedback": {
+            "fr": "$\\{0\\}$ a un élément, $0$ ; $\\varnothing$ n’en a aucun.",
+            "en": "$\\{0\\}$ has one element, $0$; $\\varnothing$ has none."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\varnothing \\subseteq A$ pour tout ensemble $A$.",
+        "en": "$\\varnothing \\subseteq A$ for every set $A$."
+      },
+      "lessonId": "L10",
+      "version": 1,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E04",
+      "objectiveId": "L10-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "element-confused-with-part"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces affirmations est fausse ?",
+        "en": "Which of these statements is false?"
+      },
+      "hint": {
+        "fr": "Les éléments de $\\{1, 2\\}$ sont des nombres, pas des ensembles.",
+        "en": "The elements of $\\{1, 2\\}$ are numbers, not sets."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1 \\in \\{1, 2\\}$",
+            "en": "$1 \\in \\{1, 2\\}$"
+          },
+          "feedback": {
+            "fr": "Vraie : $1$ est un élément.",
+            "en": "True: $1$ is an element."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{1\\} \\subseteq \\{1, 2\\}$",
+            "en": "$\\{1\\} \\subseteq \\{1, 2\\}$"
+          },
+          "feedback": {
+            "fr": "Vraie : le seul élément de $\\{1\\}$ est dans $\\{1, 2\\}$.",
+            "en": "True: the only element of $\\{1\\}$ is in $\\{1, 2\\}$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{1\\} \\in \\{1, 2\\}$",
+            "en": "$\\{1\\} \\in \\{1, 2\\}$"
+          },
+          "feedback": {
+            "fr": "Fausse : $\\{1\\}$ est un ensemble, pas un élément de $\\{1, 2\\}$.",
+            "en": "False: $\\{1\\}$ is a set, not an element of $\\{1, 2\\}$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\varnothing \\subseteq \\{1, 2\\}$",
+            "en": "$\\varnothing \\subseteq \\{1, 2\\}$"
+          },
+          "feedback": {
+            "fr": "Vraie : l’ensemble vide est inclus dans tout ensemble.",
+            "en": "True: the empty set is included in every set."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$\\{1\\} \\in \\{1, 2\\}$ confond une partie avec un élément.",
+        "en": "$\\{1\\} \\in \\{1, 2\\}$ confuses a part with an element."
+      },
+      "lessonId": "L10",
+      "version": 1,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E05",
+      "objectiveId": "L10-O05",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "inclusion-reversed",
+        "inclusion-as-overlap"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que signifie $B \\subseteq A$ ?",
+        "en": "What does $B \\subseteq A$ mean?"
+      },
+      "hint": {
+        "fr": "Tout élément de $B$ est un élément de $A$.",
+        "en": "Every element of $B$ is an element of $A$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall b\\ (b \\in B \\Rightarrow b \\in A)$",
+            "en": "$\\forall b\\ (b \\in B \\Rightarrow b \\in A)$"
+          },
+          "feedback": {
+            "fr": "Exact : tout élément de $B$ est dans $A$.",
+            "en": "Correct: every element of $B$ is in $A$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists b\\ (b \\in B \\land b \\in A)$",
+            "en": "$\\exists b\\ (b \\in B \\land b \\in A)$"
+          },
+          "feedback": {
+            "fr": "Cela dit seulement que $A$ et $B$ ont un élément commun.",
+            "en": "This only says that $A$ and $B$ share an element."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall a\\ (a \\in A \\Rightarrow a \\in B)$",
+            "en": "$\\forall a\\ (a \\in A \\Rightarrow a \\in B)$"
+          },
+          "feedback": {
+            "fr": "C’est l’inclusion dans l’autre sens : $A \\subseteq B$.",
+            "en": "This is the inclusion the other way round: $A \\subseteq B$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$B \\in A$",
+            "en": "$B \\in A$"
+          },
+          "feedback": {
+            "fr": "L’appartenance relie un objet à un ensemble ; elle n’exprime pas l’inclusion.",
+            "en": "Membership relates an object to a set; it does not express inclusion."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$B \\subseteq A$ signifie $\\forall b\\ (b \\in B \\Rightarrow b \\in A)$.",
+        "en": "$B \\subseteq A$ means $\\forall b\\ (b \\in B \\Rightarrow b \\in A)$."
+      },
+      "lessonId": "L10",
+      "version": 1,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E06",
+      "objectiveId": "L10-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "subset-with-foreign-element"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $A = \\{1, 2, 3\\}$. Lequel de ces ensembles n’est pas une partie de $A$ ?",
+        "en": "Let $A = \\{1, 2, 3\\}$. Which of these sets is not a part of $A$?"
+      },
+      "hint": {
+        "fr": "Cherchez un élément qui n’est pas dans $A$.",
+        "en": "Look for an element that is not in $A$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{1\\}$",
+            "en": "$\\{1\\}$"
+          },
+          "feedback": {
+            "fr": "C’est une partie : $1 \\in A$.",
+            "en": "This is a part: $1 \\in A$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{2, 3\\}$",
+            "en": "$\\{2, 3\\}$"
+          },
+          "feedback": {
+            "fr": "C’est une partie : $2$ et $3$ sont dans $A$.",
+            "en": "This is a part: $2$ and $3$ are in $A$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{2, 4\\}$",
+            "en": "$\\{2, 4\\}$"
+          },
+          "feedback": {
+            "fr": "Exact : $4 \\notin A$, donc $\\{2, 4\\} \\not\\subseteq A$.",
+            "en": "Correct: $4 \\notin A$, so $\\{2, 4\\} \\not\\subseteq A$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\varnothing$",
+            "en": "$\\varnothing$"
+          },
+          "feedback": {
+            "fr": "C’est une partie : l’ensemble vide est inclus dans tout ensemble.",
+            "en": "This is a part: the empty set is included in every set."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Un seul élément hors de $A$ suffit pour qu’un ensemble ne soit pas une partie de $A$.",
+        "en": "A single element outside $A$ is enough to make a set not a part of $A$."
+      },
+      "lessonId": "L10",
+      "version": 1,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

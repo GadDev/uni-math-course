@@ -1,0 +1,614 @@
+{
+  "lessonId": "L17",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L17-E01",
+      "objectiveId": "L17-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "product-count-as-sum"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Étudiants $E = \\{\\text{lia}, \\text{max}, \\text{noa}\\}$, cours $C = \\{\\text{art}, \\text{bio}\\}$, inscriptions $(\\text{lia}, \\text{art})$, $(\\text{max}, \\text{bio})$, $(\\text{noa}, \\text{bio})$ ; $I(x, c)$ est vrai exactement pour une inscription. Combien de couples contient $E \\times C$ ?",
+        "en": "Students $E = \\{\\text{lia}, \\text{max}, \\text{noa}\\}$, courses $C = \\{\\text{art}, \\text{bio}\\}$, enrolments $(\\text{lia}, \\text{art})$, $(\\text{max}, \\text{bio})$, $(\\text{noa}, \\text{bio})$; $I(x, c)$ is true exactly for an enrolment. How many pairs does $E \\times C$ contain?"
+      },
+      "hint": {
+        "fr": "Chaque étudiant se combine avec chaque cours.",
+        "en": "Each student pairs with each course."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "Exact : $3 \\times 2 = 6$.",
+            "en": "Correct: $3 \\times 2 = 6$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Ce serait $3 + 2$ : la somme compte les éléments, pas les couples.",
+            "en": "This would be $3 + 2$: the sum counts the elements, not the pairs."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Il y a trois étudiants, mais chacun forme deux couples.",
+            "en": "There are three students, but each one forms two pairs."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Il y a deux cours, mais chacun forme trois couples.",
+            "en": "There are two courses, but each one forms three pairs."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$|E \\times C| = |E| \\cdot |C| = 6$.",
+        "en": "$|E \\times C| = |E| \\cdot |C| = 6$."
+      },
+      "lessonId": "L17",
+      "version": 1,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E02",
+      "objectiveId": "L17-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "predicate-value-misread"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Étudiants $E = \\{\\text{lia}, \\text{max}, \\text{noa}\\}$, cours $C = \\{\\text{art}, \\text{bio}\\}$, inscriptions $(\\text{lia}, \\text{art})$, $(\\text{max}, \\text{bio})$, $(\\text{noa}, \\text{bio})$ ; $I(x, c)$ est vrai exactement pour une inscription. Quelle assertion est vraie ?",
+        "en": "Students $E = \\{\\text{lia}, \\text{max}, \\text{noa}\\}$, courses $C = \\{\\text{art}, \\text{bio}\\}$, enrolments $(\\text{lia}, \\text{art})$, $(\\text{max}, \\text{bio})$, $(\\text{noa}, \\text{bio})$; $I(x, c)$ is true exactly for an enrolment. Which statement is true?"
+      },
+      "hint": {
+        "fr": "Cherchez un couple qui est une inscription.",
+        "en": "Look for a pair that is an enrolment."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$I(\\text{lia}, \\text{bio})$",
+            "en": "$I(\\text{lia}, \\text{bio})$"
+          },
+          "feedback": {
+            "fr": "Faux : lia n’est inscrite qu’en art.",
+            "en": "False: lia is enrolled only in art."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$I(\\text{max}, \\text{bio})$",
+            "en": "$I(\\text{max}, \\text{bio})$"
+          },
+          "feedback": {
+            "fr": "Exact : $(\\text{max}, \\text{bio})$ est une inscription.",
+            "en": "Correct: $(\\text{max}, \\text{bio})$ is an enrolment."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$I(\\text{noa}, \\text{art})$",
+            "en": "$I(\\text{noa}, \\text{art})$"
+          },
+          "feedback": {
+            "fr": "Faux : noa n’est inscrite qu’en bio.",
+            "en": "False: noa is enrolled only in bio."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$I(\\text{max}, \\text{art})$",
+            "en": "$I(\\text{max}, \\text{art})$"
+          },
+          "feedback": {
+            "fr": "Faux : max n’est inscrit qu’en bio.",
+            "en": "False: max is enrolled only in bio."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$I(x, c)$ est vrai exactement lorsque $(x, c)$ est une inscription.",
+        "en": "$I(x, c)$ is true exactly when $(x, c)$ is an enrolment."
+      },
+      "lessonId": "L17",
+      "version": 1,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E03",
+      "objectiveId": "L17-O03",
+      "difficulty": "application",
+      "misconceptions": [
+        "translation-with-swapped-quantifiers"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule traduit « Tout étudiant est inscrit à au moins un cours » ?",
+        "en": "Which formula translates “Every student is enrolled in at least one course”?"
+      },
+      "hint": {
+        "fr": "Le cours peut dépendre de l’étudiant : l’étudiant vient en premier.",
+        "en": "The course may depend on the student: the student comes first."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall x \\in E\\ \\exists c \\in C\\ I(x, c)$",
+            "en": "$\\forall x \\in E\\ \\exists c \\in C\\ I(x, c)$"
+          },
+          "feedback": {
+            "fr": "Exact : pour chaque étudiant, un cours existe.",
+            "en": "Correct: for each student, a course exists."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists c \\in C\\ \\forall x \\in E\\ I(x, c)$",
+            "en": "$\\exists c \\in C\\ \\forall x \\in E\\ I(x, c)$"
+          },
+          "feedback": {
+            "fr": "Cela dit qu’un même cours est suivi par tous.",
+            "en": "This says that one same course is taken by all."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists x \\in E\\ \\forall c \\in C\\ I(x, c)$",
+            "en": "$\\exists x \\in E\\ \\forall c \\in C\\ I(x, c)$"
+          },
+          "feedback": {
+            "fr": "Cela dit qu’un étudiant suit tous les cours.",
+            "en": "This says that one student takes every course."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall c \\in C\\ \\exists x \\in E\\ I(x, c)$",
+            "en": "$\\forall c \\in C\\ \\exists x \\in E\\ I(x, c)$"
+          },
+          "feedback": {
+            "fr": "Cela dit que tout cours a au moins un étudiant.",
+            "en": "This says that every course has at least one student."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "« Tout étudiant… au moins un cours » s’écrit $\\forall x \\exists c$.",
+        "en": "“Every student … at least one course” is written $\\forall x\\ \\exists c$."
+      },
+      "lessonId": "L17",
+      "version": 1,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E04",
+      "objectiveId": "L17-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "translation-with-swapped-quantifiers"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule traduit « Il existe un cours suivi par tous les étudiants » ?",
+        "en": "Which formula translates “There is a course taken by all students”?"
+      },
+      "hint": {
+        "fr": "Un même cours doit convenir à tous les étudiants : le cours vient en premier.",
+        "en": "One same course must suit all students: the course comes first."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists c \\in C\\ \\forall x \\in E\\ I(x, c)$",
+            "en": "$\\exists c \\in C\\ \\forall x \\in E\\ I(x, c)$"
+          },
+          "feedback": {
+            "fr": "Exact : un cours, puis tous les étudiants.",
+            "en": "Correct: one course, then all students."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall x \\in E\\ \\exists c \\in C\\ I(x, c)$",
+            "en": "$\\forall x \\in E\\ \\exists c \\in C\\ I(x, c)$"
+          },
+          "feedback": {
+            "fr": "Ici le cours peut changer d’un étudiant à l’autre.",
+            "en": "Here the course may change from student to student."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall c \\in C\\ \\exists x \\in E\\ I(x, c)$",
+            "en": "$\\forall c \\in C\\ \\exists x \\in E\\ I(x, c)$"
+          },
+          "feedback": {
+            "fr": "Cela dit que chaque cours a un étudiant, pas que tous suivent le même.",
+            "en": "This says that each course has a student, not that all take the same one."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\exists x \\in E\\ \\exists c \\in C\\ I(x, c)$",
+            "en": "$\\exists x \\in E\\ \\exists c \\in C\\ I(x, c)$"
+          },
+          "feedback": {
+            "fr": "Cela dit seulement qu’une inscription existe.",
+            "en": "This only says that some enrolment exists."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "« Un cours suivi par tous » s’écrit $\\exists c \\forall x$.",
+        "en": "“A course taken by all” is written $\\exists c\\ \\forall x$."
+      },
+      "lessonId": "L17",
+      "version": 1,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E05",
+      "objectiveId": "L17-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "evaluating-from-a-single-course"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Étudiants $E = \\{\\text{lia}, \\text{max}, \\text{noa}\\}$, cours $C = \\{\\text{art}, \\text{bio}\\}$, inscriptions $(\\text{lia}, \\text{art})$, $(\\text{max}, \\text{bio})$, $(\\text{noa}, \\text{bio})$ ; $I(x, c)$ est vrai exactement pour une inscription. Que vaut $\\exists c \\in C\\ \\forall x \\in E\\ I(x, c)$ ?",
+        "en": "Students $E = \\{\\text{lia}, \\text{max}, \\text{noa}\\}$, courses $C = \\{\\text{art}, \\text{bio}\\}$, enrolments $(\\text{lia}, \\text{art})$, $(\\text{max}, \\text{bio})$, $(\\text{noa}, \\text{bio})$; $I(x, c)$ is true exactly for an enrolment. What is the value of $\\exists c \\in C\\ \\forall x \\in E\\ I(x, c)$?"
+      },
+      "hint": {
+        "fr": "Pour chaque cours, regardez si tous les étudiants y sont inscrits.",
+        "en": "For each course, check whether all students are enrolled in it."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vrai, car bio a deux étudiants.",
+            "en": "True, because bio has two students."
+          },
+          "feedback": {
+            "fr": "Deux sur trois ne suffit pas : lia n’est pas inscrite en bio.",
+            "en": "Two out of three is not enough: lia is not enrolled in bio."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Faux : art n’est suivi que par lia, bio que par max et noa.",
+            "en": "False: art is taken only by lia, bio only by max and noa."
+          },
+          "feedback": {
+            "fr": "Exact : aucun cours n’est suivi par les trois étudiants.",
+            "en": "Correct: no course is taken by all three students."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Vrai, car tout étudiant a un cours.",
+            "en": "True, because every student has a course."
+          },
+          "feedback": {
+            "fr": "C’est la valeur de l’autre assertion, $\\forall x\\ \\exists c$.",
+            "en": "That is the value of the other statement, $\\forall x\\ \\exists c$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Indéfini.",
+            "en": "Undefined."
+          },
+          "feedback": {
+            "fr": "Les données permettent d’évaluer l’assertion.",
+            "en": "The data allow the statement to be evaluated."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Aucun cours n’est suivi par tous les étudiants : l’assertion est fausse.",
+        "en": "No course is taken by all students: the statement is false."
+      },
+      "lessonId": "L17",
+      "version": 1,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E06",
+      "objectiveId": "L17-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "quantifier-order-ignored"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Étudiants $E = \\{\\text{lia}, \\text{max}, \\text{noa}\\}$, cours $C = \\{\\text{art}, \\text{bio}\\}$, inscriptions $(\\text{lia}, \\text{art})$, $(\\text{max}, \\text{bio})$, $(\\text{noa}, \\text{bio})$ ; $I(x, c)$ est vrai exactement pour une inscription. Quelle affirmation est correcte ?",
+        "en": "Students $E = \\{\\text{lia}, \\text{max}, \\text{noa}\\}$, courses $C = \\{\\text{art}, \\text{bio}\\}$, enrolments $(\\text{lia}, \\text{art})$, $(\\text{max}, \\text{bio})$, $(\\text{noa}, \\text{bio})$; $I(x, c)$ is true exactly for an enrolment. Which claim is correct?"
+      },
+      "hint": {
+        "fr": "Évaluez les deux assertions $\\forall x\\ \\exists c$ et $\\exists c\\ \\forall x$.",
+        "en": "Evaluate both statements, $\\forall x\\ \\exists c$ and $\\exists c\\ \\forall x$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall x \\in E\\ \\exists c \\in C\\ I(x, c)$ est vraie, mais $\\exists c \\in C\\ \\forall x \\in E\\ I(x, c)$ est fausse.",
+            "en": "$\\forall x \\in E\\ \\exists c \\in C\\ I(x, c)$ is true, but $\\exists c \\in C\\ \\forall x \\in E\\ I(x, c)$ is false."
+          },
+          "feedback": {
+            "fr": "Exact : l’ordre change la valeur.",
+            "en": "Correct: the order changes the value."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Les deux sont vraies.",
+            "en": "Both are true."
+          },
+          "feedback": {
+            "fr": "Aucun cours n’est suivi par tous : la seconde est fausse.",
+            "en": "No course is taken by all: the second is false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Les deux sont fausses.",
+            "en": "Both are false."
+          },
+          "feedback": {
+            "fr": "Chaque étudiant a bien un cours : la première est vraie.",
+            "en": "Each student does have a course: the first is true."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "La première est fausse, la seconde vraie.",
+            "en": "The first is false, the second true."
+          },
+          "feedback": {
+            "fr": "C’est l’inverse de la réalité.",
+            "en": "This is the reverse of the facts."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Même prédicat, mêmes quantificateurs, ordre différent : valeurs différentes.",
+        "en": "Same predicate, same quantifiers, different order: different values."
+      },
+      "lessonId": "L17",
+      "version": 1,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

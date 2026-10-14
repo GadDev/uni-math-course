@@ -1,0 +1,563 @@
+{
+  "lessonId": "L12",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L12-E01",
+      "objectiveId": "L12-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "negation-of-forall-as-forall-not"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "À quoi est équivalente $\\neg \\forall x\\ P(x)$ ?",
+        "en": "What is $\\neg \\forall x\\ P(x)$ equivalent to?"
+      },
+      "hint": {
+        "fr": "Pour réfuter un « pour tout », il suffit d’un contre-exemple.",
+        "en": "To refute a “for all”, one counterexample is enough."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists x\\ \\neg P(x)$",
+            "en": "$\\exists x\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Exact : il existe un élément qui ne satisfait pas $P$.",
+            "en": "Correct: some element fails $P$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall x\\ \\neg P(x)$",
+            "en": "$\\forall x\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "C’est plus fort : cela dirait qu’aucun élément ne satisfait $P$.",
+            "en": "This is stronger: it would say that no element satisfies $P$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists x\\ P(x)$",
+            "en": "$\\exists x\\ P(x)$"
+          },
+          "feedback": {
+            "fr": "Cela dit seulement qu’un élément satisfait $P$ ; ce n’est pas la négation.",
+            "en": "This only says that some element satisfies $P$; it is not the negation."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\neg \\exists x\\ \\neg P(x)$",
+            "en": "$\\neg \\exists x\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "C’est équivalent à $\\forall x\\ P(x)$, donc à la formule d’origine, pas à sa négation.",
+            "en": "This is equivalent to $\\forall x\\ P(x)$, i.e. the original formula, not its negation."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\neg \\forall x\\ P(x) \\equiv \\exists x\\ \\neg P(x)$.",
+        "en": "$\\neg \\forall x\\ P(x) \\equiv \\exists x\\ \\neg P(x)$."
+      },
+      "lessonId": "L12",
+      "version": 1,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E02",
+      "objectiveId": "L12-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "negation-of-exists-as-exists-not"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "À quoi est équivalente $\\neg \\exists x\\ P(x)$ ?",
+        "en": "What is $\\neg \\exists x\\ P(x)$ equivalent to?"
+      },
+      "hint": {
+        "fr": "Pour qu’il n’existe aucun élément avec $P$, tous les éléments doivent échouer.",
+        "en": "For no element to satisfy $P$, every element must fail."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall x\\ \\neg P(x)$",
+            "en": "$\\forall x\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Exact : tout élément ne satisfait pas $P$.",
+            "en": "Correct: every element fails $P$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists x\\ \\neg P(x)$",
+            "en": "$\\exists x\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Cela dit seulement qu’un élément échoue ; d’autres peuvent satisfaire $P$.",
+            "en": "This only says that one element fails; others may satisfy $P$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall x\\ P(x)$",
+            "en": "$\\forall x\\ P(x)$"
+          },
+          "feedback": {
+            "fr": "C’est presque l’inverse : tous les éléments satisfont $P$.",
+            "en": "This is nearly the opposite: every element satisfies $P$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\neg \\forall x\\ \\neg P(x)$",
+            "en": "$\\neg \\forall x\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "C’est équivalent à $\\exists x\\ P(x)$, donc à la formule d’origine.",
+            "en": "This is equivalent to $\\exists x\\ P(x)$, i.e. the original formula."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\neg \\exists x\\ P(x) \\equiv \\forall x\\ \\neg P(x)$.",
+        "en": "$\\neg \\exists x\\ P(x) \\equiv \\forall x\\ \\neg P(x)$."
+      },
+      "lessonId": "L12",
+      "version": 1,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E03",
+      "objectiveId": "L12-O03",
+      "difficulty": "application",
+      "misconceptions": [
+        "everyday-negation-of-all",
+        "no-instead-of-not-all"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la négation de « À la bibliothèque, tous les livres sont disponibles » ?",
+        "en": "What is the negation of “In the library, every book is available”?"
+      },
+      "hint": {
+        "fr": "Un seul livre indisponible suffit à rendre la phrase fausse.",
+        "en": "A single unavailable book is enough to make the sentence false."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "À la bibliothèque, un livre n’est pas disponible.",
+            "en": "In the library, some book is not available."
+          },
+          "feedback": {
+            "fr": "Exact : c’est la négation d’un « tous ».",
+            "en": "Correct: this is the negation of an “every”."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "À la bibliothèque, aucun livre n’est disponible.",
+            "en": "In the library, no book is available."
+          },
+          "feedback": {
+            "fr": "C’est trop fort : il suffit qu’un livre manque, pas tous.",
+            "en": "This is too strong: one missing book is enough, not all."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "À la bibliothèque, un livre est disponible.",
+            "en": "In the library, some book is available."
+          },
+          "feedback": {
+            "fr": "Cette phrase peut être vraie en même temps que l’originale.",
+            "en": "This sentence can be true together with the original."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "À la bibliothèque, tous les livres sont indisponibles.",
+            "en": "In the library, every book is unavailable."
+          },
+          "feedback": {
+            "fr": "C’est la même erreur que « aucun livre n’est disponible ».",
+            "en": "This is the same mistake as “no book is available”."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La négation de « tous… » est « au moins un… ne… pas ».",
+        "en": "The negation of “every …” is “at least one … not …”."
+      },
+      "lessonId": "L12",
+      "version": 1,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E04",
+      "objectiveId": "L12-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "counterexample-misidentified"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur le domaine $\\{1, 2, 3, 4\\}$, quel élément réfute « tout $x$ est strictement inférieur à $4$ » ?",
+        "en": "On the domain $\\{1, 2, 3, 4\\}$, which element refutes “every $x$ is strictly less than $4$”?"
+      },
+      "hint": {
+        "fr": "Cherchez un élément pour lequel $x < 4$ est faux.",
+        "en": "Look for an element for which $x < 4$ is false."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "$1 < 4$ : ce n’est pas un contre-exemple.",
+            "en": "$1 < 4$: not a counterexample."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "$2 < 4$ : ce n’est pas un contre-exemple.",
+            "en": "$2 < 4$: not a counterexample."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "$3 < 4$ : ce n’est pas un contre-exemple.",
+            "en": "$3 < 4$: not a counterexample."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Exact : $4 < 4$ est faux.",
+            "en": "Correct: $4 < 4$ is false."
+          }
+        }
+      ],
+      "answer": "d",
+      "explanation": {
+        "fr": "Un contre-exemple est un élément du domaine qui rend le prédicat faux.",
+        "en": "A counterexample is an element of the domain that makes the predicate false."
+      },
+      "lessonId": "L12",
+      "version": 1,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E05",
+      "objectiveId": "L12-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "everyday-negation-of-exists",
+        "one-missing-instead-of-none"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la négation de « Au club, un membre a moins de 18 ans » ?",
+        "en": "What is the negation of “At the club, some member is under 18”?"
+      },
+      "hint": {
+        "fr": "Pour que la phrase soit fausse, aucun membre ne doit avoir moins de 18 ans.",
+        "en": "For the sentence to be false, no member may be under 18."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Au club, tous les membres ont au moins 18 ans.",
+            "en": "At the club, every member is 18 or older."
+          },
+          "feedback": {
+            "fr": "Exact : c’est la négation d’un « il existe ».",
+            "en": "Correct: this is the negation of a “there exists”."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Au club, un membre a au moins 18 ans.",
+            "en": "At the club, some member is 18 or older."
+          },
+          "feedback": {
+            "fr": "Cette phrase n’empêche pas qu’un autre membre ait moins de 18 ans.",
+            "en": "This sentence does not prevent another member from being under 18."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Au club, tous les membres ont moins de 18 ans.",
+            "en": "At the club, every member is under 18."
+          },
+          "feedback": {
+            "fr": "C’est plus fort que nécessaire et ne nie pas la phrase d’origine.",
+            "en": "This is stronger than necessary and does not negate the original sentence."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Au club, il n’y a aucun membre.",
+            "en": "At the club, there is no member."
+          },
+          "feedback": {
+            "fr": "Cela change le sujet : la négation parle de l’âge des membres.",
+            "en": "This changes the subject: the negation is about the members’ ages."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La négation de « il existe… » est « pour tout… ne… pas ».",
+        "en": "The negation of “there exists …” is “for all … not …”."
+      },
+      "lessonId": "L12",
+      "version": 1,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E06",
+      "objectiveId": "L12-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "negating-only-the-predicate",
+        "strict-versus-non-strict"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la négation de « tout entier naturel est strictement supérieur à $2$ » ?",
+        "en": "What is the negation of “every natural number is strictly greater than $2$”?"
+      },
+      "hint": {
+        "fr": "Niez la quantification et le prédicat ; rappelez-vous que $0 \\in \\mathbb{N}$.",
+        "en": "Negate both the quantifier and the predicate; remember $0 \\in \\mathbb{N}$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Il existe $n \\in \\mathbb{N}$ tel que $n \\leq 2$.",
+            "en": "There exists $n \\in \\mathbb{N}$ such that $n \\leq 2$."
+          },
+          "feedback": {
+            "fr": "Exact : $0$ en est un témoin.",
+            "en": "Correct: $0$ is a witness."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Pour tout $n \\in \\mathbb{N}$, $n \\leq 2$.",
+            "en": "For every $n \\in \\mathbb{N}$, $n \\leq 2$."
+          },
+          "feedback": {
+            "fr": "C’est trop fort : $5 > 2$ ne contredit pas la négation.",
+            "en": "This is too strong: $5 > 2$ does not contradict the negation."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Il existe $n \\in \\mathbb{N}$ tel que $n > 2$.",
+            "en": "There exists $n \\in \\mathbb{N}$ such that $n > 2$."
+          },
+          "feedback": {
+            "fr": "Cette phrase est vraie, mais elle ne nie pas l’originale.",
+            "en": "This sentence is true, but it does not negate the original."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Pour tout $n \\in \\mathbb{N}$, $n < 2$.",
+            "en": "For every $n \\in \\mathbb{N}$, $n < 2$."
+          },
+          "feedback": {
+            "fr": "C’est trop fort, et $n < 2$ n’est pas la négation de $n > 2$.",
+            "en": "This is too strong, and $n < 2$ is not the negation of $n > 2$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\neg \\forall n\\ (n > 2) \\equiv \\exists n\\ (n \\leq 2)$.",
+        "en": "$\\neg \\forall n\\ (n > 2) \\equiv \\exists n\\ (n \\leq 2)$."
+      },
+      "lessonId": "L12",
+      "version": 1,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

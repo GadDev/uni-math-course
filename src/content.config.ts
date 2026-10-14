@@ -8,7 +8,7 @@ const lessons = defineCollection({
     lessonId: z.string().regex(/^L\d{2}$/),
     locale: z.enum(['fr', 'en']),
     version: z.number().int().positive(),
-    status: z.literal('pilot'),
+    status: z.enum(['pilot', 'extended']),
     title: z.string(),
     summary: z.string(),
     minutes: z.number().positive(),
