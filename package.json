@@ -1,0 +1,47 @@
+{
+  "name": "uni-math-course",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "French\u2013English mathematics learning pilot",
+  "license": "MIT",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=24.19.0 <25"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check:docs": "node scripts/check-repository.mjs",
+    "check:content": "node scripts/check-content.mjs",
+    "typecheck": "astro check",
+    "format": "prettier --write 'src/**/*.{astro,ts,tsx,css}' 'scripts/*.mjs' 'tests/**/*.{mjs,ts}' '*.{json,mjs,ts}' '.github/workflows/check.yml'",
+    "format:check": "prettier --check 'src/**/*.{astro,ts,tsx,css}' 'scripts/*.mjs' 'tests/**/*.{mjs,ts}' '*.{json,mjs,ts}' '.github/workflows/check.yml'",
+    "test": "node --test tests/content/*.test.mjs tests/repository/*.test.mjs",
+    "check": "pnpm check:docs && pnpm check:content && pnpm typecheck && pnpm format:check && pnpm test && pnpm build",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "7.3.2",
+    "@astrojs/react": "7.0.1",
+    "@astrojs/vercel": "11.0.14",
+    "@radix-ui/themes": "3.3.0",
+    "astro": "7.3.8",
+    "katex": "0.19.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "rehype-katex": "7.0.1",
+    "remark-math": "6.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@playwright/test": "1.64.0",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "prettier": "3.9.10",
+    "prettier-plugin-astro": "1.1.1",
+    "typescript": "6.0.3"
+  }
+}

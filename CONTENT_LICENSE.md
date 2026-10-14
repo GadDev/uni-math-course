@@ -14,4 +14,4 @@ Author original explanations and exercises, identify their authorship, and cite 
 
 ## Asset register
 
-No third-party illustrations, fonts, or other bundled assets are currently present. When adding assets, record the origin, author, applicable licence, required notices, and any permission evidence alongside them.
+The favicon is original SVG project work. Reading typography uses local system fonts. KaTeX CSS/fonts (Khan Academy and contributors, MIT) and Radix Themes CSS/components (WorkOS, MIT) are supplied by pinned dependencies. Their notices are preserved in [public/THIRD_PARTY_NOTICES.txt](public/THIRD_PARTY_NOTICES.txt), served with the app. Dependencies retain their own licences; no source-course artwork or university logo is bundled.

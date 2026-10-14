@@ -2,14 +2,14 @@
 
 ## Current scope
 
-This is a bilingual mathematics learning project in its documentation stage. Do not describe planned accounts, quizzes, or progress as implemented. Product and architecture proposals must preserve unresolved decisions explicitly.
+This is a bilingual mathematics learning project with a public reading foundation. Do not describe planned accounts, quizzes, or progress as implemented. Product and architecture proposals must preserve unresolved decisions explicitly.
 
 ## Working conventions
 
 - Read the README and relevant project documents before changing files.
 - Prefer focused branches and reviewable pull requests. Do not merge unless requested.
-- Run `python3 scripts/check_repository.py` after documentation or foundation changes.
-- Do not invent application commands before a package manifest exists.
+- Run `pnpm check` after changes and `pnpm test:e2e` for reading or interaction changes.
+- Use the pinned Node/pnpm versions and committed lockfile. Keep server-held exercise answers out of client imports and generated pages.
 - Keep secrets, learner records, source PDFs, and unlicensed third-party assets out of Git.
 
 ## Mathematics and content

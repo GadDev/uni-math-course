@@ -1,0 +1,63 @@
+---
+import Base from '../../layouts/Base.astro';
+import ReadingNotice from '../../components/ReadingNotice';
+import { copy, locales } from '../../lib/i18n';
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+const { locale } = Astro.props;
+const text = copy[locale];
+---
+
+<Base locale={locale} title={text.course} description={text.intro}>
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">{text.label}</p>
+      <h1>{text.homeTitle}</h1>
+      <p class="lede">{text.intro}</p>
+      <p class="status">
+        <span aria-hidden="true">●</span> {text.pilot}
+      </p>
+    </section>
+    <section class="lesson-feature" aria-labelledby="pilot-title">
+      <div class="lesson-index" aria-hidden="true">
+        05
+      </div>
+      <div>
+        <p class="eyebrow">{text.lesson}</p>
+        <h2 id="pilot-title">{text.lessonTitle}</h2>
+        <p>{text.description}</p>
+        <div class="lesson-meta">
+          <span>{text.public}</span>
+          <span>{text.time}</span>
+        </div>
+        <a class="primary-link" href={'/' + locale + '/lessons/L05/'}>
+          {text.read}
+          <span aria-hidden="true"> →</span>
+        </a>
+      </div>
+      <div class="formula-art" aria-hidden="true">
+        <span>A</span>
+        <span>⇒</span>
+        <span>B</span>
+      </div>
+    </section>
+    <section class="planned-section" aria-labelledby="planned-title">
+      <h2 id="planned-title">{text.future}</h2>
+      <ul class="planned-list">
+        {text.lessons.map((title, i) => (
+          <li>
+            <span class="planned-number">{String(i + 1).padStart(2, '0')}</span>
+            <span>{title}</span>
+            <span class="planned-label">{text.planned}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+    <section class="practice-status" aria-labelledby="practice-title">
+      <h2 id="practice-title">{text.practiceTitle}</h2>
+      <p>{text.practice}</p>
+      <ReadingNotice locale={locale} client:load />
+    </section>
+  </main>
+</Base>

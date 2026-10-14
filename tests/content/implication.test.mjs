@@ -3,13 +3,25 @@ import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { validateBank } from '../../scripts/check-content.mjs';
 
-const bank = JSON.parse(await readFile(new URL('../../exercises/L05/v1.json', import.meta.url), 'utf8'));
+const bank = JSON.parse(
+  await readFile(
+    new URL('../../exercises/L05/v1.json', import.meta.url),
+    'utf8',
+  ),
+);
 const byId = (id) => bank.exercises.find((e) => e.id === id);
 const implies = (a, b) => !a || b;
-const assignments = [[false, false], [false, true], [true, false], [true, true]];
+const assignments = [
+  [false, false],
+  [false, true],
+  [true, false],
+  [true, true],
+];
 
 test('L05-E01: derive the only falsifying assignment', () => {
-  const failing = assignments.filter(([a, b]) => !implies(a, b)).map(([a, b]) => String(+a) + String(+b));
+  const failing = assignments
+    .filter(([a, b]) => !implies(a, b))
+    .map(([a, b]) => String(+a) + String(+b));
   assert.deepEqual(failing, [byId('L05-E01').answer]);
 });
 test('L05-E02: calculate labelled rows independently of their order', () => {
@@ -36,15 +48,29 @@ test('L05-E05: a blue unstamped card is not a counterexample', () => {
 });
 test('L05-E06: find the numerical witness by testing the predicate', () => {
   const exercise = byId('L05-E06');
-  const failures = exercise.options.filter(({ value }) => !implies(value > 5, value > 10));
-  assert.deepEqual(failures.map(({ id }) => id), [exercise.answer]);
-  assert.deepEqual(Array.from({ length: 13 }, (_, n) => n).filter((n) => !implies(n > 5, n > 10)), [6, 7, 8, 9, 10]);
+  const failures = exercise.options.filter(
+    ({ value }) => !implies(value > 5, value > 10),
+  );
+  assert.deepEqual(
+    failures.map(({ id }) => id),
+    [exercise.answer],
+  );
+  assert.deepEqual(
+    Array.from({ length: 13 }, (_, n) => n).filter(
+      (n) => !implies(n > 5, n > 10),
+    ),
+    [6, 7, 8, 9, 10],
+  );
 });
 test('contract rejects missing translation, dangling answer and duplicate IDs', () => {
   for (const mutate of [
     (data) => delete data.exercises[0].hint.fr,
-    (data) => { data.exercises[0].answer = 'missing'; },
-    (data) => { data.exercises[1].id = data.exercises[0].id; },
+    (data) => {
+      data.exercises[0].answer = 'missing';
+    },
+    (data) => {
+      data.exercises[1].id = data.exercises[0].id;
+    },
   ]) {
     const copy = structuredClone(bank);
     mutate(copy);

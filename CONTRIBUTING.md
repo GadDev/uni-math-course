@@ -4,13 +4,13 @@ Contributions improving learning, mathematical accuracy, French/English wording,
 
 ## Before making a change
 
-Check existing issues and pull requests. Describe the problem and proposed scope; avoid expanding a small correction into an unrelated redesign. The repository currently contains documentation and repository tooling only, so there are no application install or run commands yet.
+Check existing issues and pull requests. Describe the problem and proposed scope; avoid expanding a small correction into an unrelated redesign. The repository contains a public Astro/React reading foundation. Follow README.md for pinned installation and commands. Accounts, grading and saved progress are separate features.
 
 ## Pull requests
 
 1. Create a focused branch from `main`.
 2. Make the smallest coherent change.
-3. Run `python3 scripts/check_repository.py`.
+3. Run `pnpm check`; run `pnpm test:e2e` for reading or interaction changes.
 4. Until Release Please is enabled, update [CHANGELOG.md](CHANGELOG.md) for meaningful contributor/learner changes; afterwards supply release information through the agreed commit/release-PR workflow.
 5. Open a pull request explaining the resulting behaviour, validation, and unresolved decisions.
 

@@ -31,10 +31,10 @@ The automated check compares formula strings and required fields; it cannot cert
 
 ## Validation commands
 
-Run from the repository root with Node 24 and Python 3.10+:
+Run from the repository root with the pinned Node/pnpm toolchain:
 
 ```sh
-python3 scripts/check_repository.py
+node scripts/check-repository.mjs
 node scripts/check-content.mjs
 node --test tests/content/*.test.mjs
 ```

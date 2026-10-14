@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  locale="fr"
+  title="Page introuvable / Page not found"
+  description="Cette page n’existe pas. This page does not exist."
+>
+  <main id="main" class="hero">
+    <h1>Page introuvable</h1>
+    <p lang="en">Page not found.</p>
+    <p>
+      <a href="/fr/">Revenir au cours</a> ·{' '}
+      <a href="/en/" lang="en">
+        Back to the course
+      </a>
+    </p>
+  </main>
+</Base>

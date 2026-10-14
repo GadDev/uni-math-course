@@ -24,7 +24,7 @@ Audit date: 2026-10-14 · Accountable maintainer: [GadDev](https://github.com/Ga
 | Area / controls | Status | Evidence or next action |
 | --- | --- | --- |
 | Identity, status, owner / ORG-01-04 | Pass for documentation | README and repository metadata; About description/topics not configured by this change |
-| Reading and quality path / DOC-01-02, QA-01 | Local validation prepared | Python 3.10+ standard library; run `python3 scripts/check_repository.py` from a clean checkout and inspect PR CI |
+| Reading and quality path / DOC-01-02, QA-01 | Local validation prepared | Pinned Node/pnpm toolchain; run `pnpm check` and `pnpm test:e2e` from a clean checkout and inspect PR CI |
 | Documentation / DOC-04-09 | Files prepared | Contribution, conduct, security, licensing, ownership and intake files; verify GitHub rendering after merge |
 | CI / CI-01-04, QA-05-06 | Configuration prepared | `docs` job, read-only contents, hosted runner, timeout, cancellation, verified checkout v7.0.1 SHA; no bot exclusions or deployment credentials |
 | Protection / DEV-07-08 | Pending | No claim of enforced checks. After observing passing `docs`, configure one effective main rule: PRs, zero solo approvals, required docs check, no force pushes/deletion or routine bypass |
