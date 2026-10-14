@@ -6,6 +6,8 @@ Notable changes are recorded here. No application version has been released.
 
 ### Added
 
+- Public searchable bilingual symbol glossary: 56 mathematics/logic/code entries and eight code-notation references, with spoken readings in both languages, source-page references, a page-48 correction note and language-preserving entry links.
+
 - Signal styling for the public programme and L05 reading pages, with responsive course navigation, lesson contents, self-hosted licensed display typography and bilingual section switching.
 
 - Selected Signal art direction: nine WebP course, learning, access and mobile concepts, with updated design guidance and asset evidence.
