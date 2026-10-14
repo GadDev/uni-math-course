@@ -1,0 +1,518 @@
+{
+  "lessonId": "L05",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L05-E01",
+      "objectiveId": "L05-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "implication-failure"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle affectation rend A ⇒ B fausse ?",
+        "en": "Which assignment makes A ⇒ B false?"
+      },
+      "hint": {
+        "fr": "Cherchez une condition vraie suivie d’une conclusion fausse.",
+        "en": "Look for a true condition followed by a false conclusion."
+      },
+      "options": [
+        {
+          "id": "00",
+          "label": {
+            "fr": "A = 0, B = 0",
+            "en": "A = 0, B = 0"
+          },
+          "feedback": {
+            "fr": "La condition est fausse : cette ligne ne contredit pas l’implication.",
+            "en": "The condition is false: this row does not contradict the implication."
+          }
+        },
+        {
+          "id": "01",
+          "label": {
+            "fr": "A = 0, B = 1",
+            "en": "A = 0, B = 1"
+          },
+          "feedback": {
+            "fr": "La condition est fausse et la conclusion vraie : l’implication est vraie.",
+            "en": "The condition is false and the conclusion true: the implication is true."
+          }
+        },
+        {
+          "id": "10",
+          "label": {
+            "fr": "A = 1, B = 0",
+            "en": "A = 1, B = 0"
+          },
+          "feedback": {
+            "fr": "Exact : la condition est satisfaite, mais la conclusion ne l’est pas.",
+            "en": "Correct: the condition holds, but the conclusion does not."
+          }
+        },
+        {
+          "id": "11",
+          "label": {
+            "fr": "A = 1, B = 1",
+            "en": "A = 1, B = 1"
+          },
+          "feedback": {
+            "fr": "La conclusion promise est vraie lorsque la condition est vraie.",
+            "en": "The promised conclusion is true when the condition is true."
+          }
+        }
+      ],
+      "answer": "10",
+      "explanation": {
+        "fr": "A ⇒ B est fausse uniquement pour A = 1 et B = 0. Les trois autres affectations donnent vrai.",
+        "en": "A ⇒ B is false only when A = 1 and B = 0. The other three assignments yield true."
+      },
+      "lessonId": "L05",
+      "version": 1,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E02",
+      "objectiveId": "L05-O02",
+      "difficulty": "application",
+      "misconceptions": [
+        "false-antecedent"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Complétez la colonne A ⇒ B. Chaque ligne possède un identifiant stable.",
+        "en": "Complete the A ⇒ B column. Each row has a stable identifier."
+      },
+      "hint": {
+        "fr": "Calculez ¬A ∨ B pour chaque ligne.",
+        "en": "Evaluate ¬A ∨ B for each row."
+      },
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "10": false,
+        "11": true,
+        "00": true,
+        "01": true
+      },
+      "feedback": {
+        "fr": "Les lignes 00, 01 et 11 donnent vrai ; la ligne 10 donne faux. Une condition fausse n’est pas un contre-exemple.",
+        "en": "Rows 00, 01 and 11 yield true; row 10 yields false. A false condition is not a counterexample."
+      },
+      "explanation": {
+        "fr": "La disjonction ¬A ∨ B est fausse seulement si ¬A et B sont toutes deux fausses.",
+        "en": "The disjunction ¬A ∨ B is false only if both ¬A and B are false."
+      },
+      "lessonId": "L05",
+      "version": 1,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E03",
+      "objectiveId": "L05-O03",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "necessary-sufficient"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans « A implique B », quelle description des conditions est correcte ?",
+        "en": "In “A implies B”, which description of the conditions is correct?"
+      },
+      "hint": {
+        "fr": "A suffit à garantir B ; sans B, A ne peut pas être vraie.",
+        "en": "A is enough to guarantee B; without B, A cannot be true."
+      },
+      "options": [
+        {
+          "id": "a-sufficient-b-necessary",
+          "label": {
+            "fr": "A est suffisante pour B ; B est nécessaire pour A.",
+            "en": "A is sufficient for B; B is necessary for A."
+          },
+          "feedback": {
+            "fr": "Exact : les deux formulations expriment A ⇒ B.",
+            "en": "Correct: both descriptions express A ⇒ B."
+          }
+        },
+        {
+          "id": "b-sufficient-a-necessary",
+          "label": {
+            "fr": "B est suffisante pour A ; A est nécessaire pour B.",
+            "en": "B is sufficient for A; A is necessary for B."
+          },
+          "feedback": {
+            "fr": "Vous avez inversé l’implication : cette description exprime B ⇒ A.",
+            "en": "You reversed the implication: this description expresses B ⇒ A."
+          }
+        },
+        {
+          "id": "both-directions",
+          "label": {
+            "fr": "A et B se garantissent mutuellement.",
+            "en": "A and B guarantee each other."
+          },
+          "feedback": {
+            "fr": "Cela exige aussi B ⇒ A. Une seule implication ne suffit pas.",
+            "en": "That also requires B ⇒ A. One implication is not enough."
+          }
+        }
+      ],
+      "answer": "a-sufficient-b-necessary",
+      "explanation": {
+        "fr": "Une condition suffisante garantit la conclusion. Une condition nécessaire doit être vraie quand l’autre condition est vraie, sans forcément la garantir à son tour.",
+        "en": "A sufficient condition guarantees the conclusion. A necessary condition must hold when the other condition holds, without necessarily guaranteeing it in return."
+      },
+      "lessonId": "L05",
+      "version": 1,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E04",
+      "objectiveId": "L05-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "negating-implication"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule exprime ¬(A ⇒ B) ?",
+        "en": "Which formula expresses ¬(A ⇒ B)?"
+      },
+      "hint": {
+        "fr": "Décrivez le seul échec de la promesse.",
+        "en": "Describe the promise’s only failure."
+      },
+      "options": [
+        {
+          "id": "a-and-not-b",
+          "label": {
+            "fr": "A ∧ ¬B",
+            "en": "A ∧ ¬B"
+          },
+          "feedback": {
+            "fr": "Exact : A est vraie et B est fausse.",
+            "en": "Correct: A is true and B is false."
+          }
+        },
+        {
+          "id": "not-a-and-b",
+          "label": {
+            "fr": "¬A ∧ B",
+            "en": "¬A ∧ B"
+          },
+          "feedback": {
+            "fr": "Ce cas rend A ⇒ B vraie, car A est fausse.",
+            "en": "This case makes A ⇒ B true because A is false."
+          }
+        },
+        {
+          "id": "not-a-implies-not-b",
+          "label": {
+            "fr": "¬A ⇒ ¬B",
+            "en": "¬A ⇒ ¬B"
+          },
+          "feedback": {
+            "fr": "Nier chaque terme ne nie pas l’implication entière. Pour A = B = 1, cette formule est vraie alors que ¬(A ⇒ B) est fausse.",
+            "en": "Negating each operand does not negate the whole implication. For A = B = 1, this formula is true while ¬(A ⇒ B) is false."
+          }
+        }
+      ],
+      "answer": "a-and-not-b",
+      "explanation": {
+        "fr": "¬(¬A ∨ B) est équivalente à A ∧ ¬B par la loi de De Morgan.",
+        "en": "¬(¬A ∨ B) is equivalent to A ∧ ¬B by De Morgan’s law."
+      },
+      "lessonId": "L05",
+      "version": 1,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E05",
+      "objectiveId": "L05-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "implication-not-causation",
+        "false-antecedent"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Règle : « Si une carte est rouge, elle porte un tampon. » Une carte bleue sans tampon contredit-elle cette règle ?",
+        "en": "Rule: “If a card is red, it has a stamp.” Does a blue card without a stamp contradict this rule?"
+      },
+      "hint": {
+        "fr": "La carte remplit-elle la condition « être rouge » ?",
+        "en": "Does the card satisfy the condition “being red”?"
+      },
+      "options": [
+        {
+          "id": "no",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Exact : la condition est fausse. La règle n’impose rien aux cartes bleues.",
+            "en": "Correct: the condition is false. The rule imposes nothing on blue cards."
+          }
+        },
+        {
+          "id": "yes",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Il faudrait une carte rouge sans tampon pour contredire la règle.",
+            "en": "A red card without a stamp would be needed to contradict the rule."
+          }
+        }
+      ],
+      "answer": "no",
+      "explanation": {
+        "fr": "Cette carte ne contredit pas la règle, mais ne prouve pas que toutes les cartes rouges ont un tampon. Évaluer un cas ne démontre pas une règle universelle.",
+        "en": "This card does not contradict the rule, but it does not prove that every red card has a stamp. Evaluating one case does not establish a universal rule."
+      },
+      "lessonId": "L05",
+      "version": 1,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E06",
+      "objectiveId": "L05-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "counterexample-requires-true-condition"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur ℕ = {0, 1, 2, …}, on affirme : « Si n > 5, alors n > 10. » Quel nombre est un contre-exemple ?",
+        "en": "On ℕ = {0, 1, 2, …}, consider the claim: “If n > 5, then n > 10.” Which number is a counterexample?"
+      },
+      "hint": {
+        "fr": "Il faut n > 5 et n ≤ 10.",
+        "en": "You need n > 5 and n ≤ 10."
+      },
+      "options": [
+        {
+          "id": "n0",
+          "value": 0,
+          "label": {
+            "fr": "0",
+            "en": "0"
+          },
+          "feedback": {
+            "fr": "0 ne satisfait pas n > 5 : il ne peut pas être un contre-exemple.",
+            "en": "0 does not satisfy n > 5: it cannot be a counterexample."
+          }
+        },
+        {
+          "id": "n4",
+          "value": 4,
+          "label": {
+            "fr": "4",
+            "en": "4"
+          },
+          "feedback": {
+            "fr": "4 ne satisfait pas la condition n > 5.",
+            "en": "4 does not satisfy the condition n > 5."
+          }
+        },
+        {
+          "id": "n8",
+          "value": 8,
+          "label": {
+            "fr": "8",
+            "en": "8"
+          },
+          "feedback": {
+            "fr": "Exact : 8 > 5 est vraie, mais 8 > 10 est fausse.",
+            "en": "Correct: 8 > 5 is true, but 8 > 10 is false."
+          }
+        },
+        {
+          "id": "n12",
+          "value": 12,
+          "label": {
+            "fr": "12",
+            "en": "12"
+          },
+          "feedback": {
+            "fr": "12 satisfait à la fois la condition et la conclusion.",
+            "en": "12 satisfies both the condition and the conclusion."
+          }
+        }
+      ],
+      "answer": "n8",
+      "explanation": {
+        "fr": "Un contre-exemple satisfait la condition et rend la conclusion fausse. Tous les entiers de 6 à 10 conviennent, mais 8 est le seul proposé.",
+        "en": "A counterexample satisfies the condition and makes the conclusion false. Every integer from 6 to 10 works, but 8 is the only one offered."
+      },
+      "lessonId": "L05",
+      "version": 1,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

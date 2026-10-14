@@ -34,6 +34,8 @@ Acceptance:
 
 Deliverable: reviewed content/schema and confirmed implementation decisions, not a full course bank.
 
+M1 implementation: the original L05 content pilot is available for review in [L05_REVIEW.md](content/L05_REVIEW.md), with six versioned contracts and mathematical/bilingual self-check evidence. Remaining class/account/operational decisions above are still open.
+
 ## M2 - First complete application journey
 
 Scaffold the chosen single application. Implement one lesson, real sign-in, authenticated exercise delivery, server grading, idempotent attempt persistence, mistake review, and a private progress page.
