@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import ReadingNotice from '../../components/ReadingNotice';
 import { copy, locales } from '../../lib/i18n';
 import { authCopy } from '../../lib/auth/copy';
+import { glossaryCopy } from '../../lib/glossary';
 import SignalGeometry from '../../components/SignalGeometry.astro';
 import katex from 'katex';
 export function getStaticPaths() {
@@ -83,6 +84,13 @@ const implication = katex.renderToString('A \\Rightarrow B', {
           <span class="planned-label">{text.public}</span>
         </li>
       </ul>
+    </section>
+    <section class="planned-section" aria-labelledby="glossary-title">
+      <h2 id="glossary-title">{glossaryCopy[locale].title}</h2>
+      <p>{glossaryCopy[locale].intro}</p>
+      <a class="primary-link" href={'/' + locale + '/glossary/'}>
+        {glossaryCopy[locale].nav} →
+      </a>
     </section>
     <section class="practice-status" aria-labelledby="practice-title">
       <div class="practice-copy">
