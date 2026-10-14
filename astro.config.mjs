@@ -17,6 +17,13 @@ export default defineConfig({
   // The local production test server uses Node; deployed builds use Vercel.
   adapter: testBuild ? node({ mode: 'standalone' }) : vercel(),
   outDir: testBuild ? './.test-build/' : './dist/',
+  i18n: {
+    defaultLocale: 'fr',
+    locales: ['en', 'fr'],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   security: {
     allowedDomains: testBuild
       ? [
