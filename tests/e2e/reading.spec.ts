@@ -77,10 +77,101 @@ test('English/French shell reports practice development state and links to real 
     page.getByText('Interactive exercises and progress tracking'),
   ).toBeVisible();
   await expect(
-    page.getByRole('link', { name: 'Sign in', exact: true }),
+    page
+      .locator('.practice-status')
+      .getByRole('link', { name: 'Sign in', exact: true }),
   ).toHaveAttribute('href', '/en/sign-in/');
   await page.goto('/en/lessons/missing/');
   await expect(
     page.getByRole('heading', { name: 'Page introuvable' }),
   ).toBeVisible();
+});
+
+for (const locale of ['fr', 'en']) {
+  test(`Signal public pages retain header geometry around breakpoints (${locale})`, async ({
+    page,
+  }) => {
+    test.setTimeout(90_000);
+    for (const width of [
+      320, 375, 768, 859, 860, 861, 1099, 1100, 1101, 1280, 1440,
+    ]) {
+      await page.setViewportSize({ width, height: 900 });
+      for (const path of [`/${locale}/`, `/${locale}/lessons/L05/`]) {
+        await page.goto(path);
+        await page.evaluate(() => document.fonts.ready);
+        expect(
+          await page.evaluate(() => document.documentElement.scrollWidth),
+        ).toBeLessThanOrEqual(width);
+        const header = await page.locator('.site-header').boundingBox();
+        expect(header!.height).toBeLessThanOrEqual(width > 860 ? 100 : 145);
+        const nav = await page.locator('.primary-nav').boundingBox();
+        const action = await page.locator('.header-sign-in').boundingBox();
+        expect(nav!.x + nav!.width).toBeLessThanOrEqual(action!.x);
+        const brand = await page.locator('.brand').boundingBox();
+        const localeControl = await page
+          .locator('.language-switch')
+          .boundingBox();
+        expect(brand!.x + brand!.width).toBeLessThanOrEqual(localeControl!.x);
+        for (const link of await page.locator('.primary-nav a').all()) {
+          const size = await link.boundingBox();
+          expect(size!.height).toBeLessThanOrEqual(48);
+        }
+      }
+    }
+  });
+}
+
+test('section navigation preserves the guided example when switching language', async ({
+  page,
+}) => {
+  await page.goto('/fr/lessons/L05/');
+  const example = page
+    .locator('.section-nav')
+    .getByRole('link', { name: /Exemple guidé/ });
+  await example.click();
+  const frenchFragment = new URL(page.url()).hash;
+  expect(frenchFragment).not.toBe('');
+  await page.getByRole('link', { name: 'EN', exact: true }).click();
+  await expect(page).toHaveURL(/\/en\/lessons\/L05\/#guided-example/);
+  await expect(
+    page.getByRole('heading', { name: /Guided example:/ }),
+  ).toBeInViewport();
+  await page.getByRole('link', { name: 'FR', exact: true }).click();
+  expect(new URL(page.url()).hash).toBe(frenchFragment);
+  await page.setViewportSize({ width: 375, height: 900 });
+  const contents = page.locator('.mobile-contents');
+  await contents.locator('summary').click();
+  await expect(
+    contents.getByRole('link', { name: /Exemple guidé/ }),
+  ).toBeVisible();
+});
+
+test('Signal keeps the skip link, focus visibility and mathematical readings', async ({
+  page,
+}) => {
+  await page.goto('/fr/lessons/L05/');
+  await page.keyboard.press('Tab');
+  await expect(
+    page.getByRole('link', { name: 'Aller au contenu' }),
+  ).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#main')).toBeFocused();
+  await page.keyboard.press('Tab');
+  const focusedOutline = await page.evaluate(
+    () => getComputedStyle(document.activeElement!).outlineWidth,
+  );
+  expect(focusedOutline).not.toBe('0px');
+  await expect(page.locator('.katex-mathml math').first()).toBeAttached();
+  await expect(
+    page.getByText('Dans ce tableau, 0 signifie faux et 1 signifie vrai.'),
+  ).toBeVisible();
+  const falseRow = page.locator('.lesson-prose tbody tr').nth(2);
+  await expect(falseRow.locator('td').last()).toHaveText('0');
+  await page.goto('/fr/');
+  await expect(
+    page.locator('nav[aria-label="Langue"] [aria-current="page"]'),
+  ).toHaveText('FR');
+  await expect(
+    page.locator('.feature-formula .katex-mathml math'),
+  ).toBeAttached();
 });

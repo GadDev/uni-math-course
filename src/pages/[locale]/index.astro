@@ -3,44 +3,66 @@ import Base from '../../layouts/Base.astro';
 import ReadingNotice from '../../components/ReadingNotice';
 import { copy, locales } from '../../lib/i18n';
 import { authCopy } from '../../lib/auth/copy';
+import SignalGeometry from '../../components/SignalGeometry.astro';
+import katex from 'katex';
 export function getStaticPaths() {
   return locales.map((locale) => ({ params: { locale }, props: { locale } }));
 }
 const { locale } = Astro.props;
 const text = copy[locale];
+const implication = katex.renderToString('A \\Rightarrow B', {
+  output: 'htmlAndMathml',
+  throwOnError: true,
+});
 ---
 
 <Base locale={locale} title={text.course} description={text.intro}>
-  <main id="main">
+  <main id="main" tabindex="-1" class="course-page">
     <section class="hero">
-      <p class="eyebrow">{text.label}</p>
-      <h1>{text.homeTitle}</h1>
-      <p class="lede">{text.intro}</p>
-      <p class="status">
-        <span aria-hidden="true">●</span> {text.pilot}
-      </p>
+      <div class="hero-copy">
+        <p class="eyebrow">{text.label}</p>
+        <h1 class="signal-title">
+          <span>
+            {text.heroLines[0]}
+            <span class="hero-ampersand"> &amp;</span>
+          </span>
+          <span>
+            {text.heroLines[1]}
+            <span class="signal-stop">.</span>
+          </span>
+        </h1>
+        <p class="hero-motto">{text.motto}</p>
+        <p class="lede">{text.intro}</p>
+        <p class="status">
+          <span aria-hidden="true">●</span> {text.pilot}
+        </p>
+      </div>
+      <div class="hero-art">
+        <SignalGeometry />
+      </div>
     </section>
     <section class="lesson-feature" aria-labelledby="pilot-title">
       <div class="lesson-index" aria-hidden="true">
         05
       </div>
-      <div>
+      <div class="featured-identity">
         <p class="eyebrow">{text.lesson}</p>
         <h2 id="pilot-title">{text.lessonTitle}</h2>
+        <div class="feature-formula" set:html={implication} />
+        <p class="formula-reading">{text.formulaReading}</p>
+      </div>
+      <div class="featured-description">
         <p>{text.description}</p>
         <div class="lesson-meta">
           <span>{text.public}</span>
           <span>{text.time}</span>
         </div>
+      </div>
+      <div class="featured-action">
         <a class="primary-link" href={'/' + locale + '/lessons/L05/'}>
           {text.read}
           <span aria-hidden="true"> →</span>
         </a>
-      </div>
-      <div class="formula-art" aria-hidden="true">
-        <span>A</span>
-        <span>⇒</span>
-        <span>B</span>
       </div>
     </section>
     <section class="planned-section" aria-labelledby="planned-title">
@@ -53,14 +75,23 @@ const text = copy[locale];
             <span class="planned-label">{text.planned}</span>
           </li>
         ))}
+        <li class="available-topic">
+          <span class="planned-number" aria-hidden="true">
+            05
+          </span>
+          <a href={'/' + locale + '/lessons/L05/'}>{text.lessonTitle}</a>
+          <span class="planned-label">{text.public}</span>
+        </li>
       </ul>
     </section>
     <section class="practice-status" aria-labelledby="practice-title">
-      <h2 id="practice-title">{text.practiceTitle}</h2>
-      <p>{text.practice}</p>
-      <p>
-        <a href={`/${locale}/sign-in/`}>{authCopy[locale].signIn}</a>
-      </p>
+      <div class="practice-copy">
+        <h2 id="practice-title">{text.practiceTitle}</h2>
+        <p>{text.practice}</p>
+        <p>
+          <a href={`/${locale}/sign-in/`}>{authCopy[locale].signIn}</a>
+        </p>
+      </div>
       <ReadingNotice locale={locale} client:load />
     </section>
   </main>

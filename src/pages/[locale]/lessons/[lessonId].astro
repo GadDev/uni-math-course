@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import ReadingNotice from '../../../components/ReadingNotice';
 import { copy } from '../../../lib/i18n';
+import SignalGeometry from '../../../components/SignalGeometry.astro';
 export async function getStaticPaths() {
   const lessons = await getCollection('lessons');
   return lessons.map((lesson) => ({
@@ -11,9 +12,28 @@ export async function getStaticPaths() {
   }));
 }
 const { lesson } = Astro.props;
-const { Content } = await render(lesson);
+const { Content, headings } = await render(lesson);
 const locale = lesson.data.locale;
 const text = copy[locale];
+const alternate = locale === 'fr' ? 'en' : 'fr';
+const counterpart = (await getCollection('lessons')).find(
+  (entry) =>
+    entry.data.lessonId === lesson.data.lessonId &&
+    entry.data.locale === alternate,
+);
+if (!counterpart) throw new Error('Missing paired lesson translation');
+const { headings: pairedHeadings } = await render(counterpart);
+if (headings.length !== pairedHeadings.length)
+  throw new Error('Unaligned bilingual lesson sections');
+const alternateAnchors = Object.fromEntries(
+  headings.map((heading, index) => {
+    const paired = pairedHeadings[index];
+    if (!paired || heading.depth !== paired.depth)
+      throw new Error('Unaligned bilingual lesson sections');
+    return [heading.slug, paired.slug];
+  }),
+);
+const sections = headings.filter((heading) => heading.depth === 2);
 ---
 
 <Base
@@ -21,26 +41,75 @@ const text = copy[locale];
   title={lesson.data.title}
   description={lesson.data.summary}
   path={'lessons/' + lesson.data.lessonId + '/'}
+  alternateAnchors={alternateAnchors}
 >
-  <main id="main" class="lesson-page">
-    <nav
-      class="breadcrumb"
-      aria-label={locale === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'}
-    >
-      <a href={'/' + locale + '/'}>{text.course}</a>
-      <span aria-hidden="true"> / </span>
-      <span>{lesson.data.lessonId}</span>
-    </nav>
-    <p class="eyebrow">
-      {text.lesson} · {lesson.data.minutes} min
-    </p>
-    <article class="lesson-prose">
-      <Content />
-    </article>
-    <p class="content-provenance">{text.review}</p>
-    <ReadingNotice locale={locale} client:load />
-    <a class="back-link" href={'/' + locale + '/'}>
-      ← {text.next}
-    </a>
+  <main id="main" tabindex="-1" class="lesson-page">
+    <aside class="course-outline">
+      <p class="eyebrow">{text.outline}</p>
+      <ol class="outline-topics">
+        {text.lessons.map((title, index) => (
+          <li>
+            <span class="outline-number">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <span>
+              {title}
+              <small>{text.planned}</small>
+            </span>
+          </li>
+        ))}
+        <li class="current-topic" aria-current="page">
+          <span class="outline-number">05</span>
+          <span>{text.lessonTitle}</span>
+        </li>
+      </ol>
+      <nav class="section-nav" aria-label={text.contents}>
+        <h2>{text.contents}</h2>
+        <ol>
+          {sections.map((section) => (
+            <li>
+              <a href={'#' + section.slug}>{section.text}</a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+    </aside>
+    <div class="reading-column">
+      <nav
+        class="breadcrumb"
+        aria-label={locale === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'}
+      >
+        <a href={'/' + locale + '/'}>{text.course}</a>
+        <span aria-hidden="true"> / </span>
+        <span>{lesson.data.lessonId}</span>
+      </nav>
+      <p class="eyebrow">
+        <span class="lesson-tag">05</span> / {text.understand} ·{' '}
+        {lesson.data.minutes} min
+      </p>
+      <details class="mobile-contents">
+        <summary>{text.contents}</summary>
+        <nav aria-label={text.contents}>
+          <ol>
+            {sections.map((section) => (
+              <li>
+                <a href={'#' + section.slug}>{section.text}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </details>
+      <div class="reading-geometry">
+        <SignalGeometry compact />
+      </div>
+      <article class="lesson-prose" data-lesson-id={lesson.data.lessonId}>
+        <Content />
+      </article>
+      <p class="content-provenance">{text.review}</p>
+      <ReadingNotice locale={locale} client:load />
+      <a class="back-link" href={'/' + locale + '/'}>
+        ← {text.next}
+      </a>
+    </div>
   </main>
 </Base>

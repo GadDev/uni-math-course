@@ -10,9 +10,9 @@ export default function ReadingNotice({ locale }: { locale: Locale }) {
   return (
     <Theme
       className="reading-notice-theme"
-      accentColor="bronze"
-      grayColor="sand"
-      radius="medium"
+      accentColor="gray"
+      grayColor="gray"
+      radius="none"
       appearance="light"
     >
       <Box className="reading-notice" p="5">
