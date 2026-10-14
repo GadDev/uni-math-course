@@ -1,0 +1,94 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const skill = new URL(
+  '../../.claude/skills/math-course-studio/',
+  import.meta.url,
+);
+const script = (name) => fileURLToPath(new URL(`scripts/${name}`, skill));
+const logic = await import(script('logic-check.mjs'));
+const course = await import(script('course-map.mjs'));
+const bank = fileURLToPath(
+  new URL('../../exercises/L05/v1.json', import.meta.url),
+);
+
+test('formula parser honours precedence and associativity', () => {
+  const value = (formula, assignment) =>
+    logic.evaluate(logic.parseFormula(formula), assignment);
+  assert.equal(value('A | B & C', { A: true, B: false, C: false }), true);
+  assert.equal(value('!A & B', { A: true, B: true }), false);
+  // => is right-associative: A => (B => C)
+  assert.equal(value('A => B => C', { A: true, B: true, C: false }), false);
+  assert.equal(value('A => B => C', { A: false, B: true, C: false }), true);
+  assert.equal(value('(A ⇒ B) ⇔ (¬A ∨ B)', { A: true, B: false }), true);
+});
+
+test('formula parser rejects malformed input', () => {
+  for (const bad of ['A &', '(A | B', 'A B', '=> A', 'A @ B'])
+    assert.throws(() => logic.parseFormula(bad), bad);
+});
+
+test('classification and equivalence use every assignment', () => {
+  assert.equal(logic.classify('A | !A'), 'tautology');
+  assert.equal(logic.classify('A & !A'), 'contradiction');
+  assert.equal(logic.classify('A => B'), 'contingent');
+  assert.ok(logic.equivalent('A => B', '!B => !A'));
+  assert.ok(!logic.equivalent('A => B', 'B => A'));
+});
+
+test('truth-table keys are compared row by row', async () => {
+  const published = JSON.parse(await readFile(bank, 'utf8'));
+  const item = published.exercises.find((e) => e.type === 'truth-table');
+  assert.deepEqual(logic.checkTable(item, 'A => B'), []);
+  assert.ok(logic.checkTable(item, 'B => A').length > 0);
+});
+
+test('course map reports gaps and stale availability claims', async () => {
+  const lessons = await course.loadCourse();
+  const result = course.analyse(lessons, 96);
+  assert.equal(result.ids.length, 20);
+  assert.ok(result.uncovered.includes(2), 'title-adjacent page 2 is uncovered');
+  assert.equal(course.ranges([3, 4, 5, 9]), '3-5, 9');
+  assert.ok(
+    result.findings.every((finding) => !/cycle/.test(finding)),
+    'no prerequisite cycle',
+  );
+});
+
+test('draft validator accepts a published bank and rejects broken drafts', async () => {
+  const validator = script('validate-draft.mjs');
+  const ok = spawnSync('node', [validator, bank], { encoding: 'utf8' });
+  assert.equal(ok.status, 0, ok.stderr);
+  assert.match(ok.stdout, /NOT verified/);
+
+  const dir = await mkdtemp(join(tmpdir(), 'draft-'));
+  try {
+    const broken = JSON.parse(await readFile(bank, 'utf8'));
+    broken.exercises[0].prompt.en = 'Which row makes $A \\land B$ false?';
+    broken.exercises[0].prompt.fr = 'Quelle ligne rend $A \\lor B$ fausse ?';
+    const path = join(dir, 'bad.json');
+    await writeFile(path, JSON.stringify(broken));
+    const bad = spawnSync('node', [validator, path], { encoding: 'utf8' });
+    assert.equal(bad.status, 1);
+    assert.match(bad.stderr, /notation differs/);
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+});
+
+test('draft validator lists reusable misconception tags from any directory', () => {
+  const output = execFileSync(
+    'node',
+    [script('validate-draft.mjs'), '--list-tags'],
+    {
+      cwd: tmpdir(),
+      encoding: 'utf8',
+    },
+  );
+  assert.match(output, /\tdomain-ignored/);
+});
