@@ -25,3 +25,7 @@ jobs:
           persist-credentials: false
       - name: Validate repository
         run: python3 scripts/check_repository.py
+      - name: Check original content contracts and mathematical answers
+        run: |
+          node scripts/check-content.mjs
+          node --test tests/content/*.test.mjs
