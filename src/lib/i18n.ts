@@ -2,13 +2,21 @@ export const locales = ['fr', 'en'] as const;
 export type Locale = (typeof locales)[number];
 export const copy = {
   fr: {
-    brand: 'Uni Math Course',
+    brand: 'Uni Math',
+    navigation: 'Navigation principale',
+    lessonNav: 'Leçon 05',
+    heroLines: ['Logique', 'Ensembles'],
+    motto: 'Comprendre. Essayer. Progresser.',
+    formulaReading: 'Se lit : « si A, alors B ».',
+    outline: 'Le programme',
+    contents: 'Dans cette leçon',
+    understand: 'Comprendre',
     skip: 'Aller au contenu',
     course: 'Le cours',
     lesson: 'Leçon pilote',
     homeTitle: 'Reprendre les maths, une idée à la fois.',
     intro:
-      'Un carnet bilingue pour comprendre, vérifier votre raisonnement et revenir sur vos erreurs.',
+      'Une idée, un exemple, puis à vous de raisonner. Un parcours bilingue pour retrouver le fil des mathématiques.',
     label: 'LOGIQUE ET ENSEMBLES',
     pilot: 'Pilote en construction',
     read: 'Lire la leçon',
@@ -17,7 +25,7 @@ export const copy = {
     lessonTitle: 'L’implication',
     description:
       'Une promesse avec un seul échec. Découvrez A ⇒ B, sa table de vérité et les conditions nécessaires et suffisantes.',
-    future: 'La suite du programme',
+    future: 'Les premières idées',
     planned: 'À venir',
     practiceTitle: 'La pratique arrive ensuite',
     practice:
@@ -39,13 +47,21 @@ export const copy = {
     notFound: 'Page introuvable',
   },
   en: {
-    brand: 'Uni Math Course',
+    brand: 'Uni Math',
+    navigation: 'Main navigation',
+    lessonNav: 'Lesson 05',
+    heroLines: ['Logic', 'Sets'],
+    motto: 'Understand. Try. Progress.',
+    formulaReading: 'Read as: “if A, then B”.',
+    outline: 'The programme',
+    contents: 'In this lesson',
+    understand: 'Understand',
     skip: 'Skip to content',
     course: 'The course',
     lesson: 'Pilot lesson',
     homeTitle: 'Return to maths, one idea at a time.',
     intro:
-      'A bilingual notebook to understand concepts, check your reasoning and revisit mistakes.',
+      'One idea, one example, then your turn to reason. A bilingual learning path to find your way back to mathematics.',
     label: 'LOGIC AND SETS',
     pilot: 'Pilot under construction',
     read: 'Read the lesson',
@@ -54,7 +70,7 @@ export const copy = {
     lessonTitle: 'Implication',
     description:
       'A promise with one failure case. Explore A ⇒ B, its truth table, and necessary and sufficient conditions.',
-    future: 'Next in the programme',
+    future: 'The first ideas',
     planned: 'Coming later',
     practiceTitle: 'Practice comes next',
     practice:

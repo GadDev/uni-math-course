@@ -3,14 +3,23 @@ import '@radix-ui/themes/styles.css';
 import 'katex/dist/katex.min.css';
 import '../styles/global.css';
 import { copy, type Locale } from '../lib/i18n';
+import { authCopy } from '../lib/auth/copy';
 interface Props {
   locale: Locale;
   title: string;
   description: string;
   path?: string;
   alternateHref?: string;
+  alternateAnchors?: Record<string, string>;
 }
-const { locale, title, description, path = '', alternateHref } = Astro.props;
+const {
+  locale,
+  title,
+  description,
+  path = '',
+  alternateHref,
+  alternateAnchors = {},
+} = Astro.props;
 const text = copy[locale];
 const alternate = locale === 'fr' ? 'en' : 'fr';
 ---
@@ -23,6 +32,13 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
     <meta name="description" content={description} />
     <title>{title} · Uni Math Course</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="/fonts/anton-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <link rel="alternate" hreflang="fr" href={'/fr/' + path} />
     <link rel="alternate" hreflang="en" href={'/en/' + path} />
   </head>
@@ -32,24 +48,45 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
     </a>
     <header class="site-header">
       <a class="brand" href={'/' + locale + '/'}>
-        <span class="brand-mark" aria-hidden="true">
-          ⇒
-        </span>
         <span>{text.brand}</span>
       </a>
-      <nav aria-label={text.language} class="language-switch">
-        <span lang={locale} aria-current="page">
-          {locale.toUpperCase()}
-        </span>
+      <nav class="primary-nav" aria-label={text.navigation}>
         <a
-          lang={alternate}
-          hreflang={alternate}
-          href={alternateHref ?? '/' + alternate + '/' + path}
-          data-language-link
+          href={'/' + locale + '/'}
+          aria-current={path === '' ? 'page' : undefined}
         >
-          {alternate.toUpperCase()}
+          {text.course}
+        </a>
+        <a
+          href={'/' + locale + '/lessons/L05/'}
+          aria-current={path === 'lessons/L05/' ? 'page' : undefined}
+        >
+          {text.lessonNav}
         </a>
       </nav>
+      <div class="header-actions">
+        <nav aria-label={text.language} class="language-switch">
+          <span lang={locale} aria-current="page">
+            {locale.toUpperCase()}
+          </span>
+          <span class="language-divider" aria-hidden="true">
+            /
+          </span>
+          <a
+            lang={alternate}
+            hreflang={alternate}
+            href={alternateHref ?? '/' + alternate + '/' + path}
+            data-language-link
+            data-alternate-anchors={JSON.stringify(alternateAnchors)}
+            title={alternate === 'en' ? 'English' : 'Français'}
+          >
+            {alternate.toUpperCase()}
+          </a>
+        </nav>
+        <a class="header-sign-in" href={'/' + locale + '/sign-in/'}>
+          {authCopy[locale].signIn}
+        </a>
+      </div>
     </header>
     <div class="page">
       <slot />
@@ -65,7 +102,16 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
         .querySelectorAll<HTMLAnchorElement>('[data-language-link]')
         .forEach((link) => {
           link.addEventListener('click', () => {
-            link.hash = window.location.hash;
+            let anchor = window.location.hash.slice(1);
+            try {
+              anchor = decodeURIComponent(anchor);
+            } catch {
+              /* Preserve a malformed fragment without interrupting navigation. */
+            }
+            const anchors = JSON.parse(
+              link.dataset.alternateAnchors ?? '{}',
+            ) as Record<string, string>;
+            link.hash = anchors[anchor] ?? window.location.hash;
           });
         });
     </script>

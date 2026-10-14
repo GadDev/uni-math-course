@@ -4,7 +4,9 @@
 
 M2 feature 1 provides French/English programme pages and the original L05 lesson. Reading is public. The programme labels future lessons as coming later and links to configurable sign-in and describes practice/progress as in development.
 
-Astro prerenders the pages. React/Radix adds a reading-tip disclosure, not an anonymous exercise. KaTeX emits HTML and MathML; mathematical readings are explained in the lesson. Switching language preserves the current lesson and fragment.
+Astro prerenders the pages. React/Radix adds a reading-tip disclosure, not an anonymous exercise. KaTeX emits HTML and MathML; mathematical readings are explained in the lesson. Switching language preserves the current lesson and maps its section fragment to the corresponding translated heading. Missing paired translations or mismatched heading counts/depths block the build; heading order must also be reviewed for semantic alignment.
+
+The [Signal implementation review](design/implementation/signal-public-reading/README.md) records the public programme/lesson styling, screenshots, validation and remaining accessibility checks. The selected art direction is implemented with CSS, a self-hosted OFL font and original decorative SVG; the concept images are not loaded by the application.
 
 ## Toolchain
 

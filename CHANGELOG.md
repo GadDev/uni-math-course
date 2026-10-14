@@ -6,6 +6,8 @@ Notable changes are recorded here. No application version has been released.
 
 ### Added
 
+- Signal styling for the public programme and L05 reading pages, with responsive course navigation, lesson contents, self-hosted licensed display typography and bilingual section switching.
+
 - Selected Signal art direction: nine WebP course, learning, access and mobile concepts, with updated design guidance and asset evidence.
 
 - Configurable bilingual Google/Supabase sign-in, server-verified cookie sessions, PKCE callback, refresh and local logout, with credential-free protocol/browser checks and hosted setup guidance.
