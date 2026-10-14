@@ -1,0 +1,2073 @@
+{
+  "version": 1,
+  "source": {
+    "title": "Mathématiques Générales — Logique et ensembles",
+    "author": "Bruno Teheux",
+    "institution": "University of Luxembourg",
+    "year": "2026–2027",
+    "pageCount": 96
+  },
+  "categories": [
+    {
+      "id": "basics",
+      "title": {
+        "fr": "Lire les briques de base",
+        "en": "Reading the building blocks"
+      }
+    },
+    {
+      "id": "logic",
+      "title": {
+        "fr": "Logique des assertions",
+        "en": "Statement logic"
+      }
+    },
+    {
+      "id": "numbers",
+      "title": {
+        "fr": "Comparaisons, nombres et calcul",
+        "en": "Comparisons, numbers and arithmetic"
+      }
+    },
+    {
+      "id": "sets",
+      "title": {
+        "fr": "Ensembles et fonctions",
+        "en": "Sets and functions"
+      }
+    },
+    {
+      "id": "quantifiers",
+      "title": {
+        "fr": "Prédicats et quantificateurs",
+        "en": "Predicates and quantifiers"
+      }
+    },
+    {
+      "id": "code",
+      "title": {
+        "fr": "Passer du symbole au code",
+        "en": "From symbols to code"
+      }
+    }
+  ],
+  "entries": [
+    {
+      "id": "E01",
+      "category": "basics",
+      "notation": "A,B,C;\\ x,y,z",
+      "example": "A\\land B",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        6,
+        7,
+        8,
+        9,
+        20,
+        32,
+        33,
+        34,
+        35,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "fr": {
+        "name": "Lettres et variables",
+        "meaning": "Une lettre représente une assertion, un objet ou un ensemble selon le contexte.",
+        "reading": "A et B.",
+        "explanation": "Ici, A et B sont des assertions. Plus loin, A et B désignent des ensembles.",
+        "confusion": "Une majuscule ne garantit pas un ensemble : A est aussi une assertion ou le nom du prédicat A(u)."
+      },
+      "en": {
+        "name": "Letters and variables",
+        "meaning": "A letter represents a statement, an object or a set, depending on context.",
+        "reading": "A and B.",
+        "explanation": "Here A and B are statements. Later, A and B denote sets.",
+        "confusion": "A capital letter does not guarantee a set: A is also a statement or the predicate name in A(u)."
+      }
+    },
+    {
+      "id": "E02",
+      "category": "basics",
+      "notation": "0,1",
+      "example": "1\\land 0=0",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        16,
+        20,
+        21,
+        32,
+        33,
+        34,
+        35
+      ],
+      "fr": {
+        "name": "Valeurs de vérité",
+        "meaning": "0 représente faux et 1 représente vrai dans les tables.",
+        "reading": "Vrai et faux donne faux.",
+        "explanation": "Les deux conditions ne sont pas vraies ensemble.",
+        "confusion": "Dans un ensemble de nombres, 0 et 1 sont aussi des nombres ordinaires."
+      },
+      "en": {
+        "name": "Truth values",
+        "meaning": "0 represents false and 1 represents true in truth tables.",
+        "reading": "True and false gives false.",
+        "explanation": "The two conditions are not both true.",
+        "confusion": "In a number set, 0 and 1 are also ordinary numbers."
+      }
+    },
+    {
+      "id": "E03",
+      "category": "basics",
+      "notation": "(\\ldots)",
+      "example": "A\\land(B\\lor\\neg A)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        12,
+        14,
+        16,
+        17,
+        18,
+        19,
+        22,
+        23,
+        24,
+        25,
+        30,
+        31
+      ],
+      "fr": {
+        "name": "Parenthèses de regroupement",
+        "meaning": "Elles indiquent quelles parties lire ou calculer ensemble.",
+        "reading": "A et, entre parenthèses, B ou non A.",
+        "explanation": "Il faut A, ainsi que B ou la négation de A.",
+        "confusion": "Dans P(x), les parenthèses contiennent un argument ; dans (x,c), elles construisent un couple."
+      },
+      "en": {
+        "name": "Grouping parentheses",
+        "meaning": "They show which parts belong together.",
+        "reading": "A and, in parentheses, B or not A.",
+        "explanation": "We need A, together with either B or the negation of A.",
+        "confusion": "In P(x), parentheses hold an argument; in (x,c), they form an ordered pair."
+      }
+    },
+    {
+      "id": "E04",
+      "category": "basics",
+      "notation": "\\ldots",
+      "example": "\\{0,2,4,\\ldots\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        43,
+        54,
+        55,
+        56,
+        65,
+        90,
+        91,
+        92,
+        93,
+        94
+      ],
+      "fr": {
+        "name": "Points de suspension",
+        "meaning": "Une liste ou un motif continue, ou du contenu est omis.",
+        "reading": "L’ensemble zéro, deux, quatre, et ainsi de suite.",
+        "explanation": "On poursuit avec tous les nombres pairs naturels.",
+        "confusion": "Les points ne donnent un motif que si le contexte le précise. Dans EXISTS(...), ils remplacent une sous-requête."
+      },
+      "en": {
+        "name": "Ellipsis",
+        "meaning": "A list or pattern continues, or content is omitted.",
+        "reading": "The set zero, two, four, and so on.",
+        "explanation": "Continue with all the even natural numbers.",
+        "confusion": "The dots specify a pattern only when context makes it clear. In EXISTS(...), they stand for a subquery."
+      }
+    },
+    {
+      "id": "E05",
+      "category": "basics",
+      "notation": ":",
+      "example": "A(u):\\text{administrator}(u)",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        26,
+        27,
+        28,
+        29,
+        35,
+        95,
+        96
+      ],
+      "fr": {
+        "name": "Deux-points de présentation",
+        "meaning": "Ils introduisent une définition ou la lecture d’un prédicat.",
+        "reading": "A de u signifie : u est administrateur.",
+        "explanation": "On donne le sens du nom A(u).",
+        "confusion": "Le rôle de : dans f : X → Y est différent ; := est un autre symbole."
+      },
+      "en": {
+        "name": "Introducing colon",
+        "meaning": "They introduce a definition or a predicate interpretation.",
+        "reading": "A of u means: u is an administrator.",
+        "explanation": "We specify what the name A(u) means.",
+        "confusion": "The colon in f : X → Y has a different role; := is a separate symbol."
+      }
+    },
+    {
+      "id": "E06",
+      "category": "logic",
+      "notation": "\\top",
+      "example": "A\\lor\\neg A\\equiv\\top",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        7,
+        8,
+        9,
+        17,
+        18
+      ],
+      "fr": {
+        "name": "Constante vraie",
+        "meaning": "Une assertion qui est toujours vraie.",
+        "reading": "A ou non A est sémantiquement équivalent à vrai.",
+        "explanation": "En logique classique, A est vrai ou A est faux.",
+        "confusion": "On peut nommer le symbole « top », mais lire sa signification « vrai »."
+      },
+      "en": {
+        "name": "Truth constant / top",
+        "meaning": "A statement that is always true.",
+        "reading": "A or not A is semantically equivalent to true.",
+        "explanation": "In classical logic, A is true or A is false.",
+        "confusion": "The symbol can be named “top”, but read by its meaning, “true”."
+      }
+    },
+    {
+      "id": "E07",
+      "category": "logic",
+      "notation": "\\neg\\top",
+      "example": "A\\land\\neg A\\equiv\\neg\\top",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        17,
+        18
+      ],
+      "fr": {
+        "name": "Constante fausse écrite comme une négation",
+        "meaning": "La négation de toujours vrai est toujours fausse.",
+        "reading": "A et non A est sémantiquement équivalent à non vrai, donc à faux.",
+        "explanation": "Une assertion et sa négation ne peuvent pas être vraies ensemble.",
+        "confusion": "Le PDF écrit ¬⊤ ; il n’introduit pas le symbole ⊥."
+      },
+      "en": {
+        "name": "False constant written as a negation",
+        "meaning": "The negation of always true is always false.",
+        "reading": "A and not A is semantically equivalent to not true, hence false.",
+        "explanation": "A statement and its negation cannot both be true.",
+        "confusion": "The PDF writes ¬⊤; it does not introduce the symbol ⊥."
+      }
+    },
+    {
+      "id": "E08",
+      "category": "logic",
+      "notation": "\\land;\\ A\\cdot B;\\ \\mathrm{ET}",
+      "example": "A\\land B\\quad\\quad\\quad A\\cdot B",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        8,
+        9,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        30,
+        31,
+        67,
+        68,
+        69,
+        70,
+        82,
+        83,
+        84
+      ],
+      "fr": {
+        "name": "Conjonction ; et logique",
+        "meaning": "Vrai seulement si les deux assertions sont vraies.",
+        "reading": "A et B.",
+        "explanation": "Les deux conditions sont requises.",
+        "confusion": "Le point est un synonyme logique dans A·B ; le PDF n’y effectue pas une multiplication numérique."
+      },
+      "en": {
+        "name": "Conjunction; logical and",
+        "meaning": "True only when both statements are true.",
+        "reading": "A and B.",
+        "explanation": "Both conditions are required.",
+        "confusion": "The dot is a logical synonym in A·B; this is not a numerical multiplication in the PDF."
+      }
+    },
+    {
+      "id": "E09",
+      "category": "logic",
+      "notation": "\\lor;\\ A+B;\\ \\mathrm{OU}",
+      "example": "A\\lor B\\quad\\quad\\quad A+B",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        22,
+        32,
+        33,
+        34,
+        35,
+        82,
+        83,
+        84
+      ],
+      "fr": {
+        "name": "Disjonction ; ou inclusif",
+        "meaning": "Vrai si au moins une assertion est vraie, y compris si les deux le sont.",
+        "reading": "A ou B, éventuellement les deux.",
+        "explanation": "Une seule condition vraie suffit ; deux conviennent aussi.",
+        "confusion": "A+B désigne ici le OU, mais i+1 est une addition ordinaire pages 91–94."
+      },
+      "en": {
+        "name": "Disjunction; inclusive or",
+        "meaning": "True if at least one statement is true, including when both are true.",
+        "reading": "A or B, possibly both.",
+        "explanation": "One true condition is enough; two also work.",
+        "confusion": "A+B means OR here, but i+1 is ordinary addition on pages 91–94."
+      }
+    },
+    {
+      "id": "E10",
+      "category": "logic",
+      "notation": "\\mathrm{XOR}",
+      "example": "A\\ \\mathrm{XOR}\\ B",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        11,
+        12
+      ],
+      "fr": {
+        "name": "Ou exclusif",
+        "meaning": "Vrai si exactement une des deux assertions est vraie.",
+        "reading": "A ou B, mais pas les deux.",
+        "explanation": "Lorsque A et B sont tous deux vrais, le résultat est faux.",
+        "confusion": "Le PDF mentionne le sigle XOR sans lui attribuer de symbole comme ⊕."
+      },
+      "en": {
+        "name": "Exclusive or",
+        "meaning": "True if exactly one of the two statements is true.",
+        "reading": "Either A or B, but not both.",
+        "explanation": "When A and B are both true, the result is false.",
+        "confusion": "The PDF mentions the acronym XOR without assigning a symbol such as ⊕."
+      }
+    },
+    {
+      "id": "E11",
+      "category": "logic",
+      "notation": "\\neg A;\\ A';\\ \\mathrm{NON}",
+      "example": "\\neg A\\lor B\\quad\\quad\\quad(\\neg A)\\lor B",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        23,
+        24,
+        25,
+        33,
+        34,
+        51,
+        70,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "fr": {
+        "name": "Négation ; prime comme notation de négation",
+        "meaning": "Inverse vrai et faux.",
+        "reading": "Non A, ou B.",
+        "explanation": "Le NON porte seulement sur A dans cette formule.",
+        "confusion": "A′ se nomme « A prime », mais signifie ici « non A » ; ce n’est pas une dérivée. ¬A∨B et ¬(A∨B) diffèrent."
+      },
+      "en": {
+        "name": "Negation; prime used for negation",
+        "meaning": "Reverses true and false.",
+        "reading": "Not A, or B.",
+        "explanation": "NOT applies only to A in this formula.",
+        "confusion": "A′ is named “A prime”, but means “not A” here; it is not a derivative. ¬A∨B and ¬(A∨B) differ."
+      }
+    },
+    {
+      "id": "E12",
+      "category": "logic",
+      "notation": "\\neg\\neg A",
+      "example": "\\neg\\neg A\\equiv A",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        17,
+        18
+      ],
+      "fr": {
+        "name": "Double négation",
+        "meaning": "Deux négations successives rétablissent la valeur initiale.",
+        "reading": "Non non A est sémantiquement équivalent à A.",
+        "explanation": "Nier que A est faux revient à affirmer A, en logique classique.",
+        "confusion": ""
+      },
+      "en": {
+        "name": "Double negation",
+        "meaning": "Two successive negations restore the original truth value.",
+        "reading": "Not not A is semantically equivalent to A.",
+        "explanation": "Denying that A is false amounts to asserting A in classical logic.",
+        "confusion": ""
+      }
+    },
+    {
+      "id": "E13",
+      "category": "logic",
+      "notation": "\\Rightarrow",
+      "example": "x\\geq10\\Rightarrow x\\geq5",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        30,
+        31,
+        57,
+        58,
+        67,
+        68,
+        69,
+        70,
+        96
+      ],
+      "fr": {
+        "name": "Implication",
+        "meaning": "Exclut le cas où la première assertion est vraie et la seconde fausse.",
+        "reading": "Si x est supérieur ou égal à dix, alors x est supérieur ou égal à cinq.",
+        "explanation": "La première condition suffit pour garantir la seconde.",
+        "confusion": "A⇒B ne garantit ni A, ni la réciproque B⇒A. Elle est vraie lorsque A est faux."
+      },
+      "en": {
+        "name": "Implication",
+        "meaning": "Rules out the case where the first statement is true and the second false.",
+        "reading": "If x is greater than or equal to ten, then x is greater than or equal to five.",
+        "explanation": "The first condition is enough to guarantee the second.",
+        "confusion": "A⇒B guarantees neither A nor the converse B⇒A. It is true when A is false."
+      }
+    },
+    {
+      "id": "E14",
+      "category": "logic",
+      "notation": "B\\Rightarrow A;\\ \\neg B\\Rightarrow\\neg A",
+      "example": "(A\\Rightarrow B)\\equiv(\\neg B\\Rightarrow\\neg A)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        24,
+        25
+      ],
+      "fr": {
+        "name": "Réciproque ; contraposée",
+        "meaning": "La réciproque inverse le sens ; la contraposée inverse et nie les deux assertions.",
+        "reading": "Si A alors B est sémantiquement équivalent à si non B alors non A.",
+        "explanation": "La contraposée exprime la même condition logique.",
+        "confusion": "La réciproque n’est généralement pas équivalente à l’implication initiale."
+      },
+      "en": {
+        "name": "Converse; contrapositive",
+        "meaning": "The converse reverses direction; the contrapositive reverses and negates both statements.",
+        "reading": "If A then B is semantically equivalent to if not B then not A.",
+        "explanation": "The contrapositive expresses the same logical condition.",
+        "confusion": "The converse is generally not equivalent to the original implication."
+      }
+    },
+    {
+      "id": "E15",
+      "category": "logic",
+      "notation": "\\Leftrightarrow",
+      "example": "A\\Leftrightarrow B",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        30,
+        31
+      ],
+      "fr": {
+        "name": "Biconditionnelle ; équivalence comme connecteur",
+        "meaning": "Construit une assertion vraie quand les deux côtés ont la même valeur de vérité.",
+        "reading": "A si et seulement si B.",
+        "explanation": "Les deux implications A⇒B et B⇒A doivent être vraies.",
+        "confusion": "Cette assertion peut être fausse pour certaines valeurs de A et B."
+      },
+      "en": {
+        "name": "Biconditional; if-and-only-if connective",
+        "meaning": "Builds a statement true when both sides have the same truth value.",
+        "reading": "A if and only if B.",
+        "explanation": "Both implications A⇒B and B⇒A must be true.",
+        "confusion": "This statement can be false for some values of A and B."
+      }
+    },
+    {
+      "id": "E16",
+      "category": "logic",
+      "notation": "\\equiv",
+      "example": "A\\lor B\\equiv B\\lor A",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        15,
+        16,
+        17,
+        18,
+        19,
+        22,
+        23,
+        24,
+        25,
+        30,
+        31,
+        33,
+        34,
+        70,
+        89
+      ],
+      "fr": {
+        "name": "Équivalence sémantique",
+        "meaning": "Les deux assertions ont les mêmes valeurs de vérité pour toutes les interprétations.",
+        "reading": "A ou B est sémantiquement équivalent à B ou A.",
+        "explanation": "Changer cet ordre ne change aucune ligne de la table de vérité.",
+        "confusion": "≡ compare des assertions ; ⇔ construit une assertion. Le PDF insiste sur cette distinction."
+      },
+      "en": {
+        "name": "Semantic equivalence",
+        "meaning": "The two statements have the same truth values under every interpretation.",
+        "reading": "A or B is semantically equivalent to B or A.",
+        "explanation": "Changing this order does not change any row of the truth table.",
+        "confusion": "≡ compares statements; ⇔ builds a statement. The PDF explicitly stresses this distinction."
+      }
+    },
+    {
+      "id": "E17",
+      "category": "numbers",
+      "notation": "=",
+      "example": "n=2k",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        54,
+        55,
+        56
+      ],
+      "fr": {
+        "name": "Égalité numérique",
+        "meaning": "Les deux expressions représentent le même nombre.",
+        "reading": "n égale deux fois k.",
+        "explanation": "Avec k naturel, n est un nombre pair naturel.",
+        "confusion": "= affirme une égalité ; := introduit une définition."
+      },
+      "en": {
+        "name": "Numerical equality",
+        "meaning": "Both expressions represent the same number.",
+        "reading": "n equals two times k.",
+        "explanation": "With k a natural number, n is an even natural number.",
+        "confusion": "= asserts equality; := introduces a definition."
+      }
+    },
+    {
+      "id": "E18",
+      "category": "numbers",
+      "notation": ">",
+      "example": "x>2",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        46,
+        48,
+        53,
+        54,
+        55,
+        56,
+        93,
+        94
+      ],
+      "fr": {
+        "name": "Strictement supérieur à",
+        "meaning": "Le nombre de gauche est plus grand ; l’égalité est exclue.",
+        "reading": "x est strictement supérieur à deux.",
+        "explanation": "Trois convient ; deux ne convient pas.",
+        "confusion": "> n’inclut pas la borne ; ≥ l’inclut."
+      },
+      "en": {
+        "name": "Greater than",
+        "meaning": "The number on the left is larger; equality is excluded.",
+        "reading": "x is greater than two.",
+        "explanation": "Three works; two does not.",
+        "confusion": "> excludes the boundary; ≥ includes it."
+      }
+    },
+    {
+      "id": "E19",
+      "category": "numbers",
+      "notation": "\\geq",
+      "example": "x\\geq10",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        20
+      ],
+      "fr": {
+        "name": "Supérieur ou égal à",
+        "meaning": "Autorise un nombre plus grand ou exactement égal.",
+        "reading": "x est supérieur ou égal à dix.",
+        "explanation": "Dix convient, ainsi que onze.",
+        "confusion": ""
+      },
+      "en": {
+        "name": "Greater than or equal to",
+        "meaning": "Allows a larger number or an equal number.",
+        "reading": "x is greater than or equal to ten.",
+        "explanation": "Ten works, as does eleven.",
+        "confusion": ""
+      }
+    },
+    {
+      "id": "E20",
+      "category": "numbers",
+      "notation": "\\leq;\\ \\texttt{<=}",
+      "example": "t[i]\\leq t[i+1]",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        91,
+        92,
+        93,
+        94
+      ],
+      "fr": {
+        "name": "Inférieur ou égal à",
+        "meaning": "Autorise une valeur plus petite ou égale ; <= est la forme Python utilisée.",
+        "reading": "t d’indice i est inférieur ou égal à t d’indice i plus un.",
+        "explanation": "Un élément ne dépasse pas le suivant ; les valeurs égales sont permises.",
+        "confusion": "« Triée » signifie ici dans l’ordre croissant au sens large."
+      },
+      "en": {
+        "name": "Less than or equal to",
+        "meaning": "Allows a smaller or equal value; <= is the Python spelling used.",
+        "reading": "t at index i is less than or equal to t at index i plus one.",
+        "explanation": "An element does not exceed the next one; equal values are allowed.",
+        "confusion": "“Sorted” here means nondecreasing."
+      }
+    },
+    {
+      "id": "E21",
+      "category": "numbers",
+      "notation": "+;\\ -",
+      "example": "\\{0,\\ldots,n-2\\}\\quad\\text{et}\\quad t[i+1]",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        90,
+        91,
+        92,
+        93,
+        94
+      ],
+      "fr": {
+        "name": "Addition ; soustraction",
+        "meaning": "Ajoute ou retranche une quantité dans une expression numérique.",
+        "reading": "De zéro à n moins deux ; et t d’indice i plus un.",
+        "explanation": "On parcourt les positions ayant un élément suivant.",
+        "confusion": "Le + de i+1 est arithmétique ; celui de A+B page 10 désigne le OU logique."
+      },
+      "en": {
+        "name": "Addition; subtraction",
+        "meaning": "Adds or subtracts a quantity in a numerical expression.",
+        "reading": "From zero to n minus two; and t at index i plus one.",
+        "explanation": "We visit positions that have a following element.",
+        "confusion": "The + in i+1 is arithmetic; the one in A+B on page 10 means logical OR."
+      }
+    },
+    {
+      "id": "E22",
+      "category": "numbers",
+      "notation": "2k",
+      "example": "\\{n\\in\\mathbb N\\mid\\exists k\\in\\mathbb N\\ n=2k\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        54,
+        55,
+        56
+      ],
+      "fr": {
+        "name": "Multiplication implicite ; juxtaposition",
+        "meaning": "Deux placé devant k signifie deux fois k.",
+        "reading": "L’ensemble des naturels n tels qu’il existe un naturel k pour lequel n égale deux fois k.",
+        "explanation": "On décrit les nombres pairs, zéro compris.",
+        "confusion": "2k est un produit ; 2^A page 58 désigne un ensemble de parties."
+      },
+      "en": {
+        "name": "Implicit multiplication; juxtaposition",
+        "meaning": "A two placed before k means two times k.",
+        "reading": "The set of natural numbers n such that there exists a natural number k for which n equals two times k.",
+        "explanation": "This describes the even natural numbers, including zero.",
+        "confusion": "2k is a product; 2^A on page 58 denotes a power set."
+      }
+    },
+    {
+      "id": "E23",
+      "category": "numbers",
+      "notation": "\\mathbb N",
+      "example": "\\{n\\in\\mathbb N\\mid\\exists k\\in\\mathbb N\\ n=2k\\}=\\{0,2,4,\\ldots\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        41,
+        54,
+        55,
+        56
+      ],
+      "fr": {
+        "name": "Ensemble des nombres naturels",
+        "meaning": "Les entiers à partir de zéro dans ce cours.",
+        "reading": "L’ensemble des naturels n qui sont le double d’un naturel k est zéro, deux, quatre, et ainsi de suite.",
+        "explanation": "L’exemple du PDF montre que zéro est inclus dans les naturels ici.",
+        "confusion": "La convention sur zéro varie selon les ouvrages."
+      },
+      "en": {
+        "name": "Set of natural numbers",
+        "meaning": "The whole numbers starting at zero in this course.",
+        "reading": "The set of natural numbers n that are twice a natural number k is zero, two, four, and so on.",
+        "explanation": "The PDF example shows that zero is included among the natural numbers here.",
+        "confusion": "Whether zero is included varies between books."
+      }
+    },
+    {
+      "id": "E24",
+      "category": "numbers",
+      "notation": "\\mathbb Z",
+      "example": "\\mathbb N\\subseteq\\mathbb Z",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        41
+      ],
+      "fr": {
+        "name": "Ensemble des entiers relatifs",
+        "meaning": "Les entiers négatifs, zéro et les entiers positifs.",
+        "reading": "L’ensemble des naturels est inclus dans l’ensemble des entiers relatifs.",
+        "explanation": "Chaque naturel est un entier relatif.",
+        "confusion": ""
+      },
+      "en": {
+        "name": "Set of integers",
+        "meaning": "Negative whole numbers, zero and positive whole numbers.",
+        "reading": "The set of natural numbers is a subset of the set of integers.",
+        "explanation": "Every natural number is an integer.",
+        "confusion": ""
+      }
+    },
+    {
+      "id": "E25",
+      "category": "numbers",
+      "notation": "\\mathbb Q",
+      "example": "\\mathbb Z\\subseteq\\mathbb Q",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        41
+      ],
+      "fr": {
+        "name": "Ensemble des nombres rationnels",
+        "meaning": "Les nombres pouvant s’écrire comme quotient de deux entiers avec dénominateur non nul.",
+        "reading": "L’ensemble des entiers relatifs est inclus dans l’ensemble des rationnels.",
+        "explanation": "Tout entier peut être exprimé comme une fraction de dénominateur un.",
+        "confusion": "L’explication du mot rationnel est un rappel pédagogique ; le PDF nomme l’ensemble sans développer les fractions."
+      },
+      "en": {
+        "name": "Set of rational numbers",
+        "meaning": "Numbers expressible as a quotient of two integers with nonzero denominator.",
+        "reading": "The set of integers is a subset of the set of rational numbers.",
+        "explanation": "Every integer can be expressed as a fraction with denominator one.",
+        "confusion": "The explanation of “rational” is a teaching reminder; the PDF names the set without developing fractions."
+      }
+    },
+    {
+      "id": "E26",
+      "category": "numbers",
+      "notation": "\\mathbb R",
+      "example": "\\mathbb Q\\subseteq\\mathbb R",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        41,
+        46,
+        48,
+        53,
+        54,
+        55,
+        56
+      ],
+      "fr": {
+        "name": "Ensemble des nombres réels",
+        "meaning": "Les nombres de la droite numérique, rationnels ou irrationnels.",
+        "reading": "L’ensemble des rationnels est inclus dans l’ensemble des réels.",
+        "explanation": "Les réels contiennent les rationnels et aussi les irrationnels.",
+        "confusion": "Les lettres N, Z, Q, R sont rendues ici en caractères doubles pour la lisibilité."
+      },
+      "en": {
+        "name": "Set of real numbers",
+        "meaning": "Numbers on the number line, rational or irrational.",
+        "reading": "The set of rational numbers is a subset of the set of real numbers.",
+        "explanation": "The real numbers contain the rationals and also the irrationals.",
+        "confusion": "N, Z, Q, R are rendered here in blackboard bold for readability."
+      }
+    },
+    {
+      "id": "E27",
+      "category": "numbers",
+      "notation": "+\\infty",
+      "example": "]2,+\\infty[",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        48,
+        53,
+        54,
+        55,
+        56
+      ],
+      "fr": {
+        "name": "Plus l’infini",
+        "meaning": "Indique l’absence de borne supérieure finie dans les intervalles du PDF.",
+        "reading": "L’intervalle ouvert de deux à plus l’infini.",
+        "explanation": "Il contient tous les réels strictement supérieurs à deux.",
+        "confusion": "+∞ n’est pas un réel et n’est jamais un élément de cet intervalle."
+      },
+      "en": {
+        "name": "Positive infinity",
+        "meaning": "Indicates that the PDF intervals have no finite upper bound.",
+        "reading": "The open interval from two to positive infinity.",
+        "explanation": "It contains all real numbers greater than two.",
+        "confusion": "+∞ is not a real number and is never an element of this interval."
+      }
+    },
+    {
+      "id": "E28",
+      "category": "numbers",
+      "notation": "[10,+\\infty[;\\ ]2,+\\infty[",
+      "example": "[10,+\\infty[",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        48,
+        53,
+        54,
+        55,
+        56
+      ],
+      "fr": {
+        "name": "Crochets d’intervalle ; borne incluse ou exclue",
+        "meaning": "Le crochet gauche [ inclut la borne ; ] l’exclut dans la notation française utilisée.",
+        "reading": "L’intervalle de dix inclus à plus l’infini.",
+        "explanation": "Dix et tous les réels plus grands sont admis.",
+        "confusion": "Les équivalents anglais usuels sont [10,+∞) et (2,+∞). Ils sont ajoutés comme traduction de notation. t[i] est une indexation, pas un intervalle."
+      },
+      "en": {
+        "name": "Interval brackets; included or excluded endpoint",
+        "meaning": "The left bracket [ includes the endpoint; ] excludes it in the French notation used.",
+        "reading": "The interval from ten, inclusive, to positive infinity.",
+        "explanation": "Ten and all larger real numbers are allowed.",
+        "confusion": "Common English equivalents are [10,+∞) and (2,+∞), added as notation translations. t[i] is indexing, not an interval."
+      }
+    },
+    {
+      "id": "E29",
+      "category": "sets",
+      "notation": "\\{\\ldots\\};\\ ,",
+      "example": "\\{1,2,4\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        35,
+        43,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        61,
+        62,
+        63,
+        64,
+        71,
+        84,
+        88,
+        89
+      ],
+      "fr": {
+        "name": "Accolades d’ensemble ; virgule de séparation",
+        "meaning": "Délimitent un ensemble ; les virgules séparent ses éléments.",
+        "reading": "L’ensemble contenant un, deux et quatre.",
+        "explanation": "Les éléments sont un, deux et quatre.",
+        "confusion": "Un ensemble ne dépend ni de l’ordre ni des répétitions. La virgule de (x,c) sépare les composantes d’un couple ordonné."
+      },
+      "en": {
+        "name": "Set braces; separating comma",
+        "meaning": "Enclose a set; commas separate its elements.",
+        "reading": "The set containing one, two and four.",
+        "explanation": "Its elements are one, two and four.",
+        "confusion": "A set does not depend on order or repetitions. The comma in (x,c) separates components of an ordered pair."
+      }
+    },
+    {
+      "id": "E30",
+      "category": "sets",
+      "notation": "\\varnothing",
+      "example": "\\varnothing\\in\\mathcal P(\\{1,2\\})",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        41,
+        58
+      ],
+      "fr": {
+        "name": "Ensemble vide",
+        "meaning": "L’ensemble qui ne contient aucun élément.",
+        "reading": "L’ensemble vide appartient à l’ensemble des parties de l’ensemble un, deux.",
+        "explanation": "L’ensemble vide est un sous-ensemble de tout ensemble.",
+        "confusion": "∅ est un ensemble, pas le nombre zéro. {∅} contient un élément et n’est pas vide."
+      },
+      "en": {
+        "name": "Empty set",
+        "meaning": "The set containing no elements.",
+        "reading": "The empty set belongs to the power set of the set one, two.",
+        "explanation": "The empty set is a subset of every set.",
+        "confusion": "∅ is a set, not the number zero. {∅} has one element and is not empty."
+      }
+    },
+    {
+      "id": "E31",
+      "category": "sets",
+      "notation": "\\in",
+      "example": "a\\in A",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        67,
+        68,
+        69,
+        70,
+        71,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        83,
+        84,
+        87,
+        88,
+        89,
+        91,
+        92,
+        93,
+        94,
+        96
+      ],
+      "fr": {
+        "name": "Appartenance",
+        "meaning": "L’objet de gauche est un élément de l’ensemble de droite.",
+        "reading": "a appartient à A.",
+        "explanation": "a figure parmi les éléments de A.",
+        "confusion": "∈ compare un élément à un ensemble ; ⊆ compare deux ensembles. Un élément peut lui-même être un ensemble."
+      },
+      "en": {
+        "name": "Membership",
+        "meaning": "The object on the left is an element of the set on the right.",
+        "reading": "a is an element of A.",
+        "explanation": "a is among the elements of A.",
+        "confusion": "∈ relates an element to a set; ⊆ relates two sets. An element can itself be a set."
+      }
+    },
+    {
+      "id": "E32",
+      "category": "sets",
+      "notation": "\\subseteq",
+      "example": "B\\subseteq A",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        41,
+        57,
+        58,
+        60,
+        65
+      ],
+      "fr": {
+        "name": "Inclusion ; sous-ensemble",
+        "meaning": "Tout élément du premier ensemble appartient au second ; l’égalité est permise.",
+        "reading": "B est inclus dans A, ou B est un sous-ensemble de A.",
+        "explanation": "A contient tous les éléments de B.",
+        "confusion": "Cela n’exige pas que B soit plus petit : A⊆A est vrai."
+      },
+      "en": {
+        "name": "Inclusion; subset",
+        "meaning": "Every element of the first set belongs to the second; equality is allowed.",
+        "reading": "B is a subset of A.",
+        "explanation": "A contains all the elements of B.",
+        "confusion": "This does not require B to be smaller: A⊆A is true."
+      }
+    },
+    {
+      "id": "E33",
+      "category": "sets",
+      "notation": "\\{a\\in X\\mid P(a)\\};\\ \\mid",
+      "example": "\\{x\\in\\mathbb R\\mid x>2\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        52,
+        53,
+        54,
+        55,
+        56,
+        71,
+        83,
+        84,
+        87,
+        88,
+        89
+      ],
+      "fr": {
+        "name": "Ensemble défini par compréhension ; tel que",
+        "meaning": "Sélectionne les éléments de X qui satisfont le prédicat.",
+        "reading": "L’ensemble des réels x tels que x est strictement supérieur à deux.",
+        "explanation": "On garde uniquement les réels au-dessus de deux.",
+        "confusion": "La barre se lit « tel que » ; ce n’est ni une division ni une valeur absolue ici."
+      },
+      "en": {
+        "name": "Set-builder notation; such that",
+        "meaning": "Selects the elements of X satisfying the predicate.",
+        "reading": "The set of real numbers x such that x is greater than two.",
+        "explanation": "We keep only the real numbers above two.",
+        "confusion": "The bar means “such that”; it is neither division nor absolute value here."
+      }
+    },
+    {
+      "id": "E34",
+      "category": "sets",
+      "notation": "=",
+      "example": "A\\cap B=\\{2,3\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        55,
+        56,
+        58,
+        61,
+        62,
+        63,
+        64,
+        65,
+        71,
+        84,
+        88,
+        89
+      ],
+      "fr": {
+        "name": "Égalité d’ensembles",
+        "meaning": "Les deux ensembles ont exactement les mêmes éléments.",
+        "reading": "A inter B est égal à l’ensemble deux, trois.",
+        "explanation": "Les éléments communs à A et B sont exactement deux et trois.",
+        "confusion": "L’égalité ne signifie pas « mêmes éléments dans le même ordre » : l’ordre n’importe pas dans un ensemble."
+      },
+      "en": {
+        "name": "Set equality",
+        "meaning": "The two sets have exactly the same elements.",
+        "reading": "A intersection B equals the set two, three.",
+        "explanation": "The elements common to A and B are exactly two and three.",
+        "confusion": "Equality does not mean “same elements in the same order”: order does not matter in a set."
+      }
+    },
+    {
+      "id": "E35",
+      "category": "sets",
+      "notation": "\\mathcal P(A);\\ 2^A",
+      "example": "\\mathcal P(\\{1,2\\})=\\{\\varnothing,\\{1\\},\\{2\\},\\{1,2\\}\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        58
+      ],
+      "fr": {
+        "name": "Ensemble des parties",
+        "meaning": "L’ensemble de tous les sous-ensembles de A.",
+        "reading": "L’ensemble des parties de l’ensemble un, deux est l’ensemble contenant l’ensemble vide, le singleton un, le singleton deux, et l’ensemble un, deux.",
+        "explanation": "Il contient quatre sous-ensembles ; ses éléments sont eux-mêmes des ensembles.",
+        "confusion": "Lire 2^A « ensemble des parties de A » dans ce cours ; ce n’est pas « deux fois A ». Ne pas confondre P(x), prédicat, et la lettre calligraphiée P(A)."
+      },
+      "en": {
+        "name": "Power set",
+        "meaning": "The set of all subsets of A.",
+        "reading": "The power set of the set one, two is the set containing the empty set, the singleton one, the singleton two, and the set one, two.",
+        "explanation": "It contains four subsets; its elements are themselves sets.",
+        "confusion": "Read 2^A as “power set of A” in this course; it is not “two times A”. Distinguish the predicate P(x) from calligraphic P(A)."
+      }
+    },
+    {
+      "id": "E36",
+      "category": "sets",
+      "notation": "\\cap",
+      "example": "A\\cap B=\\{2,3\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "fr": {
+        "name": "Intersection",
+        "meaning": "Garde les éléments communs aux deux ensembles.",
+        "reading": "A inter B est égal à l’ensemble deux, trois.",
+        "explanation": "Pour A={1,2,3} et B={2,3,4,5}, seuls deux et trois sont communs.",
+        "confusion": "∩ agit sur des ensembles ; ∧ agit sur des assertions. Les deux correspondent à une idée de « et »."
+      },
+      "en": {
+        "name": "Intersection",
+        "meaning": "Keeps elements common to both sets.",
+        "reading": "A intersection B equals the set two, three.",
+        "explanation": "For A={1,2,3} and B={2,3,4,5}, only two and three are common.",
+        "confusion": "∩ operates on sets; ∧ on statements. Both correspond to an “and” idea."
+      }
+    },
+    {
+      "id": "E37",
+      "category": "sets",
+      "notation": "\\cup",
+      "example": "A\\cup B=\\{1,2,3,4,5\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65
+      ],
+      "fr": {
+        "name": "Union ; réunion",
+        "meaning": "Garde les éléments présents dans au moins un des ensembles.",
+        "reading": "A union B est égal à l’ensemble un, deux, trois, quatre, cinq.",
+        "explanation": "Les éléments communs ne sont pas répétés.",
+        "confusion": "Le OU de l’union est inclusif ; les éléments présents des deux côtés restent inclus."
+      },
+      "en": {
+        "name": "Union",
+        "meaning": "Keeps elements present in at least one of the sets.",
+        "reading": "A union B equals the set one, two, three, four, five.",
+        "explanation": "Common elements are not repeated.",
+        "confusion": "The OR in union is inclusive; elements on both sides remain included."
+      }
+    },
+    {
+      "id": "E38",
+      "category": "sets",
+      "notation": "\\overline A^{\\,C}",
+      "example": "\\overline A^{\\,A\\cup B}=\\{4,5\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        60,
+        63,
+        64,
+        65
+      ],
+      "fr": {
+        "name": "Complémentaire de A dans C",
+        "meaning": "Les éléments de C qui ne sont pas dans A ; le cours suppose A inclus dans C.",
+        "reading": "Le complémentaire de A dans A union B est l’ensemble quatre, cinq.",
+        "explanation": "Pour A={1,2,3} et B={2,3,4,5}, on retire les éléments de A de leur union.",
+        "confusion": "La barre et l’exposant C forment ici une notation de complément ; C n’est pas une puissance numérique. Le résultat dépend de C."
+      },
+      "en": {
+        "name": "Complement of A in C",
+        "meaning": "Elements of C that are not in A; the course assumes A is a subset of C.",
+        "reading": "The complement of A in A union B is the set four, five.",
+        "explanation": "For A={1,2,3} and B={2,3,4,5}, remove the elements of A from their union.",
+        "confusion": "The bar and superscript C form complement notation here; C is not a numerical exponent. The result depends on C."
+      }
+    },
+    {
+      "id": "E39",
+      "category": "sets",
+      "notation": "(x,c)",
+      "example": "(x,c)\\in E\\times C",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        71
+      ],
+      "fr": {
+        "name": "Couple ordonné",
+        "meaning": "Deux composantes dont l’ordre compte.",
+        "reading": "Le couple x, c appartient à E croix C.",
+        "explanation": "La première composante est un étudiant ; la seconde un cours.",
+        "confusion": "(x,c) est un couple ; {x,c} est un ensemble."
+      },
+      "en": {
+        "name": "Ordered pair",
+        "meaning": "Two components whose order matters.",
+        "reading": "The ordered pair x, c belongs to E cross C.",
+        "explanation": "The first component is a student; the second is a course.",
+        "confusion": "(x,c) is a pair; {x,c} is a set."
+      }
+    },
+    {
+      "id": "E40",
+      "category": "sets",
+      "notation": "\\times",
+      "example": "E\\times C:=\\{(x,c)\\mid x\\in E\\land c\\in C\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        71
+      ],
+      "fr": {
+        "name": "Produit cartésien",
+        "meaning": "L’ensemble des couples dont la première composante vient du premier ensemble et la seconde du second.",
+        "reading": "E croix C est défini comme l’ensemble des couples x, c tels que x appartient à E et c appartient à C.",
+        "explanation": "On forme toutes les associations étudiant-cours possibles, pas seulement les inscriptions réelles.",
+        "confusion": "× forme un produit d’ensembles ici, pas un produit de nombres."
+      },
+      "en": {
+        "name": "Cartesian product",
+        "meaning": "The set of pairs whose first component comes from the first set and second component from the second.",
+        "reading": "E cross C is defined as the set of pairs x, c such that x belongs to E and c belongs to C.",
+        "explanation": "We form all possible student-course pairs, not just actual enrolments.",
+        "confusion": "× forms a product of sets here, not a product of numbers."
+      }
+    },
+    {
+      "id": "E41",
+      "category": "sets",
+      "notation": ":=",
+      "example": "E\\times C:=\\{(x,c)\\mid x\\in E\\land c\\in C\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        71
+      ],
+      "fr": {
+        "name": "Égalité par définition",
+        "meaning": "Introduit le sens de l’expression située à gauche.",
+        "reading": "E croix C est défini comme l’ensemble des couples x, c avec x dans E et c dans C.",
+        "explanation": "On fixe une définition, puis on peut utiliser cette notation.",
+        "confusion": "En mathématiques ici, := est une définition ; sa signification en programmation dépend du langage."
+      },
+      "en": {
+        "name": "Definition symbol; defined as",
+        "meaning": "Introduces the meaning of the expression on the left.",
+        "reading": "E cross C is defined as the set of pairs x, c with x in E and c in C.",
+        "explanation": "We establish a definition, then use this notation.",
+        "confusion": "In this mathematics context, := is a definition; its programming meaning depends on the language."
+      }
+    },
+    {
+      "id": "E42",
+      "category": "sets",
+      "notation": "f(x,y,z)",
+      "example": "f(0,1,0)=1",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        32,
+        33,
+        34
+      ],
+      "fr": {
+        "name": "Valeur d’une fonction",
+        "meaning": "Le résultat de la fonction f pour les arguments indiqués.",
+        "reading": "f de zéro, un, zéro vaut un.",
+        "explanation": "La ligne correspondante de la table donne la sortie un.",
+        "confusion": "Les virgules séparent les arguments ; elles ne forment pas un nombre décimal."
+      },
+      "en": {
+        "name": "Function value",
+        "meaning": "The output of f for the given arguments.",
+        "reading": "f of zero, one, zero equals one.",
+        "explanation": "The corresponding table row gives output one.",
+        "confusion": "The commas separate arguments; they do not form a decimal number."
+      }
+    },
+    {
+      "id": "E43",
+      "category": "sets",
+      "notation": "f:X\\to Y;\\ \\to",
+      "example": "f:\\{0,1\\}^n\\to\\{0,1\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        35
+      ],
+      "fr": {
+        "name": "Fonction de X dans Y ; flèche de fonction",
+        "meaning": "f prend une entrée dans X et renvoie une valeur dans Y.",
+        "reading": "f est une fonction de l’ensemble des n-uplets de zéros et de uns vers l’ensemble zéro, un.",
+        "explanation": "Une entrée comporte n valeurs de vérité ; la sortie en comporte une.",
+        "confusion": "→ indique une fonction ; ⇒ est une implication entre assertions."
+      },
+      "en": {
+        "name": "Function from X to Y; function arrow",
+        "meaning": "f takes an input in X and returns a value in Y.",
+        "reading": "f is a function from the set of n-tuples of zeros and ones to the set zero, one.",
+        "explanation": "An input contains n truth values; the output contains one.",
+        "confusion": "→ indicates a function; ⇒ is an implication between statements."
+      }
+    },
+    {
+      "id": "E44",
+      "category": "sets",
+      "notation": "\\{0,1\\}^n",
+      "example": "f:\\{0,1\\}^n\\to\\{0,1\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        35
+      ],
+      "fr": {
+        "name": "Puissance cartésienne ; n-uplets binaires",
+        "meaning": "Tous les tuples ordonnés de longueur n dont les composantes valent zéro ou un.",
+        "reading": "f associe à chaque n-uplet de valeurs de vérité une valeur de vérité.",
+        "explanation": "L’exposant n indique le nombre de positions dans chaque entrée.",
+        "confusion": "{0,1}^n est un ensemble de tuples ; 2^A page 58 est la notation choisie pour l’ensemble des parties."
+      },
+      "en": {
+        "name": "Cartesian power; binary n-tuples",
+        "meaning": "All ordered tuples of length n whose components are zero or one.",
+        "reading": "f assigns a truth value to each n-tuple of truth values.",
+        "explanation": "The superscript n indicates the number of positions in each input.",
+        "confusion": "{0,1}^n is a set of tuples; 2^A on page 58 is the chosen notation for the power set."
+      }
+    },
+    {
+      "id": "E45",
+      "category": "quantifiers",
+      "notation": "P(x);\\ P(x,y);\\ I(x,c);\\ A(u);\\ S(u,f)",
+      "example": "I(x,c)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        44,
+        45,
+        46,
+        47,
+        48,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        67,
+        68,
+        69,
+        70,
+        71,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        95,
+        96
+      ],
+      "fr": {
+        "name": "Prédicat ; arguments",
+        "meaning": "Une propriété ou relation qui devient vraie ou fausse lorsque ses variables sont fixées.",
+        "reading": "I de x, c : x est inscrit au cours c.",
+        "explanation": "I désigne ici une relation entre un étudiant et un cours.",
+        "confusion": "P(x) ne signifie pas P multiplié par x. A(u) est un prédicat, tandis que A seul représente ailleurs une assertion ou un ensemble."
+      },
+      "en": {
+        "name": "Predicate; arguments",
+        "meaning": "A property or relation that becomes true or false when its variables are fixed.",
+        "reading": "I of x, c: x is enrolled in course c.",
+        "explanation": "I denotes a relation between a student and a course here.",
+        "confusion": "P(x) does not mean P multiplied by x. A(u) is a predicate, while A alone elsewhere represents a statement or set."
+      }
+    },
+    {
+      "id": "E46",
+      "category": "quantifiers",
+      "notation": "\\forall x\\ P(x)",
+      "example": "\\forall x\\ P(x)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        47,
+        48,
+        51,
+        57,
+        58,
+        67,
+        68,
+        69,
+        70,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        89,
+        91,
+        92,
+        93,
+        94,
+        96
+      ],
+      "fr": {
+        "name": "Quantificateur universel",
+        "meaning": "P est vrai pour chaque élément du domaine annoncé.",
+        "reading": "Pour tout x, P de x.",
+        "explanation": "Aucun élément du domaine ne doit faire exception.",
+        "confusion": "Le domaine doit être connu. Pour P(x) signifiant x>2, l’assertion est fausse sur les réels, vraie sur [10,+∞[."
+      },
+      "en": {
+        "name": "Universal quantifier",
+        "meaning": "P is true for every element of the stated domain.",
+        "reading": "For every x, P of x.",
+        "explanation": "No element of the domain may be an exception.",
+        "confusion": "The domain must be known. For P(x) meaning x>2, the statement is false over the reals and true over [10,+∞[."
+      }
+    },
+    {
+      "id": "E47",
+      "category": "quantifiers",
+      "notation": "\\exists x\\ P(x)",
+      "example": "\\exists x\\ P(x)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        47,
+        48,
+        51,
+        54,
+        55,
+        56,
+        67,
+        68,
+        69,
+        70,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        85,
+        86,
+        87,
+        88,
+        89,
+        93,
+        94
+      ],
+      "fr": {
+        "name": "Quantificateur existentiel",
+        "meaning": "Au moins un élément du domaine satisfait P.",
+        "reading": "Il existe un x tel que P de x.",
+        "explanation": "Un seul exemple qui convient suffit.",
+        "confusion": "« Il existe » signifie au moins un, et non exactement un."
+      },
+      "en": {
+        "name": "Existential quantifier",
+        "meaning": "At least one element of the domain satisfies P.",
+        "reading": "There exists an x such that P of x.",
+        "explanation": "One suitable example is enough.",
+        "confusion": "“There exists” means at least one, not exactly one."
+      }
+    },
+    {
+      "id": "E48",
+      "category": "quantifiers",
+      "notation": "\\forall x\\in X\\ P(x)",
+      "example": "\\forall x\\in X\\ P(x)\\quad\\quad\\quad\\forall x\\,(x\\in X\\Rightarrow P(x))",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        67,
+        68,
+        69,
+        70,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        91,
+        92,
+        93,
+        94,
+        96
+      ],
+      "fr": {
+        "name": "Quantificateur universel borné",
+        "meaning": "Tout élément de X satisfait P.",
+        "reading": "Pour tout x appartenant à X, P de x ; autrement dit, pour tout x, si x appartient à X alors P de x.",
+        "explanation": "La condition ne concerne que les éléments de X.",
+        "confusion": "Pour développer cette abréviation, le cours emploie ⇒."
+      },
+      "en": {
+        "name": "Bounded universal quantifier",
+        "meaning": "Every element of X satisfies P.",
+        "reading": "For every x in X, P of x; that is, for every x, if x belongs to X then P of x.",
+        "explanation": "The requirement applies only to elements of X.",
+        "confusion": "The course uses ⇒ to expand this abbreviation."
+      }
+    },
+    {
+      "id": "E49",
+      "category": "quantifiers",
+      "notation": "\\exists x\\in X\\ P(x)",
+      "example": "\\exists x\\in X\\ P(x)\\quad\\quad\\quad\\exists x\\,(x\\in X\\land P(x))",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        54,
+        55,
+        56,
+        67,
+        68,
+        69,
+        70,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        87,
+        88,
+        89,
+        93,
+        94
+      ],
+      "fr": {
+        "name": "Quantificateur existentiel borné",
+        "meaning": "Un élément au moins appartient à X et satisfait P.",
+        "reading": "Il existe un x dans X tel que P de x ; autrement dit, il existe un x qui appartient à X et satisfait P.",
+        "explanation": "Le témoin doit à la fois être dans X et avoir la propriété.",
+        "confusion": "Remplacer ∧ par ⇒ permettrait à un objet extérieur à X de rendre l’implication vraie, sans satisfaire P."
+      },
+      "en": {
+        "name": "Bounded existential quantifier",
+        "meaning": "At least one element belongs to X and satisfies P.",
+        "reading": "There exists an x in X such that P of x; that is, there exists an x that belongs to X and satisfies P.",
+        "explanation": "The witness must both belong to X and have the property.",
+        "confusion": "Replacing ∧ with ⇒ would allow an object outside X to make the implication true without satisfying P."
+      }
+    },
+    {
+      "id": "E50",
+      "category": "quantifiers",
+      "notation": "\\neg\\forall x\\ P(x);\\ \\neg\\exists x\\ P(x)",
+      "example": "\\neg\\forall x\\in X\\ P(x)\\equiv\\exists x\\in X\\ \\neg P(x)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        51,
+        70,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "fr": {
+        "name": "Négation d’une quantification",
+        "meaning": "Nier « tous » donne « au moins un ne… pas » ; nier « il existe » donne « aucun ».",
+        "reading": "Il n’est pas vrai que tout x dans X satisfait P ; cela équivaut à dire qu’il existe un x dans X qui ne satisfait pas P.",
+        "explanation": "Un contre-exemple suffit pour réfuter une affirmation universelle.",
+        "confusion": "L’autre règle est ¬∃x∈X P(x) ≡ ∀x∈X ¬P(x) : « aucun » se lit aussi « tous ne satisfont pas P »."
+      },
+      "en": {
+        "name": "Negation of a quantified statement",
+        "meaning": "Negating “all” gives “at least one does not”; negating “there exists” gives “none”.",
+        "reading": "It is not true that every x in X satisfies P; this is equivalent to saying that there exists an x in X that does not satisfy P.",
+        "explanation": "One counterexample is enough to refute a universal claim.",
+        "confusion": "The other rule is ¬∃x∈X P(x) ≡ ∀x∈X ¬P(x): “none” means “every element fails P”."
+      }
+    },
+    {
+      "id": "E51",
+      "category": "quantifiers",
+      "notation": "\\forall x\\exists c;\\ \\exists c\\forall x",
+      "example": "\\forall x\\in E\\ \\exists c\\in C\\ I(x,c)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        48,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "fr": {
+        "name": "Quantificateurs imbriqués ; ordre",
+        "meaning": "L’ordre détermine si le choix peut dépendre de l’objet déjà choisi.",
+        "reading": "Pour tout étudiant x dans E, il existe un cours c dans C auquel x est inscrit.",
+        "explanation": "Le cours peut changer selon l’étudiant. Dans la table du PDF, l’assertion est fausse car cleo n’a aucun cours.",
+        "confusion": "∃c∈C ∀x∈E I(x,c) dit « il existe un même cours suivi par tous ». Le PDF indique aussi que cette deuxième assertion est fausse."
+      },
+      "en": {
+        "name": "Nested quantifiers; order",
+        "meaning": "The order determines whether a choice may depend on the object already chosen.",
+        "reading": "For every student x in E, there exists a course c in C in which x is enrolled.",
+        "explanation": "The course can vary by student. In the PDF table, the statement is false because cleo has no course.",
+        "confusion": "∃c∈C ∀x∈E I(x,c) says “there is one common course taken by everyone”. The PDF also marks this second statement false."
+      }
+    },
+    {
+      "id": "E52",
+      "category": "code",
+      "notation": "\\leftrightarrow",
+      "example": "\\texttt{EXISTS}\\leftrightarrow\\exists",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "fr": {
+        "name": "Flèche de correspondance",
+        "meaning": "Relie ici un opérateur SQL à sa lecture logique.",
+        "reading": "EXISTS correspond à « il existe ».",
+        "explanation": "EXISTS est vrai quand la sous-requête renvoie au moins une ligne.",
+        "confusion": "Ici, les côtés sont des notations mises en correspondance ; ce n’est pas la définition d’un nouveau connecteur."
+      },
+      "en": {
+        "name": "Correspondence arrow",
+        "meaning": "Here links a SQL operator to its logical interpretation.",
+        "reading": "EXISTS corresponds to “there exists”.",
+        "explanation": "EXISTS is true when the subquery returns at least one row.",
+        "confusion": "Here the sides are notations being matched; this is not a definition of a new connective."
+      }
+    },
+    {
+      "id": "E53",
+      "category": "code",
+      "notation": "\\texttt{AND, OR, NOT; EXISTS; NOT EXISTS}",
+      "example": "\\{x\\in E\\mid\\neg\\exists c\\in C\\ I(x,c)\\}=\\{\\mathrm{cleo}\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "fr": {
+        "name": "Opérateurs logiques SQL",
+        "meaning": "Dans le modèle du cours : et, ou, non, existence et absence de résultat.",
+        "reading": "L’ensemble des étudiants x pour lesquels il n’existe aucun cours c auquel x est inscrit est l’ensemble contenant cleo.",
+        "explanation": "cleo est la seule étudiante sans inscription dans les données du PDF.",
+        "confusion": "Le PDF utilise un modèle simplifié sans doublons. Les détails de SQL réel, notamment NULL, ne sont pas développés."
+      },
+      "en": {
+        "name": "SQL logical operators",
+        "meaning": "In the course model: and, or, not, existence and absence of results.",
+        "reading": "The set of students x for whom there exists no course c in which x is enrolled is the set containing cleo.",
+        "explanation": "cleo is the only student with no enrolment in the PDF data.",
+        "confusion": "The PDF uses a simplified model without duplicates. Details of real SQL, including NULL, are not developed."
+      }
+    },
+    {
+      "id": "E54",
+      "category": "code",
+      "notation": "t[i];\\ t[i+1]",
+      "example": "\\forall i\\in\\{0,\\ldots,n-2\\}\\ t[i]\\leq t[i+1]",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        90,
+        91,
+        92,
+        93,
+        94
+      ],
+      "fr": {
+        "name": "Indexation ; accès à un élément",
+        "meaning": "Accède à une position de la liste t ; l’indexation Python commence à zéro.",
+        "reading": "Pour tout indice i de zéro à n moins deux, t d’indice i est inférieur ou égal à t d’indice i plus un.",
+        "explanation": "Chaque élément est comparé au suivant pour vérifier l’ordre.",
+        "confusion": "Les crochets de t[i] donnent une position ; ceux de [10,+∞[ délimitent un intervalle."
+      },
+      "en": {
+        "name": "Indexing; element access",
+        "meaning": "Accesses a position in list t; Python indexing starts at zero.",
+        "reading": "For every index i from zero to n minus two, t at index i is less than or equal to t at index i plus one.",
+        "explanation": "Each element is compared with the next to check the ordering.",
+        "confusion": "Brackets in t[i] give a position; those in [10,+∞[ delimit an interval."
+      }
+    },
+    {
+      "id": "E55",
+      "category": "code",
+      "notation": "\\texttt{all(...); any(...)}",
+      "example": "\\exists i\\in\\{0,\\ldots,n-2\\}\\ t[i]>t[i+1]",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        90,
+        91,
+        92,
+        93,
+        94
+      ],
+      "fr": {
+        "name": "Tests Python « tous » ; « au moins un »",
+        "meaning": "all exige tous les tests vrais ; any exige au moins un test vrai.",
+        "reading": "Il existe un indice i entre zéro et n moins deux tel que t d’indice i est strictement supérieur à l’élément suivant.",
+        "explanation": "Une seule descente suffit pour conclure que la liste n’est pas triée au sens du cours.",
+        "confusion": "Le code correspondant est any(t[i] > t[i+1] for i in range(n-1))."
+      },
+      "en": {
+        "name": "Python all-elements and any-element tests",
+        "meaning": "all requires every test to be true; any requires at least one true test.",
+        "reading": "There exists an index i from zero to n minus two such that t at index i is greater than the next element.",
+        "explanation": "One descent is enough to show the list is not sorted in the course sense.",
+        "confusion": "The corresponding code is any(t[i] > t[i+1] for i in range(n-1))."
+      }
+    },
+    {
+      "id": "E56",
+      "category": "code",
+      "notation": "\\texttt{range(n-1)}",
+      "example": "\\{0,\\ldots,n-2\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        91,
+        92,
+        93,
+        94
+      ],
+      "fr": {
+        "name": "Plage d’indices Python",
+        "meaning": "Génère les indices de zéro à n−2, pour n au moins deux.",
+        "reading": "L’ensemble des indices de zéro à n moins deux inclus.",
+        "explanation": "L’arrêt de range est exclu. Pour n=4, range(n-1) produit 0, 1, 2.",
+        "confusion": "Complément pédagogique : pour une liste de zéro ou un élément, aucune paire adjacente n’est à vérifier ; on interprète le domaine d’indices comme vide."
+      },
+      "en": {
+        "name": "Python index range",
+        "meaning": "Generates indices from zero through n−2, for n at least two.",
+        "reading": "The set of indices from zero through n minus two, inclusive.",
+        "explanation": "The range stop is excluded. For n=4, range(n-1) produces 0, 1, 2.",
+        "confusion": "Teaching addition: for a list of zero or one element, there is no adjacent pair to check; interpret the index domain as empty."
+      }
+    },
+    {
+      "id": "G57",
+      "category": "code",
+      "notation": "i.cours; e.id",
+      "example": "i.cours = 'prog'",
+      "format": "code",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "fr": {
+        "name": "Point d’accès à un champ",
+        "meaning": "Le point donne accès au champ d’une ligne SQL.",
+        "reading": "Le champ cours de i est égal à prog.",
+        "explanation": "On teste le nom du cours de la ligne i.",
+        "confusion": "Le point n’est pas une multiplication ici."
+      },
+      "en": {
+        "name": "Field access dot",
+        "meaning": "The dot accesses a field of a SQL row.",
+        "reading": "The cours field of i equals prog.",
+        "explanation": "This tests the course name in row i.",
+        "confusion": "The dot is not multiplication here."
+      }
+    },
+    {
+      "id": "G58",
+      "category": "code",
+      "notation": "'prog'",
+      "example": "'prog'",
+      "format": "code",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        82,
+        83,
+        84
+      ],
+      "fr": {
+        "name": "Guillemets simples ; chaîne",
+        "meaning": "Les guillemets délimitent une valeur textuelle SQL.",
+        "reading": "La chaîne prog.",
+        "explanation": "Le nom du cours est du texte.",
+        "confusion": "Une chaîne n’est pas le nom d’une variable."
+      },
+      "en": {
+        "name": "Single quotes; string",
+        "meaning": "Quotes delimit a SQL text value.",
+        "reading": "The string prog.",
+        "explanation": "The course name is text.",
+        "confusion": "A string is not a variable name."
+      }
+    },
+    {
+      "id": "G59",
+      "category": "code",
+      "notation": "SELECT *",
+      "example": "SELECT * FROM Inscrit",
+      "format": "code",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        86,
+        87,
+        88,
+        89
+      ],
+      "fr": {
+        "name": "Astérisque ; toutes les colonnes",
+        "meaning": "Dans SELECT *, on sélectionne toutes les colonnes.",
+        "reading": "Sélectionner toutes les colonnes de Inscrit.",
+        "explanation": "La requête conserve toutes les colonnes de la table.",
+        "confusion": "Cet astérisque ne signifie pas multiplier."
+      },
+      "en": {
+        "name": "Asterisk; all columns",
+        "meaning": "SELECT * selects all columns.",
+        "reading": "Select all columns from Inscrit.",
+        "explanation": "The query keeps every column of the table.",
+        "confusion": "This asterisk does not mean multiplication."
+      }
+    },
+    {
+      "id": "G60",
+      "category": "code",
+      "notation": ";",
+      "example": "SELECT i.etudiant FROM Inscrit i WHERE i.cours = 'prog';",
+      "format": "code",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "fr": {
+        "name": "Point-virgule SQL",
+        "meaning": "Termine une instruction SQL.",
+        "reading": "Sélectionner les étudiants inscrits à prog ; fin de l’instruction.",
+        "explanation": "On indique où la requête se termine.",
+        "confusion": "On ne prononce généralement pas ce signe en lisant le sens de la requête."
+      },
+      "en": {
+        "name": "SQL semicolon",
+        "meaning": "Ends a SQL statement.",
+        "reading": "Select the students enrolled in prog; end of statement.",
+        "explanation": "This marks where the query ends.",
+        "confusion": "Usually this sign is not spoken when reading the meaning of the query."
+      }
+    },
+    {
+      "id": "G61",
+      "category": "code",
+      "notation": "SELECT; FROM; WHERE",
+      "example": "SELECT e.id FROM Etudiant e",
+      "format": "code",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "fr": {
+        "name": "Mots-clés de requête",
+        "meaning": "Choisissent des colonnes, une table et une condition.",
+        "reading": "Sélectionner les identifiants des étudiants.",
+        "explanation": "e est un alias qui désigne une ligne de la table Etudiant.",
+        "confusion": "La requête SQL utilise ici le modèle simplifié du cours."
+      },
+      "en": {
+        "name": "Query keywords",
+        "meaning": "Choose columns, a table and a condition.",
+        "reading": "Select the student identifiers.",
+        "explanation": "e is an alias referring to a row of the Etudiant table.",
+        "confusion": "This SQL query uses the simplified course model."
+      }
+    },
+    {
+      "id": "G62",
+      "category": "code",
+      "notation": "for i in",
+      "example": "for i in range(n-1)",
+      "format": "code",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        91,
+        92,
+        93,
+        94
+      ],
+      "fr": {
+        "name": "Parcours Python",
+        "meaning": "Fait parcourir à i les valeurs de la plage.",
+        "reading": "Pour i parcourant les indices de zéro à n moins deux.",
+        "explanation": "Pour une liste de longueur au moins deux, on visite les positions qui ont un élément suivant.",
+        "confusion": "in est ici un mot-clé de boucle."
+      },
+      "en": {
+        "name": "Python iteration",
+        "meaning": "Makes i iterate over the range values.",
+        "reading": "For i ranging over indices zero through n minus two.",
+        "explanation": "For a list of length at least two, visit the positions that have a next element.",
+        "confusion": "Here in is a loop keyword."
+      }
+    },
+    {
+      "id": "G63",
+      "category": "code",
+      "notation": "EXISTS (...)",
+      "example": "EXISTS (...)",
+      "format": "code",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        85,
+        86,
+        87,
+        88,
+        89
+      ],
+      "fr": {
+        "name": "Parenthèses de sous-requête",
+        "meaning": "Délimitent une requête imbriquée.",
+        "reading": "Il existe au moins une ligne renvoyée par cette sous-requête.",
+        "explanation": "Les points remplacent le texte de la sous-requête.",
+        "confusion": "Ces parenthèses ne sont pas un couple ordonné."
+      },
+      "en": {
+        "name": "Subquery parentheses",
+        "meaning": "Enclose a nested query.",
+        "reading": "There is at least one row returned by this subquery.",
+        "explanation": "The dots stand for the subquery text.",
+        "confusion": "These parentheses are not an ordered pair."
+      }
+    },
+    {
+      "id": "G64",
+      "category": "code",
+      "notation": "(*); (i); (ii)",
+      "example": "(*)",
+      "format": "code",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "fr": {
+        "name": "Repères de texte",
+        "meaning": "Identifient une phrase ou un point ; aucune opération.",
+        "reading": "L’énoncé repéré par une étoile.",
+        "explanation": "On renvoie à une phrase du texte.",
+        "confusion": "Le signe étoile n’est pas une multiplication ici."
+      },
+      "en": {
+        "name": "Text labels",
+        "meaning": "Identify a sentence or list item; no operation.",
+        "reading": "The statement marked with a star.",
+        "explanation": "This refers to a sentence in the text.",
+        "confusion": "The star is not multiplication here."
+      }
+    }
+  ]
+}
