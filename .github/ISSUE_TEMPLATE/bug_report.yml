@@ -1,0 +1,26 @@
+name: Bug report
+description: Report unexpected behaviour or a repository problem.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Do not include secrets or learner data. Follow SECURITY.md for vulnerabilities."
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      description: Include the page, language, browser, and relevant steps when applicable.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Additional context
+      description: Redacted screenshots or logs, if useful.

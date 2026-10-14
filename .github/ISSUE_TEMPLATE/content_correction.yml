@@ -1,0 +1,25 @@
+name: Mathematical or translation correction
+description: Report a mathematical, notation, or French/English content issue.
+title: "[Content]: "
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Location
+      description: File, lesson/exercise ID, language, or source PDF page.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Current wording and proposed correction
+      description: State the domain and explain the mathematical or translation problem.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Justification or reference
+      description: Include a counterexample, derivation, or source page when relevant.
+    validations:
+      required: true
