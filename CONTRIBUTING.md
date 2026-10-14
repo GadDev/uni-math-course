@@ -14,7 +14,15 @@ Check existing issues and pull requests. Describe the problem and proposed scope
 4. Update [CHANGELOG.md](CHANGELOG.md) when the change affects contributors or learners.
 5. Open a pull request explaining the resulting behaviour, validation, and unresolved decisions.
 
-Use descriptive commit messages. Do not commit credentials, personal learner data, source PDFs, or third-party material without verified permission.
+Use a Conventional Commit PR title and inspect the final squash-merge message: `feat(content): add quantifier lessons`, `fix(grading): correct implication feedback`, or `docs: clarify setup`. Work-in-progress commits do not each need release notes. Prefer squash merges for focused PRs.
+
+Do not commit credentials, personal learner data, source PDFs, or third-party material without verified permission.
+
+## Changelog and releases
+
+Follow [the release policy](docs/RELEASING.md). Keep CHANGELOG.md manual under Unreleased while the repository has no application version. Add an entry for meaningful learner/contributor changes; do not require changeset files for every PR. New lessons are features and incorrect answers are bugs, even when stored as Markdown or JSON.
+
+After the Nuxt scaffold introduces an application version, a focused PR will add Release Please. It will collect eligible commits into a checked release PR that the maintainer reviews and merges deliberately. Do not add release automation, publishing credentials, or application tags as part of documentation-only work. Exercise versions remain independent of application versions.
 
 ## Mathematical and bilingual content
 
