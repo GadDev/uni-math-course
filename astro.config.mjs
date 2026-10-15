@@ -23,6 +23,7 @@ export default defineConfig({
     routing: {
       redirectToDefaultLocale: true,
       fallbackType: 'rewrite',
+      prefixDefaultLocale: true,
     },
   },
   security: {
