@@ -1,7 +1,12 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { copy, locales } from '../../lib/i18n';
-import { families, properties, guidedChecks, numberCopy } from '../../lib/numbers';
+import {
+  families,
+  properties,
+  guidedChecks,
+  numberCopy,
+} from '../../lib/numbers';
 import katex from 'katex';
 import '../../styles/numbers.css';
 
@@ -21,7 +26,12 @@ const nameOf = (id: string) =>
   families.find((family) => family.id === id)?.[locale].name ?? id;
 ---
 
-<Base locale={locale} title={text.title} description={text.description} path="numbers/">
+<Base
+  locale={locale}
+  title={text.title}
+  description={text.description}
+  path="numbers/"
+>
   <main id="main" tabindex="-1" class="numbers-page">
     <nav class="breadcrumb" aria-label={text.breadcrumbLabel}>
       <a href={'/' + locale + '/'}>{copy[locale].course}</a>
@@ -32,12 +42,18 @@ const nameOf = (id: string) =>
     <header class="numbers-heading">
       <div>
         <p class="eyebrow">{text.kicker}</p>
-        <h1>{text.title}<span class="signal-stop">.</span></h1>
+        <h1>
+          {text.title}
+          <span class="signal-stop">.</span>
+        </h1>
         <p class="lede">{text.description}</p>
         <p>{text.intro}</p>
       </div>
       <div class="numbers-hero-art" aria-hidden="true">
-        <span>ℕ</span><span>ℤ</span><span>ℚ</span><span>ℝ</span>
+        <span>ℕ</span>
+        <span>ℤ</span>
+        <span>ℚ</span>
+        <span>ℝ</span>
         <span class="hero-complex">ℂ</span>
       </div>
     </header>
@@ -49,24 +65,39 @@ const nameOf = (id: string) =>
       <a href="#guided-checks">{text.checksTitle}</a>
     </nav>
 
-    <section id="families" class="numbers-section" aria-labelledby="numbers-families-title">
+    <section
+      id="families"
+      class="numbers-section"
+      aria-labelledby="numbers-families-title"
+    >
       <p class="eyebrow">{text.sectionOne}</p>
       <h2 id="numbers-families-title">{text.familiesTitle}</h2>
       <p>{text.setsIntro}</p>
-      <div class="numbers-table-scroll" role="region" tabindex="0" aria-label={text.tableLabel}>
+      <div
+        class="numbers-table-scroll"
+        role="region"
+        tabindex="0"
+        aria-label={text.tableLabel}
+      >
         <table class="numbers-table">
-          <thead><tr>
-            <th scope="col">{text.columnSymbol}</th>
-            <th scope="col">{text.columnName}</th>
-            <th scope="col">{text.columnExamples}</th>
-            <th scope="col">{text.columnMeaning}</th>
-          </tr></thead>
+          <thead>
+            <tr>
+              <th scope="col">{text.columnSymbol}</th>
+              <th scope="col">{text.columnName}</th>
+              <th scope="col">{text.columnExamples}</th>
+              <th scope="col">{text.columnMeaning}</th>
+            </tr>
+          </thead>
           <tbody>
             {families.map((family) => (
               <tr>
-                <td class="numbers-symbol"><span set:html={math(family.symbol)} /></td>
+                <td class="numbers-symbol">
+                  <span set:html={math(family.symbol)} />
+                </td>
                 <th scope="row">{family[locale].name}</th>
-                <td><span set:html={math(family.examples)} /></td>
+                <td>
+                  <span set:html={math(family.examples)} />
+                </td>
                 <td>{family[locale].meaning}</td>
               </tr>
             ))}
@@ -77,40 +108,77 @@ const nameOf = (id: string) =>
       <p class="numbers-convention">{text.decimals}</p>
     </section>
 
-    <section id="family-tree" class="numbers-section" aria-labelledby="numbers-tree-title">
+    <section
+      id="family-tree"
+      class="numbers-section"
+      aria-labelledby="numbers-tree-title"
+    >
       <p class="eyebrow">{text.sectionTwo}</p>
       <h2 id="numbers-tree-title">{text.diagramTitle}</h2>
       <p>{text.diagramIntro}</p>
       <figure class="numbers-figure">
-        <div class="numbers-diagram" role="img" aria-label={text.diagramAccessible}>
+        <div
+          class="numbers-diagram"
+          role="img"
+          aria-label={text.diagramAccessible}
+        >
           <div class="family-level family-complex">
-            <p><strong>{nameOf('complex')}</strong><span>ℂ</span></p>
+            <p>
+              <strong>{nameOf('complex')}</strong>
+              <span>ℂ</span>
+            </p>
             <div class="family-level family-real">
-              <p><strong>{nameOf('real')}</strong><span>ℝ</span></p>
+              <p>
+                <strong>{nameOf('real')}</strong>
+                <span>ℝ</span>
+              </p>
               <div class="family-subsets">
                 <div class="family-level family-rational">
-                  <p><strong>{nameOf('rational')}</strong><span>ℚ</span></p>
+                  <p>
+                    <strong>{nameOf('rational')}</strong>
+                    <span>ℚ</span>
+                  </p>
                   <div class="family-level family-integer">
-                    <p><strong>{nameOf('integer')}</strong><span>ℤ</span></p>
+                    <p>
+                      <strong>{nameOf('integer')}</strong>
+                      <span>ℤ</span>
+                    </p>
                     <div class="family-level family-natural">
-                      <p><strong>{nameOf('natural')}</strong><span>ℕ</span></p>
+                      <p>
+                        <strong>{nameOf('natural')}</strong>
+                        <span>ℕ</span>
+                      </p>
                       <small>0, 1, 2, 3, …</small>
                     </div>
                   </div>
                 </div>
                 <div class="family-level family-irrational">
-                  <p><strong>{nameOf('irrational')}</strong></p>
+                  <p>
+                    <strong>{nameOf('irrational')}</strong>
+                  </p>
                   <small>π, √2, e</small>
                 </div>
               </div>
             </div>
-            <p class="numbers-outside">{text.nonReal} <span set:html={math('3+2i')} /></p>
+            <p class="numbers-outside">
+              {text.nonReal} <span set:html={math('3+2i')} />
+            </p>
           </div>
         </div>
         <figcaption>{text.diagramCaption}</figcaption>
       </figure>
-      <div class="numbers-chain" tabindex="0" role="region" aria-label={text.chainReading}>
-        <span set:html={math('\\mathbb{N}\\subseteq\\mathbb{Z}\\subseteq\\mathbb{Q}\\subseteq\\mathbb{R}\\subseteq\\mathbb{C}', true)} />
+      <div
+        class="numbers-chain"
+        tabindex="0"
+        role="region"
+        aria-label={text.chainReading}
+      >
+        <span
+          set:html={math(
+            '\\mathbb{N}\\subseteq\\mathbb{Z}\\subseteq\\mathbb{Q}\\subseteq\\mathbb{R}\\subseteq\\mathbb{C}',
+            true,
+          )}
+        />
       </div>
       <p>{text.chainExplanation}</p>
       <div class="numbers-example">
@@ -121,7 +189,11 @@ const nameOf = (id: string) =>
       </div>
     </section>
 
-    <section id="properties" class="numbers-section" aria-labelledby="numbers-properties-title">
+    <section
+      id="properties"
+      class="numbers-section"
+      aria-labelledby="numbers-properties-title"
+    >
       <p class="eyebrow">{text.sectionThree}</p>
       <h2 id="numbers-properties-title">{text.propertiesTitle}</h2>
       <p>{text.propertiesIntro}</p>
@@ -129,7 +201,10 @@ const nameOf = (id: string) =>
         {properties.map((property) => (
           <article class="numbers-property">
             <h3>{property[locale].name}</h3>
-            <div class="numbers-property-examples" set:html={math(property.examples)} />
+            <div
+              class="numbers-property-examples"
+              set:html={math(property.examples)}
+            />
             <p>{property[locale].meaning}</p>
           </article>
         ))}
@@ -137,7 +212,11 @@ const nameOf = (id: string) =>
       <p class="numbers-convention">{text.zeroOneNote}</p>
     </section>
 
-    <section id="guided-checks" class="numbers-section" aria-labelledby="numbers-checks-title">
+    <section
+      id="guided-checks"
+      class="numbers-section"
+      aria-labelledby="numbers-checks-title"
+    >
       <p class="eyebrow">{text.sectionFour}</p>
       <h2 id="numbers-checks-title">{text.checksTitle}</h2>
       <p>{text.checksIntro}</p>
@@ -148,7 +227,10 @@ const nameOf = (id: string) =>
             <p class="numbers-choices">{check[locale].options}</p>
             <details>
               <summary>{text.reveal}</summary>
-              <p><strong>{check[locale].answer}</strong> — {check[locale].explanation}</p>
+              <p>
+                <strong>{check[locale].answer}</strong> —{' '}
+                {check[locale].explanation}
+              </p>
             </details>
           </li>
         ))}
@@ -159,9 +241,15 @@ const nameOf = (id: string) =>
     <section class="numbers-further" aria-labelledby="numbers-next-title">
       <h2 id="numbers-next-title">{text.nextTitle}</h2>
       <p>{text.programming}</p>
-      <p><a class="primary-link" href={'/' + locale + '/lessons/L10/'}>{text.lessonLink} →</a></p>
+      <p>
+        <a class="primary-link" href={'/' + locale + '/lessons/L10/'}>
+          {text.lessonLink} →
+        </a>
+      </p>
       <p class="content-provenance">{text.provenance}</p>
     </section>
-    <a class="back-link" href={'/' + locale + '/'}>← {copy[locale].next}</a>
+    <a class="back-link" href={'/' + locale + '/'}>
+      ← {copy[locale].next}
+    </a>
   </main>
 </Base>

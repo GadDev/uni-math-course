@@ -13,7 +13,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check:docs": "node scripts/check-repository.mjs && pnpm exec prettier --write 'src/lib/numbers.ts' 'src/pages/[locale]/index.astro' 'src/pages/[locale]/numbers.astro' 'src/styles/numbers.css' 'tests/e2e/numbers.spec.ts' && node scripts/emit-formatted.mjs",
+    "check:docs": "node scripts/check-repository.mjs",
     "check:content": "node scripts/check-content.mjs",
     "typecheck": "astro check",
     "format": "prettier --write 'src/**/*.{astro,ts,tsx,css}' 'scripts/*.mjs' 'tests/**/*.{mjs,ts}' '*.{json,mjs,ts}' '.github/workflows/check.yml'",
