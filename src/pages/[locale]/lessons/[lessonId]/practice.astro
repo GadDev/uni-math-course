@@ -5,9 +5,10 @@ import PracticeActivity from '../../../../components/PracticeActivity';
 import SignalGeometry from '../../../../components/SignalGeometry.astro';
 import { copy, locales } from '../../../../lib/i18n';
 import '../../../../styles/practice.css';
-// Lessons whose exercise bank has been reviewed and is served by the API.
-const practiceLessons = ['L05'];
 export async function getStaticPaths() {
+  // Lessons whose exercise bank has been reviewed and is served by the API.
+  // Declared inside: Astro hoists this function out of the frontmatter scope.
+  const practiceLessons = ['L05'];
   return locales.flatMap((locale) =>
     practiceLessons.map((lessonId) => ({ params: { locale, lessonId } })),
   );
