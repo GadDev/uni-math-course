@@ -1,0 +1,20 @@
+---
+import { copy, type Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const text = copy[locale];
+---
+
+<aside class="reading-notice" aria-label={text.notice}>
+  <p class="reading-notice-title">{text.notice}</p>
+  <p>{text.readingNotice}</p>
+  <details class="reading-guide">
+    <summary>
+      <span class="reading-guide-show">{text.showGuide}</span>
+      <span class="reading-guide-hide">{text.hideGuide}</span>
+    </summary>
+    <p>{text.guide}</p>
+  </details>
+</aside>

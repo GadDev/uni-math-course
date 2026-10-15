@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import ReadingNotice from '../../components/ReadingNotice';
+import ReadingNotice from '../../components/ReadingNotice.astro';
 import { copy, locales } from '../../lib/i18n';
 import { authCopy } from '../../lib/auth/copy';
 import { glossaryCopy } from '../../lib/glossary';
@@ -126,7 +126,7 @@ const implication = katex.renderToString('A \\Rightarrow B', {
           <a href={`/${locale}/sign-in/`}>{authCopy[locale].signIn}</a>
         </p>
       </div>
-      <ReadingNotice locale={locale} client:load />
+      <ReadingNotice locale={locale} />
     </section>
   </main>
 </Base>

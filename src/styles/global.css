@@ -386,32 +386,49 @@ h3 {
   max-width: 38rem;
 }
 .reading-notice {
+  align-self: start;
+  min-width: 0;
+  padding: clamp(1rem, 3vw, 1.5rem);
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 0;
 }
-.reading-notice button {
-  height: auto;
+.reading-notice > p {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+}
+.reading-notice .reading-notice-title {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+.reading-guide summary {
+  width: fit-content;
   min-height: 44px;
   max-width: 100%;
   white-space: normal;
   text-align: left;
   padding: 0.65rem 1rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+  cursor: pointer;
+  list-style-position: inside;
   background: var(--ink);
   color: white;
   border-radius: 0;
 }
-.reading-notice button:hover {
+.reading-guide summary:hover {
   background: #33332f;
 }
-.reading-notice [hidden] {
+.reading-guide-hide,
+.reading-guide[open] .reading-guide-show {
   display: none;
 }
-.reading-notice-theme {
-  align-self: start;
-  min-height: 0;
-  background: transparent;
-  --default-font-family: Arial, Helvetica, system-ui, sans-serif;
+.reading-guide[open] .reading-guide-hide {
+  display: inline;
+}
+.reading-guide > p {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
 }
 .site-footer {
   max-width: 1440px;

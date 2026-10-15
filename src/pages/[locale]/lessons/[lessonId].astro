@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
-import ReadingNotice from '../../../components/ReadingNotice';
+import ReadingNotice from '../../../components/ReadingNotice.astro';
 import { copy } from '../../../lib/i18n';
 import { RELEASED_LESSONS } from '../../../lib/released-lessons';
 import { glossaryCopy } from '../../../lib/glossary';
@@ -179,7 +179,7 @@ const [glossaryId, glossaryLabel] = glossaryLinks[lesson.data.lessonId] ?? [
       <p class="content-provenance">
         {lesson.data.status === 'pilot' ? text.review : text.reviewExtended}
       </p>
-      <ReadingNotice locale={locale} client:load />
+      <ReadingNotice locale={locale} />
       <a class="back-link" href={'/' + locale + '/'}>
         ← {text.next}
       </a>
