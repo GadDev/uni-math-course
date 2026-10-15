@@ -59,6 +59,11 @@ test('reference is reachable from home and the related L10 lesson', async ({
   await page.getByRole('link', { name: 'Explore the number families' }).click();
   await expect(page).toHaveURL('/en/numbers/');
   await page.goto('/fr/lessons/L10/');
-  await page.getByRole('link', { name: 'familles de nombres' }).click();
+  await page
+    .getByRole('link', {
+      name: 'Guide visuel : familles de nombres',
+      exact: true,
+    })
+    .click();
   await expect(page).toHaveURL('/fr/numbers/');
 });
