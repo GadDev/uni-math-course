@@ -49,7 +49,7 @@ Acceptance:
 - Switching language preserves location and activity state.
 - Relevant unit/integration/browser tests and a production build pass.
 
-M2 feature 1: the public reading foundation is implemented; see [READING_FOUNDATION.md](READING_FOUNDATION.md). M2 feature 2: email/password Supabase authentication/sessions for an invited group are implemented; see [AUTHENTICATION.md](AUTHENTICATION.md). M2 features 3 and 4: authenticated exercise delivery, server grading, idempotent attempt persistence, mistake review and a private progress page are implemented locally for the L05 pilot; see [PRACTICE.md](PRACTICE.md). Hosted provider/deployment acceptance, two-account isolation evidence and an end-to-end browser test of the practice flow remain pending, so M2 is not complete.
+M2 feature 1: the public reading foundation is implemented; see [READING_FOUNDATION.md](READING_FOUNDATION.md). M2 feature 2: email/password Supabase authentication/sessions for an invited group are implemented; see [AUTHENTICATION.md](AUTHENTICATION.md). M2 features 3 and 4: authenticated exercise delivery, server grading, idempotent attempt persistence, mistake review and a private progress page are implemented locally for L01–L20, with only L05 self-checked and the remaining banks under the explicit pre-review exception; see [PRACTICE.md](PRACTICE.md). Local browser tests cover sign-in, answer/retry, reload, later sign-in, draft/language state, and protocol ownership. SQL tests cover real PostgreSQL grants/RLS and concurrent first-attempt insertion in CI. Hosted provider/deployment acceptance and live two-account isolation remain pending, so M2 is not complete. See [content release contracts](CONTENT_RELEASES.md).
 
 The source-wide public glossary is delivered as an early M3 reading feature; see [glossary review](content/GLOSSARY_REVIEW.md). This does not complete M2 practice or M3 class-pilot acceptance.
 
@@ -79,7 +79,7 @@ Pilot evaluation: can classmates complete the journey without help, explain mist
 
 ## Full course map
 
-PDF page references start at 1 and consolidate repeated slide builds. These are planned lessons, not published content.
+PDF page references start at 1 and consolidate repeated slide builds. L01–L20 reading and practice are implemented. Only L05 has documented mathematical/bilingual self-check evidence; the other banks retain the explicit unreviewed release exception. The delivery column describes roadmap grouping, not review completion or class readiness.
 
 | ID | Topic | PDF pages | Delivery |
 | --- | --- | --- | --- |

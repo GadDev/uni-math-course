@@ -32,7 +32,7 @@ Follow [CONTENT_LICENSE.md](../CONTENT_LICENSE.md). Original code and documentat
 
 Use one stable identity and shared mathematical answer for each lesson, exercise, and glossary concept, with French and English presentation fields. Switching language must preserve the current lesson/activity, unfinished response where possible, and learner progress.
 
-Block publication of missing or stale required translations. Changes to meaning require translation review. Preserve notation while explaining how to read it in each language.
+Block publication of missing or stale required translations. The release registry fingerprints both languages and the selected exercise bank; any content edit requires renewed evidence. Existing unreviewed release exceptions are recorded in [CONTENT_RELEASES.md](CONTENT_RELEASES.md) and must not be silently extended or represented as class-pilot review. Changes to meaning require translation review. Preserve notation while explaining how to read it in each language.
 
 ## 5. Make practice explain the mistake
 

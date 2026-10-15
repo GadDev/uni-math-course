@@ -144,6 +144,21 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
       </p>
     </footer>
     <script>
+      // Drafts can contain learner responses. Clear them before a normal logout
+      // navigation, including drafts for lessons not currently open.
+      document
+        .querySelectorAll('form[action="/auth/logout/"]')
+        .forEach((form) => {
+          form.addEventListener('submit', () => {
+            try {
+              for (const key of Object.keys(sessionStorage))
+                if (key.startsWith('um-practice:'))
+                  sessionStorage.removeItem(key);
+            } catch {
+              // Storage may be disabled; logout must still work.
+            }
+          });
+        });
       const menu = document.querySelector<HTMLElement>('[data-profile-menu]');
       const button = menu?.querySelector<HTMLButtonElement>('.profile-button');
       const panel = menu?.querySelector<HTMLElement>('.profile-panel');

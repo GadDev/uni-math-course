@@ -115,3 +115,45 @@ test('history is capped', () => {
   assert.equal(summarise(many, bank).history.length, 20);
   assert.equal(summarise(many, bank, 5).history.length, 5);
 });
+
+test('old feedback uses its archived version and does not count as current evidence', () => {
+  const original = bank.get('L05-E01')!;
+  const corrected = {
+    ...original,
+    version: 2,
+    explanation: { en: 'Version two explanation', fr: 'Explication deux' },
+  };
+  const old = attempt({ correct: false, response: { optionId: '00' } });
+  const current = new Map([[corrected.id, corrected]]);
+  const archive = new Map([
+    [`${original.id}@1`, original],
+    [`${corrected.id}@2`, corrected],
+  ]);
+  const progress = summarise(
+    [old, attempt({ independentEvidence: true })],
+    current,
+    20,
+    archive,
+  );
+  assert.equal(progress.lessons[0]!.mastered, 0);
+  assert.equal(progress.lessons[0]!.attempted, 0);
+  assert.equal(progress.totalAttempts, 2);
+  assert.equal(progress.history[0]!.exerciseVersion, 1);
+  const mistakes = summarise([old], current, 20, archive).mistakes;
+  assert.equal(mistakes[0]!.explanation.en, original.explanation.en);
+  assert.equal(mistakes[0]!.exerciseVersion, 1);
+  assert.deepEqual(
+    summarise([old], current).mistakes,
+    [],
+    'never borrow current feedback when the archive is missing',
+  );
+});
+
+test('lifetime evidence survives more than 500 later attempts', () => {
+  const old = attempt({ exerciseId: 'L05-E03', independentEvidence: true });
+  const many = Array.from({ length: 501 }, () => attempt({}));
+  const progress = summarise([old, ...many], bank);
+  assert.equal(progress.totalAttempts, 502);
+  assert.equal(progress.lessons[0]!.mastered, 1);
+  assert.equal(progress.history.length, 20);
+});

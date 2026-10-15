@@ -25,6 +25,7 @@ export type LessonProgress = {
 };
 export type Mistake = {
   exerciseId: string;
+  exerciseVersion: number;
   attemptId: string;
   at: string;
   prompt: Localized;
@@ -36,6 +37,7 @@ export type Mistake = {
 export type HistoryItem = {
   attemptId: string;
   exerciseId: string;
+  exerciseVersion: number;
   at: string;
   correct: boolean;
   independentEvidence: boolean;
@@ -62,6 +64,7 @@ export function summarise(
   attempts: readonly AttemptRow[],
   bank: ReadonlyMap<string, Exercise>,
   historyLimit = 20,
+  archive: ReadonlyMap<string, Exercise> = new Map(),
 ): Progress {
   // Attempts for exercises that are not currently released are ignored.
   const known = attempts
@@ -85,7 +88,10 @@ export function summarise(
       exercises: [],
     };
     lesson.total += 1;
-    const list = byExercise.get(exercise.id);
+    // A corrected exercise starts new evidence; old attempts remain in history.
+    const list = byExercise
+      .get(exercise.id)
+      ?.filter((attempt) => attempt.exerciseVersion === exercise.version);
     if (list?.[0]) {
       const progress: ExerciseProgress = {
         exerciseId: exercise.id,
@@ -106,12 +112,16 @@ export function summarise(
   const mistakes: Mistake[] = [];
   for (const [exerciseId, list] of byExercise) {
     const latest = list[0];
-    const exercise = bank.get(exerciseId);
+    const current = bank.get(exerciseId);
+    const exercise =
+      archive.get(`${exerciseId}@${latest?.exerciseVersion}`) ??
+      (current?.version === latest?.exerciseVersion ? current : undefined);
     if (!latest || !exercise || latest.correct) continue;
     const parsed = parseResponse(exercise, latest.response);
     const graded = parsed ? grade(exercise, parsed) : null;
     const mistake: Mistake = {
       exerciseId,
+      exerciseVersion: latest.exerciseVersion,
       attemptId: latest.id,
       at: latest.createdAt,
       prompt: exercise.prompt,
@@ -139,6 +149,7 @@ export function summarise(
     history: known.slice(0, historyLimit).map((attempt) => ({
       attemptId: attempt.id,
       exerciseId: attempt.exerciseId,
+      exerciseVersion: attempt.exerciseVersion,
       at: attempt.createdAt,
       correct: attempt.correct,
       independentEvidence: attempt.independentEvidence,

@@ -4,7 +4,7 @@ Status: adopted workflow policy; automation deferred · Owner: GadDev · Last re
 
 ## Current stage: manual changelog, unreleased application
 
-The reading foundation has a private package manifest at 0.0.0, which is an unreleased scaffold version. No class-pilot release or complete read/sign-in/practise/progress journey exists.
+The reading foundation has a private package manifest at 0.0.0, which is an unreleased scaffold version. The read/sign-in/practise/progress journey is implemented and checked locally; hosted class-pilot acceptance is pending. No class-pilot release is claimed.
 
 Maintain [CHANGELOG.md](../CHANGELOG.md) manually under Unreleased for meaningful learner or contributor changes. Do not invent a package version, add Changesets files, or create an application release for every documentation or tooling PR. Small internal edits that do not affect users or contributors need no separate changelog entry.
 
@@ -58,7 +58,7 @@ A class pilot is not automatically a SemVer prerelease. Use a suffix such as bet
 
 ## Application versions and exercise versions
 
-Application releases identify delivered software/content snapshots. Each exercise also has a stable ID and immutable version. An application patch may introduce exercise L05-E03 version 2 while historical attempts continue to reference version 1 and its original grading context.
+Application releases identify delivered software/content snapshots. Each exercise also has a stable ID and immutable version. The [content release registry](CONTENT_RELEASES.md) selects served versions and binds both lesson languages and the bank to recorded review/exception evidence. CI rejects edits or deletions of bank versions already present on the base revision. An application patch may introduce exercise L05-E03 version 2 while historical attempts continue to reference version 1 and its original grading context.
 
 Do not silently regrade historical attempts after changing an answer or domain. State any proposed regrading or data migration explicitly, assess its impact, and preserve recoverability. Corrections need mathematical and French/English fidelity checks as well as software checks.
 

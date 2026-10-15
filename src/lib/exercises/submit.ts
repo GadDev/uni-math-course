@@ -19,7 +19,10 @@ export type AttemptRow = {
   locale: 'fr' | 'en';
   createdAt: string;
 };
-export type NewAttempt = Omit<AttemptRow, 'id' | 'createdAt'> & {
+export type NewAttempt = Omit<
+  AttemptRow,
+  'id' | 'createdAt' | 'independentEvidence'
+> & {
   lessonId: string;
 };
 
@@ -29,8 +32,7 @@ export interface AttemptStore {
     userId: string,
     submissionId: string,
   ): Promise<AttemptRow | null>;
-  hasAttempt(userId: string, exerciseId: string): Promise<boolean>;
-  /** Returns 'duplicate' when (userId, submissionId) already exists. */
+  /** Atomically determines first-attempt evidence and inserts; duplicates return 'duplicate'. */
   insert(attempt: NewAttempt): Promise<AttemptRow | 'duplicate'>;
 }
 
@@ -103,7 +105,6 @@ export async function submitAttempt(input: {
   if (!parsed) return bad('invalid_response');
   const graded = grade(exercise, parsed);
   const unaided = hintUsed !== true;
-  const first = !(await store.hasAttempt(userId, exercise.id));
   const saved = await store.insert({
     userId,
     submissionId,
@@ -113,13 +114,17 @@ export async function submitAttempt(input: {
     response: parsed,
     correct: graded.correct,
     hintUsed: !unaided,
-    // Only a first, unaided and correct response counts as mastery evidence.
-    independentEvidence: graded.correct && unaided && first,
     locale,
   });
   if (saved === 'duplicate') {
     // A concurrent identical submission won the race: return its stored row.
     const winner = await store.findBySubmission(userId, submissionId);
+    if (
+      winner &&
+      (winner.exerciseId !== exercise.id ||
+        winner.exerciseVersion !== exercise.version)
+    )
+      return bad('submission_id_reused', 409);
     return winner
       ? result(winner, grade(exercise, winner.response), true)
       : bad('storage_conflict', 409);

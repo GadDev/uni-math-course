@@ -2,7 +2,7 @@
 
 ## Current scope
 
-This is a bilingual mathematics learning project with public reading, email/password Supabase sign-in for an invited group, and locally implemented L05 practice (server grading, saved attempts, private progress). Hosted acceptance is pending and only L05 is released. Do not describe other lessons' quizzes or unverified deployment as implemented. Product and architecture proposals must preserve unresolved decisions explicitly.
+This is a bilingual mathematics learning project with public L01–L20 reading, email/password Supabase sign-in for an invited group, and locally implemented practice (server grading, saved attempts, private progress). Hosted acceptance remains pending. Only L05 has a documented mathematical/bilingual self-check; other served banks retain the maintainer's explicit unreviewed release exception. `content/releases.json` is the practice version/review authority; see docs/CONTENT_RELEASES.md. Do not claim independent review, hosted acceptance or class readiness without evidence. Product and architecture proposals must preserve unresolved decisions explicitly.
 
 ## Working conventions
 

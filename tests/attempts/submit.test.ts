@@ -32,11 +32,6 @@ function memoryStore() {
         ) ?? null
       );
     },
-    async hasAttempt(userId, exerciseId) {
-      return rows.some(
-        (row) => row.userId === userId && row.exerciseId === exerciseId,
-      );
-    },
     async insert(attempt: NewAttempt) {
       if (
         rows.some(
@@ -48,6 +43,14 @@ function memoryStore() {
         return 'duplicate';
       const row = {
         ...attempt,
+        independentEvidence:
+          attempt.correct &&
+          !attempt.hintUsed &&
+          !rows.some(
+            (row) =>
+              row.userId === attempt.userId &&
+              row.exerciseId === attempt.exerciseId,
+          ),
         id: randomUUID(),
         createdAt: new Date().toISOString(),
       };

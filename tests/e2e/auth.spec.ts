@@ -222,7 +222,7 @@ test('external return targets fall back to the local account', async ({
   await expect(page).toHaveURL('/en/account/');
 });
 
-test.skip('a failed login attempt does not log an existing user out', async ({
+test('a failed login attempt does not log an existing user out', async ({
   request,
   context,
 }) => {

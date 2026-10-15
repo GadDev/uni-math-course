@@ -61,19 +61,9 @@ export function createAttemptStore(
       if (error) throw new Error(`Attempt lookup failed: ${describe(error)}`);
       return data ? toAttemptRow(data) : null;
     },
-    async hasAttempt(userId, exerciseId) {
-      const { count, error } = await client
-        .from('attempts')
-        .select('id', { count: 'exact', head: true })
-        .eq('user_id', userId)
-        .eq('exercise_id', exerciseId);
-      if (error) throw new Error(`Attempt lookup failed: ${describe(error)}`);
-      return (count ?? 0) > 0;
-    },
     async insert(attempt: NewAttempt) {
-      const { data, error } = await client
-        .from('attempts')
-        .insert({
+      const { data, error } = await client.rpc('record_attempt', {
+        p_attempt: {
           user_id: attempt.userId,
           submission_id: attempt.submissionId,
           lesson_id: attempt.lessonId,
@@ -82,17 +72,16 @@ export function createAttemptStore(
           response: attempt.response,
           correct: attempt.correct,
           hint_used: attempt.hintUsed,
-          independent_evidence: attempt.independentEvidence,
           locale: attempt.locale,
-        })
-        .select(ATTEMPT_COLUMNS)
-        .single<AttemptDbRow>();
+        },
+      });
       if (error?.code === '23505') return 'duplicate';
       if (error || !data)
         throw new Error(
           `Attempt insert failed: ${error ? describe(error) : 'no row returned'}`,
         );
-      return toAttemptRow(data);
+      const result = data as { duplicate: boolean; attempt: AttemptDbRow };
+      return result.duplicate ? 'duplicate' : toAttemptRow(result.attempt);
     },
   };
 }

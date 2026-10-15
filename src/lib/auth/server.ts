@@ -11,11 +11,15 @@ export type RequestAuth = {
   /** Readable marker so the header can ask for a session only when one may exist. */
   setSessionHint: () => void;
   clearSessionHint: () => void;
+  commitCookies: () => void;
 };
 
 export const SESSION_HINT = 'um-session';
 
-export function createRequestAuth(context: APIContext): RequestAuth | null {
+export function createRequestAuth(
+  context: APIContext,
+  { isolated = false } = {},
+): RequestAuth | null {
   const config = authConfig({
     SUPABASE_URL: process.env.SUPABASE_URL ?? import.meta.env.SUPABASE_URL,
     SUPABASE_PUBLISHABLE_KEY:
@@ -28,9 +32,9 @@ export function createRequestAuth(context: APIContext): RequestAuth | null {
   });
   if (!config) return null;
   const jar = new Map(
-    parseCookieHeader(context.request.headers.get('cookie') ?? '').map(
-      ({ name, value }) => [name, value ?? ''],
-    ),
+    parseCookieHeader(
+      isolated ? '' : (context.request.headers.get('cookie') ?? ''),
+    ).map(({ name, value }) => [name, value ?? '']),
   );
   const prefix = `sb-${new URL(config.url).hostname.split('.')[0]}-auth-token`;
   const cookieOptions = {
@@ -39,6 +43,12 @@ export function createRequestAuth(context: APIContext): RequestAuth | null {
     secure: config.origin.startsWith('https:'),
     sameSite: 'lax' as const,
   };
+  const pending: (() => void)[] = [];
+  const setCookie: typeof context.cookies.set = (name, value, options) => {
+    const write = () => context.cookies.set(name, value, options);
+    if (isolated) pending.push(write);
+    else write();
+  };
   const client = createServerClient(config.url, config.key, {
     cookieOptions,
     cookies: {
@@ -46,7 +56,7 @@ export function createRequestAuth(context: APIContext): RequestAuth | null {
       setAll: (cookies) => {
         for (const { name, value, options } of cookies) {
           jar.set(name, value);
-          context.cookies.set(name, value, {
+          setCookie(name, value, {
             ...options,
             ...cookieOptions,
             maxAge: value ? 7 * 24 * 60 * 60 : 0,
@@ -70,6 +80,9 @@ export function createRequestAuth(context: APIContext): RequestAuth | null {
   return {
     config,
     client,
+    commitCookies: () => {
+      for (const write of pending.splice(0)) write();
+    },
     verifiedUser: () =>
       (userPromise ??= (async () => {
         // A fresh server-confirmed lookup also checks the current account/session.
@@ -89,19 +102,19 @@ export function createRequestAuth(context: APIContext): RequestAuth | null {
       })()),
     // Holds no token and grants nothing; the server still verifies every request.
     setSessionHint: () =>
-      context.cookies.set(SESSION_HINT, '1', {
+      setCookie(SESSION_HINT, '1', {
         ...cookieOptions,
         httpOnly: false,
         maxAge: 7 * 24 * 60 * 60,
       }),
     clearSessionHint: () =>
-      context.cookies.set(SESSION_HINT, '', {
+      setCookie(SESSION_HINT, '', {
         ...cookieOptions,
         httpOnly: false,
         maxAge: 0,
       }),
     clearCookies: () => {
-      context.cookies.set(SESSION_HINT, '', {
+      setCookie(SESSION_HINT, '', {
         ...cookieOptions,
         httpOnly: false,
         maxAge: 0,
@@ -112,7 +125,7 @@ export function createRequestAuth(context: APIContext): RequestAuth | null {
           name.startsWith(`${prefix}.`) ||
           name.startsWith(`${prefix}-`)
         ) {
-          context.cookies.set(name, '', { ...cookieOptions, maxAge: 0 });
+          setCookie(name, '', { ...cookieOptions, maxAge: 0 });
           jar.delete(name);
         }
       }
