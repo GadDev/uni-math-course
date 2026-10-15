@@ -3,20 +3,33 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../../../layouts/Base.astro';
 import PracticeActivity from '../../../../components/PracticeActivity';
 import SignalGeometry from '../../../../components/SignalGeometry.astro';
-import { copy, locales } from '../../../../lib/i18n';
+import { copy } from '../../../../lib/i18n';
+import { localeOf } from '../../../../lib/auth/policy';
 import '../../../../styles/practice.css';
-export async function getStaticPaths() {
-  // Lessons whose exercise bank has been reviewed and is served by the API.
-  // Declared inside: Astro hoists this function out of the frontmatter scope.
-  const practiceLessons = ['L05'];
-  return locales.flatMap((locale) =>
-    practiceLessons.map((lessonId) => ({ params: { locale, lessonId } })),
-  );
+// On demand: practice needs a signed-in learner. The page imports no answers.
+export const prerender = false;
+// Lessons whose exercise bank has been reviewed and is served by the API.
+const practiceLessons = ['L05'];
+const lessonId = Astro.params.lessonId ?? '';
+if (
+  !['fr', 'en'].includes(Astro.params.locale ?? '') ||
+  !practiceLessons.includes(lessonId)
+)
+  return new Response('Not found', { status: 404 });
+const locale = localeOf(Astro.params.locale);
+const auth = Astro.locals.auth;
+if (!auth) return new Response('Sign-in is not configured.', { status: 503 });
+let user = null;
+try {
+  user = await auth.verifiedUser();
+} catch {
+  return new Response('Sign-in is unavailable.', { status: 503 });
 }
-const { locale, lessonId } = Astro.params as {
-  locale: 'fr' | 'en';
-  lessonId: string;
-};
+if (!user)
+  return Astro.redirect(
+    `/${locale}/sign-in/?${new URLSearchParams({ next: `/${locale}/lessons/${lessonId}/practice/` })}`,
+    303,
+  );
 const text = copy[locale];
 const lessons = await getCollection('lessons');
 const lesson = lessons.find(

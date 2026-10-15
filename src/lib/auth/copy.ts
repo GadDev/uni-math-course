@@ -22,6 +22,7 @@ export const authCopy = {
     identity: 'Connecté en tant que',
     next: 'Les exercices et les progrès enregistrés arriveront dans les prochaines étapes.',
     signOut: 'Se déconnecter de ce navigateur',
+    signOutShort: 'Se déconnecter',
     back: 'Revenir à la lecture',
   },
   en: {
@@ -47,6 +48,7 @@ export const authCopy = {
     identity: 'Signed in as',
     next: 'Exercises and saved progress will arrive in the next steps.',
     signOut: 'Sign out of this browser',
+    signOutShort: 'Sign out',
     back: 'Back to reading',
   },
 } as const;

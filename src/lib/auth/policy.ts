@@ -83,7 +83,7 @@ export function sameOriginPost(request: Request, config: AuthConfig): boolean {
 }
 
 export function authRoute(path: string): boolean {
-  return /^\/(?:auth\/(?:login|logout)|api\/(?:auth\/session|attempts|exercises\/L[0-9]{2})|(?:fr|en)\/(?:sign-in|account|progress))\/?$/.test(
+  return /^\/(?:auth\/(?:login|logout)|api\/(?:auth\/session|attempts|exercises\/L[0-9]{2})|(?:fr|en)\/(?:sign-in|account|progress|lessons\/L[0-9]{2}\/practice))\/?$/.test(
     path,
   );
 }
