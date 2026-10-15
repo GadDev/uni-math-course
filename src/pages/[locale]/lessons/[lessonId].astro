@@ -149,6 +149,15 @@ const [glossaryId, glossaryLabel] = glossaryLinks[lesson.data.lessonId] ?? [
       <article class="lesson-prose" data-lesson-id={lesson.data.lessonId}>
         <Content />
       </article>
+      {lesson.data.lessonId === 'L10' && (
+        <p>
+          <a href={'/' + locale + '/numbers/'}>
+            {locale === 'fr'
+              ? 'Guide visuel : familles de nombres'
+              : 'Visual guide: number families'}
+          </a>
+        </p>
+      )}
       {practiceLessons.includes(lesson.data.lessonId) && (
         <p>
           <a
