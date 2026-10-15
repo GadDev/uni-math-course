@@ -26,6 +26,8 @@ $$
 $$
 In this course, $\mathbb{N} = \{0, 1, 2, \ldots\}$ contains zero. Programming languages represent these sets differently, and computers represent real numbers only approximately.
 
+**Prerequisite visual guide:** Explore the [number families](/en/numbers/) to distinguish natural, rational, irrational, real and complex numbers.
+
 The **empty set** $\varnothing$ has no element.
 
 ## Sets by enumeration

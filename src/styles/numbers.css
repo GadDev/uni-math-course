@@ -1,0 +1,310 @@
+.numbers-page {
+  max-width: 1050px;
+  margin: 2.2rem auto 4rem;
+}
+.numbers-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.7fr);
+  gap: 2rem;
+  align-items: center;
+  border-top: 2px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 2.8rem 0;
+}
+.numbers-heading h1 {
+  font-size: clamp(2.8rem, 6vw, 5.8rem);
+  line-height: 1.06;
+  text-transform: uppercase;
+  margin: 0 0 1.3rem;
+}
+.numbers-heading .lede {
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--ink);
+}
+.numbers-heading > div > p:last-child {
+  max-width: 40rem;
+}
+.numbers-hero-art {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 100px 100px;
+  align-items: center;
+  text-align: center;
+  border: 1px solid var(--ink);
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 5vw, 4.8rem);
+}
+.numbers-hero-art span {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  line-height: 100px;
+  height: 100%;
+}
+.numbers-hero-art span:nth-child(2n) {
+  border-right: 0;
+}
+.numbers-hero-art .hero-complex {
+  grid-column: 1 / -1;
+  background: var(--signal-red);
+  color: white;
+  border-bottom: 0;
+}
+.numbers-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  border-bottom: 1px solid var(--line);
+  padding: 0.9rem 0;
+}
+.numbers-toc a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.86rem;
+  font-weight: bold;
+  color: var(--ink);
+}
+.numbers-section {
+  padding: 2.3rem 0 0;
+  scroll-margin-top: 1rem;
+}
+.numbers-section h2 {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  text-transform: uppercase;
+  margin: 0 0 1.1rem;
+}
+.numbers-section > p {
+  max-width: 48rem;
+}
+.numbers-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+.numbers-table {
+  border-collapse: collapse;
+  min-width: 650px;
+  width: 100%;
+  font-size: 0.93rem;
+}
+.numbers-table th,
+.numbers-table td {
+  border: 1px solid var(--soft-line);
+  text-align: left;
+  padding: 0.95rem 0.85rem;
+  vertical-align: middle;
+  line-height: 1.55;
+}
+.numbers-table thead th {
+  background: var(--ink);
+  color: white;
+}
+.numbers-table tbody th {
+  min-width: 9rem;
+}
+.numbers-table tr:nth-child(even) {
+  background: var(--card);
+}
+.numbers-symbol {
+  font-size: 1.45rem;
+  white-space: nowrap;
+}
+.numbers-convention {
+  border-left: 4px solid var(--signal-red);
+  background: var(--card);
+  padding: 0.9rem 1rem;
+  line-height: 1.7;
+}
+.numbers-figure {
+  margin: 1.6rem 0;
+}
+.numbers-diagram {
+  border: 1px solid var(--line);
+  background: var(--card);
+  padding: 0.65rem;
+}
+.family-level {
+  min-width: 0;
+  border: 1px solid var(--line);
+  padding: 0.7rem;
+}
+.family-level > p:first-child {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0 0 0.7rem;
+}
+.family-level > p span {
+  font-family: var(--display);
+  font-size: 1.5rem;
+}
+.family-level small {
+  font-size: 0.88rem;
+}
+.family-complex { background: #ecebe5; }
+.family-real { background: #fffdf7; }
+.family-rational { background: #f5e5dd; }
+.family-integer { background: #f8f0e7; }
+.family-natural {
+  border: 2px solid var(--signal-red);
+  background: #fffefa;
+}
+.family-irrational {
+  background: #fffefa;
+  border-left: 5px solid var(--signal-red);
+}
+.family-subsets {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 0.7rem;
+}
+.numbers-outside {
+  margin: 0.8rem 0 0;
+  font-size: 0.9rem;
+}
+.numbers-figure figcaption {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0.65rem 0;
+}
+.numbers-chain {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0.8rem 0;
+}
+.numbers-chain .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 0;
+  text-align: left;
+}
+.numbers-chain .katex-display > .katex {
+  text-align: left;
+}
+.numbers-example {
+  border: 1px solid var(--line);
+  padding: 1.4rem;
+  background: var(--card);
+}
+.numbers-example .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.numbers-properties {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+  margin: 1.5rem 0;
+}
+.numbers-property {
+  min-width: 0;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 1.2rem;
+}
+.numbers-property h3 {
+  font-size: 1.45rem;
+  margin: 0 0 0.8rem;
+}
+.numbers-property-examples {
+  font-size: 1.05rem;
+  overflow-x: auto;
+}
+.numbers-property p {
+  font-size: 0.92rem;
+}
+.numbers-checks {
+  list-style: none;
+  counter-reset: number-check;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+.numbers-checks li {
+  counter-increment: number-check;
+  position: relative;
+  padding: 1rem 0 1.2rem 3.1rem;
+  border-top: 1px solid var(--line);
+}
+.numbers-checks li::before {
+  content: counter(number-check, decimal-leading-zero);
+  position: absolute;
+  top: 0.7rem;
+  left: 0;
+  font-family: var(--display);
+  font-size: 2rem;
+  color: var(--signal-red);
+}
+.numbers-checks h3 {
+  margin: 0.2rem 0;
+  font-size: 1.35rem;
+}
+.numbers-choices {
+  color: var(--muted);
+}
+.numbers-checks details {
+  border: 1px solid var(--line);
+  padding: 0 0.8rem;
+  background: var(--card);
+}
+.numbers-checks summary {
+  display: flex;
+  min-height: 44px;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+}
+.numbers-checks details[open] summary {
+  border-bottom: 1px solid var(--soft-line);
+}
+.numbers-checks details p {
+  line-height: 1.7;
+}
+.numbers-further {
+  border-top: 2px solid var(--line);
+  padding: 2rem 0 0;
+}
+.numbers-further h2 {
+  text-transform: uppercase;
+}
+.numbers-further .content-provenance {
+  max-width: 47rem;
+}
+@media (max-width: 700px) {
+  .numbers-heading {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 0;
+  }
+  .numbers-hero-art {
+    display: none;
+  }
+  .numbers-properties {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 420px) {
+  .numbers-page {
+    margin-top: 1.3rem;
+  }
+  .numbers-heading h1 {
+    font-size: 2.5rem;
+  }
+  .family-subsets {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .family-level {
+    padding: 0.5rem;
+  }
+  .numbers-properties {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .numbers-checks li {
+    padding-left: 2.5rem;
+  }
+}

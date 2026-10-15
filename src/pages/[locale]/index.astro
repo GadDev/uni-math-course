@@ -101,6 +101,18 @@ const implication = katex.renderToString('A \\Rightarrow B', {
         {glossaryCopy[locale].nav} →
       </a>
     </section>
+    <section class="planned-section" aria-labelledby="numbers-title">
+      <p class="eyebrow">{locale === 'fr' ? 'FONDATIONS' : 'FOUNDATIONS'}</p>
+      <h2 id="numbers-title">{locale === 'fr' ? 'La famille des nombres' : 'The number family'}</h2>
+      <p>
+        {locale === 'fr'
+          ? 'Explorez les naturels, les entiers, les rationnels, les réels et les complexes à travers un schéma et des exemples.'
+          : 'Explore natural, integer, rational, real and complex numbers through a visual family tree and worked examples.'}
+      </p>
+      <a class="primary-link" href={'/' + locale + '/numbers/'}>
+        {locale === 'fr' ? 'Explorer les familles de nombres' : 'Explore the number families'} →
+      </a>
+    </section>
     <section class="practice-status" aria-labelledby="practice-title">
       <div class="practice-copy">
         <h2 id="practice-title">{text.practiceTitle}</h2>
