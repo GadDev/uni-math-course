@@ -40,6 +40,8 @@ test('return only to released local routes with a safe fragment', () => {
     '/fr/account/',
     '/fr/lessons/L05/#main',
     '/en/lessons/L05/practice/',
+    '/fr/lessons/L20/practice/',
+    '/en/lessons/L01/',
   ])
     assert.equal(safeReturn(path, 'en'), path);
   for (const path of [
@@ -51,6 +53,8 @@ test('return only to released local routes with a safe fragment', () => {
     '/auth/callback/',
     '/en/account/?code=secret',
     '/en/lessons/missing/',
+    '/en/lessons/L21/practice/',
+    '/en/lessons/L00/',
     '/en/#main\n',
   ])
     assert.equal(safeReturn(path, 'en'), '/en/account/');

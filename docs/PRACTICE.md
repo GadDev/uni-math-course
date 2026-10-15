@@ -4,7 +4,7 @@ Status: implemented locally for the reviewed L05 pilot; hosted acceptance pendin
 
 ## Scope
 
-A signed-in learner can open the L05 practice section, answer six exercises, receive server-graded feedback, and see saved attempts, open mistakes and mastery evidence on a private progress page. Only L05 is released; add a lesson to `RELEASED_LESSONS` in `src/lib/exercises/bank.ts` only after its exercises pass mathematical and bilingual review.
+A signed-in learner can open the L05 practice section, answer six exercises, receive server-graded feedback, and see saved attempts, open mistakes and mastery evidence on a private progress page. L01–L20 are served (`RELEASED_LESSONS` in `src/lib/released-lessons.ts`). Only L05 has passed mathematical and bilingual review; the other banks were released at the maintainer's request before that review, and their practice pages say so. Remove a lesson from the list to withdraw it.
 
 ## Contract
 

@@ -1,14 +1,18 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import SignalGeometry from '../../components/SignalGeometry.astro';
 import { localeOf } from '../../lib/auth/policy';
 import { progressCopy } from '../../lib/progress-copy';
 import { exerciseBank } from '../../lib/exercises/bank';
+import { PILOT_LESSON } from '../../lib/released-lessons';
 import { summarise, type Progress } from '../../lib/exercises/progress';
 import {
   ATTEMPT_COLUMNS,
   toAttemptRow,
   type AttemptDbRow,
 } from '../../lib/exercises/store';
+import '../../styles/progress.css';
 // On demand and server-only: it reads the answer-bearing bank to explain mistakes.
 export const prerender = false;
 if (!['fr', 'en'].includes(Astro.params.locale ?? ''))
@@ -31,6 +35,7 @@ if (!unavailable && !user)
     303,
   );
 let progress: Progress | null = null;
+let aidedAttempts = 0;
 if (auth && user && !unavailable) {
   // The signed-in session client: row-level security limits it to own rows.
   const { data, error } = await auth.client
@@ -40,13 +45,20 @@ if (auth && user && !unavailable) {
     .order('created_at', { ascending: false })
     .limit(500);
   if (error || !data) unavailable = true;
-  else
-    progress = summarise(
-      (data as unknown as AttemptDbRow[]).map(toAttemptRow),
-      exerciseBank,
-    );
+  else {
+    const rows = (data as unknown as AttemptDbRow[]).map(toAttemptRow);
+    progress = summarise(rows, exerciseBank);
+    aidedAttempts = rows.filter(
+      (row) => row.hintUsed && exerciseBank.has(row.exerciseId),
+    ).length;
+  }
 }
 if (unavailable) Astro.response.status = 503;
+const lessonTitles = new Map(
+  (await getCollection('lessons'))
+    .filter((entry) => entry.data.locale === locale)
+    .map((entry) => [entry.data.lessonId, entry.data.title]),
+);
 const format = new Intl.DateTimeFormat(locale, {
   dateStyle: 'medium',
   timeStyle: 'short',
@@ -54,6 +66,7 @@ const format = new Intl.DateTimeFormat(locale, {
 });
 const when = (iso: string) => format.format(new Date(iso));
 const number = (id: string) => Number(id.split('-E')[1]);
+const lessonOf = (exerciseId: string) => exerciseId.slice(0, 3);
 const lessonLink = (lessonId: string) =>
   `/${locale}/lessons/${lessonId}/#practice`;
 const totals = progress && {
@@ -61,6 +74,17 @@ const totals = progress && {
   mastered: progress.lessons.reduce((sum, l) => sum + l.mastered, 0),
   total: progress.lessons.reduce((sum, l) => sum + l.total, 0),
 };
+// The focus panel: the latest open mistake, else the next lesson to practise.
+const mistake = progress?.mistakes[0];
+const nextLesson = progress
+  ? (progress.lessons.find(
+      (l) => l.lessonId === PILOT_LESSON && l.attempted < l.total,
+    ) ?? progress.lessons.find((l) => l.attempted < l.total))
+  : undefined;
+const focusLessonId = mistake
+  ? lessonOf(mistake.exerciseId)
+  : nextLesson?.lessonId;
+const recent = progress?.history.slice(0, 3) ?? [];
 ---
 
 <Base
@@ -69,140 +93,270 @@ const totals = progress && {
   description={text.intro}
   path="progress/"
 >
-  <main id="main" class="auth-page progress-page">
-    <p class="eyebrow">{text.nav}</p>
-    <h1>{text.title}</h1>
+  <main id="main" tabindex="-1" class="progress-page">
+    <section class="hero progress-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">{text.eyebrow}</p>
+        <h1 class="signal-title">
+          <span>
+            {text.heroLines[0]}
+            <span class="signal-stop">.</span> {text.heroLines[1]}
+            <span class="signal-stop">.</span>
+          </span>
+          <span>
+            {text.heroLines[2]}
+            <span class="signal-stop">.</span>
+          </span>
+        </h1>
+      </div>
+      <div class="hero-art">
+        <SignalGeometry />
+      </div>
+    </section>
+
     {unavailable || !progress || !totals ? (
-      <p role="alert">{text.unavailable}</p>
+      <p role="alert" class="progress-alert">
+        {text.unavailable}
+      </p>
     ) : (
       <>
-        <p class="lede">{text.intro}</p>
         <dl class="progress-stats">
-          <div>
-            <dt>{text.attempts}</dt>
-            <dd>{progress.totalAttempts}</dd>
-          </div>
           <div>
             <dt>{text.attempted}</dt>
             <dd>
-              {totals.attempted} / {totals.total}
+              {totals.attempted}
+              <span aria-hidden="true">/</span>
+              <span class="visually-hidden">{' / '}</span>
+              {totals.total}
             </dd>
+            <dd class="progress-caption">{text.attemptedCaption}</dd>
           </div>
           <div>
+            <dt>{text.historyLabel}</dt>
+            <dd>{progress.totalAttempts}</dd>
+            <dd class="progress-caption">
+              {text.historyCaption(aidedAttempts)}
+            </dd>
+          </div>
+          <div class="progress-stat-accent">
             <dt>{text.mastery}</dt>
             <dd>
-              {totals.mastered} / {totals.total}
+              {totals.mastered}
+              <span aria-hidden="true">/</span>
+              <span class="visually-hidden">{' / '}</span>
+              {totals.total}
             </dd>
+            <dd class="progress-caption">{text.masteryCaption}</dd>
           </div>
         </dl>
 
-        {progress.totalAttempts === 0 && (
-          <p>
-            {text.empty} <a href={lessonLink('L05')}>{text.start}</a>
-          </p>
-        )}
-
-        {progress.lessons.map((lesson) => {
-          const rows = new Map(
-            lesson.exercises.map((item) => [item.exerciseId, item]),
-          );
-          const ids = [...exerciseBank.values()]
-            .filter((exercise) => exercise.lessonId === lesson.lessonId)
-            .map((exercise) => exercise.id);
-          return (
-            <section aria-labelledby={`lesson-${lesson.lessonId}`}>
-              <h2 id={`lesson-${lesson.lessonId}`}>
-                {text.lesson} {lesson.lessonId.slice(1)}
-              </h2>
-              <div class="progress-table-wrap">
-                <table class="progress-table">
-                  <thead>
-                    <tr>
-                      <th scope="col">{text.exercise}</th>
-                      <th scope="col">{text.tries}</th>
-                      <th scope="col">{text.correctTries}</th>
-                      <th scope="col">{text.latest}</th>
-                      <th scope="col">{text.evidence}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {ids.map((id) => {
-                      const row = rows.get(id);
-                      return (
-                        <tr>
-                          <th scope="row">{number(id)}</th>
-                          {row ? (
-                            <>
-                              <td>{row.attempts}</td>
-                              <td>{row.correctAttempts}</td>
-                              <td>
-                                <span
-                                  class={
-                                    row.latestCorrect
-                                      ? 'practice-ok'
-                                      : 'practice-bad'
-                                  }
-                                >
-                                  {row.latestCorrect ? '✓ ' : '✗ '}
-                                  {row.latestCorrect ? text.right : text.wrong}
-                                </span>
-                              </td>
-                              <td>
-                                {row.masteryEvidence ? text.yes : text.no}
-                              </td>
-                            </>
-                          ) : (
-                            <td colspan="4">{text.notTried}</td>
-                          )}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </section>
-          );
-        })}
-
-        <section aria-labelledby="mistakes">
-          <h2 id="mistakes">{text.review}</h2>
-          {progress.mistakes.length === 0 ? (
-            <p>{progress.totalAttempts === 0 ? '' : text.noMistakes}</p>
-          ) : (
+        <section class="progress-focus" aria-label={text.revisit}>
+          {focusLessonId ? (
             <>
-              <p>{text.reviewIntro}</p>
-              {progress.mistakes.map((mistake) => (
-                <article class="practice-exercise">
-                  <h3>
-                    {text.exercise} {number(mistake.exerciseId)}
-                    <small> · {when(mistake.at)}</small>
-                  </h3>
-                  <p>{mistake.prompt[locale]}</p>
-                  {mistake.chosen && (
-                    <p>
-                      <strong>{text.yourAnswer} :</strong>{' '}
-                      {mistake.chosen[locale]}
-                    </p>
-                  )}
-                  {mistake.wrongRows && mistake.wrongRows.length > 0 && (
-                    <p>
-                      <strong>{text.wrongRows} :</strong>{' '}
-                      {mistake.wrongRows.join(' ; ')}
-                    </p>
-                  )}
-                  <p class="practice-bad">{mistake.feedback[locale]}</p>
-                  <p>{mistake.explanation[locale]}</p>
-                  <a href={lessonLink(mistake.exerciseId.slice(0, 3))}>
-                    {text.retry}
-                  </a>
-                </article>
-              ))}
+              <p class="progress-focus-number" aria-hidden="true">
+                {focusLessonId.slice(1)}
+              </p>
+              <div class="progress-focus-main">
+                <h2 class="eyebrow">
+                  {mistake ? text.revisit : text.continueLabel}
+                </h2>
+                <p class="progress-focus-title">
+                  {lessonTitles.get(focusLessonId) ??
+                    `${text.lesson} ${focusLessonId.slice(1)}`}
+                </p>
+                <p>{mistake ? text.revisitHint : text.continueHint}</p>
+                <a class="primary-link" href={lessonLink(focusLessonId)}>
+                  {mistake ? text.reread : text.keepGoing}
+                  <svg
+                    viewBox="0 0 24 12"
+                    width="24"
+                    height="12"
+                    aria-hidden="true"
+                    focusable="false"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.6"
+                  >
+                    <path d="M0 6h22M17 1l5 5-5 5" />
+                  </svg>
+                </a>
+              </div>
             </>
+          ) : (
+            <div class="progress-focus-main progress-focus-done">
+              <h2 class="eyebrow">{text.revisit}</h2>
+              <p class="progress-focus-title">{text.allDone}</p>
+            </div>
           )}
+          <div class="progress-recent">
+            <h2 class="eyebrow progress-recent-title">{text.recent}</h2>
+            {recent.length === 0 ? (
+              <p>
+                {text.empty} <a href={lessonLink(PILOT_LESSON)}>{text.start}</a>
+              </p>
+            ) : (
+              <ul>
+                {recent.map((item) => (
+                  <li>
+                    <span>
+                      {lessonTitles.get(lessonOf(item.exerciseId)) ??
+                        `${text.lesson} ${lessonOf(item.exerciseId).slice(1)}`}{' '}
+                      · {text.exercise} {number(item.exerciseId)}
+                    </span>
+                    <span
+                      class:list={[
+                        'progress-badge',
+                        !item.correct && 'progress-badge-bad',
+                      ]}
+                    >
+                      {!item.correct
+                        ? text.wrong
+                        : item.hintUsed
+                          ? text.aided
+                          : text.right}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </section>
 
+        <aside class="progress-note">
+          <span class="progress-note-dot" aria-hidden="true"></span>
+          <p>
+            <strong>{text.noteTitle}</strong>
+            {text.note[0]}
+            <br />
+            {text.note[1]}
+            <br />
+            {text.note[2]}
+          </p>
+          <svg
+            class="progress-note-arrow"
+            viewBox="0 0 90 20"
+            width="90"
+            height="20"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+          >
+            <path d="M0 10h86M77 3l9 7-9 7" />
+          </svg>
+          <span class="progress-note-triangle" aria-hidden="true"></span>
+        </aside>
+
+        <section class="progress-detail" aria-labelledby="detail">
+          <h2 id="detail">{text.detail}</h2>
+          <p class="lede">{text.intro}</p>
+          {progress.lessons.map((lesson) => {
+            const rows = new Map(
+              lesson.exercises.map((item) => [item.exerciseId, item]),
+            );
+            const ids = [...exerciseBank.values()]
+              .filter((exercise) => exercise.lessonId === lesson.lessonId)
+              .map((exercise) => exercise.id);
+            return (
+              <details open={lesson.attempted > 0}>
+                <summary>
+                  <span class="progress-detail-number">
+                    {lesson.lessonId.slice(1)}
+                  </span>
+                  <span>
+                    {lessonTitles.get(lesson.lessonId) ??
+                      `${text.lesson} ${lesson.lessonId.slice(1)}`}
+                  </span>
+                  <small>
+                    {lesson.attempted} / {lesson.total} {text.exercisesOf}
+                  </small>
+                </summary>
+                <div class="progress-table-wrap">
+                  <table class="progress-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">{text.exercise}</th>
+                        <th scope="col">{text.tries}</th>
+                        <th scope="col">{text.correctTries}</th>
+                        <th scope="col">{text.latest}</th>
+                        <th scope="col">{text.evidence}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {ids.map((id) => {
+                        const row = rows.get(id);
+                        return (
+                          <tr>
+                            <th scope="row">{number(id)}</th>
+                            {row ? (
+                              <>
+                                <td>{row.attempts}</td>
+                                <td>{row.correctAttempts}</td>
+                                <td>
+                                  <span
+                                    class={
+                                      row.latestCorrect
+                                        ? 'practice-ok'
+                                        : 'practice-bad'
+                                    }
+                                  >
+                                    {row.latestCorrect ? '✓ ' : '✗ '}
+                                    {row.latestCorrect
+                                      ? text.right
+                                      : text.wrong}
+                                  </span>
+                                </td>
+                                <td>
+                                  {row.masteryEvidence ? text.yes : text.no}
+                                </td>
+                              </>
+                            ) : (
+                              <td colspan="4">{text.notTried}</td>
+                            )}
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </details>
+            );
+          })}
+        </section>
+
+        {progress.mistakes.length > 0 && (
+          <section class="progress-detail" aria-labelledby="mistakes">
+            <h2 id="mistakes">{text.review}</h2>
+            <p>{text.reviewIntro}</p>
+            {progress.mistakes.map((item) => (
+              <article class="practice-exercise">
+                <h3>
+                  {text.exercise} {number(item.exerciseId)}
+                  <small> · {when(item.at)}</small>
+                </h3>
+                <p>{item.prompt[locale]}</p>
+                {item.chosen && (
+                  <p>
+                    <strong>{text.yourAnswer} :</strong> {item.chosen[locale]}
+                  </p>
+                )}
+                {item.wrongRows && item.wrongRows.length > 0 && (
+                  <p>
+                    <strong>{text.wrongRows} :</strong>{' '}
+                    {item.wrongRows.join(' ; ')}
+                  </p>
+                )}
+                <p class="practice-bad">{item.feedback[locale]}</p>
+                <p>{item.explanation[locale]}</p>
+                <a href={lessonLink(lessonOf(item.exerciseId))}>{text.retry}</a>
+              </article>
+            ))}
+          </section>
+        )}
+
         {progress.history.length > 0 && (
-          <section aria-labelledby="history">
+          <section class="progress-detail" aria-labelledby="history">
             <h2 id="history">{text.history}</h2>
             <ol class="progress-history">
               {progress.history.map((item) => (

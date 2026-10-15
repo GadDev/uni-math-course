@@ -1,6 +1,32 @@
 export const progressCopy = {
   fr: {
-    nav: 'Ma progression',
+    nav: 'Mon parcours',
+    eyebrow: 'Mon parcours',
+    heroLines: ['Avancer', 'Revenir', 'Comprendre'],
+    attemptedCaption: 'Exercices essayés au moins une fois.',
+    historyLabel: 'Historique des essais',
+    historyCaption: (aided: number) =>
+      aided === 0
+        ? 'Tous les essais, aucun aidé.'
+        : `Tous les essais, dont ${aided} aidé${aided > 1 ? 's' : ''}.`,
+    masteryCaption: 'Réponses correctes indépendantes.',
+    revisit: 'À revisiter',
+    continueLabel: 'À poursuivre',
+    revisitHint: 'Relire l’explication, puis vérifier avec une autre question.',
+    continueHint: 'Reprenez la pratique là où vous l’avez laissée.',
+    allDone: 'Tout est essayé, sans erreur en suspens.',
+    reread: 'Relire mon erreur',
+    keepGoing: 'Continuer la pratique',
+    recent: 'Derniers essais',
+    aided: 'Correct · aidé',
+    noteTitle: 'Repère :',
+    note: [
+      'une preuve de maîtrise est une première réponse correcte, sans indice.',
+      'Indice ou nouvelle tentative : pas de nouvelle preuve indépendante.',
+      'Ce repère reste à évaluer pendant le pilote.',
+    ],
+    detail: 'Détail par leçon',
+    exercisesOf: 'exercices essayés',
     title: 'Votre progression',
     intro:
       'La lecture, vos tentatives et la preuve de maîtrise sont comptées séparément. Seule une première réponse correcte, sans indice, compte comme preuve de maîtrise.',
@@ -36,7 +62,33 @@ export const progressCopy = {
     back: 'Revenir à mon compte',
   },
   en: {
-    nav: 'My progress',
+    nav: 'My journey',
+    eyebrow: 'My journey',
+    heroLines: ['Advance', 'Revisit', 'Understand'],
+    attemptedCaption: 'Exercises tried at least once.',
+    historyLabel: 'Attempt history',
+    historyCaption: (aided: number) =>
+      aided === 0
+        ? 'All attempts, none aided.'
+        : `All attempts, ${aided} of them aided.`,
+    masteryCaption: 'Independent correct answers.',
+    revisit: 'To revisit',
+    continueLabel: 'Keep going',
+    revisitHint: 'Reread the explanation, then check with another question.',
+    continueHint: 'Pick the practice up where you left it.',
+    allDone: 'Everything tried, no open mistake.',
+    reread: 'Review my mistake',
+    keepGoing: 'Continue practising',
+    recent: 'Latest attempts',
+    aided: 'Correct · aided',
+    noteTitle: 'Benchmark:',
+    note: [
+      'mastery evidence is a correct first response without a hint.',
+      'A hint or a repeat attempt is not new independent evidence.',
+      'This benchmark is still to be evaluated during the pilot.',
+    ],
+    detail: 'Detail by lesson',
+    exercisesOf: 'exercises tried',
     title: 'Your progress',
     intro:
       'Reading, your attempts and mastery evidence are counted separately. Only a correct first response without a hint counts as mastery evidence.',

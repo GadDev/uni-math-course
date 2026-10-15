@@ -5,15 +5,18 @@ import PracticeActivity from '../../../../components/PracticeActivity';
 import SignalGeometry from '../../../../components/SignalGeometry.astro';
 import { copy } from '../../../../lib/i18n';
 import { localeOf } from '../../../../lib/auth/policy';
+import {
+  PILOT_LESSON,
+  RELEASED_LESSONS,
+} from '../../../../lib/released-lessons';
 import '../../../../styles/practice.css';
+import '../../../../styles/practice-feedback.css';
 // On demand: practice needs a signed-in learner. The page imports no answers.
 export const prerender = false;
-// Lessons whose exercise bank has been reviewed and is served by the API.
-const practiceLessons = ['L05'];
 const lessonId = Astro.params.lessonId ?? '';
 if (
   !['fr', 'en'].includes(Astro.params.locale ?? '') ||
-  !practiceLessons.includes(lessonId)
+  !RELEASED_LESSONS.includes(lessonId)
 )
   return new Response('Not found', { status: 404 });
 const locale = localeOf(Astro.params.locale);
@@ -41,10 +44,13 @@ const releasedIds = new Set(
     .filter((entry) => entry.data.locale === locale)
     .map((entry) => entry.data.lessonId),
 );
-// The guided example is the fourth section; sections are aligned across languages.
+// Not every lesson has a section titled as a guided example; fall back to the lesson.
 const { headings } = await render(lesson);
-const example = headings.filter((heading) => heading.depth === 2)[3];
-if (!example) throw new Error('Missing guided example section');
+const example = headings.find(
+  (heading) =>
+    heading.depth === 2 &&
+    /^(exemple guidé|guided example)/i.test(heading.text),
+);
 const lessonHref = `/${locale}/lessons/${lessonId}/`;
 const topic = text.programme.find((item) => item.id === lessonId);
 const lessonNumber = lessonId.slice(1);
@@ -92,7 +98,9 @@ const lessonNumber = lessonId.slice(1);
         lessonId={lessonId}
         locale={locale}
         lessonNumber={lessonNumber}
-        exampleHref={`${lessonHref}#${example.slug}`}
+        exampleHref={example ? `${lessonHref}#${example.slug}` : lessonHref}
+        hasExample={!!example}
+        extended={lessonId !== PILOT_LESSON}
       />
     </div>
   </main>

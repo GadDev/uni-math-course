@@ -1,8 +1,8 @@
 import type { Exercise } from './grading.ts';
 
-// Only reviewed lessons are delivered. L05 is the reviewed pilot; add a lesson
-// here only after its exercises have passed mathematical and bilingual review.
-export const RELEASED_LESSONS: readonly string[] = ['L05'];
+import { RELEASED_LESSONS } from '../released-lessons.ts';
+
+export { RELEASED_LESSONS };
 
 const files = import.meta.glob<{ exercises: Exercise[] }>(
   '../../../exercises/L*/v1.json',

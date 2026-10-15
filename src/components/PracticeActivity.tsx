@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Locale } from '../lib/i18n';
+import Tex from './Tex';
 
 // Client-side shapes. Answers, feedback and explanations only ever arrive in a
 // graded attempt response; they are never part of the exercise payload.
@@ -62,7 +63,12 @@ const text = {
     needAnswer: 'Choisissez une réponse pour continuer.',
     needRows: 'Complétez toutes les lignes pour continuer.',
     example: 'Revoir l’exemple expliqué',
+    lesson: 'Revoir la leçon',
     footnote: 'Pas de chronomètre. Pas de classement.',
+    extended:
+      'Exercices d’un cours étendu : leur relecture mathématique et linguistique n’est pas terminée. Signalez toute erreur à la personne qui gère le cours.',
+    exerciseTitle: 'Exercice',
+    yourChoice: 'Votre choix',
     yourAnswer: 'Votre réponse',
     yourRows: 'Vos réponses',
     toReview: 'À revoir',
@@ -112,7 +118,12 @@ const text = {
     needAnswer: 'Choose an answer to continue.',
     needRows: 'Complete every row to continue.',
     example: 'Review the worked example',
+    lesson: 'Review the lesson',
     footnote: 'No timer. No ranking.',
+    extended:
+      'Exercises from the extended course: their mathematical and language review is not finished. Report any error to the person running the course.',
+    exerciseTitle: 'Exercise',
+    yourChoice: 'Your choice',
     yourAnswer: 'Your answer',
     yourRows: 'Your answers',
     toReview: 'To review',
@@ -196,11 +207,15 @@ export default function PracticeActivity({
   locale,
   lessonNumber,
   exampleHref,
+  hasExample,
+  extended,
 }: {
   lessonId: string;
   locale: Locale;
   lessonNumber: string;
   exampleHref: string;
+  hasExample: boolean;
+  extended: boolean;
 }) {
   const t = text[locale];
   const [phase, setPhase] = useState<Phase>('loading');
@@ -269,6 +284,14 @@ export default function PracticeActivity({
     graded.current = false;
   }, [result]);
 
+  // The feedback layout drops the outline column and widens the artwork; the
+  // surrounding page is server-rendered, so it is switched by a class.
+  useEffect(() => {
+    const page = document.querySelector('.practice-page');
+    page?.classList.toggle('is-feedback', !!result);
+    return () => page?.classList.remove('is-feedback');
+  }, [!!result]);
+
   const update = (id: string, change: (entry: Entry) => Entry) =>
     setEntries((all) => {
       const found = all[id];
@@ -335,25 +358,29 @@ export default function PracticeActivity({
 
   return (
     <section
-      className={`pp pp-${result ? 'feedback' : 'practice'}`}
+      className={`pp pp-state-${result ? 'feedback' : 'practice'}`}
       aria-labelledby="pp-title"
     >
       <header className="pp-header">
-        <p className="eyebrow pp-kicker">
-          <span className="lesson-tag">{lessonNumber}</span> / {kicker}
+        <p className="pp-kicker">
+          <span className="pp-num">{lessonNumber}</span>
+          <span className="pp-kicker-text"> / {kicker}</span>
         </p>
         <h1 id="pp-title" className="pp-title">
           {heading.map((word, index) => (
-            <span key={word}>
+            <span
+              key={word}
+              className={index === heading.length - 1 ? 'pp-last' : undefined}
+            >
               {word}
               <span className="pp-dot" aria-hidden="true">
                 .
-              </span>
-              {index < heading.length - 1 ? ' ' : ''}
+              </span>{' '}
             </span>
           ))}
         </h1>
         <p className="pp-subtitle">{subtitle}</p>
+        <span className="pp-arrow" aria-hidden="true" />
       </header>
 
       {phase === 'loading' && (
@@ -384,7 +411,7 @@ export default function PracticeActivity({
 
       {phase === 'ready' && exercise && entry && (
         <div className="pp-body">
-          <nav className="pp-steps" aria-label={t.steps}>
+          <nav className="pp-steps" aria-label={t.steps} hidden={!!result}>
             <ol>
               {exercises.map((item, index) => {
                 const done = entries[item.id]?.result;
@@ -422,10 +449,13 @@ export default function PracticeActivity({
 
           <div className="pp-grid">
             <div className="pp-question">
+              {result && (
+                <h2 className="pp-exercise-title">{t.exerciseTitle}</h2>
+              )}
               {exercise.type === 'single-choice' ? (
                 <fieldset className="pp-fieldset" disabled={!!result}>
                   <legend className="pp-prompt">
-                    {exercise.prompt[locale]}
+                    <Tex text={exercise.prompt[locale] ?? ''} />
                   </legend>
                   {!result && <p className="pp-instruction">{t.chooseOne}</p>}
                   <div className="pp-options">
@@ -457,7 +487,10 @@ export default function PracticeActivity({
                         <span className="pp-marker" aria-hidden="true">
                           {marker(index)}
                         </span>
-                        <span className="pp-label">{option.label[locale]}</span>
+                        <span className="pp-rule" aria-hidden="true" />
+                        <span className="pp-label">
+                          <Tex text={option.label[locale] ?? ''} />
+                        </span>
                       </label>
                     ))}
                   </div>
@@ -466,7 +499,7 @@ export default function PracticeActivity({
                 <div className="practice-table-wrap">
                   <table className="practice-table">
                     <caption className="pp-prompt">
-                      {exercise.prompt[locale]}
+                      <Tex text={exercise.prompt[locale] ?? ''} />
                     </caption>
                     <thead>
                       <tr>
@@ -552,7 +585,11 @@ export default function PracticeActivity({
                       {marker(chosenOption)}
                     </span>
                     <span className="pp-label">
-                      {exercise.options[chosenOption]?.label[locale]}
+                      <Tex
+                        text={
+                          exercise.options[chosenOption]?.label[locale] ?? ''
+                        }
+                      />
                     </span>
                     <span className="pp-tag">
                       {result.correct ? t.right : t.toReview}
@@ -604,14 +641,18 @@ export default function PracticeActivity({
                             : t.needRows}
                       </small>
                     </div>
-                    <a className="pp-example" href={exampleHref}>
-                      {t.example} <span aria-hidden="true">→</span>
-                    </a>
+                    <div className="pp-action pp-action-link">
+                      <a className="pp-example" href={exampleHref}>
+                        {hasExample ? t.example : t.lesson}
+                        <span aria-hidden="true">→</span>
+                      </a>
+                    </div>
                   </div>
                   <div id="pp-hint" hidden={!entry.hintShown}>
                     {entry.hintShown && (
                       <p className="pp-hint">
-                        <strong>{t.hintLabel} :</strong> {exercise.hint[locale]}
+                        <strong>{t.hintLabel} :</strong>{' '}
+                        <Tex text={exercise.hint[locale] ?? ''} />
                       </p>
                     )}
                   </div>
@@ -642,9 +683,24 @@ export default function PracticeActivity({
                   tabIndex={-1}
                   className="pp-feedback-title"
                 >
-                  {result.feedback[locale]}
+                  <Tex text={result.feedback[locale] ?? ''} />
                 </h2>
-                <p className="pp-explanation">{result.explanation[locale]}</p>
+                {exercise.type === 'single-choice' && chosenOption >= 0 && (
+                  <p className="pp-choice">
+                    {t.yourChoice} :{' '}
+                    <Tex
+                      text={exercise.options[chosenOption]?.label[locale] ?? ''}
+                    />
+                  </p>
+                )}
+                <p className="pp-explanation">
+                  <Tex text={result.explanation[locale] ?? ''} />
+                </p>
+                {!result.correct && (
+                  <p className="pp-retry-hint">
+                    <Tex text={exercise.hint[locale] ?? ''} />
+                  </p>
+                )}
                 <div className="pp-actions">
                   {!result.correct || current === exercises.length - 1 ? (
                     <button
@@ -660,6 +716,12 @@ export default function PracticeActivity({
                       {t.again} <span aria-hidden="true">→</span>
                     </button>
                   ) : null}
+                  <a
+                    className="pp-button pp-button-outline"
+                    href={`/${locale}/progress/`}
+                  >
+                    {t.reviews}
+                  </a>
                   {current < exercises.length - 1 && (
                     <button
                       type="button"
@@ -671,12 +733,6 @@ export default function PracticeActivity({
                       {t.next} <span aria-hidden="true">→</span>
                     </button>
                   )}
-                  <a
-                    className="pp-button pp-button-outline"
-                    href={`/${locale}/progress/`}
-                  >
-                    {t.reviews}
-                  </a>
                 </div>
                 <p className="pp-note">
                   {t.saved}{' '}
@@ -685,7 +741,10 @@ export default function PracticeActivity({
               </section>
             )}
           </div>
-          <p className="pp-footnote">{t.footnote}</p>
+          <p className="pp-footnote">
+            {t.footnote}
+            {extended && <> {t.extended}</>}
+          </p>
         </div>
       )}
     </section>

@@ -66,7 +66,7 @@ export function safeReturn(value: unknown, locale: AuthLocale): string {
   if (typeof value !== 'string' || value.length > 300 || value !== value.trim())
     return fallback;
   // Explicit released routes only; reject encoding tricks and external origins.
-  return /^\/(fr|en)\/(?:account\/|progress\/|(?:lessons\/L05\/(?:practice\/)?)?)(?:#[a-zA-Z0-9_-]+)?$/.test(
+  return /^\/(fr|en)\/(?:account\/|progress\/|(?:lessons\/L(?:0[1-9]|1[0-9]|20)\/(?:practice\/)?)?)(?:#[a-zA-Z0-9_-]+)?$/.test(
     value,
   )
     ? value
