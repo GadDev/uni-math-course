@@ -1,0 +1,71 @@
+.has-session-hint .header-sign-in {
+  visibility: hidden;
+}
+.profile-menu {
+  position: relative;
+}
+.profile-menu[hidden],
+.header-sign-in[hidden] {
+  display: none;
+}
+.profile-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  color: white;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  cursor: pointer;
+}
+.profile-button:hover {
+  background: #33332f;
+}
+.profile-panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 20;
+  display: grid;
+  min-width: 13rem;
+  background: var(--card);
+  border: 1px solid var(--ink);
+}
+.profile-panel[hidden] {
+  display: none;
+}
+.profile-panel a,
+.profile-panel button {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  font: inherit;
+  font-size: 0.9rem;
+  text-align: left;
+  color: var(--ink);
+  text-decoration: none;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--soft-line);
+  cursor: pointer;
+}
+.profile-panel form {
+  margin: 0;
+}
+.profile-panel form button {
+  border-bottom: 0;
+  font-weight: 700;
+}
+.profile-panel a:hover,
+.profile-panel button:hover {
+  background: var(--paper);
+}
+@media (max-width: 860px) {
+  .profile-menu {
+    grid-area: sign-in;
+    justify-self: end;
+  }
+}

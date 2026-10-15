@@ -2,8 +2,8 @@
 import { getCollection, render } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import ReadingNotice from '../../../components/ReadingNotice';
-import PracticeActivity from '../../../components/PracticeActivity';
 import { copy } from '../../../lib/i18n';
+import { RELEASED_LESSONS } from '../../../lib/released-lessons';
 import { glossaryCopy } from '../../../lib/glossary';
 import SignalGeometry from '../../../components/SignalGeometry.astro';
 export async function getStaticPaths() {
@@ -42,8 +42,8 @@ const releasedIds = new Set(
     .map((entry) => entry.data.lessonId),
 );
 const lessonNumber = lesson.data.lessonId.slice(1);
-// Lessons whose exercise bank has been reviewed and is served by the API.
-const practiceLessons = ['L05'];
+// Lessons whose exercise bank is served by the API (no answers in this module).
+const practiceLessons = RELEASED_LESSONS;
 // One representative glossary entry per lesson, linked at the end of the page.
 const glossaryLinks: Record<string, [string, string]> = {
   L01: ['E02', '0, 1'],
@@ -160,11 +160,16 @@ const [glossaryId, glossaryLabel] = glossaryLinks[lesson.data.lessonId] ?? [
         </p>
       )}
       {practiceLessons.includes(lesson.data.lessonId) && (
-        <PracticeActivity
-          lessonId={lesson.data.lessonId}
-          locale={locale}
-          client:visible
-        />
+        <p>
+          <a
+            class="primary-link"
+            href={
+              '/' + locale + '/lessons/' + lesson.data.lessonId + '/practice/'
+            }
+          >
+            {locale === 'fr' ? 'S’exercer' : 'Practise'} →
+          </a>
+        </p>
       )}
       <p>
         <a href={'/' + locale + '/glossary/#' + glossaryId}>

@@ -9,9 +9,10 @@ export const GET: APIRoute = async ({ locals }) => {
   if (!locals.auth) return json(503, { error: 'auth_unavailable' });
   try {
     const user = await locals.auth.verifiedUser();
-    return user
-      ? json(200, { user: { id: user.id } })
-      : json(401, { error: 'unauthenticated' });
+    if (user) return json(200, { user: { id: user.id } });
+    // A stale hint would make every page ask again.
+    locals.auth.clearSessionHint();
+    return json(401, { error: 'unauthenticated' });
   } catch {
     return json(503, { error: 'auth_unavailable' });
   }

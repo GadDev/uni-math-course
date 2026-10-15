@@ -15,8 +15,17 @@ export const GET: APIRoute = () =>
 export const POST: APIRoute = async (context) => {
   const auth = context.locals.auth;
   if (!auth) return new Response('Sign-in is not configured.', { status: 503 });
-  if (!sameOriginPost(context.request, auth.config))
+  if (!sameOriginPost(context.request, auth.config)) {
+    // TEMP: debug origin mismatch on Vercel; remove once fixed.
+    console.log('auth-origin-debug', {
+      method: context.request.method,
+      requestUrlOrigin: new URL(context.request.url).origin,
+      originHeader: context.request.headers.get('origin'),
+      secFetchSite: context.request.headers.get('sec-fetch-site'),
+      configOrigin: auth.config.origin,
+    });
     return new Response('Forbidden', { status: 403 });
+  }
   const form = await smallForm(context.request);
   if (!form) return new Response('Invalid form', { status: 400 });
   const locale = localeOf(form.get('locale'));
@@ -45,6 +54,7 @@ export const POST: APIRoute = async (context) => {
       auth.clearCookies();
       return back('denied');
     }
+    auth.setSessionHint();
     return context.redirect(safeReturn(form.get('next'), locale), 303);
   } catch {
     auth.clearCookies();

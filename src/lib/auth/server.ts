@@ -8,7 +8,12 @@ export type RequestAuth = {
   client: SupabaseClient;
   verifiedUser: () => Promise<User | null>;
   clearCookies: () => void;
+  /** Readable marker so the header can ask for a session only when one may exist. */
+  setSessionHint: () => void;
+  clearSessionHint: () => void;
 };
+
+export const SESSION_HINT = 'um-session';
 
 export function createRequestAuth(context: APIContext): RequestAuth | null {
   const config = authConfig({
@@ -82,7 +87,25 @@ export function createRequestAuth(context: APIContext): RequestAuth | null {
         // Every protected route goes through here: unlisted users are anonymous.
         return emailAllowed(config, data.user?.email) ? data.user : null;
       })()),
+    // Holds no token and grants nothing; the server still verifies every request.
+    setSessionHint: () =>
+      context.cookies.set(SESSION_HINT, '1', {
+        ...cookieOptions,
+        httpOnly: false,
+        maxAge: 7 * 24 * 60 * 60,
+      }),
+    clearSessionHint: () =>
+      context.cookies.set(SESSION_HINT, '', {
+        ...cookieOptions,
+        httpOnly: false,
+        maxAge: 0,
+      }),
     clearCookies: () => {
+      context.cookies.set(SESSION_HINT, '', {
+        ...cookieOptions,
+        httpOnly: false,
+        maxAge: 0,
+      });
       for (const name of jar.keys()) {
         if (
           name === prefix ||

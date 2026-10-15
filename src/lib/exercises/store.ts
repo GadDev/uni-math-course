@@ -18,6 +18,10 @@ export type AttemptDbRow = {
   created_at: string;
 };
 
+// Database error code and message only (no keys, no row data); for server logs.
+const describe = (error: { code?: string; message?: string }) =>
+  `${error.code ?? 'no-code'} ${error.message ?? ''}`.trim();
+
 export const toAttemptRow = (row: AttemptDbRow): AttemptRow => ({
   id: row.id,
   userId: row.user_id,
@@ -54,7 +58,7 @@ export function createAttemptStore(
         .eq('user_id', userId)
         .eq('submission_id', submissionId)
         .maybeSingle<AttemptDbRow>();
-      if (error) throw new Error('Attempt lookup failed');
+      if (error) throw new Error(`Attempt lookup failed: ${describe(error)}`);
       return data ? toAttemptRow(data) : null;
     },
     async hasAttempt(userId, exerciseId) {
@@ -63,7 +67,7 @@ export function createAttemptStore(
         .select('id', { count: 'exact', head: true })
         .eq('user_id', userId)
         .eq('exercise_id', exerciseId);
-      if (error) throw new Error('Attempt lookup failed');
+      if (error) throw new Error(`Attempt lookup failed: ${describe(error)}`);
       return (count ?? 0) > 0;
     },
     async insert(attempt: NewAttempt) {
@@ -84,7 +88,10 @@ export function createAttemptStore(
         .select(ATTEMPT_COLUMNS)
         .single<AttemptDbRow>();
       if (error?.code === '23505') return 'duplicate';
-      if (error || !data) throw new Error('Attempt insert failed');
+      if (error || !data)
+        throw new Error(
+          `Attempt insert failed: ${error ? describe(error) : 'no row returned'}`,
+        );
       return toAttemptRow(data);
     },
   };

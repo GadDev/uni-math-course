@@ -2,9 +2,12 @@
 import '@radix-ui/themes/styles.css';
 import 'katex/dist/katex.min.css';
 import '../styles/global.css';
+import '../styles/profile-menu.css';
 import { copy, type Locale } from '../lib/i18n';
 import { glossaryCopy } from '../lib/glossary';
+import { numberCopy } from '../lib/numbers';
 import { authCopy } from '../lib/auth/copy';
+import { progressCopy } from '../lib/progress-copy';
 interface Props {
   locale: Locale;
   title: string;
@@ -40,6 +43,11 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
       type="font/woff2"
       crossorigin
     />
+    <script is:inline>
+      // Hide "Sign in" up front when a session may exist, to avoid a flash.
+      if (/(?:^|; )um-session=1/.test(document.cookie))
+        document.documentElement.classList.add('has-session-hint');
+    </script>
     <link rel="alternate" hreflang="fr" href={'/fr/' + path} />
     <link rel="alternate" hreflang="en" href={'/en/' + path} />
   </head>
@@ -64,6 +72,12 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
         >
           {glossaryCopy[locale].nav}
         </a>
+        <a
+          href={'/' + locale + '/numbers/'}
+          aria-current={path === 'numbers/' ? 'page' : undefined}
+        >
+          {numberCopy[locale].nav}
+        </a>
       </nav>
       <div class="header-actions">
         <nav aria-label={text.language} class="language-switch">
@@ -87,6 +101,37 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
         <a class="header-sign-in" href={'/' + locale + '/sign-in/'}>
           {authCopy[locale].signIn}
         </a>
+        <div class="profile-menu" data-profile-menu hidden>
+          <button
+            type="button"
+            class="profile-button"
+            aria-expanded="false"
+            aria-controls="profile-panel"
+            aria-label={authCopy[locale].account}
+          >
+            <svg
+              viewBox="0 0 24 24"
+              width="22"
+              height="22"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path>
+            </svg>
+          </button>
+          <div id="profile-panel" class="profile-panel" hidden>
+            <a href={'/' + locale + '/account/'}>{authCopy[locale].account}</a>
+            <a href={'/' + locale + '/progress/'}>{progressCopy[locale].nav}</a>
+            <form method="post" action="/auth/logout/">
+              <input type="hidden" name="locale" value={locale} />
+              <button type="submit">{authCopy[locale].signOutShort}</button>
+            </form>
+          </div>
+        </div>
       </div>
     </header>
     <div class="page">
@@ -99,6 +144,49 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
       </p>
     </footer>
     <script>
+      const menu = document.querySelector<HTMLElement>('[data-profile-menu]');
+      const button = menu?.querySelector<HTMLButtonElement>('.profile-button');
+      const panel = menu?.querySelector<HTMLElement>('.profile-panel');
+      const signIn = document.querySelector<HTMLElement>('.header-sign-in');
+      const setOpen = (open: boolean) => {
+        if (!button || !panel) return;
+        button.setAttribute('aria-expanded', String(open));
+        panel.hidden = !open;
+      };
+      if (menu && button && panel) {
+        button.addEventListener('click', () =>
+          setOpen(button.getAttribute('aria-expanded') !== 'true'),
+        );
+        document.addEventListener('click', (event) => {
+          if (!menu.contains(event.target as Node)) setOpen(false);
+        });
+        menu.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && !panel.hidden) {
+            setOpen(false);
+            button.focus();
+          }
+        });
+        menu.addEventListener('focusout', (event) => {
+          if (!menu.contains(event.relatedTarget as Node | null))
+            setOpen(false);
+        });
+        // Anonymous readers make no account request: ask only when the
+        // readable hint cookie says a session may exist.
+        if (document.documentElement.classList.contains('has-session-hint')) {
+          fetch('/api/auth/session/', {
+            credentials: 'same-origin',
+            headers: { Accept: 'application/json' },
+          })
+            .then((response) => {
+              if (!response.ok) throw new Error('no session');
+              if (signIn) signIn.hidden = true;
+              menu.hidden = false;
+            })
+            .catch(() =>
+              document.documentElement.classList.remove('has-session-hint'),
+            );
+        }
+      }
       document
         .querySelectorAll<HTMLAnchorElement>('[data-language-link]')
         .forEach((link) => {

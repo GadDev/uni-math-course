@@ -1,0 +1,265 @@
+/* Header shared by both states, tuned to the Signal practice and feedback proposals. */
+.pp-header {
+  position: relative;
+}
+.pp-kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pp-num {
+  font-family: var(--display);
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--signal-red);
+}
+.pp-title .pp-last {
+  display: block;
+}
+.pp-title {
+  max-width: none;
+}
+.pp-arrow {
+  display: none;
+}
+/* An author display value would otherwise defeat the hidden attribute. */
+.pp-steps[hidden] {
+  display: none;
+}
+
+/* Feedback layout: full width, outline column dropped, large artwork. */
+.practice-page.is-feedback {
+  grid-template-columns: minmax(0, 1fr);
+}
+.practice-page.is-feedback .course-outline {
+  display: none;
+}
+.practice-page.is-feedback .practice-geometry {
+  width: min(430px, 34vw);
+  /* Crop to the header: two title lines (0.88 line height) plus kicker and subtitle. */
+  height: calc(min(8.6rem, 9.4vw) * 1.76 + 7.5rem);
+  overflow: hidden;
+  top: -2.5rem;
+  right: -2.5rem;
+}
+.practice-page.is-feedback .practice-geometry svg {
+  display: block;
+  width: 100%;
+}
+/* Panels sit above the artwork and never show it through. */
+.pp-state-feedback .pp-grid {
+  position: relative;
+  z-index: 1;
+  background: var(--paper);
+}
+.pp-state-feedback .pp-title {
+  margin: 0.1rem 0 0.5rem;
+  font-size: clamp(3.4rem, 9.4vw, 8.6rem);
+  line-height: 0.88;
+  letter-spacing: -0.015em;
+}
+.pp-state-feedback .pp-subtitle {
+  margin: 0 0 2rem;
+  padding: 0;
+  border: 0;
+  font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+  font-weight: 700;
+}
+.pp-state-feedback .pp-arrow {
+  position: absolute;
+  top: 4.6rem;
+  left: 66%;
+  display: block;
+  width: 16%;
+  height: 2px;
+  background: var(--ink);
+}
+.pp-state-feedback .pp-arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -5px;
+  width: 11px;
+  height: 11px;
+  border-top: 2px solid var(--ink);
+  border-right: 2px solid var(--ink);
+  transform: rotate(45deg);
+  transform-origin: 70% 30%;
+}
+
+/* Two panels in one ruled frame; the right panel carries the red rule. */
+.pp-state-feedback .pp-grid {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  border: 1px solid var(--ink);
+}
+.pp-state-feedback .pp-question {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+.pp-exercise-title {
+  margin: 0 0 0.6rem;
+  font-size: 1.9rem;
+}
+.pp-state-feedback .pp-prompt {
+  font-family: Arial, Helvetica, system-ui, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 1.1rem;
+}
+.pp-rule {
+  display: none;
+}
+.pp-state-feedback .pp-rule {
+  display: block;
+  align-self: stretch;
+  width: 1px;
+  margin: 0.4rem 0;
+  background: var(--soft-line);
+}
+.pp-state-feedback .pp-options {
+  gap: 0.7rem;
+}
+.pp-state-feedback .pp-option {
+  min-height: 62px;
+  border-color: var(--soft-line);
+  background: var(--card);
+}
+.pp-state-feedback .pp-option .pp-marker {
+  min-width: 2rem;
+  font-size: 1.5rem;
+}
+.pp-state-feedback .pp-option .pp-label {
+  letter-spacing: 0.06em;
+}
+.pp-state-feedback .pp-option input {
+  order: 3;
+  margin-left: auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  appearance: none;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+}
+.pp-state-feedback .pp-option input:checked {
+  border-color: var(--accent);
+  background: radial-gradient(circle, var(--accent) 0 45%, transparent 50%);
+}
+.pp-state-feedback .pp-option.is-wrong {
+  border: 2px solid var(--accent);
+  background: #fde4e0;
+}
+.pp-state-feedback .pp-option.is-wrong .pp-marker {
+  color: var(--accent);
+}
+.pp-state-feedback .pp-option.is-right {
+  border: 2px solid #1d5a2c;
+  background: #e6f1e8;
+}
+.pp-state-feedback .pp-option.is-right .pp-marker {
+  color: #1d5a2c;
+}
+.pp-state-feedback .pp-answer {
+  margin-top: 1.5rem;
+  border-top: 2px solid var(--ink);
+}
+.pp-state-feedback .pp-answer-title {
+  margin: 1rem 0 0.8rem;
+  font-size: 2rem;
+}
+.pp-state-feedback .pp-answer-row {
+  min-height: 78px;
+  padding: 0.7rem 1rem;
+  border: 0;
+  gap: 1.5rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.pp-state-feedback .pp-answer-row .pp-marker {
+  font-size: 2.6rem;
+  line-height: 1;
+}
+.pp-state-feedback .pp-answer-row.is-wrong .pp-marker {
+  color: var(--accent);
+}
+.pp-state-feedback .pp-tag {
+  padding: 0.7rem 1.3rem;
+  font-size: 0.95rem;
+}
+
+.pp-state-feedback section.pp-feedback,
+section.pp-feedback {
+  padding: 1.5rem 2rem 1.5rem;
+  border-left: 8px solid var(--signal-red);
+}
+section.pp-feedback.is-right {
+  border-left-color: #1d5a2c;
+}
+section.pp-feedback .pp-feedback-title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.9rem, 3.4vw, 2.9rem);
+  line-height: 1.05;
+  text-transform: none;
+}
+section.pp-feedback .pp-choice,
+section.pp-feedback .pp-explanation,
+section.pp-feedback .pp-retry-hint {
+  margin: 0 0 0.9rem;
+  max-width: 44rem;
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+section.pp-feedback .pp-choice {
+  margin-bottom: 0.2rem;
+}
+section.pp-feedback .pp-actions {
+  margin-top: 1.6rem;
+}
+section.pp-feedback .pp-button {
+  min-height: 58px;
+  padding: 0.8rem 1.6rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+section.pp-feedback .pp-button-solid {
+  font-weight: 700;
+}
+section.pp-feedback .pp-note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 1100px) {
+  .pp-state-feedback .pp-arrow {
+    display: none;
+  }
+}
+@media (max-width: 960px) {
+  .pp-state-feedback .pp-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .practice-page.is-feedback .practice-geometry {
+    display: none;
+  }
+  section.pp-feedback {
+    padding: 1.25rem;
+    border-left: 0;
+    border-top: 8px solid var(--signal-red);
+  }
+  section.pp-feedback.is-right {
+    border-top-color: #1d5a2c;
+  }
+}
+@media (max-width: 480px) {
+  .pp-state-feedback .pp-title {
+    font-size: 3rem;
+  }
+  .pp-state-feedback .pp-answer-row {
+    flex-wrap: wrap;
+    font-size: 1.1rem;
+  }
+}
