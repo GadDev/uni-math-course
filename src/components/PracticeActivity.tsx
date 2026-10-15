@@ -271,7 +271,9 @@ export default function PracticeActivity({
         ),
       );
       const resumed = data.exercises.findIndex(
-        (item) => item.id === stored?.currentExerciseId,
+        (item) =>
+          item.id === stored?.currentExerciseId &&
+          mine[item.id]?.version === item.version,
       );
       setCurrent(
         stored?.learner === data.learner && resumed >= 0 ? resumed : 0,
