@@ -26,8 +26,6 @@ $$
 $$
 Dans ce cours, $\mathbb{N} = \{0, 1, 2, \ldots\}$ contient zéro. Les langages de programmation représentent ces ensembles de façons différentes, et les ordinateurs ne représentent les réels qu’approximativement.
 
-**Guide visuel préalable :** explorez les [familles de nombres](/fr/numbers/) pour distinguer naturels, rationnels, irrationnels, réels et complexes.
-
 L’**ensemble vide** $\varnothing$ ne contient aucun élément.
 
 ## Les ensembles par énumération
