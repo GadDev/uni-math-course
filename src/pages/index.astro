@@ -1,3 +1,5 @@
 ---
-return Astro.redirect('/fr/');
+export const prerender = false;
+
+return Astro.redirect('/fr', 302);
 ---
