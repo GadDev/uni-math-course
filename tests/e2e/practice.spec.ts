@@ -49,6 +49,15 @@ test('hint exposure and active response survive closing, reload and language swi
   await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
     '04',
   );
+  await page.getByRole('link', { name: 'EN', exact: true }).click();
+  await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
+    '04',
+  );
+  await expect(page.locator(`input[value="${bank[3].answer}"]`)).toBeChecked();
+  await page.getByRole('link', { name: 'FR', exact: true }).click();
+  await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
+    '04',
+  );
   const outgoing = page.waitForRequest(
     (r) => r.url().endsWith('/api/attempts/') && r.method() === 'POST',
   );
@@ -63,6 +72,77 @@ test('hint exposure and active response survive closing, reload and language swi
   expect(
     await page.evaluate(() => document.documentElement.scrollWidth),
   ).toBeLessThanOrEqual(320);
+});
+
+for (const invalidation of ['version', 'learner', 'missing-item'] as const) {
+  test(`active exercise falls back safely for a ${invalidation} mismatch`, async ({
+    page,
+    context,
+  }) => {
+    await identify(context);
+    await page.goto('/en/lessons/L05/practice/');
+    await page.locator('.pp-step').nth(3).click();
+    await page.locator(`input[value="${bank[3].answer}"]`).check();
+    await expect
+      .poll(() =>
+        page.evaluate(
+          () =>
+            JSON.parse(sessionStorage.getItem('um-practice:L05') ?? '{}')
+              .currentExerciseId,
+        ),
+      )
+      .toBe('L05-E04');
+    await page.evaluate((reason) => {
+      const draft = JSON.parse(sessionStorage.getItem('um-practice:L05')!);
+      if (reason === 'version') draft.entries['L05-E04'].version += 1;
+      else if (reason === 'learner') draft.learner = 'another-learner';
+      else draft.currentExerciseId = 'L05-E99';
+      sessionStorage.setItem('um-practice:L05', JSON.stringify(draft));
+    }, invalidation);
+    await page.reload();
+    await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
+      '01',
+    );
+    await page.locator('.pp-step').nth(3).click();
+    if (invalidation === 'missing-item') {
+      await expect(
+        page.locator(`input[value="${bank[3].answer}"]`),
+      ).toBeChecked();
+    } else {
+      await expect(page.locator('input:checked')).toHaveCount(0);
+    }
+  });
+}
+
+test('active exercise is restored by ID when exercise order changes', async ({
+  page,
+  context,
+}) => {
+  await identify(context);
+  await page.goto('/en/lessons/L05/practice/');
+  await page.locator('.pp-step').nth(3).click();
+  await page.locator(`input[value="${bank[3].answer}"]`).check();
+  await page.route('**/api/exercises/L05/', async (route) => {
+    const response = await route.fetch();
+    const payload = await response.json();
+    const selected = payload.exercises.find(
+      (exercise: { id: string }) => exercise.id === 'L05-E04',
+    );
+    payload.exercises = [
+      selected,
+      ...payload.exercises.filter(
+        (exercise: { id: string }) => exercise.id !== selected.id,
+      ),
+    ];
+    await route.fulfill({ response, json: payload });
+  });
+  await page.reload();
+  await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
+    '01',
+  );
+  await expect(page.locator('input[name="L05-E04"]:checked')).toHaveValue(
+    bank[3].answer,
+  );
 });
 
 test('sign in, wrong answer, retry, saved progress and later sign-in work together', async ({

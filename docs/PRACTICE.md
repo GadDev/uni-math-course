@@ -19,7 +19,7 @@ A signed-in learner can open the L05 practice section, answer six exercises, rec
 - **Open mistakes.** An exercise is listed for review while the learner's latest attempt on it is incorrect.
 - **Public reading.** Lesson pages stay prerendered and make no account request for anonymous readers; a signed-in header verifies its session hint. Lessons link to the practice page.
 - **Practice page.** `/fr/lessons/L05/practice/` and `/en/lessons/L05/practice/` are on-demand authenticated pages (layouts from design proposals 05 and 06). One exercise is shown at a time; after grading the same page switches to the feedback layout. The exercises request starts when the page opens, after server identity verification; a signed-out visitor is redirected to sign-in.
-- **Drafts.** Unfinished answers live in sessionStorage for the tab, scoped to the learner and exercise version, including the active exercise ID and current feedback. They hold no tokens, are discarded when the account or version differs, and are cleared before normal browser logout navigation.
+- **Drafts.** Unfinished answers live in sessionStorage for the tab, scoped to the learner and exercise version, including the active exercise ID and current feedback. The active exercise is restored by ID only when the learner and that entry's version match; a stale, missing or foreign selection falls back to the first exercise. They hold no tokens, are discarded when the account or version differs, and are cleared before normal browser logout navigation.
 
 ## Data and keys
 
