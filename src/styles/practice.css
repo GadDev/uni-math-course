@@ -1,0 +1,295 @@
+.practice-page .outline-big {
+  margin: 0 0 1.5rem;
+  font-family: var(--display);
+  font-size: 7.5rem;
+  line-height: 0.9;
+  color: var(--signal-red);
+}
+.practice-column {
+  max-width: none;
+}
+.practice-geometry {
+  position: absolute;
+  top: -2rem;
+  right: -2.5rem;
+  width: 280px;
+  z-index: 0;
+  pointer-events: none;
+}
+.pp {
+  position: relative;
+  z-index: 1;
+}
+.pp-kicker {
+  margin: 0;
+}
+.pp-title {
+  margin: 0.3rem 0 0.6rem;
+  max-width: 14ch;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.pp-dot {
+  color: var(--signal-red);
+}
+.pp-subtitle {
+  margin: 0 0 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.pp-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.pp-steps ol {
+  display: flex;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.pp-step {
+  min-width: 44px;
+  min-height: 44px;
+  font: inherit;
+  font-weight: 700;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  cursor: pointer;
+}
+.pp-step[aria-current='step'] {
+  background: var(--ink);
+  color: white;
+}
+.pp-step.is-right {
+  border-bottom: 4px solid #1d5a2c;
+}
+.pp-step.is-wrong {
+  border-bottom: 4px solid var(--accent);
+}
+.pp-count {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.pp-grid {
+  display: grid;
+}
+.pp-feedback .pp-grid {
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+.pp-feedback .pp-question {
+  padding: 1.5rem;
+}
+.pp-prompt {
+  display: block;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  line-height: 1.2;
+  text-align: left;
+}
+.pp-instruction {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+.pp-fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.pp-options {
+  display: grid;
+  gap: 0.75rem;
+}
+.pp-option,
+.pp-answer-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  min-height: 56px;
+  margin: 0;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+}
+.pp-option input {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin: 0;
+  flex: none;
+  accent-color: var(--accent);
+}
+.pp-option:has(input:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.pp-option.is-chosen {
+  border-width: 2px;
+}
+.pp-marker {
+  min-width: 1.5rem;
+  font-family: var(--display);
+  font-size: 1.4rem;
+}
+.pp-label {
+  flex: 1;
+}
+.pp-option.is-wrong,
+.pp-answer-row.is-wrong {
+  border-color: var(--accent);
+  background: #fce7e3;
+}
+.pp-option.is-right,
+.pp-answer-row.is-right {
+  border-color: #1d5a2c;
+  background: #e6f1e8;
+}
+.pp-feedback .pp-option,
+.pp-answer-row {
+  cursor: default;
+}
+.pp-answer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+.pp-answer-title {
+  margin: 0 0 0.75rem;
+  font-size: 1.6rem;
+}
+.pp-tag {
+  padding: 0.35rem 0.8rem;
+  background: var(--accent);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pp-answer-row.is-right .pp-tag {
+  background: #1d5a2c;
+}
+.pp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
+}
+.pp-action {
+  display: grid;
+  gap: 0.35rem;
+}
+.pp-action small {
+  color: var(--muted);
+  max-width: 22rem;
+}
+.pp-button {
+  display: inline-flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 52px;
+  padding: 0.7rem 1.2rem;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--ink);
+  cursor: pointer;
+}
+.pp-button-solid {
+  background: var(--ink);
+  color: white;
+}
+.pp-button-outline {
+  background: transparent;
+  color: var(--ink);
+}
+.pp-button:disabled {
+  background: #b9b9b2;
+  border-color: #b9b9b2;
+  color: #3f3f3a;
+  cursor: not-allowed;
+}
+.pp-example {
+  align-self: center;
+  color: var(--ink);
+  font-weight: 700;
+}
+.pp-hint {
+  margin: 1rem 0 0;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--ink);
+  background: var(--card);
+}
+section.pp-feedback {
+  padding: 1.5rem;
+  border-left: 8px solid var(--signal-red);
+}
+section.pp-feedback.is-right {
+  border-left-color: #1d5a2c;
+}
+.pp-feedback-title {
+  margin: 0 0 1rem;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+}
+.pp-feedback-title:focus {
+  outline: none;
+}
+.pp-explanation {
+  max-width: 40rem;
+}
+.pp-note {
+  margin: 1.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.pp-footnote {
+  margin: 2rem 0 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+}
+.pp-gate {
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+}
+
+@media (max-width: 960px) {
+  .practice-page .outline-big,
+  .practice-geometry {
+    display: none;
+  }
+  .pp-feedback .pp-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  section.pp-feedback {
+    border-left: 0;
+    border-top: 8px solid var(--signal-red);
+  }
+  section.pp-feedback.is-right {
+    border-top-color: #1d5a2c;
+  }
+}
+@media (max-width: 480px) {
+  .pp-title {
+    font-size: 2.6rem;
+  }
+  .pp-button,
+  .pp-action {
+    width: 100%;
+  }
+}

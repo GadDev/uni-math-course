@@ -1,0 +1,85 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../../../layouts/Base.astro';
+import PracticeActivity from '../../../../components/PracticeActivity';
+import SignalGeometry from '../../../../components/SignalGeometry.astro';
+import { copy, locales } from '../../../../lib/i18n';
+import '../../../../styles/practice.css';
+// Lessons whose exercise bank has been reviewed and is served by the API.
+const practiceLessons = ['L05'];
+export async function getStaticPaths() {
+  return locales.flatMap((locale) =>
+    practiceLessons.map((lessonId) => ({ params: { locale, lessonId } })),
+  );
+}
+const { locale, lessonId } = Astro.params as {
+  locale: 'fr' | 'en';
+  lessonId: string;
+};
+const text = copy[locale];
+const lessons = await getCollection('lessons');
+const lesson = lessons.find(
+  (entry) => entry.data.locale === locale && entry.data.lessonId === lessonId,
+);
+if (!lesson) throw new Error('Missing lesson for practice page');
+const releasedIds = new Set(
+  lessons
+    .filter((entry) => entry.data.locale === locale)
+    .map((entry) => entry.data.lessonId),
+);
+// The guided example is the fourth section; sections are aligned across languages.
+const { headings } = await render(lesson);
+const example = headings.filter((heading) => heading.depth === 2)[3];
+if (!example) throw new Error('Missing guided example section');
+const lessonHref = `/${locale}/lessons/${lessonId}/`;
+const topic = text.programme.find((item) => item.id === lessonId);
+const lessonNumber = lessonId.slice(1);
+---
+
+<Base
+  locale={locale}
+  title={`${topic?.title ?? lessonId} · ${locale === 'fr' ? 'Pratique' : 'Practice'}`}
+  description={lesson.data.summary}
+  path={`lessons/${lessonId}/practice/`}
+>
+  <main id="main" tabindex="-1" class="lesson-page practice-page">
+    <aside class="course-outline">
+      <p class="eyebrow">
+        {lessonNumber} / {topic?.title}
+      </p>
+      <p class="outline-big" aria-hidden="true">
+        {lessonNumber}
+      </p>
+      <ol class="outline-topics" aria-label={text.outline}>
+        {text.programme.map((item) => (
+          <li
+            class={item.id === lessonId ? 'current-topic' : undefined}
+            aria-current={item.id === lessonId ? 'page' : undefined}
+          >
+            <span class="outline-number">{item.id.slice(1)}</span>
+            <span>
+              {releasedIds.has(item.id) && item.id !== lessonId ? (
+                <a href={`/${locale}/lessons/${item.id}/`}>{item.title}</a>
+              ) : (
+                item.title
+              )}
+              {!releasedIds.has(item.id) && <small>{text.planned}</small>}
+            </span>
+          </li>
+        ))}
+      </ol>
+    </aside>
+    <div class="reading-column practice-column">
+      <div class="practice-geometry">
+        <SignalGeometry compact />
+      </div>
+      <PracticeActivity
+        client:load
+        lessonId={lessonId}
+        locale={locale}
+        lessonNumber={lessonNumber}
+        exampleHref={`${lessonHref}#${example.slug}`}
+      />
+    </div>
+  </main>
+</Base>

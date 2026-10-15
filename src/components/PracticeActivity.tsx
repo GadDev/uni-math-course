@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { Locale } from '../lib/i18n';
 
 // Client-side shapes. Answers, feedback and explanations only ever arrive in a
@@ -29,78 +29,111 @@ type Entry = {
   result: Result | null;
 };
 type Stored = { learner: string; entries: Record<string, Entry> };
-type Phase = 'idle' | 'loading' | 'ready' | 'signin' | 'unavailable';
+type Phase = 'loading' | 'ready' | 'signin' | 'unavailable';
 
 const text = {
   fr: {
-    title: 'À vous de jouer',
-    intro:
-      'Six exercices indépendants sur l’implication. Votre première réponse sans indice compte comme preuve de maîtrise ; les essais suivants servent à s’entraîner.',
-    start: 'Commencer les exercices',
+    kicker: 'Pratiquer',
+    title: 'À vous de raisonner',
+    subtitle: 'Initiation · Exercice original · Version 1',
+    reviewKicker: 'Comprendre son erreur',
+    reviewTitle: ['Revoir', 'Comprendre', 'Réessayer'],
+    reviewSubtitle: 'Une erreur peut préciser une idée.',
+    doneTitle: ['Bien raisonné'],
+    doneSubtitle:
+      'Votre réponse est juste. Lisez l’explication, puis continuez.',
     loading: 'Chargement des exercices…',
     signIn: 'Se connecter pour s’exercer',
     signInNote:
       'La lecture reste libre. Les exercices et l’enregistrement de vos réponses demandent un compte.',
-    progress: 'Voir ma progression',
     unavailable:
       'Les exercices sont momentanément indisponibles. Réessayez dans quelques instants.',
     retryLoad: 'Réessayer',
+    steps: 'Exercices',
     exercise: 'Exercice',
-    hint: 'Voir l’indice',
+    of: 'sur',
+    chooseOne: 'Choisissez une seule réponse.',
+    complete: 'Complétez chaque ligne.',
+    hint: 'Afficher un indice',
+    optional: 'Facultatif',
     hintLabel: 'Indice',
-    submit: 'Valider',
+    submit: 'Vérifier ma réponse',
     sending: 'Envoi…',
+    needAnswer: 'Choisissez une réponse pour continuer.',
+    needRows: 'Complétez toutes les lignes pour continuer.',
+    example: 'Revoir l’exemple expliqué',
+    footnote: 'Pas de chronomètre. Pas de classement.',
+    yourAnswer: 'Votre réponse',
+    yourRows: 'Vos réponses',
+    toReview: 'À revoir',
+    right: 'Correct',
     again: 'Réessayer cet exercice',
-    result: 'Résultat',
+    next: 'Exercice suivant',
+    reviews: 'Retrouver mes révisions',
     row: 'Ligne',
-    correct: 'Correct.',
-    incorrect: 'Pas tout à fait.',
+    result: 'Résultat',
     rowOk: 'correct',
     rowBad: 'incorrect',
     saved: 'Tentative enregistrée.',
     evidence: 'Compte comme preuve de maîtrise indépendante.',
     practiceOnly:
-      'Enregistrée comme entraînement : un indice ou un essai répété ne compte pas comme preuve.',
+      'La correction est révélée. Réessayer cet exercice, ou répondre après un indice, ne constitue pas une nouvelle preuve indépendante.',
     error:
       'La réponse n’a pas pu être enregistrée. Réessayez ; vos choix sont conservés.',
     expired: 'Votre session a expiré. Reconnectez-vous pour continuer.',
   },
   en: {
-    title: 'Your turn',
-    intro:
-      'Six independent exercises on implication. Your first response without a hint counts as mastery evidence; later tries are practice.',
-    start: 'Start the exercises',
+    kicker: 'Practise',
+    title: 'Your turn to reason',
+    subtitle: 'Introductory · Original exercise · Version 1',
+    reviewKicker: 'Understand your mistake',
+    reviewTitle: ['Review', 'Understand', 'Retry'],
+    reviewSubtitle: 'A mistake can sharpen an idea.',
+    doneTitle: ['Well reasoned'],
+    doneSubtitle:
+      'Your answer is correct. Read the explanation, then carry on.',
     loading: 'Loading exercises…',
     signIn: 'Sign in to practise',
     signInNote:
       'Reading stays open. Exercises and saving your answers need an account.',
-    progress: 'See my progress',
     unavailable:
       'Exercises are temporarily unavailable. Please try again shortly.',
     retryLoad: 'Try again',
+    steps: 'Exercises',
     exercise: 'Exercise',
-    hint: 'Show the hint',
+    of: 'of',
+    chooseOne: 'Choose one answer only.',
+    complete: 'Complete every row.',
+    hint: 'Show a hint',
+    optional: 'Optional',
     hintLabel: 'Hint',
-    submit: 'Check answer',
+    submit: 'Check my answer',
     sending: 'Sending…',
+    needAnswer: 'Choose an answer to continue.',
+    needRows: 'Complete every row to continue.',
+    example: 'Review the worked example',
+    footnote: 'No timer. No ranking.',
+    yourAnswer: 'Your answer',
+    yourRows: 'Your answers',
+    toReview: 'To review',
+    right: 'Correct',
     again: 'Try this exercise again',
-    result: 'Result',
+    next: 'Next exercise',
+    reviews: 'Find my reviews',
     row: 'Row',
-    correct: 'Correct.',
-    incorrect: 'Not quite.',
+    result: 'Result',
     rowOk: 'correct',
     rowBad: 'incorrect',
     saved: 'Attempt saved.',
     evidence: 'Counts as independent mastery evidence.',
     practiceOnly:
-      'Saved as practice: a hint or a repeated try does not count as evidence.',
+      'The correction is revealed. Trying this exercise again, or answering after a hint, is not new independent evidence.',
     error: 'Your answer could not be saved. Try again; your choices are kept.',
     expired: 'Your session has expired. Sign in again to continue.',
   },
 } as const;
 
 const draftKey = (lessonId: string) => `um-practice:${lessonId}`;
-const startedKey = (lessonId: string) => `um-practice-started:${lessonId}`;
 
 // Unfinished work lives in this tab only and holds answers, never tokens.
 function readStored(lessonId: string): Stored | null {
@@ -120,16 +153,6 @@ function writeStored(lessonId: string, value: Stored) {
   } catch {
     // Storage can be unavailable; the activity still works without it.
   }
-}
-function flag(lessonId: string, value?: boolean): boolean {
-  try {
-    if (value === undefined)
-      return sessionStorage.getItem(startedKey(lessonId)) === '1';
-    sessionStorage.setItem(startedKey(lessonId), value ? '1' : '0');
-  } catch {
-    // ignore
-  }
-  return !!value;
 }
 
 const freshEntry = (version: number): Entry => ({
@@ -164,21 +187,31 @@ function responseOf(exercise: Exercise, entry: Entry) {
       };
 }
 
+// Options are marked 1–4 rather than A–D: the option labels themselves use the
+// variable names A and B (for example "A = 0, B = 1").
+const marker = (index: number) => String(index + 1);
+
 export default function PracticeActivity({
   lessonId,
   locale,
+  lessonNumber,
+  exampleHref,
 }: {
   lessonId: string;
   locale: Locale;
+  lessonNumber: string;
+  exampleHref: string;
 }) {
   const t = text[locale];
-  const [ready, setReady] = useState(false);
-  const [phase, setPhase] = useState<Phase>('idle');
+  const [phase, setPhase] = useState<Phase>('loading');
   const [learner, setLearner] = useState('');
   const [exercises, setExercises] = useState<Exercise[]>([]);
   const [entries, setEntries] = useState<Record<string, Entry>>({});
+  const [current, setCurrent] = useState(0);
   const [busy, setBusy] = useState<string | null>(null);
   const [failed, setFailed] = useState<Record<string, 'error' | 'expired'>>({});
+  const feedbackHeading = useRef<HTMLHeadingElement>(null);
+  const graded = useRef(false);
 
   async function load() {
     setPhase('loading');
@@ -218,9 +251,7 @@ export default function PracticeActivity({
   }
 
   useEffect(() => {
-    setReady(true);
-    // A tab that already started practice resumes after a language switch.
-    if (flag(lessonId)) void load();
+    void load();
   }, []);
 
   useEffect(() => {
@@ -228,17 +259,27 @@ export default function PracticeActivity({
       writeStored(lessonId, { learner, entries });
   }, [entries, learner, phase]);
 
+  const exercise = exercises[current];
+  const entry = exercise ? entries[exercise.id] : undefined;
+  const result = entry?.result ?? null;
+
+  // Announce the verdict by moving focus to the feedback heading.
+  useEffect(() => {
+    if (result && graded.current) feedbackHeading.current?.focus();
+    graded.current = false;
+  }, [result]);
+
   const update = (id: string, change: (entry: Entry) => Entry) =>
-    setEntries((current) => {
-      const entry = current[id];
-      return entry ? { ...current, [id]: change(entry) } : current;
+    setEntries((all) => {
+      const found = all[id];
+      return found ? { ...all, [id]: change(found) } : all;
     });
 
-  async function submit(exercise: Exercise) {
-    const entry = entries[exercise.id];
-    if (!entry || busy) return;
-    setBusy(exercise.id);
-    setFailed(({ [exercise.id]: _, ...rest }) => rest);
+  async function submit(target: Exercise) {
+    const found = entries[target.id];
+    if (!found || busy) return;
+    setBusy(target.id);
+    setFailed(({ [target.id]: _, ...rest }) => rest);
     try {
       const response = await fetch('/api/attempts/', {
         method: 'POST',
@@ -248,56 +289,80 @@ export default function PracticeActivity({
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          submissionId: entry.submissionId,
-          exerciseId: exercise.id,
-          version: exercise.version,
+          submissionId: found.submissionId,
+          exerciseId: target.id,
+          version: target.version,
           locale,
-          hintUsed: entry.hintShown,
-          response: responseOf(exercise, entry),
+          hintUsed: found.hintShown,
+          response: responseOf(target, found),
         }),
       });
       if (response.status === 401)
-        return setFailed((f) => ({ ...f, [exercise.id]: 'expired' }));
+        return setFailed((f) => ({ ...f, [target.id]: 'expired' }));
       if (!response.ok)
-        return setFailed((f) => ({ ...f, [exercise.id]: 'error' }));
-      const result = (await response.json()) as Result;
-      update(exercise.id, (current) => ({ ...current, result }));
+        return setFailed((f) => ({ ...f, [target.id]: 'error' }));
+      const outcome = (await response.json()) as Result;
+      graded.current = true;
+      update(target.id, (value) => ({ ...value, result: outcome }));
     } catch {
-      setFailed((f) => ({ ...f, [exercise.id]: 'error' }));
+      setFailed((f) => ({ ...f, [target.id]: 'error' }));
     } finally {
       setBusy(null);
     }
   }
 
   const signInHref = `/${locale}/sign-in/?${new URLSearchParams({
-    next: `/${locale}/lessons/${lessonId}/#practice`,
+    next: `/${locale}/lessons/${lessonId}/practice/`,
   })}`;
+
+  const reviewing = result !== null && !result.correct;
+  const heading = !result
+    ? [t.title]
+    : result.correct
+      ? t.doneTitle
+      : t.reviewTitle;
+  const kicker = reviewing ? t.reviewKicker : t.kicker;
+  const subtitle = !result
+    ? t.subtitle
+    : result.correct
+      ? t.doneSubtitle
+      : t.reviewSubtitle;
+
+  const chosenOption =
+    exercise?.type === 'single-choice'
+      ? exercise.options.findIndex((o) => o.id === entry?.answers.choice)
+      : -1;
 
   return (
     <section
-      id="practice"
-      className="practice"
-      aria-labelledby="practice-title"
+      className={`pp pp-${result ? 'feedback' : 'practice'}`}
+      aria-labelledby="pp-title"
     >
-      <h2 id="practice-title">{t.title}</h2>
-      <p>{t.intro}</p>
+      <header className="pp-header">
+        <p className="eyebrow pp-kicker">
+          <span className="lesson-tag">{lessonNumber}</span> / {kicker}
+        </p>
+        <h1 id="pp-title" className="pp-title">
+          {heading.map((word, index) => (
+            <span key={word}>
+              {word}
+              <span className="pp-dot" aria-hidden="true">
+                .
+              </span>
+              {index < heading.length - 1 ? ' ' : ''}
+            </span>
+          ))}
+        </h1>
+        <p className="pp-subtitle">{subtitle}</p>
+      </header>
 
-      {phase === 'idle' && (
-        <button
-          type="button"
-          className="primary-link auth-button"
-          disabled={!ready}
-          onClick={() => {
-            flag(lessonId, true);
-            void load();
-          }}
-        >
-          {t.start}
-        </button>
+      {phase === 'loading' && (
+        <p role="status" className="pp-body">
+          {t.loading}
+        </p>
       )}
-      {phase === 'loading' && <p role="status">{t.loading}</p>}
       {phase === 'signin' && (
-        <div className="practice-gate">
+        <div className="pp-body pp-gate">
           <p role="status">{t.signInNote}</p>
           <a className="primary-link" href={signInHref}>
             {t.signIn}
@@ -305,7 +370,7 @@ export default function PracticeActivity({
         </div>
       )}
       {phase === 'unavailable' && (
-        <div className="practice-gate">
+        <div className="pp-body pp-gate">
           <p role="alert">{t.unavailable}</p>
           <button
             type="button"
@@ -317,46 +382,92 @@ export default function PracticeActivity({
         </div>
       )}
 
-      {phase === 'ready' &&
-        exercises.map((exercise, index) => {
-          const entry = entries[exercise.id];
-          if (!entry) return null;
-          const locked = entry.result !== null;
-          const headingId = `${exercise.id}-title`;
-          return (
-            <article
-              key={exercise.id}
-              className="practice-exercise"
-              aria-labelledby={headingId}
-            >
-              <h3 id={headingId}>
-                {t.exercise} {index + 1}
-              </h3>
+      {phase === 'ready' && exercise && entry && (
+        <div className="pp-body">
+          <nav className="pp-steps" aria-label={t.steps}>
+            <ol>
+              {exercises.map((item, index) => {
+                const done = entries[item.id]?.result;
+                return (
+                  <li key={item.id}>
+                    <button
+                      type="button"
+                      className={
+                        done
+                          ? done.correct
+                            ? 'pp-step is-right'
+                            : 'pp-step is-wrong'
+                          : 'pp-step'
+                      }
+                      aria-current={index === current ? 'step' : undefined}
+                      onClick={() => setCurrent(index)}
+                    >
+                      <span className="visually-hidden">{t.exercise} </span>
+                      {String(index + 1).padStart(2, '0')}
+                      {done && (
+                        <span className="visually-hidden">
+                          {' '}
+                          ({done.correct ? t.rowOk : t.rowBad})
+                        </span>
+                      )}
+                    </button>
+                  </li>
+                );
+              })}
+            </ol>
+            <p className="pp-count">
+              {t.exercise} {current + 1} {t.of} {exercises.length}
+            </p>
+          </nav>
+
+          <div className="pp-grid">
+            <div className="pp-question">
               {exercise.type === 'single-choice' ? (
-                <fieldset className="practice-fieldset" disabled={locked}>
-                  <legend>{exercise.prompt[locale]}</legend>
-                  {exercise.options.map((option) => (
-                    <label key={option.id} className="practice-option">
-                      <input
-                        type="radio"
-                        name={exercise.id}
-                        value={option.id}
-                        checked={entry.answers.choice === option.id}
-                        onChange={() =>
-                          update(exercise.id, (current) => ({
-                            ...current,
-                            answers: { choice: option.id },
-                          }))
-                        }
-                      />
-                      <span>{option.label[locale]}</span>
-                    </label>
-                  ))}
+                <fieldset className="pp-fieldset" disabled={!!result}>
+                  <legend className="pp-prompt">
+                    {exercise.prompt[locale]}
+                  </legend>
+                  {!result && <p className="pp-instruction">{t.chooseOne}</p>}
+                  <div className="pp-options">
+                    {exercise.options.map((option, index) => (
+                      <label
+                        key={option.id}
+                        className={`pp-option${
+                          entry.answers.choice === option.id ? ' is-chosen' : ''
+                        }${
+                          result && entry.answers.choice === option.id
+                            ? result.correct
+                              ? ' is-right'
+                              : ' is-wrong'
+                            : ''
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name={exercise.id}
+                          value={option.id}
+                          checked={entry.answers.choice === option.id}
+                          onChange={() =>
+                            update(exercise.id, (value) => ({
+                              ...value,
+                              answers: { choice: option.id },
+                            }))
+                          }
+                        />
+                        <span className="pp-marker" aria-hidden="true">
+                          {marker(index)}
+                        </span>
+                        <span className="pp-label">{option.label[locale]}</span>
+                      </label>
+                    ))}
+                  </div>
                 </fieldset>
               ) : (
                 <div className="practice-table-wrap">
                   <table className="practice-table">
-                    <caption>{exercise.prompt[locale]}</caption>
+                    <caption className="pp-prompt">
+                      {exercise.prompt[locale]}
+                    </caption>
                     <thead>
                       <tr>
                         {variables(exercise.rows[0] ?? {}).map((name) => (
@@ -373,7 +484,7 @@ export default function PracticeActivity({
                         const label = variables(row)
                           .map((name) => `${name} = ${bit(row[name] ?? '')}`)
                           .join(', ');
-                        const verdict = entry.result?.rowResults?.[rowId];
+                        const verdict = result?.rowResults?.[rowId];
                         return (
                           <tr key={rowId}>
                             {variables(row).map((name) => (
@@ -382,7 +493,7 @@ export default function PracticeActivity({
                             <td>
                               <fieldset
                                 className="practice-cell"
-                                disabled={locked}
+                                disabled={!!result}
                               >
                                 <legend className="visually-hidden">
                                   {t.row} {label}
@@ -395,10 +506,10 @@ export default function PracticeActivity({
                                       value={value}
                                       checked={entry.answers[rowId] === value}
                                       onChange={() =>
-                                        update(exercise.id, (current) => ({
-                                          ...current,
+                                        update(exercise.id, (found) => ({
+                                          ...found,
                                           answers: {
-                                            ...current.answers,
+                                            ...found.answers,
                                             [rowId]: value,
                                           },
                                         }))
@@ -429,36 +540,82 @@ export default function PracticeActivity({
                 </div>
               )}
 
-              {!locked && (
-                <div className="practice-actions">
-                  <button
-                    type="button"
-                    className="primary-link auth-button"
-                    disabled={!complete(exercise, entry) || busy !== null}
-                    onClick={() => void submit(exercise)}
+              {result && exercise.type === 'single-choice' && (
+                <div className="pp-answer">
+                  <h2 className="pp-answer-title">{t.yourAnswer}</h2>
+                  <p
+                    className={`pp-answer-row ${
+                      result.correct ? 'is-right' : 'is-wrong'
+                    }`}
                   >
-                    {busy === exercise.id ? t.sending : t.submit}
-                  </button>
-                  {!entry.hintShown && (
-                    <button
-                      type="button"
-                      className="practice-secondary"
-                      onClick={() =>
-                        update(exercise.id, (current) => ({
-                          ...current,
-                          hintShown: true,
-                        }))
-                      }
-                    >
-                      {t.hint}
-                    </button>
-                  )}
+                    <span className="pp-marker" aria-hidden="true">
+                      {marker(chosenOption)}
+                    </span>
+                    <span className="pp-label">
+                      {exercise.options[chosenOption]?.label[locale]}
+                    </span>
+                    <span className="pp-tag">
+                      {result.correct ? t.right : t.toReview}
+                    </span>
+                  </p>
                 </div>
               )}
-              {entry.hintShown && !locked && (
-                <p className="practice-hint">
-                  <strong>{t.hintLabel} :</strong> {exercise.hint[locale]}
-                </p>
+
+              {!result && (
+                <>
+                  {exercise.type === 'truth-table' && (
+                    <p className="pp-instruction">{t.complete}</p>
+                  )}
+                  <div className="pp-actions">
+                    <div className="pp-action">
+                      <button
+                        type="button"
+                        className="pp-button pp-button-outline"
+                        aria-expanded={entry.hintShown}
+                        aria-controls="pp-hint"
+                        aria-describedby="pp-optional"
+                        onClick={() =>
+                          update(exercise.id, (value) => ({
+                            ...value,
+                            hintShown: !value.hintShown,
+                          }))
+                        }
+                      >
+                        {t.hint} <span aria-hidden="true">→</span>
+                      </button>
+                      <small id="pp-optional">{t.optional}</small>
+                    </div>
+                    <div className="pp-action">
+                      <button
+                        type="button"
+                        className="pp-button pp-button-solid"
+                        disabled={!complete(exercise, entry) || busy !== null}
+                        aria-describedby="pp-submit-note"
+                        onClick={() => void submit(exercise)}
+                      >
+                        {busy === exercise.id ? t.sending : t.submit}{' '}
+                        <span aria-hidden="true">→</span>
+                      </button>
+                      <small id="pp-submit-note">
+                        {complete(exercise, entry)
+                          ? ' '
+                          : exercise.type === 'single-choice'
+                            ? t.needAnswer
+                            : t.needRows}
+                      </small>
+                    </div>
+                    <a className="pp-example" href={exampleHref}>
+                      {t.example} <span aria-hidden="true">→</span>
+                    </a>
+                  </div>
+                  <div id="pp-hint" hidden={!entry.hintShown}>
+                    {entry.hintShown && (
+                      <p className="pp-hint">
+                        <strong>{t.hintLabel} :</strong> {exercise.hint[locale]}
+                      </p>
+                    )}
+                  </div>
+                </>
               )}
               {failed[exercise.id] === 'error' && (
                 <p role="alert" className="practice-error">
@@ -470,51 +627,66 @@ export default function PracticeActivity({
                   {t.expired} <a href={signInHref}>{t.signIn}</a>
                 </p>
               )}
+            </div>
 
-              <div role="status" aria-live="polite" className="practice-result">
-                {entry.result && (
-                  <>
-                    <p
-                      className={
-                        entry.result.correct ? 'practice-ok' : 'practice-bad'
+            {result && (
+              <section
+                className={`pp-feedback ${
+                  result.correct ? 'is-right' : 'is-wrong'
+                }`}
+                aria-labelledby="pp-feedback-title"
+              >
+                <h2
+                  id="pp-feedback-title"
+                  ref={feedbackHeading}
+                  tabIndex={-1}
+                  className="pp-feedback-title"
+                >
+                  {result.feedback[locale]}
+                </h2>
+                <p className="pp-explanation">{result.explanation[locale]}</p>
+                <div className="pp-actions">
+                  {!result.correct || current === exercises.length - 1 ? (
+                    <button
+                      type="button"
+                      className="pp-button pp-button-solid"
+                      onClick={() =>
+                        update(exercise.id, (value) => ({
+                          ...freshEntry(value.version),
+                          hintShown: value.hintShown,
+                        }))
                       }
                     >
-                      <strong>
-                        {entry.result.correct ? t.correct : t.incorrect}
-                      </strong>{' '}
-                      {entry.result.feedback[locale]}
-                    </p>
-                    <p>{entry.result.explanation[locale]}</p>
-                    <p className="practice-note">
-                      {t.saved}{' '}
-                      {entry.result.independentEvidence
-                        ? t.evidence
-                        : t.practiceOnly}
-                    </p>
-                  </>
-                )}
-              </div>
-              {locked && (
-                <button
-                  type="button"
-                  className="practice-secondary"
-                  onClick={() =>
-                    update(exercise.id, (current) => ({
-                      ...freshEntry(current.version),
-                      hintShown: current.hintShown,
-                    }))
-                  }
-                >
-                  {t.again}
-                </button>
-              )}
-            </article>
-          );
-        })}
-      {phase === 'ready' && (
-        <p>
-          <a href={`/${locale}/progress/`}>{t.progress}</a>
-        </p>
+                      {t.again} <span aria-hidden="true">→</span>
+                    </button>
+                  ) : null}
+                  {current < exercises.length - 1 && (
+                    <button
+                      type="button"
+                      className={`pp-button ${
+                        result.correct ? 'pp-button-solid' : 'pp-button-outline'
+                      }`}
+                      onClick={() => setCurrent(current + 1)}
+                    >
+                      {t.next} <span aria-hidden="true">→</span>
+                    </button>
+                  )}
+                  <a
+                    className="pp-button pp-button-outline"
+                    href={`/${locale}/progress/`}
+                  >
+                    {t.reviews}
+                  </a>
+                </div>
+                <p className="pp-note">
+                  {t.saved}{' '}
+                  {result.independentEvidence ? t.evidence : t.practiceOnly}
+                </p>
+              </section>
+            )}
+          </div>
+          <p className="pp-footnote">{t.footnote}</p>
+        </div>
       )}
     </section>
   );

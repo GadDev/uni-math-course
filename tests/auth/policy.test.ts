@@ -35,7 +35,12 @@ test('require explicit provider, publishable key and safe canonical origins', ()
   );
 });
 test('return only to released local routes with a safe fragment', () => {
-  for (const path of ['/en/', '/fr/account/', '/fr/lessons/L05/#main'])
+  for (const path of [
+    '/en/',
+    '/fr/account/',
+    '/fr/lessons/L05/#main',
+    '/en/lessons/L05/practice/',
+  ])
     assert.equal(safeReturn(path, 'en'), path);
   for (const path of [
     '//evil.example',

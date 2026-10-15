@@ -17,7 +17,8 @@ A signed-in learner can open the L05 practice section, answer six exercises, rec
 - **Idempotency.** `(user_id, submission_id)` is unique. Resubmitting a submission ID returns the stored attempt; a changed response cannot overwrite it, and reusing the ID for another exercise is rejected.
 - **Evidence.** Reading, attempts and mastery evidence are separate. Only a first, correct, unaided response is independent evidence. Retries and hinted answers are saved as practice. The browser reports whether a hint was shown; a learner who understates it only affects their own record.
 - **Open mistakes.** An exercise is listed for review while the learner's latest attempt on it is incorrect.
-- **Public reading.** Lesson pages stay prerendered and make no account request until the learner presses the start button (or resumes in a tab that already started).
+- **Public reading.** Lesson pages stay prerendered and make no account request; they link to the practice page.
+- **Practice page.** `/fr/lessons/L05/practice/` and `/en/lessons/L05/practice/` are prerendered shells (layouts from design proposals 05 and 06). One exercise is shown at a time; after grading the same page switches to the feedback layout. The exercises request starts when the page opens, so a signed-out visitor sees the sign-in gate.
 - **Drafts.** Unfinished answers live in sessionStorage for the tab, scoped to the learner and exercise version. They hold no tokens and are discarded when the account or version differs.
 
 ## Data and keys
