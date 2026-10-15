@@ -4,6 +4,10 @@ Notable changes are recorded here. No application version has been released.
 
 ## Unreleased
 
+### Fixed
+
+- Restored French/English mobile headers with full-width navigation on the second row, including keyboard-accessible signed-in profile menus.
+
 ### Added
 
 - Public searchable bilingual symbol glossary: 56 mathematics/logic/code entries and eight code-notation references, with spoken readings in both languages, source-page references, a page-48 correction note and language-preserving entry links.

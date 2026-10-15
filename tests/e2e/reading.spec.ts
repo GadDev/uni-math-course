@@ -88,6 +88,38 @@ test('English/French shell reports practice development state and links to real 
 });
 
 for (const locale of ['fr', 'en']) {
+  for (const width of [320, 375, 768, 1280]) {
+    test(`Signed-in header fits and supports keyboard (${locale}, ${width}px)`, async ({
+      page,
+      context,
+    }) => {
+      await context.request.post('/auth/login/', {
+        headers: { Origin: 'http://127.0.0.1:4321' },
+        form: {
+          locale,
+          email: 'learner@example.invalid',
+          password: 'correct-horse-battery',
+        },
+      });
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(`/${locale}/`);
+      const menu = page.locator('[data-profile-menu]');
+      await expect(menu).toBeVisible();
+      const button = menu.locator('button').first();
+      await button.focus();
+      await page.keyboard.press('Enter');
+      await expect(button).toHaveAttribute('aria-expanded', 'true');
+      expect(
+        await page.evaluate(() => document.documentElement.scrollWidth),
+      ).toBeLessThanOrEqual(width);
+      const panel = await menu.locator('.profile-panel').boundingBox();
+      expect(panel!.x).toBeGreaterThanOrEqual(0);
+      expect(panel!.x + panel!.width).toBeLessThanOrEqual(width);
+      await page.keyboard.press('Escape');
+      await expect(button).toBeFocused();
+      await expect(button).toHaveAttribute('aria-expanded', 'false');
+    });
+  }
   for (const width of [
     320, 375, 768, 859, 860, 861, 1099, 1100, 1101, 1280, 1440,
   ]) {
@@ -105,7 +137,12 @@ for (const locale of ['fr', 'en']) {
         expect(header!.height).toBeLessThanOrEqual(width > 860 ? 100 : 145);
         const nav = await page.locator('.primary-nav').boundingBox();
         const action = await page.locator('.header-sign-in').boundingBox();
-        expect(nav!.x + nav!.width).toBeLessThanOrEqual(action!.x);
+        if (width > 860) {
+          expect(nav!.x + nav!.width).toBeLessThanOrEqual(action!.x);
+        } else {
+          // Actions occupy the first row; navigation gets the full second row.
+          expect(action!.y + action!.height).toBeLessThanOrEqual(nav!.y);
+        }
         const brand = await page.locator('.brand').boundingBox();
         const localeControl = await page
           .locator('.language-switch')
