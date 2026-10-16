@@ -109,7 +109,12 @@ const text = {
     practiceOnly:
       'La correction est révélée. Réessayer cet exercice, ou répondre après un indice, ne constitue pas une nouvelle preuve indépendante.',
     error:
-      'La réponse n’a pas pu être enregistrée. Réessayez ; vos choix sont conservés.',
+      'Nous n’avons pas pu confirmer l’enregistrement de votre réponse. Vos choix sont conservés dans cet onglet. Vérifiez l’enregistrement pour réessayer sans créer de doublon.',
+    versionChanged:
+      'Cet exercice a changé. Chargez la version actuelle avant de répondre à nouveau. Votre ancienne réponse ne sera pas appliquée à la nouvelle version ; les tentatives enregistrées restent dans votre historique.',
+    reloadExercise: 'Charger la version actuelle',
+    draftNote:
+      'Les réponses inachevées restent dans cet onglet si le stockage du navigateur est disponible. Fermer l’onglet peut les effacer. Les tentatives enregistrées restent dans votre historique.',
     expired: 'Votre session a expiré. Reconnectez-vous pour continuer.',
   },
   en: {
@@ -169,7 +174,13 @@ const text = {
     evidence: 'Counts as independent mastery evidence.',
     practiceOnly:
       'The correction is revealed. Trying this exercise again, or answering after a hint, is not new independent evidence.',
-    error: 'Your answer could not be saved. Try again; your choices are kept.',
+    error:
+      'We couldn’t confirm whether your answer was saved. Your choices are kept in this tab. Check saved response to retry without creating a duplicate.',
+    versionChanged:
+      'This exercise has changed. Load the current version before answering again. Your previous answer will not be applied to the new version; saved attempts remain in your history.',
+    reloadExercise: 'Load current version',
+    draftNote:
+      'Unfinished answers stay in this tab when browser storage is available. Closing the tab may lose them. Saved attempts remain in your history.',
     expired: 'Your session has expired. Sign in again to continue.',
   },
 } as const;
@@ -320,13 +331,15 @@ export default function PracticeActivity({
   const [entries, setEntries] = useState<Record<string, Entry>>({});
   const [current, setCurrent] = useState(0);
   const [busy, setBusy] = useState<string | null>(null);
-  const [failed, setFailed] = useState<Record<string, 'error' | 'expired'>>({});
+  const [failed, setFailed] = useState<
+    Record<string, 'error' | 'expired' | 'version'>
+  >({});
   const feedbackHeading = useRef<HTMLHeadingElement>(null);
   const graded = useRef(false);
   const contextGeneration = useRef(0);
   const observedLearner = useRef<string | null | undefined>(undefined);
 
-  async function load() {
+  async function load(reloadExerciseId?: string) {
     const generation = ++contextGeneration.current;
     observedLearner.current = undefined;
     setPhase('loading');
@@ -389,12 +402,17 @@ export default function PracticeActivity({
           item.id === requestedTarget?.exerciseId &&
           item.version === requestedTarget.version,
       );
+      const reloaded = data.exercises.findIndex(
+        (item) => item.id === reloadExerciseId,
+      );
       setCurrent(
-        requested >= 0
-          ? requested
-          : stored?.learner === data.learner && resumed >= 0
-            ? resumed
-            : 0,
+        reloaded >= 0
+          ? reloaded
+          : requested >= 0
+            ? requested
+            : stored?.learner === data.learner && resumed >= 0
+              ? resumed
+              : 0,
       );
       setPhase('ready');
     } catch {
@@ -491,7 +509,14 @@ export default function PracticeActivity({
   async function submit(target: Exercise) {
     const generation = contextGeneration.current;
     const found = entries[target.id];
-    if (!found || found.result || busy || !complete(target, found)) return;
+    if (
+      !found ||
+      found.result ||
+      busy ||
+      failed[target.id] === 'version' ||
+      !complete(target, found)
+    )
+      return;
     const submission = found.submission ?? {
       answers: { ...found.answers },
       hintUsed: found.hintUsed,
@@ -507,8 +532,13 @@ export default function PracticeActivity({
     setEntries(nextEntries);
     setBusy(target.id);
     setFailed(({ [target.id]: _, ...rest }) => rest);
+    // Bound the entire fetch, including response-body reading. Aborting our wait
+    // cannot roll back a server commit; retain the snapshot and UUID for replay.
+    const controller = new AbortController();
+    const deadline = window.setTimeout(() => controller.abort(), 15_000);
     try {
       const response = await fetch('/api/attempts/', {
+        signal: controller.signal,
         method: 'POST',
         credentials: 'same-origin',
         headers: {
@@ -531,6 +561,8 @@ export default function PracticeActivity({
       if (response.status === 409) {
         const problem = (await response.json()) as { error?: string };
         if (generation !== contextGeneration.current) return;
+        if (problem.error === 'version_mismatch')
+          return setFailed((f) => ({ ...f, [target.id]: 'version' }));
         if (problem.error === 'learner_context_changed') {
           contextGeneration.current++;
           clearPracticeDrafts();
@@ -569,6 +601,7 @@ export default function PracticeActivity({
       if (generation !== contextGeneration.current) return;
       setFailed((f) => ({ ...f, [target.id]: 'error' }));
     } finally {
+      window.clearTimeout(deadline);
       if (generation === contextGeneration.current) setBusy(null);
     }
   }
@@ -888,7 +921,11 @@ export default function PracticeActivity({
                       <button
                         type="button"
                         className="pp-button pp-button-solid"
-                        disabled={!complete(exercise, entry) || busy !== null}
+                        disabled={
+                          !complete(exercise, entry) ||
+                          busy !== null ||
+                          failed[exercise.id] === 'version'
+                        }
                         aria-describedby="pp-submit-note"
                         onClick={() => void submit(exercise)}
                       >
@@ -930,6 +967,18 @@ export default function PracticeActivity({
                 <p role="alert" className="practice-error">
                   {t.error}
                 </p>
+              )}
+              {failed[exercise.id] === 'version' && (
+                <div className="practice-error">
+                  <p role="alert">{t.versionChanged}</p>
+                  <button
+                    type="button"
+                    className="primary-link auth-button"
+                    onClick={() => void load(exercise.id)}
+                  >
+                    {t.reloadExercise}
+                  </button>
+                </div>
               )}
               {failed[exercise.id] === 'expired' && (
                 <p role="alert" className="practice-error">
@@ -1011,7 +1060,7 @@ export default function PracticeActivity({
             )}
           </div>
           <p className="pp-footnote">
-            {t.footnote}
+            {t.footnote} {t.draftNote}
             {extended && <> {t.extended}</>}
           </p>
         </div>
