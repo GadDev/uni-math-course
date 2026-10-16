@@ -16,7 +16,7 @@ sourcePages: [20, 21, 22, 23]
 
 À la fin de cette leçon, vous saurez lire $A \Rightarrow B$, compléter sa table de vérité, distinguer « nécessaire » de « suffisant » et reconnaître un contre-exemple.
 
-**Prérequis :** une assertion possède une valeur de vérité ; ET, OU inclusif et NON. L01 et L02 sont des références au programme prévu, pas des leçons déjà disponibles.
+**Prérequis :** une assertion possède une valeur de vérité ; ET, OU inclusif et NON. Pour revoir ces notions, consultez les leçons L01 (assertions) et L02 (connecteurs logiques), disponibles dans le programme.
 
 ## Une promesse très précise
 
@@ -69,7 +69,7 @@ Dire $A \Rightarrow B$ revient à dire :
 
 Par exemple, pour un entier naturel, « être supérieur à 10 » suffit à garantir « être supérieur à 5 ». La condition « être supérieur à 5 » est nécessaire pour être supérieur à 10, mais elle ne suffit pas : 8 est supérieur à 5 et pas à 10.
 
-**Rappel préalable :** dans ce cours, $\mathbb{N} = \{0,1,2,\ldots\}$. Ce rappel aide l’exemple ; il ne remplace pas une future leçon sur les ensembles de nombres.
+**Rappel préalable :** dans ce cours, $\mathbb{N} = \{0,1,2,\ldots\}$. Ce rappel aide l’exemple ; pour approfondir les ensembles de nombres, consultez la leçon L10 et le guide « Familles de nombres ».
 
 ## Nier une implication
 
@@ -95,7 +95,7 @@ Une condition fausse ne suffit jamais à construire un contre-exemple à $A \Rig
 
 Les six exercices du pilote couvrent le cas faux, la table de vérité, les conditions nécessaires/suffisantes, la négation, une règle en langage courant et un contre-exemple numérique.
 
-La pratique interactive exige une connexion. Elle sera ajoutée après l’intégration des comptes et du calcul des résultats côté serveur.
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Utilisez le bouton « S’exercer » après la leçon pour répondre aux six exercices, recevoir une correction et retrouver vos tentatives dans votre progression privée.
 
 ## À retenir
 

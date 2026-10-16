@@ -32,7 +32,12 @@ if (unavailable) Astro.response.status = 503;
   description={text.next}
   path="account/"
 >
-  <main id="main" class="auth-page">
+  <main
+    id="main"
+    class="auth-page"
+    data-session-private={user?.id ?? ''}
+    data-session-view="account"
+  >
     <p class="eyebrow">{text.account}</p>
     <h1>{unavailable ? text.account : text.active}</h1>
     {unavailable ? (
