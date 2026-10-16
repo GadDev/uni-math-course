@@ -1,7 +1,7 @@
 ---
 lessonId: L01
 locale: fr
-version: 1
+version: 2
 status: pilot
 title: "Assertions : des énoncés à une seule valeur de vérité"
 summary: "Reconnaître une assertion, la distinguer des questions, des phrases vagues et des phrases auto-référentes, puis noter sa valeur de vérité 1 ou 0."
@@ -39,7 +39,7 @@ Les avis comme « Cette leçon est magnifique. » ne sont pas non plus des asser
 
 ## Contexte et notation
 
-Une fois le locuteur, le lieu et le moment fixés, une phrase a exactement une valeur de vérité, même si nous ne la connaissons pas encore. La phrase « Il pleut à Luxembourg-Ville le 14 octobre 2026 à midi. » est donc une assertion : elle est vraie ou fausse.
+Dans le cadre classique du cours, un énoncé déclaratif précis et non paradoxal a exactement une valeur de vérité lorsque son sens et tout son contexte pertinent sont fixés, même si nous ne connaissons pas cette valeur. Fixer seulement le locuteur, le lieu et le moment ne suffit pas à transformer une question, une phrase vague ou la phrase menteuse en assertion. La phrase « Il pleut à Luxembourg-Ville le 14 octobre 2026 à midi. » est donc une assertion : elle est vraie ou fausse.
 
 On nomme les assertions avec des lettres : $A$, $B$, $C$, etc. On note les valeurs de vérité $1$ pour vrai et $0$ pour faux. Si $A$ est « Deux est un nombre pair. », alors $A = 1$.
 
@@ -69,7 +69,7 @@ Second piège : ignorer une valeur ne signifie pas qu’il n’y en a pas. Une a
 
 Les six exercices pilotes portent sur la reconnaissance des assertions, l’exclusion des questions, la fixation d’un contexte, la phrase menteuse, la notation et une affirmation nouvelle à vérifier.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
 
 ## À retenir
 

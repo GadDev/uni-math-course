@@ -1,0 +1,572 @@
+{
+  "lessonId": "L03",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L03-E01",
+      "objectiveId": "L03-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "row-count-as-n-times-two"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Combien de lignes contient la table de vérité de trois assertions $A$, $B$ et $C$ ?",
+        "en": "How many rows does the truth table of three assertions $A$, $B$ and $C$ have?"
+      },
+      "hint": {
+        "fr": "Chaque assertion prend deux valeurs, et les choix se combinent.",
+        "en": "Each assertion takes two values, and the choices combine."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "Ce serait $3 \\times 2$ : cela compte les valeurs, pas les combinaisons.",
+            "en": "This would be $3 \\times 2$: it counts the values, not the combinations."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$8$",
+            "en": "$8$"
+          },
+          "feedback": {
+            "fr": "Exact : $2^3 = 8$ affectations possibles.",
+            "en": "Correct: $2^3 = 8$ possible assignments."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$9$",
+            "en": "$9$"
+          },
+          "feedback": {
+            "fr": "Ce serait $3^2$ : chaque assertion ne prend que deux valeurs.",
+            "en": "This would be $3^2$: each assertion takes only two values."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Il y a une ligne par combinaison de valeurs, pas une ligne par assertion.",
+            "en": "There is one row per combination of values, not one row per assertion."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Avec $n$ assertions atomiques, une table compte $2^n$ lignes, car chacune prend la valeur $0$ ou $1$.",
+        "en": "With $n$ atomic assertions, a table has $2^n$ rows, because each takes the value $0$ or $1$."
+      },
+      "lessonId": "L03",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          13,
+          14
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L03-E02",
+      "objectiveId": "L03-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "negated-assertion-treated-as-atomic",
+        "any-symbol-makes-atomic"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces assertions est atomique ?",
+        "en": "Which of these assertions is atomic?"
+      },
+      "hint": {
+        "fr": "Une assertion atomique n’est construite à partir d’aucun connecteur.",
+        "en": "An atomic assertion is not built from any connective."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A \\land B$",
+            "en": "$A \\land B$"
+          },
+          "feedback": {
+            "fr": "Elle est composée : elle contient la conjonction de $A$ et $B$.",
+            "en": "It is composite: it contains the conjunction of $A$ and $B$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg C$",
+            "en": "$\\neg C$"
+          },
+          "feedback": {
+            "fr": "Elle est composée : la négation s’applique à $C$, elle n’est pas une assertion de départ.",
+            "en": "It is composite: the negation applies to $C$, so it is not a starting assertion."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A \\lor \\neg B$",
+            "en": "$A \\lor \\neg B$"
+          },
+          "feedback": {
+            "fr": "Elle est composée : elle combine $A$ et $\\neg B$.",
+            "en": "It is composite: it combines $A$ and $\\neg B$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$C$",
+            "en": "$C$"
+          },
+          "feedback": {
+            "fr": "Exact : $C$ n’est construite à partir d’aucun connecteur.",
+            "en": "Correct: $C$ is not built from any connective."
+          }
+        }
+      ],
+      "answer": "d",
+      "explanation": {
+        "fr": "Parmi les formules proposées, $C$ est une assertion de départ désignée par une lettre ; les trois autres appliquent un connecteur. Ce critère porte sur ces choix : la constante $\\top$, déjà introduite, ne doit pas être déclarée composée simplement parce que ce n’est pas une lettre.",
+        "en": "Among the offered formulas, $C$ is a starting assertion named by a letter; the other three apply a connective. This criterion concerns these choices: the previously introduced constant $\\top$ must not be called composite merely because it is not a letter."
+      },
+      "lessonId": "L03",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          13,
+          14
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L03-E03",
+      "objectiveId": "L03-O03",
+      "difficulty": "application",
+      "misconceptions": [
+        "row-skipped-or-copied",
+        "subformula-computed-after-whole-formula"
+      ],
+      "type": "truth-table",
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "prompt": {
+        "fr": "Complétez la colonne de $(A \\lor B) \\land \\neg C$ pour les huit affectations. Chaque ligne a un identifiant stable.",
+        "en": "Complete the column of $(A \\lor B) \\land \\neg C$ for all eight assignments. Each row has a stable identifier."
+      },
+      "hint": {
+        "fr": "Calculez $A \\lor B$ et $\\neg C$ dans chaque ligne, puis combinez-les.",
+        "en": "Compute $A \\lor B$ and $\\neg C$ in each row, then combine them."
+      },
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "000": false,
+        "001": false,
+        "010": true,
+        "011": false,
+        "100": true,
+        "101": false,
+        "110": true,
+        "111": false
+      },
+      "feedback": {
+        "fr": "La formule vaut vrai exactement lorsque $A \\lor B$ est vraie et $C$ est fausse : lignes 010, 100 et 110.",
+        "en": "The formula is true exactly when $A \\lor B$ is true and $C$ is false: rows 010, 100 and 110."
+      },
+      "explanation": {
+        "fr": "Pour chaque ligne, $A \\lor B$ est calculé, puis $\\neg C$, puis la conjonction. Les lignes 001, 011, 101 et 111 ont $C = 1$, donc $\\neg C = 0$ et la formule est fausse ; la ligne 000 a $A \\lor B = 0$.",
+        "en": "For each row, compute $A \\lor B$, then $\\neg C$, then the conjunction. Rows 001, 011, 101 and 111 have $C = 1$, so $\\neg C = 0$ and the formula is false; row 000 has $A \\lor B = 0$."
+      },
+      "lessonId": "L03",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          13,
+          14
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L03-E04",
+      "objectiveId": "L03-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "negation-read-as-the-letter",
+        "row-value-guessed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $A = 0$, $B = 0$ et $C = 1$, quelle est la valeur de $\\neg A \\land (B \\lor C)$ ?",
+        "en": "For $A = 0$, $B = 0$ and $C = 1$, what is the value of $\\neg A \\land (B \\lor C)$?"
+      },
+      "hint": {
+        "fr": "Calculez $\\neg A$, puis $B \\lor C$, puis la conjonction.",
+        "en": "Compute $\\neg A$, then $B \\lor C$, then the conjunction."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Exact : $\\neg A = 1$, $B \\lor C = 1$, donc la conjonction vaut $1$.",
+            "en": "Correct: $\\neg A = 1$, $B \\lor C = 1$, so the conjunction is $1$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Le résultat vaut $1$ : vérifiez séparément la négation et la disjonction avant de les combiner.",
+            "en": "The result is $1$: check the negation and disjunction separately before combining them."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Cela dépend de $B$.",
+            "en": "It depends on $B$."
+          },
+          "feedback": {
+            "fr": "L’affectation est entièrement fixée : aucune valeur n’est laissée libre.",
+            "en": "The assignment is fully fixed: no value is left free."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Cela dépend de $A$.",
+            "en": "It depends on $A$."
+          },
+          "feedback": {
+            "fr": "$A = 0$ est donné : la valeur de la formule est déterminée.",
+            "en": "$A = 0$ is given: the value of the formula is determined."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Une fois les trois valeurs données, la formule se calcule directement, sans ambiguïté.",
+        "en": "Once all three values are given, the formula is computed directly, without ambiguity."
+      },
+      "lessonId": "L03",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          13,
+          14
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L03-E05",
+      "objectiveId": "L03-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "negation-applied-to-whole-column",
+        "careless-row-recomputation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un élève a construit la table de $A \\lor \\neg B$ ci-dessous. Dans une seule ligne, la valeur écrite par l’élève est incorrecte. Quelle ligne contient cette erreur de calcul (et non simplement la valeur de vérité 0) ?\n\n| A | B | valeur écrite |\n| --- | --- | --- |\n| 0 | 0 | 1 |\n| 0 | 1 | 0 |\n| 1 | 0 | 1 |\n| 1 | 1 | 0 |",
+        "en": "A student built the table of $A \\lor \\neg B$ below. Exactly one value written by the student is incorrect. Which row contains this calculation error (rather than merely the truth value 0)?\n\n| A | B | value written |\n| --- | --- | --- |\n| 0 | 0 | 1 |\n| 0 | 1 | 0 |\n| 1 | 0 | 1 |\n| 1 | 1 | 0 |"
+      },
+      "hint": {
+        "fr": "Pour chaque ligne, calculez $\\neg B$, puis la disjonction avec $A$.",
+        "en": "For each row, compute $\\neg B$, then the disjunction with $A$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Ligne 00",
+            "en": "Row 00"
+          },
+          "feedback": {
+            "fr": "Cette ligne n’est pas à sélectionner : la valeur écrite est correcte. $0 \\lor \\neg 0 = 0 \\lor 1 = 1$, comme écrit.",
+            "en": "Do not select this row: the written value is correct. $0 \\lor \\neg 0 = 0 \\lor 1 = 1$, as written."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Ligne 01",
+            "en": "Row 01"
+          },
+          "feedback": {
+            "fr": "Cette ligne n’est pas à sélectionner : la valeur écrite est correcte. $0 \\lor \\neg 1 = 0 \\lor 0 = 0$, comme écrit.",
+            "en": "Do not select this row: the written value is correct. $0 \\lor \\neg 1 = 0 \\lor 0 = 0$, as written."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Ligne 11",
+            "en": "Row 11"
+          },
+          "feedback": {
+            "fr": "Oui, c’est la ligne à sélectionner : $1 \\lor \\neg 1 = 1 \\lor 0 = 1$, mais l’élève a écrit $0$.",
+            "en": "Yes, select this row: $1 \\lor \\neg 1 = 1 \\lor 0 = 1$, but the student wrote $0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Ligne 10",
+            "en": "Row 10"
+          },
+          "feedback": {
+            "fr": "Cette ligne n’est pas à sélectionner : la valeur écrite est correcte. $1 \\lor \\neg 0 = 1$, comme écrit.",
+            "en": "Do not select this row: the written value is correct. $1 \\lor \\neg 0 = 1$, as written."
+          }
+        }
+      ],
+      "answer": "d",
+      "explanation": {
+        "fr": "Les lignes 00, 01 et 10 sont correctes. La ligne 11 doit valoir $1$ : $A = 1$ suffit pour que la disjonction soit vraie.",
+        "en": "Rows 00, 01 and 10 are correct. Row 11 must be $1$: $A = 1$ is enough to make the disjunction true."
+      },
+      "lessonId": "L03",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          13,
+          14
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L03-E06",
+      "objectiveId": "L03-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "one-true-row-taken-as-always-true",
+        "column-read-without-all-rows"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Complétez la colonne de $(\\neg A \\lor B) \\land A$ pour les quatre affectations.",
+        "en": "Complete the column of $(\\neg A \\lor B) \\land A$ for all four assignments."
+      },
+      "hint": {
+        "fr": "Dans chaque ligne, calculez d’abord $\\neg A \\lor B$, puis combinez-le avec $A$.",
+        "en": "In each row, first compute $\\neg A \\lor B$, then combine it with $A$."
+      },
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "00": false,
+        "01": false,
+        "10": false,
+        "11": true
+      },
+      "feedback": {
+        "fr": "Seule la ligne 11 est vraie. La formule est donc vraie uniquement lorsque $A$ et $B$ sont toutes deux vraies.",
+        "en": "Only row 11 is true. The formula is therefore true only when $A$ and $B$ are both true."
+      },
+      "explanation": {
+        "fr": "Dans les lignes où $A = 0$, la conjonction avec $A$ est fausse. Dans la ligne 10, $\\neg A \\lor B = 0$. Dans la ligne 11, $\\neg A \\lor B = 1$ et $A = 1$. La colonne est la même que celle de $A \\land B$.",
+        "en": "In rows where $A = 0$, the conjunction with $A$ is false. In row 10, $\\neg A \\lor B = 0$. In row 11, $\\neg A \\lor B = 1$ and $A = 1$. The column is the same as that of $A \\land B$."
+      },
+      "lessonId": "L03",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          13,
+          14
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}
