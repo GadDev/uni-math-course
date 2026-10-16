@@ -1,0 +1,42 @@
+Review-only verification, 2026-10-16
+Reviewed content revision: c2238703e34986b623a151473d2f4f6568e3956a
+
+node --test tests/content/*.test.mjs
+Exit 0: 108 tests, 108 passed, 0 failed/cancelled/skipped/todo.
+
+Six linked logic-check.mjs invocations (L02/L03/L05/L06/L07/L08)
+All exited 0. Exact command/output retained per lesson.
+Total: 9/9 stored truth-table items matched supplied formulas; 0 failed; 0 unchecked.
+105 single-choice keys outside helper automatic coverage.
+Supplemental equivalence/value checks do not compare stored keys.
+
+python exercises/drafts/review-checks.py
+Exit 0: all reproduction assertions passed; output in review-checks-output.txt.
+These are counterexample confirmations, finite Python/SQLite runs, not a whole-bank key checker.
+
+node scripts/check-content.mjs
+Exit 0: validated 20 lessons in French/English with versioned exercise contracts.
+Structural/fingerprint/notation validation, not semantic approval.
+
+node scripts/check-release.mjs
+Exit 0: release policy checked for 0.0.0. No release approval changed.
+
+node scripts/check-repository.mjs
+Exit 0: 105 Markdown files; structure and internal links passed.
+
+ASTRO_TELEMETRY_DISABLED=1 pnpm check
+Exit 0: docs/release/content/typecheck/format/test/build passed.
+Astro diagnostics: 82 files, 0 errors, 0 warnings, 0 hints.
+Tests: 253 passed, 0 failed/cancelled/skipped/todo.
+Production build completed.
+Existing fixture stderr includes published-bank-folder warnings and L05-E05 fewer than 3 options;
+these are warnings in skill fixtures, not new failures or repaired content.
+
+node scripts/check-immutable-exercises.mjs (CONTENT_BASE_REF set to reviewed commit)
+Exit 0: existing exercise versions remain immutable. Run against committed review-only tree.
+Scope guard: all added paths are exercises/drafts/; no modified/deleted tracked base files.
+All 57 reviewed-input SHA-256 hashes, registry and skill match the pinned base.
+
+Not run: e2e/browser/accessibility, live database/provider/hosted acceptance,
+independent mathematical/translation review, learner calibration or model behavioural evaluations.
+No new lesson/bank authored, so validate-draft.mjs is not applicable to this review-only PR.
