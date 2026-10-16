@@ -20,6 +20,7 @@ The separate Python verifier executes the lesson's Python code, reproduces the r
 - Used nonnegative squared loss, not strictly positive loss; explained constant-input nonidentifiability.
 - Required positive Sxx and Syy for Pearson correlation, qualified the perfect-fit equivalence and did not claim interpolation guarantees reliability.
 - Replaced a question about the source's later syllabus with a model-evaluation task about using validation data for fitting.
+- Preserved red incorrect-answer feedback within the green Chapter 2 theme; both 320 px regression checks pass. Desktop/mobile overview, reading and practice views were visually inspected.
 - Corrected an FR/EN formula-sequence mismatch in the change-of-units question. Translated the coordinate-curve option prose while retaining identical mathematical strings.
 
 ## Bilingual and pedagogical check
@@ -40,7 +41,7 @@ The Chapter 2 catalogue links 16 public bilingual readings and 240 signed-in que
 - `python3 exercises/drafts/chapter-02/authoring/verify.py` with SymPy: 129 exact checks, 111 argument records, lesson Python execution and 350 raster segments passed.
 - Standard draft validation passed on all 16 banks after the matching lesson paths were staged for promotion.
 - `pnpm check`: 267 tests passed, zero Astro errors/warnings/hints, formatting and production build passed.
-- Browser suite: 170 passed, including all 16 new readings in both languages at 320/1280 px and saved Chapter 2 practice, reload/language switching, later sign-in and account isolation.
+- Browser suite: 172 passed, including all 16 new readings in both languages at 320/1280 px and saved Chapter 2 practice, reload/language switching, later sign-in and account isolation.
 - Immutable-bank gate passed against current main; L01–L20 archives are unchanged.
 
 Remaining limitations: independent human mathematics/translation review and difficulty calibration remain useful; hosted acceptance and cloud persistence must still be assessed in the existing class-pilot process. Local protocol fixtures verify application behavior without claiming to certify a deployed database.

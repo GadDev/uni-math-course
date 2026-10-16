@@ -19,6 +19,30 @@ async function identify(context: BrowserContext) {
   return issued.session;
 }
 for (const locale of ['fr', 'en']) {
+  test(`Chapter 2 keeps incorrect feedback distinct at 320px (${locale})`, async ({
+    page,
+    context,
+  }) => {
+    await identify(context);
+    await page.setViewportSize({ width: 320, height: 900 });
+    await page.goto(`/${locale}/lessons/L35/practice/`);
+    await expect(page.locator('.pp-step')).toHaveCount(15);
+    await page.locator('input[value="b"]').check();
+    await page.locator('.pp-button-solid').click();
+    const feedback = page.locator('.pp-feedback.is-wrong');
+    await expect(feedback).toBeVisible();
+    expect(
+      await feedback.evaluate((e) => getComputedStyle(e).borderTopColor),
+    ).toBe('rgb(237, 52, 38)');
+    expect(
+      await page
+        .locator('.pp-step.is-wrong')
+        .evaluate((e) => getComputedStyle(e).borderBottomColor),
+    ).toBe('rgb(185, 40, 25)');
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth),
+    ).toBeLessThanOrEqual(320);
+  });
   for (const width of [320, 1280]) {
     test(`all Chapter 2 lessons render with chapter context and matching anchors (${locale}, ${width})`, async ({
       page,
