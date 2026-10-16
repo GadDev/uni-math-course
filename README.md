@@ -43,6 +43,8 @@ pnpm test:e2e
 
 The check covers repository links/structure, content parity/contracts, types, formatting, mathematical tests and production build. Browser checks cover reading, language switching, math markup, native disclosure keyboard/no-JavaScript behaviour, narrow layouts and authentication/session flows through the real SDK and an isolated local Auth fixture. These checks do not certify independent mathematical peer review or a working authentication deployment.
 
+For opt-in tests against an existing deployment with dedicated synthetic accounts, see [hosted pilot E2E checks](docs/HOSTED_TESTS.md). They are separate from credential-free PR checks.
+
 ## Project direction
 
 - [Mission](docs/MISSION.md)

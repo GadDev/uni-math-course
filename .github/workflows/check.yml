@@ -62,6 +62,10 @@ jobs:
         run: pnpm exec playwright install --with-deps chromium
       - name: Verify reading, authentication and session behaviour
         run: pnpm test:e2e
+      - name: Verify opt-in acceptance runner against the local protocol fixture
+        env:
+          HOSTED_LOCAL_FIXTURE: '1'
+        run: pnpm test:e2e:hosted
 
   release:
     name: Maintain release milestone

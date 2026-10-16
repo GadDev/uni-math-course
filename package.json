@@ -23,7 +23,8 @@
     "test:e2e": "playwright test",
     "build:test": "ASTRO_TEST_BUILD=1 astro build",
     "sync:release-status": "node scripts/sync-release-status.mjs --write",
-    "check:release": "node scripts/check-release.mjs"
+    "check:release": "node scripts/check-release.mjs",
+    "test:e2e:hosted": "playwright test --config playwright.hosted.config.ts"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "7.3.2",

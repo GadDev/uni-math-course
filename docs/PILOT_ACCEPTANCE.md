@@ -16,6 +16,10 @@ This record separates repository evidence, hosted verification and human decisio
 
 These results apply to their recorded revisions, not every later commit. Inspect the current revision's CI before release. The original audit remains historical evidence; later fixes do not rewrite what it inspected.
 
+## Automated hosted checks
+
+The [opt-in hosted E2E suite](HOSTED_TESTS.md) covers selected H2/H3 paths with two dedicated synthetic accounts and writes sanitized, revision-labelled evidence. It does not automatically close acceptance rows; skipped direct Data API checks, real expiry/refresh and human/operational reviews remain separate.
+
 ## H1 checkpoint — reported production deployment
 
 Recorded 2026-10-16. Evidence source: GadDev's Vercel dashboard report, cross-checked against the GitHub Vercel commit status. **H1 remains open**: deployment identity is partially recorded; database migration/schema verification and environment separation are pending. This is not independently reproduced hosted acceptance.
