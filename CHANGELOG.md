@@ -6,6 +6,8 @@ Notable changes are recorded here. No application version has been released.
 
 ### Fixed
 
+- Clarify L07-E04’s necessary-and-sufficient condition in immutable bank v2, retain v1 for historical feedback, and record mathematical/bilingual author self-check evidence.
+
 - Bound practice saves to 15 seconds, describe uncertain outcomes and tab draft retention, and offer explicit recovery for changed exercise versions.
 
 - Reconcile repository readiness with the implemented application and link revision-specific checks plus outstanding hosted, operational and human acceptance work.

@@ -14,12 +14,17 @@ test('behavioural fixtures preserve the source and isolate meaningful semantic f
   for (const id of ['bilingual-mismatch', 'wrong-key']) {
     const prepared = await prepareCase(id);
     try {
-      const bank = JSON.parse(
+      const releases = JSON.parse(
         await readFile(
-          join(prepared.directory, 'exercises/L05/v1.json'),
+          join(prepared.directory, 'content/releases.json'),
           'utf8',
         ),
       );
+      const selectedPath = join(
+        prepared.directory,
+        `exercises/L05/v${releases.lessons.L05.version}.json`,
+      );
+      const bank = JSON.parse(await readFile(selectedPath, 'utf8'));
       validateBank(bank); // Both faults deliberately pass schema validation.
       const validated = execFileSync(
         'node',
@@ -28,7 +33,7 @@ test('behavioural fixtures preserve the source and isolate meaningful semantic f
             prepared.directory,
             '.claude/skills/math-course-studio/scripts/validate-draft.mjs',
           ),
-          join(prepared.directory, 'exercises/L05/v1.json'),
+          selectedPath,
         ],
         { cwd: prepared.directory, encoding: 'utf8' },
       );

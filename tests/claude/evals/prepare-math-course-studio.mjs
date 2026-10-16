@@ -66,7 +66,13 @@ export async function prepareCase(id) {
       .update('\0');
   }
   if (fixture.mutation) {
-    const path = join(output, 'exercises/L05/v1.json');
+    const releases = JSON.parse(
+      await readFile(join(output, 'content/releases.json'), 'utf8'),
+    );
+    const path = join(
+      output,
+      `exercises/L05/v${releases.lessons.L05.version}.json`,
+    );
     const bank = JSON.parse(await readFile(path, 'utf8'));
     const mutation = fixture.mutation;
     let target = bank.exercises.find((item) => item.id === mutation.item);

@@ -1,15 +1,26 @@
 import { readFile } from 'node:fs/promises';
 import { validateBank } from '../../scripts/check-content.mjs';
 
-export const loadBank = async (lessonId) =>
-  validateBank(
+export const loadBank = async (lessonId) => {
+  const releases = JSON.parse(
+    await readFile(
+      new URL('../../content/releases.json', import.meta.url),
+      'utf8',
+    ),
+  );
+  const version = releases.lessons[lessonId].version;
+  return validateBank(
     JSON.parse(
       await readFile(
-        new URL(`../../exercises/${lessonId}/v1.json`, import.meta.url),
+        new URL(
+          `../../exercises/${lessonId}/v${version}.json`,
+          import.meta.url,
+        ),
         'utf8',
       ),
     ),
   );
+};
 
 export const itemOf = (bank, id) => bank.exercises.find((e) => e.id === id);
 
