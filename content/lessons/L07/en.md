@@ -1,7 +1,7 @@
 ---
 lessonId: L07
 locale: en
-version: 1
+version: 2
 status: extended
 title: "The biconditional and semantic equivalence"
 summary: "Define the connective ⇔, tell it apart from the relation ≡, and use the fact that A ≡ B holds exactly when A ⇔ B is a tautology."
@@ -68,7 +68,7 @@ $A \Leftrightarrow B$ can be $0$ on a row: for $A = 1$ and $B = 0$ it is $0$. By
 
 The six pilot exercises cover the definition, the truth table of the biconditional, the two levels, the link with tautologies, a table test of an equivalence and a check of the two-level confusion.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice requires sign-in. Availability depends on this lesson’s selected version and release status.
 
 ## Takeaway
 

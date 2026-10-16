@@ -1,0 +1,11 @@
+
+Initial full check exposed tests pinned to L04 v1/L07 v2 and missing newly selected fixture files before staging. Updated pilot tests to read registry-selected banks, retained the >=v2 L07 semantic invariant, staged added banks, and reran.
+
+COMMAND: ASTRO_TELEMETRY_DISABLED=1 pnpm check
+EXIT: 0 (rerun)
+261 passed, 0 failed; docs/release/content/typecheck/format/build passed.
+
+Linked helper runs: L02 E04, L04 E03, L05 E02, L07 E02/E05, L08 E02/E06.
+7 matched, 0 failed, 0 unchecked tables. L04 additionally checked 11 supplied Boolean-law pairs; those are supplemental, not stored choice-key verification.
+
+Browser verification remains blocked by the missing Chromium executable after both installation attempts returned invalid/truncated archives; first PR records the actual test attempt. No browser assertion or hosted acceptance claimed.

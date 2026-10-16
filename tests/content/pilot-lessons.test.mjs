@@ -1,17 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
-import { validateBank } from '../../scripts/check-content.mjs';
-
-const loadBank = async (lessonId) =>
-  validateBank(
-    JSON.parse(
-      await readFile(
-        new URL(`../../exercises/${lessonId}/v1.json`, import.meta.url),
-        'utf8',
-      ),
-    ),
-  );
+import { loadBank } from '../support/logic.mjs';
 
 const bits = [0, 1];
 const lesson1 = await loadBank('L01');
@@ -247,11 +236,11 @@ test('L04-E02: only ¬A ∨ ¬B is equivalent to ¬(A ∧ B)', () => {
   assert.equal(item4('L04-E02').answer, 'b');
 });
 
-test('L04-E03: the column of (A ∨ B) ∧ (A ∨ C) matches A ∨ (B ∧ C) on every row', () => {
+test('L04-E03: nested negation matches its De Morgan rewrite on every row', () => {
   const exercise = item4('L04-E03');
   for (const { id, A, B, C } of exercise.rows) {
-    assert.equal(exercise.answer[id], (A || B) && (A || C), id);
-    assert.equal(exercise.answer[id], A || (B && C), id);
+    assert.equal(exercise.answer[id], !(A || (B && C)), id);
+    assert.equal(exercise.answer[id], !A && (!B || !C), id);
   }
 });
 

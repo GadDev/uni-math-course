@@ -1,7 +1,7 @@
 ---
 lessonId: L04
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Équivalence sémantique et lois booléennes"
 summary: "Vérifier que deux formules ont la même table de vérité, appliquer les lois booléennes, reconnaître les tautologies et les contradictions, et réfuter une équivalence par une seule ligne."
@@ -76,7 +76,7 @@ Une seule ligne différente suffit à réfuter une équivalence. Pour l’établ
 
 Les six exercices pilotes portent sur la définition de l’équivalence, la loi de de Morgan, la vérification par table de vérité, la reconnaissance d’une tautologie, les lois du tiers exclu et de la non-contradiction, et la réfutation d’une équivalence par une seule ligne.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
 
 ## À retenir
 

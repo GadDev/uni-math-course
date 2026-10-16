@@ -1,7 +1,7 @@
 ---
 lessonId: L02
 locale: en
-version: 1
+version: 2
 status: pilot
 title: "Logical connectives: and, or, not"
 summary: "Read the connectives ∧, ∨ and ¬ with their constants, evaluate them on given values, apply the precedence of ¬, and tell inclusive “or” from exclusive “or”."
@@ -81,7 +81,7 @@ In $A \lor B$, the case $A = B = 1$ counts as true. An exclusive “either … o
 
 The six pilot exercises cover the conjunction, the notations, inclusive or, precedence, the constant $\top$ and the need for parentheses.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice requires sign-in. Availability depends on this lesson’s selected version and release status.
 
 ## Takeaway
 

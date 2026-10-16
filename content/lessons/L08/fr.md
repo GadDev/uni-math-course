@@ -1,7 +1,7 @@
 ---
 lessonId: L08
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Complétude fonctionnelle : toute table avec OU et NON"
 summary: "Transformer toute table de vérité en une formule qui n’utilise que ∨ et ¬, en décrivant chaque ligne vraie puis en éliminant ∧ avec de Morgan."
@@ -11,6 +11,8 @@ prerequisites: [L03, L04]
 sourcePages: [32, 33, 34, 35]
 ---
 # Complétude fonctionnelle : toute table avec OU et NON
+
+Dans cette leçon, le nombre de variables vérifie $n \geq 1$. Nous utilisons seulement des variables, OU et NON ; les formules sans variable ne font pas partie du théorème.
 
 ## Votre objectif
 
@@ -60,11 +62,13 @@ Si $f$ ne vaut $1$ sur aucune ligne, il n’y a aucune ligne vraie à décrire ;
 
 Utiliser $\lor$ seul sur une lettre $x$ ne donne que $x$, car $x \lor x \equiv x$. Donc $\lor$ seul ne peut pas construire $\neg x$. La négation est indispensable.
 
+NON seul ne combine jamais deux entrées indépendantes : toute formule obtenue à partir d’une seule variable par des négations reste cette variable ou sa négation. Il ne peut donc pas exprimer $A \land B$. OU seul donne une disjonction de variables, qui ne peut pas exprimer $\neg A$.
+
 ## Pratique indépendante
 
 Les six exercices pilotes portent sur la lecture des lignes vraies, la conjonction d’une ligne, la jonction des lignes, l’élimination de $\land$, l’énoncé du théorème et la construction d’une table à trois variables.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
 
 ## À retenir
 

@@ -1,7 +1,7 @@
 ---
 lessonId: L07
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "La biconditionnelle et l’équivalence sémantique"
 summary: "Définir le connecteur ⇔, le distinguer de la relation ≡, et utiliser le fait que A ≡ B est vrai exactement lorsque A ⇔ B est une tautologie."
@@ -68,7 +68,7 @@ $A \Leftrightarrow B$ peut valoir $0$ sur une ligne : pour $A = 1$ et $B = 0$, e
 
 Les six exercices pilotes portent sur la définition, la table de vérité de la biconditionnelle, les deux niveaux, le lien avec les tautologies, un test d’équivalence par table et la détection de la confusion entre niveaux.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
 
 ## À retenir
 

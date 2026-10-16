@@ -1,0 +1,573 @@
+{
+  "lessonId": "L02",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L02-E01",
+      "objectiveId": "L02-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "and-treated-as-or"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle affectation rend $A \\land B$ vraie ?",
+        "en": "Which assignment makes $A \\land B$ true?"
+      },
+      "hint": {
+        "fr": "Une conjonction exige que les deux parties soient vraies.",
+        "en": "A conjunction requires both parts to be true."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A = 0$, $B = 0$",
+            "en": "$A = 0$, $B = 0$"
+          },
+          "feedback": {
+            "fr": "Aucune partie n’est vraie : la conjonction est fausse.",
+            "en": "Neither part is true: the conjunction is false."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A = 1$, $B = 1$",
+            "en": "$A = 1$, $B = 1$"
+          },
+          "feedback": {
+            "fr": "Exact : les deux parties sont vraies, donc la conjonction est vraie.",
+            "en": "Correct: both parts are true, so the conjunction is true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A = 0$, $B = 1$",
+            "en": "$A = 0$, $B = 1$"
+          },
+          "feedback": {
+            "fr": "Une seule partie est vraie ; cela suffit pour un « ou », pas pour un « et ».",
+            "en": "Only one part is true; that is enough for “or”, not for “and”."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A = 1$, $B = 0$",
+            "en": "$A = 1$, $B = 0$"
+          },
+          "feedback": {
+            "fr": "Seule la première partie est vraie : la conjonction est fausse.",
+            "en": "Only the first part is true: the conjunction is false."
+          }
+        }
+      ],
+      "answer": "d",
+      "explanation": {
+        "fr": "$A \\land B$ est vraie exactement lorsque $A$ et $B$ sont toutes deux vraies.",
+        "en": "$A \\land B$ is true exactly when both $A$ and $B$ are true."
+      },
+      "lessonId": "L02",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E02",
+      "objectiveId": "L02-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "or-notation-confused-with-and-or-not"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces écritures désigne la même assertion que $A \\lor B$ ?",
+        "en": "Which of these notations denotes the same assertion as $A \\lor B$?"
+      },
+      "hint": {
+        "fr": "Distinguez les écritures qui combinent deux assertions de celles qui nient une seule assertion ; consultez la notation du connecteur demandé.",
+        "en": "Distinguish notations combining two statements from those negating one statement; consult the notation of the requested connective."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A \\cdot B$",
+            "en": "$A \\cdot B$"
+          },
+          "feedback": {
+            "fr": "C’est une autre écriture de la conjonction $A \\land B$.",
+            "en": "This is another notation for the conjunction $A \\land B$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg A$",
+            "en": "$\\neg A$"
+          },
+          "feedback": {
+            "fr": "C’est la négation de $A$, qui ne fait intervenir qu’une seule assertion.",
+            "en": "This is the negation of $A$, involving only one assertion."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A'$",
+            "en": "$A'$"
+          },
+          "feedback": {
+            "fr": "C’est une autre écriture de la négation $\\neg A$.",
+            "en": "This is another notation for the negation $\\neg A$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A + B$",
+            "en": "$A + B$"
+          },
+          "feedback": {
+            "fr": "Exact : $A + B$ désigne le « ou » inclusif, comme $A \\lor B$.",
+            "en": "Correct: $A + B$ denotes inclusive “or”, like $A \\lor B$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Pour un même connecteur, le cours accepte plusieurs écritures : $A \\lor B$ et $A + B$ désignent le « ou » inclusif.",
+        "en": "The course accepts several notations for one connective: $A \\lor B$ and $A + B$ denote inclusive “or”."
+      },
+      "lessonId": "L02",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E03",
+      "objectiveId": "L02-O03",
+      "difficulty": "application",
+      "misconceptions": [
+        "inclusive-or-treated-as-exclusive",
+        "xor-used-for-or"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $A = 1$ et $B = 1$, quelle affirmation est vraie ?",
+        "en": "For $A = 1$ and $B = 1$, which claim is true?"
+      },
+      "hint": {
+        "fr": "Dans le « ou » inclusif, le cas où les deux parties sont vraies compte.",
+        "en": "In inclusive “or”, the case where both parts are true counts."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A \\lor B$ est vraie.",
+            "en": "$A \\lor B$ is true."
+          },
+          "feedback": {
+            "fr": "Exact : au moins une partie est vraie, donc le « ou » inclusif est vrai.",
+            "en": "Correct: at least one part is true, so inclusive “or” is true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Le « ou » exclusif de $A$ et $B$ (XOR) est vrai.",
+            "en": "The exclusive “or” of $A$ and $B$ (XOR) is true."
+          },
+          "feedback": {
+            "fr": "Le XOR exige exactement une partie vraie ; ici les deux le sont, donc il est faux.",
+            "en": "XOR requires exactly one part to be true; here both are, so it is false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg A$ est vraie.",
+            "en": "$\\neg A$ is true."
+          },
+          "feedback": {
+            "fr": "Avec $A = 1$, $\\neg A$ vaut $0$ : elle est fausse.",
+            "en": "With $A = 1$, $\\neg A$ equals $0$: it is false."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A \\land \\neg B$ est vraie.",
+            "en": "$A \\land \\neg B$ is true."
+          },
+          "feedback": {
+            "fr": "Avec $B = 1$, $\\neg B$ vaut $0$, donc la conjonction est fausse.",
+            "en": "With $B = 1$, $\\neg B$ equals $0$, so the conjunction is false."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le « ou » inclusif $A \\lor B$ est vrai dès qu’une partie est vraie. Le « ou » exclusif demande exactement une partie vraie.",
+        "en": "Inclusive $A \\lor B$ is true as soon as one part is true. Exclusive “or” requires exactly one part to be true."
+      },
+      "lessonId": "L02",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E04",
+      "objectiveId": "L02-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "negation-scope-misread",
+        "precedence-ignored"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Complétez la colonne de $\\neg A \\land B$. Lisez la formule comme $(\\neg A) \\land B$.",
+        "en": "Complete the column for $\\neg A \\land B$. Read the formula as $(\\neg A) \\land B$."
+      },
+      "hint": {
+        "fr": "Calculez d’abord $\\neg A$ dans chaque ligne, puis la conjonction avec $B$.",
+        "en": "First compute $\\neg A$ in each row, then the conjunction with $B$."
+      },
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "00": false,
+        "01": true,
+        "10": false,
+        "11": false
+      },
+      "feedback": {
+        "fr": "Seule la ligne 01 donne vrai : là, $\\neg A = 1$ et $B = 1$. Dans la ligne 11, $\\neg A = 0$, donc la conjonction est fausse.",
+        "en": "Only row 01 gives true: there $\\neg A = 1$ and $B = 1$. In row 11, $\\neg A = 0$, so the conjunction is false."
+      },
+      "explanation": {
+        "fr": "Comme $\\neg$ est prioritaire, $\\neg A \\land B$ se lit $(\\neg A) \\land B$. La formule $\\neg (A \\land B)$ aurait donné une autre colonne (vraie dans la ligne 00).",
+        "en": "Since $\\neg$ has priority, $\\neg A \\land B$ reads as $(\\neg A) \\land B$. The formula $\\neg (A \\land B)$ would give a different column (true in row 00)."
+      },
+      "lessonId": "L02",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E05",
+      "objectiveId": "L02-O05",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "constant-true-confused-with-variable",
+        "conjunction-with-constant-treated-as-tautology"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle affirmation est vraie pour toute valeur de $A$ et de $B$ ?",
+        "en": "Which claim is true for every value of $A$ and $B$?"
+      },
+      "hint": {
+        "fr": "Testez chaque proposition pour une assertion fausse puis pour une assertion vraie ; un seul contre-exemple suffit à éliminer un choix.",
+        "en": "Test each claim with a false statement and then a true one; one counterexample is enough to eliminate a choice."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A \\land \\top$ est toujours vraie.",
+            "en": "$A \\land \\top$ is always true."
+          },
+          "feedback": {
+            "fr": "$A \\land \\top$ vaut la même chose que $A$ : elle est fausse lorsque $A = 0$.",
+            "en": "$A \\land \\top$ has the same value as $A$: it is false when $A = 0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg A$ est toujours vraie.",
+            "en": "$\\neg A$ is always true."
+          },
+          "feedback": {
+            "fr": "$\\neg A$ vaut $0$ lorsque $A = 1$ : elle n’est pas toujours vraie.",
+            "en": "$\\neg A$ equals $0$ when $A = 1$: it is not always true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A \\lor \\top$ est toujours vraie.",
+            "en": "$A \\lor \\top$ is always true."
+          },
+          "feedback": {
+            "fr": "Exact : $\\top$ est vraie, donc une disjonction avec $\\top$ est vraie quelle que soit $A$.",
+            "en": "Correct: $\\top$ is true, so a disjunction with $\\top$ is true whatever $A$ is."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$B \\land \\neg B$ est toujours vraie.",
+            "en": "$B \\land \\neg B$ is always true."
+          },
+          "feedback": {
+            "fr": "Une partie est la négation de l’autre : la conjonction est toujours fausse.",
+            "en": "One part is the negation of the other: the conjunction is always false."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La disjonction est vraie dès qu’une partie est vraie. Avec $\\top$ toujours vraie, $A \\lor \\top$ est vraie pour $A = 0$ comme pour $A = 1$.",
+        "en": "A disjunction is true as soon as one part is true. With $\\top$ always true, $A \\lor \\top$ is true for $A = 0$ and for $A = 1$."
+      },
+      "lessonId": "L02",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E06",
+      "objectiveId": "L02-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "missing-parentheses-with-mixed-connectives",
+        "assuming-a-default-order-for-and-or"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Parmi ces formules, laquelle doit être écrite avec des parenthèses pour éviter toute ambiguïté ?",
+        "en": "Which of these formulas must be written with parentheses to avoid ambiguity?"
+      },
+      "hint": {
+        "fr": "La priorité de $\\neg$ est fixée, mais le cours ne fixe pas d’ordre entre $\\land$ et $\\lor$.",
+        "en": "The precedence of $\\neg$ is fixed, but the course sets no order between $\\land$ and $\\lor$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg A \\lor B$",
+            "en": "$\\neg A \\lor B$"
+          },
+          "feedback": {
+            "fr": "Pas d’ambiguïté : la priorité de $\\neg$ donne $(\\neg A) \\lor B$.",
+            "en": "No ambiguity: the precedence of $\\neg$ gives $(\\neg A) \\lor B$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A \\land B \\lor C$",
+            "en": "$A \\land B \\lor C$"
+          },
+          "feedback": {
+            "fr": "Exact : $(A \\land B) \\lor C$ et $A \\land (B \\lor C)$ diffèrent, par exemple pour $A = 0$, $B = 0$, $C = 1$.",
+            "en": "Correct: $(A \\land B) \\lor C$ and $A \\land (B \\lor C)$ differ, for example at $A = 0$, $B = 0$, $C = 1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg A$",
+            "en": "$\\neg A$"
+          },
+          "feedback": {
+            "fr": "Une seule négation : aucune ambiguïté possible.",
+            "en": "A single negation: no ambiguity is possible."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A \\lor B$",
+            "en": "$A \\lor B$"
+          },
+          "feedback": {
+            "fr": "Une seule disjonction : aucune ambiguïté possible.",
+            "en": "A single disjunction: no ambiguity is possible."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Une formule qui mêle $\\land$ et $\\lor$ sans parenthèses peut avoir deux lectures différentes. La formule $\\neg A \\lor B$ n’est pas ambiguë, car $\\neg$ est prioritaire.",
+        "en": "A formula mixing $\\land$ and $\\lor$ without parentheses can have two readings. The formula $\\neg A \\lor B$ is not ambiguous, because $\\neg$ takes priority."
+      },
+      "lessonId": "L02",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

@@ -161,7 +161,7 @@ test('L07-E04: A ≡ B iff A ⇔ B is a tautology, over all 16 × 16 pairs of ta
     [e7('L07-E04').answer],
     'only the key is both necessary and sufficient over the finite domain',
   );
-  assert.equal(l07.version, 2);
+  assert.ok(l07.version >= 2);
   assert.match(e7('L07-E04').prompt.fr, /nécessaire et suffisante/);
   assert.match(e7('L07-E04').prompt.en, /necessary and sufficient/);
   // Distractor b: A∧B and A∨B agree on some rows without being equivalent.

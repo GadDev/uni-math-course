@@ -1,7 +1,7 @@
 ---
 lessonId: L05
 locale: fr
-version: 1
+version: 2
 status: pilot
 title: "L’implication : une promesse avec un seul échec"
 summary: "Lire A ⇒ B, distinguer les conditions nécessaires et suffisantes, et trouver un contre-exemple."
@@ -48,6 +48,8 @@ Ici $\equiv$ signifie que les deux expressions ont la même valeur pour **toutes
 | 1 | 1 | 0 | 1 |
 
 Dans ce tableau, 0 signifie faux et 1 signifie vrai.
+
+Dans l’exemple et l’exercice de cartes, chaque carte a une seule couleur uniforme : rouge ou bleue, jamais les deux.
 
 ## Exemple guidé : la carte bleue sans tampon
 
