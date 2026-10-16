@@ -1,7 +1,7 @@
 ---
 lessonId: L03
 locale: fr
-version: 1
+version: 2
 status: pilot
 title: "Tables de vérité : calculer une formule ligne par ligne"
 summary: "Lister toutes les affectations, construire une table colonne par colonne à partir des sous-formules, évaluer une formule sur une ligne et vérifier une table complétée."
@@ -58,7 +58,7 @@ Ce travail guidé, dont la solution est visible, n’est pas une réponse indép
 
 Les six exercices pilotes portent sur le comptage des lignes, l’identification des assertions atomiques, la construction et la lecture de tables à trois assertions, l’évaluation d’une ligne et la vérification de la table d’un élève.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
 
 ## À retenir
 

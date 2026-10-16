@@ -1,7 +1,7 @@
 ---
 lessonId: L06
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Converse, contrapositive and everyday language"
 summary: "Write the converse and contrapositive of an implication, know which one is equivalent to it, and avoid reading “if” as “only if” in everyday language."
@@ -57,7 +57,7 @@ This guided work, whose solution is visible, is not an independent response for 
 
 A manager says: “If you finish the report, you get a day off.” An employee gets no day off. By the contrapositive, the report was not finished, and this deduction is valid.
 
-But the manager probably meant something stronger: a day off **only** for people who finished the report. That is $B \Rightarrow A$, where $A$ is “you finish the report” and $B$ is “you get a day off”. The sentence actually spoken, $A \Rightarrow B$, says nothing about people who did not finish.
+But the manager may have intended the other direction of implication: a day off **only** for people who finished the report. That is $B \Rightarrow A$, where $A$ is “you finish the report” and $B$ is “you get a day off”. The sentence actually spoken, $A \Rightarrow B$, says nothing about people who did not finish.
 
 To say what you mean, write the implication in the direction you intend, then check its converse and its contrapositive.
 
@@ -65,10 +65,10 @@ To say what you mean, write the implication in the direction you intend, then ch
 
 The six pilot exercises cover the converse, the contrapositive, which statements are equivalent, a truth table for the converse, a valid deduction from a rule and the reading of an everyday sentence.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice requires sign-in. Availability depends on this lesson’s selected version and release status.
 
 ## Takeaway
 
-An implication is equivalent to its contrapositive, never to its converse in general. In everyday language, check whether “if” was meant as “only if”.
+An implication is equivalent to its contrapositive. It is not equivalent to its converse in general, although the two may coincide for particular statements. Requiring both directions together is stronger than requiring either one alone. In everyday language, check whether “if” was meant as “only if”.
 
 Original project text and examples. Coverage follows PDF pages 24–29 in the repository’s course map; the source’s example sentences and proof prompt are not reproduced.

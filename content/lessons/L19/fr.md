@@ -1,7 +1,7 @@
 ---
 lessonId: L19
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Python all et any : tri, doublons et maximum"
 summary: "Traduire des énoncés sur une liste en ∀ et ∃ puis en all et any de Python, et traiter les cas limites des listes courtes."
@@ -20,13 +20,13 @@ sourcePages: [90, 91, 92, 93, 94]
 
 ## Une liste et ses indices
 
-Soit `t` une liste Python de longueur $n$, d’indices $0, \ldots, n - 1$. L’élément d’indice `i` est `t[i]`.
+Soit `t` une liste Python finie de longueur $n = \mathrm{len}(t)$, composée de réels comparables sans NaN. Les comparaisons suivent un ordre total ; les complexes et les valeurs non comparables sont exclus. Les indices valides forment $J = \{i \in \mathbb{Z} \mid 0 \leq i < n\}$ ; les départs de paires voisines forment $K = \{i \in J \mid i+1 < n\}$. Ces deux ensembles sont vides lorsque $n = 0$. L’élément d’indice `i` est `t[i]`.
 
 ## Triée et non triée
 
 « `t` est triée » (croissante au sens large) se traduit par
 $$
-\forall i \in \{0, \ldots, n - 2\}\ t[i] \leq t[i+1],
+\forall i \in K\ t[i] \leq t[i+1],
 $$
 ce que Python écrit
 ```python
@@ -34,13 +34,13 @@ all(t[i] <= t[i+1] for i in range(n-1))
 ```
 « `t` n’est pas triée » en est la négation :
 $$
-\exists i \in \{0, \ldots, n - 2\}\ t[i] > t[i+1],
+\exists i \in K\ t[i] > t[i+1],
 $$
 écrite
 ```python
 any(t[i] > t[i+1] for i in range(n-1))
 ```
-Les indices s’arrêtent à $n - 2$ car chaque comparaison utilise `t[i+1]` : il y a $n - 1$ comparaisons, soit `range(n-1)`.
+Il y a $\max(n-1, 0)$ paires voisines. Pour $n \geq 1$, leurs indices de départ vont de $0$ à $n-2$ ; pour la liste vide, aucun indice ne convient. `range(n-1)` énumère exactement ces départs, y compris `range(-1)`, qui est vide.
 
 ## Exemple guidé : une liste de trois nombres
 
@@ -56,10 +56,19 @@ Ce travail guidé, dont la solution est visible, n’est pas une réponse indép
 
 Ce sont des traductions originales ; la source du cours ne les pose que comme exercices.
 
-- « `t` contient un doublon » : $\exists i \in \{0, \ldots, n-1\}\ \exists j \in \{0, \ldots, n-1\}\ (i < j \land t[i] = t[j])$.
-- « `t` contient son maximum » : $\exists i \in \{0, \ldots, n-1\}\ \forall j \in \{0, \ldots, n-1\}\ t[j] \leq t[i]$.
+- « `t` contient un doublon » : $\exists i \in J\ \exists j \in J\ (i < j \land t[i] = t[j])$.
+- « `t` contient son maximum » : $\exists i \in J\ \forall j \in J\ t[j] \leq t[i]$.
 
 La condition $i < j$ compte : sans elle, chaque élément est égal à lui-même.
+
+Avec ces domaines d’indices, les traductions Python sont :
+
+```python
+any(t[i] == t[j] for i in range(n) for j in range(i+1, n))
+any(all(t[j] <= t[i] for j in range(n)) for i in range(n))
+```
+
+La première recherche deux positions distinctes de même valeur ; la seconde recherche une position dont la valeur domine toutes les autres.
 
 ## Cas limites
 
@@ -69,7 +78,7 @@ Pour une liste vide, la plage est vide. Alors `all(...)` sur une plage vide vaut
 
 Les six exercices pilotes portent sur la traduction avec `all`, la négation, le nombre de comparaisons, les doublons, le maximum et la liste vide.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
 
 ## À retenir
 
