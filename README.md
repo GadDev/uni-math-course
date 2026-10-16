@@ -16,6 +16,7 @@ Public lessons and the symbol glossary can be read without an account. Practice 
 ## Features
 
 - Public French/English programme pages and lessons.
+- Public [Chapter 2 overview](https://uni-math-course.vercel.app/fr/chapters/C02/) for straight lines, with the selected green Décalage artwork. Its lessons and exercises are in preparation; see [chapter integration](docs/CHAPTERS.md).
 - Public searchable French/English symbol glossary, with bilingual readings, source pages and stable entry links.
 - Mathematical notation with visual KaTeX and MathML output.
 - Same-lesson language switching and a native reading disclosure that works without JavaScript.

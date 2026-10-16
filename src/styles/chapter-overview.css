@@ -1,0 +1,180 @@
+.chapter-overview {
+  --signal-red: #18704f;
+  --accent: #18704f;
+}
+.chapter-overview .hero {
+  min-height: 490px;
+}
+.chapter-overview .hero-copy {
+  padding-top: 2.5rem;
+}
+.chapter-overview .signal-title {
+  margin-bottom: 0.75rem;
+}
+.chapter-overview .signal-title > .signal-stop {
+  display: inline;
+}
+html[lang='en'] .chapter-overview .signal-title {
+  font-size: clamp(3.6rem, 7.7vw, 7rem);
+}
+.chapter-subtitle {
+  font: 400 clamp(1.7rem, 2.65vw, 2.6rem) / 1.3 var(--display);
+  margin: 0 0 1.125rem;
+}
+.chapter-subtitle span {
+  display: block;
+}
+.chapter-overview .lede {
+  max-width: 32.5rem;
+  font-size: 1rem;
+}
+.chapter-motto {
+  margin: 1.5rem 0 0;
+  font-size: 0.69rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.chapter-overview .hero-art {
+  padding: 1.375rem 0 1.125rem 0.75rem;
+}
+.chapter-overview .hero-art .signal-geometry {
+  min-height: 0;
+  height: auto;
+  aspect-ratio: 1;
+}
+.chapter-overview .feature-formula {
+  font-size: clamp(0.85rem, 2.2vw, 2rem);
+}
+.chapter-overview .feature-formula .katex {
+  white-space: normal;
+}
+.chapter-section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.chapter-section-heading h2 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+.chapter-section-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+.chapter-overview .planned-list li {
+  min-height: 8.75rem;
+}
+.chapter-objectives {
+  display: grid;
+  grid-template-columns: 13rem 1fr;
+  gap: 1.5rem;
+  border-top: 1px solid var(--soft-line);
+  padding: 1.5rem 0 1.875rem;
+}
+.chapter-objectives h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+.chapter-objectives ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 0;
+  padding-left: 1rem;
+}
+.chapter-objectives li {
+  padding-left: 0.3rem;
+  font-size: 0.875rem;
+  line-height: 1.65;
+}
+.chapter-objectives li::marker {
+  color: var(--accent);
+  font-weight: bold;
+}
+.chapter-pending-action {
+  min-height: 46px;
+  padding: 0.75rem 1.125rem;
+  border: 1px solid var(--soft-line);
+  background: transparent;
+  color: var(--muted);
+  font:
+    700 0.875rem Arial,
+    sans-serif;
+}
+.chapter-overview .reading-notice-title {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+}
+.chapter-empty-progress {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  border-top: 1px solid var(--soft-line);
+  padding-top: 0.875rem;
+  margin: 1rem 0 0;
+}
+.chapter-empty-progress dt {
+  color: var(--muted);
+  font-size: 0.69rem;
+  line-height: 1.5;
+}
+.chapter-empty-progress dd {
+  margin: 0.4rem 0 0;
+  font-size: 1.4rem;
+  color: var(--muted);
+}
+@media (max-width: 1050px) {
+  .chapter-subtitle {
+    font-size: 1.75rem;
+  }
+  .chapter-objectives {
+    grid-template-columns: 11rem 1fr;
+  }
+}
+@media (max-width: 700px) {
+  .chapter-overview .hero {
+    display: block;
+    min-height: 0;
+  }
+  .chapter-overview .hero-art {
+    display: none;
+  }
+  .chapter-overview .signal-title {
+    font-size: clamp(3.7rem, 19.5vw, 6rem);
+  }
+  html[lang='en'] .chapter-overview .signal-title {
+    font-size: 17vw;
+  }
+  .chapter-overview .lede {
+    font-size: 0.9rem;
+  }
+  .chapter-subtitle {
+    font-size: 1.625rem;
+  }
+  .chapter-section-heading {
+    display: block;
+  }
+  .chapter-section-heading p {
+    margin-top: 0.625rem;
+  }
+  .chapter-objectives,
+  .chapter-objectives ol {
+    grid-template-columns: 1fr;
+  }
+  .chapter-objectives ol {
+    gap: 1rem;
+  }
+}
+@media (max-width: 345px) {
+  .chapter-subtitle {
+    font-size: 1.5rem;
+  }
+  .chapter-motto {
+    font-size: 0.56rem;
+  }
+}
