@@ -1,6 +1,6 @@
 ---
 name: math-course-studio
-description: Generate exercises from a mathematics lesson, or review a lesson or the whole course for mathematical, pedagogical and bilingual (FR/EN) quality, using explicit chain-of-thought verification and tree-of-thoughts candidate selection. Use this when the user asks to create, draft or improve exercises, quizzes, QCM, distractors, truth tables or counterexamples for a lesson (e.g. L07), or to review, audit, proofread, check or "relire" a lesson, exercise bank, course sequence or source PDF page — e.g. "génère des exercices pour L07", "crée un QCM", "relis la leçon", "vérifie les corrections", "review the course", "is this lesson correct?". Do not use it for editing lesson prose that was not reviewed, app/UI code, or general maths questions unrelated to this repository's course.
+description: Generate exercises from a mathematics lesson, or review a lesson or the whole course for mathematical, pedagogical and bilingual (FR/EN) quality, using explicit mathematical self-checks, bilingual review and candidate comparison. Use this when the user asks to create, draft or improve exercises, quizzes, QCM, distractors, truth tables or counterexamples for a lesson (e.g. L07), or to review, audit, proofread, check or "relire" a lesson, exercise bank, course sequence or source PDF page — e.g. "génère des exercices pour L07", "crée un QCM", "relis la leçon", "vérifie les corrections", "review the course", "is this lesson correct?". Do not use it for editing lesson prose that was not reviewed, app/UI code, or general maths questions unrelated to this repository's course.
 ---
 
 # Math course studio
@@ -45,14 +45,14 @@ Terminology authority: `src/data/glossary.json` (FR/EN names, readings, common c
 
 Source PDF: `docs/Logique_01 (1).pdf` (untracked; the filename has a space and "(1)"; quote the path). PDF page N is the Nth page of the file, page 1 is the title page. Use the `Read` tool with `pages` (max 20 per call) and read only the pages you need. Never copy substantial slide text, never stage or commit the PDF (Constitution §3).
 
-## 2. Reasoning protocol: chain of thought plus tree of thoughts
+## 2. Mathematical verification and design review
 
-Chain of thought catches *wrong mathematics*; tree of thoughts catches *mediocre design*. Details, scoring grid and recipes: `references/reasoning-protocols.md`.
+Use concise mathematical justifications and compare design candidates. Neither model agreement nor extra reasoning traces guarantee correctness. Details, scoring grid and recipes: `references/reasoning-protocols.md`.
 
-- **Chain of thought (CoT)** — derive step by step: domain → definition → computation → conclusion → edge cases. Every answer key needs a **second, different derivation**; agreement of two independent routes is the evidence, a repeated route is not. For propositional items, run `scripts/logic-check.mjs` as one route (it brute-forces every row and compares with the key).
-- **Tree of thoughts (ToT)** — at each design decision branch into 2–3 candidates, score, prune with a stated reason, descend. Branch at: the misconception targeted, the stem, the distractor set, and (review) competing readings of an ambiguous source statement.
+- **Mathematical self-check** — state the domain, definition, concise justification and edge cases. Use a second, different derivation or reproducible check for each key; two routes by the same author remain self-checks, not independent review. For propositional tables, run `scripts/logic-check.mjs` with a linked `table` entry for every truth-table item. Its coverage report distinguishes keys matched against supplied formulas, failed comparisons, unchecked tables and supplemental checks. Manually check that each formula expresses the prompt; single-choice semantics and translations remain outside its automatic verification.
+- **Candidate comparison** — at each design decision branch into 2–3 candidates, score, prune with a stated reason, descend. Branch at: the misconception targeted, the stem, the distractor set, and (review) competing readings of an ambiguous source statement.
 
-Keep reasoning out of exercise JSON. Record a compact trace (branches, scores, why pruned, the two derivations) in `generation-notes.md` (generate) or the review note (review). In chat, show decisions, not scratch work.
+Keep verification notes out of exercise JSON. Record concise justifications, domains, witnesses, reproducible checks, actual coverage and design decisions in `generation-notes.md` (generate) or the review note (review). Do not request private reasoning transcripts. In chat, show findings and decisions.
 
 ## 3. Mode: generate
 
@@ -81,6 +81,8 @@ Review text (FR and EN), bank, and their alignment with `references/review-rubri
 - **Source fidelity** — compare with the PDF pages in the frontmatter. Flag known source defects (Constitution §2: pages 48, 19/25/31, 60–65, 71–89, 94) with the page number; never silently fix and never present a suspected error as correct. For an ambiguous source statement, branch over the readings, give each one's truth value, and report the ambiguity.
 - **Pedagogy, bilingual fidelity, exercise quality, accessibility, rights** — see the rubric.
 
+Mathematical review is the primary role in this mode: test every key and rejected option against the exact stem; review claims, domains and counterexamples before judging style. Report correctness, ambiguity, bilingual meaning and verification coverage separately. A green script result is never a publication verdict.
+
 Write findings with the template in `references/review-rubric.md`. Existing notes under `docs/content/` belong to maintainers: read them, never overwrite.
 
 ## 5. Mode: review-course
@@ -103,6 +105,8 @@ node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/drafts/
 node scripts/check-repository.mjs     # always after writing any .md: draft notes are link-checked
 node scripts/check-content.mjs
 ```
+
+The logic helper rejects empty manifests and exits nonzero for failed checks or omitted truth-table keys. Supplemental checks, even with exercise IDs, do not verify stored keys. For a bank with no truth tables, record that automatic key verification is not applicable; do not invent table checks or interpret supplemental success as mathematical approval.
 
 Run `pnpm check` when `pnpm` works. In the Claude Code sandbox `pnpm` is blocked ("operation not permitted"), so the `node` commands above are the fallback; say which you ran. Tests that spawn child processes (`tests/claude/`) also fail with `EPERM` in the sandbox; do not read that as a code bug. Retry unsandboxed only through the normal permission prompt.
 
