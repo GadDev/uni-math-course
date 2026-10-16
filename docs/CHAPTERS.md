@@ -26,6 +26,6 @@ Desktop uses one row above 1050 px. At and below 1050 px, brand/language/account
 
 ## Review order
 
-The overview and chapter catalogue are one implementation PR. The dependent navigation PR integrates the chapter selector into the shared header. Merge the overview PR first, then retarget the navigation PR to main if GitHub has not done so automatically; no PR is merged automatically.
+The overview and chapter catalogue were merged in PR #54. The dependent navigation PR #55 targets `main` and integrates the chapter selector into the shared header; no PR is merged automatically.
 
 Checks: run `pnpm check` and `pnpm test:e2e`. Browser coverage checks public access, preparation status, MathML, same-chapter/fragment locale switching, mobile reflow and no-JavaScript reading. Local checks do not establish hosted Supabase or assistive-technology acceptance.
