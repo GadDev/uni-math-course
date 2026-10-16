@@ -39,6 +39,18 @@ All auth responses, including redirects/errors, have Cache-Control: private, no-
 
 Local logout ends this browser's session, not every device. Previously issued access JWTs can remain valid until expiry in other integrations; no immediate global token invalidation is promised. An outage clears browser credentials but cannot prove remote revocation. Future grading/data endpoints must independently use verified identity (which already applies the optional email allowlist) and enforce ownership.
 
+## Returning tabs and browser history
+
+The shared browser session lifecycle checks `/api/auth/session/` on visible-tab focus/visibility changes and persisted `pageshow` restoration. A short event coalescing window and a shared in-flight promise prevent duplicate header/activity checks. Initial public anonymous reading still makes no account request.
+
+A verified `200` updates the header. If identity is unchanged, practice drafts and pending submission snapshots remain untouched. A confirmed `401` clears practice drafts and removes old private UI; an account change does the same before a protected account/progress page is re-rendered. Practice offers the existing current-account loading action instead of submitting or silently transferring old answers. Requests from a discarded activity cannot restore old feedback after the change.
+
+A `503`, other unexpected response, timeout or network failure shows a bilingual verification-unavailable notice and preserves drafts and the last confirmed UI. It is not treated as logout; a subsequent return event retries verification. Existing server checks and the submission learner precondition remain authoritative.
+
+A returning progress page fetches its current server-rendered HTML without cache and replaces only its private progress region, after checking the response owner. It never reloads a practice island or overwrites unfinished answers. Account changes and redirected progress responses first clear private HTML, then navigate through the existing protected route. No polling, Realtime subscription, shared draft store or new infrastructure is introduced.
+
+Browser tests include real multi-tab cookie/session changes, actual back/forward navigation, and deterministic persisted-pageshow event coverage. Headless event simulation is not proof that every browser will admit these private pages to BFCache; hosted browser acceptance remains separate.
+
 ## Test evidence and limits
 
 The native policy tests reject unsafe origins/privileged keys, external return targets, cross-site mutations and oversized forms, and cover the email allowlist. Browser tests run a standalone Node production build with the same routes and middleware. A loopback-only Auth protocol fixture exercises the real Supabase SDK for password sign-in, verified lookup, forged cookies, expired/chunked-cookie refresh, invalid refresh, user separation, logout and failure handling. A second unconfigured server verifies the disabled state. No test hook is imported into the app.

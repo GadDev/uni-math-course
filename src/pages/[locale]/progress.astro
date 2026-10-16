@@ -87,7 +87,13 @@ const recent = progress?.history.slice(0, 3) ?? [];
   description={text.intro}
   path="progress/"
 >
-  <main id="main" tabindex="-1" class="progress-page">
+  <main
+    id="main"
+    tabindex="-1"
+    class="progress-page"
+    data-session-private={user?.id ?? ''}
+    data-session-view="progress"
+  >
     <section class="hero progress-hero">
       <div class="hero-copy">
         <p class="eyebrow">{text.eyebrow}</p>

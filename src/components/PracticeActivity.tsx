@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Locale } from '../lib/i18n';
 import Tex from './Tex';
+import {
+  clearPracticeDrafts,
+  subscribeSession,
+} from '../lib/session-lifecycle';
 import { practiceHref, type PracticeTarget } from '../lib/practice-navigation';
 
 // Client-side shapes. Answers, feedback and explanations only ever arrive in a
@@ -319,8 +323,12 @@ export default function PracticeActivity({
   const [failed, setFailed] = useState<Record<string, 'error' | 'expired'>>({});
   const feedbackHeading = useRef<HTMLHeadingElement>(null);
   const graded = useRef(false);
+  const contextGeneration = useRef(0);
+  const observedLearner = useRef<string | null | undefined>(undefined);
 
   async function load() {
+    const generation = ++contextGeneration.current;
+    observedLearner.current = undefined;
     setPhase('loading');
     setLearner('');
     setExercises([]);
@@ -333,12 +341,24 @@ export default function PracticeActivity({
         credentials: 'same-origin',
         headers: { Accept: 'application/json' },
       });
+      if (generation !== contextGeneration.current) return;
       if (response.status === 401) return setPhase('signin');
       if (!response.ok) return setPhase('unavailable');
       const data = (await response.json()) as {
         learner: string;
         exercises: Exercise[];
       };
+      if (generation !== contextGeneration.current) return;
+      if (
+        observedLearner.current !== undefined &&
+        observedLearner.current !== data.learner
+      ) {
+        clearPracticeDrafts();
+        setPhase(
+          observedLearner.current === null ? 'signin' : 'account-changed',
+        );
+        return;
+      }
       // Drafts belong to one learner and one exercise version.
       const stored = readStored(lessonId);
       const mine = stored?.learner === data.learner ? stored.entries : {};
@@ -378,6 +398,7 @@ export default function PracticeActivity({
       );
       setPhase('ready');
     } catch {
+      if (generation !== contextGeneration.current) return;
       setPhase('unavailable');
     }
   }
@@ -385,6 +406,29 @@ export default function PracticeActivity({
   useEffect(() => {
     void load();
   }, []);
+
+  useEffect(
+    () =>
+      subscribeSession((state) => {
+        if (state.status === 'unavailable') return;
+        observedLearner.current =
+          state.status === 'authenticated' ? state.learner : null;
+        if (state.status === 'authenticated' && !learner) return;
+        if (state.status === 'authenticated' && state.learner === learner)
+          return;
+        contextGeneration.current++;
+        clearPracticeDrafts();
+        setPhase(state.status === 'anonymous' ? 'signin' : 'account-changed');
+        setLearner('');
+        setExercises([]);
+        setEntries({});
+        setFailed({});
+        setBusy(null);
+        setCurrent(0);
+        graded.current = false;
+      }),
+    [learner],
+  );
 
   useEffect(() => {
     if (phase === 'ready' && learner)
@@ -445,6 +489,7 @@ export default function PracticeActivity({
     });
 
   async function submit(target: Exercise) {
+    const generation = contextGeneration.current;
     const found = entries[target.id];
     if (!found || found.result || busy || !complete(target, found)) return;
     const submission = found.submission ?? {
@@ -480,19 +525,16 @@ export default function PracticeActivity({
           response: responseOf(target, submission),
         }),
       });
+      if (generation !== contextGeneration.current) return;
       if (response.status === 401)
         return setFailed((f) => ({ ...f, [target.id]: 'expired' }));
       if (response.status === 409) {
         const problem = (await response.json()) as { error?: string };
+        if (generation !== contextGeneration.current) return;
         if (problem.error === 'learner_context_changed') {
-          // Other lesson drafts can also belong to the previous account.
-          try {
-            for (const key of Object.keys(sessionStorage))
-              if (key.startsWith('um-practice:'))
-                sessionStorage.removeItem(key);
-          } catch {
-            // Clear in-memory private UI even when storage is unavailable.
-          }
+          contextGeneration.current++;
+          clearPracticeDrafts();
+          setBusy(null);
           setPhase('account-changed');
           setLearner('');
           setExercises([]);
@@ -506,6 +548,7 @@ export default function PracticeActivity({
       if (!response.ok)
         return setFailed((f) => ({ ...f, [target.id]: 'error' }));
       const outcome = (await response.json()) as Result;
+      if (generation !== contextGeneration.current) return;
       const answers = answersFromResponse(target, outcome.response);
       if (
         outcome.exerciseId !== target.id ||
@@ -523,9 +566,10 @@ export default function PracticeActivity({
         result: outcome,
       }));
     } catch {
+      if (generation !== contextGeneration.current) return;
       setFailed((f) => ({ ...f, [target.id]: 'error' }));
     } finally {
-      setBusy(null);
+      if (generation === contextGeneration.current) setBusy(null);
     }
   }
 

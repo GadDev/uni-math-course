@@ -31,7 +31,7 @@ The bounded target survives anonymous redirects to sign-in, failed-login retries
 
 Each submission includes `expectedLearnerId`, the learner returned when the activity loaded. The API requires this precondition (`400 invalid_learner_context` when missing/invalid) and rejects another learner with `409 learner_context_changed` before attempt lookup, duplicate replay or persistence. It always derives the saved owner from server-verified identity; the expected ID never authorizes access.
 
-When another tab replaces the browser session, the old activity cannot submit its answers to the new account. On a mismatch it removes its old answers/feedback and all practice drafts in that tab, then offers a bilingual action to load the current account with fresh state. This is request-time protection; proactive cross-tab logout/focus synchronization remains separate. Older open clients without the precondition must reload before submitting.
+When another tab replaces the browser session, the old activity cannot submit its answers to the new account. On a mismatch it removes its old answers/feedback and all practice drafts in that tab, then offers a bilingual action to load the current account with fresh state. The server precondition remains the final request-time protection. Visible-tab session revalidation also removes old work proactively; ordinary focus under the same learner preserves the draft and does not reload exercises. Older open clients without the precondition must reload before submitting.
 
 ## Submission and recovery
 
