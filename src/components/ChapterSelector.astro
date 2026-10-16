@@ -1,0 +1,114 @@
+---
+import {
+  chapterCopy,
+  chapterForPath,
+  chapterHref,
+  chapters,
+} from '../lib/chapters';
+import type { Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+  path: string;
+}
+const { locale, path } = Astro.props;
+const text = chapterCopy[locale];
+const current = chapterForPath(path);
+---
+
+<details class="chapter-picker" data-chapter-picker>
+  <summary
+    aria-controls="chapter-panel"
+    aria-label={
+      current
+        ? `${text.label} ${current.number} — ${current.title[locale]}`
+        : text.choose
+    }
+  >
+    <span>
+      <span class="chapter-selector-label">{text.label}</span>
+      <span class="chapter-selector-title">
+        {current ? (
+          <>
+            {current.number} —{' '}
+            <span class="chapter-title-full">{current.title[locale]}</span>
+            <span class="chapter-title-short">
+              {current.shortTitle[locale]}
+            </span>
+          </>
+        ) : (
+          text.all
+        )}
+      </span>
+    </span>
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        d="m2 4 4 4 4-4"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+      />
+    </svg>
+  </summary>
+  <nav id="chapter-panel" class="chapter-panel" aria-label={text.choose}>
+    <p class="chapter-panel-label">{text.choose}</p>
+    <ul>
+      {chapters.map((chapter) => (
+        <li>
+          <a
+            class="chapter-option"
+            href={chapterHref(locale, chapter)}
+            data-chapter={chapter.id}
+            aria-current={chapter.id === current?.id ? 'location' : undefined}
+          >
+            <span class="chapter-option-number" aria-hidden="true">
+              {chapter.number}
+            </span>
+            <span>
+              <strong>{chapter.title[locale]}</strong>
+              <small>
+                {chapter.id === current?.id ? `${text.current} · ` : ''}
+                {text[chapter.status]}
+              </small>
+            </span>
+            <span aria-hidden="true">
+              {chapter.id === current?.id ? '✓' : '→'}
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <p class="chapter-panel-foot">{text.keepsLanguage}</p>
+  </nav>
+</details>
+
+<script>
+  document
+    .querySelectorAll<HTMLDetailsElement>('[data-chapter-picker]')
+    .forEach((picker) => {
+      const trigger = picker.querySelector('summary');
+      document.addEventListener('click', (event) => {
+        if (event.target instanceof Node && !picker.contains(event.target))
+          picker.open = false;
+      });
+      picker.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && picker.open) {
+          event.preventDefault();
+          picker.open = false;
+          trigger?.focus();
+        }
+      });
+      picker.addEventListener('focusout', (event) => {
+        if (
+          event.relatedTarget instanceof Node &&
+          !picker.contains(event.relatedTarget)
+        )
+          picker.open = false;
+      });
+    });
+</script>

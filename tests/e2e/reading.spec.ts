@@ -155,7 +155,7 @@ for (const locale of ['fr', 'en']) {
     });
   }
   for (const width of [
-    320, 375, 768, 859, 860, 861, 1099, 1100, 1101, 1280, 1440,
+    320, 375, 768, 859, 860, 861, 1050, 1051, 1099, 1100, 1101, 1280, 1440,
   ]) {
     test(`Signal public pages retain header geometry (${locale}, ${width}px)`, async ({
       page,
@@ -168,10 +168,10 @@ for (const locale of ['fr', 'en']) {
           await page.evaluate(() => document.documentElement.scrollWidth),
         ).toBeLessThanOrEqual(width);
         const header = await page.locator('.site-header').boundingBox();
-        expect(header!.height).toBeLessThanOrEqual(width > 860 ? 100 : 145);
+        expect(header!.height).toBeLessThanOrEqual(width > 1050 ? 100 : 145);
         const nav = await page.locator('.primary-nav').boundingBox();
         const action = await page.locator('.header-sign-in').boundingBox();
-        if (width > 860) {
+        if (width > 1050) {
           expect(nav!.x + nav!.width).toBeLessThanOrEqual(action!.x);
         } else {
           // Actions occupy the first row; navigation gets the full second row.
@@ -182,10 +182,14 @@ for (const locale of ['fr', 'en']) {
           .locator('.language-switch')
           .boundingBox();
         expect(brand!.x + brand!.width).toBeLessThanOrEqual(localeControl!.x);
-        for (const link of await page.locator('.primary-nav a').all()) {
+        for (const link of await page.locator('.primary-nav > a').all()) {
           const size = await link.boundingBox();
           expect(size!.height).toBeLessThanOrEqual(48);
         }
+        const chapterTrigger = await page
+          .locator('.chapter-picker summary')
+          .boundingBox();
+        expect(chapterTrigger!.height).toBeGreaterThanOrEqual(44);
       }
     });
   }

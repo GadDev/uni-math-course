@@ -16,8 +16,16 @@ Keep future lesson IDs globally unique. Never restart L01 in Chapter 2 or rewrit
 
 The overview uses the shared Base shell and SignalGeometry with an optional `decalage` variant; the default logic composition remains unchanged. The green accent is scoped to the overview. No feedback colours, server grading, authentication, database records or existing progress calculations change. Both locales share the `parcours` fragment so language switching preserves that position.
 
+## Shared chapter navigation
+
+The Base header replaces “Le cours” with a native chapter disclosure containing normal links. It works without JavaScript. Keyboard Enter/Space toggles it; the enhancement closes it on Escape (restoring trigger focus), outside click and focus leaving the disclosure. Current chapter identity comes from the explicit catalogue and locale-relative route; shared resources use a neutral “Chapitres / Chapters” trigger. Current chapter status uses text, a checkmark and `aria-current="location"` rather than colour alone.
+
+Chapter switching opens the selected overview in the same locale. Locale switching preserves Chapter 2 and its shared `parcours` fragment. No navigation state is stored in learner records or local storage. Full chapter names appear in the dropdown and the trigger's accessible name; short visible labels fit small screens. Global number-family access uses the compact “Nombres / Numbers” header label; the reference page itself is unchanged. French header sign-in uses “Connexion”; forms keep their existing labels.
+
+Desktop uses one row above 1050 px. At and below 1050 px, brand/language/account occupy the first row and navigation the second. The dropdown spans the mobile navigation row and has a viewport-bounded scroll area for future catalogue growth. Focus outlines, 44 px header targets and the existing account/profile menu remain available. Green header styling is scoped to Chapter 2 identity, not feedback or grading semantics.
+
 ## Review order
 
-The overview and chapter catalogue are one implementation PR. A following dependent PR integrates the chapter selector into the shared header. The overview can be reviewed directly before the selector is merged. Merge the overview PR first; no PR is merged automatically.
+The overview and chapter catalogue were merged in PR #54. The dependent navigation PR #55 targets `main` and integrates the chapter selector into the shared header; no PR is merged automatically.
 
 Checks: run `pnpm check` and `pnpm test:e2e`. Browser coverage checks public access, preparation status, MathML, same-chapter/fragment locale switching, mobile reflow and no-JavaScript reading. Local checks do not establish hosted Supabase or assistive-technology acceptance.

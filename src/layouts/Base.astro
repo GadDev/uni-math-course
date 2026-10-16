@@ -2,9 +2,11 @@
 import 'katex/dist/katex.min.css';
 import '../styles/global.css';
 import '../styles/profile-menu.css';
+import '../styles/chapters.css';
+import ChapterSelector from '../components/ChapterSelector.astro';
+import { chapterForPath } from '../lib/chapters';
 import { copy, type Locale } from '../lib/i18n';
 import { glossaryCopy } from '../lib/glossary';
-import { numberCopy } from '../lib/numbers';
 import { authCopy } from '../lib/auth/copy';
 import { progressCopy } from '../lib/progress-copy';
 interface Props {
@@ -54,17 +56,12 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
     <a class="skip-link" href="#main">
       {text.skip}
     </a>
-    <header class="site-header">
+    <header class="site-header" data-chapter={chapterForPath(path)?.id}>
       <a class="brand" href={'/' + locale + '/'}>
         <span>{text.brand}</span>
       </a>
       <nav class="primary-nav" aria-label={text.navigation}>
-        <a
-          href={'/' + locale + '/'}
-          aria-current={path === '' ? 'page' : undefined}
-        >
-          {text.course}
-        </a>
+        <ChapterSelector locale={locale} path={path} />
         <a
           href={'/' + locale + '/glossary/'}
           aria-current={path === 'glossary/' ? 'page' : undefined}
@@ -75,7 +72,7 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
           href={'/' + locale + '/numbers/'}
           aria-current={path === 'numbers/' ? 'page' : undefined}
         >
-          {numberCopy[locale].nav}
+          {locale === 'fr' ? 'Nombres' : 'Numbers'}
         </a>
       </nav>
       <div class="header-actions">
@@ -98,7 +95,7 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
           </a>
         </nav>
         <a class="header-sign-in" href={'/' + locale + '/sign-in/'}>
-          {authCopy[locale].signIn}
+          {locale === 'fr' ? 'Connexion' : authCopy[locale].signIn}
         </a>
         <div class="profile-menu" data-profile-menu hidden>
           <button
