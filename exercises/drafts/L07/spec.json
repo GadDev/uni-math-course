@@ -1,0 +1,780 @@
+{
+  "lessonId": "L07",
+  "version": 4,
+  "items": [
+    {
+      "id": "L07-E07",
+      "objectiveId": "L07-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "biconditional-as-single-implication"
+      ],
+      "prompt": [
+        "Quand la formule $A\\Leftrightarrow B$ est-elle vraie pour une affectation donnée ?",
+        "When is the formula $A\\Leftrightarrow B$ true under a given assignment?"
+      ],
+      "hint": [
+        "La biconditionnelle compare deux valeurs sur la même ligne.",
+        "A biconditional compares two values on the same row."
+      ],
+      "options": [
+        [
+          "Quand $A=1$ seulement.",
+          "Whenever $A=1$ alone.",
+          "Si $B=0$ alors la biconditionnelle est fausse.",
+          "If $B=0$, the biconditional is false."
+        ],
+        [
+          "Quand $A$ et $B$ sont identiques.",
+          "When $A$ and $B$ have equal values.",
+          "Exact : sur $00$ et $11$.",
+          "Correct: on $00$ and $11$."
+        ],
+        [
+          "Quand $A$ et $B$ sont différentes.",
+          "When $A$ and $B$ differ.",
+          "Les valeurs différentes rendent la biconditionnelle fausse.",
+          "Different values make the biconditional false."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "$A\\Leftrightarrow B$ vaut $1$ sur $00$ et $11$, et $0$ sur $01$ et $10$.",
+        "$A\\Leftrightarrow B$ is $1$ on $00$ and $11$, and $0$ on $01$ and $10$."
+      ]
+    },
+    {
+      "id": "L07-E08",
+      "objectiveId": "L07-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "biconditional-read-as-and"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Complétez la colonne de $A\\Leftrightarrow\\neg B$ pour les quatre lignes $A,B$.",
+        "Complete the column for $A\\Leftrightarrow\\neg B$ across the four rows $A,B$."
+      ],
+      "hint": [
+        "Comparez $A$ avec la valeur de $\\neg B$, et non directement avec $B$.",
+        "Compare $A$ with the value of $\\neg B$, not with $B$ directly."
+      ],
+      "variables": [
+        "A",
+        "B"
+      ],
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "10": true,
+        "11": false,
+        "00": false,
+        "01": true
+      },
+      "feedback": [
+        "La formule est vraie lorsque $A$ diffère de $B$ : $01$ et $10$.",
+        "The formula is true when $A$ differs from $B$: $01$ and $10$."
+      ]
+    },
+    {
+      "id": "L07-E09",
+      "objectiveId": "L07-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "connective-confused-with-relation"
+      ],
+      "prompt": [
+        "Quelle différence entre $\\Leftrightarrow$ et $\\equiv$ est correcte ?",
+        "Which distinction between $\\Leftrightarrow$ and $\\equiv$ is correct?"
+      ],
+      "hint": [
+        "L'un fabrique une formule dont la valeur dépend de la ligne ; l'autre compare deux formules sur toutes les lignes.",
+        "One builds a formula whose value depends on the row; the other compares two formulas over all rows."
+      ],
+      "options": [
+        [
+          "Les deux symboles expriment seulement la conjonction.",
+          "Both symbols mean conjunction only.",
+          "Une biconditionnelle est vraie aussi sur $00$ ; ce n'est pas une conjonction.",
+          "A biconditional is also true on $00$; it is not conjunction."
+        ],
+        [
+          "$\\equiv$ s'évalue sur une seule ligne, $\\Leftrightarrow$ sur toutes.",
+          "$\\equiv$ is evaluated on one row, $\\Leftrightarrow$ on all.",
+          "Le niveau des deux symboles est inversé.",
+          "The scope of the two symbols is reversed."
+        ],
+        [
+          "$\\Leftrightarrow$ est un connecteur, $\\equiv$ compare des colonnes entières.",
+          "$\\Leftrightarrow$ is a connective; $\\equiv$ compares complete columns.",
+          "Exact : formule d'un côté, relation sémantique de l'autre.",
+          "Correct: a formula on one hand, a semantic relation on the other."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "$P\\Leftrightarrow Q$ est évaluée par affectation ; $P\\equiv Q$ exige l'accord sur toutes les affectations.",
+        "$P\\Leftrightarrow Q$ is evaluated per assignment; $P\\equiv Q$ requires agreement on all assignments."
+      ]
+    },
+    {
+      "id": "L07-E10",
+      "objectiveId": "L07-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "equivalence-checked-on-one-row"
+      ],
+      "prompt": [
+        "Pour des formules $P$ et $Q$ sur deux variables, quel test établit $P\\equiv Q$ ?",
+        "For formulas $P$ and $Q$ over two variables, which test establishes $P\\equiv Q$?"
+      ],
+      "hint": [
+        "Il faut couvrir les quatre affectations de deux variables.",
+        "All four assignments of two variables must be covered."
+      ],
+      "options": [
+        [
+          "Comparer les quatre lignes des deux colonnes.",
+          "Compare all four rows of the two columns.",
+          "Exact : aucune ligne ne doit différer.",
+          "Correct: no row may differ."
+        ],
+        [
+          "Comparer seulement la ligne $11$.",
+          "Compare only row $11$.",
+          "Une ligne ne suffit pas à établir l'équivalence.",
+          "One row does not establish equivalence."
+        ],
+        [
+          "Trouver au moins une ligne où les deux sont vraies.",
+          "Find at least one row where both are true.",
+          "Une ligne vraie commune ne garantit pas les autres lignes.",
+          "One shared true row does not guarantee the other rows."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "L'équivalence sémantique est l'égalité des fonctions de vérité sur tout le domaine.",
+        "Semantic equivalence is equality of truth functions over the entire domain."
+      ]
+    },
+    {
+      "id": "L07-E11",
+      "objectiveId": "L07-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "equivalence-needs-only-some-rows"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Complétez la colonne de $(A\\Rightarrow B)\\Leftrightarrow(\\neg B\\Rightarrow\\neg A)$ pour vérifier la contraposée.",
+        "Complete the column for $(A\\Rightarrow B)\\Leftrightarrow(\\neg B\\Rightarrow\\neg A)$ to check contraposition."
+      ],
+      "hint": [
+        "Les deux implications échouent sur la même affectation.",
+        "The two implications fail under the same assignment."
+      ],
+      "variables": [
+        "A",
+        "B"
+      ],
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "10": true,
+        "11": true,
+        "00": true,
+        "01": true
+      },
+      "feedback": [
+        "Chaque ligne compare une implication à sa contraposée ; leurs valeurs coïncident toujours.",
+        "Each row compares an implication with its contrapositive; their values always agree."
+      ]
+    },
+    {
+      "id": "L07-E12",
+      "objectiveId": "L07-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "equivalence-as-connective"
+      ],
+      "prompt": [
+        "Un élève conclut de $A\\Leftrightarrow B=1$ sur la ligne $11$ que $A\\equiv B$. Pourquoi sa conclusion ne suit-elle pas ?",
+        "A student concludes from $A\\Leftrightarrow B=1$ on row $11$ that $A\\equiv B$. Why does this not follow?"
+      ],
+      "hint": [
+        "Distinguez l'accord ponctuel de l'accord de deux formules sur toutes les lignes.",
+        "Distinguish row-level agreement from agreement of two formulas on all rows."
+      ],
+      "options": [
+        [
+          "Parce que la biconditionnelle est fausse sur $11$.",
+          "Because the biconditional is false on $11$.",
+          "Sur $11$, la biconditionnelle est justement vraie.",
+          "On $11$, the biconditional is true."
+        ],
+        [
+          "Parce qu'une seule ligne ne démontre pas l'équivalence des colonnes.",
+          "Because one row does not prove equivalence of complete columns.",
+          "Exact : la relation $\\equiv$ exige toutes les affectations.",
+          "Correct: the relation $\\equiv$ requires all assignments."
+        ],
+        [
+          "Parce que toute formule avec $\\Leftrightarrow$ est contradictoire.",
+          "Because any formula with $\\Leftrightarrow$ is contradictory.",
+          "$A\\Leftrightarrow B$ est vraie sur deux des quatre lignes.",
+          "$A\\Leftrightarrow B$ is true on two of the four rows."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "$A$ et $B$ diffèrent sur $01$ et $10$, même si la formule biconditionnelle est vraie sur $11$.",
+        "$A$ and $B$ differ on $01$ and $10$, even though the biconditional is true on $11$."
+      ]
+    },
+    {
+      "id": "L07-E13",
+      "objectiveId": "L07-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "biconditional-as-single-implication"
+      ],
+      "prompt": [
+        "Quelle formule se comporte exactement comme $A\\Leftrightarrow B$ sur toutes les lignes ?",
+        "Which formula behaves exactly like $A\\Leftrightarrow B$ on every row?"
+      ],
+      "hint": [
+        "La biconditionnelle exige les deux sens de l'implication.",
+        "The biconditional requires both directions of implication."
+      ],
+      "options": [
+        [
+          "$(A\\Rightarrow B)\\land(B\\Rightarrow A)$",
+          "$(A\\Rightarrow B)\\land(B\\Rightarrow A)$",
+          "Exact : les deux implications doivent être vraies.",
+          "Correct: both implications must be true."
+        ],
+        [
+          "$A\\Rightarrow B$",
+          "$A\\Rightarrow B$",
+          "Sur $01$, l'implication est vraie mais la biconditionnelle fausse.",
+          "At $01$, implication is true but the biconditional is false."
+        ],
+        [
+          "$A\\land B$",
+          "$A\\land B$",
+          "Sur $00$, la biconditionnelle est vraie, la conjonction fausse.",
+          "At $00$, the biconditional is true while conjunction is false."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "$A\\Leftrightarrow B$ équivaut aux deux implications réciproques conjointes.",
+        "$A\\Leftrightarrow B$ is equivalent to the conjunction of both reciprocal implications."
+      ]
+    },
+    {
+      "id": "L07-E14",
+      "objectiveId": "L07-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "biconditional-read-as-and"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Calculez la colonne de $(A\\Leftrightarrow B)\\land C$ sur les huit affectations $A,B,C$.",
+        "Compute the column for $(A\\Leftrightarrow B)\\land C$ over all eight assignments $A,B,C$."
+      ],
+      "hint": [
+        "L'égalité des valeurs de $A,B$ ne suffit pas : il faut aussi $C=1$.",
+        "Equal values of $A,B$ are not enough: $C=1$ is also required."
+      ],
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": false,
+        "101": false,
+        "110": false,
+        "111": true,
+        "000": false,
+        "001": true,
+        "010": false,
+        "011": false
+      },
+      "feedback": [
+        "Seules $001$ et $111$ ont $A=B$ et $C=1$.",
+        "Only $001$ and $111$ have $A=B$ and $C=1$."
+      ]
+    },
+    {
+      "id": "L07-E15",
+      "objectiveId": "L07-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "connective-confused-with-relation"
+      ],
+      "prompt": [
+        "$P=A\\lor B$ et $Q=B\\lor A$. Quelle affirmation est correcte ?",
+        "Let $P=A\\lor B$ and $Q=B\\lor A$. Which statement is correct?"
+      ],
+      "hint": [
+        "L'ordre des deux termes d'un « ou » inclusif ne change pas sa valeur.",
+        "The order of the two terms of inclusive OR does not change its value."
+      ],
+      "options": [
+        [
+          "$P\\Leftrightarrow Q$ est faux sur $00$.",
+          "$P\\Leftrightarrow Q$ is false on $00$.",
+          "Sur $00$, les deux côtés valent $0$ : la biconditionnelle est vraie.",
+          "At $00$, both sides are $0$: the biconditional is true."
+        ],
+        [
+          "$P\\equiv Q$ seulement sur $11$.",
+          "$P\\equiv Q$ only on $11$.",
+          "La relation $\\equiv$ concerne toute la table et n'est pas limitée à une ligne.",
+          "The relation $\\equiv$ concerns the whole table and is not row-limited."
+        ],
+        [
+          "$P\\equiv Q$, donc $P\\Leftrightarrow Q$ est une tautologie.",
+          "$P\\equiv Q$, so $P\\Leftrightarrow Q$ is a tautology.",
+          "Exact : les deux formules ont partout les mêmes valeurs.",
+          "Correct: the formulas agree everywhere."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "La commutativité du « ou » donne des colonnes identiques, donc leur biconditionnelle vaut toujours $1$.",
+        "Commutativity of OR gives identical columns, so their biconditional is always $1$."
+      ]
+    },
+    {
+      "id": "L07-E16",
+      "objectiveId": "L07-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "equivalence-needs-only-some-rows"
+      ],
+      "prompt": [
+        "Un élève compare $P=A\\land B$ et $Q=A\\lor B$. Sur quelles lignes les deux valeurs diffèrent-elles ?",
+        "A student compares $P=A\\land B$ and $Q=A\\lor B$. On which rows do their truth values differ?"
+      ],
+      "hint": [
+        "Vérifiez les affectations où exactement une proposition est vraie.",
+        "Check assignments where exactly one statement is true."
+      ],
+      "options": [
+        [
+          "Sur $00$ et $11$.",
+          "On $00$ and $11$.",
+          "Les deux formules coïncident sur ces lignes.",
+          "The formulas agree on those rows."
+        ],
+        [
+          "Sur $01$ et $10$.",
+          "On $01$ and $10$.",
+          "Exact : le « ou » vaut $1$, le « et » $0$.",
+          "Correct: OR is $1$, AND is $0$."
+        ],
+        [
+          "Sur les quatre lignes.",
+          "On all four rows.",
+          "Sur $00$ et $11$, leurs valeurs sont identiques.",
+          "At $00$ and $11$, their values are identical."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "Deux désaccords ($01$, $10$) prouvent $P\\not\\equiv Q$.",
+        "Two disagreements ($01$, $10$) prove $P\\not\\equiv Q$."
+      ]
+    },
+    {
+      "id": "L07-E17",
+      "objectiveId": "L07-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "distributivity-with-wrong-operator"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Pour contrôler une loi, complétez $[A\\land(B\\lor C)]\\Leftrightarrow[(A\\land B)\\lor(A\\land C)]$ sur les huit lignes. Cette formule est-elle une tautologie ?",
+        "To check a law, complete $[A\\land(B\\lor C)]\\Leftrightarrow[(A\\land B)\\lor(A\\land C)]$ over eight rows. Is this formula a tautology?"
+      ],
+      "hint": [
+        "Les deux côtés imposent $A$ et au moins une de $B,C$.",
+        "Both sides require $A$ and at least one of $B,C$."
+      ],
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": true,
+        "101": true,
+        "110": true,
+        "111": true,
+        "000": true,
+        "001": true,
+        "010": true,
+        "011": true
+      },
+      "feedback": [
+        "La distributivité garantit l'égalité des deux côtés sur chaque affectation ; la biconditionnelle vaut partout $1$.",
+        "Distributivity makes both sides equal on every assignment; the biconditional is $1$ everywhere."
+      ]
+    },
+    {
+      "id": "L07-E18",
+      "objectiveId": "L07-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "equivalence-checked-on-one-row"
+      ],
+      "prompt": [
+        "Un logiciel ne teste $A\\Leftrightarrow B$ que sur $00$ et $11$ ; le résultat vaut $1$ les deux fois. Quel diagnostic est valide concernant $A\\equiv B$ ?",
+        "A program checks $A\\Leftrightarrow B$ only on $00$ and $11$; the result is $1$ both times. What is valid regarding $A\\equiv B$?"
+      ],
+      "hint": [
+        "Une relation d'équivalence exige également les lignes mixtes.",
+        "An equivalence relation also requires the mixed rows."
+      ],
+      "options": [
+        [
+          "$A\\equiv B$ est établi parce que deux cas suffisent.",
+          "$A\\equiv B$ is established because two cases suffice.",
+          "Il reste $01$ et $10$, où les valeurs diffèrent.",
+          "Rows $01$ and $10$ remain, where the values differ."
+        ],
+        [
+          "Les deux formules sont toujours vraies.",
+          "Both formulas are always true.",
+          "Sur $00$, $A$ et $B$ sont toutes deux fausses.",
+          "At $00$, $A$ and $B$ are both false."
+        ],
+        [
+          "$A\\not\\equiv B$ : $01$ ou $10$ fournit un désaccord.",
+          "$A\\not\\equiv B$: $01$ or $10$ gives a disagreement.",
+          "Exact : les deux lignes ignorées réfutent l'équivalence.",
+          "Correct: the two ignored rows refute equivalence."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "Les colonnes des variables atomiques $A$ et $B$ diffèrent sur les deux lignes mixtes ; on ne peut pas écrire $A\\equiv B$.",
+        "The columns of atomic variables $A$ and $B$ differ on both mixed rows; $A\\equiv B$ is false."
+      ]
+    },
+    {
+      "id": "L07-E19",
+      "objectiveId": "L07-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "biconditional-as-single-implication"
+      ],
+      "prompt": [
+        "Une condition accepte un jeton si $A\\Leftrightarrow(B\\land C)$ est vraie. Quelle affectation la fait échouer ?",
+        "A condition accepts a token if $A\\Leftrightarrow(B\\land C)$ is true. Which assignment makes it fail?"
+      ],
+      "hint": [
+        "Une biconditionnelle échoue quand les deux côtés ont des valeurs différentes.",
+        "A biconditional fails when its two sides have different values."
+      ],
+      "options": [
+        [
+          "$A=0,B=0,C=1$",
+          "$A=0,B=0,C=1$",
+          "$B\\land C=0$ et $A=0$ : accord.",
+          "$B\\land C=0$ and $A=0$: agreement."
+        ],
+        [
+          "$A=1,B=1,C=0$",
+          "$A=1,B=1,C=0$",
+          "Exact : $A=1$ mais $B\\land C=0$.",
+          "Correct: $A=1$ but $B\\land C=0$."
+        ],
+        [
+          "$A=1,B=1,C=1$",
+          "$A=1,B=1,C=1$",
+          "Les deux côtés valent $1$.",
+          "Both sides are $1$."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "Avec $(1,1,0)$, $B\\land C=0$ et $1\\Leftrightarrow0=0$.",
+        "With $(1,1,0)$, $B\\land C=0$ and $1\\Leftrightarrow0=0$."
+      ]
+    },
+    {
+      "id": "L07-E20",
+      "objectiveId": "L07-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "equivalence-as-connective"
+      ],
+      "prompt": [
+        "Pour toutes les affectations booléennes, quelle relation entre $A\\Leftrightarrow B$ et $\\neg A\\Leftrightarrow\\neg B$ est correcte ?",
+        "For all Boolean assignments, which relation between $A\\Leftrightarrow B$ and $\\neg A\\Leftrightarrow\\neg B$ is correct?"
+      ],
+      "hint": [
+        "Nier les deux valeurs conserve-t-il le fait qu'elles sont identiques ?",
+        "Does negating both values preserve whether they agree?"
+      ],
+      "options": [
+        [
+          "Les deux formules sont sémantiquement équivalentes.",
+          "The two formulas are semantically equivalent.",
+          "Exact : toutes deux testent si les valeurs initiales sont égales.",
+          "Correct: both test whether the original values are equal."
+        ],
+        [
+          "Elles ne coïncident que sur $11$.",
+          "They agree only on $11$.",
+          "Elles coïncident également sur $00$, $01$ et $10$.",
+          "They agree on $00$, $01$ and $10$ as well."
+        ],
+        [
+          "La seconde est toujours la négation de la première.",
+          "The second is always the negation of the first.",
+          "Sur $00$, les deux biconditionnelles sont vraies.",
+          "At $00$, both biconditionals are true."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "L'égalité de $A,B$ équivaut à l'égalité de $\\neg A,\\neg B$ ; leurs tables sont identiques.",
+        "Equality of $A,B$ is equivalent to equality of $\\neg A,\\neg B$; their truth tables match."
+      ]
+    },
+    {
+      "id": "L07-E21",
+      "objectiveId": "L07-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "biconditional-as-single-implication"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "On compare une chaîne de règles avec son raccourci : $[(A\\Rightarrow B)\\land(B\\Rightarrow C)]\\Leftrightarrow(A\\Rightarrow C)$. Complétez les huit lignes pour déterminer si les deux contraintes sont équivalentes.",
+        "Compare a chain of rules with its shortcut: $[(A\\Rightarrow B)\\land(B\\Rightarrow C)]\\Leftrightarrow(A\\Rightarrow C)$. Complete the eight rows to decide whether the two constraints are equivalent."
+      ],
+      "hint": [
+        "Le raccourci peut être vrai même si une règle intermédiaire est fausse.",
+        "The shortcut may be true even when an intermediate rule fails."
+      ],
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": true,
+        "101": false,
+        "110": true,
+        "111": true,
+        "000": true,
+        "001": true,
+        "010": false,
+        "011": true
+      },
+      "feedback": [
+        "Les côtés diffèrent sur $010$ et $101$. La chaîne implique le raccourci, mais celui-ci ne garantit pas chacune des étapes.",
+        "The sides differ at $010$ and $101$. The chain implies the shortcut, but the shortcut does not guarantee both intermediate steps."
+      ]
+    }
+  ]
+}

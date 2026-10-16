@@ -1,0 +1,1253 @@
+{
+  "lessonId": "L08",
+  "version": 3,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L08-E07",
+      "objectiveId": "L08-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "minterm-ignores-false-variable"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel terme décrit uniquement la ligne $x=1,y=0$ ?",
+        "en": "Which term describes only the row $x=1,y=0$?"
+      },
+      "hint": {
+        "fr": "Une variable fausse apparaît niée.",
+        "en": "A false variable appears negated."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x\\land\\neg y$",
+            "en": "$x\\land\\neg y$"
+          },
+          "feedback": {
+            "fr": "Exact : ce terme est vrai uniquement sur $10$.",
+            "en": "Correct: this term is true only at $10$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x\\land y$",
+            "en": "$x\\land y$"
+          },
+          "feedback": {
+            "fr": "Ce terme décrit $11$, pas $10$.",
+            "en": "This term describes $11$, not $10$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg x\\land y$",
+            "en": "$\\neg x\\land y$"
+          },
+          "feedback": {
+            "fr": "Ce terme décrit $01$.",
+            "en": "This term describes $01$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La ligne $10$ impose $x$ vrai et $y$ faux.",
+        "en": "Row $10$ requires $x$ true and $y$ false."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E08",
+      "objectiveId": "L08-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "true-rows-misread"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une fonction vaut $1$ sur $00$ et $10$ seulement. Quelle proposition est vraie ?",
+        "en": "A function is $1$ only on $00$ and $10$. Which claim is true?"
+      },
+      "hint": {
+        "fr": "Comparez la valeur de $y$ sur les deux lignes.",
+        "en": "Compare $y$ in the two rows."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$f= y$",
+            "en": "$f= y$"
+          },
+          "feedback": {
+            "fr": "$y$ vaut $0$ sur les deux lignes vraies.",
+            "en": "$y$ is $0$ on both true rows."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$f=\\neg y$",
+            "en": "$f=\\neg y$"
+          },
+          "feedback": {
+            "fr": "Exact : la valeur de $x$ n'importe pas.",
+            "en": "Correct: the value of $x$ does not matter."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$f=x\\land y$",
+            "en": "$f=x\\land y$"
+          },
+          "feedback": {
+            "fr": "Ce terme est vrai uniquement sur $11$.",
+            "en": "This term is true only at $11$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$f$ vaut $1$ exactement lorsque $y=0$.",
+        "en": "$f$ is $1$ exactly when $y=0$."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E09",
+      "objectiveId": "L08-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "rows-joined-with-and"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour une fonction vraie sur deux lignes distinctes, comment réunir leurs termes de ligne ?",
+        "en": "How do you combine row terms for a function true on two distinct rows?"
+      },
+      "hint": {
+        "fr": "Il suffit qu'un des termes de ligne soit vrai.",
+        "en": "It is enough for one row term to be true."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Par $\\land$.",
+            "en": "With $\\land$."
+          },
+          "feedback": {
+            "fr": "Deux termes décrivant des lignes distinctes ne peuvent être vrais ensemble.",
+            "en": "Terms describing different rows cannot both hold."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Par $\\neg$ seulement.",
+            "en": "By $\\neg$ only."
+          },
+          "feedback": {
+            "fr": "Nier un terme inverse ses lignes vraies et fausses.",
+            "en": "Negating one term swaps its true and false rows."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Par $\\lor$.",
+            "en": "With $\\lor$."
+          },
+          "feedback": {
+            "fr": "Exact : la disjonction rassemble les lignes.",
+            "en": "Correct: OR collects the rows."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La somme logique des termes de ligne construit la fonction sur l'union des lignes vraies.",
+        "en": "OR of row terms builds the function on the union of true rows."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E10",
+      "objectiveId": "L08-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "demorgan-negates-only-one-side"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle expression utilisant seulement $\\lor$ et $\\neg$ équivaut à $p\\land q$ ?",
+        "en": "Which expression using only $\\lor$ and $\\neg$ equals $p\\land q$?"
+      },
+      "hint": {
+        "fr": "Appliquez de Morgan à la négation d'une disjonction.",
+        "en": "Apply De Morgan to the negation of an OR."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg(p\\lor q)$",
+            "en": "$\\neg(p\\lor q)$"
+          },
+          "feedback": {
+            "fr": "Elle exprime $\\neg p\\land\\neg q$.",
+            "en": "It expresses $\\neg p\\land\\neg q$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg(\\neg p\\lor\\neg q)$",
+            "en": "$\\neg(\\neg p\\lor\\neg q)$"
+          },
+          "feedback": {
+            "fr": "Exact : les deux négations internes préservent les conditions positives.",
+            "en": "Correct: both inner negations preserve the positive conditions."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg p\\lor\\neg q$",
+            "en": "$\\neg p\\lor\\neg q$"
+          },
+          "feedback": {
+            "fr": "C'est la négation de $p\\land q$.",
+            "en": "That is the negation of $p\\land q$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Par de Morgan, $p\\land q\\equiv\\neg(\\neg p\\lor\\neg q)$.",
+        "en": "By De Morgan, $p\\land q\\equiv\\neg(\\neg p\\lor\\neg q)$."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E11",
+      "objectiveId": "L08-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "functional-completeness-only-true-functions"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que garantit la complétude fonctionnelle de $\\{\\lor,\\neg\\}$ pour $n\\geq1$ ?",
+        "en": "What does functional completeness of $\\{\\lor,\\neg\\}$ guarantee for $n\\geq1$?"
+      },
+      "hint": {
+        "fr": "Le théorème porte sur toute attribution de résultats à des lignes.",
+        "en": "The theorem concerns every assignment of outputs to rows."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Seulement les fonctions toujours vraies sont exprimables.",
+            "en": "Only always-true functions can be expressed."
+          },
+          "feedback": {
+            "fr": "Des fonctions mixtes sont aussi représentables.",
+            "en": "Mixed functions are representable too."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Seules les fonctions de deux variables sont exprimables.",
+            "en": "Only two-variable functions are expressible."
+          },
+          "feedback": {
+            "fr": "La construction marche pour tout $n\\geq1$.",
+            "en": "The construction works for any $n\\geq1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Toute fonction booléenne de $n$ variables est exprimable.",
+            "en": "Every Boolean function of $n$ variables is expressible."
+          },
+          "feedback": {
+            "fr": "Exact : la construction par lignes vraies est générale.",
+            "en": "Correct: the true-row construction is general."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Chaque ligne vraie admet un terme et leur disjonction exprime la fonction, quitte à remplacer les conjonctions.",
+        "en": "Each true row has a term; OR combines them, and conjunctions can be eliminated."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E12",
+      "objectiveId": "L08-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "truth-table-size-miscount"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour une fonction de trois variables, combien d'affectations faut-il couvrir ?",
+        "en": "How many assignments must be covered for a three-variable function?"
+      },
+      "hint": {
+        "fr": "Chaque variable admet deux valeurs indépendantes.",
+        "en": "Each variable takes two independent values."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "Il faut multiplier, non additionner, les choix binaires.",
+            "en": "Multiply, rather than add, the binary choices."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$8$",
+            "en": "$8$"
+          },
+          "feedback": {
+            "fr": "Exact : $2^3=8$ lignes.",
+            "en": "Correct: $2^3=8$ rows."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$9$",
+            "en": "$9$"
+          },
+          "feedback": {
+            "fr": "Il n'y a que deux valeurs possibles par variable.",
+            "en": "There are only two values per variable."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Pour trois entrées booléennes, le domaine possède $2^3=8$ affectations.",
+        "en": "Three Boolean inputs yield $2^3=8$ assignments."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E13",
+      "objectiveId": "L08-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "minterm-ignores-false-variable"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans l'ordre $x,y,z$, quel minterme représente $010$ ?",
+        "en": "In the order $x,y,z$, which minterm represents $010$?"
+      },
+      "hint": {
+        "fr": "Chaque position à $0$ exige un littéral nié.",
+        "en": "Each $0$ position requires a negated literal."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg x\\land y\\land\\neg z$",
+            "en": "$\\neg x\\land y\\land\\neg z$"
+          },
+          "feedback": {
+            "fr": "Exact : il est vrai uniquement en $010$.",
+            "en": "Correct: it holds only at $010$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x\\land\\neg y\\land z$",
+            "en": "$x\\land\\neg y\\land z$"
+          },
+          "feedback": {
+            "fr": "Ce terme décrit $101$.",
+            "en": "That term describes $101$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg x\\lor y\\lor\\neg z$",
+            "en": "$\\neg x\\lor y\\lor\\neg z$"
+          },
+          "feedback": {
+            "fr": "Une disjonction de littéraux ne sélectionne pas une seule ligne.",
+            "en": "An OR of literals does not select just one row."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le terme vaut $1$ si et seulement si les trois bits sont $010$.",
+        "en": "The term is $1$ if and only if the three bits are $010$."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E14",
+      "objectiveId": "L08-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "true-rows-misread"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$f(x,y,z)$ est vraie uniquement sur $001$ et $011$. Quelle simplification convient ?",
+        "en": "$f(x,y,z)$ is true only at $001$ and $011$. Which simplification works?"
+      },
+      "hint": {
+        "fr": "Les deux lignes partagent $x=0$ et $z=1$.",
+        "en": "Both rows have $x=0$ and $z=1$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg x\\land\\neg z$",
+            "en": "$\\neg x\\land\\neg z$"
+          },
+          "feedback": {
+            "fr": "$z$ vaut $1$, pas $0$, sur les lignes choisies.",
+            "en": "$z$ is $1$, not $0$, in the chosen rows."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x\\lor z$",
+            "en": "$x\\lor z$"
+          },
+          "feedback": {
+            "fr": "Cette formule inclut bien d'autres lignes.",
+            "en": "This formula includes many other rows."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg x\\land z$",
+            "en": "$\\neg x\\land z$"
+          },
+          "feedback": {
+            "fr": "Exact : $y$ est libre.",
+            "en": "Correct: $y$ is free."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Les mintermes des deux lignes se regroupent en $\\neg x\\land z$.",
+        "en": "The two minterms combine into $\\neg x\\land z$."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E15",
+      "objectiveId": "L08-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "rows-joined-with-and"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une fonction vaut $1$ seulement sur $01$ et $11$. Quelle expression suit la méthode des lignes vraies ?",
+        "en": "A function is $1$ only on $01$ and $11$. Which expression follows the true-row method?"
+      },
+      "hint": {
+        "fr": "Écrivez un terme par ligne, puis joignez-les.",
+        "en": "Write one term per row, then join them."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(\\neg x\\land y)\\land(x\\land y)$",
+            "en": "$(\\neg x\\land y)\\land(x\\land y)$"
+          },
+          "feedback": {
+            "fr": "Les deux termes sont incompatibles.",
+            "en": "The two terms cannot both hold."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(\\neg x\\land y)\\lor(x\\land y)$",
+            "en": "$(\\neg x\\land y)\\lor(x\\land y)$"
+          },
+          "feedback": {
+            "fr": "Exact : les deux lignes ont $y=1$.",
+            "en": "Correct: both rows have $y=1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(x\\land\\neg y)\\lor(x\\land y)$",
+            "en": "$(x\\land\\neg y)\\lor(x\\land y)$"
+          },
+          "feedback": {
+            "fr": "Cela décrit les lignes $10$ et $11$.",
+            "en": "That describes rows $10$ and $11$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La disjonction est vraie sur $01$ ou $11$, et équivaut ici à $y$.",
+        "en": "The OR holds at $01$ or $11$ and here simplifies to $y$."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E16",
+      "objectiveId": "L08-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "demorgan-negates-only-one-side"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Remplacez $(\\neg x\\land y)$ avec seulement $\\lor$ et $\\neg$.",
+        "en": "Rewrite $(\\neg x\\land y)$ using only $\\lor$ and $\\neg$."
+      },
+      "hint": {
+        "fr": "Niez la disjonction des négations des deux littéraux.",
+        "en": "Negate the OR of the negations of the two literals."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg(x\\lor\\neg y)$",
+            "en": "$\\neg(x\\lor\\neg y)$"
+          },
+          "feedback": {
+            "fr": "Exact : deux usages de de Morgan, avec double négation.",
+            "en": "Correct: De Morgan with double negation."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg(\\neg x\\lor y)$",
+            "en": "$\\neg(\\neg x\\lor y)$"
+          },
+          "feedback": {
+            "fr": "Cette formule vaut $x\\land\\neg y$.",
+            "en": "That formula equals $x\\land\\neg y$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg x\\lor y$",
+            "en": "$\\neg x\\lor y$"
+          },
+          "feedback": {
+            "fr": "Une disjonction est vraie sur trop de lignes.",
+            "en": "An OR is true on too many rows."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\neg x\\land y\\equiv\\neg(x\\lor\\neg y)$.",
+        "en": "$\\neg x\\land y\\equiv\\neg(x\\lor\\neg y)$."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E17",
+      "objectiveId": "L08-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "functional-completeness-only-true-functions"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$f(x,y)$ vaut toujours $0$. Laquelle de ces formules avec $\\lor$ et $\\neg$ uniquement représente $f$ ?",
+        "en": "$f(x,y)$ is always $0$. Which formula using only $\\lor$ and $\\neg$ represents $f$?"
+      },
+      "hint": {
+        "fr": "Construisez une contradiction à partir de $x$.",
+        "en": "Build a contradiction using $x$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x\\lor\\neg x$",
+            "en": "$x\\lor\\neg x$"
+          },
+          "feedback": {
+            "fr": "C'est une tautologie, pas une contradiction.",
+            "en": "This is a tautology, not a contradiction."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg(x\\lor\\neg x)$",
+            "en": "$\\neg(x\\lor\\neg x)$"
+          },
+          "feedback": {
+            "fr": "Exact : l'intérieur est toujours vrai.",
+            "en": "Correct: the inside is always true."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg x\\lor\\neg y$",
+            "en": "$\\neg x\\lor\\neg y$"
+          },
+          "feedback": {
+            "fr": "Cette formule vaut $1$ sur plusieurs lignes.",
+            "en": "That formula is $1$ in several rows."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Nier une tautologie fournit la fonction constamment fausse, y compris quand aucune ligne vraie n'existe.",
+        "en": "Negating a tautology gives the constant-false function, including when there are no true rows."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E18",
+      "objectiveId": "L08-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "minterm-ignores-false-variable"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une fonction de trois variables est vraie uniquement sur $101$ et $111$. Quel terme minimal la représente ?",
+        "en": "A three-variable function is true only at $101$ and $111$. Which minimal term represents it?"
+      },
+      "hint": {
+        "fr": "Le bit central varie, mais les deux autres restent fixés.",
+        "en": "The middle bit varies; the outer bits stay fixed."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x\\land y$",
+            "en": "$x\\land y$"
+          },
+          "feedback": {
+            "fr": "Cela sélectionne $110$ et $111$.",
+            "en": "That selects $110$ and $111$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg x\\land z$",
+            "en": "$\\neg x\\land z$"
+          },
+          "feedback": {
+            "fr": "Cela sélectionne $001$ et $011$.",
+            "en": "That selects $001$ and $011$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x\\land z$",
+            "en": "$x\\land z$"
+          },
+          "feedback": {
+            "fr": "Exact : $y$ est indifférent.",
+            "en": "Correct: $y$ can take either value."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Les deux mintermes se regroupent car ils ne diffèrent que par $y$.",
+        "en": "The minterms combine because they differ only in $y$."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E19",
+      "objectiveId": "L08-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "minterm-ignores-false-variable"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel test suffit à montrer que $x\\lor\\neg y$ n'est pas le minterme unique de $10$ ?",
+        "en": "Which test suffices to show that $x\\lor\\neg y$ is not the unique minterm for $10$?"
+      },
+      "hint": {
+        "fr": "Cherchez une autre ligne où la disjonction est vraie.",
+        "en": "Find another row where the OR is true."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Sur $00$, la formule est vraie.",
+            "en": "At $00$, the formula is true."
+          },
+          "feedback": {
+            "fr": "Exact : $\\neg y=1$ aussi sur $00$.",
+            "en": "Correct: $\\neg y=1$ at $00$ too."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Sur $10$, la formule est fausse.",
+            "en": "At $10$, the formula is false."
+          },
+          "feedback": {
+            "fr": "Sur $10$, les deux littéraux sont vrais.",
+            "en": "At $10$, both literals are true."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Sur $01$, la formule est vraie.",
+            "en": "At $01$, the formula is true."
+          },
+          "feedback": {
+            "fr": "Sur $01$, les deux littéraux sont faux.",
+            "en": "At $01$, both literals are false."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Un minterme doit éliminer toutes les autres lignes ; $00$ réfute cette propriété.",
+        "en": "A minterm must exclude every other row; $00$ refutes that property."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E20",
+      "objectiveId": "L08-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "rows-joined-with-and"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $x,y$, une fonction est vraie exactement sur $00$, $01$ et $10$. Quelle formule la décrit ?",
+        "en": "Over $x,y$, a function is true exactly on $00$, $01$ and $10$. Which formula describes it?"
+      },
+      "hint": {
+        "fr": "La seule ligne fausse est $11$.",
+        "en": "The only false row is $11$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x\\land y$",
+            "en": "$x\\land y$"
+          },
+          "feedback": {
+            "fr": "Cela sélectionne la seule ligne fausse.",
+            "en": "That selects only the false row."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg x\\lor\\neg y$",
+            "en": "$\\neg x\\lor\\neg y$"
+          },
+          "feedback": {
+            "fr": "Exact : elle élimine uniquement $11$.",
+            "en": "Correct: it excludes only $11$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg x\\land\\neg y$",
+            "en": "$\\neg x\\land\\neg y$"
+          },
+          "feedback": {
+            "fr": "Cela sélectionne seulement $00$.",
+            "en": "That selects only $00$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La négation de $x\\land y$ est vraie sur les trois lignes demandées, et s'écrit aussi $\\neg x\\lor\\neg y$.",
+        "en": "Negating $x\\land y$ gives exactly the three requested rows, also expressed by $\\neg x\\lor\\neg y$."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L08-E21",
+      "objectiveId": "L08-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "functional-completeness-only-true-functions"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi $\\lor$ seul, sans constantes ni négation, ne suffit-il pas à exprimer toutes les fonctions d'une variable $x$ ?",
+        "en": "Why is $\\lor$ alone, without constants or negation, insufficient for every one-variable function $x$?"
+      },
+      "hint": {
+        "fr": "Toute expression construite de $x$ avec $\\lor$ garde une même valeur à $x=1$.",
+        "en": "Every expression built from $x$ with $\\lor$ has the same value at $x=1$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Parce que $x\\lor x$ équivaut à $\\neg x$.",
+            "en": "Because $x\\lor x$ equals $\\neg x$."
+          },
+          "feedback": {
+            "fr": "L'idempotence donne $x\\lor x=x$.",
+            "en": "Idempotence gives $x\\lor x=x$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Parce que la disjonction est toujours fausse.",
+            "en": "Because OR is always false."
+          },
+          "feedback": {
+            "fr": "$x\\lor x$ est vraie pour $x=1$.",
+            "en": "$x\\lor x$ is true at $x=1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Parce que toutes ces expressions valent $x$ et ne donnent jamais $\\neg x$.",
+            "en": "Because all such expressions equal $x$ and never give $\\neg x$."
+          },
+          "feedback": {
+            "fr": "Exact : l'idempotence empêche de produire la négation.",
+            "en": "Correct: idempotence prevents constructing negation."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Par induction sur les expressions, $x$ et toute disjonction de copies de $x$ ont la même table ; $\\neg x$ a la table opposée.",
+        "en": "Induction on expressions shows $x$ and ORs of copies of $x$ have the same table; $\\neg x$ has the opposite table."
+      },
+      "lessonId": "L08",
+      "version": 3,
+      "prerequisites": [
+        "L03",
+        "L04"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,1198 @@
+{
+  "lessonId": "L14",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L14-E07",
+      "objectiveId": "L14-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "power-set-count-as-n"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Combien d'éléments contient $\\mathcal P(\\{a\\})$ ?",
+        "en": "How many elements are in $\\mathcal P(\\{a\\})$?"
+      },
+      "hint": {
+        "fr": "Comptez le vide et l'ensemble entier.",
+        "en": "Count the empty set and the full set."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "$\\mathcal P(\\{a\\})=\\{\\varnothing,\\{a\\}\\}$.",
+            "en": "$\\mathcal P(\\{a\\})=\\{\\varnothing,\\{a\\}\\}$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Un singleton a exactement deux parties.",
+            "en": "A singleton has exactly two subsets."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Un singleton a exactement deux parties.",
+            "en": "A singleton has exactly two subsets."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\mathcal P(\\{a\\})=\\{\\varnothing,\\{a\\}\\}$.",
+        "en": "$\\mathcal P(\\{a\\})=\\{\\varnothing,\\{a\\}\\}$."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E08",
+      "objectiveId": "L14-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "part-with-foreign-element",
+        "element-instead-of-part"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle expression appartient à $\\mathcal P(\\{x,y,z\\})$ ?",
+        "en": "Which expression belongs to $\\mathcal P(\\{x,y,z\\})$?"
+      },
+      "hint": {
+        "fr": "Un élément de l'ensemble des parties est un sous-ensemble.",
+        "en": "A powerset member is a subset."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x$",
+            "en": "$x$"
+          },
+          "feedback": {
+            "fr": "Il faut un ensemble composé uniquement des éléments de départ.",
+            "en": "It must be a set containing only starting-set elements."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{x,z\\}$",
+            "en": "$\\{x,z\\}$"
+          },
+          "feedback": {
+            "fr": "$\\{x,z\\}$ est une partie de $\\{x,y,z\\}$.",
+            "en": "$\\{x,z\\}$ is a subset of $\\{x,y,z\\}$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{x,w\\}$",
+            "en": "$\\{x,w\\}$"
+          },
+          "feedback": {
+            "fr": "Il faut un ensemble composé uniquement des éléments de départ.",
+            "en": "It must be a set containing only starting-set elements."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$\\{x,z\\}$ est une partie de $\\{x,y,z\\}$.",
+        "en": "$\\{x,z\\}$ is a subset of $\\{x,y,z\\}$."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E09",
+      "objectiveId": "L14-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "empty-set-missing-from-power-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour tout ensemble $A$, lequel appartient à $\\mathcal P(A)$ ?",
+        "en": "For every set $A$, which belongs to $\\mathcal P(A)$?"
+      },
+      "hint": {
+        "fr": "Le vide est partie de chaque ensemble.",
+        "en": "The empty set is a subset of every set."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A\\cup\\{q\\}$",
+            "en": "$A\\cup\\{q\\}$"
+          },
+          "feedback": {
+            "fr": "Un objet arbitraire n'est pas forcément une partie de $A$.",
+            "en": "An arbitrary object need not be a subset of $A$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$q$",
+            "en": "$q$"
+          },
+          "feedback": {
+            "fr": "Un objet arbitraire n'est pas forcément une partie de $A$.",
+            "en": "An arbitrary object need not be a subset of $A$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\varnothing$",
+            "en": "$\\varnothing$"
+          },
+          "feedback": {
+            "fr": "$\\varnothing\\subseteq A$ implique $\\varnothing\\in\\mathcal P(A)$.",
+            "en": "$\\varnothing\\subseteq A$ implies $\\varnothing\\in\\mathcal P(A)$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$\\varnothing\\subseteq A$ implique $\\varnothing\\in\\mathcal P(A)$.",
+        "en": "$\\varnothing\\subseteq A$ implies $\\varnothing\\in\\mathcal P(A)$."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E10",
+      "objectiveId": "L14-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "power-set-count-linear",
+        "power-set-count-square"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Combien de parties possède un ensemble à cinq éléments distincts ?",
+        "en": "How many subsets does a set of five distinct elements have?"
+      },
+      "hint": {
+        "fr": "Chaque élément est choisi ou écarté indépendamment.",
+        "en": "Each element is independently included or excluded."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$32$",
+            "en": "$32$"
+          },
+          "feedback": {
+            "fr": "$2^5=32$ possibilités de choix.",
+            "en": "$2^5=32$ inclusion patterns."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$10$",
+            "en": "$10$"
+          },
+          "feedback": {
+            "fr": "Le compte est exponentiel : $2^n$.",
+            "en": "The count is exponential: $2^n$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$25$",
+            "en": "$25$"
+          },
+          "feedback": {
+            "fr": "Le compte est exponentiel : $2^n$.",
+            "en": "The count is exponential: $2^n$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$2^5=32$ possibilités de choix.",
+        "en": "$2^5=32$ inclusion patterns."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E11",
+      "objectiveId": "L14-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "element-confused-with-part"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $A=\\{1,2\\}$, quelle relation est vraie ?",
+        "en": "For $A=\\{1,2\\}$, which relation is true?"
+      },
+      "hint": {
+        "fr": "Distinguez un nombre d'une partie contenant ce nombre.",
+        "en": "Distinguish a number from a subset containing it."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1\\in\\mathcal P(A)$",
+            "en": "$1\\in\\mathcal P(A)$"
+          },
+          "feedback": {
+            "fr": "Les éléments de $\\mathcal P(A)$ sont des ensembles contenus dans $A$.",
+            "en": "Members of $\\mathcal P(A)$ are sets contained in $A$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{1\\}\\in\\mathcal P(A)$",
+            "en": "$\\{1\\}\\in\\mathcal P(A)$"
+          },
+          "feedback": {
+            "fr": "$\\{1\\}\\subseteq A$ mais $1$ n'est pas lui-même une partie de $A$.",
+            "en": "$\\{1\\}\\subseteq A$ but $1$ is not itself a subset of $A$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{3\\}\\in\\mathcal P(A)$",
+            "en": "$\\{3\\}\\in\\mathcal P(A)$"
+          },
+          "feedback": {
+            "fr": "Les éléments de $\\mathcal P(A)$ sont des ensembles contenus dans $A$.",
+            "en": "Members of $\\mathcal P(A)$ are sets contained in $A$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$\\{1\\}\\subseteq A$ mais $1$ n'est pas lui-même une partie de $A$.",
+        "en": "$\\{1\\}\\subseteq A$ but $1$ is not itself a subset of $A$."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E12",
+      "objectiveId": "L14-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "power-set-of-empty-is-empty"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Combien d'éléments contient $\\mathcal P(\\varnothing)$ ?",
+        "en": "How many elements does $\\mathcal P(\\varnothing)$ have?"
+      },
+      "hint": {
+        "fr": "L'ensemble vide est sa propre partie.",
+        "en": "The empty set is its own subset."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Le vide a une seule partie : lui-même.",
+            "en": "The empty set has exactly one subset: itself."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Le vide a une seule partie : lui-même.",
+            "en": "The empty set has exactly one subset: itself."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "$\\mathcal P(\\varnothing)=\\{\\varnothing\\}$, qui contient un élément.",
+            "en": "$\\mathcal P(\\varnothing)=\\{\\varnothing\\}$, which has one element."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$\\mathcal P(\\varnothing)=\\{\\varnothing\\}$, qui contient un élément.",
+        "en": "$\\mathcal P(\\varnothing)=\\{\\varnothing\\}$, which has one element."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E13",
+      "objectiveId": "L14-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "power-set-count-as-n"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Listez toutes les parties de $B=\\{p,q\\}$. Quel résultat est complet ?",
+        "en": "List all subsets of $B=\\{p,q\\}$. Which result is complete?"
+      },
+      "hint": {
+        "fr": "Il existe deux choix par élément.",
+        "en": "There are two choices per element."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{\\varnothing,\\{p\\},\\{q\\},\\{p,q\\}\\}$",
+            "en": "$\\{\\varnothing,\\{p\\},\\{q\\},\\{p,q\\}\\}$"
+          },
+          "feedback": {
+            "fr": "Les quatre parties correspondent aux $2^2$ choix d'inclusion.",
+            "en": "The four subsets correspond to the $2^2$ inclusion choices."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{\\{p\\},\\{q\\},\\{p,q\\}\\}$",
+            "en": "$\\{\\{p\\},\\{q\\},\\{p,q\\}\\}$"
+          },
+          "feedback": {
+            "fr": "N'oubliez ni le vide ni les deux singletons.",
+            "en": "Do not omit the empty set or either singleton."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{\\varnothing,\\{p,q\\}\\}$",
+            "en": "$\\{\\varnothing,\\{p,q\\}\\}$"
+          },
+          "feedback": {
+            "fr": "N'oubliez ni le vide ni les deux singletons.",
+            "en": "Do not omit the empty set or either singleton."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Les quatre parties correspondent aux $2^2$ choix d'inclusion.",
+        "en": "The four subsets correspond to the $2^2$ inclusion choices."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E14",
+      "objectiveId": "L14-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "part-with-foreign-element",
+        "element-instead-of-part"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $A=\\{1,2,3\\}$. Quel ensemble n'est pas dans $\\mathcal P(A)$ ?",
+        "en": "Let $A=\\{1,2,3\\}$. Which set does not belong to $\\mathcal P(A)$?"
+      },
+      "hint": {
+        "fr": "Un élément extérieur à $A$ exclut la candidature.",
+        "en": "An element outside $A$ disqualifies a candidate."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{1,3\\}$",
+            "en": "$\\{1,3\\}$"
+          },
+          "feedback": {
+            "fr": "Toute partie peut omettre des éléments mais ne peut inclure $4$.",
+            "en": "A subset may omit elements but cannot include $4$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{2,4\\}$",
+            "en": "$\\{2,4\\}$"
+          },
+          "feedback": {
+            "fr": "$4\\notin A$, donc $\\{2,4\\}\\notin\\mathcal P(A)$.",
+            "en": "$4\\notin A$, so $\\{2,4\\}\\notin\\mathcal P(A)$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\varnothing$",
+            "en": "$\\varnothing$"
+          },
+          "feedback": {
+            "fr": "Toute partie peut omettre des éléments mais ne peut inclure $4$.",
+            "en": "A subset may omit elements but cannot include $4$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$4\\notin A$, donc $\\{2,4\\}\\notin\\mathcal P(A)$.",
+        "en": "$4\\notin A$, so $\\{2,4\\}\\notin\\mathcal P(A)$."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E15",
+      "objectiveId": "L14-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "empty-set-missing-from-power-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si $C=\\{4,5\\}$, quel membre est toujours présent dans $\\mathcal P(C)$ ?",
+        "en": "If $C=\\{4,5\\}$, which member is always present in $\\mathcal P(C)$?"
+      },
+      "hint": {
+        "fr": "Un ensemble est aussi une partie de lui-même.",
+        "en": "A set is also a subset of itself."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Le nombre $4$ n'est pas une partie et $6$ est absent de $C$.",
+            "en": "Number $4$ is not a subset and $6$ is outside $C$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{4,5,6\\}$",
+            "en": "$\\{4,5,6\\}$"
+          },
+          "feedback": {
+            "fr": "Le nombre $4$ n'est pas une partie et $6$ est absent de $C$.",
+            "en": "Number $4$ is not a subset and $6$ is outside $C$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$C$",
+            "en": "$C$"
+          },
+          "feedback": {
+            "fr": "$C\\subseteq C$, donc $C\\in\\mathcal P(C)$.",
+            "en": "$C\\subseteq C$, so $C\\in\\mathcal P(C)$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$C\\subseteq C$, donc $C\\in\\mathcal P(C)$.",
+        "en": "$C\\subseteq C$, so $C\\in\\mathcal P(C)$."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E16",
+      "objectiveId": "L14-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "power-set-count-linear",
+        "power-set-count-square"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si $\\mathcal P(D)$ contient $16$ éléments et $D$ est fini, combien d'éléments contient $D$ ?",
+        "en": "If $\\mathcal P(D)$ has $16$ elements and $D$ is finite, how many elements does $D$ have?"
+      },
+      "hint": {
+        "fr": "Résolvez $2^n=16$.",
+        "en": "Solve $2^n=16$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "$2^4=16$ ; $D$ possède quatre éléments.",
+            "en": "$2^4=16$; $D$ has four elements."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$8$",
+            "en": "$8$"
+          },
+          "feedback": {
+            "fr": "Le nombre de parties est une puissance de deux.",
+            "en": "The subset count is a power of two."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Le nombre de parties est une puissance de deux.",
+            "en": "The subset count is a power of two."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$2^4=16$ ; $D$ possède quatre éléments.",
+        "en": "$2^4=16$; $D$ has four elements."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E17",
+      "objectiveId": "L14-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "element-confused-with-part"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $A=\\{\\varnothing,1\\}$, quelle affirmation est vraie ?",
+        "en": "For $A=\\{\\varnothing,1\\}$, which claim is true?"
+      },
+      "hint": {
+        "fr": "Une partie de $A$ est un ensemble d'éléments de $A$.",
+        "en": "A subset of $A$ is a set of members of $A$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1\\in\\mathcal P(A)$",
+            "en": "$1\\in\\mathcal P(A)$"
+          },
+          "feedback": {
+            "fr": "$1$ n'est pas une partie, mais l'ensemble contenant $\\varnothing$ en est une.",
+            "en": "$1$ is not a subset, but the set containing $\\varnothing$ is."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{\\varnothing\\}\\in\\mathcal P(A)$",
+            "en": "$\\{\\varnothing\\}\\in\\mathcal P(A)$"
+          },
+          "feedback": {
+            "fr": "Puisque $\\varnothing\\in A$, son singleton est une partie de $A$.",
+            "en": "Because $\\varnothing\\in A$, its singleton is a subset of $A$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{2\\}\\in\\mathcal P(A)$",
+            "en": "$\\{2\\}\\in\\mathcal P(A)$"
+          },
+          "feedback": {
+            "fr": "$1$ n'est pas une partie, mais l'ensemble contenant $\\varnothing$ en est une.",
+            "en": "$1$ is not a subset, but the set containing $\\varnothing$ is."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Puisque $\\varnothing\\in A$, son singleton est une partie de $A$.",
+        "en": "Because $\\varnothing\\in A$, its singleton is a subset of $A$."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E18",
+      "objectiveId": "L14-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "power-set-of-empty-is-empty"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la taille de $\\mathcal P(\\mathcal P(\\varnothing))$ ?",
+        "en": "What is the size of $\\mathcal P(\\mathcal P(\\varnothing))$?"
+      },
+      "hint": {
+        "fr": "Calculez d'abord $\\mathcal P(\\varnothing)$.",
+        "en": "Compute $\\mathcal P(\\varnothing)$ first."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "L'ensemble intérieur contient un élément ; son ensemble des parties en contient deux.",
+            "en": "The inner set has one element; its powerset has two."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "L'ensemble intérieur contient un élément ; son ensemble des parties en contient deux.",
+            "en": "The inner set has one element; its powerset has two."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "$\\mathcal P(\\varnothing)=\\{\\varnothing\\}$, donc le deuxième ensemble des parties a $2$ membres.",
+            "en": "$\\mathcal P(\\varnothing)=\\{\\varnothing\\}$, so the next powerset has $2$ members."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$\\mathcal P(\\varnothing)=\\{\\varnothing\\}$, donc le deuxième ensemble des parties a $2$ membres.",
+        "en": "$\\mathcal P(\\varnothing)=\\{\\varnothing\\}$, so the next powerset has $2$ members."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E19",
+      "objectiveId": "L14-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "power-set-count-as-n"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $A=\\{a,b,c\\}$, combien de parties contiennent l'élément $a$ ?",
+        "en": "For $A=\\{a,b,c\\}$, how many subsets contain $a$?"
+      },
+      "hint": {
+        "fr": "Fixez $a$ inclus, choisissez librement les deux autres.",
+        "en": "Include $a$; freely choose the other two."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Il existe quatre parties avec $a$ : $\\{a\\}$, $\\{a,b\\}$, $\\{a,c\\}$, $A$.",
+            "en": "Four subsets contain $a$: $\\{a\\}$, $\\{a,b\\}$, $\\{a,c\\}$, $A$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Deux éléments restent libres, ce qui donne $2^2$ choix.",
+            "en": "Two elements remain free, giving $2^2$ choices."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$8$",
+            "en": "$8$"
+          },
+          "feedback": {
+            "fr": "Deux éléments restent libres, ce qui donne $2^2$ choix.",
+            "en": "Two elements remain free, giving $2^2$ choices."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Il existe quatre parties avec $a$ : $\\{a\\}$, $\\{a,b\\}$, $\\{a,c\\}$, $A$.",
+        "en": "Four subsets contain $a$: $\\{a\\}$, $\\{a,b\\}$, $\\{a,c\\}$, $A$."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E20",
+      "objectiveId": "L14-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "part-with-foreign-element",
+        "element-instead-of-part"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $A=\\{1,2\\}$, quelles relations entre $\\{1\\}$, $A$ et $\\mathcal P(A)$ sont toutes deux vraies ?",
+        "en": "For $A=\\{1,2\\}$, which relations involving $\\{1\\}$, $A$ and $\\mathcal P(A)$ are both true?"
+      },
+      "hint": {
+        "fr": "Une partie de $A$ est un élément de $\\mathcal P(A)$.",
+        "en": "A subset of $A$ is a member of $\\mathcal P(A)$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{1\\}\\in A$ et $1\\in\\mathcal P(A)$",
+            "en": "$\\{1\\}\\in A$ et $1\\in\\mathcal P(A)$"
+          },
+          "feedback": {
+            "fr": "Ne permutez pas appartenance et inclusion, et ne confondez pas un nombre avec un ensemble.",
+            "en": "Do not swap membership and subset relations or confuse a number with a set."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{1\\}\\subseteq A$ et $\\{1\\}\\in\\mathcal P(A)$",
+            "en": "$\\{1\\}\\subseteq A$ et $\\{1\\}\\in\\mathcal P(A)$"
+          },
+          "feedback": {
+            "fr": "$\\{1\\}$ est un sous-ensemble de $A$, donc il appartient à l'ensemble de ses parties.",
+            "en": "$\\{1\\}$ is a subset of $A$, hence is a member of its powerset."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1\\subseteq A$ et $A\\in A$",
+            "en": "$1\\subseteq A$ et $A\\in A$"
+          },
+          "feedback": {
+            "fr": "Ne permutez pas appartenance et inclusion, et ne confondez pas un nombre avec un ensemble.",
+            "en": "Do not swap membership and subset relations or confuse a number with a set."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$\\{1\\}$ est un sous-ensemble de $A$, donc il appartient à l'ensemble de ses parties.",
+        "en": "$\\{1\\}$ is a subset of $A$, hence is a member of its powerset."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L14-E21",
+      "objectiveId": "L14-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "element-confused-with-part"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "De $A\\in\\mathcal P(A)$ pour un ensemble $A$, peut-on déduire $A\\in A$ ?",
+        "en": "Does $A\\in\\mathcal P(A)$ for a set $A$ imply $A\\in A$?"
+      },
+      "hint": {
+        "fr": "La première propriété est toujours vraie. La seconde demande une hypothèse d'auto-appartenance.",
+        "en": "The first property always holds. The second concerns self-membership."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui, car $A$ est sa propre partie.",
+            "en": "Yes, because $A$ is its own subset."
+          },
+          "feedback": {
+            "fr": "Ne déduisez pas $A\\in A$ de $A\\subseteq A$ ; ce sont des relations différentes.",
+            "en": "Do not infer $A\\in A$ from $A\\subseteq A$; they are different relations."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non, car $A\\in\\mathcal P(A)$ est faux.",
+            "en": "No, because $A\\in\\mathcal P(A)$ is false."
+          },
+          "feedback": {
+            "fr": "Ne déduisez pas $A\\in A$ de $A\\subseteq A$ ; ce sont des relations différentes.",
+            "en": "Do not infer $A\\in A$ from $A\\subseteq A$; they are different relations."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\in\\mathcal P(A)$ est vrai, mais ne donne pas $A\\in A$.",
+            "en": "$A\\in\\mathcal P(A)$ is true but does not imply $A\\in A$."
+          },
+          "feedback": {
+            "fr": "Tout ensemble est sa propre partie, mais cela ne décide pas son auto-appartenance.",
+            "en": "Every set is its own subset, but this does not decide self-membership."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Tout ensemble est sa propre partie, mais cela ne décide pas son auto-appartenance.",
+        "en": "Every set is its own subset, but this does not decide self-membership."
+      },
+      "lessonId": "L14",
+      "version": 2,
+      "prerequisites": [
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          58
+        ],
+        "referenceBasis": "repository-course-map; the counting item is supporting enrichment, not copied PDF material"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

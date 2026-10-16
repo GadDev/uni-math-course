@@ -1,0 +1,1253 @@
+{
+  "lessonId": "L16",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L16-E07",
+      "objectiveId": "L16-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "bounded-forall-with-and"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule développe $\\forall x\\in X\\ P(x)$ dans un univers $U$ ?",
+        "en": "Which formula expands $\\forall x\\in X\\ P(x)$ in a universe $U$?"
+      },
+      "hint": {
+        "fr": "Hors de $X$, l'implication doit être automatiquement vraie.",
+        "en": "Outside $X$, implication should be automatically true."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall x\\in U\\ (x\\in X\\Rightarrow P(x))$",
+            "en": "$\\forall x\\in U\\ (x\\in X\\Rightarrow P(x))$"
+          },
+          "feedback": {
+            "fr": "On impose $P$ à chaque élément de $X$ sans contrainte pour les autres.",
+            "en": "We require $P$ for each member of $X$ without constraints elsewhere."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall x\\in U\\ (x\\in X\\land P(x))$",
+            "en": "$\\forall x\\in U\\ (x\\in X\\land P(x))$"
+          },
+          "feedback": {
+            "fr": "Une universelle bornée se développe avec $\\Rightarrow$ et reste universelle.",
+            "en": "A bounded universal uses $\\Rightarrow$ and remains universal."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$",
+            "en": "$\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$"
+          },
+          "feedback": {
+            "fr": "Une universelle bornée se développe avec $\\Rightarrow$ et reste universelle.",
+            "en": "A bounded universal uses $\\Rightarrow$ and remains universal."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "On impose $P$ à chaque élément de $X$ sans contrainte pour les autres.",
+        "en": "We require $P$ for each member of $X$ without constraints elsewhere."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E08",
+      "objectiveId": "L16-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "bounded-exists-with-implication"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule développe $\\exists x\\in X\\ Q(x)$ ?",
+        "en": "Which formula expands $\\exists x\\in X\\ Q(x)$?"
+      },
+      "hint": {
+        "fr": "Le témoin doit être dans $X$ et satisfaire $Q$.",
+        "en": "The witness must belong to $X$ and satisfy $Q$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists x\\ (x\\in X\\Rightarrow Q(x))$",
+            "en": "$\\exists x\\ (x\\in X\\Rightarrow Q(x))$"
+          },
+          "feedback": {
+            "fr": "L'implication autorise des témoins hors de $X$, ce qui ne convient pas.",
+            "en": "Implication permits witnesses outside $X$, which is incorrect."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists x\\ (x\\in X\\land Q(x))$",
+            "en": "$\\exists x\\ (x\\in X\\land Q(x))$"
+          },
+          "feedback": {
+            "fr": "Une existentielle bornée combine appartenance et prédicat par une conjonction.",
+            "en": "A bounded existential combines membership and predicate with AND."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall x\\ (x\\in X\\land Q(x))$",
+            "en": "$\\forall x\\ (x\\in X\\land Q(x))$"
+          },
+          "feedback": {
+            "fr": "L'implication autorise des témoins hors de $X$, ce qui ne convient pas.",
+            "en": "Implication permits witnesses outside $X$, which is incorrect."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Une existentielle bornée combine appartenance et prédicat par une conjonction.",
+        "en": "A bounded existential combines membership and predicate with AND."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E09",
+      "objectiveId": "L16-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "connective-pairing-reversed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel couple d'associations est correct ?",
+        "en": "Which pair of associations is correct?"
+      },
+      "hint": {
+        "fr": "Pour tous : implication ; il existe : conjonction.",
+        "en": "For all: implication; there exists: conjunction."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall$ avec $\\land$, $\\exists$ avec $\\Rightarrow$.",
+            "en": "$\\forall$ with $\\land$, $\\exists$ with $\\Rightarrow$."
+          },
+          "feedback": {
+            "fr": "Il faut empêcher les objets hors de $X$ de fausser l'universelle ou de témoigner pour l'existentielle.",
+            "en": "The member must be in $X$; implication allows witnesses outside it."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Les deux avec $\\lor$.",
+            "en": "Both with $\\lor$."
+          },
+          "feedback": {
+            "fr": "Il faut empêcher les objets hors de $X$ de fausser l'universelle ou de témoigner pour l'existentielle.",
+            "en": "The member must be in $X$; implication allows witnesses outside it."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall$ avec $\\Rightarrow$, $\\exists$ avec $\\land$.",
+            "en": "$\\forall$ with $\\Rightarrow$, $\\exists$ with $\\land$."
+          },
+          "feedback": {
+            "fr": "Ces connecteurs préservent exactement le sens des bornes.",
+            "en": "These connectives preserve precisely the meaning of the bounds."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Ces connecteurs préservent exactement le sens des bornes.",
+        "en": "These connectives preserve precisely the meaning of the bounds."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E10",
+      "objectiveId": "L16-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "exists-with-implication-always-true"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $U=\\{1,2,3\\}$ et $X=\\{1\\}$, avec $P(x)$ faux partout, que vaut $\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$ ?",
+        "en": "In $U=\\{1,2,3\\}$ and $X=\\{1\\}$, with $P(x)$ false everywhere, what is $\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$?"
+      },
+      "hint": {
+        "fr": "Un témoin extérieur à $X$ rend l'implication vraie.",
+        "en": "A witness outside $X$ makes the implication true."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vraie avec $x=2$.",
+            "en": "True with $x=2$."
+          },
+          "feedback": {
+            "fr": "$2\\notin X$, donc l'implication est vraie pour $x=2$ ; ce piège ne teste pas l'existence dans $X$.",
+            "en": "$2\\notin X$, so implication is true for $x=2$; this trap does not test existence in $X$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Fausse car $P$ est toujours faux.",
+            "en": "False because $P$ is always false."
+          },
+          "feedback": {
+            "fr": "Une implication à prémisse fausse est vraie, même si sa conclusion est fausse.",
+            "en": "An implication with a false premise is true even if its conclusion is false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Impossible à évaluer.",
+            "en": "Impossible to evaluate."
+          },
+          "feedback": {
+            "fr": "Une implication à prémisse fausse est vraie, même si sa conclusion est fausse.",
+            "en": "An implication with a false premise is true even if its conclusion is false."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$2\\notin X$, donc l'implication est vraie pour $x=2$ ; ce piège ne teste pas l'existence dans $X$.",
+        "en": "$2\\notin X$, so implication is true for $x=2$; this trap does not test existence in $X$."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E11",
+      "objectiveId": "L16-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "negation-keeps-quantifier"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule nie $\\forall x\\in X\\ P(x)$ ?",
+        "en": "Which formula negates $\\forall x\\in X\\ P(x)$?"
+      },
+      "hint": {
+        "fr": "Échangez le quantificateur, conservez la borne.",
+        "en": "Swap the quantifier but keep the bound."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall x\\in X\\ \\neg P(x)$",
+            "en": "$\\forall x\\in X\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Un contre-exemple doit être dans $X$, et une exception ne signifie pas que tous échouent.",
+            "en": "A counterexample must be in $X$, and one exception does not mean all fail."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists x\\in X\\ \\neg P(x)$",
+            "en": "$\\exists x\\in X\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "La négation d'une universelle bornée est une existentielle bornée du prédicat nié.",
+            "en": "Negating a bounded universal gives a bounded existential of the negated predicate."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists x\\notin X\\ \\neg P(x)$",
+            "en": "$\\exists x\\notin X\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Un contre-exemple doit être dans $X$, et une exception ne signifie pas que tous échouent.",
+            "en": "A counterexample must be in $X$, and one exception does not mean all fail."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La négation d'une universelle bornée est une existentielle bornée du prédicat nié.",
+        "en": "Negating a bounded universal gives a bounded existential of the negated predicate."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E12",
+      "objectiveId": "L16-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "vacuous-truth-misread"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle valeur a $\\forall x\\in\\varnothing\\ (x>100)$ ?",
+        "en": "What is the value of $\\forall x\\in\\varnothing\\ (x>100)$?"
+      },
+      "hint": {
+        "fr": "Cherchez un élément qui pourrait violer la condition.",
+        "en": "Look for an element that might violate the condition."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Fausse.",
+            "en": "False."
+          },
+          "feedback": {
+            "fr": "Sur l'ensemble vide, aucune exception n'existe ; l'universelle est vraie.",
+            "en": "Over the empty set, no exception exists; the universal is true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Indéfinie.",
+            "en": "Undefined."
+          },
+          "feedback": {
+            "fr": "Sur l'ensemble vide, aucune exception n'existe ; l'universelle est vraie.",
+            "en": "Over the empty set, no exception exists; the universal is true."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Vraie.",
+            "en": "True."
+          },
+          "feedback": {
+            "fr": "Aucun objet dans le domaine ne peut fournir de contre-exemple.",
+            "en": "No domain object can provide a counterexample."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Aucun objet dans le domaine ne peut fournir de contre-exemple.",
+        "en": "No domain object can provide a counterexample."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E13",
+      "objectiveId": "L16-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "bounded-forall-with-and"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $U=\\{1,2,3,4\\}$, $X=\\{2,4\\}$, $P(x)$ : « $x$ est pair ». Que vaut $\\forall x\\in U\\ (x\\in X\\Rightarrow P(x))$ ?",
+        "en": "In $U=\\{1,2,3,4\\}$, $X=\\{2,4\\}$, $P(x)$ means \"$x$ is even\". What is $\\forall x\\in U\\ (x\\in X\\Rightarrow P(x))$?"
+      },
+      "hint": {
+        "fr": "Les objets hors de $X$ satisfont l'implication automatiquement.",
+        "en": "Objects outside $X$ satisfy the implication automatically."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vraie.",
+            "en": "True."
+          },
+          "feedback": {
+            "fr": "$2$ et $4$ sont pairs ; les autres objets n'imposent aucune contrainte.",
+            "en": "$2$ and $4$ are even; the other objects impose no condition."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Fausse à $x=1$.",
+            "en": "False at $x=1$."
+          },
+          "feedback": {
+            "fr": "Pour $1,3$, la prémisse $x\\in X$ est fausse.",
+            "en": "For $1,3$, premise $x\\in X$ is false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Fausse à $x=3$.",
+            "en": "False at $x=3$."
+          },
+          "feedback": {
+            "fr": "Pour $1,3$, la prémisse $x\\in X$ est fausse.",
+            "en": "For $1,3$, premise $x\\in X$ is false."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$2$ et $4$ sont pairs ; les autres objets n'imposent aucune contrainte.",
+        "en": "$2$ and $4$ are even; the other objects impose no condition."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E14",
+      "objectiveId": "L16-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "bounded-exists-with-implication"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $U=\\{0,1,2,3\\}$, $X=\\{1,2\\}$, $P(x)$ : $x>2$. Que vaut $\\exists x\\in U\\ (x\\in X\\land P(x))$ ?",
+        "en": "In $U=\\{0,1,2,3\\}$, $X=\\{1,2\\}$, $P(x)$: $x>2$. What is $\\exists x\\in U\\ (x\\in X\\land P(x))$?"
+      },
+      "hint": {
+        "fr": "$3$ passe le filtre mais est hors de $X$.",
+        "en": "$3$ passes the filter but is outside $X$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vraie grâce à $x=3$.",
+            "en": "True thanks to $x=3$."
+          },
+          "feedback": {
+            "fr": "Le témoin doit satisfaire simultanément les deux conditions.",
+            "en": "The witness must satisfy both conditions simultaneously."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Fausse : aucun membre de $X$ ne passe le test.",
+            "en": "False: no member of $X$ passes the test."
+          },
+          "feedback": {
+            "fr": "Ni $1$ ni $2$ n'est strictement supérieur à $2$ ; $3$ n'est pas admissible.",
+            "en": "Neither $1$ nor $2$ exceeds $2$; $3$ is not allowed."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Vraie grâce à $x=2$.",
+            "en": "True thanks to $x=2$."
+          },
+          "feedback": {
+            "fr": "Le témoin doit satisfaire simultanément les deux conditions.",
+            "en": "The witness must satisfy both conditions simultaneously."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Ni $1$ ni $2$ n'est strictement supérieur à $2$ ; $3$ n'est pas admissible.",
+        "en": "Neither $1$ nor $2$ exceeds $2$; $3$ is not allowed."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E15",
+      "objectiveId": "L16-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "connective-pairing-reversed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi $\\forall x\\ (x\\in X\\land P(x))$ n'est-il pas en général une expansion de $\\forall x\\in X\\ P(x)$ ?",
+        "en": "Why is $\\forall x\\ (x\\in X\\land P(x))$ generally not an expansion of $\\forall x\\in X\\ P(x)$?"
+      },
+      "hint": {
+        "fr": "La première impose l'appartenance à $X$ à tout l'univers.",
+        "en": "The first requires the whole universe to belong to $X$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Elle accepte trop de témoins hors de $X$.",
+            "en": "It accepts too many witnesses outside $X$."
+          },
+          "feedback": {
+            "fr": "Le problème vient de la conjonction universelle, non d'un changement du prédicat.",
+            "en": "The problem is universal conjunction, not a change of predicate."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Elle change toutes les valeurs de $P$.",
+            "en": "It changes all values of $P$."
+          },
+          "feedback": {
+            "fr": "Le problème vient de la conjonction universelle, non d'un changement du prédicat.",
+            "en": "The problem is universal conjunction, not a change of predicate."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Elle exige aussi que chaque objet de l'univers appartienne à $X$.",
+            "en": "It additionally requires every universe object to belong to $X$."
+          },
+          "feedback": {
+            "fr": "Dès qu'un objet est hors de $X$, cette formule conjointe est fausse.",
+            "en": "As soon as an object is outside $X$, that conjunctive formula is false."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Dès qu'un objet est hors de $X$, cette formule conjointe est fausse.",
+        "en": "As soon as an object is outside $X$, that conjunctive formula is false."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E16",
+      "objectiveId": "L16-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "exists-with-implication-always-true"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $U=\\{a,b\\}$, $X=\\{a\\}$, $P(a)$ faux et $P(b)$ vrai. Quel énoncé est vrai ?",
+        "en": "In $U=\\{a,b\\}$, $X=\\{a\\}$, $P(a)$ false and $P(b)$ true. Which statement is true?"
+      },
+      "hint": {
+        "fr": "Vérifiez la différence entre témoin borné et implication non bornée.",
+        "en": "Check the difference between a bounded witness and unbounded implication."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$",
+            "en": "$\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$"
+          },
+          "feedback": {
+            "fr": "Pour $x=b$, $x\\notin X$ rend l'implication vraie sans témoin borné.",
+            "en": "At $x=b$, $x\\notin X$ makes the implication true without a bounded witness."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists x\\in X\\ P(x)$",
+            "en": "$\\exists x\\in X\\ P(x)$"
+          },
+          "feedback": {
+            "fr": "Le seul membre de $X$ ne vérifie pas $P$ ; le témoin $b$ ne marche que pour l'implication.",
+            "en": "The sole $X$ member fails $P$; witness $b$ works only for implication."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall x\\in X\\ P(x)$",
+            "en": "$\\forall x\\in X\\ P(x)$"
+          },
+          "feedback": {
+            "fr": "Le seul membre de $X$ ne vérifie pas $P$ ; le témoin $b$ ne marche que pour l'implication.",
+            "en": "The sole $X$ member fails $P$; witness $b$ works only for implication."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Pour $x=b$, $x\\notin X$ rend l'implication vraie sans témoin borné.",
+        "en": "At $x=b$, $x\\notin X$ makes the implication true without a bounded witness."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E17",
+      "objectiveId": "L16-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "negation-keeps-quantifier"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Niez $\\exists x\\in X\\ (x=7)$. Quelle formule est équivalente ?",
+        "en": "Negate $\\exists x\\in X\\ (x=7)$. Which formula is equivalent?"
+      },
+      "hint": {
+        "fr": "Aucun élément de $X$ ne doit être égal à $7$.",
+        "en": "No member of $X$ may equal $7$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists x\\in X\\ (x\\ne7)$",
+            "en": "$\\exists x\\in X\\ (x\\ne7)$"
+          },
+          "feedback": {
+            "fr": "Une seule valeur différente de $7$ ne suffit pas à exclure un témoin égal à $7$.",
+            "en": "One value different from $7$ does not rule out a witness equal to $7$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall x\\in X\\ (x\\ne7)$",
+            "en": "$\\forall x\\in X\\ (x\\ne7)$"
+          },
+          "feedback": {
+            "fr": "La négation d'une existentielle bornée est une universelle bornée de l'inégalité.",
+            "en": "Negating bounded existence yields bounded universality of inequality."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall x\\in X\\ (x=7)$",
+            "en": "$\\forall x\\in X\\ (x=7)$"
+          },
+          "feedback": {
+            "fr": "Une seule valeur différente de $7$ ne suffit pas à exclure un témoin égal à $7$.",
+            "en": "One value different from $7$ does not rule out a witness equal to $7$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La négation d'une existentielle bornée est une universelle bornée de l'inégalité.",
+        "en": "Negating bounded existence yields bounded universality of inequality."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E18",
+      "objectiveId": "L16-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "vacuous-truth-misread"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $X=\\varnothing$, quelle paire de valeurs ont $\\forall x\\in X\\ P(x)$ et $\\exists x\\in X\\ P(x)$ ?",
+        "en": "Over $X=\\varnothing$, what are the values of $\\forall x\\in X\\ P(x)$ and $\\exists x\\in X\\ P(x)$?"
+      },
+      "hint": {
+        "fr": "Il n'existe aucun témoin et aucun contre-exemple.",
+        "en": "There is no witness and no counterexample."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Faux, faux.",
+            "en": "False, false."
+          },
+          "feedback": {
+            "fr": "L'universelle est vraie par vacuité, l'existentielle est fausse.",
+            "en": "The universal is vacuously true; the existential is false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Vrai, vrai.",
+            "en": "True, true."
+          },
+          "feedback": {
+            "fr": "L'universelle est vraie par vacuité, l'existentielle est fausse.",
+            "en": "The universal is vacuously true; the existential is false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Vrai, faux.",
+            "en": "True, false."
+          },
+          "feedback": {
+            "fr": "Ces valeurs découlent directement des expansions avec $\\Rightarrow$ et $\\land$.",
+            "en": "These values follow from the expansions using $\\Rightarrow$ and $\\land$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Ces valeurs découlent directement des expansions avec $\\Rightarrow$ et $\\land$.",
+        "en": "These values follow from the expansions using $\\Rightarrow$ and $\\land$."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E19",
+      "objectiveId": "L16-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "connective-pairing-reversed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans un univers avec un élément hors de $X$, quel défaut a $\\exists x\\ (x\\in X\\Rightarrow P(x))$ comme traduction d'une existence bornée ?",
+        "en": "In a universe with an element outside $X$, what flaw does $\\exists x\\ (x\\in X\\Rightarrow P(x))$ have as a bounded-existence translation?"
+      },
+      "hint": {
+        "fr": "Prenez l'élément extérieur comme témoin.",
+        "en": "Use the outside element as witness."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Elle est toujours vraie, même si aucun membre de $X$ ne vérifie $P$.",
+            "en": "It is always true, even if no member of $X$ satisfies $P$."
+          },
+          "feedback": {
+            "fr": "La formule peut être vraie par un objet hors de $X$ ; ce n'est pas l'existence requise.",
+            "en": "The formula can be true due to an object outside $X$; that is not the required existence."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Elle est toujours fausse.",
+            "en": "It is always false."
+          },
+          "feedback": {
+            "fr": "Le témoin extérieur satisfait une implication à prémisse fausse.",
+            "en": "The outside witness satisfies an implication with false premise."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Elle force tout objet à être dans $X$.",
+            "en": "It forces every object into $X$."
+          },
+          "feedback": {
+            "fr": "Le témoin extérieur satisfait une implication à prémisse fausse.",
+            "en": "The outside witness satisfies an implication with false premise."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La formule peut être vraie par un objet hors de $X$ ; ce n'est pas l'existence requise.",
+        "en": "The formula can be true due to an object outside $X$; that is not the required existence."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E20",
+      "objectiveId": "L16-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "negation-keeps-quantifier"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle négation de $\\forall x\\in X\\ \\exists y\\in Y\\ R(x,y)$ est exacte ?",
+        "en": "Which negation of $\\forall x\\in X\\ \\exists y\\in Y\\ R(x,y)$ is exact?"
+      },
+      "hint": {
+        "fr": "Inversez les deux quantificateurs, gardez leurs domaines.",
+        "en": "Flip both quantifiers and keep their domains."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall x\\in X\\ \\forall y\\in Y\\ \\neg R(x,y)$",
+            "en": "$\\forall x\\in X\\ \\forall y\\in Y\\ \\neg R(x,y)$"
+          },
+          "feedback": {
+            "fr": "L'échec d'un « tous les $x$ ont un $y$ » donne un $x$ sans aucun $y$ valable.",
+            "en": "Failure of 'every $x$ has a $y$' gives one $x$ with no valid $y$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists x\\in X\\ \\forall y\\in Y\\ \\neg R(x,y)$",
+            "en": "$\\exists x\\in X\\ \\forall y\\in Y\\ \\neg R(x,y)$"
+          },
+          "feedback": {
+            "fr": "$\\neg\\forall x\\exists y\\ R(x,y)\\equiv\\exists x\\forall y\\ \\neg R(x,y)$ avec bornes inchangées.",
+            "en": "$\\neg\\forall x\\exists y\\ R(x,y)\\equiv\\exists x\\forall y\\ \\neg R(x,y)$ with unchanged bounds."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists y\\in Y\\ \\forall x\\in X\\ \\neg R(x,y)$",
+            "en": "$\\exists y\\in Y\\ \\forall x\\in X\\ \\neg R(x,y)$"
+          },
+          "feedback": {
+            "fr": "L'échec d'un « tous les $x$ ont un $y$ » donne un $x$ sans aucun $y$ valable.",
+            "en": "Failure of 'every $x$ has a $y$' gives one $x$ with no valid $y$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$\\neg\\forall x\\exists y\\ R(x,y)\\equiv\\exists x\\forall y\\ \\neg R(x,y)$ avec bornes inchangées.",
+        "en": "$\\neg\\forall x\\exists y\\ R(x,y)\\equiv\\exists x\\forall y\\ \\neg R(x,y)$ with unchanged bounds."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E21",
+      "objectiveId": "L16-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "exists-with-implication-always-true"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$U=\\{1,2,3\\}$, $X=\\{2\\}$ et $P(x):x<0$. Quelle paire est correcte pour $\\exists x\\in X\\ P(x)$ et $\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$ ?",
+        "en": "$U=\\{1,2,3\\}$, $X=\\{2\\}$ and $P(x):x<0$. Which pair is correct for $\\exists x\\in X\\ P(x)$ and $\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$?"
+      },
+      "hint": {
+        "fr": "Le second énoncé accepte $x=1$ hors de $X$.",
+        "en": "The second accepts $x=1$ outside $X$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vrai, vrai.",
+            "en": "True, true."
+          },
+          "feedback": {
+            "fr": "La condition bornée échoue, mais une implication existentielle peut être vraie hors de $X$.",
+            "en": "Bounded existence fails, but existential implication can hold outside $X$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Faux, faux.",
+            "en": "False, false."
+          },
+          "feedback": {
+            "fr": "La condition bornée échoue, mais une implication existentielle peut être vraie hors de $X$.",
+            "en": "Bounded existence fails, but existential implication can hold outside $X$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Faux, vrai.",
+            "en": "False, true."
+          },
+          "feedback": {
+            "fr": "$2$ ne vérifie pas $P$ ; $1\\notin X$ rend l'autre implication vraie.",
+            "en": "$2$ fails $P$; $1\\notin X$ makes the other implication true."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$2$ ne vérifie pas $P$ ; $1\\notin X$ rend l'autre implication vraie.",
+        "en": "$2$ fails $P$; $1\\notin X$ makes the other implication true."
+      },
+      "lessonId": "L16",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}
