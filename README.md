@@ -56,6 +56,7 @@ The check covers repository links/structure, content parity/contracts, types, fo
 - [Practice, grading and progress](docs/PRACTICE.md)
 - [Content release contracts](docs/CONTENT_RELEASES.md)
 - [Learning contract audit](docs/LEARNING_CONTRACT_AUDIT.md)
+- [Pilot readiness and acceptance evidence](docs/PILOT_ACCEPTANCE.md)
 
 ## Repository guide
 
