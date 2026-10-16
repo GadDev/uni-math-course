@@ -8,13 +8,17 @@ Status: **reading and practice implemented; hosted class acceptance pending** ·
 
 ## What works
 
-- Public French/English programme pages and L01–L20 lessons.
+- Public French/English programme pages and lessons.
 - Public searchable French/English symbol glossary, with bilingual readings, source pages and stable entry links.
 - Mathematical notation with visual KaTeX and MathML output.
 - Same-lesson language switching and a native reading disclosure that works without JavaScript.
-- Six reviewed exercise contracts and content/mathematical checks.
+- Versioned exercise contracts and content/mathematical checks.
 - Configurable email/password Supabase sign-in for an invited group, verified server sessions and local logout.
-- Authenticated practice, server grading, saved attempts and private progress. L05 is self-checked; the other banks retain the owner's explicit unreviewed release exception and display a warning.
+- Authenticated practice, server grading, saved attempts and private progress. Unreviewed banks display a warning.
+
+<!-- release-status:start -->
+Release status (generated from content/releases.json): 20 public bilingual lessons; 20 served practice banks. Mathematical author self-check: L05; explicit unreviewed release exceptions: 19 banks. Translation self-check: L05; explicit unreviewed translation exceptions: 19 lesson pairs. These records do not certify independent review or hosted class readiness.
+<!-- release-status:end -->
 
 Sign-in is disabled until configured. Hosted authentication, database/deployment acceptance and class-pilot privacy decisions remain pending. See the [content release contracts](docs/CONTENT_RELEASES.md); local implementation is not proof of a complete hosted learning journey.
 

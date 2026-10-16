@@ -19,6 +19,15 @@ const fixture = () => {
         version: 1,
         review: 'self-checked',
         evidence: 'review.md',
+        translation: {
+          source: 'fr',
+          target: 'en',
+          review: 'self-checked',
+          evidence: 'review.md',
+          sourceFingerprint: createHash('sha256')
+            .update(files['content/lessons/L05/fr.md'])
+            .digest('hex'),
+        },
         fingerprints: Object.fromEntries(
           Object.entries(files)
             .filter(([p]) => p !== 'review.md')
@@ -89,4 +98,31 @@ test('missing translation or review evidence blocks a release', async () => {
   const other = fixture();
   delete other.files['review.md'];
   await assert.rejects(validateReleases(other.releases, other.read), /Missing/);
+});
+
+test('refreshing only the release hash cannot silently certify a changed translation source', async () => {
+  const { releases, files, read } = fixture();
+  files['content/lessons/L05/fr.md'] += ' Nouvelle explication';
+  releases.lessons.L05.fingerprints['content/lessons/L05/fr.md'] = createHash(
+    'sha256',
+  )
+    .update(files['content/lessons/L05/fr.md'])
+    .digest('hex');
+  await assert.rejects(
+    validateReleases(releases, read),
+    /translation source changed/,
+  );
+  releases.lessons.L05.translation.sourceFingerprint =
+    releases.lessons.L05.fingerprints['content/lessons/L05/fr.md'];
+  await validateReleases(releases, read);
+});
+
+test('translation metadata and its own evidence are required, including under an exception', async () => {
+  const { releases, read } = fixture();
+  releases.lessons.L05.translation.review = 'unreviewed-exception';
+  await validateReleases(releases, read);
+  releases.lessons.L05.translation.evidence = 'missing.md';
+  await assert.rejects(validateReleases(releases, read), /Missing/);
+  delete releases.lessons.L05.translation;
+  await assert.rejects(validateReleases(releases, read), /translation source/);
 });

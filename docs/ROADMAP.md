@@ -1,10 +1,14 @@
 # Roadmap
 
-Status: proposed delivery plan · Owner: GadDev · Last reviewed: 2026-10-14
+Status: proposed delivery plan · Owner: GadDev · Last reviewed: 2026-10-16
 
 ## Delivery goal and current state
 
-Deliver a small French/English learning journey with correct content, real sign-in, server grading, saved attempts, and private progress. L01–L20 reading, exercise banks, authentication, grading and private progress are implemented locally. Only L05 has documented mathematical/bilingual self-check evidence; the remaining banks retain the explicit unreviewed exception. Local protocol/browser/SQL evidence does not establish hosted acceptance or a mathematically reviewed full course.
+Deliver a small French/English learning journey with correct content, real sign-in, server grading, saved attempts, and private progress. Public reading, exercise banks, authentication, grading and private progress are implemented locally. See the registry-derived release status below. Local protocol/browser/SQL evidence does not establish hosted acceptance or a mathematically reviewed full course.
+
+<!-- release-status:start -->
+Release status (generated from content/releases.json): 20 public bilingual lessons; 20 served practice banks. Mathematical author self-check: L05; explicit unreviewed release exceptions: 19 banks. Translation self-check: L05; explicit unreviewed translation exceptions: 19 lesson pairs. These records do not certify independent review or hosted class readiness.
+<!-- release-status:end -->
 
 The [mission](MISSION.md) defines the outcome; the [constitution](CONSTITUTION.md) defines content and product constraints. The Astro/React, Vercel Hobby, Supabase Free and Radix Themes stack is approved in [TECHSTACK.md](TECHSTACK.md); the implementation exists and operational acceptance remains to be demonstrated.
 
@@ -49,7 +53,7 @@ Acceptance:
 - Switching language preserves location and activity state.
 - Relevant unit/integration/browser tests and a production build pass.
 
-M2 feature 1: the public reading foundation is implemented; see [READING_FOUNDATION.md](READING_FOUNDATION.md). M2 feature 2: email/password Supabase authentication/sessions for an invited group are implemented; see [AUTHENTICATION.md](AUTHENTICATION.md). M2 features 3 and 4: authenticated exercise delivery, server grading, idempotent attempt persistence, mistake review and a private progress page are implemented locally for L01–L20, with only L05 self-checked and the remaining banks under the explicit pre-review exception; see [PRACTICE.md](PRACTICE.md). Local browser tests cover sign-in, answer/retry, reload, later sign-in, draft/language state, and protocol ownership. SQL tests cover real PostgreSQL grants/RLS and concurrent first-attempt insertion in CI. Hosted provider/deployment acceptance and live two-account isolation remain pending, so M2 is not complete. See [content release contracts](CONTENT_RELEASES.md).
+M2 feature 1: the public reading foundation is implemented; see [READING_FOUNDATION.md](READING_FOUNDATION.md). M2 feature 2: email/password Supabase authentication/sessions for an invited group are implemented; see [AUTHENTICATION.md](AUTHENTICATION.md). M2 features 3 and 4: authenticated exercise delivery, server grading, idempotent attempt persistence, mistake review and a private progress page are implemented locally for the registry-selected releases; see [PRACTICE.md](PRACTICE.md). Local browser tests cover sign-in, answer/retry, reload, later sign-in, draft/language state, and protocol ownership. SQL tests cover real PostgreSQL grants/RLS and concurrent first-attempt insertion in CI. Hosted provider/deployment acceptance and live two-account isolation remain pending, so M2 is not complete. See [content release contracts](CONTENT_RELEASES.md).
 
 The source-wide public glossary is delivered as an early M3 reading feature; see [glossary review](content/GLOSSARY_REVIEW.md). This does not complete M2 practice or M3 class-pilot acceptance.
 
@@ -79,7 +83,7 @@ Pilot evaluation: can classmates complete the journey without help, explain mist
 
 ## Full course map
 
-PDF page references start at 1 and consolidate repeated slide builds. L01–L20 reading and practice are implemented. Only L05 has documented mathematical/bilingual self-check evidence; the other banks retain the explicit unreviewed release exception. The delivery column describes roadmap grouping, not review completion or class readiness.
+PDF page references start at 1 and consolidate repeated slide builds. The generated release status above records the implemented scope and review exceptions. The delivery column describes roadmap grouping, not review completion or class readiness.
 
 | ID | Topic | PDF pages | Delivery |
 | --- | --- | --- | --- |

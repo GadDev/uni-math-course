@@ -17,6 +17,29 @@ export async function validateReleases(
       (await read(record.evidence)).length,
       `${id}: missing review/exception evidence`,
     );
+    const translation = record.translation;
+    assert.equal(
+      translation?.source,
+      'fr',
+      `${id}: translation source must be French`,
+    );
+    assert.equal(
+      translation?.target,
+      'en',
+      `${id}: translation target must be English`,
+    );
+    assert.ok(
+      ['self-checked', 'unreviewed-exception'].includes(translation.review),
+    );
+    assert.ok(
+      (await read(translation.evidence)).length,
+      `${id}: missing translation review/exception evidence`,
+    );
+    assert.equal(
+      translation.sourceFingerprint,
+      record.fingerprints[`content/lessons/${id}/fr.md`],
+      `${id}: translation source changed; renew bilingual review or explicitly retain the existing exception`,
+    );
     const paths = [
       `content/lessons/${id}/fr.md`,
       `content/lessons/${id}/en.md`,
