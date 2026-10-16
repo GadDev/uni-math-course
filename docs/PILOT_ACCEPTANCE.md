@@ -16,13 +16,40 @@ This record separates repository evidence, hosted verification and human decisio
 
 These results apply to their recorded revisions, not every later commit. Inspect the current revision's CI before release. The original audit remains historical evidence; later fixes do not rewrite what it inspected.
 
+## H1 checkpoint — reported production deployment
+
+Recorded 2026-10-16. Evidence source: GadDev's Vercel dashboard report, cross-checked against the GitHub Vercel commit status. **H1 remains open**: deployment identity is partially recorded; database migration/schema verification and environment separation are pending. This is not independently reproduced hosted acceptance.
+
+| Field | Recorded value | Evidence / limitation |
+| --- | --- | --- |
+| Reported production domain | https://uni-math-course.vercel.app/ | Domain association reported by GadDev; current alias routing was not independently inspected |
+| Unique deployment URL | https://uni-math-course-fgvepgwnw-gaddevs-projects.vercel.app/ | Reported by GadDev |
+| Deployment dashboard | https://vercel.com/gaddevs-projects/uni-math-course/GwF8kYj7PKvNPXQYPbmRzZnqztvA | Also the target of the successful GitHub Vercel status for the recorded commit |
+| Dashboard deployment identifier | `GwF8kYj7PKvNPXQYPbmRzZnqztvA` | Dashboard URL locator; a separate API `dpl_…` identifier was not supplied |
+| Status / creator | Ready / GadDev | Maintainer-reported; GitHub independently reports Vercel `success` for this commit |
+| Git source | `main` at [`45a742978d68382c949016583243e82aa91ee4ee`](https://github.com/GadDev/uni-math-course/commit/45a742978d68382c949016583243e82aa91ee4ee) | Commit exists: `feat(skill): add difficulty guidance and behavioural evaluations (#35)`; later commits do not change this baseline |
+| Exact deployment creation time | Pending | Dashboard report said “8m ago”; no exact timestamp inferred |
+| Deployment environment and separation | Pending | Explicit Production environment label and preview/production Supabase separation still need confirmation; no secret configuration values recorded |
+| Supabase project and applied schema | Pending | No deployed database metadata has been provided |
+
+The repository migration baseline at that exact application commit is:
+
+| Version | File under `supabase/migrations/` | Remote status |
+| --- | --- | --- |
+| `20261014120000` | `20261014120000_attempts.sql` | Pending verification |
+| `20261015120000` | `20261015120000_attempts_service_role_grant.sql` | Pending verification |
+| `20261015220000` | `20261015220000_record_attempt.sql` | Pending verification |
+| `20261016050000` | `20261016050000_attempt_history_snapshot.sql` | Pending verification |
+
+Next checkpoint: identify the Supabase project used by this production deployment, inspect migration history and compare actual table/function/grant/RLS definitions. A migration-history row alone does not prove the live schema matches the file, and SQL-editor execution may not have populated CLI migration history. Do not apply or repair migrations merely to make the history match.
+
 ## Remaining acceptance work
 
 Every row is **pending recorded evidence or decision**. GadDev is accountable and may name an actual reviewer/operator when the work occurs. Do not invent people, dates, outcomes or provider settings.
 
 | ID | Work and owner | Evidence needed to close |
 | --- | --- | --- |
-| H1 | Deployment identity and configuration — GadDev | Record exact app commit, hosted deployment identifier, date, intended origin and preview/production separation. Confirm configured migrations against every ordered repository migration without exposing credentials |
+| H1 | Deployment identity and configuration — GadDev | Partial evidence recorded in [H1 checkpoint](#h1-checkpoint--reported-production-deployment); still open. Record exact app commit, hosted deployment identifier, date, intended origin and preview/production separation. Confirm configured migrations against every ordered repository migration without exposing credentials |
 | H2 | Hosted sign-in and session lifecycle — GadDev | On the recorded deployment, exercise FR/EN sign-in, refresh/expiry, logout, account switching in two tabs and back/forward restoration; confirm cookie flags and no-store responses. Same-account focus preserves drafts; confirmed identity changes remove private state; progress reflects another tab's saved attempt |
 | H3 | Hosted persistence and authorization — GadDev | With two synthetic accounts, verify answer → reload → later sign-in persistence; owner-only Data API/RPC reads; denied unauthenticated access and browser writes; duplicate UUID replay; rejected stale learner context. Capture outcomes without learner data |
 | H4 | Accessible bilingual journey — GadDev, reviewer to be named | Complete reading/practice/feedback/progress by keyboard in both languages at 320, 375, 768 and 1280 px; inspect focus, feedback announcements, mathematical readings and overflow. Add screen-reader/browser details when tested |
