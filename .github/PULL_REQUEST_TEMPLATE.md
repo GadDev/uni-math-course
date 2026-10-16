@@ -6,7 +6,7 @@ Describe the concrete problem and what a learner or contributor can do after thi
 
 ## Release information
 
-Use a Conventional Commit title. Describe any learner/contributor outcome and migration or compatibility actions here; write "None" for internal-only changes. Keep important details in the final squash commit body. Ordinary PRs do not edit CHANGELOG.md or add changeset files while release automation is deferred.
+Use a Conventional Commit title. Describe any learner/contributor outcome and migration or compatibility actions here; write "None" for internal-only changes. Keep important details in the final squash commit body. Ordinary PRs do not edit CHANGELOG.md or add changeset files Release Please collects eligible squash messages into one checked release PR; first-release approval requires actual hosted acceptance.
 
 ## Validation
 

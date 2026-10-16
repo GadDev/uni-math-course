@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/v17.6.0/schemas/config.json",
+  "bootstrap-sha": "45a742978d68382c949016583243e82aa91ee4ee",
+  "release-type": "node",
+  "include-component-in-tag": false,
+  "include-v-in-tag": true,
+  "bump-minor-pre-major": true,
+  "bump-patch-for-minor-pre-major": false,
+  "initial-version": "0.1.0",
+  "packages": {
+    ".": {
+      "changelog-path": "CHANGELOG.md",
+      "pull-request-header": "Release milestone only: this is not proof of production deployment. The first 0.1.0 is blocked by the hosted pilot acceptance gate; see docs/RELEASING.md."
+    }
+  }
+}

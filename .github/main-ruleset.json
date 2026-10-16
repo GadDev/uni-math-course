@@ -5,9 +5,7 @@
   "conditions": {
     "ref_name": {
       "exclude": [],
-      "include": [
-        "~DEFAULT_BRANCH"
-      ]
+      "include": ["~DEFAULT_BRANCH"]
     }
   },
   "rules": [
@@ -27,9 +25,7 @@
         "require_last_push_approval": false,
         "required_review_thread_resolution": true,
         "require_extra_approval_for_unattributed_changes": true,
-        "allowed_merge_methods": [
-          "squash"
-        ]
+        "allowed_merge_methods": ["squash"]
       }
     },
     {
@@ -41,6 +37,10 @@
           {
             "context": "docs",
             "integration_id": 15368
+          },
+          {
+            "context": "GitGuardian Security Checks",
+            "integration_id": 46505
           }
         ]
       }
