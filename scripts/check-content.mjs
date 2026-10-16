@@ -18,8 +18,9 @@ export function truthRowIds(variables) {
 export function validateBank(bank) {
   assert.match(bank.lessonId, lessonIdPattern);
   assert.ok(Number.isInteger(bank.version) && bank.version > 0);
-  assert.equal(bank.exerciseCount, 6);
-  assert.equal(bank.exercises.length, 6);
+  assert.ok(Array.isArray(bank.exercises));
+  assert.ok(bank.exercises.length >= 6, 'Cover all six lesson objectives');
+  assert.equal(bank.exerciseCount, bank.exercises.length);
   const ids = new Set();
   const objectives = new Set();
   const bilingual = (value) => {
@@ -29,7 +30,7 @@ export function validateBank(bank) {
   };
   for (const exercise of bank.exercises) {
     assert.ok(
-      new RegExp(`^${bank.lessonId}-E0[1-6]$`).test(exercise.id),
+      new RegExp(`^${bank.lessonId}-E(0[1-9]|[1-9][0-9]+)$`).test(exercise.id),
       `Unexpected exercise ID ${exercise.id}`,
     );
     assert.ok(!ids.has(exercise.id), 'Duplicate exercise ID');
@@ -40,9 +41,14 @@ export function validateBank(bank) {
       new RegExp(`^${bank.lessonId}-O0[1-6]$`).test(exercise.objectiveId),
       `Unexpected objective ID ${exercise.objectiveId}`,
     );
-    assert.ok(!objectives.has(exercise.objectiveId), 'Duplicate objective');
     objectives.add(exercise.objectiveId);
-    assert.ok(['foundation', 'application'].includes(exercise.difficulty));
+    // Preserve the two historical labels for immutable archives. New banks may
+    // use the three learner-facing levels without migrating past attempts.
+    assert.ok(
+      ['foundation', 'application', 'easy', 'medium', 'hard'].includes(
+        exercise.difficulty,
+      ),
+    );
     assert.ok(exercise.prerequisites.length && exercise.misconceptions.length);
     assert.equal(exercise.provenance.origin, 'original-project-work');
     assert.ok(

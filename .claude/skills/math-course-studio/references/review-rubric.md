@@ -23,7 +23,7 @@ Work through each; record at least one line per dimension, even if "no finding".
 
 **D. Bilingual fidelity** — same structure and meaning; identical `$...$` strings; consistent glossary terms (antécédent/antecedent, conséquent/consequent, nécessaire/necessary, suffisante/sufficient, contre-exemple/counterexample, assertion/statement); natural phrasing, not word-for-word. Meaning changes need translation review. The automated check compares formulas only.
 
-**E. Exercise quality** — one defensible key; distractors tied to named misconceptions; feedback on every option; correct option position varies; difficulty justified relative to objectives and taught prerequisites (easy → `foundation`, medium/hard → `application`, recorded in notes; no claim of product support or empirical calibration); prerequisites accurate; misconception tags reuse existing ones; provenance is original work with correct pages; no answer leaked by stem or hint.
+**E. Exercise quality** — one defensible key; distractors tied to named misconceptions; feedback on every option; correct option position varies; difficulty justified relative to objectives and taught prerequisites (new labels `easy`, `medium`, `hard`; old archives may use `foundation`/`application`; no claim of empirical calibration); prerequisites accurate; misconception tags reuse existing ones; provenance is original work with correct pages; no answer leaked by stem or hint. Allow multiple items per objective, with full six-objective coverage and meaningful variation.
 
 **F. Accessibility** — plain-language reading of every formula; no colour-only signals; headings sensible; short paragraphs.
 

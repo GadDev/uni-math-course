@@ -1,0 +1,201 @@
+{
+  "lessonId": "L01",
+  "version": 2,
+  "items": [
+    {
+      "id": "L01-E07", "objectiveId": "L01-O06", "difficulty": "easy",
+      "misconceptions": ["truth-value-notation"],
+      "prompt": ["Soit $A$ l'assertion « $9$ est pair ». Quelle est la valeur de vérité de $A$ ?", "Let $A$ be the assertion “$9$ is even.” What is the truth value of $A$?"],
+      "hint": ["Vérifiez la parité de $9$, puis utilisez la notation $0$ ou $1$.", "Check whether $9$ is even, then use the notation $0$ or $1$."],
+      "options": [
+        ["$1$", "$1$", "La valeur $1$ signifie vrai, or $9$ n'est pas pair.", "$1$ means true, but $9$ is not even."],
+        ["$0$", "$0$", "Oui : l'assertion est fausse, donc sa valeur est $0$.", "Yes: the assertion is false, so its value is $0$."],
+        ["Aucune valeur", "No truth value", "Une assertion fausse possède bien une valeur : $0$.", "A false assertion still has a truth value: $0$."]
+      ],
+      "correct": 1,
+      "explanation": ["$9$ est impair. L'assertion est fausse et reçoit la valeur $0$.", "$9$ is odd. The assertion is false and receives the value $0$." ]
+    },
+    {
+      "id": "L01-E08", "objectiveId": "L01-O01", "difficulty": "easy",
+      "misconceptions": ["false-statement-not-assertion"],
+      "prompt": ["Quelle phrase est une assertion fausse ?", "Which sentence is a false assertion?"],
+      "hint": ["Une phrase fausse peut être une assertion ; une question n'est pas une assertion.", "A false sentence can be an assertion; a question is not an assertion."],
+      "options": [
+        ["Quel nombre est le plus grand ?", "Which number is greater?", "C'est une question et non une assertion.", "This is a question, not an assertion."],
+        ["Compare $5$ et $8$.", "Compare $5$ and $8$.", "C'est un ordre, sans valeur de vérité.", "This is a command, with no truth value."],
+        ["$5 > 8$.", "$5 > 8$.", "Exact : l'inégalité est fausse, mais possède une valeur de vérité.", "Correct: the inequality is false but has a truth value."]
+      ],
+      "correct": 2,
+      "explanation": ["L'énoncé $5 > 8$ est faux, donc c'est bien une assertion de valeur $0$.", "The statement $5 > 8$ is false, so it is an assertion with value $0$." ]
+    },
+    {
+      "id": "L01-E09", "objectiveId": "L01-O02", "difficulty": "easy",
+      "misconceptions": ["question-or-command-as-assertion"],
+      "prompt": ["Parmi ces phrases, laquelle est une assertion ?", "Which of these sentences is an assertion?"],
+      "hint": ["Cherchez une phrase à laquelle on peut attribuer vrai ou faux.", "Look for a sentence that can be assigned true or false."],
+      "options": [
+        ["Fermez les livres.", "Close the books.", "Un ordre ne déclare rien de vrai ou de faux.", "A command does not assert anything true or false."],
+        ["$12$ est divisible par $3$.", "$12$ is divisible by $3$.", "Exact : c'est un énoncé vrai, donc une assertion.", "Correct: this is a true statement, hence an assertion."],
+        ["Combien vaut $12 / 3$ ?", "What is $12 / 3$?", "Une question attend une réponse : elle n'a pas de valeur de vérité.", "A question seeks an answer; it has no truth value."]
+      ],
+      "correct": 1,
+      "explanation": ["« $12$ est divisible par $3$ » est vrai et a une valeur de vérité unique.", "“$12$ is divisible by $3$” is true and has a unique truth value."]
+    },
+    {
+      "id": "L01-E10", "objectiveId": "L01-O03", "difficulty": "easy",
+      "misconceptions": ["vague-sentence-as-assertion"],
+      "prompt": ["On veut préciser « Ce sac est lourd ». Quelle reformulation donne une assertion vérifiable ?", "We want to make “This bag is heavy” precise. Which rewrite gives a checkable assertion?"],
+      "hint": ["Fixez le sac, un critère mesurable et un moment.", "Identify the bag, a measurable criterion and a time."],
+      "options": [
+        ["Le sac est très lourd.", "The bag is very heavy.", "« Très lourd » conserve un seuil vague.", "“Very heavy” still has a vague threshold."],
+        ["Ce sac semble trop lourd.", "This bag seems too heavy.", "« Semble » et « trop » ne définissent pas une mesure stable.", "“Seems” and “too” do not specify a stable measurement."],
+        ["Le sac numéro $4$ pesait plus de $10$ kg à $9$ h le $1$ mai $2026$.", "Bag number $4$ weighed more than $10$ kg at $9$ a.m. on $1$ May $2026$.", "La mesure, l'objet et le moment sont définis sans terme vague.", "The measurement, object and time are defined without a vague term."]
+      ],
+      "correct": 2,
+      "explanation": ["La dernière phrase fixe l'objet, la mesure et la date, et possède donc une valeur de vérité ; les autres restent vagues.", "The last sentence fixes the object, measurement and date and therefore has a truth value; the others remain vague."]
+    },
+    {
+      "id": "L01-E11", "objectiveId": "L01-O05", "difficulty": "easy",
+      "misconceptions": ["unknown-value-not-assertion"],
+      "prompt": ["Une archive affirme : « À Luxembourg-Ville, il a neigé le $1$ janvier $1990$ à midi. » Nous n'avons pas les relevés. Quel est le bon diagnostic ?", "An archive says: “It snowed in Luxembourg City on $1$ January $1990$ at noon.” We have no weather records. What is the right diagnosis?"],
+      "hint": ["Ne confondez pas notre connaissance avec la valeur de vérité de l'énoncé.", "Do not confuse our knowledge with the statement's truth value."],
+      "options": [
+        ["C'est une assertion, même si sa valeur nous est inconnue.", "It is an assertion even if its value is unknown to us.", "Exact : le lieu, le moment et l'événement sont fixés.", "Correct: the place, time and event are fixed."],
+        ["Ce n'est pas une assertion sans archives.", "It is not an assertion without records.", "Le manque de preuve ne supprime pas la valeur de vérité.", "Lack of evidence does not remove the truth value."],
+        ["C'est forcément faux.", "It must be false.", "L'absence de relevés ne prouve pas l'absence de neige.", "Missing records do not prove that it did not snow."]
+      ],
+      "correct": 0,
+      "explanation": ["La phrase est vraie ou fausse dans le contexte fixé. Notre ignorance de sa valeur ne change pas son statut.", "In the fixed context the sentence is true or false. Our ignorance of its value does not change its status."]
+    },
+    {
+      "id": "L01-E12", "objectiveId": "L01-O06", "difficulty": "medium",
+      "misconceptions": ["truth-value-notation", "false-statement-not-assertion"],
+      "prompt": ["On pose $A$ : « $4^2 = 16$ » et $B$ : « $4^2 = 8$ ». Quel couple donne leurs valeurs dans l'ordre $(A,B)$ ?", "Let $A$ mean “$4^2 = 16$” and $B$ mean “$4^2 = 8$.” Which ordered pair gives their truth values as $(A,B)$?"],
+      "hint": ["Calculez d'abord $4^2$, puis attribuez $1$ ou $0$ à chaque assertion.", "First compute $4^2$, then assign $1$ or $0$ to each assertion."],
+      "options": [
+        ["$(0,1)$", "$(0,1)$", "L'ordre a été inversé : $A$ est vraie et $B$ est fausse.", "The order was reversed: $A$ is true and $B$ is false."],
+        ["$(1,1)$", "$(1,1)$", "$B$ est fausse : $4^2$ ne vaut pas $8$.", "$B$ is false: $4^2$ is not $8$."],
+        ["$(1,0)$", "$(1,0)$", "Oui : $16=16$ et $16\neq 8$.", "Yes: $16=16$ and $16\neq 8$."]
+      ],
+      "correct": 2,
+      "explanation": ["$4^2=16$. Donc $A=1$ et $B=0$, dans l'ordre demandé.", "$4^2=16$. Thus $A=1$ and $B=0$, in the requested order."]
+    },
+    {
+      "id": "L01-E13", "objectiveId": "L01-O03", "difficulty": "medium",
+      "misconceptions": ["vague-sentence-as-assertion"],
+      "prompt": ["Une affiche dit : « L'entrée est chère ». Quel énoncé fixe assez le contexte pour recevoir une valeur de vérité ?", "A poster says: “Admission is expensive.” Which statement fixes enough context to have a truth value?"],
+      "hint": ["Un prix sans seuil, ou un seuil sans billet précis, ne suffit pas.", "A price without a threshold, or a threshold without a specific ticket, is not enough."],
+      "options": [
+        ["Le prix du billet adulte pour l'exposition X, le $12$ octobre $2026$, dépassait $18$ €.", "The adult ticket for exhibition X on $12$ October $2026$ cost more than €$18$.", "Exact : billet, date et seuil sont fixés ; le prix peut être vérifié.", "Correct: ticket, date and threshold are fixed; the price can be checked."],
+        ["L'entrée dépasse un prix raisonnable.", "Admission exceeds a reasonable price.", "« Raisonnable » dépend d'un jugement non défini.", "“Reasonable” depends on an undefined judgment."],
+        ["Un billet coûte trop cher aujourd'hui.", "A ticket is too expensive today.", "Ni le billet, ni le seuil, ni la date ne sont fixés.", "Neither the ticket, the threshold nor the date is fixed."]
+      ],
+      "correct": 0,
+      "explanation": ["Le premier énoncé fixe une mesure et son contexte, même si nous ignorons le prix réel.", "The first statement fixes a measurement and its context, even if we do not know the actual price."]
+    },
+    {
+      "id": "L01-E14", "objectiveId": "L01-O02", "difficulty": "medium",
+      "misconceptions": ["free-variable-is-assertion", "question-or-command-as-assertion"],
+      "prompt": ["On travaille avec les entiers. Quelle expression est déjà une assertion, sans devoir choisir $n$ ?", "We work with integers. Which expression is already an assertion without first choosing $n$?"],
+      "hint": ["Une lettre non fixée n'est pas encore une proposition fermée.", "An unfixed letter does not yet make a closed proposition."],
+      "options": [
+        ["$n > 2$", "$n > 2$", "La valeur dépend du choix de $n$ : la variable est libre.", "Its truth depends on the choice of $n$: the variable is free."],
+        ["$4 > 2$", "$4 > 2$", "Exact : les deux nombres sont fixés et la comparaison est vraie.", "Correct: both numbers are fixed and the comparison is true."],
+        ["Quel entier vaut $n$ ?", "Which integer is $n$?", "C'est une question, non une assertion.", "It is a question, not an assertion."]
+      ],
+      "correct": 1,
+      "explanation": ["$4>2$ est une proposition vraie ; $n>2$ attend une valeur de $n$ et la dernière phrase est une question.", "$4>2$ is a true proposition; $n>2$ awaits a value of $n$, while the last sentence is a question."]
+    },
+    {
+      "id": "L01-E15", "objectiveId": "L01-O04", "difficulty": "medium",
+      "misconceptions": ["self-reference-has-a-value", "unknown-value-means-no-value"],
+      "prompt": ["La phrase $S$ dit : « $S$ est fausse ». Que se passe-t-il si l'on suppose $S$ vraie ?", "Sentence $S$ says: “$S$ is false.” What happens if we assume that $S$ is true?"],
+      "hint": ["Appliquez ce que $S$ affirme sous l'hypothèse où elle est vraie.", "Apply what $S$ claims under the assumption that it is true."],
+      "options": [
+        ["On confirme que $S$ est vraie.", "We confirm that $S$ is true.", "Si le contenu est vrai, il affirme précisément que $S$ est fausse.", "If its content is true, it states precisely that $S$ is false."],
+        ["On découvre seulement qu'on manque d'informations.", "We merely discover that we lack information.", "Il y a contradiction, pas seulement ignorance.", "There is a contradiction, not merely a lack of information."],
+        ["On obtient aussi que $S$ est fausse : contradiction.", "We also obtain that $S$ is false: a contradiction.", "Exact : l'hypothèse et le contenu de $S$ s'opposent.", "Correct: the assumption and the content of $S$ conflict."]
+      ],
+      "correct": 2,
+      "explanation": ["Supposer $S$ vraie rend vrai son contenu « $S$ est fausse », d'où une contradiction. L'hypothèse inverse échoue aussi.", "Assuming $S$ true makes its content “$S$ is false” true, giving a contradiction. The opposite assumption also fails."]
+    },
+    {
+      "id": "L01-E16", "objectiveId": "L01-O01", "difficulty": "medium",
+      "misconceptions": ["false-statement-not-assertion"],
+      "prompt": ["Un élève dit : « Tous les carrés de nombres entiers sont pairs ». Comment classer cette phrase ?", "A student says: “All squares of integers are even.” How should we classify this sentence?"],
+      "hint": ["Cherchez un contre-exemple entier, puis demandez-vous si faux signifie « pas une assertion ».", "Look for an integer counterexample, then ask whether false means “not an assertion”."],
+      "options": [
+        ["C'est une assertion fausse, car $3^2=9$ est impair.", "It is a false assertion because $3^2=9$ is odd.", "Exact : un contre-exemple établit la fausseté de l'assertion.", "Correct: one counterexample establishes the statement's falsity."],
+        ["Ce n'est pas une assertion, puisque c'est faux.", "It is not an assertion because it is false.", "Une assertion a une valeur de vérité, qui peut être fausse.", "An assertion has a truth value, which may be false."],
+        ["C'est une assertion vraie, car $2^2=4$ est pair.", "It is true because $2^2=4$ is even.", "Un exemple vrai ne prouve pas « tous » ; $3$ fournit un contre-exemple.", "One true example does not prove “all”; $3$ is a counterexample."]
+      ],
+      "correct": 0,
+      "explanation": ["La phrase a une valeur de vérité déterminée : elle est fausse, car le carré de $3$ est impair.", "The sentence has a definite truth value: false, because the square of $3$ is odd."]
+    },
+    {
+      "id": "L01-E17", "objectiveId": "L01-O03", "difficulty": "hard",
+      "misconceptions": ["fixed-context-makes-vagueness-precise"],
+      "prompt": ["On précise « Marie est grande » en « Marie est grande à Luxembourg, le $1$ mai $2026$ ». Quel problème reste à résoudre pour obtenir une assertion non ambiguë dans ce cours ?", "We change “Marie is tall” to “Marie is tall in Luxembourg on $1$ May $2026$.” What still needs to be resolved for an unambiguous assertion in this course?"],
+      "hint": ["Identifier la personne, le lieu et la date suffit-il à définir « grande » ?", "Does identifying the person, place and date define “tall”?"],
+      "options": [
+        ["Il suffit de connaître la météo.", "We only need to know the weather.", "La météo ne précise pas le sens de « grande ».", "The weather does not define what “tall” means."],
+        ["Il faut préciser un critère mesurable de taille.", "We need a measurable height criterion.", "Exact : un seuil ou une règle explicite supprime l'ambiguïté de « grande ».", "Correct: an explicit threshold or rule removes the ambiguity of “tall”."],
+        ["Rien : la date et le lieu fixent automatiquement tous les mots vagues.", "Nothing: the date and place automatically settle every vague word.", "Même à date fixe, « grande » n'a pas de seuil défini.", "Even at a fixed date, “tall” has no defined threshold."]
+      ],
+      "correct": 1,
+      "explanation": ["Un contexte daté ne suffit pas : un adjectif vague peut encore exiger un seuil avant qu'une assertion soit définie.", "A dated context is not enough: a vague adjective may still need a threshold before an assertion is defined."]
+    },
+    {
+      "id": "L01-E18", "objectiveId": "L01-O05", "difficulty": "hard",
+      "misconceptions": ["unknown-value-not-assertion", "lack-of-evidence-is-falsity"],
+      "prompt": ["Une carte scellée contient un entier choisi et écrit hier. L'énoncé $A$ est : « L'entier inscrit est divisible par $3$ ». Personne ne peut ouvrir la carte. Quel raisonnement est valide ?", "A sealed card contains an integer chosen and written yesterday. Statement $A$ is: “The recorded integer is divisible by $3$.” Nobody can open the card. Which reasoning is valid?"],
+      "hint": ["L'entier existe déjà et est fixé. Séparez vérité et accès à la preuve.", "The integer already exists and is fixed. Separate truth from access to evidence."],
+      "options": [
+        ["$A$ n'a pas de valeur tant que la carte reste fermée.", "$A$ has no value while the card stays sealed.", "L'absence d'accès ne rend pas la valeur indéfinie.", "Lack of access does not make the value undefined."],
+        ["$A$ est fausse, car personne ne peut la vérifier.", "$A$ is false because nobody can verify it.", "Ne pas pouvoir vérifier n'implique pas faux.", "Inability to verify does not imply falsehood."],
+        ["$A$ est vraie ou fausse, même si sa valeur nous est inaccessible.", "$A$ is true or false even if we cannot learn its value.", "Exact : l'entier est fixé et la divisibilité est une propriété définie.", "Correct: the integer is fixed and divisibility is well defined."]
+      ],
+      "correct": 2,
+      "explanation": ["La carte détermine déjà un entier. La propriété de divisibilité possède une valeur de vérité indépendante de notre accès.", "The card already determines an integer. Divisibility has a truth value independent of our access."]
+    },
+    {
+      "id": "L01-E19", "objectiveId": "L01-O04", "difficulty": "hard",
+      "misconceptions": ["all-self-reference-is-paradox"],
+      "prompt": ["Comparez « Cette phrase est fausse » et « Cette phrase contient cinq mots » (comptez les mots séparés par des espaces). Quelle conclusion est correcte ?", "Compare “This sentence is false” and “This sentence contains five words” (count space-separated words). Which conclusion is correct?"],
+      "hint": ["Testez les deux valeurs pour la première ; comptez les mots pour la seconde.", "Test both values for the first; count the words in the second."],
+      "options": [
+        ["Toute phrase qui parle d'elle-même est paradoxale.", "Every sentence referring to itself is paradoxical.", "La seconde peut être évaluée par un décompte : la référence à soi seule ne crée pas la contradiction.", "The second can be evaluated by counting: self-reference alone does not create the contradiction."],
+        ["La première est paradoxale, la seconde possède une valeur de vérité.", "The first is paradoxical, while the second has a truth value.", "Exact : la première contredit chaque attribution, la seconde est vérifiable en comptant.", "Correct: the first contradicts each assignment; the second can be checked by counting."],
+        ["La première est simplement fausse et la seconde ne peut pas être évaluée.", "The first is simply false and the second cannot be evaluated.", "Attribuer faux à la première conduit aussi à une contradiction ; on peut compter les mots de la seconde.", "Assigning false to the first also leads to contradiction; the second can be counted."]
+      ],
+      "correct": 1,
+      "explanation": ["La phrase menteuse ne reçoit aucune valeur cohérente ; une phrase autoréférente sur son nombre de mots est, elle, vérifiable. Ce n'est pas l'autoréférence seule qui pose problème.", "The liar sentence has no consistent value; a self-referential word-count sentence is checkable. Self-reference alone is not the problem."]
+    },
+    {
+      "id": "L01-E20", "objectiveId": "L01-O02", "difficulty": "hard",
+      "misconceptions": ["free-variable-is-assertion", "unknown-value-not-assertion"],
+      "prompt": ["Dans les entiers, comparez $P$ : « $n$ est divisible par $4$ » (sans valeur de $n$) et $Q$ : « L'entier écrit sur cette carte est divisible par $4$ » (une seule carte déjà remplie). Quel diagnostic est correct ?", "Over the integers, compare $P$: “$n$ is divisible by $4$” (with no value of $n$) and $Q$: “The integer on this card is divisible by $4$” (one card already filled in). Which diagnosis is correct?"],
+      "hint": ["Une variable non fixée et un objet fixé mais caché ne jouent pas le même rôle.", "An unfixed variable and a fixed but hidden object are not the same."],
+      "options": [
+        ["Les deux sont des assertions fausses.", "Both are false assertions.", "Ni une variable libre ni une carte cachée n'impliquent une valeur fausse.", "Neither a free variable nor a hidden card implies falsehood."],
+        ["$P$ et $Q$ sont indéfinies, puisqu'on ne connaît pas leurs valeurs.", "$P$ and $Q$ are both undefined because we do not know their values.", "$Q$ concerne un entier déjà fixé ; ne pas le connaître ne supprime pas sa valeur.", "$Q$ concerns an integer already fixed; not knowing it does not remove its value."],
+        ["$P$ attend une valeur de $n$ ; $Q$ est une assertion dont la valeur peut nous être inconnue.", "$P$ awaits a value of $n$; $Q$ is an assertion whose value may be unknown to us.", "Exact : la variable de $P$ est libre, mais l'entier de $Q$ est déterminé.", "Correct: $P$ has a free variable, while the integer in $Q$ is determined."]
+      ],
+      "correct": 2,
+      "explanation": ["La propriété de $P$ dépend d'une variable non fixée. La phrase $Q$ porte sur un entier précis : sa valeur existe même si nous l'ignorons.", "The property in $P$ depends on an unfixed variable. Sentence $Q$ refers to a particular integer: its value exists even if we do not know it."]
+    },
+    {
+      "id": "L01-E21", "objectiveId": "L01-O01", "difficulty": "hard",
+      "misconceptions": ["single-true-example-proves-universal", "false-statement-not-assertion"],
+      "prompt": ["Sur les entiers, un élève affirme : « Tout multiple de $3$ est multiple de $6$ », en donnant $6$ comme exemple. Quelle réponse analyse correctement son énoncé ?", "Over the integers, a student claims: “Every multiple of $3$ is a multiple of $6$,” using $6$ as an example. Which response correctly analyses the claim?"],
+      "hint": ["Un seul exemple vrai suffit-il pour un énoncé portant sur tous les entiers ?", "Does one true example suffice for a statement about every integer?"],
+      "options": [
+        ["C'est une assertion fausse : $3$ est un contre-exemple.", "It is a false assertion: $3$ is a counterexample.", "Exact : $3$ est divisible par $3$, mais pas par $6$.", "Correct: $3$ is divisible by $3$ but not by $6$."],
+        ["Ce n'est pas une assertion, car son exemple est insuffisant.", "It is not an assertion because its example is insufficient.", "Une preuve insuffisante ne retire pas la valeur de vérité d'un énoncé précis.", "An insufficient proof does not remove a precise statement's truth value."],
+        ["C'est une assertion vraie puisque $6$ convient.", "It is true because $6$ fits.", "Un cas qui convient ne prouve pas le « tout » ; testez $3$.", "One fitting case does not prove “every”; test $3$." ]
+      ],
+      "correct": 0,
+      "explanation": ["L'énoncé est précis et donc une assertion. Il est faux, puisque $3$ est multiple de $3$ mais non de $6$.", "The claim is precise and therefore an assertion. It is false because $3$ is a multiple of $3$ but not of $6$."]
+    }
+  ]
+}
