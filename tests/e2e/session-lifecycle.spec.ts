@@ -1,5 +1,6 @@
 import { test, expect, type BrowserContext, type Page } from '@playwright/test';
 import { randomUUID } from 'node:crypto';
+import { selectedL05Version } from './released-bank.ts';
 
 const app = 'http://127.0.0.1:4321';
 const fixture = 'http://127.0.0.1:54329';
@@ -68,7 +69,7 @@ for (const locale of ['fr', 'en'] as const) {
         expectedLearnerId: owner.user.id,
         submissionId: randomUUID(),
         exerciseId: 'L05-E01',
-        version: 1,
+        version: selectedL05Version,
         locale,
         response: { optionId: '10' },
       },
@@ -197,7 +198,7 @@ test('back/forward navigation restores draft and pageshow refreshes stale saved 
       expectedLearnerId: owner.user.id,
       submissionId: randomUUID(),
       exerciseId: 'L05-E01',
-      version: 1,
+      version: selectedL05Version,
       locale: 'en',
       response: { optionId: '10' },
     },

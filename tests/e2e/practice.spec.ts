@@ -1,12 +1,12 @@
 import { test, expect, type BrowserContext } from '@playwright/test';
-import { readFileSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
+import {
+  selectedL05Version,
+  selectedL05Exercises as bank,
+} from './released-bank.ts';
 
 const app = 'http://127.0.0.1:4321';
 const fixture = 'http://127.0.0.1:54329';
-const bank = JSON.parse(
-  readFileSync('exercises/L05/v1.json', 'utf8'),
-).exercises;
 
 async function identify(context: BrowserContext) {
   const issued = await (
@@ -32,7 +32,7 @@ test('lifetime history keeps archived records and labels unavailable explanation
   const session = await identify(context);
   for (const [exerciseId, version] of [
     ['L99-E01', 99],
-    ['L05-E01', 1],
+    ['L05-E01', selectedL05Version],
   ] as const) {
     const saved = await context.request.post(
       fixture + '/rest/v1/rpc/record_attempt',
@@ -74,7 +74,7 @@ test('lifetime history keeps archived records and labels unavailable explanation
   await expect(current).toContainText('condition is false');
   await expect(page.locator('.progress-focus a')).toHaveAttribute(
     'href',
-    '/en/lessons/L05/practice/?exercise=L05-E01&version=1',
+    `/en/lessons/L05/practice/?exercise=L05-E01&version=${selectedL05Version}`,
   );
 });
 
@@ -257,7 +257,7 @@ test('direct practice operations enforce identity, origin, idempotency and owner
     expectedLearnerId: owner.user.id,
     submissionId: randomUUID(),
     exerciseId: 'L05-E01',
-    version: 1,
+    version: selectedL05Version,
     locale: 'en',
     response: { optionId: '10' },
     userId: randomUUID(),
@@ -446,7 +446,7 @@ test('legacy uncertain choice reconciles saved answers before feedback and delib
       expectedLearnerId: session.user.id,
       submissionId,
       exerciseId: 'L05-E01',
-      version: 1,
+      version: selectedL05Version,
       locale: 'en',
       hintUsed: false,
       response: { optionId: '00' },
@@ -456,7 +456,7 @@ test('legacy uncertain choice reconciles saved answers before feedback and delib
   await page.goto('/en/lessons/L05/practice/');
   await page.locator('.pp-options').waitFor();
   await page.evaluate(
-    ({ learner, submissionId }) => {
+    ({ learner, submissionId, version }) => {
       sessionStorage.setItem(
         'um-practice:L05',
         JSON.stringify({
@@ -464,7 +464,7 @@ test('legacy uncertain choice reconciles saved answers before feedback and delib
           currentExerciseId: 'L05-E01',
           entries: {
             'L05-E01': {
-              version: 1,
+              version,
               answers: { choice: '10' },
               hintShown: false,
               hintUsed: false,
@@ -479,7 +479,7 @@ test('legacy uncertain choice reconciles saved answers before feedback and delib
         }),
       );
     },
-    { learner: session.user.id, submissionId },
+    { learner: session.user.id, submissionId, version: selectedL05Version },
   );
   await page.reload();
   await expect(page.locator('.pp-feedback')).toHaveCount(0);
@@ -515,7 +515,7 @@ for (const locale of ['fr', 'en'] as const) {
         expectedLearnerId: session.user.id,
         submissionId: randomUUID(),
         exerciseId: 'L05-E01',
-        version: 1,
+        version: selectedL05Version,
         locale,
         response: { optionId: '00' },
       },
@@ -527,11 +527,11 @@ for (const locale of ['fr', 'en'] as const) {
     const review = page.locator('.practice-exercise a').first();
     await expect(review).toHaveAttribute(
       'href',
-      `/${locale}/lessons/L05/practice/?exercise=L05-E01&version=1`,
+      `/${locale}/lessons/L05/practice/?exercise=L05-E01&version=${selectedL05Version}`,
     );
     await expect(page.locator('.progress-focus a')).toHaveAttribute(
       'href',
-      `/${locale}/lessons/L05/practice/?exercise=L05-E01&version=1`,
+      `/${locale}/lessons/L05/practice/?exercise=L05-E01&version=${selectedL05Version}`,
     );
     await review.click();
     await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
@@ -568,7 +568,7 @@ for (const locale of ['fr', 'en'] as const) {
       'exercise=L05-E99&version=1',
       'exercise=L05-E01&version=999',
       'exercise=L06-E01&version=1',
-      'exercise=L05-E01&version=1&version=2',
+      `exercise=L05-E01&version=${selectedL05Version}&version=${selectedL05Version + 1}`,
     ]) {
       await page.goto(`/${locale}/lessons/L05/practice/?${query}`);
       await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
@@ -583,7 +583,7 @@ for (const locale of ['fr', 'en'] as const) {
   test(`anonymous target survives failed login and language switching (${locale})`, async ({
     page,
   }) => {
-    const destination = `/${locale}/lessons/L05/practice/?exercise=L05-E03&version=1`;
+    const destination = `/${locale}/lessons/L05/practice/?exercise=L05-E03&version=${selectedL05Version}`;
     await page.goto(destination);
     await expect(page.locator('input[name="next"]')).toHaveValue(destination);
     await page.locator('#email').fill('learner@example.invalid');
@@ -620,7 +620,7 @@ test('session-expiry link identifies the currently selected exercise', async ({
   await page.getByRole('button', { name: 'Check my answer' }).click();
   await expect(page.locator('.practice-error a')).toHaveAttribute(
     'href',
-    '/en/sign-in/?next=%2Fen%2Flessons%2FL05%2Fpractice%2F%3Fexercise%3DL05-E04%26version%3D1',
+    `/en/sign-in/?next=${encodeURIComponent(`/en/lessons/L05/practice/?exercise=L05-E04&version=${selectedL05Version}`)}`,
   );
 });
 
@@ -717,7 +717,7 @@ test('attempt API requires matching learner context before writes and duplicate 
   const body = {
     submissionId: randomUUID(),
     exerciseId: 'L05-E01',
-    version: 1,
+    version: selectedL05Version,
     locale: 'en',
     response: { optionId: '10' },
   };

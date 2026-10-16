@@ -1,7 +1,7 @@
 ---
 lessonId: L04
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Semantic equivalence and Boolean laws"
 summary: "Check that two formulas have the same truth table, apply the Boolean laws, recognise tautologies and contradictions, and refute an equivalence with one row."
@@ -76,7 +76,7 @@ A single differing row is enough to refute an equivalence. Agreement must hold o
 
 The six pilot exercises cover the definition of equivalence, the De Morgan law, a truth-table check, recognising a tautology, the excluded-middle and non-contradiction laws, and refuting an equivalence with one row.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice requires sign-in. Availability depends on this lesson’s selected version and release status.
 
 ## Takeaway
 

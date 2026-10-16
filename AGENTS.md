@@ -5,7 +5,7 @@
 This is a bilingual mathematics learning project with public bilingual reading, email/password Supabase sign-in for an invited group, and locally implemented practice (server grading, saved attempts, private progress). Hosted acceptance remains pending. `content/releases.json` is the release/version/translation-review authority; see docs/CONTENT_RELEASES.md. Do not claim independent review, hosted acceptance or class readiness without evidence. Product and architecture proposals must preserve unresolved decisions explicitly.
 
 <!-- release-status:start -->
-Release status (generated from content/releases.json): 20 public bilingual lessons; 20 served practice banks. Mathematical author self-check: L01, L03, L05, L06, L07, L19; explicit unreviewed release exceptions: 14 banks. Translation self-check: L01, L03, L05, L06, L07, L19; explicit unreviewed translation exceptions: 14 lesson pairs. These records do not certify independent review or hosted class readiness.
+Release status (generated from content/releases.json): 20 public bilingual lessons; 20 served practice banks. Mathematical author self-check: L01, L02, L03, L04, L05, L06, L07, L08, L19; explicit unreviewed release exceptions: 11 banks. Translation self-check: L01, L02, L03, L04, L05, L06, L07, L08, L19; explicit unreviewed translation exceptions: 11 lesson pairs. These records do not certify independent review or hosted class readiness.
 <!-- release-status:end -->
 
 ## Working conventions

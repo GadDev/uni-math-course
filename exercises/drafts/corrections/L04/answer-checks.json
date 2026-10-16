@@ -1,0 +1,73 @@
+[
+  {
+    "kind": "table",
+    "id": "L04-E03",
+    "formula": "!(A | (B & C))"
+  },
+  {
+    "kind": "equivalent",
+    "left": "A | B",
+    "right": "B | A",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "A & B",
+    "right": "B & A",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "A | (B | C)",
+    "right": "(A | B) | C",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "A & (B & C)",
+    "right": "(A & B) & C",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "A | (B & C)",
+    "right": "(A | B) & (A | C)",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "A & (B | C)",
+    "right": "(A & B) | (A & C)",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "!!A",
+    "right": "A",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "A | !A",
+    "right": "true",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "A & !A",
+    "right": "!true",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "!(A | B)",
+    "right": "!A & !B",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "!(A & B)",
+    "right": "!A | !B",
+    "expected": true
+  }
+]

@@ -1,7 +1,7 @@
 ---
 lessonId: L05
 locale: en
-version: 1
+version: 2
 status: pilot
 title: "Implication: a promise with one failure case"
 summary: "Read A ⇒ B, distinguish necessary and sufficient conditions, and find a counterexample."
@@ -48,6 +48,8 @@ Here $\equiv$ means that both expressions have the same value under **every** as
 | 1 | 1 | 0 | 1 |
 
 In this table, 0 means false and 1 means true.
+
+In the card example and exercise, each card has one uniform colour: red or blue, never both.
 
 ## Guided example: the blue card without a stamp
 

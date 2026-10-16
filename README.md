@@ -30,7 +30,7 @@ Public lessons and the symbol glossary can be read without an account. Practice 
 Maintainer: [GadDev](https://github.com/GadDev) · Last status review: 2026-10-16
 
 <!-- release-status:start -->
-Release status (generated from content/releases.json): 20 public bilingual lessons; 20 served practice banks. Mathematical author self-check: L01, L03, L05, L06, L07, L19; explicit unreviewed release exceptions: 14 banks. Translation self-check: L01, L03, L05, L06, L07, L19; explicit unreviewed translation exceptions: 14 lesson pairs. These records do not certify independent review or hosted class readiness.
+Release status (generated from content/releases.json): 20 public bilingual lessons; 20 served practice banks. Mathematical author self-check: L01, L02, L03, L04, L05, L06, L07, L08, L19; explicit unreviewed release exceptions: 11 banks. Translation self-check: L01, L02, L03, L04, L05, L06, L07, L08, L19; explicit unreviewed translation exceptions: 11 lesson pairs. These records do not certify independent review or hosted class readiness.
 <!-- release-status:end -->
 
 Sign-in is disabled until configured. Hosted authentication, database/deployment acceptance and class-pilot privacy decisions remain pending. See the [content release contracts](docs/CONTENT_RELEASES.md); local implementation is not proof of a complete hosted learning journey.

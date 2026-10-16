@@ -1,7 +1,7 @@
 ---
 lessonId: L02
 locale: fr
-version: 1
+version: 2
 status: pilot
 title: "Connecteurs logiques : et, ou, non"
 summary: "Lire les connecteurs ∧, ∨ et ¬ avec leur constante, les évaluer sur des valeurs données, appliquer la priorité de ¬, et distinguer le « ou » inclusif du « ou » exclusif."
@@ -81,7 +81,7 @@ Dans $A \lor B$, le cas $A = B = 1$ est vrai. Un « ou » exclusif, souvent appe
 
 Les six exercices pilotes portent sur la conjonction, les notations, le ou inclusif, la priorité, la constante $\top$ et le besoin de parenthèses.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
 
 ## À retenir
 

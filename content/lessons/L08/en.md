@@ -1,7 +1,7 @@
 ---
 lessonId: L08
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Functional completeness: every table from OR and NOT"
 summary: "Turn any truth table into a formula that uses only ∨ and ¬, by describing each true row and applying De Morgan to remove ∧."
@@ -11,6 +11,8 @@ prerequisites: [L03, L04]
 sourcePages: [32, 33, 34, 35]
 ---
 # Functional completeness: every table from OR and NOT
+
+In this lesson, the number of variables satisfies $n \geq 1$. We use only variables, OR and NOT; formulas without variables are outside the theorem.
 
 ## Your objective
 
@@ -60,11 +62,13 @@ If $f$ is $1$ on no row, there is no true row to describe; take $\neg(x \lor \ne
 
 Using $\lor$ alone on a letter $x$ gives only $x$ again, because $x \lor x \equiv x$. So $\lor$ alone cannot build $\neg x$. The negation is essential.
 
+NOT alone never combines two independent inputs: a formula built from one variable by negations remains that variable or its negation. It therefore cannot express $A \land B$. OR alone gives a disjunction of variables, which cannot express $\neg A$.
+
 ## Independent practice
 
 The six pilot exercises cover reading the true rows, a conjunction for one row, joining rows, removing $\land$, the statement of the theorem and building a three-variable table.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice requires sign-in. Availability depends on this lesson’s selected version and release status.
 
 ## Takeaway
 

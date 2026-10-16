@@ -1,4 +1,5 @@
 import { test, expect, type BrowserContext, type Page } from '@playwright/test';
+import { selectedL05Version } from './released-bank.ts';
 
 const app = 'http://127.0.0.1:4321';
 const fixture = 'http://127.0.0.1:54329';
@@ -212,7 +213,7 @@ for (const locale of ['fr', 'en'] as const) {
     );
     await expect(page.locator('input:checked')).toHaveCount(0);
     const fresh = await entry(page, 'L05-E04');
-    expect(fresh.version).toBe(1);
+    expect(fresh.version).toBe(selectedL05Version);
     expect(fresh.submissionId).not.toBe(old.submissionId);
     expect(fresh.submission).toBeNull();
     expect((await entry(page)).answers).toEqual({ choice: '10' });
