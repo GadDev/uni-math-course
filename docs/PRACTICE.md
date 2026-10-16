@@ -11,7 +11,7 @@ A signed-in learner can open the L05 practice section, answer six exercises, rec
 | Route | Behaviour |
 | --- | --- |
 | GET /api/exercises/L05/ | Verified identity required. Returns prompts, options, rows and hints. Never returns answers, feedback or explanations. |
-| POST /api/attempts/ | Verified identity, same origin, JSON up to 8 KiB. Validates the shape, grades on the server, saves the attempt and returns feedback, explanation and per-row results. Grade-like fields in the body are ignored. |
+| POST /api/attempts/ | Verified identity, same origin, JSON up to 8 KiB. Requires `expectedLearnerId` to match the verified session, validates the shape, grades on the server, saves the attempt and returns feedback, explanation and per-row results. Grade-like fields in the body are ignored. |
 | /fr/progress/, /en/progress/ | Verified identity required. Attempts, open mistakes, mastery evidence and recent history. Reads own rows through the signed-in session under row-level security. |
 
 - **Idempotency.** `(user_id, submission_id)` is unique. `record_attempt` serializes transactions by learner/exercise and computes first-attempt eligibility in the same transaction as insertion. Resubmitting a submission ID returns the stored attempt; a changed response cannot overwrite it, and reusing the ID for another exercise is rejected.
@@ -26,6 +26,12 @@ A signed-in learner can open the L05 practice section, answer six exercises, rec
 Review links carry an exercise ID and version (`?exercise=L05-E01&version=1`). A target matching a currently delivered exercise takes precedence over the tab's active selection; other compatible answers and feedback are retained. Unknown, mismatched or stale targets fall back to ordinary learner/version-scoped draft restoration. Practice without a target continues to resume the saved selection. Archived reviews do not link to retired practice.
 
 The bounded target survives anonymous redirects to sign-in, failed-login retries and language changes. Login return paths accept only existing route shapes and these two validated practice parameters; external, encoded, duplicate, cross-lesson and arbitrary query destinations remain rejected. Expired-session links identify the exercise currently open.
+
+## Learner context
+
+Each submission includes `expectedLearnerId`, the learner returned when the activity loaded. The API requires this precondition (`400 invalid_learner_context` when missing/invalid) and rejects another learner with `409 learner_context_changed` before attempt lookup, duplicate replay or persistence. It always derives the saved owner from server-verified identity; the expected ID never authorizes access.
+
+When another tab replaces the browser session, the old activity cannot submit its answers to the new account. On a mismatch it removes its old answers/feedback and all practice drafts in that tab, then offers a bilingual action to load the current account with fresh state. This is request-time protection; proactive cross-tab logout/focus synchronization remains separate. Older open clients without the precondition must reload before submitting.
 
 ## Submission and recovery
 

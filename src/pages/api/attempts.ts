@@ -31,7 +31,15 @@ export const POST: APIRoute = async ({ locals, request }) => {
   }
   if (!user) return json(401, { error: 'unauthenticated' });
   const body = await smallJson(request);
-  if (body === undefined) return json(400, { error: 'invalid_body' });
+  if (!body || typeof body !== 'object' || Array.isArray(body))
+    return json(400, { error: 'invalid_body' });
+  const expectedLearnerId = (body as Record<string, unknown>).expectedLearnerId;
+  if (typeof expectedLearnerId !== 'string' || !expectedLearnerId)
+    return json(400, { error: 'invalid_learner_context' });
+  // A consistency precondition, never an authorization source. In particular,
+  // check before lookup/replay so stale tabs cannot receive another learner's result.
+  if (expectedLearnerId !== user.id)
+    return json(409, { error: 'learner_context_changed' });
   const store = createAttemptStore({
     SUPABASE_URL: process.env.SUPABASE_URL ?? import.meta.env.SUPABASE_URL,
     SUPABASE_SECRET_KEY:
