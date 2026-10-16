@@ -6,6 +6,8 @@ Notable changes are recorded here. No application version has been released.
 
 ### Fixed
 
+- Align the math-course-studio skill with registry-selected exercise versions, immutable correction drafts and reviewed release promotion; collect misconception tags from selected banks rather than archived v1 files.
+
 - Revalidate returning tabs and restored history entries, clear confirmed stale account state, and refresh saved progress without replacing unfinished practice answers.
 
 - Correct L05’s French/English prerequisite, number-reference and practice availability guidance, with scoped evidence and renewed lesson fingerprints.

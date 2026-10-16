@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -13,6 +13,7 @@ const skill = new URL(
 const script = (name) => fileURLToPath(new URL(`scripts/${name}`, skill));
 const logic = await import(script('logic-check.mjs'));
 const course = await import(script('course-map.mjs'));
+const { loadSelectedBanks } = await import(script('released-banks.mjs'));
 const bank = fileURLToPath(
   new URL('../../exercises/L05/v1.json', import.meta.url),
 );
@@ -91,4 +92,87 @@ test('draft validator lists reusable misconception tags from any directory', () 
     },
   );
   assert.match(output, /\tdomain-ignored/);
+});
+
+test('selected-bank reader follows the registry, including withdrawn practice, without archive fallback', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'selected-banks-'));
+  try {
+    await mkdir(join(dir, 'content'));
+    await mkdir(join(dir, 'exercises/L05'), { recursive: true });
+    const original = await readFile(bank, 'utf8');
+    await writeFile(join(dir, 'exercises/L05/v1.json'), original);
+    const versioned = (version) => {
+      const next = JSON.parse(original);
+      next.version = version;
+      for (const exercise of next.exercises) {
+        exercise.version = version;
+        exercise.misconceptions = [`version-${version}-tag`];
+      }
+      return next;
+    };
+    for (const version of [2, 3])
+      await writeFile(
+        join(dir, `exercises/L05/v${version}.json`),
+        JSON.stringify(versioned(version)),
+      );
+    const registry = { lessons: { L05: { version: 2, practice: false } } };
+    const registryPath = join(dir, 'content/releases.json');
+    await writeFile(registryPath, JSON.stringify(registry));
+
+    const selected = await loadSelectedBanks(dir);
+    assert.deepEqual(
+      selected.map((item) => item.version),
+      [2],
+    );
+    assert.deepEqual(selected[0].exercises[0].misconceptions, [
+      'version-2-tag',
+    ]);
+    assert.equal(
+      await readFile(join(dir, 'exercises/L05/v1.json'), 'utf8'),
+      original,
+    );
+
+    // A selected version cannot silently resolve to a different bank.
+    await writeFile(
+      join(dir, 'exercises/L05/v2.json'),
+      JSON.stringify(versioned(3)),
+    );
+    await assert.rejects(
+      loadSelectedBanks(dir),
+      /Expected values to be strictly equal/,
+    );
+    await rm(join(dir, 'exercises/L05/v2.json'));
+    await assert.rejects(loadSelectedBanks(dir), /ENOENT/);
+    registry.lessons.L05.version = 0;
+    await writeFile(registryPath, JSON.stringify(registry));
+    await assert.rejects(loadSelectedBanks(dir));
+    await rm(registryPath);
+    await assert.rejects(loadSelectedBanks(dir), /ENOENT/);
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
+});
+
+test('validating a v2 correction draft leaves the selected release and v1 archive unchanged', async () => {
+  const dir = await mkdtemp(join(tmpdir(), 'draft-version-'));
+  const registry = new URL('../../content/releases.json', import.meta.url);
+  const original = await readFile(bank, 'utf8');
+  const releaseBefore = await readFile(registry, 'utf8');
+  try {
+    const next = JSON.parse(original);
+    next.version = 2;
+    next.exercises.forEach((exercise) => {
+      exercise.version = 2;
+    });
+    const path = join(dir, 'v2.draft.json');
+    await writeFile(path, JSON.stringify(next));
+    const result = spawnSync('node', [script('validate-draft.mjs'), path], {
+      encoding: 'utf8',
+    });
+    assert.equal(result.status, 0, result.stderr);
+    assert.equal(await readFile(bank, 'utf8'), original);
+    assert.equal(await readFile(registry, 'utf8'), releaseBefore);
+  } finally {
+    await rm(dir, { recursive: true, force: true });
+  }
 });
