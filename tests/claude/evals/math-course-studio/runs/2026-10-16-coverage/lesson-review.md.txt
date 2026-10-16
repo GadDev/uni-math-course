@@ -1,0 +1,76 @@
+# L05 content review — 2026-10-16
+
+Status: draft author self-check, not independent peer review; not publication approval.
+
+## Scope and authorship
+
+Reviewed the release-selected `exercises/L05/v1.json` (version 1, six exercises), its existing `exercises/drafts/L05/answer-checks.json`, both L05 lessons, the historical maintainer note, release contracts and checker code. Read the math-course-studio rubric and reasoning protocol, Constitution, glossary implication entry and neighbouring L04 bank. No published bank, lesson, release record or historical review note was edited. The only added manifest is `review-linked-checks.json`, which preserves the original supplemental check and adds a linked table check.
+
+The source PDF is absent from this checkout. Pages 20–23 are the recorded coverage, not newly verified source fidelity. No known Constitution source defect is assigned to those pages. The PDF itself and source-page ambiguities remain unreviewed.
+
+## Findings
+
+| # | Severity | Dimension | Location | Finding | Suggested repair |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Blocking | Mathematical correctness | L05-E02, answer row 10 | Stored answer is `true`; for A=true, B=false, implication is false. Both languages' feedback and both lesson tables correctly say false. This can reject a correct completed table and accept the all-true table. | Prepare a separately authorized unused-version correction draft, retaining immutable v1; review before promotion. Do not refresh hashes to conceal the defect. |
+| 2 | Major | Verification evidence | Existing answer-checks.json | Its sole `equivalent` check passes but compares two supplied formulas, never the stored key. The exercise ID does not convert it into a table check. | Include a linked `table` check for every truth-table item and retain the failing result until the correction is reviewed. The added review manifest demonstrates the failure. |
+| 3 | Major | Release freshness | content/releases.json, L05 | Content checking fails because current selected-bank bytes differ from the recorded fingerprint. Historical self-check explicitly describes row 10 as false and cannot certify the present wrong key. | Investigate the changed bank against actual history. Preserve archives and use the release contract for any correction; do not reuse old evidence as approval. |
+| 4 | Minor | Exercise assumptions | L05-E05 | Intended reading treats a blue card as not red. A multicoloured card would not support that inference without the usual classroom convention. | In a future version say the card is blue and not red, or state that each card has exactly one colour. |
+| 5 | Minor | Pedagogy | E01, E03, E06 hints | Hints directly identify the failure pattern, necessary/sufficient answer, or numeric solution interval. They support practice but offer limited prompting before revealing the method. | Consider a staged hint in a future version; keep hinted work ineligible as current contracts specify. |
+
+## Mathematical verdict and verification coverage
+
+Correctness: the selected bank fails because of E02. E01, E03, E04 and E06 have one correct offered answer; E05 does under the intended disjoint-colour assumption. No bilingual meaning divergence was found in manual reading; the wrong table key is shared, while both feedback texts are correct. Publication readiness is blocked by the wrong key and stale fingerprint. Green structural validation is not mathematical approval.
+
+Let A and B range over Boolean truth values. In standard row order 00, 01, 10, 11, implication has vector 1,1,0,1 and its negation 0,0,1,0. The manual enumeration below and symbolic arguments are checks by the same author, not independent review.
+
+| Item | Stored key and rejected alternatives | Justification and different check | Actual scope and outcome |
+| --- | --- | --- | --- |
+| E01 | `10`; reject `00`, `01`, `11` | The implication fails exactly when A holds and B does not. Evaluating ¬A∨B on all four rows gives 1,1,0,1. | Exhaustive finite checking of all four offered assignments plus a general mathematical argument from the failure definition; key correct. No automatic choice-key check. |
+| E02 | Stored vector 1,1,1,1; required 1,1,0,1 | At 10, ¬A∨B = 0∨0 = 0. Independently, A∧¬B is true at 10, so this is the unique failure. Checked formula `A => B` against both prompts. | Exhaustive finite checking: all four rows compared by added linked table check, three agree and row 10 fails. One attempted table, zero fully matched, one failed, zero unchecked. |
+| E03 | `a-sufficient-b-necessary`; reject reverse and mutual guarantee | A⇒B defines A sufficient for B and B necessary for A. Its contrapositive ¬B⇒¬A expresses necessity. At A=0,B=1 the original holds but B⇒A fails, rejecting both other descriptions as consequences of the original. | General mathematical argument plus exhaustive finite manual checking of the original's three satisfying rows 00,01,11; key correct under the standard conditions reading. No automatic choice-key check. |
+| E04 | `a-and-not-b`; reject `not-a-and-b` and `not-a-implies-not-b` | De Morgan gives ¬(¬A∨B)=A∧¬B. Manual vectors in row order: target 0,0,1,0; ¬A∧B 0,1,0,0; ¬A⇒¬B 1,0,1,1. The first distractor differs at 01 and 10; the second already differs at 00 and 11. | General mathematical argument plus exhaustive finite checking of all three candidates; exactly one equivalent formula. No automatic choice-key check. |
+| E05 | `no`; reject `yes` | With blue meaning not red, A=0,B=0 gives ¬A∨B=1. Separately, violation of the universal rule requires a red unstamped witness, which this card is not. This case does not establish the whole universal rule. | One Boolean instance (bounded sanity check) plus a general mathematical argument about the form of a violating witness. Correct with colour assumption; multicolour uncertainty recorded above. No automatic choice-key check. |
+| E06 | `n8`; reject `n0`, `n4`, `n12` | On ℕ={0,1,2,…}, a counterexample obeys n>5 and n≤10, hence n∈{6,7,8,9,10}. Direct evaluation of the offered numbers gives (condition,conclusion): 0=(0,0), 4=(0,0), 8=(1,0), 12=(1,1). Boundaries 5 and 11 fail; 6 and 10 qualify. | General mathematical argument solving the inequalities over ℕ, plus exhaustive finite checking of four offered numbers; 8 is the sole offered witness. This is not an exhaustive search of ℕ or an automated proof. |
+
+Existing-manifest coverage: zero of one table keys matched, no failed comparisons because none was attempted, E02 unchecked. One supplemental equivalence passed over four Boolean assignments; zero supplemental failures. It establishes only A⇒B ≡ ¬A∨B for the supplied formulas. All five single-choice keys remain outside automatic key verification.
+
+Added-manifest coverage: zero of one table keys matched; E02 comparison failed at row 10; no unchecked table IDs. One supplemental equivalence passed, zero failed. All five single-choice keys remain outside automatic key verification. Fully attempting the only table is not the same as passing it.
+
+## Review decisions and other dimensions
+
+Severity candidates for E02 were blocking versus minor transcription error. Blocking wins: correctness gate fails and the value controls grading. For the manifest, complete evidence versus supplemental-only evidence were compared; complete evidence is rejected because no linked table entry exists. No source-statement reading was chosen without the unavailable PDF.
+
+Pedagogy and exercise quality: all six objectives have an aligned item and feedback; the lessons explain implication, negation, conditions and counterexamples. E01/E03 are scaffolded recognition (`foundation`); E02/E04/E05/E06 apply a definition, transformation or model (`application`), though E02 is strongly scaffolded and no empirical calibration is claimed. Existing option positions vary. E05's two options are appropriate to a yes/no stem, despite the validator warning. Prerequisites L01/L02 provide Boolean assertions/connectives; natural-number notation is explicitly refreshed. Lesson examples support the objectives, although not every objective has a separately labelled worked example.
+
+Accessibility: lesson prose supplies readings and explanatory tables without colour-only information. Some bank stems use bare symbolic formulas; actual screen-reader rendering, keyboard interaction and hints were not tested. Rights and honesty: provenance labels exercises original project work; no source text or artwork was added, and no new rights clearance, hosted acceptance or independent review is claimed.
+
+## Bilingual self-check
+
+| French | English | Result |
+| --- | --- | --- |
+| antécédent | antecedent | Same role in lesson definition. |
+| conséquent | consequent | Same role in lesson definition. |
+| suffisante | sufficient | Same direction A⇒B in E03. |
+| nécessaire | necessary | Same direction A⇒B in E03. |
+| contre-exemple | counterexample | Requires true condition and false conclusion in both languages. |
+
+Read both lessons and every item's prompt, hint, options, feedback and explanation manually. Mathematical formulas and the meaning of each offered answer align. The structural validator checks required fields and notation, not prose meaning. The full content parity run aborts at the stale release gate, so it does not establish current whole-course formula parity. The historical note's claim about current availability of other reviews was not re-audited; this review concerns L05.
+
+## Validation commands
+
+Only dependency-free local Node commands were used; no pnpm, installation, external service, commit or publication was performed.
+
+1. `node .claude/skills/math-course-studio/scripts/validate-draft.mjs exercises/L05/v1.json` — exit 0. Exact success: `OK: L05 draft is structurally valid (2 warning(s)). Answer keys are NOT verified by this script: run logic-check.mjs where applicable and record a second derivation. Author self-check only; not mathematical peer review.` Warnings: `warning: L05-E05: fewer than 3 options` and `warning: path is inside a published bank folder; drafts belong in exercises/drafts/<Lxx>/`. The input was read in place; no published content was changed.
+2. `node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/L05/v1.json exercises/drafts/L05/answer-checks.json` — exit 1. Supplemental check passes; exact diagnostics: `Truth-table keys matched against supplied formulas: 0/1 (none).`, `Failed key comparisons: none.`, `UNVERIFIED truth-table keys (no linked check): L05-E02.`, and `Verification incomplete or failed; no complete truth-table key coverage is claimed.`
+3. `node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/L05/v1.json exercises/drafts/L05/review-linked-checks.json` — exit 1. Exact failure: `FAIL L05-E02 (answer-key comparison; exhaustive finite Boolean assignments)` followed by `row 10: key says true, formula gives false`. Reports `Failed key comparisons: L05-E02.`, `UNVERIFIED truth-table keys (no linked check): none.`, and zero of one table keys matched. Supplemental equivalence still passes.
+4. `node scripts/check-content.mjs` — exit 1, Node.js v24.19.0. Exact assertion: `AssertionError [ERR_ASSERTION]: L05: stale release review for exercises/L05/v1.json. Review both languages/mathematics and explicitly renew the release record; current SHA-256: dfe2372b99748c6c2466f2d15c1a922282d7403b315fc3c38a4e1d252a3e3747`. Recorded actual hash is `90e0f8ee52175e2f7eb2c8e4ea73cba37f5681c01eb8cbb8860773585b610501`; expected current hash is `dfe2372b99748c6c2466f2d15c1a922282d7403b315fc3c38a4e1d252a3e3747`. The release check stops the content run before remaining content checks.
+5. `node scripts/check-repository.mjs` — exit 0 after draft note creation. Exact output: `Validated 83 Markdown files: structure and internal links passed.`
+6. `node scripts/check-repository.mjs` — after adding the response file, exit 1 with exact diagnostic `Error: evaluation-response.md: expected one top-level heading, found 0`. Added the required heading to the response and reran the same command.
+7. `node scripts/check-repository.mjs` — exit 0 after adding the response heading. Exact output: `Validated 84 Markdown files: structure and internal links passed.`
+
+## Open decisions for maintainers
+
+Obtain a human second mathematical check and bilingual review, including E05's colour assumption. Inspect the original PDF pages 20–23 for source fidelity. Investigate actual immutable-bank history; no immutable-base comparison or server/browser grading test was run. If correction is authorized, create an unused version above all archives, retain historical feedback, document fresh evidence and follow a separate promotion decision. This note does not renew release evidence or approve publication.
+
+Author self-check with a different derivation; not independent peer review.

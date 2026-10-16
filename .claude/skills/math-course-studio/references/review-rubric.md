@@ -37,7 +37,7 @@ Work through each; record at least one line per dimension, even if "no finding".
 - **pp. 71–89** — database tables treated as duplicate-free sets; distinguish from SQL duplicates and NULL.
 - **p. 94** — maximum exercise needs a finite, nonempty numeric domain; define edge cases, do not guess the intended answer.
 
-When a source statement is ambiguous, apply tree-of-thoughts: list the plausible readings, give each reading's truth value, and report the ambiguity with the page number rather than choosing.
+When a source statement is ambiguous, compare readings: list the plausible readings, give each reading's truth value, and report the ambiguity with the page number rather than choosing.
 
 ## 2b. Reading the sources
 
@@ -69,11 +69,13 @@ At most 15 rows (Blocking and Major first); one-line minor findings go in an app
 | # | Severity | Dimension | Location (file:line or item ID, PDF page) | Finding | Suggested repair |
 | --- | --- | --- | --- | --- | --- |
 
-## Mathematical self-check
-For each item: key, Route A, Route B, agreement. Edge cases tested.
+## Mathematical verdict and verification coverage
+Separate correctness, ambiguity, bilingual meaning and publication readiness. For every item: key plus rejected alternatives, concise justification, assumptions/domain, different check, actual scope, outcome and unresolved uncertainty. Record truth-table IDs matched against supplied formulas, failed comparisons and unchecked IDs, plus supplemental outcomes and all keys outside automatic verification. Re-read each formula against its prompt; structural validation is not mathematical approval.
+
+Use the four scope labels in reasoning-protocols section 1. A finite search is not an infinite-domain proof. Unexecuted or missing checks remain unverified; state the exact command/result and human review still required.
 
 ## Reasoning trace
-Compact tree-of-thoughts blocks for ambiguous readings and design decisions (see `reasoning-protocols.md` §5).
+Concise decision records for ambiguous readings and design choices (see `reasoning-protocols.md` §5).
 
 ## Bilingual self-check
 Terminology table and any meaning divergences. State that formula equality is automated and prose was read manually.

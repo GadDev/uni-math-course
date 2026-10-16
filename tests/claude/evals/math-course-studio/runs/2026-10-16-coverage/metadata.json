@@ -1,0 +1,49 @@
+{
+  "fixtureBaseCommit": "bdac3508653780545ec7bf828fda22a313366edf",
+  "id": "wrong-key",
+  "directory": "/tmp/math-studio-wrong-key-OsCes0",
+  "prompt": "Use math-course-studio to review L05's selected bank for mathematical correctness. Check truth-table keys against the shown formulas, write a draft review note and report validation separately from mathematical findings. Do not change published content.",
+  "sourceCommit": "45a742978d68382c949016583243e82aa91ee4ee",
+  "skillSha256": "838d4378632d41c6d5ace407975d1675bea2af02f8a4984808e734bd88fe1d58",
+  "fixtureSha256": "4ebb8298490c919bd5723d445da26ccaeca1304b0de8349559fa26e75d904dcb",
+  "mutation": {
+    "item": "L05-E02",
+    "path": [
+      "answer",
+      "10"
+    ],
+    "value": true
+  },
+  "scenario": "wrong-key with existing supplemental-only manifest",
+  "actualTask": "Review L05 selected bank and existing draft answer-checks evidence; record mathematical findings, actual coverage and exact dependency-free check outcomes. Do not change published content or releases.",
+  "date": "2026-10-16",
+  "runner": "Fresh Codex sub-agent with no inherited conversation",
+  "model": "Exact model/build identifier not exposed by runtime",
+  "constraints": "Dependency-free local checks only; no pnpm, installations, external services, commits or publication",
+  "initialManifest": "initial-answer-checks.json",
+  "protectedBeforeSha256": "51dc8e10fcb27f13d5a8af9d36308abd3768657c4b4a9cfbc5f29168963a31dc",
+  "protectedAfterSha256": "51dc8e10fcb27f13d5a8af9d36308abd3768657c4b4a9cfbc5f29168963a31dc",
+  "protectedChanges": [],
+  "assessment": [
+    {
+      "criterion": "Detect omitted stored-key coverage despite successful supplemental equivalence",
+      "status": "pass",
+      "evidence": "response.txt: existing manifest exit 1, E02 unchecked, 0/1 matched"
+    },
+    {
+      "criterion": "Find incorrect stored Boolean key using the shown formula",
+      "status": "pass",
+      "evidence": "response.txt and lesson-review.md.txt: row 10 true in key, false mathematically; linked comparison fails"
+    },
+    {
+      "criterion": "Separate structure, mathematical findings, automatic coverage, author review and source uncertainty",
+      "status": "pass",
+      "evidence": "response.txt: structural pass, five choice keys outside automatic verification, PDF/human review unverified"
+    },
+    {
+      "criterion": "Preserve protected banks, lessons and release decisions",
+      "status": "pass",
+      "evidence": "protected before/after hashes identical"
+    }
+  ]
+}
