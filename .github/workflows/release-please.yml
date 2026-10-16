@@ -1,0 +1,77 @@
+name: Release Please
+
+on:
+  workflow_call:
+    secrets:
+      RELEASE_PLEASE_PRIVATE_KEY:
+        required: false
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: read
+  pull-requests: read
+
+concurrency:
+  group: release-please-main
+  cancel-in-progress: false
+
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main' && vars.RELEASE_PLEASE_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out trusted revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: .node-version
+      - name: Require current checked main and release approval
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          current="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha')"
+          test "$current" = "$GITHUB_SHA" || { echo "Stale run: dispatch the latest main revision."; exit 1; }
+          require_docs() {
+            checked="$(gh api "repos/$GITHUB_REPOSITORY/commits/$1/check-runs?per_page=100" --jq '[.check_runs[] | select(.name == "docs" and .app.id == 15368)] | sort_by(.id) | last | .conclusion == "success"')"
+            test "$checked" = true || { echo "A successful docs check for exact SHA $1 is required."; exit 1; }
+          }
+          require_docs "$GITHUB_SHA"
+          pending="$(gh api --paginate "repos/$GITHUB_REPOSITORY/pulls?state=closed&base=main&per_page=100" --jq '.[] | select(.merged_at != null and any(.labels[]; .name == "autorelease: pending")) | .merge_commit_sha')"
+          while IFS= read -r release_sha; do
+            test -n "$release_sha" || continue
+            require_docs "$release_sha"
+          done <<< "$pending"
+          node scripts/check-release.mjs
+      - name: Create repository-scoped release token
+        id: app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ vars.RELEASE_PLEASE_CLIENT_ID }}
+          private-key: ${{ secrets.RELEASE_PLEASE_PRIVATE_KEY }}
+          permission-contents: write
+          permission-issues: write
+          permission-pull-requests: write
+      - name: Maintain release PR and tag merged releases
+        id: release
+        uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
+        with:
+          token: ${{ steps.app.outputs.token }}
+          target-branch: main
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+      - name: Record release identity
+        if: steps.release.outputs.release_created == 'true'
+        env:
+          RELEASE_VERSION: ${{ steps.release.outputs.version }}
+          RELEASE_SHA: ${{ steps.release.outputs.sha }}
+        shell: bash
+        run: |
+          printf 'Release %s at %s. Deployment acceptance is separate.\n' "$RELEASE_VERSION" "$RELEASE_SHA" >> "$GITHUB_STEP_SUMMARY"
