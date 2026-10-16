@@ -1,0 +1,1388 @@
+{
+  "lessonId": "L35",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L35-E01",
+      "objectiveId": "L35-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "complete-square"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle expression égale $x^2-4x+7$ pour tout réel $x$ ?",
+        "en": "Which expression equals $x^2-4x+7$ for every real $x$ ?"
+      },
+      "hint": {
+        "fr": "Reconstituez un carré puis compensez la constante.",
+        "en": "Reconstruct a square, then compensate its constant."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(x-2)^2+3$",
+            "en": "$(x-2)^2+3$"
+          },
+          "feedback": {
+            "fr": "Le carré apporte déjà la constante $4$ ; il reste $3$.",
+            "en": "The square already contributes constant $4$; $3$ remains."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(x-2)^2+7$",
+            "en": "$(x-2)^2+7$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le carré apporte déjà la constante $4$ ; il reste $3$.",
+            "en": "This proposal does not fit. The square already contributes constant $4$; $3$ remains."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(x+2)^2+3$",
+            "en": "$(x+2)^2+3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le carré apporte déjà la constante $4$ ; il reste $3$.",
+            "en": "This proposal does not fit. The square already contributes constant $4$; $3$ remains."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le carré apporte déjà la constante $4$ ; il reste $3$.",
+        "en": "The square already contributes constant $4$; $3$ remains."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E02",
+      "objectiveId": "L35-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "optimal-intercept"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $\\bar x=2$, $\\bar y=7$ et une pente fixée $m=3$, quel est le meilleur intercept ?",
+        "en": "With $\\bar x=2$, $\\bar y=7$ and fixed slope $m=3$, what is the best intercept ?"
+      },
+      "hint": {
+        "fr": "Utilisez le fait que les écarts centrés ont une somme nulle.",
+        "en": "Use the zero sum of centred deviations."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$13$",
+            "en": "$13$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Calculer $p=7-3\\cdot2$.",
+            "en": "This proposal does not fit. Calculate $p=7-3\\cdot2$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Calculer $p=7-3\\cdot2$.",
+            "en": "This proposal does not fit. Calculate $p=7-3\\cdot2$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Calculer $p=7-3\\cdot2$.",
+            "en": "Calculate $p=7-3\\cdot2$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Calculer $p=7-3\\cdot2$.",
+        "en": "Calculate $p=7-3\\cdot2$."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E03",
+      "objectiveId": "L35-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "least-squares-slope"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $S_{xx}=4$ et $S_{xy}=6$, quelle est la pente optimale ?",
+        "en": "With $S_{xx}=4$ and $S_{xy}=6$, what is the optimal slope ?"
+      },
+      "hint": {
+        "fr": "Le dénominateur est la somme des carrés centrés des entrées.",
+        "en": "The denominator is the centred squared sum of inputs."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$24$",
+            "en": "$24$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Diviser la somme croisée par la somme des carrés des entrées.",
+            "en": "This proposal does not fit. Divide the cross sum by the input squared sum."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\frac{3}{2}$",
+            "en": "$\\frac{3}{2}$"
+          },
+          "feedback": {
+            "fr": "Diviser la somme croisée par la somme des carrés des entrées.",
+            "en": "Divide the cross sum by the input squared sum."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\frac{2}{3}$",
+            "en": "$\\frac{2}{3}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Diviser la somme croisée par la somme des carrés des entrées.",
+            "en": "This proposal does not fit. Divide the cross sum by the input squared sum."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Diviser la somme croisée par la somme des carrés des entrées.",
+        "en": "Divide the cross sum by the input squared sum."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E04",
+      "objectiveId": "L35-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "regression-calculation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Les points $(0,1),(2,5)$ sont sur quelle droite de perte nulle ?",
+        "en": "Points $(0,1),(2,5)$ lie on which zero-loss line ?"
+      },
+      "hint": {
+        "fr": "Calculez moyennes, sommes centrées, pente, puis constante.",
+        "en": "Calculate means, centred sums, slope, then intercept."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$y=2x+1$",
+            "en": "$y=2x+1$"
+          },
+          "feedback": {
+            "fr": "La pente entre les deux points vaut $2$ et l’intercept vaut $1$.",
+            "en": "Slope between the points is $2$ and intercept is $1$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$y=x+1$",
+            "en": "$y=x+1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La pente entre les deux points vaut $2$ et l’intercept vaut $1$.",
+            "en": "This proposal does not fit. Slope between the points is $2$ and intercept is $1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$y=2x-1$",
+            "en": "$y=2x-1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La pente entre les deux points vaut $2$ et l’intercept vaut $1$.",
+            "en": "This proposal does not fit. Slope between the points is $2$ and intercept is $1$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La pente entre les deux points vaut $2$ et l’intercept vaut $1$.",
+        "en": "Slope between the points is $2$ and intercept is $1$."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E05",
+      "objectiveId": "L35-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "regression-implementation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un modèle ajusté est $\\hat y=(1/2)x+1$. Quelle prédiction donne-t-il à $x=6$ ?",
+        "en": "A fitted model is $\\hat y=(1/2)x+1$. What does it predict at $x=6$ ?"
+      },
+      "hint": {
+        "fr": "Vérifiez que la droite passe par le point moyen.",
+        "en": "Check that the line passes through the mean point."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Substituer dans le modèle déjà ajusté.",
+            "en": "This proposal does not fit. Substitute into the already fitted model."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$7$",
+            "en": "$7$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Substituer dans le modèle déjà ajusté.",
+            "en": "This proposal does not fit. Substitute into the already fitted model."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Substituer dans le modèle déjà ajusté.",
+            "en": "Substitute into the already fitted model."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Substituer dans le modèle déjà ajusté.",
+        "en": "Substitute into the already fitted model."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E06",
+      "objectiveId": "L35-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "complete-square"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel est le minimum de $2(m-3)^2+5$ sur les réels ?",
+        "en": "What is the minimum of $2(m-3)^2+5$ over the reals ?"
+      },
+      "hint": {
+        "fr": "Reconstituez un carré puis compensez la constante.",
+        "en": "Reconstruct a square, then compensate its constant."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le carré est minimal à zéro, atteint pour $m=3$.",
+            "en": "This proposal does not fit. The square is minimised at zero, attained at $m=3$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Le carré est minimal à zéro, atteint pour $m=3$.",
+            "en": "The square is minimised at zero, attained at $m=3$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le carré est minimal à zéro, atteint pour $m=3$.",
+            "en": "This proposal does not fit. The square is minimised at zero, attained at $m=3$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le carré est minimal à zéro, atteint pour $m=3$.",
+        "en": "The square is minimised at zero, attained at $m=3$."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E07",
+      "objectiveId": "L35-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "regression-calculation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $(0,1),(1,2),(2,2)$, on a $S_{xx}=2$, $S_{xy}=1$. Quelle est la pente optimale ?",
+        "en": "For $(0,1),(1,2),(2,2)$, we have $S_{xx}=2$, $S_{xy}=1$. What is the optimal slope ?"
+      },
+      "hint": {
+        "fr": "Calculez moyennes, sommes centrées, pente, puis constante.",
+        "en": "Calculate means, centred sums, slope, then intercept."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\frac{1}{2}$",
+            "en": "$\\frac{1}{2}$"
+          },
+          "feedback": {
+            "fr": "La pente vaut $S_{xy}/S_{xx}$.",
+            "en": "Slope is $S_{xy}/S_{xx}$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La pente vaut $S_{xy}/S_{xx}$.",
+            "en": "This proposal does not fit. Slope is $S_{xy}/S_{xx}$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La pente vaut $S_{xy}/S_{xx}$.",
+            "en": "This proposal does not fit. Slope is $S_{xy}/S_{xx}$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La pente vaut $S_{xy}/S_{xx}$.",
+        "en": "Slope is $S_{xy}/S_{xx}$."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E08",
+      "objectiveId": "L35-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "regression-calculation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $\\bar x=1$, $\\bar y=5/3$ et $m=1/2$, calculer l’intercept optimal.",
+        "en": "For $\\bar x=1$, $\\bar y=5/3$ and $m=1/2$, calculate the optimal intercept."
+      },
+      "hint": {
+        "fr": "Calculez moyennes, sommes centrées, pente, puis constante.",
+        "en": "Calculate means, centred sums, slope, then intercept."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\frac{13}{6}$",
+            "en": "$\\frac{13}{6}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Soustraire $1/2$ à $5/3$.",
+            "en": "This proposal does not fit. Subtract $1/2$ from $5/3$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\frac{5}{6}$",
+            "en": "$\\frac{5}{6}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Soustraire $1/2$ à $5/3$.",
+            "en": "This proposal does not fit. Subtract $1/2$ from $5/3$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\frac{7}{6}$",
+            "en": "$\\frac{7}{6}$"
+          },
+          "feedback": {
+            "fr": "Soustraire $1/2$ à $5/3$.",
+            "en": "Subtract $1/2$ from $5/3$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Soustraire $1/2$ à $5/3$.",
+        "en": "Subtract $1/2$ from $5/3$."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E09",
+      "objectiveId": "L35-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "least-squares-slope"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si $S_{yy}=2/3$, $S_{xy}=1$, $S_{xx}=2$, quelle est la perte minimale ?",
+        "en": "If $S_{yy}=2/3$, $S_{xy}=1$, $S_{xx}=2$, what is the minimum loss ?"
+      },
+      "hint": {
+        "fr": "Le dénominateur est la somme des carrés centrés des entrées.",
+        "en": "The denominator is the centred squared sum of inputs."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\frac{1}{3}$",
+            "en": "$\\frac{1}{3}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Utiliser $S_{yy}-S_{xy}^2/S_{xx}$.",
+            "en": "This proposal does not fit. Use $S_{yy}-S_{xy}^2/S_{xx}$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\frac{1}{6}$",
+            "en": "$\\frac{1}{6}$"
+          },
+          "feedback": {
+            "fr": "Utiliser $S_{yy}-S_{xy}^2/S_{xx}$.",
+            "en": "Use $S_{yy}-S_{xy}^2/S_{xx}$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\frac{7}{6}$",
+            "en": "$\\frac{7}{6}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Utiliser $S_{yy}-S_{xy}^2/S_{xx}$.",
+            "en": "This proposal does not fit. Use $S_{yy}-S_{xy}^2/S_{xx}$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Utiliser $S_{yy}-S_{xy}^2/S_{xx}$.",
+        "en": "Use $S_{yy}-S_{xy}^2/S_{xx}$."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E10",
+      "objectiveId": "L35-O05",
+      "difficulty": "medium",
+      "misconceptions": [
+        "regression-implementation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une droite ajustée a $m=2$, $\\bar x=3$, $\\bar y=10$. Quel test de l’intercept doit réussir ?",
+        "en": "A fitted line has $m=2$, $\\bar x=3$, $\\bar y=10$. Which intercept test must pass ?"
+      },
+      "hint": {
+        "fr": "Vérifiez que la droite passe par le point moyen.",
+        "en": "Check that the line passes through the mean point."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$2\\cdot3+p=10$",
+            "en": "$2\\cdot3+p=10$"
+          },
+          "feedback": {
+            "fr": "La droite doit passer par le point moyen $(3,10)$.",
+            "en": "The line must pass through mean point $(3,10)$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2\\cdot10+p=3$",
+            "en": "$2\\cdot10+p=3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La droite doit passer par le point moyen $(3,10)$.",
+            "en": "This proposal does not fit. The line must pass through mean point $(3,10)$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$p=10$",
+            "en": "$p=10$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La droite doit passer par le point moyen $(3,10)$.",
+            "en": "This proposal does not fit. The line must pass through mean point $(3,10)$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La droite doit passer par le point moyen $(3,10)$.",
+        "en": "The line must pass through mean point $(3,10)$."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E11",
+      "objectiveId": "L35-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "optimal-intercept"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "À pente fixée, pourquoi $p=\\bar y-m\\bar x$ minimise-t-il la perte ?",
+        "en": "At fixed slope, why does $p=\\bar y-m\\bar x$ minimise loss ?"
+      },
+      "hint": {
+        "fr": "Utilisez le fait que les écarts centrés ont une somme nulle.",
+        "en": "Use the zero sum of centred deviations."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Il impose que chaque résidu soit nul.",
+            "en": "It forces every residual to vanish."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le reste de la décomposition ne dépend pas de l’intercept.",
+            "en": "This proposal does not fit. The remaining part of the decomposition does not depend on the intercept."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Il rend la perte négative.",
+            "en": "It makes loss negative."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le reste de la décomposition ne dépend pas de l’intercept.",
+            "en": "This proposal does not fit. The remaining part of the decomposition does not depend on the intercept."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Il annule le terme $n(\\bar y-m\\bar x-p)^2$.",
+            "en": "It cancels term $n(\\bar y-m\\bar x-p)^2$."
+          },
+          "feedback": {
+            "fr": "Le reste de la décomposition ne dépend pas de l’intercept.",
+            "en": "The remaining part of the decomposition does not depend on the intercept."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le reste de la décomposition ne dépend pas de l’intercept.",
+        "en": "The remaining part of the decomposition does not depend on the intercept."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E12",
+      "objectiveId": "L35-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "constant-inputs"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Toutes les entrées valent $2$ et la moyenne des sorties vaut $5$. Quelles paires minimisent la perte ?",
+        "en": "Every input equals $2$ and mean output is $5$. Which pairs minimise loss ?"
+      },
+      "hint": {
+        "fr": "Avant de diviser, vérifiez la variation des entrées.",
+        "en": "Check input variation before dividing."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$m=0,\\ p=0$",
+            "en": "$m=0,\\ p=0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Toutes ces paires prédisent la meilleure constante $5$ aux entrées observées.",
+            "en": "This proposal does not fit. All such pairs predict best constant $5$ at observed inputs."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2m+p=5$",
+            "en": "$2m+p=5$"
+          },
+          "feedback": {
+            "fr": "Toutes ces paires prédisent la meilleure constante $5$ aux entrées observées.",
+            "en": "All such pairs predict best constant $5$ at observed inputs."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$m=5,\\ p=2$",
+            "en": "$m=5,\\ p=2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Toutes ces paires prédisent la meilleure constante $5$ aux entrées observées.",
+            "en": "This proposal does not fit. All such pairs predict best constant $5$ at observed inputs."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Toutes ces paires prédisent la meilleure constante $5$ aux entrées observées.",
+        "en": "All such pairs predict best constant $5$ at observed inputs."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E13",
+      "objectiveId": "L35-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "constant-inputs"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Les sorties sont toutes égales à $4$ et $S_{xx}>0$. Quelle est la droite optimale ?",
+        "en": "All outputs equal $4$ and $S_{xx}>0$. What is the optimal line ?"
+      },
+      "hint": {
+        "fr": "Avant de diviser, vérifiez la variation des entrées.",
+        "en": "Check input variation before dividing."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$y=4$",
+            "en": "$y=4$"
+          },
+          "feedback": {
+            "fr": "Les écarts centrés des sorties sont nuls : $S_{xy}=0$, donc $m=0$ et $p=4$.",
+            "en": "Centred output deviations vanish: $S_{xy}=0$, so $m=0$ and $p=4$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x=4$",
+            "en": "$x=4$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les écarts centrés des sorties sont nuls : $S_{xy}=0$, donc $m=0$ et $p=4$.",
+            "en": "This proposal does not fit. Centred output deviations vanish: $S_{xy}=0$, so $m=0$ and $p=4$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$y=4x$",
+            "en": "$y=4x$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les écarts centrés des sorties sont nuls : $S_{xy}=0$, donc $m=0$ et $p=4$.",
+            "en": "This proposal does not fit. Centred output deviations vanish: $S_{xy}=0$, so $m=0$ and $p=4$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Les écarts centrés des sorties sont nuls : $S_{xy}=0$, donc $m=0$ et $p=4$.",
+        "en": "Centred output deviations vanish: $S_{xy}=0$, so $m=0$ and $p=4$."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E14",
+      "objectiveId": "L35-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "regression-implementation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une implémentation utilise $m=S_{xy}/S_{yy}$ pour ajuster $y$ en fonction de $x$. Quel est le problème ?",
+        "en": "An implementation uses $m=S_{xy}/S_{yy}$ to fit $y$ as a function of $x$. What is wrong ?"
+      },
+      "hint": {
+        "fr": "Vérifiez que la droite passe par le point moyen.",
+        "en": "Check that the line passes through the mean point."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Il faut supprimer tout centrage.",
+            "en": "All centring must be removed."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le coefficient du carré en $m$ dans la perte est $S_{xx}$.",
+            "en": "This proposal does not fit. The coefficient of the square in $m$ in the loss is $S_{xx}$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "La pente doit toujours être positive.",
+            "en": "Slope must always be positive."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le coefficient du carré en $m$ dans la perte est $S_{xx}$.",
+            "en": "This proposal does not fit. The coefficient of the square in $m$ in the loss is $S_{xx}$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Le dénominateur doit être $S_{xx}$.",
+            "en": "The denominator must be $S_{xx}$."
+          },
+          "feedback": {
+            "fr": "Le coefficient du carré en $m$ dans la perte est $S_{xx}$.",
+            "en": "The coefficient of the square in $m$ in the loss is $S_{xx}$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le coefficient du carré en $m$ dans la perte est $S_{xx}$.",
+        "en": "The coefficient of the square in $m$ in the loss is $S_{xx}$."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L35-E15",
+      "objectiveId": "L35-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "least-squares-slope"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi la condition $S_{xx}>0$ assure-t-elle l’unicité de la pente optimale ?",
+        "en": "Why does condition $S_{xx}>0$ ensure a unique optimal slope ?"
+      },
+      "hint": {
+        "fr": "Le dénominateur est la somme des carrés centrés des entrées.",
+        "en": "The denominator is the centred squared sum of inputs."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Elle garantit que toutes les données sont alignées.",
+            "en": "It guarantees that all data are collinear."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Un coefficient strictement positif rend tout écart de pente coûteux.",
+            "en": "This proposal does not fit. A strictly positive coefficient penalises every slope deviation."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Le terme $S_{xx}(m-S_{xy}/S_{xx})^2$ s’annule pour une seule pente.",
+            "en": "Term $S_{xx}(m-S_{xy}/S_{xx})^2$ vanishes for only one slope."
+          },
+          "feedback": {
+            "fr": "Un coefficient strictement positif rend tout écart de pente coûteux.",
+            "en": "A strictly positive coefficient penalises every slope deviation."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Toute pente donne alors la même perte.",
+            "en": "Every slope then gives equal loss."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Un coefficient strictement positif rend tout écart de pente coûteux.",
+            "en": "This proposal does not fit. A strictly positive coefficient penalises every slope deviation."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Un coefficient strictement positif rend tout écart de pente coûteux.",
+        "en": "A strictly positive coefficient penalises every slope deviation."
+      },
+      "lessonId": "L35",
+      "version": 1,
+      "prerequisites": [
+        "L22",
+        "L26",
+        "L34"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

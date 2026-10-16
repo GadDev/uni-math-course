@@ -1,0 +1,102 @@
+[
+  {
+    "id": "L36-E01",
+    "correctOption": "a",
+    "kind": "calculation",
+    "expression": "2/sqrt(4*4)",
+    "candidates": [
+      "1/2",
+      "2",
+      "1/4"
+    ]
+  },
+  {
+    "id": "L36-E02",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "With positive Sxx and Syy, the denominators in r and m are positive, so both have the sign of Sxy. Thus r=-0.9 implies a negative fitted slope."
+  },
+  {
+    "id": "L36-E03",
+    "correctOption": "b",
+    "kind": "argument",
+    "argument": "A common temperature driver can raise both ice-cream sales and pool attendance without either causing the other. Positive and even near-perfect association do not remove this alternative."
+  },
+  {
+    "id": "L36-E04",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "By definition extrapolation uses inputs beyond the observed range: 25>20. The other two values lie between the endpoints."
+  },
+  {
+    "id": "L36-E05",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "The operation computes m*x+p without updating m,p. This is inference under the stated vocabulary; training requires selecting or changing parameters from labelled data."
+  },
+  {
+    "id": "L36-E06",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "-6/sqrt(4*9)",
+    "candidates": [
+      "-1",
+      "1",
+      "-6"
+    ]
+  },
+  {
+    "id": "L36-E07",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "Their magnitudes are .95,.7,.1 respectively; .95 is largest, so the negative correlation is strongest despite its sign."
+  },
+  {
+    "id": "L36-E08",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "An outlier could be a recording error or a valid rare event. Neither status follows solely from distance to the fitted line, so investigation and sensitivity analysis precede any removal decision."
+  },
+  {
+    "id": "L36-E09",
+    "correctOption": "b",
+    "kind": "argument",
+    "argument": "Fitting selects parameters using training labels and can exploit their particular noise. Held-out observations provide evidence about generalisation, without guaranteeing either zero error or causal identification."
+  },
+  {
+    "id": "L36-E10",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "Constant y implies every centred y deviation is zero, so Syy=Sxy=0. Although slope is well-defined as zero when Sxx>0, r has denominator zero and is undefined."
+  },
+  {
+    "id": "L36-E11",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "xbar=0,ybar=2/3, giving Sxy=(-1)*(1/3)+0*(-2/3)+1*(1/3)=0, while Sxx=2 and Syy=2/3 are positive. Thus r=0 is defined despite an exact quadratic relationship."
+  },
+  {
+    "id": "L36-E12",
+    "correctOption": "b",
+    "kind": "argument",
+    "argument": "For observations (-1,1),(0,0),(1,1), the least-squares horizontal prediction is 2/3, wrong at the interior observed input x=0. Range membership alone therefore cannot guarantee accuracy."
+  },
+  {
+    "id": "L36-E13",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "Means and covariance constrain finitely many aggregate moments rather than specifying every coordinate. Distinct point configurations can share these moments; plotting exposes curvature, clusters and influential observations."
+  },
+  {
+    "id": "L36-E14",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "With positive Sxx,Syy, minimum SSE=Syy-Sxy²/Sxx=Syy*(1-r²). At |r|=1 this is zero, forcing every residual zero; Syy>0 excludes a horizontal constant-output line. The converse follows by the same identity."
+  },
+  {
+    "id": "L36-E15",
+    "correctOption": "b",
+    "kind": "argument",
+    "argument": "Once validation labels participate in parameter selection, the resulting error is an in-sample selection measure. Arithmetic remains valid, but an independent generalisation assessment needs fresh observations not used for fitting."
+  }
+]
