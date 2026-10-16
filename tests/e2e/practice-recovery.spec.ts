@@ -111,7 +111,13 @@ for (const locale of ['fr', 'en'] as const) {
     await page.reload();
     await expect(page.locator('input[value="10"]')).toBeChecked();
     expect((await entry(page)).submissionId).toBe(before.submissionId);
-    await page.getByRole('button', { name: recover, exact: false }).click();
+    const check = page.getByRole('button', { name: recover, exact: false });
+    await expect(check).toBeEnabled();
+    const returned = page.waitForResponse((r) =>
+      r.url().endsWith('/api/attempts/'),
+    );
+    await check.click();
+    expect((await returned).ok()).toBe(true);
     await expect(page.locator('.pp-feedback')).toBeVisible();
     await page.goto(`/${locale}/progress/`);
     await expect(page.locator('.progress-history li')).toHaveCount(1);

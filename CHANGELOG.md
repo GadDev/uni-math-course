@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.1.1](https://github.com/GadDev/uni-math-course/compare/v0.1.0...v0.1.1) (2026-10-16)
+
+
+### Bug Fixes
+
+* **content:** correct priority statement and grading ambiguities ([#45](https://github.com/GadDev/uni-math-course/issues/45)) ([e8afc4f](https://github.com/GadDev/uni-math-course/commit/e8afc4fafe0a0d4de779bacb19f2078a570eda9d))
+
 ## 0.1.0 (2026-10-16)
 
 

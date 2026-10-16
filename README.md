@@ -17,7 +17,7 @@ Status: **reading and practice implemented; hosted class acceptance pending** ·
 - Authenticated practice, server grading, saved attempts and private progress. Unreviewed banks display a warning.
 
 <!-- release-status:start -->
-Release status (generated from content/releases.json): 20 public bilingual lessons; 20 served practice banks. Mathematical author self-check: L05, L07; explicit unreviewed release exceptions: 18 banks. Translation self-check: L05, L07; explicit unreviewed translation exceptions: 18 lesson pairs. These records do not certify independent review or hosted class readiness.
+Release status (generated from content/releases.json): 20 public bilingual lessons; 20 served practice banks. Mathematical author self-check: L01, L03, L05, L06, L07, L19; explicit unreviewed release exceptions: 14 banks. Translation self-check: L01, L03, L05, L06, L07, L19; explicit unreviewed translation exceptions: 14 lesson pairs. These records do not certify independent review or hosted class readiness.
 <!-- release-status:end -->
 
 Sign-in is disabled until configured. Hosted authentication, database/deployment acceptance and class-pilot privacy decisions remain pending. See the [content release contracts](docs/CONTENT_RELEASES.md); local implementation is not proof of a complete hosted learning journey.
