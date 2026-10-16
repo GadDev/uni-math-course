@@ -1,0 +1,1253 @@
+{
+  "lessonId": "L33",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L33-E01",
+      "objectiveId": "L33-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "column-sampling"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $y=(2/5)x$, quelle hauteur idéale obtient-on à $x=3$ ?",
+        "en": "For $y=(2/5)x$, what ideal height is obtained at $x=3$ ?"
+      },
+      "hint": {
+        "fr": "Évaluez la droite à chaque abscisse entière.",
+        "en": "Evaluate the line at each integer horizontal coordinate."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\frac{6}{5}$",
+            "en": "$\\frac{6}{5}$"
+          },
+          "feedback": {
+            "fr": "Multiplier l’abscisse par la pente.",
+            "en": "Multiply the horizontal coordinate by slope."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\frac{3}{5}$",
+            "en": "$\\frac{3}{5}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Multiplier l’abscisse par la pente.",
+            "en": "This proposal does not fit. Multiply the horizontal coordinate by slope."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Multiplier l’abscisse par la pente.",
+            "en": "This proposal does not fit. Multiply the horizontal coordinate by slope."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Multiplier l’abscisse par la pente.",
+        "en": "Multiply the horizontal coordinate by slope."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E02",
+      "objectiveId": "L33-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "steep-segment"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour un segment de pente $3$, quel parcours évite les grands sauts verticaux ?",
+        "en": "For a segment of slope $3$, which traversal avoids large vertical jumps ?"
+      },
+      "hint": {
+        "fr": "Parcourez la coordonnée dont l’écart absolu est le plus grand.",
+        "en": "Traverse the coordinate with the greatest absolute difference."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Une étape par colonne seulement.",
+            "en": "One step per column only."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La variation verticale est la plus grande.",
+            "en": "This proposal does not fit. The vertical variation is greater."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Un seul pixel pour tout le segment.",
+            "en": "One pixel for the whole segment."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La variation verticale est la plus grande.",
+            "en": "This proposal does not fit. The vertical variation is greater."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Une étape par ligne.",
+            "en": "One step per row."
+          },
+          "feedback": {
+            "fr": "La variation verticale est la plus grande.",
+            "en": "The vertical variation is greater."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La variation verticale est la plus grande.",
+        "en": "The vertical variation is greater."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E03",
+      "objectiveId": "L33-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "loop-direction"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Combien de colonnes entières y a-t-il de $x=2$ à $x=7$, extrémités incluses ?",
+        "en": "How many integer columns are there from $x=2$ to $x=7$, endpoints included ?"
+      },
+      "hint": {
+        "fr": "Une boucle croissante nécessite des bornes ordonnées.",
+        "en": "An increasing loop needs ordered bounds."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$7$",
+            "en": "$7$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Compter $7-2+1$.",
+            "en": "This proposal does not fit. Count $7-2+1$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "Compter $7-2+1$.",
+            "en": "Count $7-2+1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Compter $7-2+1$.",
+            "en": "This proposal does not fit. Count $7-2+1$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Compter $7-2+1$.",
+        "en": "Count $7-2+1$."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E04",
+      "objectiveId": "L33-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "bresenham-midpoint"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans l’octant étudié, depuis $(x,y)$, quel est le candidat NE ?",
+        "en": "In the studied octant, from $(x,y)$, which is candidate NE ?"
+      },
+      "hint": {
+        "fr": "Comparez la hauteur idéale au milieu des deux pixels candidats.",
+        "en": "Compare ideal height with the midpoint between candidate pixels."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(x+1,y+1)$",
+            "en": "$(x+1,y+1)$"
+          },
+          "feedback": {
+            "fr": "Un pas à droite et un pas vers le haut augmentent les deux coordonnées.",
+            "en": "One step right and one step up increase both coordinates."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(x,y+1)$",
+            "en": "$(x,y+1)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Un pas à droite et un pas vers le haut augmentent les deux coordonnées.",
+            "en": "This proposal does not fit. One step right and one step up increase both coordinates."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(x+1,y-1)$",
+            "en": "$(x+1,y-1)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Un pas à droite et un pas vers le haut augmentent les deux coordonnées.",
+            "en": "This proposal does not fit. One step right and one step up increase both coordinates."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Un pas à droite et un pas vers le haut augmentent les deux coordonnées.",
+        "en": "One step right and one step up increase both coordinates."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E05",
+      "objectiveId": "L33-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "integer-decision"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $\\Delta x=5$, $\\Delta y=2$, quelle est la décision initiale $D$ ?",
+        "en": "For $\\Delta x=5$, $\\Delta y=2$, what is initial decision $D$ ?"
+      },
+      "hint": {
+        "fr": "Utilisez les incréments correspondant au pas choisi.",
+        "en": "Use the increments corresponding to the chosen step."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Calculer $2\\Delta y-\\Delta x$.",
+            "en": "This proposal does not fit. Calculate $2\\Delta y-\\Delta x$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$9$",
+            "en": "$9$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Calculer $2\\Delta y-\\Delta x$.",
+            "en": "This proposal does not fit. Calculate $2\\Delta y-\\Delta x$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$-1$",
+            "en": "$-1$"
+          },
+          "feedback": {
+            "fr": "Calculer $2\\Delta y-\\Delta x$.",
+            "en": "Calculate $2\\Delta y-\\Delta x$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Calculer $2\\Delta y-\\Delta x$.",
+        "en": "Calculate $2\\Delta y-\\Delta x$."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E06",
+      "objectiveId": "L33-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "column-sampling"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec arrondi au plus proche et égalité vers l’entier supérieur, arrondir $5/2$.",
+        "en": "With nearest rounding and ties toward the greater integer, round $5/2$."
+      },
+      "hint": {
+        "fr": "Évaluez la droite à chaque abscisse entière.",
+        "en": "Evaluate the line at each integer horizontal coordinate."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La valeur est à mi-chemin entre deux et trois ; la convention choisit trois.",
+            "en": "This proposal does not fit. The value is halfway between two and three; the convention selects three."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "La valeur est à mi-chemin entre deux et trois ; la convention choisit trois.",
+            "en": "The value is halfway between two and three; the convention selects three."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La valeur est à mi-chemin entre deux et trois ; la convention choisit trois.",
+            "en": "This proposal does not fit. The value is halfway between two and three; the convention selects three."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La valeur est à mi-chemin entre deux et trois ; la convention choisit trois.",
+        "en": "The value is halfway between two and three; the convention selects three."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E07",
+      "objectiveId": "L33-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "loop-direction"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une boucle croissante est prévue de $x_1$ à $x_2$. Les extrémités sont données avec $x_1>x_2$. Que faut-il faire ?",
+        "en": "An increasing loop is planned from $x_1$ to $x_2$. Endpoints are given with $x_1>x_2$. What is required ?"
+      },
+      "hint": {
+        "fr": "Une boucle croissante nécessite des bornes ordonnées.",
+        "en": "An increasing loop needs ordered bounds."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Réordonner les extrémités ou adapter le sens du pas.",
+            "en": "Reorder endpoints or adapt step direction."
+          },
+          "feedback": {
+            "fr": "La direction du parcours doit correspondre à l’ordre des bornes.",
+            "en": "Traversal direction must match bound order."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Garder la boucle inchangée en supposant qu’elle descend.",
+            "en": "Keep the loop unchanged and assume it descends."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La direction du parcours doit correspondre à l’ordre des bornes.",
+            "en": "This proposal does not fit. Traversal direction must match bound order."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Supprimer le segment.",
+            "en": "Discard the segment."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La direction du parcours doit correspondre à l’ordre des bornes.",
+            "en": "This proposal does not fit. Traversal direction must match bound order."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La direction du parcours doit correspondre à l’ordre des bornes.",
+        "en": "Traversal direction must match bound order."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E08",
+      "objectiveId": "L33-O05",
+      "difficulty": "medium",
+      "misconceptions": [
+        "integer-decision"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $\\Delta x=5$, $\\Delta y=2$, le premier pas est E avec $D=-1$. Quelle décision vient ensuite ?",
+        "en": "For $\\Delta x=5$, $\\Delta y=2$, the first step is E with $D=-1$. What decision comes next ?"
+      },
+      "hint": {
+        "fr": "Utilisez les incréments correspondant au pas choisi.",
+        "en": "Use the increments corresponding to the chosen step."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$-7$",
+            "en": "$-7$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Après E, ajouter $2\\Delta y=4$.",
+            "en": "This proposal does not fit. After E, add $2\\Delta y=4$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$-1$",
+            "en": "$-1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Après E, ajouter $2\\Delta y=4$.",
+            "en": "This proposal does not fit. After E, add $2\\Delta y=4$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Après E, ajouter $2\\Delta y=4$.",
+            "en": "After E, add $2\\Delta y=4$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Après E, ajouter $2\\Delta y=4$.",
+        "en": "After E, add $2\\Delta y=4$."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E09",
+      "objectiveId": "L33-O05",
+      "difficulty": "medium",
+      "misconceptions": [
+        "integer-decision"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $\\Delta x=5$, $\\Delta y=2$, un pas NE est choisi avec $D=3$. Quelle décision vient ensuite ?",
+        "en": "For $\\Delta x=5$, $\\Delta y=2$, a NE step is chosen with $D=3$. What decision comes next ?"
+      },
+      "hint": {
+        "fr": "Utilisez les incréments correspondant au pas choisi.",
+        "en": "Use the increments corresponding to the chosen step."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$9$",
+            "en": "$9$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Après NE, ajouter $4-10=-6$.",
+            "en": "This proposal does not fit. After NE, add $4-10=-6$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$-3$",
+            "en": "$-3$"
+          },
+          "feedback": {
+            "fr": "Après NE, ajouter $4-10=-6$.",
+            "en": "After NE, add $4-10=-6$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$7$",
+            "en": "$7$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Après NE, ajouter $4-10=-6$.",
+            "en": "This proposal does not fit. After NE, add $4-10=-6$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Après NE, ajouter $4-10=-6$.",
+        "en": "After NE, add $4-10=-6$."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E10",
+      "objectiveId": "L33-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "steep-segment"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Comment tracer directement un segment vertical de $(4,1)$ à $(4,5)$ ?",
+        "en": "How can a vertical segment from $(4,1)$ to $(4,5)$ be drawn directly ?"
+      },
+      "hint": {
+        "fr": "Parcourez la coordonnée dont l’écart absolu est le plus grand.",
+        "en": "Traverse the coordinate with the greatest absolute difference."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Garder $x=4$ et parcourir les ordonnées entières de $1$ à $5$.",
+            "en": "Keep $x=4$ and traverse integer vertical coordinates from $1$ to $5$."
+          },
+          "feedback": {
+            "fr": "La coordonnée fixe ne nécessite aucun quotient de pente.",
+            "en": "The fixed coordinate requires no slope quotient."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Diviser par l’écart horizontal nul.",
+            "en": "Divide by zero horizontal difference."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La coordonnée fixe ne nécessite aucun quotient de pente.",
+            "en": "This proposal does not fit. The fixed coordinate requires no slope quotient."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Parcourir une seule colonne en n’allumant qu’un pixel.",
+            "en": "Traverse one column and light only one pixel."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La coordonnée fixe ne nécessite aucun quotient de pente.",
+            "en": "This proposal does not fit. The fixed coordinate requires no slope quotient."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La coordonnée fixe ne nécessite aucun quotient de pente.",
+        "en": "The fixed coordinate requires no slope quotient."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E11",
+      "objectiveId": "L33-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "bresenham-midpoint"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans la convention de cette leçon, que choisir lorsque $D=0$ ?",
+        "en": "Under this lesson’s convention, what is selected when $D=0$ ?"
+      },
+      "hint": {
+        "fr": "Comparez la hauteur idéale au milieu des deux pixels candidats.",
+        "en": "Compare ideal height with the midpoint between candidate pixels."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "E, quelle que soit la convention annoncée.",
+            "en": "E, regardless of the stated convention."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le test publié est $D\\ge0$ pour NE.",
+            "en": "This proposal does not fit. The stated test is $D\\ge0$ for NE."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Aucun pixel, car l’algorithme échoue.",
+            "en": "No pixel, because the algorithm fails."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le test publié est $D\\ge0$ pour NE.",
+            "en": "This proposal does not fit. The stated test is $D\\ge0$ for NE."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "NE, selon la règle d’égalité explicite.",
+            "en": "NE, under the explicit tie rule."
+          },
+          "feedback": {
+            "fr": "Le test publié est $D\\ge0$ pour NE.",
+            "en": "The stated test is $D\\ge0$ for NE."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le test publié est $D\\ge0$ pour NE.",
+        "en": "The stated test is $D\\ge0$ for NE."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E12",
+      "objectiveId": "L33-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "octant-restriction"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Peut-on appliquer sans adaptation l’algorithme limité à $\\Delta x=2$, $\\Delta y=5$ ?",
+        "en": "Can the restricted algorithm be applied without adaptation to $\\Delta x=2$, $\\Delta y=5$ ?"
+      },
+      "hint": {
+        "fr": "Vérifiez octant, signe des écarts et convention verticale.",
+        "en": "Check octant, difference signs and vertical convention."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui, en ignorant le point final.",
+            "en": "Yes, by ignoring the endpoint."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’hypothèse $\\Delta y\\le\\Delta x$ est violée.",
+            "en": "This proposal does not fit. The assumption $\\Delta y\\le\\Delta x$ is violated."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non, il faut échanger le rôle des axes ou utiliser une version générale.",
+            "en": "No, exchange axis roles or use a general version."
+          },
+          "feedback": {
+            "fr": "L’hypothèse $\\Delta y\\le\\Delta x$ est violée.",
+            "en": "The assumption $\\Delta y\\le\\Delta x$ is violated."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Oui, car toutes les pentes sont dans l’octant annoncé.",
+            "en": "Yes, because every slope belongs to the stated octant."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’hypothèse $\\Delta y\\le\\Delta x$ est violée.",
+            "en": "This proposal does not fit. The assumption $\\Delta y\\le\\Delta x$ is violated."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "L’hypothèse $\\Delta y\\le\\Delta x$ est violée.",
+        "en": "The assumption $\\Delta y\\le\\Delta x$ is violated."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E13",
+      "objectiveId": "L33-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "integer-decision"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $\\Delta x=5$, $\\Delta y=2$, quel pixel suit $(2,1)$ avec la décision $D=-3$ ?",
+        "en": "For $\\Delta x=5$, $\\Delta y=2$, which pixel follows $(2,1)$ with decision $D=-3$ ?"
+      },
+      "hint": {
+        "fr": "Utilisez les incréments correspondant au pas choisi.",
+        "en": "Use the increments corresponding to the chosen step."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(3,1)$",
+            "en": "$(3,1)$"
+          },
+          "feedback": {
+            "fr": "Une décision négative choisit E.",
+            "en": "A negative decision selects E."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(3,2)$",
+            "en": "$(3,2)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une décision négative choisit E.",
+            "en": "This proposal does not fit. A negative decision selects E."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(2,2)$",
+            "en": "$(2,2)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une décision négative choisit E.",
+            "en": "This proposal does not fit. A negative decision selects E."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Une décision négative choisit E.",
+        "en": "A negative decision selects E."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E14",
+      "objectiveId": "L33-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "octant-restriction"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi préciser que l’axe vertical de Bresenham pointe ici vers le haut ?",
+        "en": "Why specify that Bresenham’s vertical axis here points upward ?"
+      },
+      "hint": {
+        "fr": "Vérifiez octant, signe des écarts et convention verticale.",
+        "en": "Check octant, difference signs and vertical convention."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Les deux conventions donnent toujours les mêmes incréments verticaux.",
+            "en": "Both conventions always give the same vertical increments."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les signes des pas dépendent du repère choisi.",
+            "en": "This proposal does not fit. Step signs depend on the chosen coordinate system."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Les pixels ne peuvent pas représenter une pente négative.",
+            "en": "Pixels cannot represent negative slopes."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les signes des pas dépendent du repère choisi.",
+            "en": "This proposal does not fit. Step signs depend on the chosen coordinate system."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Sur un écran descendant, un pas visuel vers le haut diminue l’indice de ligne.",
+            "en": "On a downward screen, a visually upward step decreases the row index."
+          },
+          "feedback": {
+            "fr": "Les signes des pas dépendent du repère choisi.",
+            "en": "Step signs depend on the chosen coordinate system."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Les signes des pas dépendent du repère choisi.",
+        "en": "Step signs depend on the chosen coordinate system."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L33-E15",
+      "objectiveId": "L33-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "bresenham-midpoint"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "D’où vient l’incrément $2\\Delta y-2\\Delta x$ après NE ?",
+        "en": "Where does increment $2\\Delta y-2\\Delta x$ after NE come from ?"
+      },
+      "hint": {
+        "fr": "Comparez la hauteur idéale au milieu des deux pixels candidats.",
+        "en": "Compare ideal height with the midpoint between candidate pixels."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Multiplier la décision précédente par deux.",
+            "en": "Multiply the previous decision by two."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La différence entre les deux expressions de décision donne exactement cet incrément.",
+            "en": "This proposal does not fit. The difference between the two decision expressions gives exactly this increment."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Remplacer simultanément $x$ par $x+1$ et $y$ par $y+1$ dans $D$.",
+            "en": "Replace $x$ with $x+1$ and $y$ with $y+1$ simultaneously in $D$."
+          },
+          "feedback": {
+            "fr": "La différence entre les deux expressions de décision donne exactement cet incrément.",
+            "en": "The difference between the two decision expressions gives exactly this increment."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Arrondir la pente à un entier.",
+            "en": "Round slope to an integer."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La différence entre les deux expressions de décision donne exactement cet incrément.",
+            "en": "This proposal does not fit. The difference between the two decision expressions gives exactly this increment."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La différence entre les deux expressions de décision donne exactement cet incrément.",
+        "en": "The difference between the two decision expressions gives exactly this increment."
+      },
+      "lessonId": "L33",
+      "version": 1,
+      "prerequisites": [
+        "L31",
+        "L32"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

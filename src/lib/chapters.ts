@@ -1,4 +1,5 @@
 import { copy, type Locale } from './i18n.ts';
+import { droitesLessonIds } from './droites-lessons.ts';
 
 export const chapters = [
   {
@@ -16,8 +17,8 @@ export const chapters = [
     path: 'chapters/C02/',
     title: { fr: 'Droites', en: 'Straight lines' },
     shortTitle: { fr: 'Droites', en: 'Lines' },
-    status: 'preparing',
-    lessonIds: [],
+    status: 'reading',
+    lessonIds: droitesLessonIds,
   },
 ] as const;
 

@@ -1,0 +1,1253 @@
+{
+  "lessonId": "L31",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L31-E01",
+      "objectiveId": "L31-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "half-plane-sign"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la valeur de $x+2y-6$ en $(1,2)$ ?",
+        "en": "What is the value of $x+2y-6$ at $(1,2)$ ?"
+      },
+      "hint": {
+        "fr": "Calculez le signe de l’expression au point donné.",
+        "en": "Calculate the expression’s sign at the given point."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$-1$",
+            "en": "$-1$"
+          },
+          "feedback": {
+            "fr": "Substituer donne $1+4-6=-1$.",
+            "en": "Substitution gives $1+4-6=-1$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Substituer donne $1+4-6=-1$.",
+            "en": "This proposal does not fit. Substitution gives $1+4-6=-1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Substituer donne $1+4-6=-1$.",
+            "en": "This proposal does not fit. Substitution gives $1+4-6=-1$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Substituer donne $1+4-6=-1$.",
+        "en": "Substitution gives $1+4-6=-1$."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E02",
+      "objectiveId": "L31-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "boundary-inclusion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le point $(2,0)$ appartient-il à $x+y<2$ ?",
+        "en": "Does point $(2,0)$ belong to $x+y<2$ ?"
+      },
+      "hint": {
+        "fr": "L’égalité est autorisée seulement pour une inégalité large.",
+        "en": "Equality is allowed only for a non-strict inequality."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui, car le bord est inclus.",
+            "en": "Yes, because the boundary is included."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La somme vaut $2$, et l’inégalité est stricte.",
+            "en": "This proposal does not fit. The sum is $2$ and the inequality is strict."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Oui, car $2<2$.",
+            "en": "Yes, because $2<2$."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La somme vaut $2$, et l’inégalité est stricte.",
+            "en": "This proposal does not fit. The sum is $2$ and the inequality is strict."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Non, il est sur le bord exclu.",
+            "en": "No, it lies on the excluded boundary."
+          },
+          "feedback": {
+            "fr": "La somme vaut $2$, et l’inégalité est stricte.",
+            "en": "The sum is $2$ and the inequality is strict."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La somme vaut $2$, et l’inégalité est stricte.",
+        "en": "The sum is $2$ and the inequality is strict."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E03",
+      "objectiveId": "L31-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "test-point-side"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel demi-plan fermé de frontière $x=3$ contient l’origine ?",
+        "en": "Which closed half-plane bounded by $x=3$ contains the origin ?"
+      },
+      "hint": {
+        "fr": "Choisissez un point hors de la frontière.",
+        "en": "Choose a point off the boundary."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$y\\le3$",
+            "en": "$y\\le3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’abscisse zéro est inférieure à trois.",
+            "en": "This proposal does not fit. Horizontal coordinate zero is less than three."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x\\le3$",
+            "en": "$x\\le3$"
+          },
+          "feedback": {
+            "fr": "L’abscisse zéro est inférieure à trois.",
+            "en": "Horizontal coordinate zero is less than three."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x\\ge3$",
+            "en": "$x\\ge3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’abscisse zéro est inférieure à trois.",
+            "en": "This proposal does not fit. Horizontal coordinate zero is less than three."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "L’abscisse zéro est inférieure à trois.",
+        "en": "Horizontal coordinate zero is less than three."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E04",
+      "objectiveId": "L31-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "constraint-intersection"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel point satisfait $x\\ge0$, $y\\ge0$, $x+y\\le4$ ?",
+        "en": "Which point satisfies $x\\ge0$, $y\\ge0$, $x+y\\le4$ ?"
+      },
+      "hint": {
+        "fr": "Un point doit satisfaire toutes les contraintes.",
+        "en": "A point must satisfy every constraint."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(1,2)$",
+            "en": "$(1,2)$"
+          },
+          "feedback": {
+            "fr": "Le premier satisfait les trois contraintes ; les autres échouent à la somme ou au signe.",
+            "en": "The first satisfies all three constraints; the others fail the sum or sign."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(3,2)$",
+            "en": "$(3,2)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le premier satisfait les trois contraintes ; les autres échouent à la somme ou au signe.",
+            "en": "This proposal does not fit. The first satisfies all three constraints; the others fail the sum or sign."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(-1,2)$",
+            "en": "$(-1,2)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le premier satisfait les trois contraintes ; les autres échouent à la somme ou au signe.",
+            "en": "This proposal does not fit. The first satisfies all three constraints; the others fail the sum or sign."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le premier satisfait les trois contraintes ; les autres échouent à la somme ou au signe.",
+        "en": "The first satisfies all three constraints; the others fail the sum or sign."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E05",
+      "objectiveId": "L31-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "boundary-inclusion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle inégalité inclut la droite $y=2x+1$ et le côté au-dessus ?",
+        "en": "Which inequality includes line $y=2x+1$ and the side above it ?"
+      },
+      "hint": {
+        "fr": "L’égalité est autorisée seulement pour une inégalité large.",
+        "en": "Equality is allowed only for a non-strict inequality."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$y>2x+1$",
+            "en": "$y>2x+1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Au-dessus signifie ordonnée supérieure ; inclure la droite autorise l’égalité.",
+            "en": "This proposal does not fit. Above means greater vertical coordinate; including the line permits equality."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$y\\le2x+1$",
+            "en": "$y\\le2x+1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Au-dessus signifie ordonnée supérieure ; inclure la droite autorise l’égalité.",
+            "en": "This proposal does not fit. Above means greater vertical coordinate; including the line permits equality."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$y\\ge2x+1$",
+            "en": "$y\\ge2x+1$"
+          },
+          "feedback": {
+            "fr": "Au-dessus signifie ordonnée supérieure ; inclure la droite autorise l’égalité.",
+            "en": "Above means greater vertical coordinate; including the line permits equality."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Au-dessus signifie ordonnée supérieure ; inclure la droite autorise l’égalité.",
+        "en": "Above means greater vertical coordinate; including the line permits equality."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E06",
+      "objectiveId": "L31-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "half-plane-sign"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $f(x,y)=2x-y-1$, calculer $f(3,2)$.",
+        "en": "For $f(x,y)=2x-y-1$, calculate $f(3,2)$."
+      },
+      "hint": {
+        "fr": "Calculez le signe de l’expression au point donné.",
+        "en": "Calculate the expression’s sign at the given point."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$-3$",
+            "en": "$-3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. On obtient $6-2-1=3$.",
+            "en": "This proposal does not fit. We obtain $6-2-1=3$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "On obtient $6-2-1=3$.",
+            "en": "We obtain $6-2-1=3$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$7$",
+            "en": "$7$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. On obtient $6-2-1=3$.",
+            "en": "This proposal does not fit. We obtain $6-2-1=3$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "On obtient $6-2-1=3$.",
+        "en": "We obtain $6-2-1=3$."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E07",
+      "objectiveId": "L31-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "test-point-side"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "La droite est $x-y=2$. Quel demi-plan fermé contient $(0,0)$ ?",
+        "en": "The line is $x-y=2$. Which closed half-plane contains $(0,0)$ ?"
+      },
+      "hint": {
+        "fr": "Choisissez un point hors de la frontière.",
+        "en": "Choose a point off the boundary."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x-y\\le2$",
+            "en": "$x-y\\le2$"
+          },
+          "feedback": {
+            "fr": "L’origine donne $0<2$ ; la frontière doit rester $x-y=2$.",
+            "en": "The origin gives $0<2$; the boundary must remain $x-y=2$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x-y\\ge2$",
+            "en": "$x-y\\ge2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’origine donne $0<2$ ; la frontière doit rester $x-y=2$.",
+            "en": "This proposal does not fit. The origin gives $0<2$; the boundary must remain $x-y=2$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x+y\\le2$",
+            "en": "$x+y\\le2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’origine donne $0<2$ ; la frontière doit rester $x-y=2$.",
+            "en": "This proposal does not fit. The origin gives $0<2$; the boundary must remain $x-y=2$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "L’origine donne $0<2$ ; la frontière doit rester $x-y=2$.",
+        "en": "The origin gives $0<2$; the boundary must remain $x-y=2$."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E08",
+      "objectiveId": "L31-O05",
+      "difficulty": "medium",
+      "misconceptions": [
+        "triangle-membership"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour le triangle fermé $x\\ge0$, $y\\ge0$, $3x+4y\\le12$, que vaut le dernier membre gauche en $(2,1)$ ?",
+        "en": "For the closed triangle $x\\ge0$, $y\\ge0$, $3x+4y\\le12$, what is the last left side at $(2,1)$ ?"
+      },
+      "hint": {
+        "fr": "Pour chaque côté, gardez le demi-plan contenant le sommet opposé.",
+        "en": "For each side, keep the half-plane containing the opposite vertex."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$12$",
+            "en": "$12$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La valeur $3\\cdot2+4\\cdot1=10$ confirme ce dernier test.",
+            "en": "This proposal does not fit. Value $3\\cdot2+4\\cdot1=10$ confirms this last test."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$14$",
+            "en": "$14$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La valeur $3\\cdot2+4\\cdot1=10$ confirme ce dernier test.",
+            "en": "This proposal does not fit. Value $3\\cdot2+4\\cdot1=10$ confirms this last test."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$10$",
+            "en": "$10$"
+          },
+          "feedback": {
+            "fr": "La valeur $3\\cdot2+4\\cdot1=10$ confirme ce dernier test.",
+            "en": "Value $3\\cdot2+4\\cdot1=10$ confirms this last test."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La valeur $3\\cdot2+4\\cdot1=10$ confirme ce dernier test.",
+        "en": "Value $3\\cdot2+4\\cdot1=10$ confirms this last test."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E09",
+      "objectiveId": "L31-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "degenerate-triangle"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle inégalité est équivalente à $-2x+2y\\le6$ ?",
+        "en": "Which inequality is equivalent to $-2x+2y\\le6$ ?"
+      },
+      "hint": {
+        "fr": "Un facteur négatif inverse l’inégalité.",
+        "en": "A negative factor reverses the inequality."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x+y\\ge-3$",
+            "en": "$x+y\\ge-3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Diviser par $-2$ inverse le sens.",
+            "en": "This proposal does not fit. Dividing by $-2$ reverses the direction."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x-y\\ge-3$",
+            "en": "$x-y\\ge-3$"
+          },
+          "feedback": {
+            "fr": "Diviser par $-2$ inverse le sens.",
+            "en": "Dividing by $-2$ reverses the direction."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x-y\\le-3$",
+            "en": "$x-y\\le-3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Diviser par $-2$ inverse le sens.",
+            "en": "This proposal does not fit. Dividing by $-2$ reverses the direction."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Diviser par $-2$ inverse le sens.",
+        "en": "Dividing by $-2$ reverses the direction."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E10",
+      "objectiveId": "L31-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "constraint-intersection"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel point est sur le bord du triangle fermé $x\\ge0$, $y\\ge0$, $x+y\\le4$ ?",
+        "en": "Which point lies on the boundary of the closed triangle $x\\ge0$, $y\\ge0$, $x+y\\le4$ ?"
+      },
+      "hint": {
+        "fr": "Un point doit satisfaire toutes les contraintes.",
+        "en": "A point must satisfy every constraint."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(1,3)$",
+            "en": "$(1,3)$"
+          },
+          "feedback": {
+            "fr": "Le premier satisfait toutes les contraintes et l’égalité $x+y=4$.",
+            "en": "The first satisfies every constraint and equality $x+y=4$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(1,1)$",
+            "en": "$(1,1)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le premier satisfait toutes les contraintes et l’égalité $x+y=4$.",
+            "en": "This proposal does not fit. The first satisfies every constraint and equality $x+y=4$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(5,0)$",
+            "en": "$(5,0)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le premier satisfait toutes les contraintes et l’égalité $x+y=4$.",
+            "en": "This proposal does not fit. The first satisfies every constraint and equality $x+y=4$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le premier satisfait toutes les contraintes et l’égalité $x+y=4$.",
+        "en": "The first satisfies every constraint and equality $x+y=4$."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E11",
+      "objectiveId": "L31-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "triangle-membership"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi tester seulement deux côtés d’un triangle ne suffit-il généralement pas ?",
+        "en": "Why is checking only two sides of a triangle generally insufficient ?"
+      },
+      "hint": {
+        "fr": "Pour chaque côté, gardez le demi-plan contenant le sommet opposé.",
+        "en": "For each side, keep the half-plane containing the opposite vertex."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Un triangle n’a que deux côtés.",
+            "en": "A triangle has only two sides."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Dans le premier quadrant, $(5,5)$ passe les deux tests de signe mais échoue à $x+y\\le4$.",
+            "en": "This proposal does not fit. In the first quadrant, $(5,5)$ passes both sign tests but fails $x+y\\le4$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Les demi-plans ne contiennent aucun point.",
+            "en": "Half-planes contain no points."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Dans le premier quadrant, $(5,5)$ passe les deux tests de signe mais échoue à $x+y\\le4$.",
+            "en": "This proposal does not fit. In the first quadrant, $(5,5)$ passes both sign tests but fails $x+y\\le4$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Leur intersection peut contenir des points au-delà du troisième côté.",
+            "en": "Their intersection may contain points beyond the third side."
+          },
+          "feedback": {
+            "fr": "Dans le premier quadrant, $(5,5)$ passe les deux tests de signe mais échoue à $x+y\\le4$.",
+            "en": "In the first quadrant, $(5,5)$ passes both sign tests but fails $x+y\\le4$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Dans le premier quadrant, $(5,5)$ passe les deux tests de signe mais échoue à $x+y\\le4$.",
+        "en": "In the first quadrant, $(5,5)$ passes both sign tests but fails $x+y\\le4$."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E12",
+      "objectiveId": "L31-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "degenerate-triangle"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $f(R)\\ne0$, quel test accepte le même côté que $R$, bord compris ?",
+        "en": "For $f(R)\\ne0$, which test accepts the same side as $R$, including the boundary ?"
+      },
+      "hint": {
+        "fr": "Un facteur négatif inverse l’inégalité.",
+        "en": "A negative factor reverses the inequality."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$f(P)+f(R)\\ge0$",
+            "en": "$f(P)+f(R)\\ge0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le produit est positif pour deux signes égaux et nul sur le bord.",
+            "en": "This proposal does not fit. The product is positive for equal signs and zero on the boundary."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$f(P)f(R)\\ge0$",
+            "en": "$f(P)f(R)\\ge0$"
+          },
+          "feedback": {
+            "fr": "Le produit est positif pour deux signes égaux et nul sur le bord.",
+            "en": "The product is positive for equal signs and zero on the boundary."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$f(P)f(R)<0$",
+            "en": "$f(P)f(R)<0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le produit est positif pour deux signes égaux et nul sur le bord.",
+            "en": "This proposal does not fit. The product is positive for equal signs and zero on the boundary."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le produit est positif pour deux signes égaux et nul sur le bord.",
+        "en": "The product is positive for equal signs and zero on the boundary."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E13",
+      "objectiveId": "L31-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "test-point-side"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi un point test sur la frontière ne permet-il pas de choisir un côté ?",
+        "en": "Why can a test point on the boundary not choose a side ?"
+      },
+      "hint": {
+        "fr": "Choisissez un point hors de la frontière.",
+        "en": "Choose a point off the boundary."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Sa valeur est nulle et appartient aux deux demi-plans fermés.",
+            "en": "Its value is zero and belongs to both closed half-planes."
+          },
+          "feedback": {
+            "fr": "La substitution donne la même égalité pour les deux choix de signe.",
+            "en": "Substitution gives the same equality for either sign choice."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Sa valeur est forcément positive.",
+            "en": "Its value must be positive."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La substitution donne la même égalité pour les deux choix de signe.",
+            "en": "This proposal does not fit. Substitution gives the same equality for either sign choice."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Une frontière n’a aucun point.",
+            "en": "A boundary has no points."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La substitution donne la même égalité pour les deux choix de signe.",
+            "en": "This proposal does not fit. Substitution gives the same equality for either sign choice."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La substitution donne la même égalité pour les deux choix de signe.",
+        "en": "Substitution gives the same equality for either sign choice."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E14",
+      "objectiveId": "L31-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "triangle-membership"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Les sommets sont $(0,0)$, $(1,1)$ et $(2,2)$. Que faut-il constater avant un remplissage de triangle ?",
+        "en": "Vertices are $(0,0)$, $(1,1)$ and $(2,2)$. What must be detected before triangle filling ?"
+      },
+      "hint": {
+        "fr": "Pour chaque côté, gardez le demi-plan contenant le sommet opposé.",
+        "en": "For each side, keep the half-plane containing the opposite vertex."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Ils forment un triangle d’aire positive.",
+            "en": "They form a triangle of positive area."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les trois points vérifient $y=x$ ; il n’existe pas d’intérieur triangulaire.",
+            "en": "This proposal does not fit. All three satisfy $y=x$; there is no triangular interior."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Le point du milieu n’appartient pas à la droite des autres.",
+            "en": "The middle point is not on the line through the others."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les trois points vérifient $y=x$ ; il n’existe pas d’intérieur triangulaire.",
+            "en": "This proposal does not fit. All three satisfy $y=x$; there is no triangular interior."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Ils sont alignés ; le triangle est dégénéré.",
+            "en": "They are collinear; the triangle is degenerate."
+          },
+          "feedback": {
+            "fr": "Les trois points vérifient $y=x$ ; il n’existe pas d’intérieur triangulaire.",
+            "en": "All three satisfy $y=x$; there is no triangular interior."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Les trois points vérifient $y=x$ ; il n’existe pas d’intérieur triangulaire.",
+        "en": "All three satisfy $y=x$; there is no triangular interior."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L31-E15",
+      "objectiveId": "L31-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "degenerate-triangle"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Remplacer chaque expression de côté $f$ par $-f$ change-t-il le test $f(P)f(R)\\ge0$ ?",
+        "en": "Does replacing each side expression $f$ by $-f$ change test $f(P)f(R)\\ge0$ ?"
+      },
+      "hint": {
+        "fr": "Un facteur négatif inverse l’inégalité.",
+        "en": "A negative factor reverses the inequality."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui, le bord disparaît.",
+            "en": "Yes, the boundary disappears."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. On a $(-f(P))(-f(R))=f(P)f(R)$.",
+            "en": "This proposal does not fit. We have $(-f(P))(-f(R))=f(P)f(R)$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non, les deux signes se compensent dans le produit.",
+            "en": "No, the two signs cancel in the product."
+          },
+          "feedback": {
+            "fr": "On a $(-f(P))(-f(R))=f(P)f(R)$.",
+            "en": "We have $(-f(P))(-f(R))=f(P)f(R)$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Oui, tous les points acceptés sont rejetés.",
+            "en": "Yes, every accepted point is rejected."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. On a $(-f(P))(-f(R))=f(P)f(R)$.",
+            "en": "This proposal does not fit. We have $(-f(P))(-f(R))=f(P)f(R)$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "On a $(-f(P))(-f(R))=f(P)f(R)$.",
+        "en": "We have $(-f(P))(-f(R))=f(P)f(R)$."
+      },
+      "lessonId": "L31",
+      "version": 1,
+      "prerequisites": [
+        "L24",
+        "L28",
+        "L30"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          50,
+          51,
+          60
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

@@ -1,31 +1,31 @@
 # Chapters
 
-## Chapter 2 overview
+## Chapter 2: Droites
 
-The public French/English Chapter 2 overview is served at `/fr/chapters/C02/` and `/en/chapters/C02/`. The selected visual direction is **Décalage in green (`#18704F`)**; see the [selected design reference](design/proposals/chapter-02-droites/selected/README.md).
+The public French/English overview is served at `/fr/chapters/C02/` and `/en/chapters/C02/`. It links 16 bilingual lessons, L21–L36, in five groups: algebra, coordinates/curves, lines/regions, screen graphics and regression/models. Every lesson has 15 original questions: 5 easy, 5 medium and 5 hard, with hints, answers and worked feedback. Reading remains public; practice and saved progress require sign-in.
 
-The overview contains an algebra starting point and four further proposed sections: Cartesian coordinates, lines, screen rasterisation and regression. Sections are an outline, not published lesson IDs. They show preparation status without invented lesson durations, exercise totals, completions or learner results. The progress panel is an unavailable-data preview, not private account evidence. Exercises remain disabled.
+The selected visual direction is **Décalage in green (`#18704F`)**; see the [selected design reference](design/proposals/chapter-02-droites/selected/README.md). The overview retains the Signal layout. Chapter 2 readings and practice use the same decoration and green chapter identity. Feedback keeps explicit correct/incorrect labels.
 
-The structure follows the supplied Bruno Teheux *Droites: du papier à l’écran, puis au machine learning*, BINFO-FCE 2026–2027, 87-page PDF: algebra pages 3–26; coordinates 27–35; lines 36–51; screen graphics 52–60; regression 61–87. Page 1 is the title; repeated builds are consolidated. The copy and decorative SVG are original project work; the source PDF and slide artwork are not distributed. This adds no mathematical or translation-review certification.
+The [PDF-to-lesson map](../exercises/drafts/chapter-02/README.md) consolidates the supplied 87-page Bruno Teheux *Droites* course and records the source qualifications. The [mathematical and bilingual self-check](content/CHAPTER_02_REVIEW.md) describes the actual verification. The prose, examples, questions and decorative SVG are original project work; no source PDF or slide artwork is distributed. Author self-check is not independent peer review or hosted class acceptance.
 
-## Identities and release boundaries
+## Identity, releases and saved progress
 
-`src/lib/chapters.ts` defines chapter identity, localized titles, public overview paths and explicit lesson membership. Chapter 1 retains `/fr/`, `/en/` and all existing L01–L20 lesson/practice URLs. Its membership comes from the existing programme. Chapter 2 has no released lessons yet. `content/releases.json` remains authoritative for released lesson versions, practice availability and translation review; the chapter catalogue does not release content.
+`src/lib/chapters.ts` defines chapter identity, localized titles, overview paths and explicit lesson membership. Chapter 1 retains `/fr/`, `/en/` and all L01–L20 URLs. `src/lib/droites-lessons.ts` contains Chapter 2 membership and grouping without answers; titles and durations come from the bilingual content collection. Reading and practice outlines use the current chapter, and breadcrumbs return to its overview. Chapter 2 does not reuse Chapter 1 lesson or exercise IDs.
 
-Keep future lesson IDs globally unique. Never restart L01 in Chapter 2 or rewrite saved attempts. Populate chapter membership only when actual content is authored and released through the existing versioned workflow. Global glossary, number-family, account and progress pages have no active chapter; do not guess membership from a numerical prefix or store a learner's last chapter solely for navigation.
+`content/releases.json` remains authoritative for selected immutable bank versions, practice availability and mathematical/translation review evidence. A catalogue entry cannot release a bank by itself. The new v1 archives use the existing server grader and saved-attempt contract. No existing bank is changed, history is not reset and no database migration is needed. Authentication return destinations consult the registry, preserving the selected lesson/question while rejecting unknown or unsafe routes.
 
-The overview uses the shared Base shell and SignalGeometry with an optional `decalage` variant; the default logic composition remains unchanged. The green accent is scoped to the overview. No feedback colours, server grading, authentication, database records or existing progress calculations change. Both locales share the `parcours` fragment so language switching preserves that position.
+Private progress contains both chapters, with actual per-chapter attempted/total counts, per-lesson results and archived-version history. The public overview links to this authenticated page; it does not display invented personal metrics. Global glossary, number-family, account and progress routes retain neutral chapter navigation.
 
 ## Shared chapter navigation
 
-The Base header replaces “Le cours” with a native chapter disclosure containing normal links. It works without JavaScript. Keyboard Enter/Space toggles it; the enhancement closes it on Escape (restoring trigger focus), outside click and focus leaving the disclosure. Current chapter identity comes from the explicit catalogue and locale-relative route; shared resources use a neutral “Chapitres / Chapters” trigger. Current chapter status uses text, a checkmark and `aria-current="location"` rather than colour alone.
+The Base header uses a native disclosure with ordinary links and works without JavaScript. Enter/Space toggles it; Escape restores trigger focus; outside clicks and focus leaving dismiss it. Explicit membership determines the current chapter. The current item uses text, a checkmark and `aria-current="location"`, alongside colour.
 
-Chapter switching opens the selected overview in the same locale. Locale switching preserves Chapter 2 and its shared `parcours` fragment. No navigation state is stored in learner records or local storage. Full chapter names appear in the dropdown and the trigger's accessible name; short visible labels fit small screens. Global number-family access uses the compact “Nombres / Numbers” header label; the reference page itself is unchanged. French header sign-in uses “Connexion”; forms keep their existing labels.
+Chapter switching preserves language. Locale switching preserves the lesson/activity; translated section anchors are matched by heading position. Practice retains unfinished responses and recorded feedback through the existing session lifecycle. No last-chapter preference is stored in learner records or local storage solely for navigation.
 
-Desktop uses one row above 1050 px. At and below 1050 px, brand/language/account occupy the first row and navigation the second. The dropdown spans the mobile navigation row and has a viewport-bounded scroll area for future catalogue growth. Focus outlines, 44 px header targets and the existing account/profile menu remain available. Green header styling is scoped to Chapter 2 identity, not feedback or grading semantics.
+Full names appear in the dropdown and accessible trigger name, with short visible labels on small screens. Above 1050 px the header uses one row; at and below that width, navigation occupies a second row. The mobile dropdown has a bounded scroll area and 44 px targets. The existing account menu and focus outlines remain available.
 
-## Review order
+## Review and validation
 
-The overview and chapter catalogue were merged in PR #54. The dependent navigation PR #55 targets `main` and integrates the chapter selector into the shared header; no PR is merged automatically.
+The earlier overview/navigation PRs are merged. The content checkpoint remains inactive; the following promotion/integration PR selects the new content and connects practice. Review the content checkpoint before the dependent activation change. No merge is performed automatically.
 
-Checks: run `pnpm check` and `pnpm test:e2e`. Browser coverage checks public access, preparation status, MathML, same-chapter/fragment locale switching, mobile reflow and no-JavaScript reading. Local checks do not establish hosted Supabase or assistive-technology acceptance.
+`pnpm check` passed with 267 application/content tests and zero Astro diagnostics. The browser suite passed 170 tests, including all 16 new readings in both languages at 320/1280 px, overview reflow, no-JavaScript reading, Chapter 2 question 15, sign-in returns, saved feedback after reload/language switching, fresh sign-in history and account isolation. Existing Chapter 1 journeys also pass. These local protocol fixtures do not certify a hosted Supabase installation or actual screen-reader acceptance.
