@@ -6,6 +6,8 @@ Notable changes are recorded here. No application version has been released.
 
 ### Fixed
 
+- Clarify L07-E04’s necessary-and-sufficient condition in immutable bank v2, retain v1 for historical feedback, and record mathematical/bilingual author self-check evidence.
+
 - Align the math-course-studio skill with registry-selected exercise versions, immutable correction drafts and reviewed release promotion; collect misconception tags from selected banks rather than archived v1 files.
 
 - Revalidate returning tabs and restored history entries, clear confirmed stale account state, and refresh saved progress without replacing unfinished practice answers.

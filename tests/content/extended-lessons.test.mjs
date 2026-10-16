@@ -141,12 +141,29 @@ test('L07-E04: A ≡ B iff A ⇔ B is a tautology, over all 16 × 16 pairs of ta
   const tables = Array.from({ length: 16 }, (_, k) =>
     Array.from({ length: 4 }, (_, i) => Boolean((k >> i) & 1)),
   );
+  const failures = { a: 0, b: 0, c: 0, d: 0 };
   for (const f of tables)
     for (const g of tables) {
       const sameTable = f.every((value, i) => value === g[i]);
       const biconditionalTautology = f.every((value, i) => iff(value, g[i]));
       assert.equal(sameTable, biconditionalTautology);
+      const conditions = {
+        a: biconditionalTautology,
+        b: f.some((value, i) => iff(value, g[i])),
+        c: f.every((value, i) => !iff(value, g[i])),
+        d: f.every(Boolean) && g.every(Boolean),
+      };
+      for (const id of Object.keys(conditions))
+        if (conditions[id] !== sameTable) failures[id]++;
     }
+  assert.deepEqual(
+    Object.keys(failures).filter((id) => failures[id] === 0),
+    [e7('L07-E04').answer],
+    'only the key is both necessary and sufficient over the finite domain',
+  );
+  assert.equal(l07.version, 2);
+  assert.match(e7('L07-E04').prompt.fr, /nécessaire et suffisante/);
+  assert.match(e7('L07-E04').prompt.en, /necessary and sufficient/);
   // Distractor b: A∧B and A∨B agree on some rows without being equivalent.
   const f = ({ A, B }) => A && B;
   const g = ({ A, B }) => A || B;

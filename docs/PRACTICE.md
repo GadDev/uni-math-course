@@ -1,10 +1,10 @@
 # Practice, grading and progress
 
-Status: implemented locally for L01–L20; only L05 self-checked; hosted acceptance pending.
+Status: implemented locally for L01–L20; L05 and L07 self-checked; hosted acceptance pending.
 
 ## Scope
 
-A signed-in learner can open the L05 practice section, answer six exercises, receive server-graded feedback, and see saved attempts, open mistakes and mastery evidence on a private progress page. L01–L20 are served (selected versions and review states in `content/releases.json`, exposed by `src/lib/released-lessons.ts`). Only L05 has passed mathematical and bilingual review; the other banks were released at the maintainer's request before that review, and their practice pages say so. Set `practice: false` in its release record to withdraw practice while keeping reading freshness checks.
+A signed-in learner can open the L05 practice section, answer six exercises, receive server-graded feedback, and see saved attempts, open mistakes and mastery evidence on a private progress page. L01–L20 are served (selected versions and review states in `content/releases.json`, exposed by `src/lib/released-lessons.ts`). L05 and L07 have documented mathematical and bilingual author self-checks (not independent review); the other banks were released at the maintainer's request before that review, and their practice pages say so. Set `practice: false` in its release record to withdraw practice while keeping reading freshness checks.
 
 ## Contract
 
