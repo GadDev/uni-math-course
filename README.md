@@ -1,12 +1,19 @@
 # Uni Math Course
 
-A French/English mathematics learning pilot for university students and adults returning to mathematics.
+[![Repository checks](https://github.com/GadDev/uni-math-course/actions/workflows/check.yml/badge.svg?branch=main)](https://github.com/GadDev/uni-math-course/actions/workflows/check.yml)
+[![Pilot status](https://img.shields.io/badge/status-learning_pilot-6A5ACD)](docs/PILOT_ACCEPTANCE.md)
+[![French and English](https://img.shields.io/badge/languages-FR_%2F_EN-087E8B)](#features)
+[![Node.js](https://img.shields.io/badge/Node.js-24.19.0-339933?logo=nodedotjs&logoColor=white)](.node-version)
+[![pnpm](https://img.shields.io/badge/pnpm-11.25.0-F69220?logo=pnpm&logoColor=white)](package.json)
+[![MIT licence](https://img.shields.io/badge/licence-MIT-blue)](LICENSE)
 
-The first course is **logic and sets**. The learning loop is: understand a concept, inspect a worked example, practise, receive feedback, and revisit mistakes.
+A **French/English mathematics learning pilot** for university students and adults returning to mathematics. The first course explores **logic and sets** through short lessons, worked examples and practice with feedback.
 
-Status: **reading and practice implemented; hosted class acceptance pending** · Maintainer: [GadDev](https://github.com/GadDev) · Last status review: 2026-10-16
+**[Explore in French](https://uni-math-course.vercel.app/fr/)** · **[Explore in English](https://uni-math-course.vercel.app/en/)** · [Project roadmap](docs/ROADMAP.md)
 
-## What works
+Public lessons and the symbol glossary can be read without an account. Practice and private progress require an invited account and a configured Supabase deployment.
+
+## Features
 
 - Public French/English programme pages and lessons.
 - Public searchable French/English symbol glossary, with bilingual readings, source pages and stable entry links.
@@ -16,36 +23,50 @@ Status: **reading and practice implemented; hosted class acceptance pending** ·
 - Configurable email/password Supabase sign-in for an invited group, verified server sessions and local logout.
 - Authenticated practice, server grading, saved attempts and private progress. Unreviewed banks display a warning.
 
+## Pilot status
+
+**Reading and practice are implemented; hosted class acceptance is pending.** This is an independent learning project, not a university-approved course or a fully accepted class service.
+
+Maintainer: [GadDev](https://github.com/GadDev) · Last status review: 2026-10-16
+
 <!-- release-status:start -->
 Release status (generated from content/releases.json): 20 public bilingual lessons; 20 served practice banks. Mathematical author self-check: L01, L03, L05, L06, L07, L19; explicit unreviewed release exceptions: 14 banks. Translation self-check: L01, L03, L05, L06, L07, L19; explicit unreviewed translation exceptions: 14 lesson pairs. These records do not certify independent review or hosted class readiness.
 <!-- release-status:end -->
 
 Sign-in is disabled until configured. Hosted authentication, database/deployment acceptance and class-pilot privacy decisions remain pending. See the [content release contracts](docs/CONTENT_RELEASES.md); local implementation is not proof of a complete hosted learning journey.
 
-## Local development
+## Technology
 
-Use Node 24.19.0 and pnpm 11.25.0. Dependencies are exact and the lockfile is committed.
+[Astro](https://astro.build/) and [React](https://react.dev/) with TypeScript power the lessons and practice. [KaTeX](https://katex.org/) renders notation; Supabase provides invited-user authentication and PostgreSQL persistence; Vercel hosts the application. See the [tech stack and decisions](docs/TECHSTACK.md) for scope and limitations.
+
+## Run locally
+
+Requires **Node.js 24.19.0** and **pnpm 11.25.0** (pinned in `.node-version` and `package.json`). Install from the committed lockfile:
 
 ```sh
+git clone https://github.com/GadDev/uni-math-course.git
+cd uni-math-course
 pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open http://localhost:4321/fr/ or http://localhost:4321/en/. The root redirects to French. See [authentication setup](docs/AUTHENTICATION.md) and .env.example to configure a development Supabase project. Reading works without those settings.
+Open [http://localhost:4321/fr/](http://localhost:4321/fr/) or [http://localhost:4321/en/](http://localhost:4321/en/). The root redirects to French. **Public reading needs no credentials.**
 
-## Quality gate
+To test authentication, grading and saved progress, configure a separate development Supabase project using [`.env.example`](.env.example) and the [authentication setup guide](docs/AUTHENTICATION.md). Use synthetic accounts; do not commit credentials or learner data.
+
+## Verify changes
 
 ```sh
-pnpm check
+pnpm check                       # documentation, content, types, tests and build
 pnpm exec playwright install chromium
-pnpm test:e2e
+pnpm test:e2e                    # local browser journeys
 ```
 
-The check covers repository links/structure, content parity/contracts, types, formatting, mathematical tests and production build. Browser checks cover reading, language switching, math markup, native disclosure keyboard/no-JavaScript behaviour, narrow layouts and authentication/session flows through the real SDK and an isolated local Auth fixture. These checks do not certify independent mathematical peer review or a working authentication deployment.
+The [repository checks workflow](.github/workflows/check.yml) also runs release, exercise-immutability and disposable PostgreSQL contract checks, plus browser tests. The required job is named `docs`. Local browser tests use an isolated Auth/Data API fixture; passing CI does **not** establish independent mathematical review, hosted authentication or class readiness.
 
-For opt-in tests against an existing deployment with dedicated synthetic accounts, see [hosted pilot E2E checks](docs/HOSTED_TESTS.md). They are separate from credential-free PR checks.
+Hosted acceptance is separate and opt-in. Follow [hosted E2E setup](docs/HOSTED_TESTS.md) with dedicated synthetic accounts, and record real results in the [pilot acceptance checklist](docs/PILOT_ACCEPTANCE.md).
 
-## Project direction
+## Product and learning documentation
 
 - [Mission](docs/MISSION.md)
 - [Constitution](docs/CONSTITUTION.md)
@@ -60,7 +81,9 @@ For opt-in tests against an existing deployment with dedicated synthetic account
 - [Learning contract audit](docs/LEARNING_CONTRACT_AUDIT.md)
 - [Pilot readiness and acceptance evidence](docs/PILOT_ACCEPTANCE.md)
 
-## Repository guide
+## Contribute and maintain
+
+Corrections to mathematics, translations, accessibility and developer experience are welcome. Follow the repository policies below and keep pull requests focused.
 
 - [Contributing](CONTRIBUTING.md)
 - [Code of conduct](CODE_OF_CONDUCT.md)
