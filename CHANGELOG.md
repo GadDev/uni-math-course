@@ -6,6 +6,7 @@ Notable changes are recorded here. No application version has been released.
 
 ### Fixed
 
+- Replaced the reading-tip React/Radix island with a native keyboard-accessible disclosure that works without JavaScript, and removed the global Radix stylesheet from public pages.
 - Record translation review against its French source fingerprint and derive checked release-status summaries from the authoritative registry. Preserve existing unreviewed-release exceptions.
 
 - Keep withdrawn and archived attempts in lifetime history, read one owner-scoped database snapshot, and label historical feedback without regrading saved results.

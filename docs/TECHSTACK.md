@@ -6,7 +6,7 @@ Status: implementation stack approved; integration and operational evidence pend
 
 Deliver a correct four-lesson French/English learning pilot with one maintainer, **€0 recurring software cost**, public reading, signed-in practice, server grading and private saved progress. Use provider subdomains initially. Do not depend on trials, paid add-ons or an assumed future upgrade.
 
-The approved implementation stack is **Astro + React activities, Vercel Hobby, Supabase Free, and a small Radix Themes component set** (owner decision, 2026-10-14). The comparisons below retain the rationale and alternatives. The public reading foundation now implements Astro/React, the Vercel adapter and Radix Themes. Configurable Supabase authentication/session code is implemented; hosted acceptance and configured deployment remain pending.
+The approved implementation stack is **Astro + React activities, Vercel Hobby, Supabase Free, and a small Radix Themes component set** (owner decision, 2026-10-14). The comparisons below retain the rationale and alternatives. The public reading foundation uses Astro and the Vercel adapter; its reading-tip disclosure uses native HTML without React hydration or global Radix CSS. React remains the practice framework. Radix stays installed pending a separate dependency decision. Configurable Supabase authentication/session code is implemented; hosted acceptance and configured deployment remain pending.
 
 | Decision | Proposed choice | Reason / condition |
 | --- | --- | --- |

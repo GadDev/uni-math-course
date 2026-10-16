@@ -4,7 +4,7 @@
 
 French/English programme pages and L01–L20 reading are public. L05 has documented mathematical/bilingual self-check evidence; other practice banks retain the explicit unreviewed exception. Practice and private progress are implemented locally; see [PRACTICE.md](PRACTICE.md). Hosted acceptance remains unverified.
 
-Astro prerenders the pages. React/Radix adds a reading-tip disclosure, not an anonymous exercise. KaTeX emits HTML and MathML; mathematical readings are explained in the lesson. Switching language preserves the current lesson and maps its section fragment to the corresponding translated heading. Missing paired translations or mismatched heading counts/depths block the build; heading order must also be reviewed for semantic alignment.
+Astro prerenders the pages. A native HTML details/summary disclosure provides the reading tip on programme and lesson pages, with keyboard support and no hydration or JavaScript requirement. Radix CSS is no longer imported globally; React remains available for signed-in practice. KaTeX emits HTML and MathML; mathematical readings are explained in the lesson. Switching language preserves the current lesson and maps its section fragment to the corresponding translated heading. Missing paired translations or mismatched heading counts/depths block the build; heading order must also be reviewed for semantic alignment.
 
 The [Signal implementation review](design/implementation/signal-public-reading/README.md) records the public programme/lesson styling, screenshots, validation and remaining accessibility checks. The selected art direction is implemented with CSS, a self-hosted OFL font and original decorative SVG; the concept images are not loaded by the application.
 
@@ -18,7 +18,7 @@ Formatting covers application/configuration and JavaScript/TypeScript checks rat
 
 ## Validation
 
-Run pnpm check and pnpm test:e2e as described in README.md. Browser checks cover both languages, lesson identity/fragment switching, KaTeX MathML, a working hydrated Radix disclosure by keyboard, a missing route and 320/375/768/1280 px geometry.
+Run pnpm check and pnpm test:e2e as described in README.md. Browser checks cover both languages, lesson identity/fragment switching, KaTeX MathML, a native disclosure by keyboard and with JavaScript disabled, a missing route and 320/375/768/1280 px geometry.
 
 The production build targets Vercel through the selected adapter. Browser tests exercise the local production build; a future Vercel preview must still verify deployed adapter/session behaviour. Authentication/session integration is now described in [AUTHENTICATION.md](AUTHENTICATION.md); saved progress is implemented locally, while hosted acceptance remains unverified.
 
@@ -30,3 +30,8 @@ The production build targets Vercel through the selected adapter. Browser tests 
 4. Verify deployed mistake review/private progress, privacy procedures and deployment identity.
 
 Release Please remains its own future PR. Keep free-plan eligibility, project pauses/export/restore, retention and source rights explicit. Review the stack documents and content pilot before publishing a class pilot.
+
+
+## Reading transfer measurements
+
+See [the disclosure performance comparison](READING_PERFORMANCE.md) for repeatable cold-load gzip measurements. The installed UI library is retained pending a separate dependency decision; public reading does not import its runtime or CSS.

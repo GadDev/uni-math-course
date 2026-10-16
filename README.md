@@ -11,7 +11,7 @@ Status: **reading and practice implemented; hosted class acceptance pending** ·
 - Public French/English programme pages and lessons.
 - Public searchable French/English symbol glossary, with bilingual readings, source pages and stable entry links.
 - Mathematical notation with visual KaTeX and MathML output.
-- Same-lesson language switching and a React/Radix reading disclosure.
+- Same-lesson language switching and a native reading disclosure that works without JavaScript.
 - Versioned exercise contracts and content/mathematical checks.
 - Configurable email/password Supabase sign-in for an invited group, verified server sessions and local logout.
 - Authenticated practice, server grading, saved attempts and private progress. Unreviewed banks display a warning.
@@ -41,7 +41,7 @@ pnpm exec playwright install chromium
 pnpm test:e2e
 ```
 
-The check covers repository links/structure, content parity/contracts, types, formatting, mathematical tests and production build. Browser checks cover reading, language switching, math markup, Radix keyboard behaviour, narrow layouts and authentication/session flows through the real SDK and an isolated local Auth fixture. These checks do not certify independent mathematical peer review or a working authentication deployment.
+The check covers repository links/structure, content parity/contracts, types, formatting, mathematical tests and production build. Browser checks cover reading, language switching, math markup, native disclosure keyboard/no-JavaScript behaviour, narrow layouts and authentication/session flows through the real SDK and an isolated local Auth fixture. These checks do not certify independent mathematical peer review or a working authentication deployment.
 
 ## Project direction
 

@@ -23,33 +23,67 @@ test('read the bilingual pilot and preserve lesson/anchor on language switching'
   ).toHaveAttribute('href', '/fr/lessons/L05/');
 });
 
-test('Radix island hydrates and the reading disclosure works by keyboard', async ({
-  page,
-}) => {
-  await page.goto('/en/');
-  const button = page.getByRole('button', { name: 'How to use this notebook' });
-  await expect(button).toBeVisible();
-  await expect(button).toBeEnabled();
-  await expect(
-    page.getByText('Read an example, then explain the rule'),
-  ).not.toBeVisible();
-  const frame = await page.locator('.reading-notice-theme').boundingBox();
-  const notice = await page.locator('.reading-notice').boundingBox();
-  expect(frame!.height).toBeLessThanOrEqual(notice!.height + 4);
-  await button.focus();
-  await page.keyboard.press('Enter');
-  await expect(
-    page.getByRole('button', { name: 'Hide the tip' }),
-  ).toHaveAttribute('aria-expanded', 'true');
-  await expect(
-    page.getByText('Read an example, then explain the rule'),
-  ).toBeVisible();
-  await page.keyboard.press('Enter');
-  await expect(button).toHaveAttribute('aria-expanded', 'false');
-  await expect(
-    page.getByText('Read an example, then explain the rule'),
-  ).not.toBeVisible();
-});
+for (const locale of ['fr', 'en']) {
+  for (const path of [`/${locale}/`, `/${locale}/lessons/L05/`]) {
+    test(`native reading disclosure supports keyboard without hydration (${path})`, async ({
+      page,
+    }) => {
+      await page.goto(path);
+      const disclosure = page.locator('.reading-guide');
+      const summary = disclosure.locator('summary');
+      const guide = disclosure.locator('p');
+      await expect(disclosure).not.toHaveAttribute('open');
+      await expect(guide).not.toBeVisible();
+      await expect(page.locator('astro-island')).toHaveCount(0);
+      await expect(summary).toHaveAccessibleName(
+        locale === 'fr'
+          ? 'Comment utiliser ce carnet'
+          : 'How to use this notebook',
+      );
+      await summary.focus();
+      expect(
+        await summary.evaluate(
+          (element) => getComputedStyle(element).outlineWidth,
+        ),
+      ).not.toBe('0px');
+      await page.keyboard.press('Enter');
+      await expect(disclosure).toHaveAttribute('open', '');
+      await expect(guide).toBeVisible();
+      await expect(summary).toHaveAccessibleName(
+        locale === 'fr' ? 'Masquer le conseil' : 'Hide the tip',
+      );
+      await page.keyboard.press('Space');
+      await expect(disclosure).not.toHaveAttribute('open');
+      await expect(guide).not.toBeVisible();
+      await expect(summary).toBeFocused();
+    });
+
+    test(`reading disclosure works with JavaScript disabled (${path})`, async ({
+      browser,
+    }) => {
+      const context = await browser.newContext({
+        javaScriptEnabled: false,
+        viewport: { width: 320, height: 900 },
+      });
+      try {
+        const page = await context.newPage();
+        await page.goto('http://127.0.0.1:4321' + path);
+        const disclosure = page.locator('.reading-guide');
+        await expect(disclosure.locator('p')).not.toBeVisible();
+        await disclosure.locator('summary').click();
+        await expect(disclosure).toHaveAttribute('open', '');
+        await expect(disclosure.locator('p')).toBeVisible();
+        await disclosure.locator('summary').click();
+        await expect(disclosure).not.toHaveAttribute('open');
+        expect(
+          await page.evaluate(() => document.documentElement.scrollWidth),
+        ).toBeLessThanOrEqual(320);
+      } finally {
+        await context.close();
+      }
+    });
+  }
+}
 
 for (const width of [320, 375, 768, 1280]) {
   test('French reading fits at ' + width + 'px', async ({ page }) => {
