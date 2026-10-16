@@ -15,8 +15,7 @@ export const exerciseArchive: ReadonlyMap<string, Exercise> = new Map(
     .flatMap((file) => file.exercises)
     .filter(
       (exercise) =>
-        RELEASED_LESSONS.includes(exercise.lessonId) &&
-        (exercise.type === 'single-choice' || exercise.type === 'truth-table'),
+        exercise.type === 'single-choice' || exercise.type === 'truth-table',
     )
     .map((exercise) => [`${exercise.id}@${exercise.version}`, exercise]),
 );
@@ -26,6 +25,7 @@ export const exerciseBank: ReadonlyMap<string, Exercise> = new Map(
   [...exerciseArchive.values()]
     .filter(
       (exercise) =>
+        RELEASED_LESSONS.includes(exercise.lessonId) &&
         lessonReleases[exercise.lessonId]?.version === exercise.version,
     )
     .map((exercise) => [exercise.id, exercise]),

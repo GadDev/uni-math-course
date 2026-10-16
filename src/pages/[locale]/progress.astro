@@ -38,9 +38,7 @@ if (auth && user && !unavailable) {
   try {
     const rows = await loadAttempts(auth.client, user.id);
     progress = summarise(rows, exerciseBank, 20, exerciseArchive);
-    aidedAttempts = rows.filter(
-      (row) => row.hintUsed && exerciseBank.has(row.exerciseId),
-    ).length;
+    aidedAttempts = rows.filter((row) => row.hintUsed).length;
   } catch {
     unavailable = true;
   }
@@ -67,7 +65,7 @@ const totals = progress && {
   total: progress.lessons.reduce((sum, l) => sum + l.total, 0),
 };
 // The focus panel: the latest open mistake, else the next lesson to practise.
-const mistake = progress?.mistakes[0];
+const mistake = progress?.mistakes.find((item) => !item.archived);
 const nextLesson = progress
   ? (progress.lessons.find(
       (l) => l.lessonId === PILOT_LESSON && l.attempted < l.total,
@@ -324,12 +322,14 @@ const recent = progress?.history.slice(0, 3) ?? [];
             {progress.mistakes.map((item) => (
               <article class="practice-exercise">
                 <h3>
-                  {text.exercise} {number(item.exerciseId)}
+                  {lessonOf(item.exerciseId)} · {text.exercise}{' '}
+                  {number(item.exerciseId)}
                   <small>
                     {' '}
                     · v{item.exerciseVersion} · {when(item.at)}
                   </small>
                 </h3>
+                {item.archived && <p>{text.archived}</p>}
                 <p>
                   <Tex text={item.prompt[locale]} />
                 </p>
@@ -351,7 +351,11 @@ const recent = progress?.history.slice(0, 3) ?? [];
                 <p>
                   <Tex text={item.explanation[locale]} />
                 </p>
-                <a href={lessonLink(lessonOf(item.exerciseId))}>{text.retry}</a>
+                {!item.archived && (
+                  <a href={lessonLink(lessonOf(item.exerciseId))}>
+                    {text.retry}
+                  </a>
+                )}
               </article>
             ))}
           </section>
@@ -365,8 +369,8 @@ const recent = progress?.history.slice(0, 3) ?? [];
                 <li>
                   <span>{when(item.at)}</span> ·{' '}
                   <span>
-                    {text.exercise} {number(item.exerciseId)} · v
-                    {item.exerciseVersion}
+                    {lessonOf(item.exerciseId)} · {text.exercise}{' '}
+                    {number(item.exerciseId)} · v{item.exerciseVersion}
                   </span>{' '}
                   ·{' '}
                   <span class={item.correct ? 'practice-ok' : 'practice-bad'}>
@@ -379,6 +383,27 @@ const recent = progress?.history.slice(0, 3) ?? [];
                       : text.practiceOnly}
                     {item.hintUsed ? ', ' + text.hintUsed : ''})
                   </small>
+                  {item.archived && <p>{text.archived}</p>}
+                  {item.explanation ? (
+                    <details>
+                      <summary>{text.historyFeedback}</summary>
+                      {item.prompt && (
+                        <p>
+                          <Tex text={item.prompt[locale]} />
+                        </p>
+                      )}
+                      {item.feedback && (
+                        <p>
+                          <Tex text={item.feedback[locale]} />
+                        </p>
+                      )}
+                      <p>
+                        <Tex text={item.explanation[locale]} />
+                      </p>
+                    </details>
+                  ) : (
+                    <p>{text.feedbackUnavailable}</p>
+                  )}
                 </li>
               ))}
             </ol>

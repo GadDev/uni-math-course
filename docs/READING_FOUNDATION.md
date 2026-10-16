@@ -2,7 +2,7 @@
 
 ## Implemented feature
 
-M2 feature 1 provides French/English programme pages and the original L05 lesson. Reading is public. The programme labels future lessons as coming later and links to configurable sign-in and describes practice/progress as in development.
+French/English programme pages and L01–L20 reading are public. L05 has documented mathematical/bilingual self-check evidence; other practice banks retain the explicit unreviewed exception. Practice and private progress are implemented locally; see [PRACTICE.md](PRACTICE.md). Hosted acceptance remains unverified.
 
 Astro prerenders the pages. A native HTML details/summary disclosure provides the reading tip on programme and lesson pages, with keyboard support and no hydration or JavaScript requirement. Radix CSS is no longer imported globally; React remains available for signed-in practice. KaTeX emits HTML and MathML; mathematical readings are explained in the lesson. Switching language preserves the current lesson and maps its section fragment to the corresponding translated heading. Missing paired translations or mismatched heading counts/depths block the build; heading order must also be reviewed for semantic alignment.
 
@@ -20,14 +20,14 @@ Formatting covers application/configuration and JavaScript/TypeScript checks rat
 
 Run pnpm check and pnpm test:e2e as described in README.md. Browser checks cover both languages, lesson identity/fragment switching, KaTeX MathML, a native disclosure by keyboard and with JavaScript disabled, a missing route and 320/375/768/1280 px geometry.
 
-The production build targets Vercel through the selected adapter. Browser tests exercise the local production build; a future Vercel preview must still verify deployed adapter/session behaviour. Authentication/session integration is now described in [AUTHENTICATION.md](AUTHENTICATION.md); hosted acceptance, production deployment and saved progress are still pending.
+The production build targets Vercel through the selected adapter. Browser tests exercise the local production build; a future Vercel preview must still verify deployed adapter/session behaviour. Authentication/session integration is now described in [AUTHENTICATION.md](AUTHENTICATION.md); saved progress is implemented locally, while hosted acceptance remains unverified.
 
-## Next features
+## Remaining acceptance
 
 1. Hosted Supabase account/session acceptance after project configuration and provider suitability are known.
-2. Authenticated exercise delivery and server grading against immutable versions.
-3. Idempotent attempt persistence and owner-only access.
-4. Mistake review/private progress and full deployment acceptance.
+2. Verify hosted exercise delivery and grading against the selected immutable versions.
+3. Verify the hosted migrations, idempotent persistence, database snapshot and owner-only access.
+4. Verify deployed mistake review/private progress, privacy procedures and deployment identity.
 
 Release Please remains its own future PR. Keep free-plan eligibility, project pauses/export/restore, retention and source rights explicit. Review the stack documents and content pilot before publishing a class pilot.
 

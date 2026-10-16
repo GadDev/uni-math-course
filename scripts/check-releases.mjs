@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { readFile } from 'node:fs/promises';
+import { readFile, readdir } from 'node:fs/promises';
 
 export async function validateReleases(
   releases,
@@ -9,6 +9,9 @@ export async function validateReleases(
   for (const [id, record] of Object.entries(releases.lessons)) {
     assert.match(id, /^L\d{2}$/);
     assert.ok(Number.isInteger(record.version) && record.version > 0);
+    assert.ok(
+      record.practice === undefined || typeof record.practice === 'boolean',
+    );
     assert.ok(['self-checked', 'unreviewed-exception'].includes(record.review));
     assert.ok(
       (await read(record.evidence)).length,
@@ -37,7 +40,18 @@ export async function validateReleases(
 }
 
 export async function checkReleases() {
-  await validateReleases(
-    JSON.parse(await readFile('content/releases.json', 'utf8')),
+  const releases = JSON.parse(await readFile('content/releases.json', 'utf8'));
+  const lessons = (await readdir('content/lessons')).filter((id) =>
+    /^L\d{2}$/.test(id),
+  );
+  validateReleaseCoverage(releases, lessons);
+  await validateReleases(releases);
+}
+
+export function validateReleaseCoverage(releases, publishedLessonIds) {
+  assert.deepEqual(
+    Object.keys(releases.lessons).sort(),
+    [...publishedLessonIds].sort(),
+    'Every public reading lesson needs a freshness record, even when practice is withdrawn',
   );
 }

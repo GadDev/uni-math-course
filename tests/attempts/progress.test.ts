@@ -105,7 +105,7 @@ test('attempts on unreleased or unparsable data never break the summary', () => 
     ],
     bank,
   );
-  assert.equal(progress.totalAttempts, 1);
+  assert.equal(progress.totalAttempts, 2);
   assert.equal(progress.mistakes.length, 1);
   assert.equal(progress.mistakes[0]!.chosen, undefined);
 });
@@ -139,6 +139,7 @@ test('old feedback uses its archived version and does not count as current evide
   assert.equal(progress.lessons[0]!.attempted, 0);
   assert.equal(progress.totalAttempts, 2);
   assert.equal(progress.history[0]!.exerciseVersion, 1);
+  assert.equal(progress.history[0]!.archived, true);
   const mistakes = summarise([old], current, 20, archive).mistakes;
   assert.equal(mistakes[0]!.explanation.en, original.explanation.en);
   assert.equal(mistakes[0]!.exerciseVersion, 1);
@@ -147,6 +148,79 @@ test('old feedback uses its archived version and does not count as current evide
     [],
     'never borrow current feedback when the archive is missing',
   );
+});
+
+test('withdrawn lessons retain lifetime totals, original feedback and saved verdicts', () => {
+  const original = bank.get('L05-E01')!;
+  const saved = attempt({
+    correct: false,
+    response: { optionId: '00' },
+    independentEvidence: false,
+  });
+  const summary = summarise(
+    [saved],
+    new Map(),
+    20,
+    new Map([[`${original.id}@1`, original]]),
+  );
+  assert.equal(summary.totalAttempts, 1);
+  assert.deepEqual(summary.lessons, []);
+  assert.equal(summary.history[0]!.correct, false);
+  assert.equal(summary.history[0]!.archived, true);
+  assert.equal(summary.history[0]!.explanation!.en, original.explanation.en);
+  assert.equal(summary.mistakes[0]!.archived, true);
+  const missing = summarise([saved], new Map());
+  assert.equal(missing.totalAttempts, 1);
+  assert.equal(missing.history[0]!.correct, false);
+  assert.equal(missing.history[0]!.explanation, undefined);
+});
+
+test('equal timestamps have deterministic history order without changing saved grades', () => {
+  const first = attempt({
+    id: 'a',
+    createdAt: '2026-10-16T05:00:00Z',
+    correct: false,
+  });
+  const second = attempt({
+    id: 'b',
+    createdAt: first.createdAt,
+    correct: true,
+  });
+  const a = summarise([first, second], bank);
+  const b = summarise([second, first], bank);
+  assert.deepEqual(
+    a.history.map((item) => [item.attemptId, item.correct]),
+    [
+      ['b', true],
+      ['a', false],
+    ],
+  );
+  assert.deepEqual(a.history, b.history);
+});
+
+test('a late old-version answer cannot close a current-version mistake', () => {
+  const original = bank.get('L05-E01')!;
+  const current = { ...original, version: 2 };
+  const currentWrong = attempt({
+    exerciseVersion: 2,
+    correct: false,
+    response: { optionId: '00' },
+  });
+  const lateOldCorrect = attempt({ exerciseVersion: 1, correct: true });
+  const summary = summarise(
+    [currentWrong, lateOldCorrect],
+    new Map([[current.id, current]]),
+    20,
+    new Map([
+      [`${original.id}@1`, original],
+      [`${current.id}@2`, current],
+    ]),
+  );
+  assert.equal(summary.mistakes[0]!.exerciseVersion, 2);
+  assert.equal(summary.mistakes[0]!.archived, false);
+  assert.equal(summary.lessons[0]!.exercises[0]!.latestCorrect, false);
+  assert.equal(summary.history[0]!.exerciseVersion, 1);
+  assert.equal(summary.history[0]!.correct, true);
 });
 
 test('lifetime evidence survives more than 500 later attempts', () => {

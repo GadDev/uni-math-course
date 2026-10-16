@@ -1,6 +1,6 @@
 # Content release contracts
 
-`content/releases.json` selects each served practice bank version and records its review state. `src/lib/released-lessons.ts` derives routes and review notices from it. Authored reading can exist without a practice release.
+`content/releases.json` selects each served practice bank version and records its review state. `src/lib/released-lessons.ts` derives routes and review notices from it. Every public reading lesson must have a freshness record; `practice: false` withdraws practice without withdrawing or bypassing checks on its reading.
 
 ## Existing release decisions
 
@@ -14,7 +14,7 @@ L01–L04 and L06–L20 remain served under the maintainer's explicit pre-review
 - Review mathematical correctness and French/English fidelity before selecting the next version. Record the actual review or explicit owner exception in an evidence document; never invent a reviewer or date.
 - The release record contains SHA-256 fingerprints of the selected bank and both lesson files. Any edit to either language or the bank makes `pnpm check:content` fail until the release decision is renewed. The diagnostic prints the current hash; updating it is an explicit review decision, not an automatic translation step.
 - Old evidence does not automatically certify a corrected version. History preserves the original recorded grade and resolves explanations from the exact archived version. Missing archives must not borrow current feedback. An already-seen exercise ID stays practice-only even after a version correction; introduce distinct items when fresh independent evidence is needed.
-- Removing a lesson from the release record withdraws its practice route and API delivery without deleting its authored reading or stored attempts.
+- Set `practice: false` to withdraw a practice route and API delivery. Keep the reading fingerprints and immutable archives. Removing the record while its lesson is public fails the content gate. Lifetime attempts and historical explanations remain visible after withdrawal.
 
 The fingerprint gate detects changed bytes, missing translations and stale recorded releases. It cannot prove translation fidelity or mathematical review. Keep the content checks and documented human/self-check alongside it.
 

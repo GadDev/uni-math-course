@@ -50,6 +50,21 @@ end $$;
 set local request.jwt.claim.sub = '00000000-0000-4000-8000-000000000002';
 do $$ begin
   if (select count(*) from public.attempts) <> 1 then raise exception 'Second owner RLS'; end if;
+  if jsonb_array_length(public.read_attempt_history()) <> 1 then raise exception 'Snapshot RLS'; end if;
+  if public.read_attempt_history()->0->>'user_id' <> '00000000-0000-4000-8000-000000000002' then raise exception 'Snapshot wrong owner'; end if;
+end $$;
+reset role;
+set local role service_role;
+insert into public.attempts (user_id, submission_id, lesson_id, exercise_id,
+  exercise_version, response, correct, hint_used, independent_evidence, locale)
+select '00000000-0000-4000-8000-000000000001', gen_random_uuid(), 'L05',
+  'L05-E02', 1, '{"cells":{}}', true, false, false, 'en'
+from generate_series(1, 1001);
+reset role;
+set local role authenticated;
+set local request.jwt.claim.sub = '00000000-0000-4000-8000-000000000001';
+do $$ begin
+  if jsonb_array_length(public.read_attempt_history()) <> 1002 then raise exception 'Snapshot truncated history'; end if;
 end $$;
 set local role anon;
 do $$ begin
@@ -60,6 +75,10 @@ do $$ begin
   begin
     perform public.record_attempt('{}');
     raise exception 'Anonymous RPC allowed';
+  exception when insufficient_privilege then null; end;
+  begin
+    perform public.read_attempt_history();
+    raise exception 'Anonymous snapshot allowed';
   exception when insufficient_privilege then null; end;
 end $$;
 rollback;

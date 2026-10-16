@@ -4,9 +4,9 @@ Status: proposed delivery plan · Owner: GadDev · Last reviewed: 2026-10-14
 
 ## Delivery goal and current state
 
-Deliver a small French/English learning journey with correct content, real sign-in, server grading, saved attempts, and private progress. The public Astro/React reading foundation and the L05 content pilot are implemented. The configurable authentication/session flow is implemented with local protocol tests. No deployed production service, hosted authentication acceptance or full exercise bank exists yet.
+Deliver a small French/English learning journey with correct content, real sign-in, server grading, saved attempts, and private progress. L01–L20 reading, exercise banks, authentication, grading and private progress are implemented locally. Only L05 has documented mathematical/bilingual self-check evidence; the remaining banks retain the explicit unreviewed exception. Local protocol/browser/SQL evidence does not establish hosted acceptance or a mathematically reviewed full course.
 
-The [mission](MISSION.md) defines the outcome; the [constitution](CONSTITUTION.md) defines content and product constraints. The Astro/React, Vercel Hobby, Supabase Free and Radix Themes stack is approved in [TECHSTACK.md](TECHSTACK.md); implementation and operational acceptance remain to be demonstrated.
+The [mission](MISSION.md) defines the outcome; the [constitution](CONSTITUTION.md) defines content and product constraints. The Astro/React, Vercel Hobby, Supabase Free and Radix Themes stack is approved in [TECHSTACK.md](TECHSTACK.md); the implementation exists and operational acceptance remains to be demonstrated.
 
 ## M0 - Repository and product foundation
 

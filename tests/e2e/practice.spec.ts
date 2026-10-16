@@ -25,6 +25,59 @@ async function identify(context: BrowserContext) {
   return issued.session;
 }
 
+test('lifetime history keeps archived records and labels unavailable explanations', async ({
+  page,
+  context,
+}) => {
+  const session = await identify(context);
+  for (const [exerciseId, version] of [
+    ['L99-E01', 99],
+    ['L05-E01', 1],
+  ] as const) {
+    const saved = await context.request.post(
+      fixture + '/rest/v1/rpc/record_attempt',
+      {
+        headers: { apikey: 'sb_secret_protocol_fixture' },
+        data: {
+          p_attempt: {
+            user_id: session.user.id,
+            submission_id: randomUUID(),
+            lesson_id: exerciseId.slice(0, 3),
+            exercise_id: exerciseId,
+            exercise_version: version,
+            response: { optionId: '00' },
+            correct: false,
+            hint_used: true,
+            locale: 'en',
+          },
+        },
+      },
+    );
+    expect(saved.status()).toBe(200);
+  }
+  await page.goto('/en/progress/');
+  await expect(page.locator('.progress-stats > div').nth(1)).toContainText('2');
+  await expect(page.locator('.progress-stats > div').nth(1)).toContainText(
+    '2 of them aided',
+  );
+  await expect(page.locator('.progress-history li')).toHaveCount(2);
+  const archived = page
+    .locator('.progress-history li')
+    .filter({ hasText: 'L99' });
+  await expect(archived).toContainText('v99');
+  await expect(archived).toContainText('Archived version');
+  await expect(archived).toContainText('explanation is unavailable');
+  const current = page
+    .locator('.progress-history li')
+    .filter({ hasText: 'L05' });
+  await current.locator('summary').click();
+  await expect(current).toContainText('condition is false');
+  await expect(page.locator('.progress-focus a')).toHaveAttribute(
+    'href',
+    '/en/lessons/L05/practice/',
+  );
+});
+
 test('hint exposure and active response survive closing, reload and language switching', async ({
   page,
   context,

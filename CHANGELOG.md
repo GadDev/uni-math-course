@@ -7,6 +7,8 @@ Notable changes are recorded here. No application version has been released.
 ### Fixed
 
 - Replaced the reading-tip React/Radix island with a native keyboard-accessible disclosure that works without JavaScript, and removed the global Radix stylesheet from public pages.
+- Keep withdrawn and archived attempts in lifetime history, read one owner-scoped database snapshot, and label historical feedback without regrading saved results.
+- Require freshness records for every public reading lesson, including when practice is disabled, and align implementation documentation.
 
 - Preserve hint exposure, active exercise and answers across language changes; keep an existing session after failed replacement sign-in and clear practice drafts on browser logout.
 - Make first-attempt evidence transactional, retain historical exercise feedback by version, and preserve lifetime progress beyond 500 attempts.

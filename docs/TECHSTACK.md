@@ -47,7 +47,7 @@ The reading scaffold and configurable Supabase authentication/session code are i
 
 ## Implemented contracts and remaining proposals
 
-The application uses the native Node test runner (not Vitest), Astro content schemas, explicit API response parsing, and Playwright. Practice/progress are on-demand authenticated routes; lessons are prerendered. Attempts use a server-only PostgreSQL transaction function to determine first-attempt evidence atomically. Both language files and the selected bank are fingerprinted in [content release contracts](CONTENT_RELEASES.md). These implemented choices supersede the proposed tool names below; hosted acceptance remains pending.
+The application uses the native Node test runner (not Vitest), Astro content schemas, explicit API response parsing, and Playwright. Practice/progress are on-demand authenticated routes; lessons are prerendered. Attempts use a server-only PostgreSQL transaction function to determine first-attempt evidence atomically. Both language files and the selected bank are fingerprinted in [content release contracts](CONTENT_RELEASES.md). Lifetime progress reads one session-scoped database snapshot. Hosted acceptance remains pending.
 
 ## Proposed application and content model
 
@@ -64,10 +64,10 @@ Store original lessons as Markdown with validated bilingual metadata in Git. Ast
 | Exercises | Bilingual definitions; shared answer identity; server-held grading modules |
 | Localisation | Explicit /fr/ and /en/ routes; stable language-independent IDs |
 | Mathematics | KaTeX HTML + MathML plus plain-language readings |
-| Validation | Zod at authored-content and API boundaries |
+| Validation | Astro/Zod content schema; explicit bounded API parsing |
 | Accounts | Supabase Auth; email/password for an invited group, accounts created by the owner |
 | Persistence | Supabase PostgreSQL; SQL migrations and ownership policies |
-| Verification | Vitest grading/content checks; auth/persistence integration; Playwright critical journeys |
+| Verification | Native Node grading/content tests; PostgreSQL contracts; Playwright journeys |
 | CI and releases | One quality gate; manual changelog until Release Please is activated |
 
 Astro documents [i18n routing](https://docs.astro.build/en/guides/internationalization/). Routing alone does not translate UI, validate French/English parity or preserve answers; implement those contracts explicitly. If Nuxt is selected, use its i18n module and Nitro routes instead. If Next.js is selected, revisit localisation/content wiring rather than assuming framework substitution is configuration-only.

@@ -3,18 +3,26 @@ export const progressCopy = {
     nav: 'Mon parcours',
     eyebrow: 'Mon parcours',
     heroLines: ['Avancer', 'Revenir', 'Comprendre'],
-    attemptedCaption: 'Exercices essayés au moins une fois.',
+    attemptedCaption:
+      'Versions actuellement proposées, essayées au moins une fois.',
     historyLabel: 'Historique des essais',
     historyCaption: (aided: number) =>
       aided === 0
         ? 'Tous les essais, aucun aidé.'
         : `Tous les essais, dont ${aided} aidé${aided > 1 ? 's' : ''}.`,
-    masteryCaption: 'Réponses correctes indépendantes.',
+    masteryCaption:
+      'Réponses indépendantes aux versions actuellement proposées.',
+    archived:
+      'Version archivée : conservée dans l’historique, hors du parcours actuel.',
+    historyFeedback: 'Revoir l’explication de cette version',
+    feedbackUnavailable:
+      'L’explication de cette version n’est pas disponible. La réponse enregistrée est conservée.',
     revisit: 'À revisiter',
     continueLabel: 'À poursuivre',
     revisitHint: 'Relire l’explication, puis vérifier avec une autre question.',
     continueHint: 'Reprenez la pratique là où vous l’avez laissée.',
-    allDone: 'Tout est essayé, sans erreur en suspens.',
+    allDone:
+      'Toutes les versions actuelles sont essayées, sans erreur actuelle en suspens.',
     reread: 'Relire mon erreur',
     keepGoing: 'Continuer la pratique',
     recent: 'Derniers essais',
@@ -57,7 +65,7 @@ export const progressCopy = {
     retry: 'Refaire cet exercice',
     history: 'Historique récent',
     hintUsed: 'indice utilisé',
-    counted: 'preuve de maîtrise',
+    counted: 'preuve indépendante enregistrée',
     practiceOnly: 'entraînement',
     back: 'Revenir à mon compte',
   },
@@ -65,18 +73,22 @@ export const progressCopy = {
     nav: 'My journey',
     eyebrow: 'My journey',
     heroLines: ['Advance', 'Revisit', 'Understand'],
-    attemptedCaption: 'Exercises tried at least once.',
+    attemptedCaption: 'Currently offered versions tried at least once.',
     historyLabel: 'Attempt history',
     historyCaption: (aided: number) =>
       aided === 0
         ? 'All attempts, none aided.'
         : `All attempts, ${aided} of them aided.`,
-    masteryCaption: 'Independent correct answers.',
+    masteryCaption: 'Independent answers to currently offered versions.',
+    archived: 'Archived version: kept in history, outside the current course.',
+    historyFeedback: 'Review this version’s explanation',
+    feedbackUnavailable:
+      'This version’s explanation is unavailable. The recorded result is preserved.',
     revisit: 'To revisit',
     continueLabel: 'Keep going',
     revisitHint: 'Reread the explanation, then check with another question.',
     continueHint: 'Pick the practice up where you left it.',
-    allDone: 'Everything tried, no open mistake.',
+    allDone: 'All current versions tried, no current open mistake.',
     reread: 'Review my mistake',
     keepGoing: 'Continue practising',
     recent: 'Latest attempts',
@@ -119,7 +131,7 @@ export const progressCopy = {
     retry: 'Try this exercise again',
     history: 'Recent history',
     hintUsed: 'hint used',
-    counted: 'mastery evidence',
+    counted: 'recorded independent evidence',
     practiceOnly: 'practice',
     back: 'Back to my account',
   },
