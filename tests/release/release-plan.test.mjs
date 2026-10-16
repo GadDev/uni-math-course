@@ -170,11 +170,11 @@ test('retries reuse the open PR and later eligible commits update it', async () 
   await run();
   await run();
   assert.equal(state.created, 1);
-  assert.equal(state.updated, 0);
+  assert.equal(state.updated, 1);
   messages.unshift('fix: clarify the saved feedback');
   await run();
   assert.equal(state.created, 1);
-  assert.equal(state.updated, 1);
+  assert.equal(state.updated, 2);
 });
 
 test('the archived manual changelog is byte-for-byte the bootstrap source', async () => {

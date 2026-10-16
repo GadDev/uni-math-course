@@ -36,7 +36,7 @@ Complete the hosted and operational acceptance work in [PILOT_ACCEPTANCE.md](PIL
 - `approvedAt` to the actual ISO timestamp.
 - `evidence: "docs/PILOT_ACCEPTANCE.md"`.
 
-Do not fabricate evidence or approval to make CI green. The checker verifies an explicit approval record and its evidence file; it does not independently prove hosted acceptance. Once the evidence PR merges, update the release PR against main, rerun CI, review the exact notes and merge it when ready. Approval is not a recurring per-release button: subsequent release PRs still need normal review and applicable validation.
+Do not fabricate evidence or approval to make CI green. The checker verifies an explicit approval record and its evidence file; it does not independently prove hosted acceptance. The always-update setting refreshes the waiting release PR against main even when its notes are unchanged, so the merged acceptance evidence reaches that branch. Once the evidence PR merges, verify the refresh and rerun CI if needed, review the exact notes and merge it when ready. Approval is not a recurring per-release button: subsequent release PRs still need normal review and applicable validation.
 
 ## GitHub App setup and activation
 
