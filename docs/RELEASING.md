@@ -1,86 +1,98 @@
 # Releasing
 
-Status: PR-based release information; automation deferred · Owner: GadDev · Last reviewed: 2026-10-16
+Status: Release Please configured; operator activation and hosted pilot acceptance pending · Owner: GadDev · Last reviewed: 2026-10-16
 
-## Current stage: PR-based release information, unreleased application
+## One application, one release PR
 
-The reading foundation has a private package manifest at 0.0.0, which is an unreleased scaffold version. The read/sign-in/practise/progress journey is implemented and checked locally; hosted class-pilot acceptance is pending. No class-pilot release is claimed.
+[Release Please](https://github.com/googleapis/release-please-action) is the application version and changelog authority. The root private package is not published to npm. Ordinary feature, fix, documentation and maintenance PRs do not edit CHANGELOG.md or add changeset files. Use focused PRs and Conventional Commit titles, then inspect the final squash message.
 
-Preserve the existing [CHANGELOG.md](../CHANGELOG.md) history. Ordinary product, documentation and maintenance PRs no longer edit its shared Unreleased section. Record meaningful learner/contributor outcomes, migration actions and compatibility limitations in the PR description and final Conventional Commit squash message instead. This transition removes concurrent changelog edits before release automation is enabled; it does not generate a changelog automatically.
+The [configuration](../release-please-config.json) uses the Node strategy and one root component. The [manifest](../.release-please-manifest.json) tracks the same version as package.json. The first proposed release is 0.1.0; no application release is claimed while the version is 0.0.0. Do not introduce Changesets or semantic-release alongside this workflow.
 
-Do not invent a package version, add Changesets files, or create an application release for every documentation or tooling PR. Small internal edits need no separate release note. Historical corrections can use a dedicated documentation PR. For open branches, retain release information in the PR and squash message, remove only their own new changelog edits, and preserve main's existing history.
+1. Feature/fix PRs pass required checks and are squash-merged.
+2. The successful main `docs` job calls the [release workflow](../.github/workflows/release-please.yml).
+3. When enabled, Release Please creates or updates one release PR with the version, manifest and generated changelog.
+4. That PR runs ordinary CI. Review release wording, compatibility, migration actions and limitations; merge deliberately.
+5. After its checked main merge, automation creates the immutable `vX.Y.Z` tag and GitHub release.
+6. Deployment identity and health are verified separately. A tag, green CI or GitHub release is not proof of a successful production deployment.
 
-This policy adds no release workflow, package dependency, publishing token, tag, GitHub release, or deployment. The scaffold now introduces an application version; Release Please implementation remains a separate focused PR. Do not activate it merely by merging the scaffold.
+The stable `docs` gate includes application, release-policy, release-planning, immutable-bank, database and browser checks. The release workflow also verifies that its SHA is still main and has a successful `docs` check from GitHub Actions. Before tagging, it checks the exact merge SHA of every pending merged release PR as well; a successful newer main cannot substitute for those checks. Older queued runs fail with instructions to dispatch current main. Each main SHA has its own CI concurrency group so pending main validations cannot replace each other. Main runs and release mutations are not cancelled mid-run; obsolete PR checks can still be cancelled.
 
-## Contribution and commit convention
+## Bootstrap and preserved history
 
-Use short-lived branches, focused PRs, and squash merges. The final squash commit should follow Conventional Commits; use the PR title as its proposed message and inspect the actual squash message before merging. Copy important release details from the PR description into the final squash commit body; PR prose alone is not input to the future Conventional Commit parser. Individual work-in-progress commits need not each generate release notes.
+The bootstrap boundary is commit `45a742978d68382c949016583243e82aa91ee4ee`, immediately before this automation change. [PRE_AUTOMATION.md](releases/PRE_AUTOMATION.md) preserves the manual changelog at that revision byte-for-byte. Those notes describe pre-release development, not fictional past application releases.
 
-The existing `docs` job in `.github/workflows/check.yml` is the stable required-check name for the full repository/application gate, including immutable exercise banks, disposable database contracts and browser checks. Do not rename it without updating effective branch rules. Configure GitHub to require a successful current check and an up-to-date branch; the workflow file alone cannot enforce merging. See [main protection setup](REPOSITORY_SETUP.md#main-branch-check-requirement) for the reviewed settings and remaining hosted verification.
+The new CHANGELOG.md links to that archive. Only eligible commits after the boundary are generated into release notes; older notes are not replayed. A ci/docs-only setup merge does not itself create a release PR. The next eligible feat/fix commit starts the first proposal. Release tooling tests verify this boundary, archive integrity, initial version and subsequent bumps.
 
-| Type | Meaning | Example |
-| --- | --- | --- |
-| feat | New learner capability or course content | feat(content): add French and English quantifier lessons |
-| fix | Correct existing product behaviour or learning content | fix(grading): correct negation of implication |
-| docs | Contributor/project documentation without a product change | docs: clarify local setup |
-| chore | Maintenance without a direct product change | chore(ci): update checkout action |
-| refactor / test | Internal structure or verification | test(grading): cover false antecedents |
+The initial-version setting applies only before a first release; there is no permanent release-as override to remove. After a release, the published tag and manifest establish the next baseline. Do not move bootstrap-sha to hide changes, rewrite historical tags or manually bump package.json in product PRs.
 
-A new lesson is a feature and an incorrect answer is a bug; do not hide them under docs just because the file is Markdown or JSON. Record security-relevant or compatibility-impacting dependency updates explicitly where appropriate. A real breaking change must carry a breaking-change marker and a migration explanation, irrespective of its commit type.
+## Hold the first 0.1.0
 
-Do not enforce a changeset file for every PR. Labels are triage metadata, not the release-version authority.
+[Release approval](../.github/release-approval.json) starts with `approved: false`. The scaffold at 0.0.0 can pass CI so the automation can be installed. Any released application version fails `pnpm check:release` until actual acceptance is recorded and approved. This blocks the generated first release PR through the required `docs` check; marking it ready or editing its title cannot satisfy the gate.
 
-## Target workflow: Release Please
+Complete the hosted and operational acceptance work in [PILOT_ACCEPTANCE.md](PILOT_ACCEPTANCE.md), including the actual deployment/migration baseline, sessions, persistence/isolation, bilingual accessibility, privacy, recovery, content and rights decisions. In a separate reviewed evidence PR, record actual outcomes and set:
 
-The application already has a private versioned manifest. In a separate implementation PR, adopt [Release Please](https://github.com/googleapis/release-please) as the single application version/changelog authority. Do not run Changesets or semantic-release alongside it for the same application.
+- `approved: true`.
+- `approvedBy` to the actual accountable operator.
+- `approvedAt` to the actual ISO timestamp.
+- `evidence: "docs/PILOT_ACCEPTANCE.md"`.
 
-1. Feature/fix PRs pass applicable checks and are reviewed before merging.
-2. Release Please reads eligible Conventional Commits on main and accumulates changes in a release PR.
-3. The release PR updates the application version and CHANGELOG.md; review version selection, generated wording, corrections, and migration implications.
-4. Run the same relevant quality gates on the release PR. The maintainer chooses when to merge it; do not auto-approve or bypass checks.
-5. After the merge, release automation creates the corresponding tag and GitHub release.
-6. Deployment separately uses the exact checked release revision, records its identity, and verifies health. A GitHub release is not proof that production was deployed.
+Do not fabricate evidence or approval to make CI green. The checker verifies an explicit approval record and its evidence file; it does not independently prove hosted acceptance. The always-update setting refreshes the waiting release PR against main even when its notes are unchanged, so the merged acceptance evidence reaches that branch. Once the evidence PR merges, verify the refresh and rerun CI if needed, review the exact notes and merge it when ready. Approval is not a recurring per-release button: subsequent release PRs still need normal review and applicable validation.
 
-Preserve existing manual history during adoption. Record the bootstrap boundary explicitly so initial automation does not infer a fictional application release from documentation-only commits. The package manifest becomes the canonical application version when it exists; align the release manifest, tag and notes to it rather than inventing multiple independently edited version files.
+## GitHub App setup and activation
 
-Until automation is enabled, new release information stays in PR descriptions and final squash messages; existing changelog history stays intact. The bootstrap PR must explicitly reconcile that history with eligible commits so notes are neither lost nor duplicated. After activation, only the release PR routinely updates CHANGELOG.md; ordinary product PRs do not add Unreleased entries or rewrite generated sections. Review and edit proposed release notes in the release PR through the supported Release Please mechanisms so regeneration does not lose corrections. GitHub release notes derive from that same reviewed release information.
+The workflow is dormant unless repository variable `RELEASE_PLEASE_ENABLED` equals `true`. It does not fall back to a personal token or the default GITHUB_TOKEN. Configure the following as repository settings; never place the key in Git, PRs, logs or chat:
 
-## Version policy
-
-| Change | Policy |
+| Setting | Value |
 | --- | --- |
-| First usable class pilot | 0.1.0, after the real read/sign-in/practise/progress journey works |
-| Compatible correction | Patch, for example 0.1.0 to 0.1.1 |
-| Added learner capability or lessons | Minor, for example 0.1.1 to 0.2.0 |
-| Incompatible change before 1.0 | Explicit minor bump and migration notes; breaking-change markers remain mandatory |
-| Stable agreed product contract | 1.0.0 when agreed behaviour and rollout/operational requirements are satisfied |
-| Breaking public contract after 1.0 | Major bump with migration information |
+| Repository variable RELEASE_PLEASE_CLIENT_ID | Client ID of the release GitHub App |
+| Actions secret RELEASE_PLEASE_PRIVATE_KEY | The App's PEM private key |
+| Repository variable RELEASE_PLEASE_ENABLED | true, only after credentials and installation are ready |
 
-This is the project's pre-1.0 policy, not an assumption about the release tool's defaults. Configure and verify minor/patch and breaking-change behaviour before activating automation. The first 1.0 release need not wait for every planned course chapter.
+Create a GitHub App owned by the maintainer, disable webhooks if unused, and install it on **GadDev/uni-math-course only**. Grant repository Contents, Issues and Pull requests read/write; Metadata read is implicit. Grant no administration, workflow-editing or bypass permission. The token action requests only these three write permissions and defaults its token scope to the current repository. Installation tokens are short-lived and revoked after the job; the App private key remains an operator-managed secret that needs rotation.
 
-A class pilot is not automatically a SemVer prerelease. Use a suffix such as beta.1 and the corresponding GitHub prerelease status only if a separate prerelease channel is intentionally introduced and tested.
+Using an App token allows release PR creation/updates to trigger ordinary CI automatically. The default GITHUB_TOKEN has event-trigger restrictions or approval requirements; do not weaken checks to accommodate missing runs. Verify both the initial bot PR and a later bot update. The existing ruleset also requires GitGuardian; confirm it reports for the bot PR rather than bypassing it.
 
-## Application versions and exercise versions
+After merging the implementation, enable the variable and manually run Release Please **on main** once to verify setup. The manual route requires successful docs on the exact main SHA, so wait for main CI to finish. There may be no release PR until an eligible product change exists. Repository/secret creation cannot be performed by this connector and remains an operator step.
 
-Application releases identify delivered software/content snapshots. Each exercise also has a stable ID and immutable version. The [content release registry](CONTENT_RELEASES.md) selects served versions and binds both lesson languages and the bank to recorded review/exception evidence. CI rejects edits or deletions of bank versions already present on the base revision. An application patch may introduce exercise L05-E03 version 2 while historical attempts continue to reference version 1 and its original grading context.
+## Contribution and release notes
 
-Do not silently regrade historical attempts after changing an answer or domain. State any proposed regrading or data migration explicitly, assess its impact, and preserve recoverability. Corrections need mathematical and French/English fidelity checks as well as software checks.
+Use a Conventional Commit PR title; work-in-progress commits need not follow the convention. Preserve migration and compatibility details in the final squash body and link relevant documentation. Generated notes primarily use commit summaries; inspect the actual release PR rather than assuming every paragraph in a product PR will appear.
 
-## Release-note quality
+| Type/change | Version policy |
+| --- | --- |
+| fix, including an incorrect answer or translation correction | Patch |
+| feat, including a new learner capability or lesson | Minor |
+| docs, ci, chore, refactor or test without product impact | No release by itself |
+| Dependency change | Classify by actual impact; use fix/feat or breaking markers when appropriate |
+| Breaking change before 1.0 | Minor, with ! or BREAKING CHANGE and migration guidance |
+| Breaking change after 1.0 | Major with migration guidance |
+| Stable agreed product contract and rollout readiness | Deliberately reviewed 1.0.0 |
 
-Explain the learner-visible outcome rather than listing implementation internals. For example: "Corrected an implication exercise that accepted the converse as equivalent. Previous attempts remain available with their original grading context."
+The explicit pre-1.0 settings preserve feature-to-minor and fix-to-patch behaviour. A pilot is not automatically a SemVer prerelease. Additional channels, npm publication and release branches are not configured.
 
-Include new learning capabilities, meaningful corrections, compatibility changes, migration actions and relevant limitations. Do not claim unreleased lessons or planned authentication already work. Future French/English What's changed summaries should derive from the same release, rather than becoming competing technical changelogs. Review translations before publishing those summaries.
+Improve summaries before squash merging. For already-merged changes, use Release Please's [supported commit override mechanism](https://github.com/googleapis/release-please#how-can-i-fix-release-notes) on the source PR, then regenerate and review. Do not hand-edit bot-owned generated sections without accounting for regeneration. Never claim planned lessons, independent review or hosted readiness from automated checks.
 
-## Automation and deployment acceptance checklist
+## Content, migrations and production
 
-The future focused implementation PR must verify:
+Application versions identify software/content snapshots. Exercise versions remain immutable and independent; [content/releases.json](../content/releases.json) selects served banks and binds review/translation evidence. Automation does not refresh fingerprints, approve translations or regrade attempts. An app patch can add a corrected bank while archived attempts retain their original grading context.
 
-- Exact action pins and minimal job-specific permissions; no production credentials in PR checks.
-- Real CI execution on bot-created release PRs, including Dependabot where relevant. The ordinary GITHUB_TOKEN can suppress subsequent workflow triggers; choose and validate an explicit supported token/event strategy without weakening required checks.
-- Correct first-release/bootstrap handling, version selection, changelog updates and release identity in a dry run or safe test.
-- No duplicate releases when automation is retried; serialized release mutation and no routine bypass of main protections.
-- Clear production policy: every checked main merge or selected releases. If hosting auto-deploys main, a release PR alone does not control when features reach learners.
-- If selected releases are chosen, deploy the verified immutable revision, smoke-test it, and record the version/commit and hosting revision. Application rollback does not undo database changes.
+Hosted migrations remain a deliberate operator step before deploying code that depends on them; see [PRACTICE.md](PRACTICE.md). Prefer compatible migration-first changes and preserve a compatible application rollback target. Do not run the disposable database bootstrap against hosted data. An application rollback does not reverse a migration or restore data.
 
-See [TECHSTACK.md](TECHSTACK.md) for architecture proposals, [ROADMAP.md](ROADMAP.md) for pilot acceptance criteria, and the [Release Please Action documentation](https://github.com/googleapis/release-please-action) for automation inputs and token behaviour. No new credential or release job is activated by adopting this document.
+Production promotion still needs its own same-revision CI gate and smoke evidence. This workflow creates release records only; it neither deploys to Vercel nor changes Supabase. Whether production follows checked main merges or selected releases must be verified in hosting settings. Merging a release PR does not by itself prevent earlier product merges reaching learners.
+
+## Verification, retries and recovery
+
+Run `pnpm check` for the release approval contract. Run the real release planner in isolation with:
+
+```sh
+npm ci --prefix tools/release --ignore-scripts --no-audit --no-fund
+npm --prefix tools/release test
+```
+
+The locked toolchain tests the same Release Please 17.6.0 library bundled in the pinned action. It uses an in-memory SCM without credentials: first 0.1.0, historical boundary, private manifest updates, fix/feat/breaking bumps, docs-only exclusion, stable branch and archived bytes. Native tests verify first-release blocking and incomplete approval failures. Fixtures are not proof of real GitHub write/retry behaviour.
+
+After activation, record evidence that one bot PR is maintained across updates, its docs/GitGuardian checks execute, merging an accepted release produces a tag pointing to that merge, and rerunning the release workflow does not create another release or move a tag. These hosted acceptance checks remain pending until actually exercised. Do not create fake product fixes just to force a release.
+
+When a job fails, inspect its run and any existing PR/tag/release before retrying. Dispatch current main after its docs check succeeds. For a partially completed release, reconcile the existing tag/release and pending labels before retrying; do not delete or move an already published tag as routine recovery. If automation itself is faulty, set RELEASE_PLEASE_ENABLED to false while fixing it. Keep approval false until hosted acceptance is complete.
+
+Sources: [Release Please Action](https://github.com/googleapis/release-please-action), [manifest configuration](https://github.com/googleapis/release-please/blob/v17.6.0/docs/manifest-releaser.md), [GitHub workflow triggering](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow), and [GitHub App token action](https://github.com/actions/create-github-app-token).
