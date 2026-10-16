@@ -4,6 +4,20 @@
 
 The original M1 self-check below is historical evidence, not a new review. L01–L20 reading/practice, grading and private progress are now implemented locally. Only L05 has this documented self-check; hosted acceptance and the other banks’ review remain open. See [practice contracts](../PRACTICE.md).
 
+## Availability wording renewal (2026-10-16)
+
+This is a scoped AI-assisted editorial consistency check by Codex, not a new human or independent mathematical review. The original mathematical and bilingual self-check below remains historical evidence for the teaching material.
+
+The French and English availability passages were compared side by side against the implementation:
+
+- L01 and L02 are public lesson routes, reachable through the programme and lesson outline. Both versions now direct learners there for prerequisites.
+- L10 and the public number-families guide already exist. Both refresher paragraphs identify them rather than promising a future lesson.
+- L05's practice button links to its authenticated activity. Both versions now describe the six exercises, feedback and private saved attempts, conditional on sign-in being configured. This states implemented behavior and does not claim hosted acceptance.
+
+The correction changes availability guidance only: lesson IDs/versions, prerequisites, mathematical expressions, worked examples, exercises and grading contracts are unchanged. The existing L05 self-check states and all other lessons' explicit release exceptions are retained. Only L05's French/English file fingerprints and the translation's French source fingerprint are renewed in `content/releases.json`, with this note as the scoped evidence. The bank fingerprint remains unchanged.
+
+Validation: run `pnpm check` and `pnpm test:e2e`; inspect the generated FR/EN L05 pages and referenced L01/L02/L10/number-guide routes. These checks do not substitute for human translation review or hosted/class acceptance.
+
 ## Original M1 scope and authorship
 
 This is M1's original French/English implication lesson and six authored exercise contracts, not the full course bank. The source coverage range follows the repository's course map: PDF pages 20–23. No source exercise, screenshot or source PDF was copied. At the time of this original M1 review, L01/L02 were planned prerequisites.

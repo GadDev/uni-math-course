@@ -16,7 +16,7 @@ sourcePages: [20, 21, 22, 23]
 
 By the end of this lesson, you can read $A \Rightarrow B$, complete its truth table, distinguish “necessary” from “sufficient”, and recognise a counterexample.
 
-**Prerequisites:** an assertion has a truth value; AND, inclusive OR and NOT. L01 and L02 refer to the planned programme, not lessons already available.
+**Prerequisites:** an assertion has a truth value; AND, inclusive OR and NOT. To revisit these concepts, see L01 (assertions) and L02 (logical connectives), available in the programme.
 
 ## A precise promise
 
@@ -69,7 +69,7 @@ Saying $A \Rightarrow B$ is equivalent to saying:
 
 For a natural number, “being greater than 10” is sufficient for “being greater than 5”. Being greater than 5 is necessary for being greater than 10, but it is not sufficient: 8 is greater than 5 and not greater than 10.
 
-**Prerequisite refresher:** this course uses $\mathbb{N} = \{0,1,2,\ldots\}$. This supports the example; it does not replace a future lesson on number sets.
+**Prerequisite refresher:** this course uses $\mathbb{N} = \{0,1,2,\ldots\}$. This supports the example; for more on number sets, see lesson L10 and the “Number families” guide.
 
 ## Negating an implication
 
@@ -95,7 +95,7 @@ A false condition cannot provide a counterexample to $A \Rightarrow B$. You need
 
 The six pilot exercises cover the false case, the truth table, necessary/sufficient conditions, negation, a natural-language rule and a numerical counterexample.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice is available with an account when sign-in is configured. Use the “Practise” button after the lesson to answer the six exercises, receive feedback, and find your attempts in your private progress.
 
 ## Takeaway
 
