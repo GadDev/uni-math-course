@@ -4,6 +4,8 @@ Reconciled: 2026-10-16 · Accountable owner: GadDev · Status: application imple
 
 This record separates repository evidence, hosted verification and human decisions. It does not certify mathematical peer review, translation fidelity, cloud configuration or class readiness. Publication decisions remain in `content/releases.json`; do not maintain a second lesson allowlist here. See [content release contracts](CONTENT_RELEASES.md).
 
+Application versioning and release automation do not depend on completing this checklist. A GitHub release identifies a checked repository snapshot; it does not certify hosted pilot readiness. Keep outstanding checks open until evidence is recorded.
+
 ## Recorded implementation and verification
 
 | Evidence | Revision / result | Boundary |
@@ -63,7 +65,7 @@ Date: 2026-10-16. Operator/evidence supplier: GadDev. Method: read-only SQL cata
 
 The schema effects above are consistent with the four baseline migrations, subject to the additional server-role privilege. They do not prove which migration files were executed, their execution dates, absence of every other database object/privilege, or runtime application acceptance. Do not apply or repair migrations merely to populate history. No deployed schema was changed by this verification.
 
-Next H1 checkpoint: confirm the queried Supabase project matches the recorded deployment's Vercel Production configuration, the explicit Production environment label and exact deployment creation timestamp, plus preview/production data separation. If the production alias now targets a later deployment, record that new deployment as a separate baseline before running H2/H3. H1/H2/H3 remain open; release approval is unchanged.
+Next H1 checkpoint: confirm the queried Supabase project matches the recorded deployment's Vercel Production configuration, the explicit Production environment label and exact deployment creation timestamp, plus preview/production data separation. If the production alias now targets a later deployment, record that new deployment as a separate baseline before running H2/H3. H1/H2/H3 remain open; application release automation is independent of this readiness record.
 
 ## Remaining acceptance work
 

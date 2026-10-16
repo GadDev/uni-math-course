@@ -1,6 +1,6 @@
 # Releasing
 
-Status: Release Please configured; operator activation and hosted pilot acceptance pending · Owner: GadDev · Last reviewed: 2026-10-16
+Status: Release Please activated; release PRs require CI and maintainer review; hosted pilot acceptance tracked separately · Owner: GadDev · Last reviewed: 2026-10-16
 
 ## One application, one release PR
 
@@ -25,18 +25,13 @@ The new CHANGELOG.md links to that archive. Only eligible commits after the boun
 
 The initial-version setting applies only before a first release; there is no permanent release-as override to remove. After a release, the published tag and manifest establish the next baseline. Do not move bootstrap-sha to hide changes, rewrite historical tags or manually bump package.json in product PRs.
 
-## Hold the first 0.1.0
+## Release review and pilot readiness
 
-[Release approval](../.github/release-approval.json) starts with `approved: false`. The scaffold at 0.0.0 can pass CI so the automation can be installed. Any released application version fails `pnpm check:release` until actual acceptance is recorded and approved. This blocks the generated first release PR through the required `docs` check; marking it ready or editing its title cannot satisfy the gate.
+The first 0.1.0 follows the same path as later releases: required checks pass, the maintainer reviews the generated notes, then squash-merges the release PR. There is no separate approval file or acceptance-evidence PR required to release.
 
-Complete the hosted and operational acceptance work in [PILOT_ACCEPTANCE.md](PILOT_ACCEPTANCE.md), including the actual deployment/migration baseline, sessions, persistence/isolation, bilingual accessibility, privacy, recovery, content and rights decisions. In a separate reviewed evidence PR, record actual outcomes and set:
+The release policy checks stable application SemVer, matching package/manifest versions and a private package. Hosted checks in [PILOT_ACCEPTANCE.md](PILOT_ACCEPTANCE.md) remain a separate readiness record. Leave pending rows pending until actually verified; creating a release does not claim class readiness or deployed health.
 
-- `approved: true`.
-- `approvedBy` to the actual accountable operator.
-- `approvedAt` to the actual ISO timestamp.
-- `evidence: "docs/PILOT_ACCEPTANCE.md"`.
-
-Do not fabricate evidence or approval to make CI green. The checker verifies an explicit approval record and its evidence file; it does not independently prove hosted acceptance. The always-update setting refreshes the waiting release PR against main even when its notes are unchanged, so the merged acceptance evidence reaches that branch. Once the evidence PR merges, verify the refresh and rerun CI if needed, review the exact notes and merge it when ready. Approval is not a recurring per-release button: subsequent release PRs still need normal review and applicable validation.
+The always-update setting refreshes the waiting release PR against main even when its notes are unchanged. After changes to the release process merge, wait for main CI and the bot update, then inspect the release PR's current checks and notes.
 
 ## GitHub App setup and activation
 
@@ -82,17 +77,17 @@ Production promotion still needs its own same-revision CI gate and smoke evidenc
 
 ## Verification, retries and recovery
 
-Run `pnpm check` for the release approval contract. Run the real release planner in isolation with:
+Run `pnpm check` for the release version/private-package contract. Run the real release planner in isolation with:
 
 ```sh
 npm ci --prefix tools/release --ignore-scripts --no-audit --no-fund
 npm --prefix tools/release test
 ```
 
-The locked toolchain tests the same Release Please 17.6.0 library bundled in the pinned action. It uses an in-memory SCM without credentials: first 0.1.0, historical boundary, private manifest updates, fix/feat/breaking bumps, docs-only exclusion, stable branch and archived bytes. Native tests verify first-release blocking and incomplete approval failures. Fixtures are not proof of real GitHub write/retry behaviour.
+The locked toolchain tests the same Release Please 17.6.0 library bundled in the pinned action. It uses an in-memory SCM without credentials: first 0.1.0, historical boundary, private manifest updates, fix/feat/breaking bumps, docs-only exclusion, stable branch and archived bytes. Native tests verify version consistency, private-package enforcement and a first release without any hosted approval file. Fixtures are not proof of real GitHub write/retry behaviour.
 
-After activation, record evidence that one bot PR is maintained across updates, its docs/GitGuardian checks execute, merging an accepted release produces a tag pointing to that merge, and rerunning the release workflow does not create another release or move a tag. These hosted acceptance checks remain pending until actually exercised. Do not create fake product fixes just to force a release.
+The [activation run](https://github.com/GadDev/uni-math-course/actions/runs/38903040272) created [release PR #42](https://github.com/GadDev/uni-math-course/pull/42), and ordinary checks executed. Still observe that later bot updates maintain one PR, merging a checked release produces a tag pointing to that merge, and rerunning the release workflow does not create another release or move a tag. These release-automation verifications remain pending until actually exercised. Do not create fake product fixes just to force a release.
 
-When a job fails, inspect its run and any existing PR/tag/release before retrying. Dispatch current main after its docs check succeeds. For a partially completed release, reconcile the existing tag/release and pending labels before retrying; do not delete or move an already published tag as routine recovery. If automation itself is faulty, set RELEASE_PLEASE_ENABLED to false while fixing it. Keep approval false until hosted acceptance is complete.
+When a job fails, inspect its run and any existing PR/tag/release before retrying. Dispatch current main after its docs check succeeds. For a partially completed release, reconcile the existing tag/release and pending labels before retrying; do not delete or move an already published tag as routine recovery. If automation itself is faulty, set RELEASE_PLEASE_ENABLED to false while fixing it.
 
 Sources: [Release Please Action](https://github.com/googleapis/release-please-action), [manifest configuration](https://github.com/googleapis/release-please/blob/v17.6.0/docs/manifest-releaser.md), [GitHub workflow triggering](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow), and [GitHub App token action](https://github.com/actions/create-github-app-token).

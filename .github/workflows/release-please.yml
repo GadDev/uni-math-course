@@ -31,7 +31,7 @@ jobs:
         uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version-file: .node-version
-      - name: Require current checked main and release approval
+      - name: Require current checked main and consistent release version
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
