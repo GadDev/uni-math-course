@@ -68,7 +68,7 @@ Store original lessons as Markdown with validated bilingual metadata in Git. Ast
 | Accounts | Supabase Auth; email/password for an invited group, accounts created by the owner |
 | Persistence | Supabase PostgreSQL; SQL migrations and ownership policies |
 | Verification | Native Node grading/content tests; PostgreSQL contracts; Playwright journeys |
-| CI and releases | Stable `docs` quality gate; PR/squash release information now, Release Please in a separate PR |
+| CI and releases | Stable `docs` quality gate; Release Please milestone PRs; explicit first-release acceptance gate |
 
 Astro documents [i18n routing](https://docs.astro.build/en/guides/internationalization/). Routing alone does not translate UI, validate French/English parity or preserve answers; implement those contracts explicitly. If Nuxt is selected, use its i18n module and Nitro routes instead. If Next.js is selected, revisit localisation/content wiring rather than assuming framework substitution is configuration-only.
 
@@ -156,7 +156,7 @@ Use Supabase's HTTPS data API where it fits before adding direct-connection pool
 
 ## Delivery, validation and decision gate
 
-Repository checks are consolidated in Node tooling. Run pnpm check for repository/content validation, types, formatting, mathematical tests and production build, plus pnpm test:e2e for browser checks. The existing docs job retains its identity while running the expanded gate; require it from GitHub Actions and require up-to-date branches through the [main protection setup](REPOSITORY_SETUP.md#main-branch-check-requirement). Workflow configuration alone does not enforce merging. Extend Dependabot only for actual manifests. Ordinary PRs capture release information in their descriptions and final Conventional Commit squash messages, leaving existing CHANGELOG.md history intact. Release Please remains a separate implementation PR.
+Repository checks are consolidated in Node tooling. Run pnpm check for repository/content validation, types, formatting, mathematical tests and production build, plus pnpm test:e2e for browser checks. The existing docs job retains its identity while running the expanded gate; require it from GitHub Actions and require up-to-date branches through the [main protection setup](REPOSITORY_SETUP.md#main-branch-check-requirement). Workflow configuration alone does not enforce merging. Extend Dependabot only for actual manifests. Ordinary PRs capture release information in their descriptions and final Conventional Commit squash messages, leaving existing CHANGELOG.md history intact. Release Please is configured as the single version/changelog authority, pending operator activation; the first 0.1.0 remains blocked until recorded hosted acceptance. See the release policy for the isolated locked toolchain and App setup.
 
 Keep PR checks free of production credentials. Separate preview/production configuration and data, register exact auth callbacks, verify deployed revision identity, and smoke-test login plus one saved attempt. Private/session responses use Cache-Control: private, no-store; test that secrets, private questions and grading keys do not enter static output or browser bundles.
 

@@ -20,9 +20,9 @@ Do not commit credentials, personal learner data, source PDFs, or third-party ma
 
 ## Changelog and releases
 
-Follow [the release policy](docs/RELEASING.md). Existing CHANGELOG.md history is retained while automation is deferred. During this transition, PR descriptions and final Conventional Commit squash messages capture new release information. Do not add shared Unreleased bullets or changeset files. New lessons are features and incorrect answers are bugs, even when stored as Markdown or JSON.
+Follow [the release policy](docs/RELEASING.md). Existing CHANGELOG.md history is retained while the operator activation is pending. Release Please collects eligible final Conventional Commit squash messages into one release PR. While operator activation is pending, keep capturing release information in PR descriptions and final squash messages. Do not add shared Unreleased bullets or changeset files. New lessons are features and incorrect answers are bugs, even when stored as Markdown or JSON.
 
-A separate focused PR will add Release Please for the existing application manifest. It will collect eligible commits into a checked release PR that the maintainer reviews and merges deliberately. Do not add release automation, publishing credentials, or application tags as part of documentation-only work. Exercise versions remain independent of application versions.
+Release Please is configured for the existing private application manifest; see the release policy for operator setup. It collects eligible commits into a checked release PR that the maintainer reviews and merges deliberately. The first 0.1.0 is blocked until actual hosted acceptance is recorded and approved. Do not publish the application to npm or create application tags as part of documentation-only work. Exercise versions remain independent of application versions.
 
 For an existing PR that only adds a changelog bullet, carry that note into its description and final squash message, then remove only that PR's changelog edit. Preserve notes already merged on main. Intentional historical corrections belong in a dedicated documentation PR; do not automatically resolve changelog conflicts by discarding one side.
 
