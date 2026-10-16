@@ -1,0 +1,122 @@
+[
+  {
+    "id": "L33-E01",
+    "correctOption": "a",
+    "kind": "calculation",
+    "expression": "Rational(2,5)*3",
+    "candidates": [
+      "6/5",
+      "3/5",
+      "2"
+    ]
+  },
+  {
+    "id": "L33-E02",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "For dx=2,dy=6, column sampling uses 3 pixels while row sampling uses 7, with each successive row represented; the latter removes the stated gaps."
+  },
+  {
+    "id": "L33-E03",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "7-2+1",
+    "candidates": [
+      "6",
+      "5",
+      "7"
+    ]
+  },
+  {
+    "id": "L33-E04",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "The octant explicitly uses upward y; NE therefore increments both x and y. The alternatives move north only or southeast."
+  },
+  {
+    "id": "L33-E05",
+    "correctOption": "c",
+    "kind": "calculation",
+    "expression": "2*2-5",
+    "candidates": [
+      "-1",
+      "1",
+      "9"
+    ]
+  },
+  {
+    "id": "L33-E06",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "ceiling(Rational(5,2))",
+    "candidates": [
+      "3",
+      "2",
+      "5"
+    ]
+  },
+  {
+    "id": "L33-E07",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "An ascending integer range starting above its endpoint is empty under the usual loop convention. Swapping endpoints preserves the geometric segment and supplies valid ascending bounds."
+  },
+  {
+    "id": "L33-E08",
+    "correctOption": "c",
+    "kind": "calculation",
+    "expression": "-1+2*2",
+    "candidates": [
+      "3",
+      "-7",
+      "-1"
+    ]
+  },
+  {
+    "id": "L33-E09",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "3+2*2-2*5",
+    "candidates": [
+      "-3",
+      "7",
+      "9"
+    ]
+  },
+  {
+    "id": "L33-E10",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "The set {(4,j):j=1,...,5} includes both endpoints and every intervening row. A slope quotient is undefined and one pixel cannot represent the five-row segment."
+  },
+  {
+    "id": "L33-E11",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "At D=0 the ideal line passes exactly through the midpoint, so E and NE are equally close. Either tie rule can be designed, but the given ≥ rule deterministically chooses NE."
+  },
+  {
+    "id": "L33-E12",
+    "correctOption": "b",
+    "kind": "argument",
+    "argument": "The candidate set permits at most one upward unit per rightward unit, so after two x steps it can rise at most two, not five. An axis swap is mathematically necessary for this formulation."
+  },
+  {
+    "id": "L33-E13",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "At the next x=3, ideal height is 6/5=1.2, below midpoint 1.5, so E=(3,1) is closer than NE=(3,2). This separately checks the decision sign."
+  },
+  {
+    "id": "L33-E14",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "Mapping upward y to screen v=v0-y sends a +1 y step to a -1 v step. Copying NE=(x+1,y+1) literally into downward screen coordinates reverses its visual vertical direction."
+  },
+  {
+    "id": "L33-E15",
+    "correctOption": "b",
+    "kind": "argument",
+    "argument": "Writing F(x,y)=2*dy*(x+1)-2*dx*y-dx, direct subtraction F(x+1,y+1)-F(x,y)=2*dy-2*dx proves the update for all allowed integer dx,dy."
+  }
+]

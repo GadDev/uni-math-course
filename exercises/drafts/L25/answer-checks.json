@@ -1,0 +1,127 @@
+[
+  {
+    "id": "L25-E01",
+    "correctOption": "a",
+    "kind": "calculation",
+    "expression": "linsolve([x+y-7,x-y-1],(x,y))",
+    "candidates": [
+      "FiniteSet(Tuple(4,3))",
+      "FiniteSet(Tuple(3,4))",
+      "FiniteSet(Tuple(7,1))"
+    ]
+  },
+  {
+    "id": "L25-E02",
+    "correctOption": "c",
+    "kind": "calculation",
+    "expression": "solve(x+2*x-9,x)[0]",
+    "candidates": [
+      "3",
+      "6",
+      "9"
+    ]
+  },
+  {
+    "id": "L25-E03",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "solve([2*x+y-11,x+y-7],(x,y))[x]",
+    "candidates": [
+      "4",
+      "3",
+      "18"
+    ]
+  },
+  {
+    "id": "L25-E04",
+    "correctOption": "a",
+    "kind": "calculation",
+    "expression": "solve([2*x+y-8,x+y-5],(x,y))[x]",
+    "candidates": [
+      "3",
+      "2",
+      "5"
+    ]
+  },
+  {
+    "id": "L25-E05",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "Subtracting the two conditions gives 0=2, a false statement independent of x and y. Therefore the intersection of their solution sets is empty."
+  },
+  {
+    "id": "L25-E06",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "linsolve([y-x-2,2*x+y-11],(x,y))",
+    "candidates": [
+      "FiniteSet(Tuple(3,5))",
+      "FiniteSet(Tuple(5,3))",
+      "FiniteSet(Tuple(3,9))"
+    ]
+  },
+  {
+    "id": "L25-E07",
+    "correctOption": "a",
+    "kind": "calculation",
+    "expression": "linsolve([2*x+3*y-13,x-y-4],(x,y))",
+    "candidates": [
+      "FiniteSet(Tuple(5,1))",
+      "FiniteSet(Tuple(1,5))",
+      "FiniteSet(Tuple(4,1))"
+    ]
+  },
+  {
+    "id": "L25-E08",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "For every real t, the pair (3+2t,t) satisfies both equations. Conversely the first equation forces precisely this form, so one free real parameter remains."
+  },
+  {
+    "id": "L25-E09",
+    "correctOption": "b",
+    "kind": "argument",
+    "argument": "Dimension check: price per adult times adults and price per child times children both yield euros. Ten children alone yield 30 euros, which distinguishes the swapped coefficients."
+  },
+  {
+    "id": "L25-E10",
+    "correctOption": "a",
+    "kind": "calculation",
+    "expression": "linsolve([3*x+y-2,x-y+2],(x,y))",
+    "candidates": [
+      "FiniteSet(Tuple(0,2))",
+      "FiniteSet(Tuple(1,-1))",
+      "FiniteSet(Tuple(2,0))"
+    ]
+  },
+  {
+    "id": "L25-E11",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "When a!=1 the determinant a-1 is nonzero, so the only pair is (5,0). At a=1 every (5-t,t) satisfies both equations."
+  },
+  {
+    "id": "L25-E12",
+    "correctOption": "b",
+    "kind": "argument",
+    "argument": "The system x+y=1, 2x+2y=2 eliminates to 0=0 yet contains (1,0) and excludes (0,0). This countermodel refutes both automatic conclusions."
+  },
+  {
+    "id": "L25-E13",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "Direct substitution verifies (-1,5) in both equations, proving algebraic consistency. Uniqueness follows by subtraction, so no alternative nonnegative pair can satisfy the same data."
+  },
+  {
+    "id": "L25-E14",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "The retained pair of constraints forces (3,4). Keeping only 3x=9 admits arbitrary y; keeping only x+y=7 admits, for example, (0,7), which fails the second original row."
+  },
+  {
+    "id": "L25-E15",
+    "correctOption": "b",
+    "kind": "argument",
+    "argument": "The linear combination second row minus twice the first has all variable coefficients zero but constant right side 1. This contradiction does not depend on a, including a=0."
+  }
+]

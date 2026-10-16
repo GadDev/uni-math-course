@@ -1,0 +1,127 @@
+[
+  {
+    "id": "L30-E01",
+    "correctOption": "a",
+    "kind": "calculation",
+    "expression": "(Integer(5)-1)/(2-0)",
+    "candidates": [
+      "2",
+      "4",
+      "1/2"
+    ]
+  },
+  {
+    "id": "L30-E02",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "All candidates can be read for slope and intercept; only the first has slope 3 and gives -2 at x=0. The other two violate at least one condition."
+  },
+  {
+    "id": "L30-E03",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "linsolve([y-x,y-2],(x,y))",
+    "candidates": [
+      "FiniteSet(Tuple(2,2))",
+      "FiniteSet(Tuple(0,2))",
+      "FiniteSet(Tuple(2,0))"
+    ]
+  },
+  {
+    "id": "L30-E04",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "Subtracting equations cancels 2x and yields contradiction 4=0. Thus there are zero common points, not a finite positive number."
+  },
+  {
+    "id": "L30-E05",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "Both points satisfy x=3. Neither has vertical coordinate 3, and neither satisfies y=x+3, so the alternatives fail direct substitution."
+  },
+  {
+    "id": "L30-E06",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "(Integer(-4)-4)/(3+1)",
+    "candidates": [
+      "-2",
+      "2",
+      "-8"
+    ]
+  },
+  {
+    "id": "L30-E07",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "The first equation passes both substitution tests. The second already fails at x=1; the third passes the first point but fails at (3,7), illustrating why both points must be checked."
+  },
+  {
+    "id": "L30-E08",
+    "correctOption": "c",
+    "kind": "calculation",
+    "expression": "linsolve([y-2*x-1,y+x-7],(x,y))",
+    "candidates": [
+      "FiniteSet(Tuple(2,5))",
+      "FiniteSet(Tuple(3,7))",
+      "FiniteSet(Tuple(2,3))"
+    ]
+  },
+  {
+    "id": "L30-E09",
+    "correctOption": "b",
+    "kind": "argument",
+    "argument": "Parameterise x=t,y=3-t for every real t. Every such point satisfies both equations, and every simultaneous solution has this form."
+  },
+  {
+    "id": "L30-E10",
+    "correctOption": "a",
+    "kind": "calculation",
+    "expression": "linsolve([x+2,y-3*x-4],(x,y))",
+    "candidates": [
+      "FiniteSet(Tuple(-2,-2))",
+      "FiniteSet(Tuple(-2,2))",
+      "FiniteSet(Tuple(2,10))"
+    ]
+  },
+  {
+    "id": "L30-E11",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "Their intersection equation is (a-2)x=2. When a=2 it is impossible; for every other a there is exactly one solution 2/(a-2)."
+  },
+  {
+    "id": "L30-E12",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "Integer(8)/2",
+    "candidates": [
+      "4",
+      "8",
+      "3"
+    ]
+  },
+  {
+    "id": "L30-E13",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "For point (u,v), every real m gives y-v=m(x-u), all distinct as m varies; x=u adds the vertical. The theorem of unique line needs two distinct points."
+  },
+  {
+    "id": "L30-E14",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "For q≥0, q+10≥10>0, so B is always larger. The algebraic root -10 lies outside the allowed domain and cannot be made positive by discarding its sign."
+  },
+  {
+    "id": "L30-E15",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "2/(a-2)",
+    "candidates": [
+      "2/(a-2)",
+      "2/(2-a)",
+      "a-2"
+    ]
+  }
+]

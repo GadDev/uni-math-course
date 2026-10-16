@@ -1,0 +1,1855 @@
+{
+  "verifier": "SymPy 1.14.0",
+  "independentPeerReview": false,
+  "workedExamples": {
+    "regression": "exact parameters, residuals, loss; executed lesson Python; rejected invalid inputs",
+    "rasterisation": "350 segments in taught octant, integer widths 1–25, exact nearest-pixel comparison including ties"
+  },
+  "checks": [
+    {
+      "id": "L21-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "11",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L21-E02",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-25",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L21-E03",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "9",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L21-E04",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "9",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L21-E05",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "24",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L21-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "8",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L21-E07",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "22",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L21-E08",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-8",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L21-E09",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-2*a - 2*b + 2*c",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L21-E10",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Compute the first by multiplying by the reciprocal 2/6: 24*2/6=8. The second divides successively by 6 then 2, equivalently by 12: 24/12=2."
+    },
+    {
+      "id": "L21-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "If a/a is defined and equals q, a*q=a. For nonzero a the unique q is 1. At a=0 every q solves 0*q=0, so no unique quotient is defined."
+    },
+    {
+      "id": "L21-E12",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The equality is equivalent to 2*x**2=0, whose real solution set is {0}. Thus 2 refutes it; 0 does not; the claim that there is no witness is false."
+    },
+    {
+      "id": "L21-E13",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "If both factors were nonzero, their inverses exist and ab=0 multiplied by both inverses would give 1=0. Conversely any zero factor gives zero product."
+    },
+    {
+      "id": "L21-E14",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The map f(x)=0*x is constant, so its inverse image of 0 is all reals. It is not injective and has no inverse function."
+    },
+    {
+      "id": "L21-E15",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "2*a - b",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "3*x + 6",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E02",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "8 - 2*x",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E03",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "6*x + 9",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E04",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "(x + 3)**2",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E05",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "(x - 5)*(x + 5)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "(x + 4)*(2*x - 1)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E07",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "4*x*(x - 3) - 2*x*(2*x + 1)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E08",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "x**2 - 6*x + 9",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E09",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "9*x**2 - 4",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E10",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-a + b",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Subtracting the right side gives 2*x. The equality holds exactly at 0, so 2 is a witness and 0 is not."
+    },
+    {
+      "id": "L22-E12",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-(x - 1)**2 + (x + 1)**2",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E13",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-x**2 + (x + 2)*(x + 5)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E14",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "x**3 - x",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L22-E15",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "x**2 + 8*x + 16",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L23-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "1/2",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L23-E02",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "2/3",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L23-E03",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "1/8",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L23-E04",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "7",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L23-E05",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "5",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L23-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "3/2",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L23-E07",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "a**3",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L23-E08",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "5*sqrt(2)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L23-E09",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "At -1 the value is 0/(-1), defined. At zero the quotient is 1/0, undefined. Every other real denominator has an inverse."
+    },
+    {
+      "id": "L23-E10",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "a**6*b**3",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L23-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Polynomial division has quotient x+1 and zero remainder. The original denominator vanishes at 1 while the quotient has value 2 there, so excluding 1 remains necessary."
+    },
+    {
+      "id": "L23-E12",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Both |a| and the principal root are nonnegative and square to a², hence uniqueness identifies them. The alternatives fail at -1 and +1 respectively."
+    },
+    {
+      "id": "L23-E13",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "If sqrt(2)=2, squaring would give 2=4. Thus the counterexample is exact, not dependent on decimal rounding."
+    },
+    {
+      "id": "L23-E14",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For nonzero x, x*(1/x)=1, so x is the reciprocal of 1/x. At zero the inner expression is undefined. The third option fails at x=2."
+    },
+    {
+      "id": "L23-E15",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "1/(x + 1) + 1/(x - 1)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L24-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "4",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L24-E02",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "5",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L24-E03",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "At -3 equality holds; at 0 the original inequality holds; at -4 it fails. Multiplication by the negative constant maps the complete half-line x>=-3 exactly to values <=9."
+    },
+    {
+      "id": "L24-E04",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "At 3 the left side is 7, which fails the strict inequality. For x=3+h the inequality is exactly 2h>0, equivalent to h>0."
+    },
+    {
+      "id": "L24-E05",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "{0, 1}",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L24-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "7",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L24-E07",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "9",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L24-E08",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Write x=-4+h. The original left side is 6-2h, at least 6 exactly when h<=0, proving the complete boundary and direction."
+    },
+    {
+      "id": "L24-E09",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "{-3, 3}",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L24-E10",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Factoring yields x+2 for x!=2. Setting this to 4 forces x=2, contradicting the domain. Substitution of 4 gives 6 rather than 4."
+    },
+    {
+      "id": "L24-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For a=0 the predicate is 0=0 independently of x. For a nonzero its multiplicative inverse exists and gives x=1. Taking a=1 excludes the universal-zero proposal."
+    },
+    {
+      "id": "L24-E12",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "{0}",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L24-E13",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For negative x, multiplying x<1 by x reverses the direction, giving x²>x. A positive x strictly between 0 and 1 satisfies the proposed conclusion; x=1 does not meet the premise."
+    },
+    {
+      "id": "L24-E14",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "3",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L24-E15",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "{4}",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L25-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "{(4, 3)}",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L25-E02",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "3",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L25-E03",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "4",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L25-E04",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "3",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L25-E05",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Subtracting the two conditions gives 0=2, a false statement independent of x and y. Therefore the intersection of their solution sets is empty."
+    },
+    {
+      "id": "L25-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "{(3, 5)}",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L25-E07",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "{(5, 1)}",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L25-E08",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For every real t, the pair (3+2t,t) satisfies both equations. Conversely the first equation forces precisely this form, so one free real parameter remains."
+    },
+    {
+      "id": "L25-E09",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Dimension check: price per adult times adults and price per child times children both yield euros. Ten children alone yield 30 euros, which distinguishes the swapped coefficients."
+    },
+    {
+      "id": "L25-E10",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "{(0, 2)}",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L25-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "When a!=1 the determinant a-1 is nonzero, so the only pair is (5,0). At a=1 every (5-t,t) satisfies both equations."
+    },
+    {
+      "id": "L25-E12",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The system x+y=1, 2x+2y=2 eliminates to 0=0 yet contains (1,0) and excludes (0,0). This countermodel refutes both automatic conclusions."
+    },
+    {
+      "id": "L25-E13",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Direct substitution verifies (-1,5) in both equations, proving algebraic consistency. Uniqueness follows by subtraction, so no alternative nonnegative pair can satisfy the same data."
+    },
+    {
+      "id": "L25-E14",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The retained pair of constraints forces (3,4). Keeping only 3x=9 admits arbitrary y; keeping only x+y=7 admits, for example, (0,7), which fails the second original row."
+    },
+    {
+      "id": "L25-E15",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The linear combination second row minus twice the first has all variable coefficients zero but constant right side 1. This contradiction does not depend on a, including a=0."
+    },
+    {
+      "id": "L26-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "6",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L26-E02",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "4",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L26-E03",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "12",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L26-E04",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "5",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L26-E05",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-2",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L26-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "21",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L26-E07",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "22",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L26-E08",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "7",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L26-E09",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "0",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L26-E10",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "29",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L26-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The identity (u+v)²=u²+2uv+v² has cross term -2 at (1,-1); removing that term changes 0 to 2."
+    },
+    {
+      "id": "L26-E12",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "18",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L26-E13",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The function of c is an affine function with nonzero slope -n, so it has exactly one zero. Substitution c=mean gives zero; taking nonzero unequal data rules out 0 and n*mean in general."
+    },
+    {
+      "id": "L26-E14",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Pair the index set {0,...,n} bijectively with {1,...,n+1} by adding 1. This establishes the count for arbitrary n, not only a numerical example."
+    },
+    {
+      "id": "L26-E15",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Centring z at 2*mean(x)+3 yields deviations 2*(x_i-mean(x)), whose sum is zero. Uniqueness of the zero-centred constant identifies the transformed mean."
+    },
+    {
+      "id": "L27-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-3",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L27-E02",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Substitution of the first coordinate into x=0 accepts (0,-4) and rejects both other candidates, whose first coordinates are nonzero."
+    },
+    {
+      "id": "L27-E03",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "(3, 4)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L27-E04",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "5",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L27-E05",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "(2, 4)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L27-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "5",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L27-E07",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "(8, 7)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L27-E08",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "{-3, 3}",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L27-E09",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "2*sqrt(13)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L27-E10",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "(-a, -b)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L27-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The difference of squared distances is 4x; since distances are nonnegative, equality of their squares is equivalent to equality. Thus every and only point with x=0 qualifies."
+    },
+    {
+      "id": "L27-E12",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Unequal scales invalidate the raw-coordinate formula even at a right angle. Equal scales at a non-right angle require a cross term, by the cosine law; orthonormal coordinates avoid both failures."
+    },
+    {
+      "id": "L27-E13",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Each squared coordinate difference is nonnegative and bounded above by their zero sum, hence each is zero. Equal x alone fails for (0,0),(0,1); opposite nonzero points have positive distance."
+    },
+    {
+      "id": "L27-E14",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "At centre+(2,0) the proposed equation holds; expanding the distance definition gives exactly this locus. The second candidate has the opposite centre; the third has radius sqrt(2)."
+    },
+    {
+      "id": "L27-E15",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "In each coordinate, midpoint means arithmetic average, so A+B=2M. Taking A=(1,0), B=(3,0), M=(2,0) rejects both alternative identities."
+    },
+    {
+      "id": "L28-E01",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Evaluate y-3x+1 at the three ordered pairs: values are 0,1,-4 respectively, so only the first belongs."
+    },
+    {
+      "id": "L28-E02",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "All points (2,t) satisfy x=2 and share one horizontal position; y=2 is horizontal and y=x² contains noncollinear points."
+    },
+    {
+      "id": "L28-E03",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "4",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L28-E04",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "9",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L28-E05",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The zero sets coincide because the original residual equals twice x+y-4. At (4,0), the second fails; at (0,4), the third fails."
+    },
+    {
+      "id": "L28-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "5",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L28-E07",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "At (3,-2) both squared displacement terms vanish; translating x by 3 and y by -2 converts the equation to a radius-2 circle at the origin."
+    },
+    {
+      "id": "L28-E08",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "{-2, 2}",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L28-E09",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Multiplication by -3 is bijective on reals. Variable multiplication admits zeros, while squaring identifies opposite signs, so neither alternative guarantees equal zero sets."
+    },
+    {
+      "id": "L28-E10",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The first point makes xy-x²=0 and y-x=2. The second satisfies both equations, and the third fails the multiplied equation."
+    },
+    {
+      "id": "L28-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The real numbers have no zero divisors; the factored equation holds iff y=x or y=-x. Point (1,-1) refutes the second candidate; (1,1) refutes the third."
+    },
+    {
+      "id": "L28-E12",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The equation reduces independently of coordinates to false statement 0=1. This is why the line definition excludes both linear coefficients zero."
+    },
+    {
+      "id": "L28-E13",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Nonnegative summands with zero sum are each zero, implying x=y=0. Substitution confirms existence, excluding the empty-set option."
+    },
+    {
+      "id": "L28-E14",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Set difference ({x=0} union {y=1}) minus {y=1} equals {x=0,y≠1}. The alternatives already lie on the retained horizontal line."
+    },
+    {
+      "id": "L28-E15",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For any solution of y²=x, x is nonnegative. Restricting y to nonnegative chooses the unique principal root; y≤0 chooses the other branch, and x>0 retains two branches."
+    },
+    {
+      "id": "L29-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "4",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L29-E02",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "7",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L29-E03",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "14",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L29-E04",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-6",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L29-E05",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "0",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L29-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-1/2",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L29-E07",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "(0, -6)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L29-E08",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "33",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L29-E09",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Subtracting the equations of the first candidate and given line yields 0=-5, so no intersection; equal finite slope makes them parallel. The other candidates intersect or coincide."
+    },
+    {
+      "id": "L29-E10",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "4",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L29-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Take points (2,0) and (2,1): their horizontal difference is 0, vertical difference 1. No real m satisfies 1=m*0; thus no finite slope can represent this line."
+    },
+    {
+      "id": "L29-E12",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Subtract values at the two shared abscissas to obtain (m1-m2)(x2-x1)=0. Distinct abscissas imply equal slopes; substituting one common value then implies equal intercepts."
+    },
+    {
+      "id": "L29-E13",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "m/100",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L29-E14",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For any x, new minus old equals 4; differences between two x-values are unchanged, so slope is unchanged. At x=0 the intercept increases by exactly 4."
+    },
+    {
+      "id": "L29-E15",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The first condition fixes exactly one x and leaves y free. The second fixes y and is horizontal; both coefficients zero gives the empty plane or entire plane, never a line."
+    },
+    {
+      "id": "L30-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "2",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L30-E02",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "All candidates can be read for slope and intercept; only the first has slope 3 and gives -2 at x=0. The other two violate at least one condition."
+    },
+    {
+      "id": "L30-E03",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "{(2, 2)}",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L30-E04",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Subtracting equations cancels 2x and yields contradiction 4=0. Thus there are zero common points, not a finite positive number."
+    },
+    {
+      "id": "L30-E05",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Both points satisfy x=3. Neither has vertical coordinate 3, and neither satisfies y=x+3, so the alternatives fail direct substitution."
+    },
+    {
+      "id": "L30-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-2",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L30-E07",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The first equation passes both substitution tests. The second already fails at x=1; the third passes the first point but fails at (3,7), illustrating why both points must be checked."
+    },
+    {
+      "id": "L30-E08",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "{(2, 5)}",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L30-E09",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Parameterise x=t,y=3-t for every real t. Every such point satisfies both equations, and every simultaneous solution has this form."
+    },
+    {
+      "id": "L30-E10",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "{(-2, -2)}",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L30-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Their intersection equation is (a-2)x=2. When a=2 it is impossible; for every other a there is exactly one solution 2/(a-2)."
+    },
+    {
+      "id": "L30-E12",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "4",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L30-E13",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For point (u,v), every real m gives y-v=m(x-u), all distinct as m varies; x=u adds the vertical. The theorem of unique line needs two distinct points."
+    },
+    {
+      "id": "L30-E14",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For q≥0, q+10≥10>0, so B is always larger. The algebraic root -10 lies outside the allowed domain and cannot be made positive by discarding its sign."
+    },
+    {
+      "id": "L30-E15",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "2/(a - 2)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L31-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-1",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L31-E02",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "At the point the inequality reduces to 2<2, which is false. Equality would be accepted for ≤ but not for <."
+    },
+    {
+      "id": "L31-E03",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Origin substitution accepts x≤3 and rejects x≥3; y≤3 has a different boundary and therefore does not answer the stated question."
+    },
+    {
+      "id": "L31-E04",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Candidate constraint triples are (true,true,true), (true,true,false), (false,true,true). The conjunction accepts only the first."
+    },
+    {
+      "id": "L31-E05",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For each fixed x, all y from 2x+1 upward are required. The strict option omits the boundary and the reversed option takes the opposite side."
+    },
+    {
+      "id": "L31-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "3",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L31-E07",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Evaluate residual x-y-2 at origin to get -2, selecting its nonpositive side. The third option has a different boundary, even though it also contains the origin."
+    },
+    {
+      "id": "L31-E08",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "10",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L31-E09",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Multiplying x-y≥-3 by -2 recovers the original exactly. At origin original and first are true, second false; point (0,4) rejects the third equivalence."
+    },
+    {
+      "id": "L31-E10",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The first lies on an included edge. The second has all inequalities strict and is interior. The third lies on an extended boundary line but outside the triangle."
+    },
+    {
+      "id": "L31-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For triangle with vertices (0,0),(4,0),(0,4), the two coordinate half-planes form an unbounded quadrant; (5,5) supplies a concrete false positive removed by the third constraint."
+    },
+    {
+      "id": "L31-E12",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Split into f(R)>0 and f(R)<0; division by its sign gives the appropriate inequality for f(P). The sum criterion fails e.g. f(R)=2,f(P)=-1."
+    },
+    {
+      "id": "L31-E13",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "At a boundary reference f(R)=0, both f(R)≤0 and f(R)≥0 are true. The product test then becomes 0≥0 for every P and cannot distinguish any side."
+    },
+    {
+      "id": "L31-E14",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Displacement vectors (1,1) and (2,2) are proportional, with determinant 1*2-1*2=0. This independently confirms zero area and collinearity."
+    },
+    {
+      "id": "L31-E15",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Multiplication of both evaluations by -1 leaves their product unchanged, including zero at the boundary. This orientation invariance requires transforming the reference evaluation too."
+    },
+    {
+      "id": "L32-E01",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "This is the explicit screen-coordinate convention; keeping u fixed and increasing v increments the row index toward lower rows."
+    },
+    {
+      "id": "L32-E02",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "160",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L32-E03",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "140",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L32-E04",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "4",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L32-E05",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "(300, 200)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L32-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "(220, 80)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L32-E07",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "(2, -1)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L32-E08",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-6",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L32-E09",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "40",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L32-E10",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "There are exactly 640 integers in {0,...,639}. Both 640 and -1 violate the specified bounds 0≤u<640."
+    },
+    {
+      "id": "L32-E11",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "760 - 2*u",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L32-E12",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Coordinates 10.1 and 10.2 both round to 10, independently of halfway tie rules. Thus the map is not injective and no universal exact inverse exists."
+    },
+    {
+      "id": "L32-E13",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Unit horizontal and vertical vectors have screen lengths sx and sy, so equality is necessary. With equal scales, the squared distance is s²(dx²+dy²), proving sufficiency despite vertical reflection."
+    },
+    {
+      "id": "L32-E14",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "1/100",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L32-E15",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The forward map u=u0+0*x is constant in x, so two inputs differing only in x share the same output. This destroys injectivity before rounding even occurs."
+    },
+    {
+      "id": "L33-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "6/5",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L33-E02",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For dx=2,dy=6, column sampling uses 3 pixels while row sampling uses 7, with each successive row represented; the latter removes the stated gaps."
+    },
+    {
+      "id": "L33-E03",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "6",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L33-E04",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The octant explicitly uses upward y; NE therefore increments both x and y. The alternatives move north only or southeast."
+    },
+    {
+      "id": "L33-E05",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-1",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L33-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "3",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L33-E07",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "An ascending integer range starting above its endpoint is empty under the usual loop convention. Swapping endpoints preserves the geometric segment and supplies valid ascending bounds."
+    },
+    {
+      "id": "L33-E08",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "3",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L33-E09",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-3",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L33-E10",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The set {(4,j):j=1,...,5} includes both endpoints and every intervening row. A slope quotient is undefined and one pixel cannot represent the five-row segment."
+    },
+    {
+      "id": "L33-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "At D=0 the ideal line passes exactly through the midpoint, so E and NE are equally close. Either tie rule can be designed, but the given ≥ rule deterministically chooses NE."
+    },
+    {
+      "id": "L33-E12",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The candidate set permits at most one upward unit per rightward unit, so after two x steps it can rise at most two, not five. An axis swap is mathematically necessary for this formulation."
+    },
+    {
+      "id": "L33-E13",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "At the next x=3, ideal height is 6/5=1.2, below midpoint 1.5, so E=(3,1) is closer than NE=(3,2). This separately checks the decision sign."
+    },
+    {
+      "id": "L33-E14",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Mapping upward y to screen v=v0-y sends a +1 y step to a -1 v step. Copying NE=(x+1,y+1) literally into downward screen coordinates reverses its visual vertical direction."
+    },
+    {
+      "id": "L33-E15",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Writing F(x,y)=2*dy*(x+1)-2*dx*y-dx, direct subtraction F(x+1,y+1)-F(x,y)=2*dy-2*dx proves the update for all allowed integer dx,dy."
+    },
+    {
+      "id": "L34-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "7",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L34-E02",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "3",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L34-E03",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "0",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L34-E04",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "5",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L34-E05",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The inequality e=y-yhat>0 is equivalent to y>yhat. Equality would require zero residual, while the reversed inequality corresponds to negative residual."
+    },
+    {
+      "id": "L34-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-1",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L34-E07",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "3",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L34-E08",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "8",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L34-E09",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-2",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L34-E10",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For any two parameter pairs, S1≤S2 iff S1/n≤S2/n because n>0. Therefore their complete argmin sets coincide, including nonunique cases."
+    },
+    {
+      "id": "L34-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Take two observations with residuals -3 and +3. Their signed sum is zero but both predictions are wrong and squared loss is 18, disproving the inference."
+    },
+    {
+      "id": "L34-E12",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Each square is nonnegative; zero total forces zero individually. This establishes fit on observed data only and contains no logical premise guaranteeing future or out-of-range predictions."
+    },
+    {
+      "id": "L34-E13",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "100*x**2",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L34-E14",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "A zero sum of squared centred x-values forces xi=xbar for every i; the converse follows by substitution. Data x=(-1,1) have zero sum but Sxx=2, disproving the second option."
+    },
+    {
+      "id": "L34-E15",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "(9, 8)",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L35-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "x**2 - 4*x + 7",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L35-E02",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "1",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L35-E03",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "3/2",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L35-E04",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The first line interpolates both points, so its nonnegative squared loss is zero and minimal. The others each have a nonzero residual; distinct x guarantees uniqueness."
+    },
+    {
+      "id": "L35-E05",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "4",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L35-E06",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The expression is at least 5 because the coefficient 2 is positive, and evaluating at m=3 attains 5. The alternatives are below the lower bound."
+    },
+    {
+      "id": "L35-E07",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "1/2",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L35-E08",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "7/6",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L35-E09",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "1/6",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L35-E10",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Substitution of the mean point into y=mx+p gives 10=6+p and hence p=4. The alternatives yield p=-17 or p=10 and fail the mean-point invariant."
+    },
+    {
+      "id": "L35-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The cross term in the centred expansion is 2q*sum(Yi-mXi)=0. Thus the only p-dependent term is n q² with n>0, uniquely minimised at q=0; individual residuals may remain nonzero."
+    },
+    {
+      "id": "L35-E12",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Set q=2m+p; squared loss in q is sum(yi-ybar)²+n(q-ybar)². Therefore every and only pair with q=5 is optimal, producing infinitely many slope/intercept pairs."
+    },
+    {
+      "id": "L35-E13",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The horizontal line y=4 has zero loss. With varying x, the coefficient Sxx is positive and the completed-square formula guarantees this parameter pair is unique."
+    },
+    {
+      "id": "L35-E14",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For data y=2x with varying x, Sxy=2Sxx and Syy=4Sxx. The wrong ratio gives 1/2, while the exact zero-loss slope is 2, a direct implementation counterexample."
+    },
+    {
+      "id": "L35-E15",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Subtracting the optimal loss from the loss at any m gives Sxx*(m-mstar)², positive whenever m differs from mstar. This proves uniqueness without assuming a zero residual fit."
+    },
+    {
+      "id": "L36-E01",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "1/2",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L36-E02",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "With positive Sxx and Syy, the denominators in r and m are positive, so both have the sign of Sxy. Thus r=-0.9 implies a negative fitted slope."
+    },
+    {
+      "id": "L36-E03",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "A common temperature driver can raise both ice-cream sales and pool attendance without either causing the other. Positive and even near-perfect association do not remove this alternative."
+    },
+    {
+      "id": "L36-E04",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "By definition extrapolation uses inputs beyond the observed range: 25>20. The other two values lie between the endpoints."
+    },
+    {
+      "id": "L36-E05",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "The operation computes m*x+p without updating m,p. This is inference under the stated vocabulary; training requires selecting or changing parameters from labelled data."
+    },
+    {
+      "id": "L36-E06",
+      "scope": "exact-symbolic-or-numeric",
+      "value": "-1",
+      "candidateMatches": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "L36-E07",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Their magnitudes are .95,.7,.1 respectively; .95 is largest, so the negative correlation is strongest despite its sign."
+    },
+    {
+      "id": "L36-E08",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "An outlier could be a recording error or a valid rare event. Neither status follows solely from distance to the fitted line, so investigation and sensitivity analysis precede any removal decision."
+    },
+    {
+      "id": "L36-E09",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Fitting selects parameters using training labels and can exploit their particular noise. Held-out observations provide evidence about generalisation, without guaranteeing either zero error or causal identification."
+    },
+    {
+      "id": "L36-E10",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Constant y implies every centred y deviation is zero, so Syy=Sxy=0. Although slope is well-defined as zero when Sxx>0, r has denominator zero and is undefined."
+    },
+    {
+      "id": "L36-E11",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "xbar=0,ybar=2/3, giving Sxy=(-1)*(1/3)+0*(-2/3)+1*(1/3)=0, while Sxx=2 and Syy=2/3 are positive. Thus r=0 is defined despite an exact quadratic relationship."
+    },
+    {
+      "id": "L36-E12",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "For observations (-1,1),(0,0),(1,1), the least-squares horizontal prediction is 2/3, wrong at the interior observed input x=0. Range membership alone therefore cannot guarantee accuracy."
+    },
+    {
+      "id": "L36-E13",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Means and covariance constrain finitely many aggregate moments rather than specifying every coordinate. Distinct point configurations can share these moments; plotting exposes curvature, clusters and influential observations."
+    },
+    {
+      "id": "L36-E14",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "With positive Sxx,Syy, minimum SSE=Syy-Sxy²/Sxx=Syy*(1-r²). At |r|=1 this is zero, forcing every residual zero; Syy>0 excludes a horizontal constant-output line. The converse follows by the same identity."
+    },
+    {
+      "id": "L36-E15",
+      "scope": "recorded-mathematical-argument; manual author self-check",
+      "argument": "Once validation labels participate in parameter selection, the resulting error is an in-sample selection measure. Arithmetic remains valid, but an independent generalisation assessment needs fresh observations not used for fitting."
+    }
+  ]
+}
