@@ -10,6 +10,7 @@ on:
 permissions:
   contents: read
   checks: read
+  pull-requests: read
 
 concurrency:
   group: release-please-main
@@ -38,8 +39,16 @@ jobs:
           set -euo pipefail
           current="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha')"
           test "$current" = "$GITHUB_SHA" || { echo "Stale run: dispatch the latest main revision."; exit 1; }
-          checked="$(gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/check-runs?per_page=100" --jq '[.check_runs[] | select(.name == "docs" and .app.id == 15368)] | sort_by(.id) | last | .conclusion == "success"')"
-          test "$checked" = true || { echo "A successful docs check for this exact SHA is required."; exit 1; }
+          require_docs() {
+            checked="$(gh api "repos/$GITHUB_REPOSITORY/commits/$1/check-runs?per_page=100" --jq '[.check_runs[] | select(.name == "docs" and .app.id == 15368)] | sort_by(.id) | last | .conclusion == "success"')"
+            test "$checked" = true || { echo "A successful docs check for exact SHA $1 is required."; exit 1; }
+          }
+          require_docs "$GITHUB_SHA"
+          pending="$(gh api --paginate "repos/$GITHUB_REPOSITORY/pulls?state=closed&base=main&per_page=100" --jq '.[] | select(.merged_at != null and any(.labels[]; .name == "autorelease: pending")) | .merge_commit_sha')"
+          while IFS= read -r release_sha; do
+            test -n "$release_sha" || continue
+            require_docs "$release_sha"
+          done <<< "$pending"
           node scripts/check-release.mjs
       - name: Create repository-scoped release token
         id: app

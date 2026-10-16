@@ -1,7 +1,10 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { readFile, mkdtemp, writeFile, rm } from 'node:fs/promises';
 import { createRequire } from 'node:module';
 import { createHash } from 'node:crypto';
+import { spawnSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { test } from 'node:test';
 
 const require = createRequire(
@@ -184,4 +187,51 @@ test('the archived manual changelog is byte-for-byte the bootstrap source', asyn
     digest,
     '0fc39cb3e16e251bcc443c965f29acd84d820211e62f673b828a0132541bb6bf',
   );
+});
+
+test('release preflight rejects unchecked release SHAs and stale main', async () => {
+  const yaml = require('js-yaml');
+  const workflow = yaml.load(
+    await read('.github/workflows/release-please.yml'),
+  );
+  const script = workflow.jobs.release.steps.find((step) =>
+    step.run?.includes('require_docs'),
+  ).run;
+  const directory = await mkdtemp(join(tmpdir(), 'release-preflight-'));
+  try {
+    await writeFile(
+      join(directory, 'gh'),
+      `#!/usr/bin/env node
+const args = process.argv.join(' ');
+if (args.includes('git/ref/heads/main')) console.log('a'.repeat(40));
+else if (args.includes('/pulls?')) console.log('b'.repeat(40));
+else if (args.includes('/commits/')) console.log(!(process.env.UNCHECKED_RELEASE === 'true' && args.includes('b'.repeat(40))));
+else process.exit(2);
+`,
+      { mode: 0o755 },
+    );
+    const run = (extra = {}) =>
+      spawnSync('bash', ['-c', script], {
+        cwd: root,
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          PATH: directory + ':' + process.env.PATH,
+          GITHUB_REPOSITORY: 'GadDev/uni-math-course',
+          GITHUB_SHA: 'a'.repeat(40),
+          GH_TOKEN: '',
+          ...extra,
+        },
+      });
+    const unchecked = run({ UNCHECKED_RELEASE: 'true' });
+    assert.notEqual(unchecked.status, 0);
+    assert.match(unchecked.stdout, /successful docs check for exact SHA b/);
+    const stale = run({ GITHUB_SHA: 'c'.repeat(40) });
+    assert.notEqual(stale.status, 0);
+    assert.match(stale.stdout, /Stale run/);
+    const checked = run({ UNCHECKED_RELEASE: 'false' });
+    assert.equal(checked.status, 0, checked.stdout + checked.stderr);
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
 });

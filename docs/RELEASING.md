@@ -15,7 +15,7 @@ The [configuration](../release-please-config.json) uses the Node strategy and on
 5. After its checked main merge, automation creates the immutable `vX.Y.Z` tag and GitHub release.
 6. Deployment identity and health are verified separately. A tag, green CI or GitHub release is not proof of a successful production deployment.
 
-The stable `docs` gate includes application, release-policy, release-planning, immutable-bank, database and browser checks. The release workflow also verifies that its SHA is still main and has a successful `docs` check from GitHub Actions. Older queued runs fail with instructions to dispatch current main. Main runs and release mutations are not cancelled mid-run; obsolete PR checks can still be cancelled.
+The stable `docs` gate includes application, release-policy, release-planning, immutable-bank, database and browser checks. The release workflow also verifies that its SHA is still main and has a successful `docs` check from GitHub Actions. Before tagging, it checks the exact merge SHA of every pending merged release PR as well; a successful newer main cannot substitute for those checks. Older queued runs fail with instructions to dispatch current main. Each main SHA has its own CI concurrency group so pending main validations cannot replace each other. Main runs and release mutations are not cancelled mid-run; obsolete PR checks can still be cancelled.
 
 ## Bootstrap and preserved history
 

@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: repository-checks-${{ github.workflow }}-${{ github.ref }}
+  group: repository-checks-${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.ref || github.sha }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
@@ -70,6 +70,7 @@ jobs:
     permissions:
       contents: read
       checks: read
+      pull-requests: read
     uses: ./.github/workflows/release-please.yml
     secrets:
       RELEASE_PLEASE_PRIVATE_KEY: ${{ secrets.RELEASE_PLEASE_PRIVATE_KEY }}
