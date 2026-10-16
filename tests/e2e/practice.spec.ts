@@ -254,6 +254,7 @@ test('direct practice operations enforce identity, origin, idempotency and owner
   const delivered = JSON.stringify(await exerciseResponse.json());
   expect(delivered).not.toMatch(/"answer"|"explanation"|"feedback"/);
   const body = {
+    expectedLearnerId: owner.user.id,
     submissionId: randomUUID(),
     exerciseId: 'L05-E01',
     version: 1,
@@ -442,6 +443,7 @@ test('legacy uncertain choice reconciles saved answers before feedback and delib
   const saved = await context.request.post('/api/attempts/', {
     headers: { Origin: app },
     data: {
+      expectedLearnerId: session.user.id,
       submissionId,
       exerciseId: 'L05-E01',
       version: 1,
@@ -505,11 +507,12 @@ for (const locale of ['fr', 'en'] as const) {
     page,
     context,
   }) => {
-    await identify(context);
+    const session = await identify(context);
     // Save an E01 mistake, then leave an unfinished E06 draft active.
     await context.request.post('/api/attempts/', {
       headers: { Origin: app },
       data: {
+        expectedLearnerId: session.user.id,
         submissionId: randomUUID(),
         exerciseId: 'L05-E01',
         version: 1,
@@ -619,4 +622,137 @@ test('session-expiry link identifies the currently selected exercise', async ({
     'href',
     '/en/sign-in/?next=%2Fen%2Flessons%2FL05%2Fpractice%2F%3Fexercise%3DL05-E04%26version%3D1',
   );
+});
+
+for (const locale of ['fr', 'en'] as const) {
+  test(`stale tab rejects an account switch before saving and clears old work (${locale})`, async ({
+    page,
+    context,
+  }) => {
+    const original = await identify(context);
+    await page.goto(`/${locale}/lessons/L05/practice/`);
+    await page.locator('input[value="10"]').check();
+    // A different lesson's private draft must be cleared as well.
+    await page.evaluate(() =>
+      sessionStorage.setItem('um-practice:L01', 'old-work'),
+    );
+    const replacement = await (
+      await context.request.post(fixture + '/__fixture/session', { data: {} })
+    ).json();
+    const otherTab = await context.newPage();
+    await otherTab.goto('/en/sign-in/');
+    // The normal sign-in page redirects an already signed-in user. Use the
+    // actual login endpoint to replace the shared browser session in tab B.
+    const switched = await otherTab.request.post('/auth/login/', {
+      headers: { Origin: app },
+      form: {
+        email: replacement.session.user.email,
+        password: 'correct-horse-battery',
+        locale: 'en',
+      },
+    });
+    expect(switched.ok()).toBe(true);
+    await otherTab.goto('/en/account/');
+    const current = (
+      await (await context.request.get('/api/auth/session/')).json()
+    ).user;
+    expect(current.id).not.toBe(original.user.id);
+    expect(current.id).toBe(replacement.session.user.id);
+    const saved = page.waitForResponse((r) =>
+      r.url().endsWith('/api/attempts/'),
+    );
+    await page.locator('.pp-button-solid').click();
+    const rejected = await saved;
+    expect(rejected.status()).toBe(409);
+    expect(await rejected.json()).toEqual({ error: 'learner_context_changed' });
+    await expect(page.getByRole('alert')).toContainText(
+      locale === 'en' ? 'The account has changed' : 'Le compte a changé',
+    );
+    await expect(page.locator('.pp-question')).toHaveCount(0);
+    await expect(page.locator('.pp-feedback')).toHaveCount(0);
+    expect(
+      await page.evaluate(() =>
+        Object.keys(sessionStorage).filter((k) => k.startsWith('um-practice:')),
+      ),
+    ).toEqual([]);
+    // Read each owner's rows through their own authenticated Data API session.
+    for (const token of [
+      original.access_token,
+      replacement.session.access_token,
+    ]) {
+      const history = await context.request.get(`${fixture}/rest/v1/attempts`, {
+        headers: {
+          apikey: 'sb_publishable_protocol_fixture',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      expect(await history.json()).toEqual([]);
+    }
+    await otherTab.goto('/en/progress/');
+    await expect(otherTab.locator('.progress-history li')).toHaveCount(0);
+    await page
+      .getByRole('button', {
+        name:
+          locale === 'en' ? 'Load current account' : 'Charger le compte actuel',
+      })
+      .click();
+    await expect(page.locator('.pp-options')).toBeVisible();
+    await expect(page.locator('input:checked')).toHaveCount(0);
+    await page.locator('input[value="10"]').check();
+    const fresh = page.waitForResponse((r) =>
+      r.url().endsWith('/api/attempts/'),
+    );
+    await page.locator('.pp-button-solid').click();
+    expect((await fresh).status()).toBe(201);
+    await expect(page.locator('.pp-feedback')).toBeVisible();
+    await otherTab.reload();
+    await expect(otherTab.locator('.progress-history li')).toHaveCount(1);
+  });
+}
+
+test('attempt API requires matching learner context before writes and duplicate replay', async ({
+  context,
+}) => {
+  const owner = await identify(context);
+  const body = {
+    submissionId: randomUUID(),
+    exerciseId: 'L05-E01',
+    version: 1,
+    locale: 'en',
+    response: { optionId: '10' },
+  };
+  for (const expectedLearnerId of [undefined, null, 42, '', randomUUID()]) {
+    const response = await context.request.post('/api/attempts/', {
+      headers: { Origin: app },
+      data: { ...body, expectedLearnerId, userId: owner.user.id },
+    });
+    expect(response.status()).toBe(
+      typeof expectedLearnerId === 'string' && expectedLearnerId ? 409 : 400,
+    );
+    expect(await response.json()).toEqual({
+      error:
+        typeof expectedLearnerId === 'string' && expectedLearnerId
+          ? 'learner_context_changed'
+          : 'invalid_learner_context',
+    });
+  }
+  const history = await context.request.get(`${fixture}/rest/v1/attempts`, {
+    headers: {
+      apikey: 'sb_publishable_protocol_fixture',
+      Authorization: `Bearer ${owner.access_token}`,
+    },
+  });
+  expect(await history.json()).toEqual([]);
+  const saved = await context.request.post('/api/attempts/', {
+    headers: { Origin: app },
+    data: { ...body, expectedLearnerId: owner.user.id, userId: randomUUID() },
+  });
+  expect(saved.status()).toBe(201);
+  // Even an existing submission cannot be replayed with an incorrect context.
+  const replay = await context.request.post('/api/attempts/', {
+    headers: { Origin: app },
+    data: { ...body, expectedLearnerId: randomUUID() },
+  });
+  expect(replay.status()).toBe(409);
+  expect(await replay.json()).toEqual({ error: 'learner_context_changed' });
 });

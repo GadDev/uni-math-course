@@ -44,7 +44,7 @@ type Stored = {
   currentExerciseId?: string;
   entries: Record<string, Entry>;
 };
-type Phase = 'loading' | 'ready' | 'signin' | 'unavailable';
+type Phase = 'loading' | 'ready' | 'signin' | 'unavailable' | 'account-changed';
 
 const text = {
   fr: {
@@ -59,6 +59,9 @@ const text = {
       'Votre réponse est juste. Lisez l’explication, puis continuez.',
     loading: 'Chargement des exercices…',
     signIn: 'Se connecter pour s’exercer',
+    accountChanged:
+      'Le compte a changé. Vos anciennes réponses ont été retirées de cet onglet et n’ont pas été envoyées au nouveau compte.',
+    loadAccount: 'Charger le compte actuel',
     signInNote:
       'La lecture reste libre. Les exercices et l’enregistrement de vos réponses demandent un compte.',
     unavailable:
@@ -117,6 +120,9 @@ const text = {
       'Your answer is correct. Read the explanation, then carry on.',
     loading: 'Loading exercises…',
     signIn: 'Sign in to practise',
+    accountChanged:
+      'The account has changed. Your previous answers have been removed from this tab and were not submitted to the new account.',
+    loadAccount: 'Load current account',
     signInNote:
       'Reading stays open. Exercises and saving your answers need an account.',
     unavailable:
@@ -316,6 +322,12 @@ export default function PracticeActivity({
 
   async function load() {
     setPhase('loading');
+    setLearner('');
+    setExercises([]);
+    setEntries({});
+    setFailed({});
+    setCurrent(0);
+    graded.current = false;
     try {
       const response = await fetch(`/api/exercises/${lessonId}/`, {
         credentials: 'same-origin',
@@ -459,6 +471,7 @@ export default function PracticeActivity({
           Accept: 'application/json',
         },
         body: JSON.stringify({
+          expectedLearnerId: learner,
           submissionId: found.submissionId,
           exerciseId: target.id,
           version: target.version,
@@ -469,6 +482,27 @@ export default function PracticeActivity({
       });
       if (response.status === 401)
         return setFailed((f) => ({ ...f, [target.id]: 'expired' }));
+      if (response.status === 409) {
+        const problem = (await response.json()) as { error?: string };
+        if (problem.error === 'learner_context_changed') {
+          // Other lesson drafts can also belong to the previous account.
+          try {
+            for (const key of Object.keys(sessionStorage))
+              if (key.startsWith('um-practice:'))
+                sessionStorage.removeItem(key);
+          } catch {
+            // Clear in-memory private UI even when storage is unavailable.
+          }
+          setPhase('account-changed');
+          setLearner('');
+          setExercises([]);
+          setEntries({});
+          setFailed({});
+          setCurrent(0);
+          graded.current = false;
+          return;
+        }
+      }
       if (!response.ok)
         return setFailed((f) => ({ ...f, [target.id]: 'error' }));
       const outcome = (await response.json()) as Result;
@@ -561,6 +595,18 @@ export default function PracticeActivity({
           <a className="primary-link" href={signInHref}>
             {t.signIn}
           </a>
+        </div>
+      )}
+      {phase === 'account-changed' && (
+        <div className="pp-body pp-gate">
+          <p role="alert">{t.accountChanged}</p>
+          <button
+            type="button"
+            className="primary-link auth-button"
+            onClick={() => void load()}
+          >
+            {t.loadAccount}
+          </button>
         </div>
       )}
       {phase === 'unavailable' && (

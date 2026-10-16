@@ -124,16 +124,20 @@ export async function startAuthFixture(port = 54329) {
       }
       if (url.pathname === '/auth/v1/token' && req.method === 'POST') {
         if (url.searchParams.get('grant_type') === 'password') {
-          // One known learner; anything else looks like unknown credentials.
-          if (
-            data.email !== 'learner@example.invalid' ||
-            data.password !== 'correct-horse-battery'
-          )
+          // The fixed learner and explicitly issued synthetic users can sign in.
+          // Unique test users keep account-switch tests independent of history.
+          const loginUser =
+            data.email === knownUser.email
+              ? knownUser
+              : [...sessions.values()].find(
+                  (entry) => entry.user.email === data.email,
+                )?.user;
+          if (!loginUser || data.password !== 'correct-horse-battery')
             return json(400, {
               code: 'invalid_credentials',
               msg: 'Invalid login credentials',
             });
-          return json(200, issue({ user: knownUser }));
+          return json(200, issue({ user: loginUser }));
         }
         if (url.searchParams.get('grant_type') === 'refresh_token') {
           const record = refreshes.get(data.refresh_token);

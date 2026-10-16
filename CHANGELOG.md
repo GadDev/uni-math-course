@@ -7,6 +7,7 @@ Notable changes are recorded here. No application version has been released.
 ### Fixed
 
 - Correct L05’s French/English prerequisite, number-reference and practice availability guidance, with scoped evidence and renewed lesson fingerprints.
+- Reject stale learner submissions before persistence or duplicate replay; clear old tab answers and drafts before loading the current account.
 
 - Preserve explicit exercise-review destinations through sign-in errors and language changes while keeping ordinary draft restoration.
 
