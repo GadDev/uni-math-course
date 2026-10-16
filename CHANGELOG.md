@@ -6,6 +6,8 @@ Notable changes are recorded here. No application version has been released.
 
 ### Fixed
 
+- Record translation review against its French source fingerprint and derive checked release-status summaries from the authoritative registry. Preserve existing unreviewed-release exceptions.
+
 - Keep withdrawn and archived attempts in lifetime history, read one owner-scoped database snapshot, and label historical feedback without regrading saved results.
 - Require freshness records for every public reading lesson, including when practice is disabled, and align implementation documentation.
 
