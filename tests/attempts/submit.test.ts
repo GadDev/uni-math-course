@@ -156,6 +156,15 @@ test('resubmitting a submission id is idempotent', async () => {
   assert.equal(again.status, 200);
   assert.equal(altered.status, 200);
   assert.equal((altered.body as { correct: boolean }).correct, true);
+  assert.deepEqual(
+    (altered.body as { response: unknown }).response,
+    payload.response,
+  );
+  assert.equal(
+    (altered.body as { exerciseVersion: number }).exerciseVersion,
+    1,
+  );
+  assert.equal((altered.body as { hintUsed: boolean }).hintUsed, false);
   assert.equal(rows.length, 1);
   assert.equal(
     (first.body as { attemptId: string }).attemptId,
@@ -230,4 +239,27 @@ test('invalid requests are rejected before anything is stored', async () => {
   for (const [payload, status] of cases)
     assert.equal((await run(store, 'u', payload)).status, status);
   assert.equal(rows.length, 0);
+});
+
+test('duplicate table submissions return the saved cells and hint flag', async () => {
+  const { store, rows } = memoryStore();
+  const response = {
+    cells: { '00': true, '01': true, '10': false, '11': true },
+  };
+  const payload = body({ exerciseId: 'L05-E02', response, hintUsed: true });
+  const first = await run(store, 'u', payload);
+  const retry = await run(store, 'u', {
+    ...payload,
+    hintUsed: false,
+    response: { cells: { ...response.cells, '10': true } },
+  });
+  assert.equal(first.status, 201);
+  assert.equal(retry.status, 200);
+  assert.deepEqual((retry.body as { response: unknown }).response, response);
+  assert.equal((retry.body as { hintUsed: boolean }).hintUsed, true);
+  assert.equal(
+    (retry.body as { independentEvidence: boolean }).independentEvidence,
+    false,
+  );
+  assert.equal(rows.length, 1);
 });

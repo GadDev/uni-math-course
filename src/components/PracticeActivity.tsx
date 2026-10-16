@@ -14,7 +14,14 @@ type Exercise = {
   | { type: 'single-choice'; options: { id: string; label: Localized }[] }
   | { type: 'truth-table'; rows: Record<string, string | boolean>[] }
 );
+type SubmittedResponse =
+  { optionId: string } | { cells: Record<string, boolean> };
+type Submission = { answers: Record<string, string>; hintUsed: boolean };
 type Result = {
+  exerciseId: string;
+  exerciseVersion: number;
+  response: SubmittedResponse;
+  hintUsed: boolean;
   correct: boolean;
   duplicate: boolean;
   independentEvidence: boolean;
@@ -28,6 +35,7 @@ type Entry = {
   hintShown: boolean;
   hintUsed: boolean;
   submissionId: string;
+  submission: Submission | null;
   result: Result | null;
 };
 type Stored = {
@@ -65,6 +73,9 @@ const text = {
     hintLabel: 'Indice',
     submit: 'Vérifier ma réponse',
     sending: 'Envoi…',
+    recover: 'Vérifier l’enregistrement',
+    pending:
+      'Cette réponse est verrouillée jusqu’à confirmation de son enregistrement. Vérifiez pour retrouver le résultat sans créer de doublon.',
     needAnswer: 'Choisissez une réponse pour continuer.',
     needRows: 'Complétez toutes les lignes pour continuer.',
     example: 'Revoir l’exemple expliqué',
@@ -120,6 +131,9 @@ const text = {
     hintLabel: 'Hint',
     submit: 'Check my answer',
     sending: 'Sending…',
+    recover: 'Check saved response',
+    pending:
+      'This response is locked until its save is confirmed. Check to recover the result without creating a duplicate.',
     needAnswer: 'Choose an answer to continue.',
     needRows: 'Complete every row to continue.',
     example: 'Review the worked example',
@@ -177,6 +191,7 @@ const freshEntry = (version: number): Entry => ({
   hintShown: false,
   hintUsed: false,
   submissionId: crypto.randomUUID(),
+  submission: null,
   result: null,
 });
 
@@ -191,7 +206,7 @@ function complete(exercise: Exercise, entry: Entry): boolean {
     : exercise.rows.every((row) => !!entry.answers[String(row.id)]);
 }
 
-function responseOf(exercise: Exercise, entry: Entry) {
+function responseOf(exercise: Exercise, entry: Pick<Entry, 'answers'>) {
   return exercise.type === 'single-choice'
     ? { optionId: entry.answers.choice }
     : {
@@ -202,6 +217,68 @@ function responseOf(exercise: Exercise, entry: Entry) {
           ]),
         ),
       };
+}
+
+// Only the recorded response may supply the choices shown beside feedback.
+function answersFromResponse(
+  exercise: Exercise,
+  raw: unknown,
+): Record<string, string> | null {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+  if (exercise.type === 'single-choice') {
+    const id = (raw as { optionId?: unknown }).optionId;
+    return typeof id === 'string' &&
+      exercise.options.some((option) => option.id === id)
+      ? { choice: id }
+      : null;
+  }
+  const cells = (raw as { cells?: unknown }).cells;
+  if (!cells || typeof cells !== 'object' || Array.isArray(cells)) return null;
+  const values = cells as Record<string, unknown>;
+  if (
+    Object.keys(values).length !== exercise.rows.length ||
+    exercise.rows.some(
+      (row) =>
+        !Object.hasOwn(values, String(row.id)) ||
+        typeof values[String(row.id)] !== 'boolean',
+    )
+  )
+    return null;
+  return Object.fromEntries(
+    exercise.rows.map((row) => [
+      String(row.id),
+      String(values[String(row.id)]),
+    ]),
+  );
+}
+
+function restoreEntry(exercise: Exercise, previous: Entry): Entry {
+  const hintUsed = previous.hintUsed || previous.hintShown;
+  const saved = previous.result;
+  const answers =
+    saved?.exerciseId === exercise.id &&
+    saved.exerciseVersion === exercise.version
+      ? answersFromResponse(exercise, saved.response)
+      : null;
+  if (saved && answers)
+    return {
+      ...previous,
+      answers,
+      hintUsed: hintUsed || saved.hintUsed,
+      submission: { answers, hintUsed: saved.hintUsed },
+      result: saved,
+    };
+  // Older cached feedback has no recorded answer. Resolve its existing ID
+  // with the server instead of trusting potentially changed local choices.
+  return {
+    ...previous,
+    answers: previous.submission?.answers ?? previous.answers,
+    hintUsed: hintUsed || !!previous.submission?.hintUsed,
+    result: null,
+    submission:
+      previous.submission ??
+      (saved ? { answers: { ...previous.answers }, hintUsed } : null),
+  };
 }
 
 // Options are marked 1–4 rather than A–D: the option labels themselves use the
@@ -261,10 +338,7 @@ export default function PracticeActivity({
             return [
               exercise.id,
               previous && previous.version === exercise.version
-                ? {
-                    ...previous,
-                    hintUsed: previous.hintUsed || previous.hintShown,
-                  }
+                ? restoreEntry(exercise, previous)
                 : freshEntry(exercise.version),
             ];
           }),
@@ -300,6 +374,11 @@ export default function PracticeActivity({
   const exercise = exercises[current];
   const entry = exercise ? entries[exercise.id] : undefined;
   const result = entry?.result ?? null;
+  const awaitingSave = !!entry?.submission && !result;
+  const shownAnswers =
+    result && exercise
+      ? (answersFromResponse(exercise, result.response) ?? {})
+      : (entry?.answers ?? {});
 
   // Announce the verdict by moving focus to the feedback heading.
   useEffect(() => {
@@ -323,7 +402,20 @@ export default function PracticeActivity({
 
   async function submit(target: Exercise) {
     const found = entries[target.id];
-    if (!found || busy) return;
+    if (!found || found.result || busy || !complete(target, found)) return;
+    const submission = found.submission ?? {
+      answers: { ...found.answers },
+      hintUsed: found.hintUsed,
+    };
+    const nextEntries = { ...entries, [target.id]: { ...found, submission } };
+    // Persist before starting the request: navigation may unmount this island
+    // before an effect runs or before the server's acknowledgement arrives.
+    writeStored(lessonId, {
+      learner,
+      entries: nextEntries,
+      currentExerciseId: exercises[current]?.id,
+    });
+    setEntries(nextEntries);
     setBusy(target.id);
     setFailed(({ [target.id]: _, ...rest }) => rest);
     try {
@@ -339,8 +431,8 @@ export default function PracticeActivity({
           exerciseId: target.id,
           version: target.version,
           locale,
-          hintUsed: found.hintUsed,
-          response: responseOf(target, found),
+          hintUsed: submission.hintUsed,
+          response: responseOf(target, submission),
         }),
       });
       if (response.status === 401)
@@ -348,8 +440,22 @@ export default function PracticeActivity({
       if (!response.ok)
         return setFailed((f) => ({ ...f, [target.id]: 'error' }));
       const outcome = (await response.json()) as Result;
+      const answers = answersFromResponse(target, outcome.response);
+      if (
+        outcome.exerciseId !== target.id ||
+        outcome.exerciseVersion !== target.version ||
+        !answers ||
+        typeof outcome.hintUsed !== 'boolean'
+      )
+        throw new Error('Invalid saved response');
       graded.current = true;
-      update(target.id, (value) => ({ ...value, result: outcome }));
+      update(target.id, (value) => ({
+        ...value,
+        answers,
+        hintUsed: value.hintUsed || outcome.hintUsed,
+        submission: { answers, hintUsed: outcome.hintUsed },
+        result: outcome,
+      }));
     } catch {
       setFailed((f) => ({ ...f, [target.id]: 'error' }));
     } finally {
@@ -376,7 +482,7 @@ export default function PracticeActivity({
 
   const chosenOption =
     exercise?.type === 'single-choice'
-      ? exercise.options.findIndex((o) => o.id === entry?.answers.choice)
+      ? exercise.options.findIndex((o) => o.id === shownAnswers.choice)
       : -1;
 
   return (
@@ -476,7 +582,10 @@ export default function PracticeActivity({
                 <h2 className="pp-exercise-title">{t.exerciseTitle}</h2>
               )}
               {exercise.type === 'single-choice' ? (
-                <fieldset className="pp-fieldset" disabled={!!result}>
+                <fieldset
+                  className="pp-fieldset"
+                  disabled={!!result || awaitingSave}
+                >
                   <legend className="pp-prompt">
                     <Tex text={exercise.prompt[locale] ?? ''} />
                   </legend>
@@ -486,9 +595,9 @@ export default function PracticeActivity({
                       <label
                         key={option.id}
                         className={`pp-option${
-                          entry.answers.choice === option.id ? ' is-chosen' : ''
+                          shownAnswers.choice === option.id ? ' is-chosen' : ''
                         }${
-                          result && entry.answers.choice === option.id
+                          result && shownAnswers.choice === option.id
                             ? result.correct
                               ? ' is-right'
                               : ' is-wrong'
@@ -499,7 +608,7 @@ export default function PracticeActivity({
                           type="radio"
                           name={exercise.id}
                           value={option.id}
-                          checked={entry.answers.choice === option.id}
+                          checked={shownAnswers.choice === option.id}
                           onChange={() =>
                             update(exercise.id, (value) => ({
                               ...value,
@@ -549,7 +658,7 @@ export default function PracticeActivity({
                             <td>
                               <fieldset
                                 className="practice-cell"
-                                disabled={!!result}
+                                disabled={!!result || awaitingSave}
                               >
                                 <legend className="visually-hidden">
                                   {t.row} {label}
@@ -560,7 +669,7 @@ export default function PracticeActivity({
                                       type="radio"
                                       name={`${exercise.id}-${rowId}`}
                                       value={value}
-                                      checked={entry.answers[rowId] === value}
+                                      checked={shownAnswers[rowId] === value}
                                       onChange={() =>
                                         update(exercise.id, (found) => ({
                                           ...found,
@@ -631,6 +740,7 @@ export default function PracticeActivity({
                       <button
                         type="button"
                         className="pp-button pp-button-outline"
+                        disabled={awaitingSave}
                         aria-expanded={entry.hintShown}
                         aria-controls="pp-hint"
                         aria-describedby="pp-optional"
@@ -654,15 +764,21 @@ export default function PracticeActivity({
                         aria-describedby="pp-submit-note"
                         onClick={() => void submit(exercise)}
                       >
-                        {busy === exercise.id ? t.sending : t.submit}{' '}
+                        {busy === exercise.id
+                          ? t.sending
+                          : awaitingSave
+                            ? t.recover
+                            : t.submit}{' '}
                         <span aria-hidden="true">→</span>
                       </button>
                       <small id="pp-submit-note">
-                        {complete(exercise, entry)
-                          ? ' '
-                          : exercise.type === 'single-choice'
-                            ? t.needAnswer
-                            : t.needRows}
+                        {awaitingSave
+                          ? t.pending
+                          : complete(exercise, entry)
+                            ? ' '
+                            : exercise.type === 'single-choice'
+                              ? t.needAnswer
+                              : t.needRows}
                       </small>
                     </div>
                     <div className="pp-action pp-action-link">
