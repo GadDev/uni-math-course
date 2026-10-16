@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Second-derivation helper for propositional-logic answer keys.
-// Brute-forces every truth assignment, so it is an independent route from the
-// hand derivation. It parses a small formula language itself (no eval).
+// Enumerates finite Boolean assignments as a different author self-check route.
+// This is not independent peer review. The parser uses no eval.
 //
 // Usage (from any directory):
 //   node .claude/skills/math-course-studio/scripts/logic-check.mjs <bank.json> <checks.json>
@@ -103,8 +103,10 @@ export function parseFormula(text) {
 export function evaluate(node, assignment) {
   if ('constant' in node) return node.constant;
   if ('variable' in node) {
-    if (!(node.variable in assignment))
+    if (!Object.hasOwn(assignment, node.variable))
       throw new Error(`No value for variable ${node.variable}`);
+    if (typeof assignment[node.variable] !== 'boolean')
+      throw new Error(`Variable ${node.variable} must have a Boolean value`);
     return assignment[node.variable];
   }
   const [a, b] = node.args.map((arg) => evaluate(arg, assignment));
@@ -156,31 +158,65 @@ export function equivalent(left, right) {
   );
 }
 
-// Compare a truth-table item's answer key with the formula, row by row.
+// Compare a complete truth-table key with the supplied formula. The caller must
+// separately check that this formula expresses the bilingual prompt.
 export function checkTable(item, formula) {
   const tree = parseFormula(formula);
   const variables = item.variables ?? ['A', 'B'];
+  if (!Array.isArray(variables) || !variables.length ||
+      new Set(variables).size !== variables.length ||
+      variables.some((name) => typeof name !== 'string' || !/^[A-Za-z][A-Za-z0-9_]*$/.test(name) || ['true', 'false'].includes(name)))
+    return ['table variables must be distinct variable names'];
+  const undeclared = [...variablesOf(tree)].filter((name) => !variables.includes(name));
+  if (undeclared.length) return [`formula uses undeclared variable(s): ${undeclared.join(', ')}`];
+  const expectedRows = [...assignments(variables)];
+  const ids = expectedRows.map(({ id }) => id);
+  if (!Array.isArray(item.rows) || item.rows.length !== ids.length ||
+      item.rows.some((row) => !row || !ids.includes(row.id)) ||
+      new Set(item.rows.map((row) => row.id)).size !== ids.length)
+    return ['table must contain each Boolean assignment exactly once'];
+  if (!item.answer || typeof item.answer !== 'object' || Array.isArray(item.answer) ||
+      Object.keys(item.answer).length !== ids.length ||
+      ids.some((id) => !Object.hasOwn(item.answer, id) || typeof item.answer[id] !== 'boolean'))
+    return ['answer key must contain one Boolean value for every assignment'];
+  const rows = new Map(item.rows.map((row) => [row.id, row]));
   const problems = [];
-  for (const row of item.rows) {
-    const values = Object.fromEntries(variables.map((v) => [v, row[v]]));
+  for (const { id, values } of expectedRows) {
+    const row = rows.get(id);
+    if (variables.some((name) => !Object.hasOwn(row, name) || row[name] !== values[name])) {
+      problems.push(`row ${id}: variable values do not match the labelled assignment`);
+      continue;
+    }
     const expected = evaluate(tree, values);
-    if (item.answer[row.id] !== expected)
-      problems.push(`row ${row.id}: key says ${item.answer[row.id]}, formula gives ${expected}`);
+    if (item.answer[id] !== expected)
+      problems.push(`row ${id}: key says ${item.answer[id]}, formula gives ${expected}`);
   }
   return problems;
 }
 
 export function runChecks(bank, checks) {
+  if (!Array.isArray(checks) || checks.length === 0)
+    throw new Error('Verification manifest must be a non-empty array of checks');
+  if (!Array.isArray(bank?.exercises) || bank.exercises.some((item) =>
+      !item || typeof item.id !== 'string' || !['single-choice', 'truth-table'].includes(item.type)) ||
+      new Set(bank.exercises.map((item) => item.id)).size !== bank.exercises.length)
+    throw new Error('Bank must contain distinct exercise IDs with supported types');
   const results = [];
-  for (const check of checks) {
-    const label = check.id ?? check.kind;
+  for (const [index, check] of checks.entries()) {
+    const label = check?.id ?? check?.kind ?? `check ${index + 1}`;
     let problems = [];
+    let answerKeyId;
     try {
+      if (!check || typeof check !== 'object' || Array.isArray(check))
+        throw new Error('Check must be an object');
       if (check.kind === 'table') {
         const item = bank.exercises.find((exercise) => exercise.id === check.id);
         if (!item) problems = [`no exercise ${check.id} in the bank`];
         else if (item.type !== 'truth-table') problems = [`${check.id} is not a truth-table item`];
-        else problems = checkTable(item, check.formula);
+        else {
+          answerKeyId = item.id;
+          problems = checkTable(item, check.formula);
+        }
       } else if (check.kind === 'equivalent') {
         if (equivalent(check.left, check.right) !== check.expected)
           problems = [`equivalence of "${check.left}" and "${check.right}" is not ${check.expected}`];
@@ -198,9 +234,29 @@ export function runChecks(bank, checks) {
     } catch (error) {
       problems = [error.message];
     }
-    results.push({ label, problems });
+    const verificationScope = ['table', 'equivalent', 'classify'].includes(check?.kind)
+      ? 'exhaustive finite Boolean assignments'
+      : check?.kind === 'value' ? 'one supplied Boolean assignment' : 'unverified';
+    results.push({ label, kind: check?.kind, answerKeyId, verificationScope, problems });
   }
   return results;
+}
+
+export function verificationReport(bank, checks) {
+  const results = runChecks(bank, checks);
+  const tables = bank.exercises.filter((item) => item.type === 'truth-table').map((item) => item.id);
+  const attempted = new Set(results.map((result) => result.answerKeyId).filter(Boolean));
+  const failed = tables.filter((id) => results.some((result) => result.answerKeyId === id && result.problems.length));
+  const matched = tables.filter((id) => attempted.has(id) && !failed.includes(id));
+  const unchecked = tables.filter((id) => !attempted.has(id));
+  const supplemental = results.filter((result) => result.kind !== 'table');
+  const unsupported = bank.exercises.filter((item) => item.type !== 'truth-table').map((item) => item.id);
+  const coverage = {
+    tables, matched, failed, unchecked, unsupported,
+    supplementalPassed: supplemental.filter((result) => !result.problems.length).length,
+    supplementalFailed: supplemental.filter((result) => result.problems.length).length,
+  };
+  return { results, coverage, ok: results.every((result) => !result.problems.length) && unchecked.length === 0 };
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
@@ -209,20 +265,34 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     console.error('Usage: logic-check.mjs <bank.json> <checks.json>');
     process.exit(2);
   }
-  const bank = JSON.parse(await readFile(bankPath, 'utf8'));
-  const checks = JSON.parse(await readFile(checksPath, 'utf8'));
-  const results = runChecks(bank, checks);
-  let failed = 0;
-  for (const { label, problems } of results) {
-    if (problems.length) {
-      failed++;
-      console.error(`FAIL ${label}`);
-      for (const problem of problems) console.error(`  ${problem}`);
-    } else console.log(`ok   ${label}`);
+  try {
+    const bank = JSON.parse(await readFile(bankPath, 'utf8'));
+    const checks = JSON.parse(await readFile(checksPath, 'utf8'));
+    const { results, coverage, ok } = verificationReport(bank, checks);
+    for (const { label, kind, verificationScope, problems } of results) {
+      const scope = kind === 'table' ? 'answer-key comparison' : 'supplemental';
+      if (problems.length) {
+        console.error(`FAIL ${label} (${scope}; ${verificationScope})`);
+        for (const problem of problems) console.error(`  ${problem}`);
+      } else console.log(`ok   ${label} (${scope}; ${verificationScope})`);
+    }
+    const list = (ids) => ids.join(', ') || 'none';
+    console.log(`Truth-table keys matched against supplied formulas: ${coverage.matched.length}/${coverage.tables.length} (${list(coverage.matched)}).`);
+    console.log(`Failed key comparisons: ${list(coverage.failed)}.`);
+    console.log(`UNVERIFIED truth-table keys (no linked check): ${list(coverage.unchecked)}.`);
+    console.log(`NOT automatically verified (single-choice keys): ${list(coverage.unsupported)}.`);
+    console.log(`Supplemental checks: ${coverage.supplementalPassed} passed, ${coverage.supplementalFailed} failed; these do not compare stored answer keys, even when labelled with an exercise ID.`);
+    console.log('Scope: table, equivalence and classification checks enumerate finite Boolean assignments of the supplied formulas; value checks test only one supplied assignment. Prompt/formula correspondence, prose, alternatives and translations require mathematical review. This is an author self-check, not independent peer review.');
+    if (!ok) {
+      console.error('Verification incomplete or failed; no complete truth-table key coverage is claimed.');
+      process.exitCode = 1;
+    } else if (coverage.tables.length) {
+      console.log('Complete truth-table key coverage against supplied formulas; other mathematical review remains required.');
+    } else {
+      console.log('No truth-table answer keys in this bank; supplemental checks passed, but no stored answer keys were automatically verified.');
+    }
+  } catch (error) {
+    console.error(`Verification could not complete: ${error.message}`);
+    process.exitCode = 1;
   }
-  if (failed) {
-    console.error(`${failed} of ${results.length} check(s) failed`);
-    process.exit(1);
-  }
-  console.log(`All ${results.length} check(s) agree with the keys. Propositional items only; this is one route of the double derivation.`);
 }

@@ -1,0 +1,246 @@
+--- a/.claude/skills/math-course-studio/SKILL.md
++++ b/.claude/skills/math-course-studio/SKILL.md
+@@ -3 +3 @@
+-description: Generate exercises from a mathematics lesson, or review a lesson or the whole course for mathematical, pedagogical and bilingual (FR/EN) quality, using explicit chain-of-thought verification and tree-of-thoughts candidate selection. Use this when the user asks to create, draft or improve exercises, quizzes, QCM, distractors, truth tables or counterexamples for a lesson (e.g. L07), or to review, audit, proofread, check or "relire" a lesson, exercise bank, course sequence or source PDF page — e.g. "génère des exercices pour L07", "crée un QCM", "relis la leçon", "vérifie les corrections", "review the course", "is this lesson correct?". Do not use it for editing lesson prose that was not reviewed, app/UI code, or general maths questions unrelated to this repository's course.
++description: Generate exercises from a mathematics lesson, or review a lesson or the whole course for mathematical, pedagogical and bilingual (FR/EN) quality, using explicit mathematical self-checks, bilingual review and candidate comparison. Use this when the user asks to create, draft or improve exercises, quizzes, QCM, distractors, truth tables or counterexamples for a lesson (e.g. L07), or to review, audit, proofread, check or "relire" a lesson, exercise bank, course sequence or source PDF page — e.g. "génère des exercices pour L07", "crée un QCM", "relis la leçon", "vérifie les corrections", "review the course", "is this lesson correct?". Do not use it for editing lesson prose that was not reviewed, app/UI code, or general maths questions unrelated to this repository's course.
+@@ -48 +48 @@
+-## 2. Reasoning protocol: chain of thought plus tree of thoughts
++## 2. Mathematical verification and design review
+@@ -50 +50 @@
+-Chain of thought catches *wrong mathematics*; tree of thoughts catches *mediocre design*. Details, scoring grid and recipes: `references/reasoning-protocols.md`.
++Use concise mathematical justifications and compare design candidates. Neither model agreement nor extra reasoning traces guarantee correctness. Details, scoring grid and recipes: `references/reasoning-protocols.md`.
+@@ -52,2 +52,2 @@
+-- **Chain of thought (CoT)** — derive step by step: domain → definition → computation → conclusion → edge cases. Every answer key needs a **second, different derivation**; agreement of two independent routes is the evidence, a repeated route is not. For propositional items, run `scripts/logic-check.mjs` as one route (it brute-forces every row and compares with the key).
+-- **Tree of thoughts (ToT)** — at each design decision branch into 2–3 candidates, score, prune with a stated reason, descend. Branch at: the misconception targeted, the stem, the distractor set, and (review) competing readings of an ambiguous source statement.
++- **Mathematical self-check** — state the domain, definition, concise justification and edge cases. Use a second, different derivation or reproducible check for each key; two routes by the same author remain self-checks, not independent review. For propositional tables, run `scripts/logic-check.mjs` with a linked `table` entry for every truth-table item. Its coverage report distinguishes keys matched against supplied formulas, failed comparisons, unchecked tables and supplemental checks. Manually check that each formula expresses the prompt; single-choice semantics and translations remain outside its automatic verification.
++- **Candidate comparison** — at each design decision branch into 2–3 candidates, score, prune with a stated reason, descend. Branch at: the misconception targeted, the stem, the distractor set, and (review) competing readings of an ambiguous source statement.
+@@ -55 +55 @@
+-Keep reasoning out of exercise JSON. Record a compact trace (branches, scores, why pruned, the two derivations) in `generation-notes.md` (generate) or the review note (review). In chat, show decisions, not scratch work.
++Keep verification notes out of exercise JSON. Record concise justifications, domains, witnesses, reproducible checks, actual coverage and design decisions in `generation-notes.md` (generate) or the review note (review). Do not request private reasoning transcripts. In chat, show findings and decisions.
+@@ -83,0 +84,2 @@
++Mathematical review is the primary role in this mode: test every key and rejected option against the exact stem; review claims, domains and counterexamples before judging style. Report correctness, ambiguity, bilingual meaning and verification coverage separately. A green script result is never a publication verdict.
++
+@@ -106,0 +109,2 @@
++The logic helper rejects empty manifests and exits nonzero for failed checks or omitted truth-table keys. Supplemental checks, even with exercise IDs, do not verify stored keys. For a bank with no truth tables, record that automatic key verification is not applicable; do not invent table checks or interpret supplemental success as mathematical approval.
++
+--- a/.claude/skills/math-course-studio/references/exercise-contract.md
++++ b/.claude/skills/math-course-studio/references/exercise-contract.md
+@@ -133 +133 @@
+-Per item: key, route A, route B, agreement, edge cases tested.
++Per item: key, concise justification, different check, domain/assumptions, verification scope, result and edge cases. Copy matched/failed/unchecked truth-table IDs from the helper; list supplemental checks separately and single-choice/prose/translation review outside automatic verification. Never report blanket verification from an empty or unrelated manifest.
+--- a/.claude/skills/math-course-studio/references/reasoning-protocols.md
++++ b/.claude/skills/math-course-studio/references/reasoning-protocols.md
+@@ -1 +1 @@
+-# Reasoning protocols: chain of thought and tree of thoughts
++# Mathematical verification and design decisions
+@@ -3 +3 @@
+-Contents: 1 Chain of thought · 2 Tree of thoughts · 3 Scoring grid · 4 Second-derivation recipes · 5 Trace format
++Contents: 1 Mathematical verification · 2 Candidate comparison · 3 Scoring grid · 4 Different-check recipes · 5 Decision record
+@@ -5 +5 @@
+-## 1. Chain of thought (verification)
++## 1. Mathematical verification
+@@ -7 +7 @@
+-Purpose: no wrong answer key, no hidden assumption.
++Purpose: find wrong answer keys and hidden assumptions using checkable evidence. This process does not guarantee correctness.
+@@ -13 +13 @@
+-3. **Compute** — step by step, no skipped rows or elements.
++3. **Check** — give a concise derivation or reproducible calculation covering the relevant rows/elements; do not request a private reasoning transcript.
+@@ -17 +17 @@
+-A repeated computation is not a cross-check. Run a script for the second route where you can; it removes arithmetic slips.
++A repeated computation is not a different check. A script can catch arithmetic slips, but its formula and assumptions still need review. Different routes by one model are author self-checks, not independent peer review.
+@@ -21 +21 @@
+-`scripts/logic-check.mjs <bank.json> <checks.json>` brute-forces every assignment with its own parser (no `eval`). `checks.json` is an array of checks:
++`scripts/logic-check.mjs <bank.json> <checks.json>` enumerates finite Boolean assignments with its own parser (no `eval`). First run the draft/schema validator separately. `checks.json` must be a non-empty array of checks:
+@@ -32 +32,4 @@
+-- `table` compares the truth-table item's `answer` with the formula on every row (variables from the item's `variables`, default `A`, `B`).
++- Only a linked `table` entry compares an item's stored `answer` with the supplied formula. Include one for **every** truth-table item (variables from the item's `variables`, default `A`, `B`). Rows must cover every labelled Boolean assignment exactly once with Boolean key values. Repeated checks do not inflate item coverage; any failed comparison still fails the run.
++- `equivalent`, `classify` and `value` are **supplemental** checks. Their `expected` values come from the manifest, not the bank. Even an attached exercise ID does not make them answer-key verification. Equivalence/classification enumerate the supplied formulas’ finite Boolean domains; a `value` check tests **only its one supplied assignment**, not the whole formula.
++- Output lists matched, failed and unchecked truth-table IDs, single-choice IDs outside automatic verification, and supplemental outcomes. Empty/malformed manifests, failed checks and any omitted truth-table item exit 1; missing CLI arguments exit 2. A bank with no truth tables can pass supplemental checks (exit 0), explicitly stating that no stored keys were automatically verified.
++- A successful fully covered run means only that every truth-table key matches its supplied formula. It does not validate the full bank schema, select the right formula, prove uniqueness of choice answers, check prose/translation, or approve publication. Record these remaining review obligations, including when a helper cannot run.
+@@ -38 +41 @@
+-No bundled helper (formulas there are free-form). Write a small throwaway script with the file tool into `private/` (gitignored), enumerate a bounded domain (e.g. ℕ up to 12, a 3-element universe), and compare with your hand answer; delete it afterwards. Record the domain you enumerated in `generation-notes.md`. Include the negation test (`∀` becomes `∃¬`) and the empty-domain case.
++No bundled key checker covers these free-form claims. Use a concise symbolic argument where a statement concerns an arbitrary or infinite domain; small enumerations alone do not prove it. Optional throwaway scripts go into `private/` (gitignored); delete them after recording reproducible inputs/results. Include negation (`∀` becomes `∃¬`) and empty-domain cases.
+@@ -40 +43,12 @@
+-## 2. Tree of thoughts (design and review)
++Label each verification with its actual scope:
++
++| Scope | What it establishes | Limit |
++| --- | --- | --- |
++| Exhaustive finite checking | Every element/assignment in an explicitly finite domain satisfies the tested predicate. | Must actually cover the whole stated domain and correct predicate. |
++| Counterexample search | A found valid witness refutes a universal claim. | No witness found in a bounded search does not establish the universal claim. |
++| Bounded sanity check | Tested examples agree, such as naturals 0–12. | Cannot prove a claim over all natural numbers or another unbounded domain. |
++| General mathematical argument | A concise derivation covers an arbitrary element under stated assumptions. | Its assumptions and each implication still need mathematical review; do not claim an automated proof checker. |
++
++For example, enumerating naturals through 12 supports a sanity check for an unbounded inequality. Solve its bounds symbolically to justify the general answer. Enumerating a declared finite set 0–12 is exhaustive only for that finite-domain task. Report source uncertainty, contradictory checks or missing coverage as unresolved rather than forcing agreement.
++
++## 2. Candidate comparison (design and review)
+@@ -94 +108 @@
+-## 5. Trace format for review and generation notes
++## 5. Decision record for review and generation notes
+@@ -96 +110 @@
+-Keep it compact; one block per decision. Generate mode records these in `generation-notes.md`; review modes in the review note.
++Keep it compact; record decisions and concise evidence, not private scratch work. Generate mode records these in `generation-notes.md`; review modes in the review note.
+@@ -104 +118,2 @@
+-Check 1 (finite model): …    Check 2 (negation rule): …   Agree: yes
++Check 1 (scope + input/result): …    Check 2 (scope + concise argument): …
++Coverage: matched/failed/unchecked IDs; supplemental checks; remaining prose/translation review
+--- a/.claude/skills/math-course-studio/references/review-rubric.md
++++ b/.claude/skills/math-course-studio/references/review-rubric.md
+@@ -40 +40 @@
+-When a source statement is ambiguous, apply tree-of-thoughts: list the plausible readings, give each reading's truth value, and report the ambiguity with the page number rather than choosing.
++When a source statement is ambiguous, compare readings: list the plausible readings, give each reading's truth value, and report the ambiguity with the page number rather than choosing.
+@@ -72,2 +72,4 @@
+-## Mathematical self-check
+-For each item: key, Route A, Route B, agreement. Edge cases tested.
++## Mathematical verdict and verification coverage
++Separate correctness, ambiguity, bilingual meaning and publication readiness. For every item: key plus rejected alternatives, concise justification, assumptions/domain, different check, actual scope, outcome and unresolved uncertainty. Record truth-table IDs matched against supplied formulas, failed comparisons and unchecked IDs, plus supplemental outcomes and all keys outside automatic verification. Re-read each formula against its prompt; structural validation is not mathematical approval.
++
++Use the four scope labels in reasoning-protocols section 1. A finite search is not an infinite-domain proof. Unexecuted or missing checks remain unverified; state the exact command/result and human review still required.
+@@ -76 +78 @@
+-Compact tree-of-thoughts blocks for ambiguous readings and design decisions (see `reasoning-protocols.md` §5).
++Concise decision records for ambiguous readings and design choices (see `reasoning-protocols.md` §5).
+--- a/.claude/skills/math-course-studio/scripts/logic-check.mjs
++++ b/.claude/skills/math-course-studio/scripts/logic-check.mjs
+@@ -3,2 +3,2 @@
+-// Brute-forces every truth assignment, so it is an independent route from the
+-// hand derivation. It parses a small formula language itself (no eval).
++// Enumerates finite Boolean assignments as a different author self-check route.
++// This is not independent peer review. The parser uses no eval.
+@@ -106 +106 @@
+-    if (!(node.variable in assignment))
++    if (!Object.hasOwn(assignment, node.variable))
+@@ -107,0 +108,2 @@
++    if (typeof assignment[node.variable] !== 'boolean')
++      throw new Error(`Variable ${node.variable} must have a Boolean value`);
+@@ -159 +161,2 @@
+-// Compare a truth-table item's answer key with the formula, row by row.
++// Compare a complete truth-table key with the supplied formula. The caller must
++// separately check that this formula expresses the bilingual prompt.
+@@ -162,0 +166,17 @@
++  if (!Array.isArray(variables) || !variables.length ||
++      new Set(variables).size !== variables.length ||
++      variables.some((name) => typeof name !== 'string' || !/^[A-Za-z][A-Za-z0-9_]*$/.test(name) || ['true', 'false'].includes(name)))
++    return ['table variables must be distinct variable names'];
++  const undeclared = [...variablesOf(tree)].filter((name) => !variables.includes(name));
++  if (undeclared.length) return [`formula uses undeclared variable(s): ${undeclared.join(', ')}`];
++  const expectedRows = [...assignments(variables)];
++  const ids = expectedRows.map(({ id }) => id);
++  if (!Array.isArray(item.rows) || item.rows.length !== ids.length ||
++      item.rows.some((row) => !row || !ids.includes(row.id)) ||
++      new Set(item.rows.map((row) => row.id)).size !== ids.length)
++    return ['table must contain each Boolean assignment exactly once'];
++  if (!item.answer || typeof item.answer !== 'object' || Array.isArray(item.answer) ||
++      Object.keys(item.answer).length !== ids.length ||
++      ids.some((id) => !Object.hasOwn(item.answer, id) || typeof item.answer[id] !== 'boolean'))
++    return ['answer key must contain one Boolean value for every assignment'];
++  const rows = new Map(item.rows.map((row) => [row.id, row]));
+@@ -164,2 +184,6 @@
+-  for (const row of item.rows) {
+-    const values = Object.fromEntries(variables.map((v) => [v, row[v]]));
++  for (const { id, values } of expectedRows) {
++    const row = rows.get(id);
++    if (variables.some((name) => !Object.hasOwn(row, name) || row[name] !== values[name])) {
++      problems.push(`row ${id}: variable values do not match the labelled assignment`);
++      continue;
++    }
+@@ -167,2 +191,2 @@
+-    if (item.answer[row.id] !== expected)
+-      problems.push(`row ${row.id}: key says ${item.answer[row.id]}, formula gives ${expected}`);
++    if (item.answer[id] !== expected)
++      problems.push(`row ${id}: key says ${item.answer[id]}, formula gives ${expected}`);
+@@ -173,0 +198,6 @@
++  if (!Array.isArray(checks) || checks.length === 0)
++    throw new Error('Verification manifest must be a non-empty array of checks');
++  if (!Array.isArray(bank?.exercises) || bank.exercises.some((item) =>
++      !item || typeof item.id !== 'string' || !['single-choice', 'truth-table'].includes(item.type)) ||
++      new Set(bank.exercises.map((item) => item.id)).size !== bank.exercises.length)
++    throw new Error('Bank must contain distinct exercise IDs with supported types');
+@@ -175,2 +205,2 @@
+-  for (const check of checks) {
+-    const label = check.id ?? check.kind;
++  for (const [index, check] of checks.entries()) {
++    const label = check?.id ?? check?.kind ?? `check ${index + 1}`;
+@@ -177,0 +208 @@
++    let answerKeyId;
+@@ -178,0 +210,2 @@
++      if (!check || typeof check !== 'object' || Array.isArray(check))
++        throw new Error('Check must be an object');
+@@ -183 +216,4 @@
+-        else problems = checkTable(item, check.formula);
++        else {
++          answerKeyId = item.id;
++          problems = checkTable(item, check.formula);
++        }
+@@ -201 +237,4 @@
+-    results.push({ label, problems });
++    const verificationScope = ['table', 'equivalent', 'classify'].includes(check?.kind)
++      ? 'exhaustive finite Boolean assignments'
++      : check?.kind === 'value' ? 'one supplied Boolean assignment' : 'unverified';
++    results.push({ label, kind: check?.kind, answerKeyId, verificationScope, problems });
+@@ -203,0 +243,17 @@
++}
++
++export function verificationReport(bank, checks) {
++  const results = runChecks(bank, checks);
++  const tables = bank.exercises.filter((item) => item.type === 'truth-table').map((item) => item.id);
++  const attempted = new Set(results.map((result) => result.answerKeyId).filter(Boolean));
++  const failed = tables.filter((id) => results.some((result) => result.answerKeyId === id && result.problems.length));
++  const matched = tables.filter((id) => attempted.has(id) && !failed.includes(id));
++  const unchecked = tables.filter((id) => !attempted.has(id));
++  const supplemental = results.filter((result) => result.kind !== 'table');
++  const unsupported = bank.exercises.filter((item) => item.type !== 'truth-table').map((item) => item.id);
++  const coverage = {
++    tables, matched, failed, unchecked, unsupported,
++    supplementalPassed: supplemental.filter((result) => !result.problems.length).length,
++    supplementalFailed: supplemental.filter((result) => result.problems.length).length,
++  };
++  return { results, coverage, ok: results.every((result) => !result.problems.length) && unchecked.length === 0 };
+@@ -212,17 +268,31 @@
+-  const bank = JSON.parse(await readFile(bankPath, 'utf8'));
+-  const checks = JSON.parse(await readFile(checksPath, 'utf8'));
+-  const results = runChecks(bank, checks);
+-  let failed = 0;
+-  for (const { label, problems } of results) {
+-    if (problems.length) {
+-      failed++;
+-      console.error(`FAIL ${label}`);
+-      for (const problem of problems) console.error(`  ${problem}`);
+-    } else console.log(`ok   ${label}`);
+-  }
+-  if (failed) {
+-    console.error(`${failed} of ${results.length} check(s) failed`);
+-    process.exit(1);
+-  }
+-  console.log(`All ${results.length} check(s) agree with the keys. Propositional items only; this is one route of the double derivation.`);
+-}
++  try {
++    const bank = JSON.parse(await readFile(bankPath, 'utf8'));
++    const checks = JSON.parse(await readFile(checksPath, 'utf8'));
++    const { results, coverage, ok } = verificationReport(bank, checks);
++    for (const { label, kind, verificationScope, problems } of results) {
++      const scope = kind === 'table' ? 'answer-key comparison' : 'supplemental';
++      if (problems.length) {
++        console.error(`FAIL ${label} (${scope}; ${verificationScope})`);
++        for (const problem of problems) console.error(`  ${problem}`);
++      } else console.log(`ok   ${label} (${scope}; ${verificationScope})`);
++    }
++    const list = (ids) => ids.join(', ') || 'none';
++    console.log(`Truth-table keys matched against supplied formulas: ${coverage.matched.length}/${coverage.tables.length} (${list(coverage.matched)}).`);
++    console.log(`Failed key comparisons: ${list(coverage.failed)}.`);
++    console.log(`UNVERIFIED truth-table keys (no linked check): ${list(coverage.unchecked)}.`);
++    console.log(`NOT automatically verified (single-choice keys): ${list(coverage.unsupported)}.`);
++    console.log(`Supplemental checks: ${coverage.supplementalPassed} passed, ${coverage.supplementalFailed} failed; these do not compare stored answer keys, even when labelled with an exercise ID.`);
++    console.log('Scope: table, equivalence and classification checks enumerate finite Boolean assignments of the supplied formulas; value checks test only one supplied assignment. Prompt/formula correspondence, prose, alternatives and translations require mathematical review. This is an author self-check, not independent peer review.');
++    if (!ok) {
++      console.error('Verification incomplete or failed; no complete truth-table key coverage is claimed.');
++      process.exitCode = 1;
++    } else if (coverage.tables.length) {
++      console.log('Complete truth-table key coverage against supplied formulas; other mathematical review remains required.');
++    } else {
++      console.log('No truth-table answer keys in this bank; supplemental checks passed, but no stored answer keys were automatically verified.');
++    }
++  } catch (error) {
++    console.error(`Verification could not complete: ${error.message}`);
++    process.exitCode = 1;
++  }
++}

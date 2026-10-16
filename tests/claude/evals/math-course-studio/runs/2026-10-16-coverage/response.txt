@@ -1,0 +1,17 @@
+# L05 review result
+
+Created `exercises/drafts/L05/lesson-review.md` and `review-linked-checks.json`.
+
+Blocking finding: selected L05 v1 stores E02 row 10 as `true`; A⇒B is false there. Both lessons and both feedback texts give the correct value. No published content or release records were changed.
+
+Actual checks:
+
+- Structural validator: exit 0, two warnings; it does not verify mathematical answers.
+- Existing answer manifest: exit 1; 0/1 table keys verified, E02 unchecked. Its one supplemental equivalence passes but never compares the stored key.
+- Added linked table check: exit 1; E02 fails at row 10 (`key says true, formula gives false`). All four rows were compared; three agree. No table remains unchecked, but none fully matches.
+- Content check: exit 1, stale L05 bank fingerprint; execution stops at that release gate.
+- Repository check: initially passed 83 Markdown files; adding this response exposed its missing required heading (exit 1). After adding the heading, rerun exited 0: `Validated 84 Markdown files: structure and internal links passed.`
+
+All six items and their alternatives were manually assessed. The five single-choice keys remain outside automatic key verification; E05 assumes blue excludes red. The source PDF is absent, so source fidelity remains unverified. Human mathematical/bilingual review and a separately authorized versioned correction/promotion remain necessary. This is author self-check evidence, not independent peer review. Exact commands and diagnostics are in the draft note.
+
+No pnpm, dependency installation, external service, commit or publication was used.

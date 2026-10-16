@@ -130,7 +130,7 @@ Per item: objective, easy/medium/hard level, stored label, taught prerequisites,
 One tree-of-thoughts block per item (see reasoning-protocols.md section 5).
 
 ## Answer-key verification
-Per item: key, route A, route B, agreement, edge cases tested.
+Per item: key, concise justification, different check, domain/assumptions, verification scope, result and edge cases. Copy matched/failed/unchecked truth-table IDs from the helper; list supplemental checks separately and single-choice/prose/translation review outside automatic verification. Never report blanket verification from an empty or unrelated manifest.
 
 ## Bilingual notes
 Terminology choices (with glossary reference) and any meaning risks.
