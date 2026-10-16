@@ -13,6 +13,8 @@ Release status (generated from content/releases.json): 20 public bilingual lesso
 - Read the README and relevant project documents before changing files.
 - Prefer focused branches and reviewable pull requests. Do not merge unless requested.
 - Run `pnpm check` after changes and `pnpm test:e2e` for reading or interaction changes.
+- Use a Conventional Commit PR title and preserve release-relevant details in the final squash commit body. Ordinary PRs do not edit CHANGELOG.md or add changeset files; use PR descriptions and squash messages until Release Please is enabled. Preserve existing changelog history. See docs/RELEASING.md.
+- Keep the full CI job's required-check name `docs` stable. A successful current check and an up-to-date branch are merge requirements; hosted enforcement must be verified separately from workflow configuration.
 - Use the pinned Node/pnpm versions and committed lockfile. Keep server-held exercise answers out of client imports and generated pages.
 - Keep secrets, learner records, source PDFs, and unlicensed third-party assets out of Git.
 
