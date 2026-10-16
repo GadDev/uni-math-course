@@ -6,6 +6,8 @@ This record separates repository evidence, hosted verification and human decisio
 
 ## Recorded implementation and verification
 
+Application versioning and release automation do not depend on completing this checklist. A GitHub release identifies a checked repository snapshot; it does not certify hosted pilot readiness. Keep outstanding checks open until evidence is recorded.
+
 | Evidence | Revision / result | Boundary |
 | --- | --- | --- |
 | Merged application corrections | [PR #22](https://github.com/GadDev/uni-math-course/pull/22) through [PR #28](https://github.com/GadDev/uni-math-course/pull/28), plus [PR #30](https://github.com/GadDev/uni-math-course/pull/30) | Mobile reading, learning/release contracts, native disclosure, submitted-answer feedback, navigation intent, stale learner protection, L05 guidance and returning-tab progress are implemented |
@@ -79,7 +81,7 @@ Date: 2026-10-16. Operator/evidence supplier: GadDev. Method: read-only SQL cata
 
 The schema effects above are consistent with the four baseline migrations, subject to the additional server-role privilege. They do not prove which migration files were executed, their execution dates, absence of every other database object/privilege, or runtime application acceptance. Do not apply or repair migrations merely to populate history. No deployed schema was changed by this verification.
 
-Next H1 checkpoint: inspect preview/production data separation and record the updated deployment's exact creation timestamp. Production environment and Supabase-project binding are now maintainer-confirmed. Migration execution provenance remains unavailable; retain that limitation rather than repairing history without a separate decision. H1/H2/H3 remain open; release approval is unchanged.
+Next H1 checkpoint: inspect preview/production data separation and record the updated deployment's exact creation timestamp. Production environment and Supabase-project binding are now maintainer-confirmed. Migration execution provenance remains unavailable; retain that limitation rather than repairing history without a separate decision. H1/H2/H3 remain open; application release automation is independent of this readiness record.
 
 ## Remaining acceptance work
 
