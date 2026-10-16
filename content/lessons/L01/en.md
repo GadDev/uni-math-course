@@ -1,7 +1,7 @@
 ---
 lessonId: L01
 locale: en
-version: 1
+version: 2
 status: pilot
 title: "Assertions: statements with one truth value"
 summary: "Recognise an assertion, separate it from questions, vague sentences and self-reference, and write its truth value as 1 or 0."
@@ -39,7 +39,7 @@ Opinions such as “This lesson is beautiful.” are also not assertions in this
 
 ## Context and notation
 
-Once the speaker, place and time are fixed, a sentence has exactly one truth value, even if we do not know it yet. The sentence “It rains in Luxembourg City on 14 October 2026 at noon.” is therefore an assertion: it is either true or false.
+In the course’s classical setting, a precise, non-paradoxical declarative statement has exactly one truth value once its meaning and all relevant context are fixed, even if we do not know that value. Fixing only the speaker, place and time does not turn a question, a vague sentence or the liar sentence into an assertion. The sentence “It rains in Luxembourg City on 14 October 2026 at noon.” is therefore an assertion: it is either true or false.
 
 We name assertions with letters: $A$, $B$, $C$, and so on. We write the truth values as $1$ for true and $0$ for false. If $A$ is “Two is an even number.”, then $A = 1$.
 
@@ -67,9 +67,9 @@ A second trap: not knowing a value does not mean there is no value. An assertion
 
 ## Independent practice
 
-The six pilot exercises cover recognising assertions, excluding questions, fixing a context, the liar sentence, notation and a fresh falsifiable statement.
+The six pilot exercises cover recognising assertions, excluding questions, fixing a context, the liar sentence, notation and a further statement to assess.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice requires sign-in. Availability depends on this lesson’s selected version and release status.
 
 ## Takeaway
 

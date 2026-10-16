@@ -7,7 +7,7 @@ Status: proposed delivery plan · Owner: GadDev · Last reviewed: 2026-10-16
 Deliver a small French/English learning journey with correct content, real sign-in, server grading, saved attempts, and private progress. Public reading, exercise banks, authentication, grading and private progress are implemented locally. See the registry-derived release status below. Local protocol/browser/SQL evidence does not establish hosted acceptance or a mathematically reviewed full course.
 
 <!-- release-status:start -->
-Release status (generated from content/releases.json): 20 public bilingual lessons; 20 served practice banks. Mathematical author self-check: L05, L07; explicit unreviewed release exceptions: 18 banks. Translation self-check: L05, L07; explicit unreviewed translation exceptions: 18 lesson pairs. These records do not certify independent review or hosted class readiness.
+Release status (generated from content/releases.json): 20 public bilingual lessons; 20 served practice banks. Mathematical author self-check: L01, L03, L05, L06, L07, L19; explicit unreviewed release exceptions: 14 banks. Translation self-check: L01, L03, L05, L06, L07, L19; explicit unreviewed translation exceptions: 14 lesson pairs. These records do not certify independent review or hosted class readiness.
 <!-- release-status:end -->
 
 The [mission](MISSION.md) defines the outcome; the [constitution](CONSTITUTION.md) defines content and product constraints. The Astro/React, Vercel Hobby, Supabase Free and Radix Themes stack is approved in [TECHSTACK.md](TECHSTACK.md); the implementation exists and operational acceptance remains to be demonstrated.

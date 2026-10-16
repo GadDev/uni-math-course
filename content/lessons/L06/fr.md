@@ -1,7 +1,7 @@
 ---
 lessonId: L06
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Réciproque, contraposée et langage de tous les jours"
 summary: "Écrire la réciproque et la contraposée d’une implication, savoir laquelle lui est équivalente, et éviter de lire « si » comme « seulement si » dans le langage courant."
@@ -57,7 +57,7 @@ Ce travail guidé, dont la solution est visible, n’est pas une réponse indép
 
 Une responsable dit : « Si tu termines le rapport, tu as un jour de congé. » Un employé n’a pas de jour de congé. Par la contraposée, le rapport n’a pas été terminé, et cette déduction est valide.
 
-Mais la responsable voulait probablement dire quelque chose de plus fort : un jour de congé **seulement** pour ceux qui ont terminé le rapport. C’est $B \Rightarrow A$, où $A$ est « tu termines le rapport » et $B$ est « tu as un jour de congé ». La phrase réellement prononcée, $A \Rightarrow B$, ne dit rien des personnes qui n’ont pas terminé.
+Mais la responsable voulait peut-être exprimer l’autre sens de l’implication : un jour de congé **seulement** pour ceux qui ont terminé le rapport. C’est $B \Rightarrow A$, où $A$ est « tu termines le rapport » et $B$ est « tu as un jour de congé ». La phrase réellement prononcée, $A \Rightarrow B$, ne dit rien des personnes qui n’ont pas terminé.
 
 Pour dire ce que vous pensez, écrivez l’implication dans le sens voulu, puis examinez sa réciproque et sa contraposée.
 
@@ -65,10 +65,10 @@ Pour dire ce que vous pensez, écrivez l’implication dans le sens voulu, puis 
 
 Les six exercices pilotes portent sur la réciproque, la contraposée, les énoncés équivalents, une table de vérité pour la réciproque, une déduction valide à partir d’une règle et la lecture d’une phrase courante.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
 
 ## À retenir
 
-Une implication est équivalente à sa contraposée, en général jamais à sa réciproque. Dans le langage courant, vérifiez si « si » voulait dire « seulement si ».
+Une implication est équivalente à sa contraposée. Elle n’est pas équivalente à sa réciproque en général, même si les deux peuvent coïncider pour certaines assertions. Exiger les deux sens à la fois est une condition plus forte que chacun séparément. Dans le langage courant, vérifiez si « si » voulait dire « seulement si ».
 
 Texte et exemples originaux du projet. La couverture suit les pages 24 à 29 du PDF selon la carte du cours du dépôt ; les phrases d’exemple et l’énoncé de démonstration de la source ne sont pas reproduits.

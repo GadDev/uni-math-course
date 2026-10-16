@@ -1,7 +1,7 @@
 ---
 lessonId: L19
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Python all and any: sortedness, duplicates and maximum"
 summary: "Translate statements about a list into ∀ and ∃ and into Python’s all and any, and handle the edge cases of short lists."
@@ -20,13 +20,13 @@ By the end of this lesson, you can translate “the list is sorted”, “the li
 
 ## A list and its indices
 
-Let `t` be a Python list of length $n$, with indices $0, \ldots, n - 1$. The element at index `i` is `t[i]`.
+Let `t` be a finite Python list of length $n = \mathrm{len}(t)$, containing comparable real numbers without NaN. Comparisons follow a total order; complex and incomparable values are excluded. Valid indices form $J = \{i \in \mathbb{Z} \mid 0 \leq i < n\}$; adjacent-pair start indices form $K = \{i \in J \mid i+1 < n\}$. Both sets are empty when $n = 0$. The element at index `i` is `t[i]`.
 
 ## Sorted and not sorted
 
 “`t` is sorted” (non-decreasing) is translated by
 $$
-\forall i \in \{0, \ldots, n - 2\}\ t[i] \leq t[i+1],
+\forall i \in K\ t[i] \leq t[i+1],
 $$
 which Python writes as
 ```python
@@ -34,13 +34,13 @@ all(t[i] <= t[i+1] for i in range(n-1))
 ```
 “`t` is not sorted” is its negation:
 $$
-\exists i \in \{0, \ldots, n - 2\}\ t[i] > t[i+1],
+\exists i \in K\ t[i] > t[i+1],
 $$
 written
 ```python
 any(t[i] > t[i+1] for i in range(n-1))
 ```
-The indices stop at $n - 2$ because each comparison uses `t[i+1]`: there are $n - 1$ comparisons, which is `range(n-1)`.
+There are $\max(n-1, 0)$ adjacent pairs. For $n \geq 1$, their start indices run from $0$ to $n-2$; for the empty list, no index qualifies. `range(n-1)` enumerates exactly these starts, including `range(-1)`, which is empty.
 
 ## Guided example: a list of three numbers
 
@@ -56,10 +56,19 @@ This guided work, whose solution is visible, is not an independent response for 
 
 These are original translations; the course source only poses them as exercises.
 
-- “`t` contains a duplicate”: $\exists i \in \{0, \ldots, n-1\}\ \exists j \in \{0, \ldots, n-1\}\ (i < j \land t[i] = t[j])$.
-- “`t` contains its maximum”: $\exists i \in \{0, \ldots, n-1\}\ \forall j \in \{0, \ldots, n-1\}\ t[j] \leq t[i]$.
+- “`t` contains a duplicate”: $\exists i \in J\ \exists j \in J\ (i < j \land t[i] = t[j])$.
+- “`t` contains its maximum”: $\exists i \in J\ \forall j \in J\ t[j] \leq t[i]$.
 
 The condition $i < j$ matters: without it, every element is equal to itself.
+
+With these index domains, the Python translations are:
+
+```python
+any(t[i] == t[j] for i in range(n) for j in range(i+1, n))
+any(all(t[j] <= t[i] for j in range(n)) for i in range(n))
+```
+
+The first searches two distinct positions with equal values; the second searches a position whose value is at least every other value.
 
 ## Edge cases
 
@@ -69,7 +78,7 @@ For an empty list, the range is empty. Then `all(...)` over an empty range is `T
 
 The six pilot exercises cover the `all` translation, the negation, the number of comparisons, duplicates, the maximum and the empty list.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice requires sign-in. Availability depends on this lesson’s selected version and release status.
 
 ## Takeaway
 
