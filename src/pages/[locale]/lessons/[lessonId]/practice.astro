@@ -4,6 +4,10 @@ import Base from '../../../../layouts/Base.astro';
 import PracticeActivity from '../../../../components/PracticeActivity';
 import SignalGeometry from '../../../../components/SignalGeometry.astro';
 import { copy } from '../../../../lib/i18n';
+import {
+  practiceHref,
+  practiceTarget,
+} from '../../../../lib/practice-navigation';
 import { localeOf } from '../../../../lib/auth/policy';
 import { isReviewed, RELEASED_LESSONS } from '../../../../lib/released-lessons';
 import '../../../../styles/practice.css';
@@ -17,6 +21,9 @@ if (
 )
   return new Response('Not found', { status: 404 });
 const locale = localeOf(Astro.params.locale);
+const target = practiceTarget(Astro.url.searchParams, lessonId);
+const destination = practiceHref(locale, lessonId, target);
+const alternate = locale === 'fr' ? 'en' : 'fr';
 const auth = Astro.locals.auth;
 if (!auth) return new Response('Sign-in is not configured.', { status: 503 });
 let user = null;
@@ -27,7 +34,7 @@ try {
 }
 if (!user)
   return Astro.redirect(
-    `/${locale}/sign-in/?${new URLSearchParams({ next: `/${locale}/lessons/${lessonId}/practice/` })}`,
+    `/${locale}/sign-in/?${new URLSearchParams({ next: destination })}`,
     303,
   );
 const text = copy[locale];
@@ -58,6 +65,7 @@ const lessonNumber = lessonId.slice(1);
   title={`${topic?.title ?? lessonId} · ${locale === 'fr' ? 'Pratique' : 'Practice'}`}
   description={lesson.data.summary}
   path={`lessons/${lessonId}/practice/`}
+  alternateHref={practiceHref(alternate, lessonId, target)}
 >
   <main id="main" tabindex="-1" class="lesson-page practice-page">
     <aside class="course-outline">
@@ -93,6 +101,7 @@ const lessonNumber = lessonId.slice(1);
       <PracticeActivity
         client:load
         lessonId={lessonId}
+        requestedTarget={target}
         locale={locale}
         lessonNumber={lessonNumber}
         exampleHref={example ? `${lessonHref}#${example.slug}` : lessonHref}

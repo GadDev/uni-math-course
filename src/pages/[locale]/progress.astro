@@ -3,6 +3,10 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import SignalGeometry from '../../components/SignalGeometry.astro';
 import Tex from '../../components/Tex';
+import {
+  practiceHref,
+  type PracticeTarget,
+} from '../../lib/practice-navigation';
 import { localeOf } from '../../lib/auth/policy';
 import { progressCopy } from '../../lib/progress-copy';
 import { exerciseBank, exerciseArchive } from '../../lib/exercises/bank';
@@ -57,8 +61,8 @@ const format = new Intl.DateTimeFormat(locale, {
 const when = (iso: string) => format.format(new Date(iso));
 const number = (id: string) => Number(id.split('-E')[1]);
 const lessonOf = (exerciseId: string) => exerciseId.slice(0, 3);
-const lessonLink = (lessonId: string) =>
-  `/${locale}/lessons/${lessonId}/practice/`;
+const lessonLink = (lessonId: string, target?: PracticeTarget) =>
+  practiceHref(locale, lessonId, target);
 const totals = progress && {
   attempted: progress.lessons.reduce((sum, l) => sum + l.attempted, 0),
   mastered: progress.lessons.reduce((sum, l) => sum + l.mastered, 0),
@@ -155,7 +159,18 @@ const recent = progress?.history.slice(0, 3) ?? [];
                     `${text.lesson} ${focusLessonId.slice(1)}`}
                 </p>
                 <p>{mistake ? text.revisitHint : text.continueHint}</p>
-                <a class="primary-link" href={lessonLink(focusLessonId)}>
+                <a
+                  class="primary-link"
+                  href={lessonLink(
+                    focusLessonId,
+                    mistake
+                      ? {
+                          exerciseId: mistake.exerciseId,
+                          version: mistake.exerciseVersion,
+                        }
+                      : undefined,
+                  )}
+                >
                   {mistake ? text.reread : text.keepGoing}
                   <svg
                     viewBox="0 0 24 12"
@@ -352,7 +367,12 @@ const recent = progress?.history.slice(0, 3) ?? [];
                   <Tex text={item.explanation[locale]} />
                 </p>
                 {!item.archived && (
-                  <a href={lessonLink(lessonOf(item.exerciseId))}>
+                  <a
+                    href={lessonLink(lessonOf(item.exerciseId), {
+                      exerciseId: item.exerciseId,
+                      version: item.exerciseVersion,
+                    })}
+                  >
                     {text.retry}
                   </a>
                 )}

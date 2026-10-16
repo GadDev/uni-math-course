@@ -74,7 +74,7 @@ test('lifetime history keeps archived records and labels unavailable explanation
   await expect(current).toContainText('condition is false');
   await expect(page.locator('.progress-focus a')).toHaveAttribute(
     'href',
-    '/en/lessons/L05/practice/',
+    '/en/lessons/L05/practice/?exercise=L05-E01&version=1',
   );
 });
 
@@ -498,4 +498,125 @@ test('legacy uncertain choice reconciles saved answers before feedback and delib
   await expect(page.locator('input:checked')).toHaveValue('10');
   await page.goto('/en/progress/');
   await expect(page.locator('.progress-history li')).toHaveCount(2);
+});
+
+for (const locale of ['fr', 'en'] as const) {
+  test(`review links override a different active draft without dropping its answers (${locale})`, async ({
+    page,
+    context,
+  }) => {
+    await identify(context);
+    // Save an E01 mistake, then leave an unfinished E06 draft active.
+    await context.request.post('/api/attempts/', {
+      headers: { Origin: app },
+      data: {
+        submissionId: randomUUID(),
+        exerciseId: 'L05-E01',
+        version: 1,
+        locale,
+        response: { optionId: '00' },
+      },
+    });
+    await page.goto(`/${locale}/lessons/L05/practice/`);
+    await page.locator('.pp-step').nth(5).click();
+    await page.locator(`input[value="${bank[5].answer}"]`).check();
+    await page.goto(`/${locale}/progress/`);
+    const review = page.locator('.practice-exercise a').first();
+    await expect(review).toHaveAttribute(
+      'href',
+      `/${locale}/lessons/L05/practice/?exercise=L05-E01&version=1`,
+    );
+    await expect(page.locator('.progress-focus a')).toHaveAttribute(
+      'href',
+      `/${locale}/lessons/L05/practice/?exercise=L05-E01&version=1`,
+    );
+    await review.click();
+    await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
+      '01',
+    );
+    const alternate = locale === 'fr' ? 'en' : 'fr';
+    await page
+      .getByRole('link', { name: alternate.toUpperCase(), exact: true })
+      .click();
+    await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
+      '01',
+    );
+    // Choosing another exercise consumes the original intent for future navigation.
+    await page.locator('.pp-step').nth(5).click();
+    await expect(
+      page.locator(`input[value="${bank[5].answer}"]`),
+    ).toBeChecked();
+    await page.reload();
+    await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
+      '06',
+    );
+    await page
+      .getByRole('link', { name: locale.toUpperCase(), exact: true })
+      .click();
+    await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
+      '06',
+    );
+    // A normal visit continues to use the existing draft selection.
+    await page.goto(`/${locale}/lessons/L05/practice/`);
+    await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
+      '06',
+    );
+    for (const query of [
+      'exercise=L05-E99&version=1',
+      'exercise=L05-E01&version=999',
+      'exercise=L06-E01&version=1',
+      'exercise=L05-E01&version=1&version=2',
+    ]) {
+      await page.goto(`/${locale}/lessons/L05/practice/?${query}`);
+      await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
+        '06',
+      );
+      await expect(
+        page.locator(`input[value="${bank[5].answer}"]`),
+      ).toBeChecked();
+    }
+  });
+
+  test(`anonymous target survives failed login and language switching (${locale})`, async ({
+    page,
+  }) => {
+    const destination = `/${locale}/lessons/L05/practice/?exercise=L05-E03&version=1`;
+    await page.goto(destination);
+    await expect(page.locator('input[name="next"]')).toHaveValue(destination);
+    await page.locator('#email').fill('learner@example.invalid');
+    await page.locator('#password').fill('wrong-password');
+    await page.locator('.auth-form button').click();
+    await expect(page.locator('input[name="next"]')).toHaveValue(destination);
+    const alternate = locale === 'fr' ? 'en' : 'fr';
+    await page
+      .getByRole('link', { name: alternate.toUpperCase(), exact: true })
+      .click();
+    const translated = destination.replace(`/${locale}/`, `/${alternate}/`);
+    await expect(page.locator('input[name="next"]')).toHaveValue(translated);
+    await page.locator('#email').fill('learner@example.invalid');
+    await page.locator('#password').fill('correct-horse-battery');
+    await page.locator('.auth-form button').click();
+    await expect(page).toHaveURL(translated);
+    await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
+      '03',
+    );
+  });
+}
+
+test('session-expiry link identifies the currently selected exercise', async ({
+  page,
+  context,
+}) => {
+  await identify(context);
+  await page.goto('/en/lessons/L05/practice/');
+  await page.locator('.pp-step').nth(3).click();
+  await page.locator(`input[value="${bank[3].answer}"]`).check();
+  await page.route('**/api/attempts/', (route) =>
+    route.fulfill({ status: 401, json: { error: 'unauthenticated' } }),
+  );
+  await page.getByRole('button', { name: 'Check my answer' }).click();
+  await expect(page.locator('.practice-error a')).toHaveAttribute(
+    'href',
+    '/en/sign-in/?next=%2Fen%2Flessons%2FL05%2Fpractice%2F%3Fexercise%3DL05-E04%26version%3D1',
+  );
 });

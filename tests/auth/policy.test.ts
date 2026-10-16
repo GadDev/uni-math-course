@@ -104,3 +104,40 @@ test('only the password provider is enabled and the allowlist is case-insensitiv
   assert.equal(emailAllowed(config, null), false);
   assert.equal(emailAllowed(authConfig(env)!, 'anyone@example.com'), true);
 });
+
+test('practice return targets preserve only bounded same-lesson exercise/version parameters', () => {
+  for (const locale of ['fr', 'en'] as const) {
+    const path = `/${locale}/lessons/L05/practice/`;
+    const target = path + '?exercise=L05-E03&version=1';
+    assert.equal(safeReturn(target, locale), target);
+    assert.equal(
+      safeReturn(path + '?version=1&exercise=L05-E03', locale),
+      target,
+    );
+    assert.equal(safeReturn(target + '#main', locale), target + '#main');
+    for (const query of [
+      '?exercise=L06-E01&version=1',
+      '?exercise=L05-E01',
+      '?version=1',
+      '?exercise=L05-E01&version=0',
+      '?exercise=L05-E01&version=-1',
+      '?exercise=L05-E01&version=1.5',
+      '?exercise=L05-E01&version=01',
+      '?exercise=L05-E01&version=1000000000',
+      '?exercise=L05-E01&version=1&next=https://evil.example',
+      '?exercise=L05-E01&exercise=L05-E02&version=1',
+      '?exercise=L05-E01&version=1&version=2',
+      '?exercise=%4C05-E01&version=1',
+      '?exercise=L05-E01&version=1?x=y',
+    ])
+      assert.equal(safeReturn(path + query, locale), `/${locale}/account/`);
+    assert.equal(
+      safeReturn(`/${locale}/account/?exercise=L05-E01&version=1`, locale),
+      `/${locale}/account/`,
+    );
+    assert.equal(
+      safeReturn(`//evil.example${target}`, locale),
+      `/${locale}/account/`,
+    );
+  }
+});
