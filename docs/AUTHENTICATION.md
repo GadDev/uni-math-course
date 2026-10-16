@@ -2,7 +2,7 @@
 
 ## Implemented scope
 
-M2 feature 2 adds French/English sign-in and account pages, email/password sign-in against Supabase Auth, server-confirmed identity, cookie refresh and local logout. Public reading stays prerendered and makes no account requests. Exercises, grading, attempt storage and private progress remain separate features.
+M2 feature 2 adds French/English sign-in and account pages, email/password sign-in against Supabase Auth, server-confirmed identity, cookie refresh and local logout. Public reading stays prerendered; a signed-in header may verify its session hint. Practice, grading, attempt storage and private progress are implemented separately; see [PRACTICE.md](PRACTICE.md).
 
 Access is limited to a closed group. The course owner creates each learner's account in the Supabase dashboard; public sign-up is disabled. There is no OAuth provider, anonymous account, magic link or custom SMTP dependency. Sign-in is disabled unless `AUTH_PROVIDER=password` and the Supabase settings are explicit. An optional `AUTH_ALLOWED_EMAILS` list (comma-separated) is a second safety net: when set, any other verified account is treated as anonymous.
 
@@ -45,7 +45,7 @@ The native policy tests reject unsafe origins/privileged keys, external return t
 
 pnpm check builds the real Vercel output. pnpm test:e2e builds .test-build with the Node adapter, launches the fixture and both local app servers, then runs browser checks. This is credential-free CI evidence, not a live Supabase or deployed Vercel acceptance result.
 
-Before activating hosted sign-in for classmates, verify on the chosen Vercel origin: sign-up is disabled, a created user can sign in, refresh/expiry, secure cookie flags, uncached responses, logout, and two-account isolation. Define identity-data retention, deletion/export and notice/contact details; Supabase stores emails and password hashes even though this app creates no profile/attempt tables yet. Confirm free-project pause/recovery behaviour. No hosted acceptance or privacy policy is claimed complete.
+Before activating hosted sign-in for classmates, verify on the chosen Vercel origin: sign-up is disabled, a created user can sign in, refresh/expiry, secure cookie flags, uncached responses, logout, and two-account isolation. Define identity-data retention, deletion/export and notice/contact details; Supabase stores emails and password hashes and this app stores attempt records. Confirm free-project pause/recovery behaviour. No hosted acceptance or privacy policy is claimed complete.
 
 ## Primary references
 

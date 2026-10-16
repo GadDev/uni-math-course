@@ -4,18 +4,23 @@ A French/English mathematics learning pilot for university students and adults r
 
 The first course is **logic and sets**. The learning loop is: understand a concept, inspect a worked example, practise, receive feedback, and revisit mistakes.
 
-Status: **reading foundation** · Maintainer: [GadDev](https://github.com/GadDev) · Last status review: 2026-10-14
+Status: **reading and practice implemented; hosted class acceptance pending** · Maintainer: [GadDev](https://github.com/GadDev) · Last status review: 2026-10-16
 
 ## What works
 
-- Public French/English programme pages and the original implication lesson (L05).
+- Public French/English programme pages and lessons.
 - Public searchable French/English symbol glossary, with bilingual readings, source pages and stable entry links.
 - Mathematical notation with visual KaTeX and MathML output.
 - Same-lesson language switching and a React/Radix reading disclosure.
-- Six reviewed exercise contracts and content/mathematical checks.
+- Versioned exercise contracts and content/mathematical checks.
 - Configurable email/password Supabase sign-in for an invited group, verified server sessions and local logout.
+- Authenticated practice, server grading, saved attempts and private progress. Unreviewed banks display a warning.
 
-Interactive exercise delivery/grading, saved attempts and private progress are the next M2 features. Sign-in is disabled until configured; hosted authentication acceptance and production deployment remain pending. Planned lesson cards are explicitly marked as coming later.
+<!-- release-status:start -->
+Release status (generated from content/releases.json): 20 public bilingual lessons; 20 served practice banks. Mathematical author self-check: L05; explicit unreviewed release exceptions: 19 banks. Translation self-check: L05; explicit unreviewed translation exceptions: 19 lesson pairs. These records do not certify independent review or hosted class readiness.
+<!-- release-status:end -->
+
+Sign-in is disabled until configured. Hosted authentication, database/deployment acceptance and class-pilot privacy decisions remain pending. See the [content release contracts](docs/CONTENT_RELEASES.md); local implementation is not proof of a complete hosted learning journey.
 
 ## Local development
 
@@ -48,6 +53,9 @@ The check covers repository links/structure, content parity/contracts, types, fo
 - [Symbol glossary](docs/content/GLOSSARY_REVIEW.md)
 - [Reading foundation](docs/READING_FOUNDATION.md)
 - [Authentication and sessions](docs/AUTHENTICATION.md)
+- [Practice, grading and progress](docs/PRACTICE.md)
+- [Content release contracts](docs/CONTENT_RELEASES.md)
+- [Learning contract audit](docs/LEARNING_CONTRACT_AUDIT.md)
 
 ## Repository guide
 

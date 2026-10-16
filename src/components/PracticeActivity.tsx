@@ -26,10 +26,15 @@ type Entry = {
   version: number;
   answers: Record<string, string>;
   hintShown: boolean;
+  hintUsed: boolean;
   submissionId: string;
   result: Result | null;
 };
-type Stored = { learner: string; entries: Record<string, Entry> };
+type Stored = {
+  learner: string;
+  currentExerciseId?: string;
+  entries: Record<string, Entry>;
+};
 type Phase = 'loading' | 'ready' | 'signin' | 'unavailable';
 
 const text = {
@@ -170,6 +175,7 @@ const freshEntry = (version: number): Entry => ({
   version,
   answers: {},
   hintShown: false,
+  hintUsed: false,
   submissionId: crypto.randomUUID(),
   result: null,
 });
@@ -244,6 +250,8 @@ export default function PracticeActivity({
       // Drafts belong to one learner and one exercise version.
       const stored = readStored(lessonId);
       const mine = stored?.learner === data.learner ? stored.entries : {};
+      if (stored && stored.learner !== data.learner)
+        sessionStorage.removeItem(draftKey(lessonId));
       setLearner(data.learner);
       setExercises(data.exercises);
       setEntries(
@@ -253,11 +261,22 @@ export default function PracticeActivity({
             return [
               exercise.id,
               previous && previous.version === exercise.version
-                ? previous
+                ? {
+                    ...previous,
+                    hintUsed: previous.hintUsed || previous.hintShown,
+                  }
                 : freshEntry(exercise.version),
             ];
           }),
         ),
+      );
+      const resumed = data.exercises.findIndex(
+        (item) =>
+          item.id === stored?.currentExerciseId &&
+          mine[item.id]?.version === item.version,
+      );
+      setCurrent(
+        stored?.learner === data.learner && resumed >= 0 ? resumed : 0,
       );
       setPhase('ready');
     } catch {
@@ -271,8 +290,12 @@ export default function PracticeActivity({
 
   useEffect(() => {
     if (phase === 'ready' && learner)
-      writeStored(lessonId, { learner, entries });
-  }, [entries, learner, phase]);
+      writeStored(lessonId, {
+        learner,
+        entries,
+        currentExerciseId: exercises[current]?.id,
+      });
+  }, [entries, learner, phase, current, exercises]);
 
   const exercise = exercises[current];
   const entry = exercise ? entries[exercise.id] : undefined;
@@ -316,7 +339,7 @@ export default function PracticeActivity({
           exerciseId: target.id,
           version: target.version,
           locale,
-          hintUsed: found.hintShown,
+          hintUsed: found.hintUsed,
           response: responseOf(target, found),
         }),
       });
@@ -615,6 +638,7 @@ export default function PracticeActivity({
                           update(exercise.id, (value) => ({
                             ...value,
                             hintShown: !value.hintShown,
+                            hintUsed: true,
                           }))
                         }
                       >
@@ -710,6 +734,7 @@ export default function PracticeActivity({
                         update(exercise.id, (value) => ({
                           ...freshEntry(value.version),
                           hintShown: value.hintShown,
+                          hintUsed: value.hintUsed,
                         }))
                       }
                     >

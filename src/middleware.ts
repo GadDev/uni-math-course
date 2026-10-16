@@ -12,12 +12,11 @@ export const onRequest = defineMiddleware(async (context, next) => {
   response.headers.set('Pragma', 'no-cache');
   response.headers.set('Expires', '0');
   // no-referrer on a form page makes Chromium send Origin: null.
-  // Keep same-origin form origins while hiding callback codes on redirects.
+  // Every localized page can contain the profile logout form, including
+  // progress and practice. APIs/redirect endpoints need no referrer.
   response.headers.set(
     'Referrer-Policy',
-    /^\/(fr|en)\/(sign-in|account)\/?$/.test(context.url.pathname)
-      ? 'same-origin'
-      : 'no-referrer',
+    /^\/(fr|en)\//.test(context.url.pathname) ? 'same-origin' : 'no-referrer',
   );
   response.headers.set('X-Content-Type-Options', 'nosniff');
   return response;

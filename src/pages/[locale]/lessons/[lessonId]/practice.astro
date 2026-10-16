@@ -5,10 +5,7 @@ import PracticeActivity from '../../../../components/PracticeActivity';
 import SignalGeometry from '../../../../components/SignalGeometry.astro';
 import { copy } from '../../../../lib/i18n';
 import { localeOf } from '../../../../lib/auth/policy';
-import {
-  PILOT_LESSON,
-  RELEASED_LESSONS,
-} from '../../../../lib/released-lessons';
+import { isReviewed, RELEASED_LESSONS } from '../../../../lib/released-lessons';
 import '../../../../styles/practice.css';
 import '../../../../styles/practice-feedback.css';
 // On demand: practice needs a signed-in learner. The page imports no answers.
@@ -100,7 +97,7 @@ const lessonNumber = lessonId.slice(1);
         lessonNumber={lessonNumber}
         exampleHref={example ? `${lessonHref}#${example.slug}` : lessonHref}
         hasExample={!!example}
-        extended={lessonId !== PILOT_LESSON}
+        extended={!isReviewed(lessonId)}
       />
     </div>
   </main>

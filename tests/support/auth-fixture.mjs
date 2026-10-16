@@ -8,6 +8,7 @@ const encode = (value) =>
 
 export async function startAuthFixture(port = 54329) {
   const sessions = new Map();
+  const attempts = [];
   const knownUser = {
     id: randomUUID(),
     aud: 'authenticated',
@@ -148,6 +149,84 @@ export async function startAuthFixture(port = 54329) {
       const record = verify(
         req.headers.authorization?.replace(/^Bearer /, '') ?? '',
       );
+      // Minimal Data API protocol fixture. Real SQL grants/RLS and transaction
+      // behaviour are tested separately in tests/database against PostgreSQL.
+      if (url.pathname.startsWith('/rest/v1/')) {
+        const service = req.headers.apikey === 'sb_secret_protocol_fixture';
+        if (!service && !record) return failure();
+        if (
+          url.pathname === '/rest/v1/rpc/read_attempt_history' &&
+          req.method === 'POST'
+        ) {
+          if (!record) return failure(403);
+          return json(
+            200,
+            attempts
+              .filter((a) => a.user_id === record.user.id)
+              .sort(
+                (a, b) =>
+                  b.created_at.localeCompare(a.created_at) ||
+                  b.id.localeCompare(a.id),
+              ),
+          );
+        }
+        if (
+          url.pathname === '/rest/v1/rpc/record_attempt' &&
+          req.method === 'POST'
+        ) {
+          if (!service) return failure(403);
+          const input = data.p_attempt;
+          const existing = attempts.find(
+            (a) =>
+              a.user_id === input.user_id &&
+              a.submission_id === input.submission_id,
+          );
+          if (existing)
+            return json(200, { duplicate: true, attempt: existing });
+          const first = !attempts.some(
+            (a) =>
+              a.user_id === input.user_id &&
+              a.exercise_id === input.exercise_id,
+          );
+          const row = {
+            ...input,
+            id: randomUUID(),
+            independent_evidence: input.correct && !input.hint_used && first,
+            created_at: new Date().toISOString(),
+          };
+          attempts.push(row);
+          return json(200, { duplicate: false, attempt: row });
+        }
+        if (url.pathname === '/rest/v1/attempts') {
+          if (req.method !== 'GET') return failure(403);
+          let rows = attempts.filter(
+            (a) => service || a.user_id === record.user.id,
+          );
+          for (const column of ['user_id', 'submission_id']) {
+            const filter = url.searchParams.get(column);
+            if (filter?.startsWith('eq.'))
+              rows = rows.filter((a) => a[column] === filter.slice(3));
+          }
+          const snapshot = url.searchParams.get('created_at');
+          if (snapshot?.startsWith('lte.'))
+            rows = rows.filter((a) => a.created_at <= snapshot.slice(4));
+          rows.sort(
+            (a, b) =>
+              b.created_at.localeCompare(a.created_at) ||
+              a.id.localeCompare(b.id),
+          );
+          const offset = Number(url.searchParams.get('offset') ?? 0);
+          const limit = Number(url.searchParams.get('limit') ?? 1000);
+          rows = rows.slice(offset, offset + limit);
+          return json(
+            200,
+            req.headers.accept?.includes('vnd.pgrst.object')
+              ? (rows[0] ?? null)
+              : rows,
+          );
+        }
+        return failure(404);
+      }
       if (url.pathname === '/auth/v1/user')
         return record?.unavailable
           ? json(503, { msg: 'Fixture unavailable' })

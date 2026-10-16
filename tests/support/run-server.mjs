@@ -27,6 +27,7 @@ for (const port of [4321, 4323]) {
         SUPABASE_URL: port === 4321 ? 'http://127.0.0.1:54329' : '',
         SUPABASE_PUBLISHABLE_KEY:
           port === 4321 ? 'sb_publishable_protocol_fixture' : '',
+        SUPABASE_SECRET_KEY: port === 4321 ? 'sb_secret_protocol_fixture' : '',
       },
     }),
   );

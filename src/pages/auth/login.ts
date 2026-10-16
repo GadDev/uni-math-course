@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro';
+import { createRequestAuth } from '../../lib/auth/server';
 import {
   emailAllowed,
   localeOf,
@@ -16,14 +17,6 @@ export const POST: APIRoute = async (context) => {
   const auth = context.locals.auth;
   if (!auth) return new Response('Sign-in is not configured.', { status: 503 });
   if (!sameOriginPost(context.request, auth.config)) {
-    // TEMP: debug origin mismatch on Vercel; remove once fixed.
-    console.log('auth-origin-debug', {
-      method: context.request.method,
-      requestUrlOrigin: new URL(context.request.url).origin,
-      originHeader: context.request.headers.get('origin'),
-      secFetchSite: context.request.headers.get('sec-fetch-site'),
-      configOrigin: auth.config.origin,
-    });
     return new Response('Forbidden', { status: 403 });
   }
   const form = await smallForm(context.request);
@@ -35,13 +28,15 @@ export const POST: APIRoute = async (context) => {
   const password = form.get('password') ?? '';
   if (!email || email.length > 254 || !password || password.length > 256)
     return back('invalid');
+  // A failed replacement login must not mutate the current browser session.
+  const candidate = createRequestAuth(context, { isolated: true });
+  if (!candidate) return back('unavailable');
   try {
-    const { data, error } = await auth.client.auth.signInWithPassword({
+    const { data, error } = await candidate.client.auth.signInWithPassword({
       email,
       password,
     });
     if (error || !data.session) {
-      auth.clearCookies();
       // Wrong credentials are indistinguishable from an unknown account.
       return back(
         error && (error.status === 400 || error.status === 401)
@@ -50,14 +45,14 @@ export const POST: APIRoute = async (context) => {
       );
     }
     if (!emailAllowed(auth.config, data.session.user.email)) {
-      await auth.client.auth.signOut({ scope: 'local' }).catch(() => null);
-      auth.clearCookies();
+      await candidate.client.auth.signOut({ scope: 'local' }).catch(() => null);
       return back('denied');
     }
-    auth.setSessionHint();
+    auth.clearCookies();
+    candidate.setSessionHint();
+    candidate.commitCookies();
     return context.redirect(safeReturn(form.get('next'), locale), 303);
   } catch {
-    auth.clearCookies();
     return back('unavailable');
   }
 };

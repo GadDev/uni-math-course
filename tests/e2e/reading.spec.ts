@@ -69,12 +69,12 @@ for (const width of [320, 375, 768, 1280]) {
   });
 }
 
-test('English/French shell reports practice development state and links to real sign-in', async ({
+test('English/French shell explains practice access and links to real sign-in', async ({
   page,
 }) => {
   await page.goto('/en/');
   await expect(
-    page.getByText('Interactive exercises and progress tracking'),
+    page.getByText('Sign in to answer exercises and return to your progress.'),
   ).toBeVisible();
   await expect(
     page

@@ -2,16 +2,13 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import SignalGeometry from '../../components/SignalGeometry.astro';
+import Tex from '../../components/Tex';
 import { localeOf } from '../../lib/auth/policy';
 import { progressCopy } from '../../lib/progress-copy';
-import { exerciseBank } from '../../lib/exercises/bank';
+import { exerciseBank, exerciseArchive } from '../../lib/exercises/bank';
 import { PILOT_LESSON } from '../../lib/released-lessons';
 import { summarise, type Progress } from '../../lib/exercises/progress';
-import {
-  ATTEMPT_COLUMNS,
-  toAttemptRow,
-  type AttemptDbRow,
-} from '../../lib/exercises/store';
+import { loadAttempts } from '../../lib/exercises/history';
 import '../../styles/progress.css';
 // On demand and server-only: it reads the answer-bearing bank to explain mistakes.
 export const prerender = false;
@@ -38,19 +35,12 @@ let progress: Progress | null = null;
 let aidedAttempts = 0;
 if (auth && user && !unavailable) {
   // The signed-in session client: row-level security limits it to own rows.
-  const { data, error } = await auth.client
-    .from('attempts')
-    .select(ATTEMPT_COLUMNS)
-    .eq('user_id', user.id)
-    .order('created_at', { ascending: false })
-    .limit(500);
-  if (error || !data) unavailable = true;
-  else {
-    const rows = (data as unknown as AttemptDbRow[]).map(toAttemptRow);
-    progress = summarise(rows, exerciseBank);
-    aidedAttempts = rows.filter(
-      (row) => row.hintUsed && exerciseBank.has(row.exerciseId),
-    ).length;
+  try {
+    const rows = await loadAttempts(auth.client, user.id);
+    progress = summarise(rows, exerciseBank, 20, exerciseArchive);
+    aidedAttempts = rows.filter((row) => row.hintUsed).length;
+  } catch {
+    unavailable = true;
   }
 }
 if (unavailable) Astro.response.status = 503;
@@ -68,14 +58,14 @@ const when = (iso: string) => format.format(new Date(iso));
 const number = (id: string) => Number(id.split('-E')[1]);
 const lessonOf = (exerciseId: string) => exerciseId.slice(0, 3);
 const lessonLink = (lessonId: string) =>
-  `/${locale}/lessons/${lessonId}/#practice`;
+  `/${locale}/lessons/${lessonId}/practice/`;
 const totals = progress && {
   attempted: progress.lessons.reduce((sum, l) => sum + l.attempted, 0),
   mastered: progress.lessons.reduce((sum, l) => sum + l.mastered, 0),
   total: progress.lessons.reduce((sum, l) => sum + l.total, 0),
 };
 // The focus panel: the latest open mistake, else the next lesson to practise.
-const mistake = progress?.mistakes[0];
+const mistake = progress?.mistakes.find((item) => !item.archived);
 const nextLesson = progress
   ? (progress.lessons.find(
       (l) => l.lessonId === PILOT_LESSON && l.attempted < l.total,
@@ -332,13 +322,21 @@ const recent = progress?.history.slice(0, 3) ?? [];
             {progress.mistakes.map((item) => (
               <article class="practice-exercise">
                 <h3>
-                  {text.exercise} {number(item.exerciseId)}
-                  <small> · {when(item.at)}</small>
+                  {lessonOf(item.exerciseId)} · {text.exercise}{' '}
+                  {number(item.exerciseId)}
+                  <small>
+                    {' '}
+                    · v{item.exerciseVersion} · {when(item.at)}
+                  </small>
                 </h3>
-                <p>{item.prompt[locale]}</p>
+                {item.archived && <p>{text.archived}</p>}
+                <p>
+                  <Tex text={item.prompt[locale]} />
+                </p>
                 {item.chosen && (
                   <p>
-                    <strong>{text.yourAnswer} :</strong> {item.chosen[locale]}
+                    <strong>{text.yourAnswer} :</strong>{' '}
+                    <Tex text={item.chosen[locale]} />
                   </p>
                 )}
                 {item.wrongRows && item.wrongRows.length > 0 && (
@@ -347,9 +345,17 @@ const recent = progress?.history.slice(0, 3) ?? [];
                     {item.wrongRows.join(' ; ')}
                   </p>
                 )}
-                <p class="practice-bad">{item.feedback[locale]}</p>
-                <p>{item.explanation[locale]}</p>
-                <a href={lessonLink(lessonOf(item.exerciseId))}>{text.retry}</a>
+                <p class="practice-bad">
+                  <Tex text={item.feedback[locale]} />
+                </p>
+                <p>
+                  <Tex text={item.explanation[locale]} />
+                </p>
+                {!item.archived && (
+                  <a href={lessonLink(lessonOf(item.exerciseId))}>
+                    {text.retry}
+                  </a>
+                )}
               </article>
             ))}
           </section>
@@ -363,7 +369,8 @@ const recent = progress?.history.slice(0, 3) ?? [];
                 <li>
                   <span>{when(item.at)}</span> ·{' '}
                   <span>
-                    {text.exercise} {number(item.exerciseId)}
+                    {lessonOf(item.exerciseId)} · {text.exercise}{' '}
+                    {number(item.exerciseId)} · v{item.exerciseVersion}
                   </span>{' '}
                   ·{' '}
                   <span class={item.correct ? 'practice-ok' : 'practice-bad'}>
@@ -376,6 +383,27 @@ const recent = progress?.history.slice(0, 3) ?? [];
                       : text.practiceOnly}
                     {item.hintUsed ? ', ' + text.hintUsed : ''})
                   </small>
+                  {item.archived && <p>{text.archived}</p>}
+                  {item.explanation ? (
+                    <details>
+                      <summary>{text.historyFeedback}</summary>
+                      {item.prompt && (
+                        <p>
+                          <Tex text={item.prompt[locale]} />
+                        </p>
+                      )}
+                      {item.feedback && (
+                        <p>
+                          <Tex text={item.feedback[locale]} />
+                        </p>
+                      )}
+                      <p>
+                        <Tex text={item.explanation[locale]} />
+                      </p>
+                    </details>
+                  ) : (
+                    <p>{text.feedbackUnavailable}</p>
+                  )}
                 </li>
               ))}
             </ol>

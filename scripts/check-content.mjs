@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import { readFile, readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
+import { checkReleases } from './check-releases.mjs';
 
 const lessonIdPattern = /^L\d{2}$/;
 
@@ -16,7 +17,7 @@ export function truthRowIds(variables) {
 
 export function validateBank(bank) {
   assert.match(bank.lessonId, lessonIdPattern);
-  assert.equal(bank.version, 1);
+  assert.ok(Number.isInteger(bank.version) && bank.version > 0);
   assert.equal(bank.exerciseCount, 6);
   assert.equal(bank.exercises.length, 6);
   const ids = new Set();
@@ -130,7 +131,9 @@ async function checkLesson(lessonId, bank) {
     const meta = frontmatter(text);
     assert.equal(meta.lessonId, lessonId);
     assert.equal(meta.locale, locale);
-    assert.equal(meta.version, '1');
+    assert.ok(
+      Number.isInteger(Number(meta.version)) && Number(meta.version) > 0,
+    );
     assert.ok(['pilot', 'extended'].includes(meta.status));
     assert.deepEqual(
       listValue(meta.objectives).sort(),
@@ -143,6 +146,11 @@ async function checkLesson(lessonId, bank) {
       `${lessonId} ${locale} sourcePages must match exercise provenance`,
     );
   }
+  assert.equal(
+    frontmatter(texts[0]).version,
+    frontmatter(texts[1]).version,
+    `${lessonId} French/English lesson versions diverged`,
+  );
   assert.equal(
     frontmatter(texts[0]).status,
     frontmatter(texts[1]).status,
@@ -161,6 +169,10 @@ async function checkLesson(lessonId, bank) {
 }
 
 export async function checkContent() {
+  await checkReleases();
+  const releases = JSON.parse(
+    await readFile('content/releases.json', 'utf8'),
+  ).lessons;
   const lessonRoot = new URL('../content/lessons/', import.meta.url);
   const exerciseRoot = new URL('../exercises/', import.meta.url);
   const lessonIds = (await readdir(lessonRoot)).filter((name) =>
@@ -175,15 +187,41 @@ export async function checkContent() {
     'Every lesson needs an exercise bank and vice versa',
   );
   for (const lessonId of lessonIds.sort()) {
+    const version = releases[lessonId]?.version ?? 1;
+    for (const file of await readdir(
+      new URL(`../exercises/${lessonId}/`, import.meta.url),
+    )) {
+      if (/^v\d+\.json$/.test(file)) {
+        const archived = validateBank(
+          JSON.parse(
+            await readFile(
+              new URL(`../exercises/${lessonId}/${file}`, import.meta.url),
+              'utf8',
+            ),
+          ),
+        );
+        assert.equal(
+          file,
+          `v${archived.version}.json`,
+          'Bank version must match its filename',
+        );
+        assert.equal(archived.lessonId, lessonId);
+      }
+    }
     const bank = validateBank(
       JSON.parse(
         await readFile(
-          new URL(`../exercises/${lessonId}/v1.json`, import.meta.url),
+          new URL(`../exercises/${lessonId}/v${version}.json`, import.meta.url),
           'utf8',
         ),
       ),
     );
     assert.equal(bank.lessonId, lessonId);
+    assert.equal(
+      bank.version,
+      version,
+      'Selected bank version must match release metadata',
+    );
     await checkLesson(lessonId, bank);
   }
   console.log(

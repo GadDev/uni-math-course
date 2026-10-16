@@ -25,6 +25,8 @@ export type LessonProgress = {
 };
 export type Mistake = {
   exerciseId: string;
+  exerciseVersion: number;
+  archived: boolean;
   attemptId: string;
   at: string;
   prompt: Localized;
@@ -36,6 +38,11 @@ export type Mistake = {
 export type HistoryItem = {
   attemptId: string;
   exerciseId: string;
+  exerciseVersion: number;
+  archived: boolean;
+  prompt?: Localized;
+  feedback?: Localized;
+  explanation?: Localized;
   at: string;
   correct: boolean;
   independentEvidence: boolean;
@@ -62,11 +69,23 @@ export function summarise(
   attempts: readonly AttemptRow[],
   bank: ReadonlyMap<string, Exercise>,
   historyLimit = 20,
+  archive: ReadonlyMap<string, Exercise> = new Map(),
 ): Progress {
-  // Attempts for exercises that are not currently released are ignored.
-  const known = attempts
-    .filter((attempt) => bank.has(attempt.exerciseId))
-    .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+  // Lifetime records survive release withdrawal and missing archives. Only
+  // current-version evidence contributes to the active-course denominator.
+  const known = [...attempts].sort(
+    (a, b) =>
+      b.createdAt.localeCompare(a.createdAt) || b.id.localeCompare(a.id),
+  );
+  const versionOf = (attempt: AttemptRow) => {
+    const current = bank.get(attempt.exerciseId);
+    return (
+      archive.get(`${attempt.exerciseId}@${attempt.exerciseVersion}`) ??
+      (current?.version === attempt.exerciseVersion ? current : undefined)
+    );
+  };
+  const archived = (attempt: AttemptRow) =>
+    bank.get(attempt.exerciseId)?.version !== attempt.exerciseVersion;
 
   const byExercise = new Map<string, AttemptRow[]>();
   for (const attempt of known)
@@ -85,7 +104,10 @@ export function summarise(
       exercises: [],
     };
     lesson.total += 1;
-    const list = byExercise.get(exercise.id);
+    // Old evidence never certifies a corrected version; old records remain visible.
+    const list = byExercise
+      .get(exercise.id)
+      ?.filter((attempt) => attempt.exerciseVersion === exercise.version);
     if (list?.[0]) {
       const progress: ExerciseProgress = {
         exerciseId: exercise.id,
@@ -102,16 +124,22 @@ export function summarise(
     lessons.set(exercise.lessonId, lesson);
   }
 
-  // Open mistakes: the learner's latest attempt on the exercise is wrong.
+  // A late attempt from an older deployment cannot close a current-version
+  // mistake. Without current attempts, retain the latest archived review.
   const mistakes: Mistake[] = [];
   for (const [exerciseId, list] of byExercise) {
-    const latest = list[0];
-    const exercise = bank.get(exerciseId);
+    const currentVersion = bank.get(exerciseId)?.version;
+    const latest =
+      list.find((attempt) => attempt.exerciseVersion === currentVersion) ??
+      list[0];
+    const exercise = latest ? versionOf(latest) : undefined;
     if (!latest || !exercise || latest.correct) continue;
     const parsed = parseResponse(exercise, latest.response);
     const graded = parsed ? grade(exercise, parsed) : null;
     const mistake: Mistake = {
       exerciseId,
+      exerciseVersion: latest.exerciseVersion,
+      archived: archived(latest),
       attemptId: latest.id,
       at: latest.createdAt,
       prompt: exercise.prompt,
@@ -136,13 +164,29 @@ export function summarise(
       a.lessonId.localeCompare(b.lessonId),
     ),
     mistakes,
-    history: known.slice(0, historyLimit).map((attempt) => ({
-      attemptId: attempt.id,
-      exerciseId: attempt.exerciseId,
-      at: attempt.createdAt,
-      correct: attempt.correct,
-      independentEvidence: attempt.independentEvidence,
-      hintUsed: attempt.hintUsed,
-    })),
+    history: known.slice(0, historyLimit).map((attempt) => {
+      const exercise = versionOf(attempt);
+      const parsed = exercise
+        ? parseResponse(exercise, attempt.response)
+        : null;
+      const graded = exercise && parsed ? grade(exercise, parsed) : null;
+      return {
+        attemptId: attempt.id,
+        exerciseId: attempt.exerciseId,
+        exerciseVersion: attempt.exerciseVersion,
+        archived: archived(attempt),
+        at: attempt.createdAt,
+        // The saved verdict remains authoritative; grading supplies only the
+        // original version's explanatory text, never a replacement verdict.
+        correct: attempt.correct,
+        independentEvidence: attempt.independentEvidence,
+        hintUsed: attempt.hintUsed,
+        ...(exercise && {
+          prompt: exercise.prompt,
+          explanation: exercise.explanation,
+        }),
+        ...(graded && { feedback: graded.feedback }),
+      };
+    }),
   };
 }

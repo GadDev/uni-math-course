@@ -27,9 +27,9 @@ export const copy = {
       'Une promesse avec un seul échec. Découvrez A ⇒ B, sa table de vérité et les conditions nécessaires et suffisantes.',
     future: 'Tout le programme',
     planned: 'À venir',
-    practiceTitle: 'La pratique arrive ensuite',
+    practiceTitle: 'À vous de pratiquer',
     practice:
-      'Les exercices interactifs et le suivi des progrès sont en développement. La lecture reste libre ; la connexion sera disponible une fois le service configuré.',
+      'Connectez-vous pour répondre aux exercices et retrouver votre progression. La lecture reste libre.',
     review: 'Texte original du projet · Leçon pilote · Version 1',
     reviewExtended:
       'Texte original du projet · Cours étendu, hors pilote de classe · Version 1',
@@ -39,7 +39,7 @@ export const copy = {
     content: 'Accès au contenu',
     notice: 'Lecture disponible',
     readingNotice:
-      'Vous pouvez lire cette leçon librement. La connexion sera nécessaire pour les futurs exercices.',
+      'Vous pouvez lire cette leçon librement. Connectez-vous pour les exercices et les réponses enregistrées.',
     next: 'Revenir au programme',
     programme: [
       { id: 'L01', title: 'Assertions' },
@@ -65,7 +65,7 @@ export const copy = {
     ],
     showGuide: 'Comment utiliser ce carnet',
     guide:
-      'Lisez un exemple, puis reformulez la règle avec vos propres mots. Les activités guidées font partie de la lecture ; les réponses indépendantes viendront avec la pratique connectée.',
+      'Lisez un exemple, puis reformulez la règle avec vos propres mots. Passez ensuite à la pratique connectée pour recevoir une explication et revoir vos erreurs.',
     hideGuide: 'Masquer le conseil',
     notFound: 'Page introuvable',
   },
@@ -95,9 +95,9 @@ export const copy = {
       'A promise with one failure case. Explore A ⇒ B, its truth table, and necessary and sufficient conditions.',
     future: 'The whole programme',
     planned: 'Coming later',
-    practiceTitle: 'Practice comes next',
+    practiceTitle: 'Your turn to practise',
     practice:
-      'Interactive exercises and progress tracking are in development. Reading stays open; sign-in becomes available once the service is configured.',
+      'Sign in to answer exercises and return to your progress. Reading stays open.',
     review: 'Original project text · Pilot lesson · Version 1',
     reviewExtended:
       'Original project text · Extended course, outside the class pilot · Version 1',
@@ -107,7 +107,7 @@ export const copy = {
     content: 'Content access',
     notice: 'Reading available',
     readingNotice:
-      'You can read this lesson freely. Sign-in will be required for future exercises.',
+      'You can read this lesson freely. Sign in for exercises and saved answers.',
     next: 'Back to the programme',
     programme: [
       { id: 'L01', title: 'Assertions' },
@@ -133,7 +133,7 @@ export const copy = {
     ],
     showGuide: 'How to use this notebook',
     guide:
-      'Read an example, then explain the rule in your own words. Guided work belongs to reading; independent answers will arrive with signed-in practice.',
+      'Read an example, then explain the rule in your own words. Continue to signed-in practice for an explanation and a chance to revisit mistakes.',
     hideGuide: 'Hide the tip',
     notFound: 'Page not found',
   },
