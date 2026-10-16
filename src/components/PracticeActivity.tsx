@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Locale } from '../lib/i18n';
 import Tex from './Tex';
+import { practiceHref, type PracticeTarget } from '../lib/practice-navigation';
 
 // Client-side shapes. Answers, feedback and explanations only ever arrive in a
 // graded attempt response; they are never part of the exercise payload.
@@ -287,6 +288,7 @@ const marker = (index: number) => String(index + 1);
 
 export default function PracticeActivity({
   lessonId,
+  requestedTarget,
   locale,
   lessonNumber,
   exampleHref,
@@ -294,6 +296,7 @@ export default function PracticeActivity({
   extended,
 }: {
   lessonId: string;
+  requestedTarget: PracticeTarget | null;
   locale: Locale;
   lessonNumber: string;
   exampleHref: string;
@@ -349,8 +352,17 @@ export default function PracticeActivity({
           item.id === stored?.currentExerciseId &&
           mine[item.id]?.version === item.version,
       );
+      const requested = data.exercises.findIndex(
+        (item) =>
+          item.id === requestedTarget?.exerciseId &&
+          item.version === requestedTarget.version,
+      );
       setCurrent(
-        stored?.learner === data.learner && resumed >= 0 ? resumed : 0,
+        requested >= 0
+          ? requested
+          : stored?.learner === data.learner && resumed >= 0
+            ? resumed
+            : 0,
       );
       setPhase('ready');
     } catch {
@@ -379,6 +391,26 @@ export default function PracticeActivity({
     result && exercise
       ? (answersFromResponse(exercise, result.response) ?? {})
       : (entry?.answers ?? {});
+
+  // An explicit review URL follows subsequent exercise navigation too. Otherwise
+  // its original target would override a newer selection on reload or translation.
+  useEffect(() => {
+    if (phase !== 'ready' || !exercise) return;
+    const target = requestedTarget
+      ? { exerciseId: exercise.id, version: exercise.version }
+      : null;
+    history.replaceState(
+      history.state,
+      '',
+      practiceHref(locale, lessonId, target) + window.location.hash,
+    );
+    const alternate = locale === 'fr' ? 'en' : 'fr';
+    const languageLink = document.querySelector<HTMLAnchorElement>(
+      '[data-language-link]',
+    );
+    if (languageLink)
+      languageLink.href = practiceHref(alternate, lessonId, target);
+  }, [phase, exercise, locale, lessonId, requestedTarget]);
 
   // Announce the verdict by moving focus to the feedback heading.
   useEffect(() => {
@@ -464,7 +496,13 @@ export default function PracticeActivity({
   }
 
   const signInHref = `/${locale}/sign-in/?${new URLSearchParams({
-    next: `/${locale}/lessons/${lessonId}/practice/`,
+    next: practiceHref(
+      locale,
+      lessonId,
+      exercise
+        ? { exerciseId: exercise.id, version: exercise.version }
+        : requestedTarget,
+    ),
   })}`;
 
   const reviewing = result !== null && !result.correct;

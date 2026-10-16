@@ -6,6 +6,8 @@ Notable changes are recorded here. No application version has been released.
 
 ### Fixed
 
+- Preserve explicit exercise-review destinations through sign-in errors and language changes while keeping ordinary draft restoration.
+
 - Bind practice feedback to the recorded answer, retaining immutable submission snapshots across uncertain saves, reloads and language changes.
 
 - Replaced the reading-tip React/Radix island with a native keyboard-accessible disclosure that works without JavaScript, and removed the global Radix stylesheet from public pages.

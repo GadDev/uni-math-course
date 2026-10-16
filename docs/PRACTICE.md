@@ -21,6 +21,12 @@ A signed-in learner can open the L05 practice section, answer six exercises, rec
 - **Practice page.** `/fr/lessons/L05/practice/` and `/en/lessons/L05/practice/` are on-demand authenticated pages (layouts from design proposals 05 and 06). One exercise is shown at a time; after grading the same page switches to the feedback layout. The exercises request starts when the page opens, after server identity verification; a signed-out visitor is redirected to sign-in.
 - **Drafts.** Unfinished answers live in sessionStorage for the tab, scoped to the learner and exercise version, including the active exercise ID and current feedback. The active exercise is restored by ID only when the learner and that entry's version match; a stale, missing or foreign selection falls back to the first exercise. They hold no tokens, are discarded when the account or version differs, and are cleared before normal browser logout navigation.
 
+## Navigation intent
+
+Review links carry an exercise ID and version (`?exercise=L05-E01&version=1`). A target matching a currently delivered exercise takes precedence over the tab's active selection; other compatible answers and feedback are retained. Unknown, mismatched or stale targets fall back to ordinary learner/version-scoped draft restoration. Practice without a target continues to resume the saved selection. Archived reviews do not link to retired practice.
+
+The bounded target survives anonymous redirects to sign-in, failed-login retries and language changes. Login return paths accept only existing route shapes and these two validated practice parameters; external, encoded, duplicate, cross-lesson and arbitrary query destinations remain rejected. Expired-session links identify the exercise currently open.
+
 ## Submission and recovery
 
 Before sending an answer, the activity snapshots its choices and hint flag under the existing submission ID and persists them in the tab draft. Choices and hints stay locked until a save is confirmed, including after a network failure, reload or language change. “Check saved response” retries the same snapshot and ID; it does not create a distinct attempt. The API returns the stored response/version/hint flag for both new and duplicate submissions, and feedback displays those recorded choices. A learner can start a distinct attempt through the feedback retry action, which allocates a new submission ID.

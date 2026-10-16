@@ -1,3 +1,5 @@
+import { practiceHref, practiceTarget } from '../practice-navigation.ts';
+
 export type AuthConfig = {
   url: string;
   key: string;
@@ -65,11 +67,27 @@ export function safeReturn(value: unknown, locale: AuthLocale): string {
   const fallback = `/${locale}/account/`;
   if (typeof value !== 'string' || value.length > 300 || value !== value.trim())
     return fallback;
-  // Explicit released routes only; reject encoding tricks and external origins.
-  return /^\/(fr|en)\/(?:account\/|progress\/|(?:lessons\/L(?:0[1-9]|1[0-9]|20)\/(?:practice\/)?)?)(?:#[a-zA-Z0-9_-]+)?$/.test(
-    value,
+  // Validate the raw path before parsing query parameters: URL normalization
+  // must not turn an encoded or traversal destination into an allowed route.
+  const hash = value.indexOf('#');
+  const fragment = hash < 0 ? '' : value.slice(hash);
+  const [path = '', query, extra] = (
+    hash < 0 ? value : value.slice(0, hash)
+  ).split('?');
+  if (
+    extra !== undefined ||
+    !/^\/(fr|en)\/(?:account\/|progress\/|(?:lessons\/L(?:0[1-9]|1[0-9]|20)\/(?:practice\/)?)?)(?:#[a-zA-Z0-9_-]+)?$/.test(
+      path + fragment,
+    )
   )
-    ? value
+    return fallback;
+  if (query === undefined) return value;
+  const lessonId = path.match(/lessons\/(L\d{2})\/practice\/$/)?.[1];
+  if (!lessonId || value.includes('%')) return fallback;
+  const target = practiceTarget(new URLSearchParams(query), lessonId);
+  return target
+    ? practiceHref(path.startsWith('/en/') ? 'en' : 'fr', lessonId, target) +
+        fragment
     : fallback;
 }
 

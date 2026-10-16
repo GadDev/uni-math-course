@@ -22,8 +22,12 @@ export const POST: APIRoute = async (context) => {
   const form = await smallForm(context.request);
   if (!form) return new Response('Invalid form', { status: 400 });
   const locale = localeOf(form.get('locale'));
+  const next = safeReturn(form.get('next'), locale);
   const back = (error: string) =>
-    context.redirect(`/${locale}/sign-in/?error=${error}`, 303);
+    context.redirect(
+      `/${locale}/sign-in/?${new URLSearchParams({ error, ...(next !== `/${locale}/account/` ? { next } : {}) })}`,
+      303,
+    );
   const email = (form.get('email') ?? '').trim();
   const password = form.get('password') ?? '';
   if (!email || email.length > 254 || !password || password.length > 256)
@@ -51,7 +55,7 @@ export const POST: APIRoute = async (context) => {
     auth.clearCookies();
     candidate.setSessionHint();
     candidate.commitCookies();
-    return context.redirect(safeReturn(form.get('next'), locale), 303);
+    return context.redirect(next, 303);
   } catch {
     return back('unavailable');
   }
