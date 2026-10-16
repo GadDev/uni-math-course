@@ -66,7 +66,7 @@ For recovery, correct the check name/source or workflow failure rather than bypa
 
 ## Release automation setup
 
-Release Please and its isolated locked planner tests are configured; see [RELEASING.md](RELEASING.md) for App installation, repository variables and the private-key secret. RELEASE_PLEASE_ENABLED is opt-in; credentials/activation and real bot PR/check/tag/retry evidence remain pending. The first application release is blocked by .github/release-approval.json until actual hosted acceptance is recorded. No tag, release, production deployment or hosted database change is claimed by this implementation.
+Release Please and its isolated locked planner tests are configured; see [RELEASING.md](RELEASING.md) for App installation, repository variables and the private-key secret. RELEASE_PLEASE_ENABLED is opt-in. The [activation run](https://github.com/GadDev/uni-math-course/actions/runs/38903040272) successfully created [release PR #42](https://github.com/GadDev/uni-math-course/pull/42) with the repository-scoped App, and ordinary checks ran. The first tag/release and rerun behaviour still require observation. Release PRs require normal checks and maintainer review; hosted pilot acceptance is separate. No production deployment or hosted database change is performed by the release workflow.
 
 ## Readiness and maintenance
 
