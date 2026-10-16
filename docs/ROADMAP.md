@@ -12,6 +12,8 @@ Release status (generated from content/releases.json): 20 public bilingual lesso
 
 The [mission](MISSION.md) defines the outcome; the [constitution](CONSTITUTION.md) defines content and product constraints. The Astro/React, Vercel Hobby, Supabase Free and Radix Themes stack is approved in [TECHSTACK.md](TECHSTACK.md); the implementation exists and operational acceptance remains to be demonstrated.
 
+Track revision-specific repository evidence and remaining hosted/human checks in [pilot acceptance evidence](PILOT_ACCEPTANCE.md). Completing one smoke test does not close unrelated acceptance criteria.
+
 ## M0 - Repository and product foundation
 
 Scope: README, contribution/conduct/security policies, licensing, ownership, issue/PR forms, safe ignore/editor settings, documentation validation, and the four project documents.
