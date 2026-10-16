@@ -4,9 +4,9 @@ Reconciled: 2026-10-16 · Accountable owner: GadDev · Status: application imple
 
 This record separates repository evidence, hosted verification and human decisions. It does not certify mathematical peer review, translation fidelity, cloud configuration or class readiness. Publication decisions remain in `content/releases.json`; do not maintain a second lesson allowlist here. See [content release contracts](CONTENT_RELEASES.md).
 
-## Recorded implementation and verification
-
 Application versioning and release automation do not depend on completing this checklist. A GitHub release identifies a checked repository snapshot; it does not certify hosted pilot readiness. Keep outstanding checks open until evidence is recorded.
+
+## Recorded implementation and verification
 
 | Evidence | Revision / result | Boundary |
 | --- | --- | --- |
