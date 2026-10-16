@@ -1,0 +1,90 @@
+[
+  {
+    "kind": "value",
+    "formula": "A => B",
+    "assignment": {
+      "A": false,
+      "B": false
+    },
+    "expected": true
+  },
+  {
+    "kind": "value",
+    "formula": "A => B",
+    "assignment": {
+      "A": false,
+      "B": true
+    },
+    "expected": true
+  },
+  {
+    "id": "L05-E02",
+    "kind": "table",
+    "formula": "(A => B) => A"
+  },
+  {
+    "kind": "equivalent",
+    "left": "(A => B) => A",
+    "right": "A",
+    "expected": true
+  },
+  {
+    "kind": "classify",
+    "formula": "((P => Q) & (R => Q)) => ((P | R) => Q)",
+    "expected": "tautology"
+  },
+  {
+    "kind": "classify",
+    "formula": "((P => Q) & (R => Q)) => (Q => (P | R))",
+    "expected": "contingent"
+  },
+  {
+    "kind": "classify",
+    "formula": "((P => Q) & (R => Q)) => (P => R)",
+    "expected": "contingent"
+  },
+  {
+    "kind": "classify",
+    "formula": "((P => Q) & (R => Q)) => (R => P)",
+    "expected": "contingent"
+  },
+  {
+    "kind": "equivalent",
+    "left": "!((A | B) => C)",
+    "right": "(A | B) & !C",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "!((A | B) => C)",
+    "right": "(A & B) & !C",
+    "expected": false
+  },
+  {
+    "kind": "equivalent",
+    "left": "!((A | B) => C)",
+    "right": "!(A | B) => !C",
+    "expected": false
+  },
+  {
+    "kind": "equivalent",
+    "left": "!((A | B) => C)",
+    "right": "(A | B) | !C",
+    "expected": false
+  },
+  {
+    "kind": "value",
+    "formula": "A => B",
+    "assignment": {
+      "A": true,
+      "B": false
+    },
+    "expected": false
+  },
+  {
+    "kind": "equivalent",
+    "left": "(A | B) => C",
+    "right": "(A => C) & (B => C)",
+    "expected": true
+  }
+]

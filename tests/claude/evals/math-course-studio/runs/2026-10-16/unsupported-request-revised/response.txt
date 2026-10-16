@@ -1,0 +1,18 @@
+# L05 draft result
+
+Created a bilingual six-item alternative bank at [v2.draft.json](exercises/drafts/L05/v2.draft.json), a seventh proof proposal at [proposed-types.md](exercises/drafts/L05/proposed-types.md), and [generation notes](exercises/drafts/L05/generation-notes.md). Nothing was published or committed; released v1 and release metadata are unchanged.
+
+The draft has four editorially hard items and two medium items. The seventh task is hard proof production with an original worked solution and self-review, outside the bank. The current contract requires exactly six objective-aligned items and only single-choice/truth-table grading. Seven practice tasks require decisions about cardinality, objective/ID allocation and grading/history/progress. Automatic free-text proof grading needs a separately specified and implemented contract; it is unsupported. These limits come from `.claude/skills/math-course-studio/SKILL.md`, `scripts/check-content.mjs` and Constitution §5.
+
+Checks from `/tmp/math-studio-unsupported-request-aPQoca`:
+
+- Draft validator: exit 0, structurally valid, **0 warnings**.
+- Logic checker using [answer-checks.json](exercises/drafts/L05/answer-checks.json): exit 0, **all 14 checks agree**, including the proof theorem.
+- Dependency-free enumeration: exit 0; all **16** hidden-face configurations confirm the inspection answer and minimality; natural numbers **0–12** give exactly **{3, 5}**, with symbolic bounds covering the rest.
+- `node scripts/check-repository.mjs`: exit 0, **83 Markdown files** passed structure/internal links.
+- `node scripts/check-content.mjs`: exit 0, **20 bilingual lessons** passed versioned contracts.
+- `ASTRO_TELEMETRY_DISABLED=1 pnpm check`: **incomplete, exit 130**. Dependencies were initially missing; the fallback launcher unexpectedly installed 587 cached packages. I interrupted it. Docs/content stages passed; typecheck, formatting, tests and build remain unverified. No e2e/browser checks ran.
+
+This is an unreviewed draft with author mathematical/bilingual self-check, not independent review. Source alignment uses the course map; no source PDF was available for fresh comparison. Human mathematical and translation review, then separately authorized promotion, are needed before practice publication.
+
+The automatic dependency installation violated the no-install constraint. Automatic execution review then rejected cleanup of `node_modules` and `.astro`: “rm -f style commands are not permitted. Use a safer approach”. Cleanup did not execute; these generated directories remain. I did not bypass the rejection.

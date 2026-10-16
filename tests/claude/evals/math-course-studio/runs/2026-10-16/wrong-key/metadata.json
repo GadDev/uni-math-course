@@ -1,0 +1,34 @@
+{
+  "id": "wrong-key",
+  "directory": "/tmp/math-studio-wrong-key-MUwiXu",
+  "prompt": "Use math-course-studio to review L05's selected bank for mathematical correctness. Check truth-table keys against the shown formulas, write a draft review note and report validation separately from mathematical findings. Do not change published content.",
+  "sourceCommit": "8efa2dd827b21523253690a4dc1421e1badeed15",
+  "skillSha256": "ea84ead0ecee1f69d1529209110228008ebeda13598f9851ff733d86053c150d",
+  "fixtureSha256": "4ebb8298490c919bd5723d445da26ccaeca1304b0de8349559fa26e75d904dcb",
+  "mutation": {
+    "item": "L05-E02",
+    "path": [
+      "answer",
+      "10"
+    ],
+    "value": true
+  },
+  "date": "2026-10-16",
+  "runner": "Codex isolated sub-agent; no inherited conversation",
+  "model": "Exact model/build identifier not exposed by runtime",
+  "toolSurface": "Executor shell and file tools; no external-account access supplied",
+  "initialFixtureGitMetadata": false,
+  "protectedBeforeSha256": "696facb6538227e14f3b4b9b1e45fd7059bf545bd7d669b789a4c76689f1b1e4",
+  "protectedAfterSha256": "696facb6538227e14f3b4b9b1e45fd7059bf545bd7d669b789a4c76689f1b1e4",
+  "protectedChanges": [],
+  "artifacts": [
+    "artifacts/L05/answer-checks.json",
+    "artifacts/L05/lesson-review.md.txt"
+  ],
+  "evidenceLimitations": [
+    "Final responses and generated artifacts retained; full tool-call transcripts not exported",
+    "Fresh agent per case; all are agents from the same runtime, not human peer review",
+    "Initial fixtures lacked .git metadata; current preparer adds a synthetic local baseline",
+    "Broader checks encountered missing source PDF, stale fingerprints on seeded mutations, or telemetry approval restrictions; see raw responses"
+  ]
+}

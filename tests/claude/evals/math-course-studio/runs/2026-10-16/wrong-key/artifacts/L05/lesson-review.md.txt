@@ -1,0 +1,104 @@
+# L05 selected-bank review — 2026-10-16
+
+Status: draft review; author self-check with a different derivation, not independent peer review. This note does not renew release or translation certification.
+
+## Scope and authorship
+
+The release registry selects `exercises/L05/v1.json` (version 1). Reviewed all six items, their bilingual prompts, hints, options, feedback, explanations and keys; read both L05 lessons for alignment. Read the historical maintainer note `docs/content/L05_REVIEW.md`, the selected neighbouring L04 v1 bank for style, and glossary implication terminology. The source range is PDF pages 20–23 according to the repository course map. The PDF is absent from this checkout, so direct source fidelity was not checked; no external source was contacted. No fallback bank was selected.
+
+Only review artifacts were authored. Published banks, lessons, registry fingerprints, historical review evidence and guardrails were left unchanged. No corrected bank, publication, commit or external communication was made.
+
+## Findings
+
+| # | Severity | Dimension | Location | Finding | Suggested repair |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Blocking | Mathematics | L05-E02, `answer["10"]`, shown formula A ⇒ B | The stored key is true for A=true, B=false. The correct value is false. The other three rows are correct. The incorrect key contradicts both language versions of its own feedback, E01, the lesson table and historical self-check. | Propose a separately reviewed immutable v2 with row 10 false; retain v1 for history. Do not edit the published bank or merely refresh hashes. |
+| 2 | Major | Release evidence | `content/releases.json`, L05 selected bank fingerprint | The current selected bank bytes do not match the recorded review fingerprint. Content validation fails. This freshness failure is separate from the mathematical proof of finding 1. | Maintainers must resolve the selected-bank discrepancy and review a new version through the release contract; historical evidence cannot certify altered bytes. |
+
+## Mathematical self-check
+
+Domain: A and B are Boolean propositions. For E06, n is in ℕ including zero. Route A uses definitions/algebra; Route B uses the bundled parser's exhaustive assignments or direct numeric enumeration. These are different derivations by one author, not independent reviewers.
+
+| Item | Stored key | Route A summary | Route B result | Agreement with stored key |
+| --- | --- | --- | --- | --- |
+| E01 | `10` | Implication fails exactly when antecedent holds and consequent fails. | Enumerated Boolean semantics confirm the only false assignment is 10. | Yes |
+| E02 | 00=true, 01=true, 10=true, 11=true | ¬A ∨ B gives true, true, false, true in row order 00,01,10,11. In particular 10 gives false ∨ false. | `logic-check.mjs` compares the actual key with the formula shown verbatim in both prompts, A ⇒ B; only row 10 differs. | **No: row 10 must be false.** Both derivations agree with each other. |
+| E03 | `a-sufficient-b-necessary` | A sufficient for B and B necessary for A both express A ⇒ B. | Exhaustive equivalence with ¬B ⇒ ¬A holds; equivalence with B ⇒ A fails (e.g. 01). | Yes |
+| E04 | `a-and-not-b` | De Morgan yields ¬(¬A ∨ B) equivalent to A ∧ ¬B. | Exhaustive equivalence passes; both alternative options fail equivalence. At 11, ¬A ⇒ ¬B is true but the required negation is false. | Yes |
+| E05 | `no` | A blue unstamped card has false antecedent; it cannot be a witness of red AND unstamped. | Direct 00 evaluation gives true. A model containing this blue card and a red unstamped card also shows why this observation cannot prove the universal rule. | Yes |
+| E06 | `n8` | Negation requires 5 < n ≤ 10; among offered 0,4,8,12 only 8 qualifies. | Local enumeration over 0–12 yields 6,7,8,9,10 and offered witness 8. | Yes |
+
+All four Boolean assignments were checked, including both false-antecedent cases. Numeric checks cover zero and boundaries 5,10,11. Solving 5 < n ≤ 10 proves no natural counterexamples outside 6–10; bounded enumeration is a cross-check, not a proof about all ℕ. The throwaway numeric script was removed after running it.
+
+## Review decisions
+
+E02 interpretation check: the prompt explicitly shows implication in both languages, and the hint is ¬A ∨ B. Reading it as a tautology would match the all-true key but has no support in the shown task; reject that reading. Row IDs encode A then B and the row 10 explicitly stores A=true, B=false, so reordering the key cannot repair the value. The supported interpretation gives a unique false row.
+
+Severity check: blocking scores 2/2 for direct grading impact; major scores 1/2 because it understates a false key; minor scores 0/2 because it treats mathematical error as presentation. Select blocking under the rubric. No new stems or distractors were designed in this review.
+
+## Other rubric dimensions and bilingual self-check
+
+| Dimension | Result |
+| --- | --- |
+| Source fidelity | Pages 20–23 are the declared source-taught coverage; the natural-number convention is prerequisite support. No direct PDF comparison was possible. No known Constitution source defect falls in this range; this is not verification of the absent PDF. |
+| Pedagogy | Hints and explanations consistently teach the unique failure case, including E02 feedback. Six distinct objective IDs each have one item. E05 repeats the visible guided example; useful rehearsal, but its novelty as independent mastery evidence merits maintainer attention. E02's application label is debatable for direct table completion; no difficulty change proposed. |
+| Bilingual fidelity | Both language versions were read manually; no meaning divergence found. E02's wrong shared key affects both equally. Existing terminology matches antecedent/antécédent, consequent/conséquent, necessary/nécessaire, sufficient/suffisante and counterexample/contre-exemple. Automated notation comparison passed; it cannot certify prose translation. |
+| Exercise quality | E01/E03–E06 each have one defensible offered answer and feedback for all options. E02 has a unique mathematical answer but an incorrect stored cell. E05 is intentionally binary (validator warns about fewer than three options); correct option positions vary across the bank. |
+| Accessibility | No colour-dependent mathematics found in reviewed source text. Explanations supply prose readings; E02's sentence about stable row identifiers is implementation detail with little learner value. Rendered/assistive-technology behaviour was not tested. |
+| Rights and honesty | No source PDF or source artwork was copied. This review asserts neither independent peer review, hosted acceptance nor class readiness. |
+
+## Validation commands — separate from mathematical findings
+
+Node was v24.19.0. The full check used pnpm v11.25.0. There was no new draft bank to validate; the structural helper was deliberately applied read-only to the selected bank.
+
+1. `node .claude/skills/math-course-studio/scripts/validate-draft.mjs exercises/L05/v1.json` — exit 0. Exact output:
+
+```text
+warning: L05-E05: fewer than 3 options
+warning: path is inside a published bank folder; drafts belong in exercises/drafts/<Lxx>/
+OK: L05 draft is structurally valid (2 warning(s)). Answer keys are NOT verified by this script: run logic-check.mjs where applicable and record a second derivation. Author self-check only; not mathematical peer review.
+```
+
+2. `node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/L05/v1.json exercises/drafts/L05/answer-checks.json` — exit 1. Exact output:
+
+```text
+FAIL L05-E02
+  row 10: key says true, formula gives false
+ok   L05-E01-false-case
+ok   L05-E02-definition
+ok   L05-E03-necessary
+ok   L05-E03-converse
+ok   L05-E04-answer
+ok   L05-E04-distractor-1
+ok   L05-E04-distractor-2
+ok   L05-E05-blue-unstamped
+1 of 9 check(s) failed
+```
+
+3. `node private/l05-number-check.mjs` — exit 0 before removing the temporary script. Exact output:
+
+```text
+L05-E06: natural counterexamples through 12 are 6,7,8,9,10; sole offered witness is 8. Zero and boundaries 5,10,11 checked.
+```
+
+4. `node scripts/check-content.mjs` — exit 1, at the release freshness gate before full content validation. Exact assertion diagnostic:
+
+```text
+AssertionError [ERR_ASSERTION]: L05: stale release review for exercises/L05/v1.json. Review both languages/mathematics and explicitly renew the release record; current SHA-256: dfe2372b99748c6c2466f2d15c1a922282d7403b315fc3c38a4e1d252a3e3747
++ actual - expected
+
++ '90e0f8ee52175e2f7eb2c8e4ea73cba37f5681c01eb8cbb8860773585b610501'
+- 'dfe2372b99748c6c2466f2d15c1a922282d7403b315fc3c38a4e1d252a3e3747'
+```
+
+5. `COREPACK_ENABLE_NETWORK=0 PNPM_DISABLE_SELF_UPDATE_CHECK=1 pnpm check` — exit 1. The local package runner reused 587 cached packages, downloaded 0, and ran the pinned pnpm. Documentation/status checks passed at that point (`Validated 80 Markdown files: structure and internal links passed.`). It stopped at `check:content` with the identical assertion above; typecheck, formatting, tests and build were not reached. The runner ended with two `[ELIFECYCLE] Command failed with exit code 1.` lines. No e2e run: no reading or interaction content was changed.
+
+6. `node scripts/check-repository.mjs` — final run after writing this note and the evaluation response: exit 0, `Validated 82 Markdown files: structure and internal links passed.`
+
+The structural helper passing is not evidence that the mathematical key is correct. The release gate failure shows stale evidence, not the truth value of a formula; the separate logic check establishes the wrong cell. `git status --short` was unavailable (exit 128: `fatal: not a git repository (or any of the parent directories): .git`); this checkout has no Git metadata.
+
+## Open decisions for maintainers
+
+Obtain a human second mathematical check of the wrong-key finding and review FR/EN fidelity for any proposed correction. Decide how to handle the currently served bank under the release contract, preserve v1 and past grades, and author/review v2 before any deliberate registry selection. Do not treat this draft or the historical self-check as promotion approval. Direct source comparison needs authorized access to the missing PDF pages 20–23. No source discrepancy is asserted without that evidence.
+
+Author self-check with a different derivation; not independent peer review.

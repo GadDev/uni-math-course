@@ -1,0 +1,11 @@
+[
+  { "id": "L05-E02", "kind": "table", "formula": "A ⇒ B" },
+  { "id": "L05-E01-false-case", "kind": "value", "formula": "A ⇒ B", "assignment": { "A": true, "B": false }, "expected": false },
+  { "id": "L05-E02-definition", "kind": "equivalent", "left": "A ⇒ B", "right": "¬A ∨ B", "expected": true },
+  { "id": "L05-E03-necessary", "kind": "equivalent", "left": "A ⇒ B", "right": "¬B ⇒ ¬A", "expected": true },
+  { "id": "L05-E03-converse", "kind": "equivalent", "left": "A ⇒ B", "right": "B ⇒ A", "expected": false },
+  { "id": "L05-E04-answer", "kind": "equivalent", "left": "¬(A ⇒ B)", "right": "A ∧ ¬B", "expected": true },
+  { "id": "L05-E04-distractor-1", "kind": "equivalent", "left": "¬(A ⇒ B)", "right": "¬A ∧ B", "expected": false },
+  { "id": "L05-E04-distractor-2", "kind": "equivalent", "left": "¬(A ⇒ B)", "right": "¬A ⇒ ¬B", "expected": false },
+  { "id": "L05-E05-blue-unstamped", "kind": "value", "formula": "A ⇒ B", "assignment": { "A": false, "B": false }, "expected": true }
+]

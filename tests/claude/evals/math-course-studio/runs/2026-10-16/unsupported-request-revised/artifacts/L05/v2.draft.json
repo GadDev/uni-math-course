@@ -1,0 +1,557 @@
+{
+  "lessonId": "L05",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L05-E01",
+      "objectiveId": "L05-O01",
+      "difficulty": "application",
+      "misconceptions": [
+        "false-antecedent"
+      ],
+      "type": "single-choice",
+      "lessonId": "L05",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      },
+      "prompt": {
+        "fr": "Dans un journal de contrôle, A signifie « demande urgente » et B « réponse envoyée ». A est fausse ; B est inconnue, mais possède une valeur vraie ou fausse. Que peut-on conclure sur A ⇒ B pour cette demande ?",
+        "en": "In an audit log, A means “urgent request” and B means “reply sent”. A is false; B is unknown, but has a true or false value. What follows about A ⇒ B for this request?"
+      },
+      "hint": {
+        "fr": "Distinguez une valeur inconnue et une assertion sans valeur de vérité.",
+        "en": "Distinguish an unknown value from a statement without a truth value."
+      },
+      "options": [
+        {
+          "id": "unknown",
+          "label": {
+            "fr": "La valeur de A ⇒ B reste inconnue.",
+            "en": "The value of A ⇒ B remains unknown."
+          },
+          "feedback": {
+            "fr": "Testez les deux valeurs possibles de B : une condition fausse ne produit aucun échec.",
+            "en": "Test both possible values of B: a false condition produces no failure."
+          }
+        },
+        {
+          "id": "true",
+          "label": {
+            "fr": "A ⇒ B est vraie.",
+            "en": "A ⇒ B is true."
+          },
+          "feedback": {
+            "fr": "Exact : pour chacune des deux valeurs de B, la condition A est fausse.",
+            "en": "Correct: for either value of B, the condition A is false."
+          }
+        },
+        {
+          "id": "false",
+          "label": {
+            "fr": "A ⇒ B est fausse.",
+            "en": "A ⇒ B is false."
+          },
+          "feedback": {
+            "fr": "Une règle ne devient pas fausse parce que sa condition est fausse ; cherchez une condition vraie et une conclusion fausse.",
+            "en": "A rule does not become false because its condition is false; look for a true condition and a false conclusion."
+          }
+        },
+        {
+          "id": "not-statement",
+          "label": {
+            "fr": "A ⇒ B ne possède pas de valeur de vérité.",
+            "en": "A ⇒ B has no truth value."
+          },
+          "feedback": {
+            "fr": "Le journal est incomplet, mais A et B restent des assertions. Une information manquante ne supprime pas leur valeur.",
+            "en": "The log is incomplete, but A and B remain statements. Missing information does not remove their values."
+          }
+        }
+      ],
+      "answer": "true",
+      "explanation": {
+        "fr": "Avec A fausse, ¬A est vraie et ¬A ∨ B est vraie, que B soit vraie ou fausse. Cela ne prouve rien sur les autres demandes.",
+        "en": "With A false, ¬A is true and ¬A ∨ B is true whether B is true or false. This proves nothing about other requests."
+      }
+    },
+    {
+      "id": "L05-E02",
+      "objectiveId": "L05-O02",
+      "difficulty": "application",
+      "misconceptions": [
+        "false-antecedent"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Pour des assertions booléennes A et B, complétez la colonne (A ⇒ B) ⇒ A. Les parenthèses donnent la première implication à calculer.",
+        "en": "For Boolean statements A and B, complete the (A ⇒ B) ⇒ A column. The parentheses identify the first implication to evaluate."
+      },
+      "hint": {
+        "fr": "Prenez la valeur de la parenthèse comme nouvel antécédent.",
+        "en": "Take the value in parentheses as the new antecedent."
+      },
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "00": false,
+        "01": false,
+        "10": true,
+        "11": true
+      },
+      "feedback": {
+        "fr": "Les lignes 00, 01 donnent faux ; 10, 11 donnent vrai. Si A est fausse, la parenthèse est vraie : l’implication extérieure échoue.",
+        "en": "Rows 00, 01 yield false; 10, 11 yield true. If A is false, the parentheses are true: the outer implication fails."
+      },
+      "explanation": {
+        "fr": "Si A est vraie, le conséquent extérieur est vrai. Si A est fausse, A ⇒ B est vraie et le conséquent extérieur est faux. La colonne est donc celle de A.",
+        "en": "If A is true, the outer consequent is true. If A is false, A ⇒ B is true and the outer consequent is false. The column therefore matches A."
+      },
+      "lessonId": "L05",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E03",
+      "objectiveId": "L05-O03",
+      "difficulty": "application",
+      "misconceptions": [
+        "necessary-sufficient"
+      ],
+      "type": "single-choice",
+      "lessonId": "L05",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      },
+      "prompt": {
+        "fr": "Pour chaque dossier, P signifie « prioritaire », Q « complet », R « révisé ». On sait que P est suffisante pour Q et que Q est nécessaire pour R. Quelle garantie en découle, sans autre hypothèse ?",
+        "en": "For each file, P means “priority”, Q “complete”, R “reviewed”. P is sufficient for Q and Q is necessary for R. Which guarantee follows without further assumptions?"
+      },
+      "hint": {
+        "fr": "Traduisez séparément chaque condition avant de combiner les informations.",
+        "en": "Translate each condition separately before combining the information."
+      },
+      "options": [
+        {
+          "id": "reverse",
+          "label": {
+            "fr": "Q ⇒ (P ∨ R)",
+            "en": "Q ⇒ (P ∨ R)"
+          },
+          "feedback": {
+            "fr": "Un dossier complet peut être ni prioritaire ni révisé : P = 0, Q = 1, R = 0. La réciproque n’est pas garantie.",
+            "en": "A complete file can be neither priority nor reviewed: P = 0, Q = 1, R = 0. The converse is not guaranteed."
+          }
+        },
+        {
+          "id": "priority-reviewed",
+          "label": {
+            "fr": "P ⇒ R",
+            "en": "P ⇒ R"
+          },
+          "feedback": {
+            "fr": "P = 1, Q = 1, R = 0 satisfait les hypothèses. Être complet ne garantit pas être révisé.",
+            "en": "P = 1, Q = 1, R = 0 satisfies the assumptions. Being complete does not guarantee being reviewed."
+          }
+        },
+        {
+          "id": "reviewed-priority",
+          "label": {
+            "fr": "R ⇒ P",
+            "en": "R ⇒ P"
+          },
+          "feedback": {
+            "fr": "P = 0, Q = 1, R = 1 satisfait les hypothèses. Deux conditions peuvent garantir Q sans se garantir entre elles.",
+            "en": "P = 0, Q = 1, R = 1 satisfies the assumptions. Two conditions can guarantee Q without guaranteeing each other."
+          }
+        },
+        {
+          "id": "either-complete",
+          "label": {
+            "fr": "(P ∨ R) ⇒ Q",
+            "en": "(P ∨ R) ⇒ Q"
+          },
+          "feedback": {
+            "fr": "Exact : P garantit Q et R garantit Q. Chacun des deux cas suffit.",
+            "en": "Correct: P guarantees Q and R guarantees Q. Either case suffices."
+          }
+        }
+      ],
+      "answer": "either-complete",
+      "explanation": {
+        "fr": "Les hypothèses donnent P ⇒ Q et R ⇒ Q. Si P ∨ R est vraie, au moins une des deux garanties impose Q. Si P ∨ R est fausse, l’implication proposée est vraie.",
+        "en": "The assumptions give P ⇒ Q and R ⇒ Q. If P ∨ R is true, at least one guarantee forces Q. If P ∨ R is false, the proposed implication is true."
+      }
+    },
+    {
+      "id": "L05-E04",
+      "objectiveId": "L05-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "negating-implication"
+      ],
+      "type": "single-choice",
+      "lessonId": "L05",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      },
+      "prompt": {
+        "fr": "Un audit traite chaque événement par trois assertions booléennes : A « accès distant », B « accès administrateur », C « authentification renforcée ». La règle est (A ∨ B) ⇒ C. Quel filtre sélectionne exactement les événements qui violent cette règle ?",
+        "en": "An audit describes each event using three Boolean statements: A “remote access”, B “administrator access”, C “strong authentication”. The rule is (A ∨ B) ⇒ C. Which filter selects exactly the events violating this rule?"
+      },
+      "hint": {
+        "fr": "Séparez la condition qui déclenche la règle du résultat promis.",
+        "en": "Separate the condition triggering the rule from the promised result."
+      },
+      "options": [
+        {
+          "id": "failure",
+          "label": {
+            "fr": "(A ∨ B) ∧ ¬C",
+            "en": "(A ∨ B) ∧ ¬C"
+          },
+          "feedback": {
+            "fr": "Exact : la règle s’applique, mais son résultat manque. Le OU reste inclusif.",
+            "en": "Correct: the rule applies, but its result is missing. OR remains inclusive."
+          }
+        },
+        {
+          "id": "both",
+          "label": {
+            "fr": "(A ∧ B) ∧ ¬C",
+            "en": "(A ∧ B) ∧ ¬C"
+          },
+          "feedback": {
+            "fr": "Ce filtre manque A = 1, B = 0, C = 0. Il suffit d’un des deux accès pour déclencher la règle.",
+            "en": "This filter misses A = 1, B = 0, C = 0. Either access is enough to trigger the rule."
+          }
+        },
+        {
+          "id": "inverse",
+          "label": {
+            "fr": "¬(A ∨ B) ⇒ ¬C",
+            "en": "¬(A ∨ B) ⇒ ¬C"
+          },
+          "feedback": {
+            "fr": "Nier les deux parties ne nie pas la règle entière : pour A = 1, B = 0, C = 1, ce filtre est vrai sans violation.",
+            "en": "Negating both parts does not negate the whole rule: for A = 1, B = 0, C = 1, this filter is true without a violation."
+          }
+        },
+        {
+          "id": "or",
+          "label": {
+            "fr": "(A ∨ B) ∨ ¬C",
+            "en": "(A ∨ B) ∨ ¬C"
+          },
+          "feedback": {
+            "fr": "Ce filtre accepte A = 0, B = 0, C = 0, où la règle n’est pas violée. L’échec exige les deux conditions simultanément.",
+            "en": "This filter accepts A = 0, B = 0, C = 0, where the rule is not violated. Failure requires both conditions simultaneously."
+          }
+        }
+      ],
+      "answer": "failure",
+      "explanation": {
+        "fr": "Nier X ⇒ C donne X ∧ ¬C ; ici X est A ∨ B. L’échec signifie accès distant ou administrateur (ou les deux), sans authentification renforcée.",
+        "en": "Negating X ⇒ C gives X ∧ ¬C; here X is A ∨ B. Failure means remote or administrator access (or both), without strong authentication."
+      }
+    },
+    {
+      "id": "L05-E05",
+      "objectiveId": "L05-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "converse-read-as-original"
+      ],
+      "type": "single-choice",
+      "lessonId": "L05",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      },
+      "prompt": {
+        "fr": "Chaque fiche a une face « public » ou « privé » et une face « signé » ou « non signé ». Quatre fiches distinctes montrent respectivement public, privé, signé, non signé. Les faces cachées sont inconnues. Pour tester sur ces quatre fiches « si public, alors signé », quel ensemble minimal faut-il retourner pour pouvoir détecter toute violation ?",
+        "en": "Each slip has one face marked “public” or “private” and one face marked “signed” or “unsigned”. Four distinct slips show public, private, signed, unsigned respectively. Hidden faces are unknown. To test “if public, then signed” on these four slips, which minimal set must be turned over to be able to detect every violation?"
+      },
+      "hint": {
+        "fr": "Pour chaque face visible, demandez si la face cachée peut former un contre-exemple.",
+        "en": "For each visible face, ask whether the hidden face can form a counterexample."
+      },
+      "options": [
+        {
+          "id": "forward",
+          "label": {
+            "fr": "Public et signé.",
+            "en": "Public and signed."
+          },
+          "feedback": {
+            "fr": "Une fiche signée ne viole pas la règle. Une fiche non signée peut cacher public : il faut aussi la vérifier.",
+            "en": "A signed slip cannot violate the rule. An unsigned slip may hide public: it must also be checked."
+          }
+        },
+        {
+          "id": "public-only",
+          "label": {
+            "fr": "Public seulement.",
+            "en": "Public only."
+          },
+          "feedback": {
+            "fr": "Cela manque une violation cachée derrière la fiche non signée. Vérifiez aussi où le résultat promis manque.",
+            "en": "This misses a violation hidden behind the unsigned slip. Also check where the promised result is missing."
+          }
+        },
+        {
+          "id": "minimal",
+          "label": {
+            "fr": "Public et non signé.",
+            "en": "Public and unsigned."
+          },
+          "feedback": {
+            "fr": "Exact : chacune peut cacher public avec non signé ; les deux autres ne peuvent pas former ce contre-exemple.",
+            "en": "Correct: either can hide public with unsigned; the other two cannot form this counterexample."
+          }
+        },
+        {
+          "id": "negative",
+          "label": {
+            "fr": "Privé et non signé.",
+            "en": "Private and unsigned."
+          },
+          "feedback": {
+            "fr": "Une fiche privée ne viole pas la règle, mais la fiche publique peut cacher non signé. Vérifiez aussi la condition vraie.",
+            "en": "A private slip cannot violate the rule, but the public slip may hide unsigned. Also check the true condition."
+          }
+        }
+      ],
+      "answer": "minimal",
+      "explanation": {
+        "fr": "Une violation est public avec non signé. La fiche publique et la fiche non signée peuvent chacune cacher une violation indépendamment : les deux inspections sont nécessaires. Les fiches privée et signée sont déjà exclues du cas d’échec.",
+        "en": "A violation is public with unsigned. The public and unsigned slips can each hide a violation independently: both inspections are necessary. The private and signed slips are already excluded from the failure case."
+      }
+    },
+    {
+      "id": "L05-E06",
+      "objectiveId": "L05-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "counterexample-misidentified"
+      ],
+      "type": "single-choice",
+      "lessonId": "L05",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      },
+      "prompt": {
+        "fr": "Sur ℕ = {0, 1, 2, …}, une règle affirme : si n > 2, alors n > 5 ou n = 4 (OU inclusif). Quelle liste contient exactement tous les contre-exemples ?",
+        "en": "Over ℕ = {0, 1, 2, …}, a rule claims: if n > 2, then n > 5 or n = 4 (inclusive OR). Which list contains exactly all counterexamples?"
+      },
+      "hint": {
+        "fr": "Exigez la condition vraie et chacun des deux résultats possibles faux ; contrôlez les bornes.",
+        "en": "Require the condition true and each possible result false; check the boundaries."
+      },
+      "options": [
+        {
+          "id": "all-small",
+          "label": {
+            "fr": "0, 1, 2, 3, 5",
+            "en": "0, 1, 2, 3, 5"
+          },
+          "feedback": {
+            "fr": "0, 1, 2 rendent la condition fausse. Supprimez-les : un contre-exemple doit satisfaire n > 2.",
+            "en": "0, 1, 2 make the condition false. Remove them: a counterexample must satisfy n > 2."
+          }
+        },
+        {
+          "id": "exact",
+          "label": {
+            "fr": "3, 5",
+            "en": "3, 5"
+          },
+          "feedback": {
+            "fr": "Exact : ces deux nombres dépassent 2 sans dépasser 5 et sans être égaux à 4.",
+            "en": "Correct: these two numbers exceed 2 without exceeding 5 and without being equal to 4."
+          }
+        },
+        {
+          "id": "ignore-exception",
+          "label": {
+            "fr": "3, 4, 5",
+            "en": "3, 4, 5"
+          },
+          "feedback": {
+            "fr": "4 satisfait la seconde partie du OU. Pour réfuter la conclusion entière, les deux parties doivent être fausses.",
+            "en": "4 satisfies the second part of OR. To refute the whole conclusion, both parts must be false."
+          }
+        },
+        {
+          "id": "strict-boundary",
+          "label": {
+            "fr": "3",
+            "en": "3"
+          },
+          "feedback": {
+            "fr": "5 ne satisfait pas n > 5 et n’est pas 4. La borne 5 est donc aussi un contre-exemple.",
+            "en": "5 does not satisfy n > 5 and is not 4. The boundary 5 is therefore also a counterexample."
+          }
+        }
+      ],
+      "answer": "exact",
+      "explanation": {
+        "fr": "Un contre-exemple satisfait n > 2, n ≤ 5 et n ≠ 4. Les seuls naturels possibles sont 3 et 5. Pour n > 5, la conclusion est vraie ; pour n ≤ 2, la condition est fausse.",
+        "en": "A counterexample satisfies n > 2, n ≤ 5 and n ≠ 4. The only possible natural numbers are 3 and 5. For n > 5 the conclusion is true; for n ≤ 2 the condition is false."
+      }
+    }
+  ]
+}

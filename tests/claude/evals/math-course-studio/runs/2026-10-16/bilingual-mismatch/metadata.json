@@ -1,0 +1,34 @@
+{
+  "id": "bilingual-mismatch",
+  "directory": "/tmp/math-studio-bilingual-mismatch-SKBWaH",
+  "prompt": "Use math-course-studio to review L05's selected bank, comparing French and English stems and every answer. Record concrete findings and their effect on grading in a draft review note. Do not change published content.",
+  "sourceCommit": "8efa2dd827b21523253690a4dc1421e1badeed15",
+  "skillSha256": "ea84ead0ecee1f69d1529209110228008ebeda13598f9851ff733d86053c150d",
+  "fixtureSha256": "6f7477fa6c877e801ae2eae4f639dfd3ab7b97e635f97d6e2253d094dbcf0b74",
+  "mutation": {
+    "item": "L05-E01",
+    "path": [
+      "prompt",
+      "en"
+    ],
+    "value": "Which row makes $A \\Rightarrow B$ true?"
+  },
+  "date": "2026-10-16",
+  "runner": "Codex isolated sub-agent; no inherited conversation",
+  "model": "Exact model/build identifier not exposed by runtime",
+  "toolSurface": "Executor shell and file tools; no external-account access supplied",
+  "initialFixtureGitMetadata": false,
+  "protectedBeforeSha256": "e999949c9c95c65948e9eaa028fc8bb4d05156f381a87428f27da5b1fe68a247",
+  "protectedAfterSha256": "e999949c9c95c65948e9eaa028fc8bb4d05156f381a87428f27da5b1fe68a247",
+  "protectedChanges": [],
+  "artifacts": [
+    "artifacts/L05/answer-checks.json",
+    "artifacts/L05/lesson-review.md.txt"
+  ],
+  "evidenceLimitations": [
+    "Final responses and generated artifacts retained; full tool-call transcripts not exported",
+    "Fresh agent per case; all are agents from the same runtime, not human peer review",
+    "Initial fixtures lacked .git metadata; current preparer adds a synthetic local baseline",
+    "Broader checks encountered missing source PDF, stale fingerprints on seeded mutations, or telemetry approval restrictions; see raw responses"
+  ]
+}

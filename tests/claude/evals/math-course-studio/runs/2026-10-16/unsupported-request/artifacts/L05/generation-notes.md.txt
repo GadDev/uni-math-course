@@ -1,0 +1,78 @@
+# L05 exercise draft notes — 2026-10-16
+
+Status: unreviewed draft; author self-check with a different derivation, not independent peer review.
+
+## Versions and release scope
+
+The selected base is `exercises/L05/v1.json`; both mathematical and translation review states are `self-checked`, with evidence in `docs/content/L05_REVIEW.md`. Practice is enabled (no withdrawal). The only existing bank version was 1; the proposed unused version is 2. The new content does not inherit the v1 review.
+
+The user requested seven hard exercises including an automatically graded free-text proof. The supported output is six bilingual replacement items in `v2.draft.json`, plus the seventh activity in `proposed-types.md`. Exactly six bank items, six objective IDs, only single-choice/truth-table, and `application` difficulty are required by the current checker. No release, runtime, lesson, registry, fingerprint or published bank is changed. No automatic free-text proof grading exists. No commit or publication was made. No external grader was contacted. An attempted Astro telemetry connection during the first build was rejected by automatic approval review; the successful rerun disabled telemetry.
+
+## Coverage and editorial difficulty
+
+Coverage pages for every item are 20–23, identical to both lesson frontmatters. Coverage is source-taught implication and L01/L02 prerequisite support; compound transfer contexts are original project applications. The source PDF was not inspected, so page alignment is repository metadata, not a new source-fidelity certification. The Constitution's known defects on pages 19, 25, 31, 48, 60–65, 71–89 and 94 are outside this lesson's coverage; none is used as a premise.
+
+All six items target learners who know Boolean assertions, AND, inclusive OR and NOT and have read L05. Editorial difficulty is hard, stored as `application`. This is an author judgment, not calibrated learner evidence. Hints cue a method and do not identify an option. Longer notation alone is not the intended difficulty.
+
+| Item/objective | Demand and scaffolding | Relation to existing examples; uncertainty |
+| --- | --- | --- |
+| E01/O01 | Recognise the failure rule across nested antecedent/consequent roles; hint identifies outer structure. | Unlike the selected bank's atomic assignment lookup. Nested parsing may be familiar to experienced learners. |
+| E02/O02 | Transfer the full table method to OR-to-AND with a false-antecedent boundary; hint orders intermediate computations. | Unlike the lesson's atomic implication column. Familiarity with compound tables may reduce difficulty. |
+| E03/O03 | Infer sufficiency from a disjunct and reject necessity with an admissible model; hint separates directions. | Unlike direct terminology recall and the lesson's numerical threshold example. No converse theorem is assumed. |
+| E04/O04 | Negate an outer implication while preserving and rewriting its inner antecedent. | Adds scope control beyond atomic negation in the selected bank. Does not require a later lesson on contraposition. |
+| E05/O05 | Design a minimal inspection strategy under partially observed OR-trigger records. | Related to the lesson's red/stamp story and the skill's card specimen; the inclusive two-sensor trigger and minimality demand add transfer, rather than merely changing colours. |
+| E06/O06 | Identify the full numerical counterexample set including an isolated zero branch and strict endpoint. | Retains threshold support from the lesson but replaces single-witness recognition with exhaustive set choice. Arithmetic remains elementary. |
+
+## Design decisions
+
+Scores below are compact editorial comparisons (quality total out of 12); candidates retained satisfy correctness, domain and unambiguity gates. These are design judgments, not empirical measurements. Existing misconception tags were listed with the skill helper before reuse; no new tags were introduced.
+
+| Item | Misconception candidates | Stem alternatives and selection | Distractor alternatives and selection |
+| --- | --- | --- | --- |
+| E01 | Outer/inner failure confusion 11; atomic failure recall 7; causation 6. | Nested implication 11 chosen over atomic assignment 7 and another card story 8: changes role recognition. | Inner-failure lure, satisfied consequent and both-true cases chosen over tautology filler: four assignments give exactly one outer failure. |
+| E02 | False antecedent 11; copied column 8; row order 7. | OR-to-AND table 11 chosen over atomic table 6 and three-variable table 9: transfer without extra row load. | No choice distractors; feedback contrasts false antecedent with mixed-value failures. |
+| E03 | Necessary/sufficient reversal 12; converse assumption 10; causation 6. | Disjunctive trigger 12 chosen over numerical threshold 8 and direct wording 6: infer the relationship. | Reverse, both and neither chosen (11) over synonymous sufficient descriptions (gate failure: multiple correct options). |
+| E04 | Negation scope 12; dropping conjunction 10; converse 7. | Nested failure 12 chosen over atomic negation 6 and untaught contraposition 5. | Wrong inner negation, OR replacement and positive consequent chosen; repeated scope errors pruned to keep distinct repairs. |
+| E05 | Natural-language direction 12; causation 6; symbol naming 5. | Hidden sensor inspection 12 chosen over atomic red/stamp lookup 7 and fully visible logs 8. | Missing false-consequent record, inspecting true consequent, inspecting false antecedent chosen; redundant supersets rejected because they weakly target minimality alone. |
+| E06 | True-condition requirement 12; arithmetic slip 5; zero omitted 10. | Complete counterexample set with isolated zero 12 chosen over one witness 7 and larger numbers 4. | Omit zero, omit strict endpoint, include false antecedent chosen; out-of-domain distractors pruned as superficial. |
+
+P01 was selected over a numerical proof requiring later prerequisites and a near-copy of E04. It integrates implication and inclusive OR through semantic equivalence. It remains a proposal with an original worked solution and bilingual self-review.
+
+## Answer-key verification
+
+These are concise mathematical verification summaries; repository structure checks alone cannot verify the keys.
+
+| Item | Key / semantic check | Different route and boundary coverage |
+| --- | --- | --- |
+| E01 | b: an outer failure requires a false disjunction, forcing both variables false; the inner implication is then true. | Algebraic rewrite reduces the whole formula to the disjunction; the helper exhaustively confirms its negation equals both variables false. All four assignments covered. |
+| E02 | 00/01/10/11 = true/false/false/true. Equal operands satisfy the implication; differing operands make OR true and AND false. | The helper evaluates the full formula on all four rows. Algebraically it is true exactly when both values agree. Includes both false and both true. |
+| E03 | c: a true second disjunct forces the antecedent true, so the rule forces the conclusion. | Helper verifies sufficiency on all eight assignments and the reverse-direction countermodel with both triggers false and conclusion true. Both/ reverse options fail there; neither fails when the second trigger is true. |
+| E04 | a: true inner implication AND false outer consequent. Rewrite the inner implication using the lesson definition. | Helper checks all eight assignments and verifies each alternative is not equivalent. For b, both first variables false and last false distinguishes it; for c, both first variables false and last true; for d, last true with inner implication true. |
+| E05 | d: inspect records 2 and 4; each may hide a failure. Records 1/3 cannot fail. | Enumerated all 64 hidden-field completions. Only records 2/4 can violate, and each has a sole-violation witness, proving both are needed. Helper confirms OR-trigger failure formula. |
+| E06 | b: isolated zero plus the natural numbers strictly above four and at most eight. | Exhaustive enumeration of all 13 domain elements agrees with solving the failure inequalities. Zero, both endpoints and values outside the interval were checked. All four option sets are distinct and only b matches. |
+| P01 | Both sides fail exactly when the last variable is false and at least one trigger is true. | Helper checks semantic equivalence on all eight assignments. Includes all-false triggers and a true consequent. |
+
+## Bilingual notes
+
+Reused glossary E13 implication and E14 terminology for the reverse direction, without requiring the later contraposition lesson. Both languages preserve all math strings. Necessary/sufficient, inclusive OR, semantic equivalence and implication remain distinct. Each choice has bilingual corrective feedback. All statements use Boolean domains or the explicit finite natural-number domain; zero is included. Correct positions among choice items are b, c, a, d, b. E05 uses numbered records without colour dependence. The proof's self-review has no numeric score or mastery claim.
+
+## Validation
+
+Commands and results (exit 0 unless stated):
+
+- `node .claude/skills/math-course-studio/scripts/validate-draft.mjs --list-tags`: listed reusable tags from registry-selected banks.
+- `node .claude/skills/math-course-studio/scripts/validate-draft.mjs exercises/drafts/L05/v2.draft.json`: `OK: L05 draft is structurally valid (0 warning(s)).` The script explicitly does not verify mathematical keys.
+- `node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/drafts/L05/v2.draft.json exercises/drafts/L05/answer-checks.json`: `All 10 check(s) agree with the keys. Propositional items only; this is one route of the double derivation.`
+- Inline Python finite checks: E05 enumerated all 64 hidden-field completions and found only records 2/4 can violate, with a sole-violation witness for each; E06 enumerated all 13 domain elements and compared all four stored option sets, with exactly b matching `[0, 5, 6, 7, 8]`.
+- `node scripts/check-repository.mjs`: initially `Validated 82 Markdown files: structure and internal links passed.` The first rerun including the evaluation response failed (exit 1) because it lacked the required top-level heading; adding the heading fixed it. Final rerun including the evaluation response: `Validated 83 Markdown files: structure and internal links passed.`
+- `node scripts/check-content.mjs`: `Validated 20 lessons in French/English with versioned exercise contracts: L01, L02, L03, L04, L05, L06, L07, L08, L09, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20.`
+- `pnpm check`: docs/content passed; Astro diagnostics on 75 files returned 0 errors, 0 warnings, 0 hints; formatting returned `All matched files use Prettier code style!`; tests returned 237 tests, 237 pass, 0 fail/cancelled/skipped/todo. The original build did not complete as an approved check because automatic review rejected its external telemetry connection. Do not report that invocation as a completed full check.
+- `ASTRO_TELEMETRY_DISABLED=1 pnpm build`: exit 0, `[build] Complete!`; built server and static routes locally, without publication.
+
+Environment: Node v24.19.0 and pnpm 11.25.0 match the pinned versions. Invoking `pnpm check` triggered the environment wrapper to link 587 cached packages automatically (downloaded 0); no install command or browser download was issued. Runtime artifacts were generated inside this checkout. Browser tests were not run because no reading/UI/runtime behaviour changed. The directory has no Git metadata (`git status --short` returned exit 128: `fatal: not a git repository (or any of the parent directories): .git`), so no Git diff/commit verification is claimed.
+
+These are author self-check evidence, not independent mathematical or translation review.
+
+## Open decisions
+
+The six-item replacement draft can be reviewed under the existing contract; it cannot add six fresh independent evidence IDs to an already-used bank. A seventh served item needs a bank/objective/identity, navigation and progress contract decision. A free-text proof input and its assessment need a separate type/UI/storage decision. Automatic proof grading is unsupported and conflicts with the current Constitution's worked-solution/self-review policy. See `proposed-types.md` for the concrete decision list. Human mathematical and FR/EN review, followed by separately authorized promotion with renewed evidence, remains necessary.

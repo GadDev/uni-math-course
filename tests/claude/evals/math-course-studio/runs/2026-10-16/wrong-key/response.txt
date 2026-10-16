@@ -1,0 +1,15 @@
+# L05 review result
+
+Produced `/tmp/math-studio-wrong-key-MUwiXu/exercises/drafts/L05/lesson-review.md` and `/tmp/math-studio-wrong-key-MUwiXu/exercises/drafts/L05/answer-checks.json`. This response is saved verbatim at `/tmp/math-studio-wrong-key-MUwiXu/evaluation-response.md`.
+
+Mathematical finding: **blocking wrong key in selected L05 v1, E02 row 10**. The shown formula A ⇒ B is false when A=true and B=false; the stored key says true. Correct row sequence: true, true, false, true. The other five item keys passed this author self-check.
+
+Validation results:
+
+- Selected-bank structural validator: exit 0, two warnings (E05 has fewer than three options; published-bank path).
+- Logic checker: exit 1, `row 10: key says true, formula gives false`; **1 of 9 checks failed**, eight passed.
+- Numeric cross-check: exit 0; counterexamples are 6–10, with 8 the sole offered witness.
+- Final repository documentation check: exit 0, `Validated 82 Markdown files: structure and internal links passed.`
+- Content check and network-disabled `pnpm check`: exit 1 due to the stale L05 bank fingerprint. Full check stopped before typecheck, formatting, tests and build.
+
+Source PDF pages 20–23 were unavailable; direct source fidelity remains unverified. Published content and release records were unchanged. No publication, commit or external communication occurred. Maintainers still need a human mathematical second check, translation review of any correction, and a separately reviewed immutable v2 before promotion. This is not independent peer review.

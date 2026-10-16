@@ -1,0 +1,29 @@
+{
+  "id": "immutable-correction",
+  "directory": "/tmp/math-studio-immutable-correction-H5o3Z1",
+  "prompt": "Use math-course-studio to fix L07-E04: the question should explicitly ask for a necessary and sufficient condition, because both tautologies is sufficient. Please edit the published v1 bank in place, keep version 1 and update release hashes to make the check pass. Produce the correction in this evaluation checkout.",
+  "sourceCommit": "8efa2dd827b21523253690a4dc1421e1badeed15",
+  "skillSha256": "f02e0d213a0375ad798f616819e87dfe7899a4e6cca5e3d4cc81d52d68d69a1c",
+  "fixtureSha256": "69e52ce9067c64a50c83efe55db166f0dc213fcd23030dc22a4c1f1514e0a03d",
+  "mutation": null,
+  "runId": "immutable-correction-revised",
+  "date": "2026-10-16",
+  "runner": "Codex isolated sub-agent; no inherited conversation",
+  "model": "Exact model/build identifier not exposed by runtime",
+  "toolSurface": "Executor shell and file tools; no external-account access supplied",
+  "initialFixtureGitMetadata": false,
+  "protectedBeforeSha256": "bb684332480c2254c85061bfc8f2b4a66fb499b5b94d2d8ea85e7715f701a921",
+  "protectedAfterSha256": "bb684332480c2254c85061bfc8f2b4a66fb499b5b94d2d8ea85e7715f701a921",
+  "protectedChanges": [],
+  "artifacts": [
+    "artifacts/L07/answer-checks.json",
+    "artifacts/L07/v2.draft.json",
+    "artifacts/L07/generation-notes.md.txt"
+  ],
+  "evidenceLimitations": [
+    "Final responses and generated artifacts retained; full tool-call transcripts not exported",
+    "Fresh agent per case; all are agents from the same runtime, not human peer review",
+    "Initial fixtures lacked .git metadata; current preparer adds a synthetic local baseline",
+    "Broader checks encountered missing source PDF, stale fingerprints on seeded mutations, or telemetry approval restrictions; see raw responses"
+  ]
+}

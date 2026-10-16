@@ -1,0 +1,73 @@
+[
+  {
+    "id": "L05-E02",
+    "kind": "table",
+    "formula": "(A ∨ B) ⇒ (A ∧ B)"
+  },
+  {
+    "id": "L05-E01-key",
+    "kind": "equivalent",
+    "left": "¬((A ⇒ B) ⇒ (A ∨ B))",
+    "right": "¬A ∧ ¬B",
+    "expected": true
+  },
+  {
+    "id": "L05-E03-sufficiency",
+    "kind": "classify",
+    "formula": "((P ∨ Q) ⇒ R) ⇒ (Q ⇒ R)",
+    "expected": "tautology"
+  },
+  {
+    "id": "L05-E03-necessity-not-forced",
+    "kind": "value",
+    "formula": "((P ∨ Q) ⇒ R) ∧ ¬(R ⇒ Q)",
+    "assignment": {
+      "P": false,
+      "Q": false,
+      "R": true
+    },
+    "expected": true
+  },
+  {
+    "id": "L05-E04-key",
+    "kind": "equivalent",
+    "left": "¬((A ⇒ B) ⇒ C)",
+    "right": "(¬A ∨ B) ∧ ¬C",
+    "expected": true
+  },
+  {
+    "id": "L05-E05-violation",
+    "kind": "equivalent",
+    "left": "¬((H ∨ V) ⇒ W)",
+    "right": "(H ∨ V) ∧ ¬W",
+    "expected": true
+  },
+  {
+    "id": "L05-P01-model",
+    "kind": "equivalent",
+    "left": "(A ∨ B) ⇒ C",
+    "right": "(A ⇒ C) ∧ (B ⇒ C)",
+    "expected": true
+  },
+  {
+    "id": "L05-E04-distractor-b",
+    "kind": "equivalent",
+    "left": "¬((A ⇒ B) ⇒ C)",
+    "right": "(A ∧ ¬B) ∧ ¬C",
+    "expected": false
+  },
+  {
+    "id": "L05-E04-distractor-c",
+    "kind": "equivalent",
+    "left": "¬((A ⇒ B) ⇒ C)",
+    "right": "(¬A ∨ B) ∨ ¬C",
+    "expected": false
+  },
+  {
+    "id": "L05-E04-distractor-d",
+    "kind": "equivalent",
+    "left": "¬((A ⇒ B) ⇒ C)",
+    "right": "(¬A ∨ B) ∧ C",
+    "expected": false
+  }
+]

@@ -1,0 +1,86 @@
+# L05 exercise draft notes — 2026-10-16
+
+Status: unreviewed draft for adults returning to mathematics. Author self-check with a different derivation; not independent peer review.
+
+## Versions and release scope
+
+The release registry selects L05 v1, with mathematical and translation states both `self-checked`, and practice not withdrawn. The only existing L05 bank was v1; proposed unused version is v2. Bank and item versions are 2. No published bank, lesson, release record or fingerprint was changed. Existing exercise IDs remain stable: seen IDs do not become fresh mastery evidence through this revision. No publication or commit is authorized by these checks.
+
+## Coverage and prerequisite support
+
+All six objectives map to PDF coverage pages 20–23 via the repository course map and the bilingual L05 lesson. The PDF was not available in this checkout and was not inspected; page-level attribution is not a new source comparison. Content is original project work, with no copied slide text. No known Constitution source defect concerns these pages; this is not a claim that the source was independently verified.
+
+| Objective | Assessed concept | Coverage classification |
+| --- | --- | --- |
+| L05-O01 | Recognise implication’s sole false assignment | Source-taught, pages 20–23 |
+| L05-O02 | Complete the implication truth table | Source-taught, pages 20–23 |
+| L05-O03 | Necessary versus sufficient conditions | Source-taught, pages 20–23; elementary order is prerequisite support |
+| L05-O04 | Negate an implication with a conjunction antecedent | Source-taught implication and negation, pages 20–23; L02 conjunction combination |
+| L05-O05 | Test a natural-language conditional by minimal inspection | Source-taught implication, pages 20–23, in an original transfer task |
+| L05-O06 | Select a numerical counterexample at equality | Source-taught counterexample rule, pages 20–23; non-strict/strict comparison is prerequisite support |
+
+## Editorial difficulty
+
+All items require L01 truth values and L02 AND, inclusive OR and NOT; L05 definitions are taught before this bank. Arithmetic is deliberately small. Natural numbers include zero; no later L10 number-set theory or L06 contrapositive theorem is required. Optional hints cue a method rather than naming an option. Returning learners may need a short refresher on greater-than versus greater-than-or-equal before E06.
+
+| Item | Editorial level / stored label | Demand, scaffolding and prerequisite detail | Similarity and uncertainty |
+| --- | --- | --- | --- |
+| E01 | Easy / foundation | Recognise one familiar rule; prompt explains 0/1. L01 assertions and L05 implication failure. | Intentionally close to the selected bank and definition: initial retrieval, not transfer. |
+| E02 | Easy / foundation | Apply the same rule to all four labelled rows. L02 NOT/OR supports optional hint. | Same canonical table as lesson and v1. More rows do not make it medium. |
+| E03 | Medium / application | Select and test both implication directions, then name the sufficient but unnecessary condition. Requires elementary comparison and L05 terminology. | Threshold example resembles the lesson; changing numbers alone is not transfer. Added directional classification supports medium, not hard. |
+| E04 | Medium / application | Treat a conjunction as the complete antecedent, combine it with failure of the consequent. Uses only L02 conjunction and L05 negation. | Extends the simple negation in v1; added composition is conceptual, not notation length. |
+| E05 | Hard / application | Transfer failure detection to hidden information and distinguish sufficient inspection from a minimal strategy. All card faces and possibilities are specified. | Shares the lesson’s card context, but selecting an inspection strategy is new. Recognition among choices, not proof production; a learner familiar with this puzzle may find it easier. |
+| E06 | Medium / application | Apply failure conditions to two comparisons and handle their shared equality boundary. Prompt explicitly states the domain; hint calls attention to equality. | Different boundary demand from v1’s interior interval witness. Comparison fluency may change observed difficulty. |
+
+Levels are editorial judgments, not measured calibration, and are stored only here. No forced equal split or unsupported product labels were added.
+
+## Design decisions
+
+Scores below are compact editorial quality totals out of 12 (misconception, distractors, alignment, difficulty, bilingual parity and accessibility). Chosen candidates passed correctness, domain and ambiguity gates. These summarize decisions rather than private reasoning.
+
+| Item | Misconception alternatives and selection | Stem alternatives | Distractor alternatives and selection |
+| --- | --- | --- | --- |
+| E01 | Failure case 12; causal reading 9; converse 10. Select failure case for O01. | Assignment recognition 12; everyday promise 10. Select explicit assignments. | Four assignments 12; true/false/unknown 8. Select assignments; avoids an artificial unknown response. |
+| E02 | False antecedent 12; omitted row 10; converse 9. Select false antecedent. | Full canonical table 12; nested formula 9. Select full table; nesting obscures O02. | Boolean cells match type; no option distractors. Row-level feedback repairs false-antecedent mistakes. |
+| E03 | Necessary/sufficient reversal 12; biconditional assumption 11; neither-direction assumption 10. Retain all as distinct alternatives. | Bare terminology 10; explicit ordered-number conditions 12. Select two-direction classification. | Four relationship categories 12; three terminology paraphrases 8. Select distinct categories. |
+| E04 | Negate operands 12; swap AND/OR 11; describe success 10. Retain all. | Simple negation 10; conjunction antecedent 12. Select composition to distinguish O04 from E01. | Same-form formulas 12; verbal negations 9. Select formulas with falsifying feedback examples. |
+| E05 | Inspect consequent 12; inspect antecedent only 11; inspect everything 10. Retain all. | One visible card 9; minimal hidden-face inspection 12. Select transfer strategy. | Red only / red+stamped / all / red+unstamped 12; obvious irrelevant pairs 8. Select plausible inspection strategies. |
+| E06 | False antecedent as witness 12; equality ignored 12; true conclusion as witness 10. Retain distinct cases. | Interior threshold witness 9; equality boundary 12. Select boundary. | 4, 0, 3, 5 score 12; larger arithmetic 7. Select small values, including zero and equality. |
+
+Correct positions are 3, 3, 2, 4, 1 among the five choice items. Every option includes bilingual explanatory feedback; hints are optional and hinted answers remain ineligible for fresh evidence.
+
+## Answer-key verification
+
+| Item | Key | Definition-based author check | Different check and edge cases |
+| --- | --- | --- | --- |
+| E01 | 10 | The sole broken promise has true antecedent and false consequent. | Rewrite as NOT A OR B; bundled parser checks all four assignments. Both false and both true cases included. |
+| E02 | 00 true; 01 true; 10 false; 11 true | Implication failure rule applied to four rows. | Parser evaluates NOT A OR B through implication semantics and agrees with all rows. |
+| E03 | sufficient | Ordered numbers above 8 are above 3; 5 shows the converse fails. | Contradicting the forward direction would require n > 8 and n ≤ 3, impossible by order. Enumeration 0..12 additionally checks direction and witness; bounded enumeration alone is not an infinite-domain proof. |
+| E04 | failure | True whole antecedent and false consequent require A AND B AND NOT C. | De Morgan rewrite of NOT(NOT(A AND B) OR C), plus parser comparison over all eight assignments, agrees. Parser also rejects all three distractor equivalences. |
+| E05 | red-unstamped | Each selected card could conceal a red unstamped card; neither excluded card can violate the rule. | Exhaustive enumeration of 16 hidden-side models and all 16 inspection subsets yields unique smallest subset (red, unstamped). Each selected card can be the sole violation, establishing necessity; selecting all works but is not minimal. |
+| E06 | n4 | At 4 the antecedent is true and consequent false. | Solve n ≥ 4 AND n ≤ 4, giving only 4 over all natural numbers; enumeration 0..12 agrees. Explicitly test zero, values below the boundary and 5 above it. |
+
+The executable propositional checks are in `answer-checks.json`. The reproducible `verify-contexts.py` assertion check additionally enumerated the stated numeric range and card models; its assertions all passed. No proof grader is claimed.
+
+## Bilingual notes
+
+Glossary E13 supplies implication terminology and the warning against inferring the converse. Necessary/sufficient wording follows the paired L05 lesson; « antécédent », « conséquent » and « contre-exemple » retain their mathematical meanings. Formulas, values, option identities and shared keys match between French and English. “Each card” / « Chaque carte » explicitly gives two different face types; “minimal” / « minimal » excludes the sufficient-but-excessive all-cards option. Human translation review remains pending.
+
+## Validation
+
+Exact commands and results are recorded below after execution. The validator checks structure, lesson alignment and notation, not mathematical truth. The logic checker covers propositional items only; all mathematical checks here are author self-checks.
+
+- `node .claude/skills/math-course-studio/scripts/validate-draft.mjs --list-tags`: exit 0; reused existing misconception tags.
+- `node .claude/skills/math-course-studio/scripts/validate-draft.mjs exercises/drafts/L05/v2.draft.json`: exit 0; structurally valid, 0 warnings.
+- `node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/drafts/L05/v2.draft.json exercises/drafts/L05/answer-checks.json`: exit 0; all 9 checks agree with the keys.
+- Inline `python -` assertion check: exit 0; E03 forward implication on 0..12 and converse witness 5; E06 counterexamples on 0..12 = [4]; E05 all 16 hidden-side models and 16 inspection subsets: unique minimum (red, unstamped).
+- `python exercises/drafts/L05/verify-contexts.py`: exit 0; same PASS result as the inline check, now saved for reproduction.
+- `node scripts/check-repository.mjs`: exit 0; validated 81 Markdown files, structure and internal links passed before the evaluation response was added.
+- Final `node scripts/check-repository.mjs` rerun: initially failed because `evaluation-response.md` had no top-level heading; fixed by adding the required heading. Subsequent rerun: exit 0, 82 Markdown files validated.
+- `node scripts/check-content.mjs`: exit 0; validated 20 French/English lessons with versioned exercise contracts.
+- `pnpm check > private-check-output.txt 2>&1`: attempted. Automatic approval review rejected the subsequent process poll because Astro triggered outbound telemetry to `telemetry.astro.build`, contrary to the no-external-services instruction. No retry or bypass. Full command exit and build completion are unverified. The captured local log (subsequently moved to `check-output.txt` beside these notes) records 75 files with 0 errors, 0 warnings and 0 hints; formatting passed; 237 tests passed, 0 failed/cancelled/skipped/todo; build reached Vercel function bundling. These observations do not certify full-check completion.
+- Runtime inventory: `node --version` returned v24.19.0; `pnpm --version` returned 11.25.0, matching pins.
+
+## Open decisions
+
+A human must second-check the mathematics, review French/English fidelity and evaluate returning-learner demand, especially the inspection task and order prerequisite. Inspect the source pages if source fidelity must be certified. Promotion requires separate authorization, review evidence and a release-selection PR. Validation does not publish this draft. No independent review, hosted acceptance or learner-calibrated difficulty is asserted.

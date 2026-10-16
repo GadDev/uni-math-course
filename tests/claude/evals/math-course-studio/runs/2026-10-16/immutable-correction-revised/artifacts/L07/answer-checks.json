@@ -1,0 +1,49 @@
+[
+  {
+    "id": "L07-E02",
+    "kind": "table",
+    "formula": "A <=> B"
+  },
+  {
+    "id": "L07-E05",
+    "kind": "table",
+    "formula": "!(A & B) <=> (!A | !B)"
+  },
+  {
+    "kind": "equivalent",
+    "left": "A <=> B",
+    "right": "(A => B) & (B => A)",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "A & B",
+    "right": "B & A",
+    "expected": true
+  },
+  {
+    "kind": "classify",
+    "formula": "A & B",
+    "expected": "contingent"
+  },
+  {
+    "kind": "equivalent",
+    "left": "A & B",
+    "right": "A | B",
+    "expected": false
+  },
+  {
+    "kind": "classify",
+    "formula": "(A | !A) <=> (B | !B)",
+    "expected": "tautology"
+  },
+  {
+    "kind": "value",
+    "formula": "A <=> B",
+    "assignment": {
+      "A": true,
+      "B": false
+    },
+    "expected": false
+  }
+]

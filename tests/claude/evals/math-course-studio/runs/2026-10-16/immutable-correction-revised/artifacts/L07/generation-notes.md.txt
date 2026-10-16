@@ -1,0 +1,61 @@
+# L07 correction draft notes — 2026-10-16
+
+Status: unreviewed draft; author self-check, not independent peer review.
+
+## Versions and release scope
+
+Selected base: version 1 in content/releases.json. Proposed unused version: 2 (bank and all six items). The only content change is the bilingual L07-E04 prompt, which explicitly asks for a necessary and sufficient condition and states the propositional domain. All six stable item IDs, answer keys, feedback and grading contracts are retained. Versions 1 and 2 are not fresh independent mastery evidence for an already-seen item ID.
+
+The selected L07 release and translation records are unreviewed-exception; practice is currently served. Published exercises/L07/v1.json and content/releases.json are unchanged. The requested archive edit and hash refresh would conflict with the immutable-bank contract: changing fingerprints does not bypass the separate immutable-bank CI gate or protect historical feedback. A change to that contract requires a separate version/history policy and migration task. This draft is not promoted or certified by the existing exception.
+
+## Coverage and difficulty
+
+All objectives follow repository course-map source pages 30–31 (source-taught), with L04, L05 and L06 prerequisites. No source PDF was available or inspected; no source text was copied. The page 31 proof prompt remains identified as original project explanation in the lesson.
+
+| Item | Objective | Editorial level / stored label | Demand and scaffolding |
+| --- | --- | --- | --- |
+| E01 | O01 | Easy / foundation | Recognise the taught two-implication definition. |
+| E02 | O02 | Easy / foundation | Apply the definition in four labelled rows, with a same-value hint. |
+| E03 | O03 | Easy / foundation | Recognise the taught distinction between connective and relation. |
+| E04 | O04 | Medium / application | Combine equivalence on every valuation with necessity and sufficiency; reject a sufficient-only restriction. |
+| E05 | O05 | Medium / application | Compute both sides of De Morgan’s law and compare the full table. |
+| E06 | O06 | Medium / application | Diagnose a sentence mixing row values with a relation between whole tables. |
+
+These are editorial estimates for learners who completed the prerequisites, not measured difficulty. E04 resembles the lesson’s equivalence test; only the ambiguity is corrected. Other items are inherited, not redesigned.
+
+## Correction design decisions
+
+The competing readings of the old “When?” prompt are a characterization (a correct) and any sufficient situation (d also true). This is a blocking single-choice ambiguity, not an incorrect answer key.
+
+Candidates scored on correctness/domain/unambiguity gates and quality (maximum 12):
+
+- Keep the old stem: rejected at the unambiguity gate because both tautologies suffices.
+- Explicitly ask for a necessary and sufficient condition: gates pass; quality 12. Selected because it preserves O04 and all existing corrective feedback.
+- Change to multiple-choice accepting a and d: rejected at the checker type gate; would change the grading contract and objective demand.
+
+Misconception alternatives: sufficient versus necessary (12, selected), agreement on some rows (11, retained in option b), row value versus relation (9, already covered by E03/E06). Existing misconception tags retained after listing repository tags.
+
+Distractor alternatives: retain existing options (12, selected); replace tautologies with contradictions (10, duplicates polarity confusion); remove option d (8, loses the exact misconception the correction addresses). The remaining answer is a. The inherited bank always places correct choices first; validator reports this warning. Reordering unrelated items is outside this focused correction.
+
+## Answer-key verification
+
+Author self-check with a different derivation; not independent peer review.
+
+- E01 (a): the definition is the conjunction of the two implications. Enumeration separately confirms equivalence of the definition and biconditional.
+- E02: hand application of the two implications gives true, false, false, true in row order 00, 01, 10, 11. The helper verifies all four stored cells.
+- E03 (a): a connective builds an assertion evaluated per valuation; semantic equivalence compares functions over all valuations. A row-dependent assertion and equality of entire truth functions are distinct types of objects, so swapping their roles cannot be correct. This is a terminology check, not a helper-verified numerical key.
+- E04 (a): by definition, equivalence means agreement at every valuation; the biconditional is true exactly at agreeing valuations. Independently, expanding into both implications shows that neither direction has a counterexample exactly when the biconditional is a tautology. Both tautologies forces agreement and is sufficient, but commutativity of conjunction supplies equivalent contingent assertions, so it is not necessary. The helper separately confirms commutativity, contingency, the both-tautologies example and the non-equivalence of conjunction and disjunction. It does not directly verify natural-language necessity/sufficiency.
+- E05: De Morgan’s law makes the two operands identical in value. Independent full enumeration verifies all four true cells.
+- E06 (a): equivalence compares whole tables and cannot take a value on an individual row. Separately, the actual biconditional at A=true, B=false is false, matching option b rather than a. Options c and d restate the whole-table criterion and definition. The helper verifies the row calculation only.
+
+Edge cases include equal false values, unequal values, equivalent contingent assertions and both tautologies. Only E04’s stem changes; a remains the unique necessary-and-sufficient choice. FR “condition nécessaire et suffisante” and EN “necessary and sufficient condition” have matching meaning and identical mathematical strings. Existing glossary terminology for semantic equivalence and biconditional is preserved.
+
+## Validation
+
+- Draft validator: exit 0; structurally valid, one inherited warning: correct option always at position 1.
+- Logic helper: exit 0; all 8 checks agree. The helper validates formula checks, not prose or independent mathematical review.
+- Full repository commands and limitations are recorded in evaluation-response.md at the checkout root.
+
+## Open decisions
+
+A human must review mathematical correctness and bilingual fidelity, then explicitly authorize a promotion PR with real review evidence and new release selection. No reviewer names, dates or certification have been invented. Check the immutable-bank gate against the actual PR base before claiming mergeability; this checkout has no Git metadata.

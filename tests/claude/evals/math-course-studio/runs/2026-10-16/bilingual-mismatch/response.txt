@@ -1,0 +1,13 @@
+# L05 review result
+
+Produced:
+
+- `exercises/drafts/L05/lesson-review.md`
+- `exercises/drafts/L05/answer-checks.json`
+- `evaluation-response.md` (this response)
+
+Reviewed all six selected v1 stems, all 16 choice labels and feedback pairs, four table cells, hints, explanations and shared answers. Blocking finding: E01 French asks for **false**, English asks for **true**. The grader accepts only `10`, rejecting the three mathematically correct English choices `00`, `01`, `11` and accepting the English task's only false row. E02–E06 align and their keys check correctly. E01 also has inconsistent formula notation.
+
+Validation: 12 propositional checks passed; actual server-grader probes confirmed the E01 failure and E06 key. Repository Markdown validation passed (82 files). Content validation and `pnpm check` exited 1 on the pre-existing stale L05 bank fingerprint; later full-check stages did not run. The source PDF is absent, so direct source fidelity remains unchecked.
+
+Published content and release metadata were unchanged. No publication, commit or external communication was performed. `pnpm check` automatically installed pinned dependencies through the environment before running. Human review and a new immutable bank version are needed before any separately authorized promotion; do not silently regrade historical attempts.
