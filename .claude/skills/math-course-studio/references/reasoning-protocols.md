@@ -87,7 +87,7 @@ Quality (sum, higher is better):
 - **Misconception value** — the item discriminates a real, common error.
 - **Distractor plausibility** — each wrong option is something a student would actually pick; none is eliminable by form alone (length, "always/never").
 - **Objective alignment** — tests the stated objective, not a prerequisite.
-- **Difficulty honesty** — use bank-design section 1b: easy is scaffolded recognition/application (`foundation`); medium combines taught ideas and hard transfers them (`application` for both). Record prerequisites and a rationale in notes; length alone does not establish difficulty.
+- **Difficulty honesty** — use bank-design section 1b: easy is scaffolded recognition/application (`easy`); medium combines taught ideas (`medium`), and hard transfers them (`hard`). Historical archives may use `foundation` or `application`. Record prerequisites and a rationale in notes; length alone does not establish difficulty.
 - **FR/EN parity** — same meaning, same notation, natural phrasing in both.
 - **Accessibility** — a plain-language reading exists; no colour or layout dependence.
 

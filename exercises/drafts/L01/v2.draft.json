@@ -1,0 +1,1229 @@
+{
+  "lessonId": "L01",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L01-E07",
+      "objectiveId": "L01-O06",
+      "difficulty": "easy",
+      "misconceptions": [
+        "truth-value-notation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $A$ l'assertion « $9$ est pair ». Quelle est la valeur de vérité de $A$ ?",
+        "en": "Let $A$ be the assertion “$9$ is even.” What is the truth value of $A$?"
+      },
+      "hint": {
+        "fr": "Vérifiez la parité de $9$, puis utilisez la notation $0$ ou $1$.",
+        "en": "Check whether $9$ is even, then use the notation $0$ or $1$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "La valeur $1$ signifie vrai, or $9$ n'est pas pair.",
+            "en": "$1$ means true, but $9$ is not even."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Oui : l'assertion est fausse, donc sa valeur est $0$.",
+            "en": "Yes: the assertion is false, so its value is $0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Aucune valeur",
+            "en": "No truth value"
+          },
+          "feedback": {
+            "fr": "Une assertion fausse possède bien une valeur : $0$.",
+            "en": "A false assertion still has a truth value: $0$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$9$ est impair. L'assertion est fausse et reçoit la valeur $0$.",
+        "en": "$9$ is odd. The assertion is false and receives the value $0$."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E08",
+      "objectiveId": "L01-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "false-statement-not-assertion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle phrase est une assertion fausse ?",
+        "en": "Which sentence is a false assertion?"
+      },
+      "hint": {
+        "fr": "Une phrase fausse peut être une assertion ; une question n'est pas une assertion.",
+        "en": "A false sentence can be an assertion; a question is not an assertion."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Quel nombre est le plus grand ?",
+            "en": "Which number is greater?"
+          },
+          "feedback": {
+            "fr": "C'est une question et non une assertion.",
+            "en": "This is a question, not an assertion."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Compare $5$ et $8$.",
+            "en": "Compare $5$ and $8$."
+          },
+          "feedback": {
+            "fr": "C'est un ordre, sans valeur de vérité.",
+            "en": "This is a command, with no truth value."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$5 > 8$.",
+            "en": "$5 > 8$."
+          },
+          "feedback": {
+            "fr": "Exact : l'inégalité est fausse, mais possède une valeur de vérité.",
+            "en": "Correct: the inequality is false but has a truth value."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "L'énoncé $5 > 8$ est faux, donc c'est bien une assertion de valeur $0$.",
+        "en": "The statement $5 > 8$ is false, so it is an assertion with value $0$."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E09",
+      "objectiveId": "L01-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "question-or-command-as-assertion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Parmi ces phrases, laquelle est une assertion ?",
+        "en": "Which of these sentences is an assertion?"
+      },
+      "hint": {
+        "fr": "Cherchez une phrase à laquelle on peut attribuer vrai ou faux.",
+        "en": "Look for a sentence that can be assigned true or false."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Fermez les livres.",
+            "en": "Close the books."
+          },
+          "feedback": {
+            "fr": "Un ordre ne déclare rien de vrai ou de faux.",
+            "en": "A command does not assert anything true or false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$12$ est divisible par $3$.",
+            "en": "$12$ is divisible by $3$."
+          },
+          "feedback": {
+            "fr": "Exact : c'est un énoncé vrai, donc une assertion.",
+            "en": "Correct: this is a true statement, hence an assertion."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Combien vaut $12 / 3$ ?",
+            "en": "What is $12 / 3$?"
+          },
+          "feedback": {
+            "fr": "Une question attend une réponse : elle n'a pas de valeur de vérité.",
+            "en": "A question seeks an answer; it has no truth value."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "« $12$ est divisible par $3$ » est vrai et a une valeur de vérité unique.",
+        "en": "“$12$ is divisible by $3$” is true and has a unique truth value."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E10",
+      "objectiveId": "L01-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "vague-sentence-as-assertion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "On veut préciser « Ce sac est lourd ». Quelle reformulation donne une assertion vérifiable ?",
+        "en": "We want to make “This bag is heavy” precise. Which rewrite gives a checkable assertion?"
+      },
+      "hint": {
+        "fr": "Fixez le sac, un critère mesurable et un moment.",
+        "en": "Identify the bag, a measurable criterion and a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Le sac est très lourd.",
+            "en": "The bag is very heavy."
+          },
+          "feedback": {
+            "fr": "« Très lourd » conserve un seuil vague.",
+            "en": "“Very heavy” still has a vague threshold."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Ce sac semble trop lourd.",
+            "en": "This bag seems too heavy."
+          },
+          "feedback": {
+            "fr": "« Semble » et « trop » ne définissent pas une mesure stable.",
+            "en": "“Seems” and “too” do not specify a stable measurement."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Le sac numéro $4$ pesait plus de $10$ kg à $9$ h le $1$ mai $2026$.",
+            "en": "Bag number $4$ weighed more than $10$ kg at $9$ a.m. on $1$ May $2026$."
+          },
+          "feedback": {
+            "fr": "La mesure, l'objet et le moment sont définis sans terme vague.",
+            "en": "The measurement, object and time are defined without a vague term."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La dernière phrase fixe l'objet, la mesure et la date, et possède donc une valeur de vérité ; les autres restent vagues.",
+        "en": "The last sentence fixes the object, measurement and date and therefore has a truth value; the others remain vague."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E11",
+      "objectiveId": "L01-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "unknown-value-not-assertion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une archive affirme : « À Luxembourg-Ville, il a neigé le $1$ janvier $1990$ à midi. » Nous n'avons pas les relevés. Quel est le bon diagnostic ?",
+        "en": "An archive says: “It snowed in Luxembourg City on $1$ January $1990$ at noon.” We have no weather records. What is the right diagnosis?"
+      },
+      "hint": {
+        "fr": "Ne confondez pas notre connaissance avec la valeur de vérité de l'énoncé.",
+        "en": "Do not confuse our knowledge with the statement's truth value."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "C'est une assertion, même si sa valeur nous est inconnue.",
+            "en": "It is an assertion even if its value is unknown to us."
+          },
+          "feedback": {
+            "fr": "Exact : le lieu, le moment et l'événement sont fixés.",
+            "en": "Correct: the place, time and event are fixed."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Ce n'est pas une assertion sans archives.",
+            "en": "It is not an assertion without records."
+          },
+          "feedback": {
+            "fr": "Le manque de preuve ne supprime pas la valeur de vérité.",
+            "en": "Lack of evidence does not remove the truth value."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "C'est forcément faux.",
+            "en": "It must be false."
+          },
+          "feedback": {
+            "fr": "L'absence de relevés ne prouve pas l'absence de neige.",
+            "en": "Missing records do not prove that it did not snow."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La phrase est vraie ou fausse dans le contexte fixé. Notre ignorance de sa valeur ne change pas son statut.",
+        "en": "In the fixed context the sentence is true or false. Our ignorance of its value does not change its status."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E12",
+      "objectiveId": "L01-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "truth-value-notation",
+        "false-statement-not-assertion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "On pose $A$ : « $4^2 = 16$ » et $B$ : « $4^2 = 8$ ». Quel couple donne leurs valeurs dans l'ordre $(A,B)$ ?",
+        "en": "Let $A$ mean “$4^2 = 16$” and $B$ mean “$4^2 = 8$.” Which ordered pair gives their truth values as $(A,B)$?"
+      },
+      "hint": {
+        "fr": "Calculez d'abord $4^2$, puis attribuez $1$ ou $0$ à chaque assertion.",
+        "en": "First compute $4^2$, then assign $1$ or $0$ to each assertion."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(0,1)$",
+            "en": "$(0,1)$"
+          },
+          "feedback": {
+            "fr": "L'ordre a été inversé : $A$ est vraie et $B$ est fausse.",
+            "en": "The order was reversed: $A$ is true and $B$ is false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(1,1)$",
+            "en": "$(1,1)$"
+          },
+          "feedback": {
+            "fr": "$B$ est fausse : $4^2$ ne vaut pas $8$.",
+            "en": "$B$ is false: $4^2$ is not $8$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(1,0)$",
+            "en": "$(1,0)$"
+          },
+          "feedback": {
+            "fr": "Oui : $16=16$ et $16\neq 8$.",
+            "en": "Yes: $16=16$ and $16\neq 8$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$4^2=16$. Donc $A=1$ et $B=0$, dans l'ordre demandé.",
+        "en": "$4^2=16$. Thus $A=1$ and $B=0$, in the requested order."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E13",
+      "objectiveId": "L01-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "vague-sentence-as-assertion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une affiche dit : « L'entrée est chère ». Quel énoncé fixe assez le contexte pour recevoir une valeur de vérité ?",
+        "en": "A poster says: “Admission is expensive.” Which statement fixes enough context to have a truth value?"
+      },
+      "hint": {
+        "fr": "Un prix sans seuil, ou un seuil sans billet précis, ne suffit pas.",
+        "en": "A price without a threshold, or a threshold without a specific ticket, is not enough."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Le prix du billet adulte pour l'exposition X, le $12$ octobre $2026$, dépassait $18$ €.",
+            "en": "The adult ticket for exhibition X on $12$ October $2026$ cost more than €$18$."
+          },
+          "feedback": {
+            "fr": "Exact : billet, date et seuil sont fixés ; le prix peut être vérifié.",
+            "en": "Correct: ticket, date and threshold are fixed; the price can be checked."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "L'entrée dépasse un prix raisonnable.",
+            "en": "Admission exceeds a reasonable price."
+          },
+          "feedback": {
+            "fr": "« Raisonnable » dépend d'un jugement non défini.",
+            "en": "“Reasonable” depends on an undefined judgment."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Un billet coûte trop cher aujourd'hui.",
+            "en": "A ticket is too expensive today."
+          },
+          "feedback": {
+            "fr": "Ni le billet, ni le seuil, ni la date ne sont fixés.",
+            "en": "Neither the ticket, the threshold nor the date is fixed."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le premier énoncé fixe une mesure et son contexte, même si nous ignorons le prix réel.",
+        "en": "The first statement fixes a measurement and its context, even if we do not know the actual price."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E14",
+      "objectiveId": "L01-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "free-variable-is-assertion",
+        "question-or-command-as-assertion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "On travaille avec les entiers. Quelle expression est déjà une assertion, sans devoir choisir $n$ ?",
+        "en": "We work with integers. Which expression is already an assertion without first choosing $n$?"
+      },
+      "hint": {
+        "fr": "Une lettre non fixée n'est pas encore une proposition fermée.",
+        "en": "An unfixed letter does not yet make a closed proposition."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$n > 2$",
+            "en": "$n > 2$"
+          },
+          "feedback": {
+            "fr": "La valeur dépend du choix de $n$ : la variable est libre.",
+            "en": "Its truth depends on the choice of $n$: the variable is free."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$4 > 2$",
+            "en": "$4 > 2$"
+          },
+          "feedback": {
+            "fr": "Exact : les deux nombres sont fixés et la comparaison est vraie.",
+            "en": "Correct: both numbers are fixed and the comparison is true."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Quel entier vaut $n$ ?",
+            "en": "Which integer is $n$?"
+          },
+          "feedback": {
+            "fr": "C'est une question, non une assertion.",
+            "en": "It is a question, not an assertion."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$4>2$ est une proposition vraie ; $n>2$ attend une valeur de $n$ et la dernière phrase est une question.",
+        "en": "$4>2$ is a true proposition; $n>2$ awaits a value of $n$, while the last sentence is a question."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E15",
+      "objectiveId": "L01-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "self-reference-has-a-value",
+        "unknown-value-means-no-value"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "La phrase $S$ dit : « $S$ est fausse ». Que se passe-t-il si l'on suppose $S$ vraie ?",
+        "en": "Sentence $S$ says: “$S$ is false.” What happens if we assume that $S$ is true?"
+      },
+      "hint": {
+        "fr": "Appliquez ce que $S$ affirme sous l'hypothèse où elle est vraie.",
+        "en": "Apply what $S$ claims under the assumption that it is true."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "On confirme que $S$ est vraie.",
+            "en": "We confirm that $S$ is true."
+          },
+          "feedback": {
+            "fr": "Si le contenu est vrai, il affirme précisément que $S$ est fausse.",
+            "en": "If its content is true, it states precisely that $S$ is false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "On découvre seulement qu'on manque d'informations.",
+            "en": "We merely discover that we lack information."
+          },
+          "feedback": {
+            "fr": "Il y a contradiction, pas seulement ignorance.",
+            "en": "There is a contradiction, not merely a lack of information."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "On obtient aussi que $S$ est fausse : contradiction.",
+            "en": "We also obtain that $S$ is false: a contradiction."
+          },
+          "feedback": {
+            "fr": "Exact : l'hypothèse et le contenu de $S$ s'opposent.",
+            "en": "Correct: the assumption and the content of $S$ conflict."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Supposer $S$ vraie rend vrai son contenu « $S$ est fausse », d'où une contradiction. L'hypothèse inverse échoue aussi.",
+        "en": "Assuming $S$ true makes its content “$S$ is false” true, giving a contradiction. The opposite assumption also fails."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E16",
+      "objectiveId": "L01-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "false-statement-not-assertion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un élève dit : « Tous les carrés de nombres entiers sont pairs ». Comment classer cette phrase ?",
+        "en": "A student says: “All squares of integers are even.” How should we classify this sentence?"
+      },
+      "hint": {
+        "fr": "Cherchez un contre-exemple entier, puis demandez-vous si faux signifie « pas une assertion ».",
+        "en": "Look for an integer counterexample, then ask whether false means “not an assertion”."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "C'est une assertion fausse, car $3^2=9$ est impair.",
+            "en": "It is a false assertion because $3^2=9$ is odd."
+          },
+          "feedback": {
+            "fr": "Exact : un contre-exemple établit la fausseté de l'assertion.",
+            "en": "Correct: one counterexample establishes the statement's falsity."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Ce n'est pas une assertion, puisque c'est faux.",
+            "en": "It is not an assertion because it is false."
+          },
+          "feedback": {
+            "fr": "Une assertion a une valeur de vérité, qui peut être fausse.",
+            "en": "An assertion has a truth value, which may be false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "C'est une assertion vraie, car $2^2=4$ est pair.",
+            "en": "It is true because $2^2=4$ is even."
+          },
+          "feedback": {
+            "fr": "Un exemple vrai ne prouve pas « tous » ; $3$ fournit un contre-exemple.",
+            "en": "One true example does not prove “all”; $3$ is a counterexample."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La phrase a une valeur de vérité déterminée : elle est fausse, car le carré de $3$ est impair.",
+        "en": "The sentence has a definite truth value: false, because the square of $3$ is odd."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E17",
+      "objectiveId": "L01-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "fixed-context-makes-vagueness-precise"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "On précise « Marie est grande » en « Marie est grande à Luxembourg, le $1$ mai $2026$ ». Quel problème reste à résoudre pour obtenir une assertion non ambiguë dans ce cours ?",
+        "en": "We change “Marie is tall” to “Marie is tall in Luxembourg on $1$ May $2026$.” What still needs to be resolved for an unambiguous assertion in this course?"
+      },
+      "hint": {
+        "fr": "Identifier la personne, le lieu et la date suffit-il à définir « grande » ?",
+        "en": "Does identifying the person, place and date define “tall”?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Il suffit de connaître la météo.",
+            "en": "We only need to know the weather."
+          },
+          "feedback": {
+            "fr": "La météo ne précise pas le sens de « grande ».",
+            "en": "The weather does not define what “tall” means."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Il faut préciser un critère mesurable de taille.",
+            "en": "We need a measurable height criterion."
+          },
+          "feedback": {
+            "fr": "Exact : un seuil ou une règle explicite supprime l'ambiguïté de « grande ».",
+            "en": "Correct: an explicit threshold or rule removes the ambiguity of “tall”."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Rien : la date et le lieu fixent automatiquement tous les mots vagues.",
+            "en": "Nothing: the date and place automatically settle every vague word."
+          },
+          "feedback": {
+            "fr": "Même à date fixe, « grande » n'a pas de seuil défini.",
+            "en": "Even at a fixed date, “tall” has no defined threshold."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Un contexte daté ne suffit pas : un adjectif vague peut encore exiger un seuil avant qu'une assertion soit définie.",
+        "en": "A dated context is not enough: a vague adjective may still need a threshold before an assertion is defined."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E18",
+      "objectiveId": "L01-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "unknown-value-not-assertion",
+        "lack-of-evidence-is-falsity"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une carte scellée contient un entier choisi et écrit hier. L'énoncé $A$ est : « L'entier inscrit est divisible par $3$ ». Personne ne peut ouvrir la carte. Quel raisonnement est valide ?",
+        "en": "A sealed card contains an integer chosen and written yesterday. Statement $A$ is: “The recorded integer is divisible by $3$.” Nobody can open the card. Which reasoning is valid?"
+      },
+      "hint": {
+        "fr": "L'entier existe déjà et est fixé. Séparez vérité et accès à la preuve.",
+        "en": "The integer already exists and is fixed. Separate truth from access to evidence."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A$ n'a pas de valeur tant que la carte reste fermée.",
+            "en": "$A$ has no value while the card stays sealed."
+          },
+          "feedback": {
+            "fr": "L'absence d'accès ne rend pas la valeur indéfinie.",
+            "en": "Lack of access does not make the value undefined."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A$ est fausse, car personne ne peut la vérifier.",
+            "en": "$A$ is false because nobody can verify it."
+          },
+          "feedback": {
+            "fr": "Ne pas pouvoir vérifier n'implique pas faux.",
+            "en": "Inability to verify does not imply falsehood."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A$ est vraie ou fausse, même si sa valeur nous est inaccessible.",
+            "en": "$A$ is true or false even if we cannot learn its value."
+          },
+          "feedback": {
+            "fr": "Exact : l'entier est fixé et la divisibilité est une propriété définie.",
+            "en": "Correct: the integer is fixed and divisibility is well defined."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La carte détermine déjà un entier. La propriété de divisibilité possède une valeur de vérité indépendante de notre accès.",
+        "en": "The card already determines an integer. Divisibility has a truth value independent of our access."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E19",
+      "objectiveId": "L01-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "all-self-reference-is-paradox"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Comparez « Cette phrase est fausse » et « Cette phrase contient cinq mots » (comptez les mots séparés par des espaces). Quelle conclusion est correcte ?",
+        "en": "Compare “This sentence is false” and “This sentence contains five words” (count space-separated words). Which conclusion is correct?"
+      },
+      "hint": {
+        "fr": "Testez les deux valeurs pour la première ; comptez les mots pour la seconde.",
+        "en": "Test both values for the first; count the words in the second."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Toute phrase qui parle d'elle-même est paradoxale.",
+            "en": "Every sentence referring to itself is paradoxical."
+          },
+          "feedback": {
+            "fr": "La seconde peut être évaluée par un décompte : la référence à soi seule ne crée pas la contradiction.",
+            "en": "The second can be evaluated by counting: self-reference alone does not create the contradiction."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "La première est paradoxale, la seconde possède une valeur de vérité.",
+            "en": "The first is paradoxical, while the second has a truth value."
+          },
+          "feedback": {
+            "fr": "Exact : la première contredit chaque attribution, la seconde est vérifiable en comptant.",
+            "en": "Correct: the first contradicts each assignment; the second can be checked by counting."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "La première est simplement fausse et la seconde ne peut pas être évaluée.",
+            "en": "The first is simply false and the second cannot be evaluated."
+          },
+          "feedback": {
+            "fr": "Attribuer faux à la première conduit aussi à une contradiction ; on peut compter les mots de la seconde.",
+            "en": "Assigning false to the first also leads to contradiction; the second can be counted."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La phrase menteuse ne reçoit aucune valeur cohérente ; une phrase autoréférente sur son nombre de mots est, elle, vérifiable. Ce n'est pas l'autoréférence seule qui pose problème.",
+        "en": "The liar sentence has no consistent value; a self-referential word-count sentence is checkable. Self-reference alone is not the problem."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E20",
+      "objectiveId": "L01-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "free-variable-is-assertion",
+        "unknown-value-not-assertion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans les entiers, comparez $P$ : « $n$ est divisible par $4$ » (sans valeur de $n$) et $Q$ : « L'entier écrit sur cette carte est divisible par $4$ » (une seule carte déjà remplie). Quel diagnostic est correct ?",
+        "en": "Over the integers, compare $P$: “$n$ is divisible by $4$” (with no value of $n$) and $Q$: “The integer on this card is divisible by $4$” (one card already filled in). Which diagnosis is correct?"
+      },
+      "hint": {
+        "fr": "Une variable non fixée et un objet fixé mais caché ne jouent pas le même rôle.",
+        "en": "An unfixed variable and a fixed but hidden object are not the same."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Les deux sont des assertions fausses.",
+            "en": "Both are false assertions."
+          },
+          "feedback": {
+            "fr": "Ni une variable libre ni une carte cachée n'impliquent une valeur fausse.",
+            "en": "Neither a free variable nor a hidden card implies falsehood."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$P$ et $Q$ sont indéfinies, puisqu'on ne connaît pas leurs valeurs.",
+            "en": "$P$ and $Q$ are both undefined because we do not know their values."
+          },
+          "feedback": {
+            "fr": "$Q$ concerne un entier déjà fixé ; ne pas le connaître ne supprime pas sa valeur.",
+            "en": "$Q$ concerns an integer already fixed; not knowing it does not remove its value."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$P$ attend une valeur de $n$ ; $Q$ est une assertion dont la valeur peut nous être inconnue.",
+            "en": "$P$ awaits a value of $n$; $Q$ is an assertion whose value may be unknown to us."
+          },
+          "feedback": {
+            "fr": "Exact : la variable de $P$ est libre, mais l'entier de $Q$ est déterminé.",
+            "en": "Correct: $P$ has a free variable, while the integer in $Q$ is determined."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La propriété de $P$ dépend d'une variable non fixée. La phrase $Q$ porte sur un entier précis : sa valeur existe même si nous l'ignorons.",
+        "en": "The property in $P$ depends on an unfixed variable. Sentence $Q$ refers to a particular integer: its value exists even if we do not know it."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L01-E21",
+      "objectiveId": "L01-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "single-true-example-proves-universal",
+        "false-statement-not-assertion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur les entiers, un élève affirme : « Tout multiple de $3$ est multiple de $6$ », en donnant $6$ comme exemple. Quelle réponse analyse correctement son énoncé ?",
+        "en": "Over the integers, a student claims: “Every multiple of $3$ is a multiple of $6$,” using $6$ as an example. Which response correctly analyses the claim?"
+      },
+      "hint": {
+        "fr": "Un seul exemple vrai suffit-il pour un énoncé portant sur tous les entiers ?",
+        "en": "Does one true example suffice for a statement about every integer?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "C'est une assertion fausse : $3$ est un contre-exemple.",
+            "en": "It is a false assertion: $3$ is a counterexample."
+          },
+          "feedback": {
+            "fr": "Exact : $3$ est divisible par $3$, mais pas par $6$.",
+            "en": "Correct: $3$ is divisible by $3$ but not by $6$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Ce n'est pas une assertion, car son exemple est insuffisant.",
+            "en": "It is not an assertion because its example is insufficient."
+          },
+          "feedback": {
+            "fr": "Une preuve insuffisante ne retire pas la valeur de vérité d'un énoncé précis.",
+            "en": "An insufficient proof does not remove a precise statement's truth value."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "C'est une assertion vraie puisque $6$ convient.",
+            "en": "It is true because $6$ fits."
+          },
+          "feedback": {
+            "fr": "Un cas qui convient ne prouve pas le « tout » ; testez $3$.",
+            "en": "One fitting case does not prove “every”; test $3$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "L'énoncé est précis et donc une assertion. Il est faux, puisque $3$ est multiple de $3$ mais non de $6$.",
+        "en": "The claim is precise and therefore an assertion. It is false because $3$ is a multiple of $3$ but not of $6$."
+      },
+      "lessonId": "L01",
+      "version": 2,
+      "prerequisites": [
+        "lecture d’énoncés simples en français ou en anglais"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          3,
+          4,
+          5
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

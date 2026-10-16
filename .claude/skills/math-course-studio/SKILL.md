@@ -20,7 +20,7 @@ Three modes share one rubric and one reasoning protocol:
 Work out the **mode**, the **target** (lesson ID, range, or the course) and the **intent** (new bank, fix one item, pre-publication review). Ask with `AskUserQuestion` only when the answer changes what you would do and the repo cannot answer it. Typical cases:
 
 - The request fits two modes ("check and improve L09") — default: review first, then generate fixes.
-- The user wants "more" or "new" exercises for a lesson that has a bank — a bank must contain exactly six items, one per objective (the checker enforces it), so extra items are impossible without a checker change. Offer: alternative drafts for existing items, or flag the limit to maintainers.
+- The user wants "more" or "new" exercises for an existing lesson — generate a new, unused-version draft bank with as many distinct items as requested. Keep all six objectives represented, but allow several items per objective. Do not change or release the archived bank.
 - The user wants a type the checker rejects (proof, numeric answer, error-spotting) — confirm it goes to `proposed-types.md`, not a bank.
 
 Do not ask about what the repository settles (language pair, difficulty vocabulary, ID format, ℕ includes 0). Pick the default, say which, and move on.
@@ -56,14 +56,16 @@ Keep verification notes out of exercise JSON. Record concise justifications, dom
 
 ## 3. Mode: generate
 
-Read `references/bank-design.md` before designing the six items. Use its easy/medium/hard editorial framework relative to the lesson’s objectives and taught prerequisites; record each level and rationale in the notes. Stored difficulty remains `foundation` or `application`; three editorial levels do not create three product labels or permit extra items.
+Read `references/bank-design.md` before designing the requested items. Use `easy`, `medium`, and `hard` for newly authored items; legacy published `foundation` and `application` values remain supported for history. For a request without a number, start with five new exercises per level (15 total), but a stated count takes precedence. Do not force untaught material to manufacture hard questions; flag difficulty concerns in the notes.
 
-1. **Map** each objective → source pages → prerequisite status (source-taught / prerequisite support / enrichment).
+1. **Map** each objective → source pages → prerequisite status (source-taught / prerequisite support / enrichment). Distribute the requested items across all six objectives, allowing repetitions and varied contexts.
 2. **Branch** on misconceptions: top three plausible errors per objective. List reusable tags with `node .claude/skills/math-course-studio/scripts/validate-draft.mjs --list-tags` before coining new ones.
 3. **Branch** on stem and distractors; score; prune. Each distractor is a named plausible error with feedback that explains why it fails and how to repair the reasoning.
 4. **Verify** the survivor with two derivations. State the domain in the prompt.
 5. **Write** French and English together from one shared answer. `$...$` strings are identical in both languages; only prose differs.
-6. **Assemble** exactly six items (`Lxx-E01`–`E06`, one per objective), write `v<N>.draft.json`, then validate. For a correction, choose an unused version above all existing bank versions; for a new lesson start at 1. Keep bank and item versions equal. Record the selected base version and proposed version in the notes.
+6. **Assemble** a bank with a positive `exerciseCount` matching the exercises array (at least six while lessons have six objectives), distinct `Lxx-E##` IDs and complete objective coverage. To add *new* exercises, use IDs not present in any published version (e.g. E07–E21 for 15 additions to a six-item bank). Write `v<N>.draft.json`, then validate. Choose an unused version above all existing bank versions; for a new lesson start at 1. Keep bank and item versions equal. Record the selected base version and proposed version in the notes.
+
+For large single-choice batches, you may author an inspectable `exercises/drafts/<Lxx>/spec.json` with `lessonId`, unused `version`, and `items` containing complete bilingual stems, hints, option labels/feedback, keys and misconception tags. Run `node scripts/assemble-exercise-draft.mjs exercises/drafts/<Lxx>/spec.json` to fill in shared metadata from the registry-selected bank. This **does not generate or verify answers**; verify each authored key separately. Commit both spec and resulting `v<N>.draft.json` so review is reproducible. The script is not a substitute for authoring truth-table tasks when a lesson objective requires them.
 
 Drafts go to `exercises/drafts/<Lxx>/v<N>.draft.json`, never over a published bank. Published `vN.json` files are immutable, including their wording, domains, answer keys and grading contracts. Retain them for historical feedback; a correction does not regrade old attempts or make an already-seen exercise ID fresh mastery evidence.
 
