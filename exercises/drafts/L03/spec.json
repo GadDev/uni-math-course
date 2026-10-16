@@ -1,0 +1,735 @@
+{
+  "lessonId": "L03",
+  "version": 3,
+  "items": [
+    {
+      "id": "L03-E07",
+      "objectiveId": "L03-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "any-symbol-makes-atomic"
+      ],
+      "prompt": [
+        "Parmi les expressions suivantes, laquelle est atomique dans le calcul propositionnel ?",
+        "Which of these expressions is atomic in propositional logic?"
+      ],
+      "hint": [
+        "Une expression atomique n'est pas construite avec un connecteur.",
+        "An atomic expression is not formed using a connective."
+      ],
+      "options": [
+        [
+          "$D$",
+          "$D$",
+          "Exact : $D$ n'est pas décomposée par un connecteur.",
+          "Correct: $D$ is not decomposed using a connective."
+        ],
+        [
+          "$\\neg D$",
+          "$\\neg D$",
+          "La négation construit une formule composée à partir de $D$.",
+          "Negation builds a compound formula from $D$."
+        ],
+        [
+          "$D\\land E$",
+          "$D\\land E$",
+          "La conjonction combine deux assertions atomiques.",
+          "Conjunction combines two atomic statements."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "$D$ est atomique ; les deux autres formules contiennent un connecteur.",
+        "$D$ is atomic; the other formulas contain connectives."
+      ]
+    },
+    {
+      "id": "L03-E08",
+      "objectiveId": "L03-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "row-count-as-n-times-two"
+      ],
+      "prompt": [
+        "Une table de vérité utilise quatre assertions atomiques distinctes $A$, $B$, $C$ et $D$. Combien de lignes faut-il ?",
+        "A truth table uses four distinct atomic statements $A$, $B$, $C$, and $D$. How many rows are needed?"
+      ],
+      "hint": [
+        "Chaque assertion double le nombre d'affectations possibles.",
+        "Each atomic statement doubles the number of assignments."
+      ],
+      "options": [
+        [
+          "$8$",
+          "$8$",
+          "Il s'agit du nombre pour trois assertions, pas quatre.",
+          "That is the count for three statements, not four."
+        ],
+        [
+          "$16$",
+          "$16$",
+          "Exact : $2^4=16$ affectations.",
+          "Correct: $2^4=16$ assignments."
+        ],
+        [
+          "$4$",
+          "$4$",
+          "Quatre est le nombre de variables, pas celui des affectations.",
+          "Four is the number of variables, not the number of assignments."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "Quatre choix booléens indépendants produisent $2\\times2\\times2\\times2=16$ lignes.",
+        "Four independent Boolean choices produce $2\\times2\\times2\\times2=16$ rows."
+      ]
+    },
+    {
+      "id": "L03-E09",
+      "objectiveId": "L03-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "negation-scope-misread"
+      ],
+      "prompt": [
+        "Pour $A=1$, $B=1$ et $C=0$, que vaut $(A\\land\\neg B)\\lor C$ ?",
+        "For $A=1$, $B=1$ and $C=0$, what is $(A\\land\\neg B)\\lor C$?"
+      ],
+      "hint": [
+        "Calculez $\\neg B$ avant la conjonction.",
+        "Compute $\\neg B$ before the conjunction."
+      ],
+      "options": [
+        [
+          "$1$",
+          "$1$",
+          "$B=1$ rend $\\neg B=0$ ; le premier terme ne vaut pas $1$.",
+          "With $B=1$, $\\neg B=0$; the first term is not $1$."
+        ],
+        [
+          "Indéterminé",
+          "Undetermined",
+          "Toutes les valeurs nécessaires sont données.",
+          "All necessary truth values are specified."
+        ],
+        [
+          "$0$",
+          "$0$",
+          "Exact : $(1\\land0)\\lor0=0$.",
+          "Correct: $(1\\land0)\\lor0=0$."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "Les deux termes de la disjonction sont faux.",
+        "Both parts of the disjunction are false."
+      ]
+    },
+    {
+      "id": "L03-E10",
+      "objectiveId": "L03-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "row-skipped"
+      ],
+      "prompt": [
+        "La liste des affectations pour $A$ et $B$ contient $00$, $01$ et $11$. Quelle ligne manque pour être complète ?",
+        "The assignment list for $A$ and $B$ contains $00$, $01$ and $11$. Which row is missing for completeness?"
+      ],
+      "hint": [
+        "Énumérez les couples en comptant en binaire.",
+        "Enumerate the pairs by counting in binary."
+      ],
+      "options": [
+        [
+          "$10$",
+          "$10$",
+          "Exact : les quatre couples sont $00$, $01$, $10$, $11$.",
+          "Correct: the four pairs are $00$, $01$, $10$, $11$."
+        ],
+        [
+          "$02$",
+          "$02$",
+          "Les valeurs booléennes possibles sont uniquement $0$ et $1$.",
+          "Only $0$ and $1$ are Boolean values."
+        ],
+        [
+          "$11$",
+          "$11$",
+          "La ligne $11$ est déjà présente.",
+          "The row $11$ is already listed."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "Deux assertions donnent quatre lignes distinctes, dont $10$.",
+        "Two statements give four distinct rows, including $10$."
+      ]
+    },
+    {
+      "id": "L03-E11",
+      "objectiveId": "L03-O06",
+      "difficulty": "easy",
+      "misconceptions": [
+        "negation-forgotten"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Complétez la colonne de $A\\land\\neg B$ sur toutes les lignes $A,B$.",
+        "Complete the column for $A\\land\\neg B$ over all rows $A,B$."
+      ],
+      "hint": [
+        "Calculez d'abord $\\neg B$, puis examinez la conjonction sur chaque ligne.",
+        "First compute $\\neg B$, then check the conjunction on each row."
+      ],
+      "variables": [
+        "A",
+        "B"
+      ],
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "10": true,
+        "11": false,
+        "00": false,
+        "01": false
+      },
+      "feedback": [
+        "La seule ligne vraie est $10$ : $A$ vrai et $B$ faux.",
+        "Only row $10$ is true: $A$ true and $B$ false."
+      ]
+    },
+    {
+      "id": "L03-E12",
+      "objectiveId": "L03-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "subformula-computed-after-whole-formula"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Construisez la table de $(A\\lor B)\\land C$ pour les huit affectations $A,B,C$.",
+        "Build the truth table for $(A\\lor B)\\land C$ across all eight assignments $A,B,C$."
+      ],
+      "hint": [
+        "Calculez d'abord $A\\lor B$ puis imposez aussi $C=1$.",
+        "Compute $A\\lor B$ first, then also require $C=1$."
+      ],
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": false,
+        "101": true,
+        "110": false,
+        "111": true,
+        "000": false,
+        "001": false,
+        "010": false,
+        "011": true
+      },
+      "feedback": [
+        "La formule est vraie exactement si $C=1$ et au moins une de $A,B$ vaut $1$ : lignes $011$, $101$, $111$.",
+        "The formula is true exactly when $C=1$ and at least one of $A,B$ is $1$: rows $011$, $101$, $111$."
+      ]
+    },
+    {
+      "id": "L03-E13",
+      "objectiveId": "L03-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "precedence-ignored"
+      ],
+      "prompt": [
+        "Avec $A=1$, $B=0$ et $C=1$, calculez $\\neg(A\\lor B)\\lor(A\\land C)$.",
+        "With $A=1$, $B=0$ and $C=1$, compute $\\neg(A\\lor B)\\lor(A\\land C)$."
+      ],
+      "hint": [
+        "Calculez les deux groupes avant la disjonction extérieure.",
+        "Evaluate both groups before the outer disjunction."
+      ],
+      "options": [
+        [
+          "$0$",
+          "$0$",
+          "Vous avez peut-être oublié que $A\\land C=1$.",
+          "You may have overlooked that $A\\land C=1$."
+        ],
+        [
+          "$1$",
+          "$1$",
+          "Exact : $\\neg1\\lor1=0\\lor1=1$.",
+          "Correct: $\\neg1\\lor1=0\\lor1=1$."
+        ],
+        [
+          "La formule n'a pas de valeur.",
+          "The formula has no value.",
+          "Les parenthèses et les trois valeurs lèvent toute ambiguïté.",
+          "Parentheses and the three values remove ambiguity."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "Le premier terme vaut $0$ et le second $1$, donc le « ou » vaut $1$.",
+        "The first term is $0$ and the second $1$, so OR is $1$."
+      ]
+    },
+    {
+      "id": "L03-E14",
+      "objectiveId": "L03-O05",
+      "difficulty": "medium",
+      "misconceptions": [
+        "row-value-guessed"
+      ],
+      "prompt": [
+        "Un élève attribue à $A\\land\\neg B$ les valeurs $00\\mapsto0$, $01\\mapsto1$, $10\\mapsto1$, $11\\mapsto0$. Quelle ligne est erronée ?",
+        "A student assigns to $A\\land\\neg B$ the values $00\\mapsto0$, $01\\mapsto1$, $10\\mapsto1$, $11\\mapsto0$. Which row is incorrect?"
+      ],
+      "hint": [
+        "Comparez $A$ et $\\neg B$ sur chaque ligne, sans recopier le résultat précédent.",
+        "Compare $A$ and $\\neg B$ on each row; do not copy the previous result."
+      ],
+      "options": [
+        [
+          "$11$",
+          "$11$",
+          "À $11$, $\\neg B=0$ et la valeur $0$ est correcte.",
+          "At $11$, $\\neg B=0$ and the recorded value $0$ is correct."
+        ],
+        [
+          "$10$",
+          "$10$",
+          "À $10$, les deux conditions sont vraies : la valeur $1$ est correcte.",
+          "At $10$, both conditions are true: the recorded value $1$ is correct."
+        ],
+        [
+          "$01$",
+          "$01$",
+          "Exact : $A=0$, donc la conjonction devrait valoir $0$.",
+          "Correct: $A=0$, so the conjunction should be $0$."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "Seule la valeur écrite pour $01$ contredit $0\\land\\neg1=0$.",
+        "Only the recorded value for $01$ contradicts $0\\land\\neg1=0$."
+      ]
+    },
+    {
+      "id": "L03-E15",
+      "objectiveId": "L03-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "row-count-as-n-times-two"
+      ],
+      "prompt": [
+        "Un calcul utilise cinq assertions atomiques indépendantes. Un élève prévoit dix lignes. Quelle correction faut-il apporter ?",
+        "A calculation uses five independent atomic statements. A student plans for ten rows. What correction is needed?"
+      ],
+      "hint": [
+        "Le nombre de lignes croît par doublement et non par addition.",
+        "The row count grows by doubling, not addition."
+      ],
+      "options": [
+        [
+          "Il faut $32$ lignes.",
+          "It needs $32$ rows.",
+          "Exact : $2^5=32$.",
+          "Correct: $2^5=32$."
+        ],
+        [
+          "Il faut $25$ lignes.",
+          "It needs $25$ rows.",
+          "Le carré $5^2$ n'est pas la règle d'énumération booléenne.",
+          "The square $5^2$ is not the Boolean enumeration rule."
+        ],
+        [
+          "Il faut $5$ lignes.",
+          "It needs $5$ rows.",
+          "Une ligne par assertion ne couvre pas les combinaisons.",
+          "One row per assertion misses combinations."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "Chaque variable offre deux valeurs ; il y a $2^5=32$ affectations.",
+        "Each variable has two values; there are $2^5=32$ assignments."
+      ]
+    },
+    {
+      "id": "L03-E16",
+      "objectiveId": "L03-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "atomic-formula-confused-with-subformula"
+      ],
+      "prompt": [
+        "Dans $\\neg(A\\land B)\\lor C$, quel est le connecteur principal, celui qui combine les deux sous-formules finales ?",
+        "In $\\neg(A\\land B)\\lor C$, which is the main connective combining the final two subformulas?"
+      ],
+      "hint": [
+        "Repérez l'opération la plus extérieure ; les parenthèses entourent un groupe intérieur.",
+        "Find the outermost operation; the parentheses enclose an inner group."
+      ],
+      "options": [
+        [
+          "$\\neg$",
+          "$\\neg$",
+          "La négation agit sur $(A\\land B)$ seulement.",
+          "Negation applies only to $(A\\land B)$."
+        ],
+        [
+          "$\\lor$",
+          "$\\lor$",
+          "Exact : le dernier « ou » combine $\\neg(A\\land B)$ et $C$.",
+          "Correct: the outer OR combines $\\neg(A\\land B)$ and $C$."
+        ],
+        [
+          "$\\land$",
+          "$\\land$",
+          "La conjonction est enfermée dans la sous-formule intérieure.",
+          "The conjunction is inside the inner subformula."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "La structure est $(\\neg(A\\land B))\\lor C$, donc le connecteur extérieur est $\\lor$.",
+        "The structure is $(\\neg(A\\land B))\\lor C$, so the outer connective is $\\lor$."
+      ]
+    },
+    {
+      "id": "L03-E17",
+      "objectiveId": "L03-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "row-skipped-or-copied"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Une condition d'accès est $(A\\land\\neg B)\\lor(\\neg A\\land C)$ avec trois indicateurs booléens. Complétez toute sa table, y compris les lignes où deux indicateurs sont vrais.",
+        "An access condition is $(A\\land\\neg B)\\lor(\\neg A\\land C)$ with three Boolean indicators. Complete its full table, including the rows where two indicators are true."
+      ],
+      "hint": [
+        "Évaluez les deux chemins séparément avant de les réunir par « ou ».",
+        "Evaluate the two paths separately before combining them with OR."
+      ],
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": true,
+        "101": true,
+        "110": false,
+        "111": false,
+        "000": false,
+        "001": true,
+        "010": false,
+        "011": true
+      },
+      "feedback": [
+        "Le premier chemin vaut $1$ sur $100$ et $101$ ; le second sur $001$ et $011$. Les autres lignes valent $0$.",
+        "The first path is $1$ on $100$ and $101$; the second on $001$ and $011$. The others are $0$."
+      ]
+    },
+    {
+      "id": "L03-E18",
+      "objectiveId": "L03-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "de-morgan-misapplied"
+      ],
+      "prompt": [
+        "Un élève affirme que $\\neg(A\\lor B)$ et $\\neg A\\lor\\neg B$ ont toujours la même valeur. Quelle affectation prouve que c'est faux ?",
+        "A student claims that $\\neg(A\\lor B)$ and $\\neg A\\lor\\neg B$ always have the same value. Which assignment proves this false?"
+      ],
+      "hint": [
+        "Cherchez un cas où une seule des deux assertions est vraie.",
+        "Try a case where exactly one of the two statements is true."
+      ],
+      "options": [
+        [
+          "$A=0, B=0$",
+          "$A=0, B=0$",
+          "Les deux formules valent $1$ sur cette ligne.",
+          "Both formulas are $1$ on this row."
+        ],
+        [
+          "$A=1, B=1$",
+          "$A=1, B=1$",
+          "Les deux formules valent $0$ sur cette ligne.",
+          "Both formulas are $0$ on this row."
+        ],
+        [
+          "$A=1, B=0$",
+          "$A=1, B=0$",
+          "Exact : la première vaut $0$, la seconde $1$.",
+          "Correct: the first is $0$, the second $1$."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "$\\neg(1\\lor0)=0$, tandis que $\\neg1\\lor\\neg0=0\\lor1=1$.",
+        "$\\neg(1\\lor0)=0$, whereas $\\neg1\\lor\\neg0=0\\lor1=1$."
+      ]
+    },
+    {
+      "id": "L03-E19",
+      "objectiveId": "L03-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "careless-row-recomputation"
+      ],
+      "prompt": [
+        "Un programme produit la colonne de $\\neg(A\\land B)\\lor C$ sur $A,B,C$. Il écrit $1$ sur les huit lignes. Quelle ligne prouve que son tableau comporte une erreur ?",
+        "A program outputs the column for $\\neg(A\\land B)\\lor C$ on $A,B,C$. It records $1$ on all eight rows. Which row proves its table has an error?"
+      ],
+      "hint": [
+        "Pour obtenir $0$, cherchez une ligne où la négation et $C$ sont tous deux faux.",
+        "To obtain $0$, find a row where the negation and $C$ are both false."
+      ],
+      "options": [
+        [
+          "$110$",
+          "$110$",
+          "Exact : $A\\land B=1$, $C=0$, donc $\\neg1\\lor0=0$.",
+          "Correct: $A\\land B=1$, $C=0$, so $\\neg1\\lor0=0$."
+        ],
+        [
+          "$111$",
+          "$111$",
+          "$C=1$ rend la disjonction vraie, comme écrit.",
+          "With $C=1$, the disjunction is true, as recorded."
+        ],
+        [
+          "$100$",
+          "$100$",
+          "$A\\land B=0$ rend sa négation vraie, comme écrit.",
+          "With $A\\land B=0$, its negation is true, as recorded."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "La seule possibilité de $\\neg(A\\land B)\\lor C=0$ est $A=B=1$, $C=0$.",
+        "The only way for $\\neg(A\\land B)\\lor C=0$ is $A=B=1$, $C=0$."
+      ]
+    },
+    {
+      "id": "L03-E20",
+      "objectiveId": "L03-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "complement-row"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Un contrôle valide deux indicateurs lorsqu'ils sont identiques : $\\neg(A\\lor B)\\lor(A\\land B)$. Complétez la table entière et vérifiez les deux cas égaux.",
+        "A check accepts two indicators when they match: $\\neg(A\\lor B)\\lor(A\\land B)$. Complete the entire table and verify both equal-value cases."
+      ],
+      "hint": [
+        "Examinez d'une part le cas où les deux valeurs sont fausses, d'autre part où elles sont vraies.",
+        "Consider when both values are false and when both are true."
+      ],
+      "variables": [
+        "A",
+        "B"
+      ],
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "10": false,
+        "11": true,
+        "00": true,
+        "01": false
+      },
+      "feedback": [
+        "$\\neg(A\\lor B)$ couvre $00$ ; $A\\land B$ couvre $11$. Les lignes mixtes sont fausses.",
+        "$\\neg(A\\lor B)$ covers $00$; $A\\land B$ covers $11$. The mixed rows are false."
+      ]
+    },
+    {
+      "id": "L03-E21",
+      "objectiveId": "L03-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "one-true-row-taken-as-always-true"
+      ],
+      "prompt": [
+        "Un élève voit que $(A\\lor B)\\land\\neg A$ est vraie pour $A=0, B=1$ et conclut : « La formule est vraie dès que $B=1$. » Quelle affectation réfute cette conclusion ?",
+        "A student sees $(A\\lor B)\\land\\neg A$ true for $A=0, B=1$ and concludes: “The formula is true whenever $B=1$.” Which assignment refutes this conclusion?"
+      ],
+      "hint": [
+        "Gardez $B=1$ et changez l'autre valeur.",
+        "Keep $B=1$ and change the other value."
+      ],
+      "options": [
+        [
+          "$A=0, B=1$",
+          "$A=0, B=1$",
+          "C'est précisément l'exemple où la formule est vraie, pas un contre-exemple.",
+          "This is exactly the example where the formula is true, not a counterexample."
+        ],
+        [
+          "$A=1, B=1$",
+          "$A=1, B=1$",
+          "Exact : $\\neg A=0$, donc la conjonction devient fausse malgré $B=1$.",
+          "Correct: $\\neg A=0$, so the conjunction becomes false despite $B=1$."
+        ],
+        [
+          "$A=0, B=0$",
+          "$A=0, B=0$",
+          "Ce cas ne satisfait pas l'hypothèse $B=1$.",
+          "This case does not satisfy the premise $B=1$."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "Avec $(A,B)=(1,1)$, la formule vaut $(1\\lor1)\\land0=0$ ; une ligne vraie n'établit pas une règle universelle.",
+        "With $(A,B)=(1,1)$, the formula is $(1\\lor1)\\land0=0$; one true row does not establish a universal rule."
+      ]
+    }
+  ]
+}

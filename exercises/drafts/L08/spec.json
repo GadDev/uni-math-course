@@ -1,0 +1,621 @@
+{
+  "lessonId": "L08",
+  "version": 3,
+  "items": [
+    {
+      "id": "L08-E07",
+      "objectiveId": "L08-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "minterm-ignores-false-variable"
+      ],
+      "prompt": [
+        "Quel terme décrit uniquement la ligne $x=1,y=0$ ?",
+        "Which term describes only the row $x=1,y=0$?"
+      ],
+      "hint": [
+        "Une variable fausse apparaît niée.",
+        "A false variable appears negated."
+      ],
+      "options": [
+        [
+          "$x\\land\\neg y$",
+          "$x\\land\\neg y$",
+          "Exact : ce terme est vrai uniquement sur $10$.",
+          "Correct: this term is true only at $10$."
+        ],
+        [
+          "$x\\land y$",
+          "$x\\land y$",
+          "Ce terme décrit $11$, pas $10$.",
+          "This term describes $11$, not $10$."
+        ],
+        [
+          "$\\neg x\\land y$",
+          "$\\neg x\\land y$",
+          "Ce terme décrit $01$.",
+          "This term describes $01$."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "La ligne $10$ impose $x$ vrai et $y$ faux.",
+        "Row $10$ requires $x$ true and $y$ false."
+      ]
+    },
+    {
+      "id": "L08-E08",
+      "objectiveId": "L08-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "true-rows-misread"
+      ],
+      "prompt": [
+        "Une fonction vaut $1$ sur $00$ et $10$ seulement. Quelle proposition est vraie ?",
+        "A function is $1$ only on $00$ and $10$. Which claim is true?"
+      ],
+      "hint": [
+        "Comparez la valeur de $y$ sur les deux lignes.",
+        "Compare $y$ in the two rows."
+      ],
+      "options": [
+        [
+          "$f= y$",
+          "$f= y$",
+          "$y$ vaut $0$ sur les deux lignes vraies.",
+          "$y$ is $0$ on both true rows."
+        ],
+        [
+          "$f=\\neg y$",
+          "$f=\\neg y$",
+          "Exact : la valeur de $x$ n'importe pas.",
+          "Correct: the value of $x$ does not matter."
+        ],
+        [
+          "$f=x\\land y$",
+          "$f=x\\land y$",
+          "Ce terme est vrai uniquement sur $11$.",
+          "This term is true only at $11$."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "$f$ vaut $1$ exactement lorsque $y=0$.",
+        "$f$ is $1$ exactly when $y=0$."
+      ]
+    },
+    {
+      "id": "L08-E09",
+      "objectiveId": "L08-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "rows-joined-with-and"
+      ],
+      "prompt": [
+        "Pour une fonction vraie sur deux lignes distinctes, comment réunir leurs termes de ligne ?",
+        "How do you combine row terms for a function true on two distinct rows?"
+      ],
+      "hint": [
+        "Il suffit qu'un des termes de ligne soit vrai.",
+        "It is enough for one row term to be true."
+      ],
+      "options": [
+        [
+          "Par $\\land$.",
+          "With $\\land$.",
+          "Deux termes décrivant des lignes distinctes ne peuvent être vrais ensemble.",
+          "Terms describing different rows cannot both hold."
+        ],
+        [
+          "Par $\\neg$ seulement.",
+          "By $\\neg$ only.",
+          "Nier un terme inverse ses lignes vraies et fausses.",
+          "Negating one term swaps its true and false rows."
+        ],
+        [
+          "Par $\\lor$.",
+          "With $\\lor$.",
+          "Exact : la disjonction rassemble les lignes.",
+          "Correct: OR collects the rows."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "La somme logique des termes de ligne construit la fonction sur l'union des lignes vraies.",
+        "OR of row terms builds the function on the union of true rows."
+      ]
+    },
+    {
+      "id": "L08-E10",
+      "objectiveId": "L08-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "demorgan-negates-only-one-side"
+      ],
+      "prompt": [
+        "Quelle expression utilisant seulement $\\lor$ et $\\neg$ équivaut à $p\\land q$ ?",
+        "Which expression using only $\\lor$ and $\\neg$ equals $p\\land q$?"
+      ],
+      "hint": [
+        "Appliquez de Morgan à la négation d'une disjonction.",
+        "Apply De Morgan to the negation of an OR."
+      ],
+      "options": [
+        [
+          "$\\neg(p\\lor q)$",
+          "$\\neg(p\\lor q)$",
+          "Elle exprime $\\neg p\\land\\neg q$.",
+          "It expresses $\\neg p\\land\\neg q$."
+        ],
+        [
+          "$\\neg(\\neg p\\lor\\neg q)$",
+          "$\\neg(\\neg p\\lor\\neg q)$",
+          "Exact : les deux négations internes préservent les conditions positives.",
+          "Correct: both inner negations preserve the positive conditions."
+        ],
+        [
+          "$\\neg p\\lor\\neg q$",
+          "$\\neg p\\lor\\neg q$",
+          "C'est la négation de $p\\land q$.",
+          "That is the negation of $p\\land q$."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "Par de Morgan, $p\\land q\\equiv\\neg(\\neg p\\lor\\neg q)$.",
+        "By De Morgan, $p\\land q\\equiv\\neg(\\neg p\\lor\\neg q)$."
+      ]
+    },
+    {
+      "id": "L08-E11",
+      "objectiveId": "L08-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "functional-completeness-only-true-functions"
+      ],
+      "prompt": [
+        "Que garantit la complétude fonctionnelle de $\\{\\lor,\\neg\\}$ pour $n\\geq1$ ?",
+        "What does functional completeness of $\\{\\lor,\\neg\\}$ guarantee for $n\\geq1$?"
+      ],
+      "hint": [
+        "Le théorème porte sur toute attribution de résultats à des lignes.",
+        "The theorem concerns every assignment of outputs to rows."
+      ],
+      "options": [
+        [
+          "Seulement les fonctions toujours vraies sont exprimables.",
+          "Only always-true functions can be expressed.",
+          "Des fonctions mixtes sont aussi représentables.",
+          "Mixed functions are representable too."
+        ],
+        [
+          "Seules les fonctions de deux variables sont exprimables.",
+          "Only two-variable functions are expressible.",
+          "La construction marche pour tout $n\\geq1$.",
+          "The construction works for any $n\\geq1$."
+        ],
+        [
+          "Toute fonction booléenne de $n$ variables est exprimable.",
+          "Every Boolean function of $n$ variables is expressible.",
+          "Exact : la construction par lignes vraies est générale.",
+          "Correct: the true-row construction is general."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "Chaque ligne vraie admet un terme et leur disjonction exprime la fonction, quitte à remplacer les conjonctions.",
+        "Each true row has a term; OR combines them, and conjunctions can be eliminated."
+      ]
+    },
+    {
+      "id": "L08-E12",
+      "objectiveId": "L08-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "truth-table-size-miscount"
+      ],
+      "prompt": [
+        "Pour une fonction de trois variables, combien d'affectations faut-il couvrir ?",
+        "How many assignments must be covered for a three-variable function?"
+      ],
+      "hint": [
+        "Chaque variable admet deux valeurs indépendantes.",
+        "Each variable takes two independent values."
+      ],
+      "options": [
+        [
+          "$6$",
+          "$6$",
+          "Il faut multiplier, non additionner, les choix binaires.",
+          "Multiply, rather than add, the binary choices."
+        ],
+        [
+          "$8$",
+          "$8$",
+          "Exact : $2^3=8$ lignes.",
+          "Correct: $2^3=8$ rows."
+        ],
+        [
+          "$9$",
+          "$9$",
+          "Il n'y a que deux valeurs possibles par variable.",
+          "There are only two values per variable."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "Pour trois entrées booléennes, le domaine possède $2^3=8$ affectations.",
+        "Three Boolean inputs yield $2^3=8$ assignments."
+      ]
+    },
+    {
+      "id": "L08-E13",
+      "objectiveId": "L08-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "minterm-ignores-false-variable"
+      ],
+      "prompt": [
+        "Dans l'ordre $x,y,z$, quel minterme représente $010$ ?",
+        "In the order $x,y,z$, which minterm represents $010$?"
+      ],
+      "hint": [
+        "Chaque position à $0$ exige un littéral nié.",
+        "Each $0$ position requires a negated literal."
+      ],
+      "options": [
+        [
+          "$\\neg x\\land y\\land\\neg z$",
+          "$\\neg x\\land y\\land\\neg z$",
+          "Exact : il est vrai uniquement en $010$.",
+          "Correct: it holds only at $010$."
+        ],
+        [
+          "$x\\land\\neg y\\land z$",
+          "$x\\land\\neg y\\land z$",
+          "Ce terme décrit $101$.",
+          "That term describes $101$."
+        ],
+        [
+          "$\\neg x\\lor y\\lor\\neg z$",
+          "$\\neg x\\lor y\\lor\\neg z$",
+          "Une disjonction de littéraux ne sélectionne pas une seule ligne.",
+          "An OR of literals does not select just one row."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "Le terme vaut $1$ si et seulement si les trois bits sont $010$.",
+        "The term is $1$ if and only if the three bits are $010$."
+      ]
+    },
+    {
+      "id": "L08-E14",
+      "objectiveId": "L08-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "true-rows-misread"
+      ],
+      "prompt": [
+        "$f(x,y,z)$ est vraie uniquement sur $001$ et $011$. Quelle simplification convient ?",
+        "$f(x,y,z)$ is true only at $001$ and $011$. Which simplification works?"
+      ],
+      "hint": [
+        "Les deux lignes partagent $x=0$ et $z=1$.",
+        "Both rows have $x=0$ and $z=1$."
+      ],
+      "options": [
+        [
+          "$\\neg x\\land\\neg z$",
+          "$\\neg x\\land\\neg z$",
+          "$z$ vaut $1$, pas $0$, sur les lignes choisies.",
+          "$z$ is $1$, not $0$, in the chosen rows."
+        ],
+        [
+          "$x\\lor z$",
+          "$x\\lor z$",
+          "Cette formule inclut bien d'autres lignes.",
+          "This formula includes many other rows."
+        ],
+        [
+          "$\\neg x\\land z$",
+          "$\\neg x\\land z$",
+          "Exact : $y$ est libre.",
+          "Correct: $y$ is free."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "Les mintermes des deux lignes se regroupent en $\\neg x\\land z$.",
+        "The two minterms combine into $\\neg x\\land z$."
+      ]
+    },
+    {
+      "id": "L08-E15",
+      "objectiveId": "L08-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "rows-joined-with-and"
+      ],
+      "prompt": [
+        "Une fonction vaut $1$ seulement sur $01$ et $11$. Quelle expression suit la méthode des lignes vraies ?",
+        "A function is $1$ only on $01$ and $11$. Which expression follows the true-row method?"
+      ],
+      "hint": [
+        "Écrivez un terme par ligne, puis joignez-les.",
+        "Write one term per row, then join them."
+      ],
+      "options": [
+        [
+          "$(\\neg x\\land y)\\land(x\\land y)$",
+          "$(\\neg x\\land y)\\land(x\\land y)$",
+          "Les deux termes sont incompatibles.",
+          "The two terms cannot both hold."
+        ],
+        [
+          "$(\\neg x\\land y)\\lor(x\\land y)$",
+          "$(\\neg x\\land y)\\lor(x\\land y)$",
+          "Exact : les deux lignes ont $y=1$.",
+          "Correct: both rows have $y=1$."
+        ],
+        [
+          "$(x\\land\\neg y)\\lor(x\\land y)$",
+          "$(x\\land\\neg y)\\lor(x\\land y)$",
+          "Cela décrit les lignes $10$ et $11$.",
+          "That describes rows $10$ and $11$."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "La disjonction est vraie sur $01$ ou $11$, et équivaut ici à $y$.",
+        "The OR holds at $01$ or $11$ and here simplifies to $y$."
+      ]
+    },
+    {
+      "id": "L08-E16",
+      "objectiveId": "L08-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "demorgan-negates-only-one-side"
+      ],
+      "prompt": [
+        "Remplacez $(\\neg x\\land y)$ avec seulement $\\lor$ et $\\neg$.",
+        "Rewrite $(\\neg x\\land y)$ using only $\\lor$ and $\\neg$."
+      ],
+      "hint": [
+        "Niez la disjonction des négations des deux littéraux.",
+        "Negate the OR of the negations of the two literals."
+      ],
+      "options": [
+        [
+          "$\\neg(x\\lor\\neg y)$",
+          "$\\neg(x\\lor\\neg y)$",
+          "Exact : deux usages de de Morgan, avec double négation.",
+          "Correct: De Morgan with double negation."
+        ],
+        [
+          "$\\neg(\\neg x\\lor y)$",
+          "$\\neg(\\neg x\\lor y)$",
+          "Cette formule vaut $x\\land\\neg y$.",
+          "That formula equals $x\\land\\neg y$."
+        ],
+        [
+          "$\\neg x\\lor y$",
+          "$\\neg x\\lor y$",
+          "Une disjonction est vraie sur trop de lignes.",
+          "An OR is true on too many rows."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "$\\neg x\\land y\\equiv\\neg(x\\lor\\neg y)$.",
+        "$\\neg x\\land y\\equiv\\neg(x\\lor\\neg y)$."
+      ]
+    },
+    {
+      "id": "L08-E17",
+      "objectiveId": "L08-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "functional-completeness-only-true-functions"
+      ],
+      "prompt": [
+        "$f(x,y)$ vaut toujours $0$. Laquelle de ces formules avec $\\lor$ et $\\neg$ uniquement représente $f$ ?",
+        "$f(x,y)$ is always $0$. Which formula using only $\\lor$ and $\\neg$ represents $f$?"
+      ],
+      "hint": [
+        "Construisez une contradiction à partir de $x$.",
+        "Build a contradiction using $x$."
+      ],
+      "options": [
+        [
+          "$x\\lor\\neg x$",
+          "$x\\lor\\neg x$",
+          "C'est une tautologie, pas une contradiction.",
+          "This is a tautology, not a contradiction."
+        ],
+        [
+          "$\\neg(x\\lor\\neg x)$",
+          "$\\neg(x\\lor\\neg x)$",
+          "Exact : l'intérieur est toujours vrai.",
+          "Correct: the inside is always true."
+        ],
+        [
+          "$\\neg x\\lor\\neg y$",
+          "$\\neg x\\lor\\neg y$",
+          "Cette formule vaut $1$ sur plusieurs lignes.",
+          "That formula is $1$ in several rows."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "Nier une tautologie fournit la fonction constamment fausse, y compris quand aucune ligne vraie n'existe.",
+        "Negating a tautology gives the constant-false function, including when there are no true rows."
+      ]
+    },
+    {
+      "id": "L08-E18",
+      "objectiveId": "L08-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "minterm-ignores-false-variable"
+      ],
+      "prompt": [
+        "Une fonction de trois variables est vraie uniquement sur $101$ et $111$. Quel terme minimal la représente ?",
+        "A three-variable function is true only at $101$ and $111$. Which minimal term represents it?"
+      ],
+      "hint": [
+        "Le bit central varie, mais les deux autres restent fixés.",
+        "The middle bit varies; the outer bits stay fixed."
+      ],
+      "options": [
+        [
+          "$x\\land y$",
+          "$x\\land y$",
+          "Cela sélectionne $110$ et $111$.",
+          "That selects $110$ and $111$."
+        ],
+        [
+          "$\\neg x\\land z$",
+          "$\\neg x\\land z$",
+          "Cela sélectionne $001$ et $011$.",
+          "That selects $001$ and $011$."
+        ],
+        [
+          "$x\\land z$",
+          "$x\\land z$",
+          "Exact : $y$ est indifférent.",
+          "Correct: $y$ can take either value."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "Les deux mintermes se regroupent car ils ne diffèrent que par $y$.",
+        "The minterms combine because they differ only in $y$."
+      ]
+    },
+    {
+      "id": "L08-E19",
+      "objectiveId": "L08-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "minterm-ignores-false-variable"
+      ],
+      "prompt": [
+        "Quel test suffit à montrer que $x\\lor\\neg y$ n'est pas le minterme unique de $10$ ?",
+        "Which test suffices to show that $x\\lor\\neg y$ is not the unique minterm for $10$?"
+      ],
+      "hint": [
+        "Cherchez une autre ligne où la disjonction est vraie.",
+        "Find another row where the OR is true."
+      ],
+      "options": [
+        [
+          "Sur $00$, la formule est vraie.",
+          "At $00$, the formula is true.",
+          "Exact : $\\neg y=1$ aussi sur $00$.",
+          "Correct: $\\neg y=1$ at $00$ too."
+        ],
+        [
+          "Sur $10$, la formule est fausse.",
+          "At $10$, the formula is false.",
+          "Sur $10$, les deux littéraux sont vrais.",
+          "At $10$, both literals are true."
+        ],
+        [
+          "Sur $01$, la formule est vraie.",
+          "At $01$, the formula is true.",
+          "Sur $01$, les deux littéraux sont faux.",
+          "At $01$, both literals are false."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "Un minterme doit éliminer toutes les autres lignes ; $00$ réfute cette propriété.",
+        "A minterm must exclude every other row; $00$ refutes that property."
+      ]
+    },
+    {
+      "id": "L08-E20",
+      "objectiveId": "L08-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "rows-joined-with-and"
+      ],
+      "prompt": [
+        "Sur $x,y$, une fonction est vraie exactement sur $00$, $01$ et $10$. Quelle formule la décrit ?",
+        "Over $x,y$, a function is true exactly on $00$, $01$ and $10$. Which formula describes it?"
+      ],
+      "hint": [
+        "La seule ligne fausse est $11$.",
+        "The only false row is $11$."
+      ],
+      "options": [
+        [
+          "$x\\land y$",
+          "$x\\land y$",
+          "Cela sélectionne la seule ligne fausse.",
+          "That selects only the false row."
+        ],
+        [
+          "$\\neg x\\lor\\neg y$",
+          "$\\neg x\\lor\\neg y$",
+          "Exact : elle élimine uniquement $11$.",
+          "Correct: it excludes only $11$."
+        ],
+        [
+          "$\\neg x\\land\\neg y$",
+          "$\\neg x\\land\\neg y$",
+          "Cela sélectionne seulement $00$.",
+          "That selects only $00$."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "La négation de $x\\land y$ est vraie sur les trois lignes demandées, et s'écrit aussi $\\neg x\\lor\\neg y$.",
+        "Negating $x\\land y$ gives exactly the three requested rows, also expressed by $\\neg x\\lor\\neg y$."
+      ]
+    },
+    {
+      "id": "L08-E21",
+      "objectiveId": "L08-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "functional-completeness-only-true-functions"
+      ],
+      "prompt": [
+        "Pourquoi $\\lor$ seul, sans constantes ni négation, ne suffit-il pas à exprimer toutes les fonctions d'une variable $x$ ?",
+        "Why is $\\lor$ alone, without constants or negation, insufficient for every one-variable function $x$?"
+      ],
+      "hint": [
+        "Toute expression construite de $x$ avec $\\lor$ garde une même valeur à $x=1$.",
+        "Every expression built from $x$ with $\\lor$ has the same value at $x=1$."
+      ],
+      "options": [
+        [
+          "Parce que $x\\lor x$ équivaut à $\\neg x$.",
+          "Because $x\\lor x$ equals $\\neg x$.",
+          "L'idempotence donne $x\\lor x=x$.",
+          "Idempotence gives $x\\lor x=x$."
+        ],
+        [
+          "Parce que la disjonction est toujours fausse.",
+          "Because OR is always false.",
+          "$x\\lor x$ est vraie pour $x=1$.",
+          "$x\\lor x$ is true at $x=1$."
+        ],
+        [
+          "Parce que toutes ces expressions valent $x$ et ne donnent jamais $\\neg x$.",
+          "Because all such expressions equal $x$ and never give $\\neg x$.",
+          "Exact : l'idempotence empêche de produire la négation.",
+          "Correct: idempotence prevents constructing negation."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "Par induction sur les expressions, $x$ et toute disjonction de copies de $x$ ont la même table ; $\\neg x$ a la table opposée.",
+        "Induction on expressions shows $x$ and ORs of copies of $x$ have the same table; $\\neg x$ has the opposite table."
+      ]
+    }
+  ]
+}

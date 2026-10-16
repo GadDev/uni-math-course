@@ -1,0 +1,435 @@
+{
+  "lessonId": "L20",
+  "version": 2,
+  "items": [
+    {
+      "objective": 1,
+      "prompt": [
+        "Soit $A(u)$ : « l'utilisateur est administrateur » et $P(u)$ : « il peut publier ». Que signifie « Seuls les administrateurs peuvent publier » ?",
+        "Let $A(u)$ mean 'the user is an administrator' and $P(u)$ mean 'they can publish'. What does 'Only administrators can publish' mean?"
+      ],
+      "hint": [
+        "La permission implique le rôle requis.",
+        "Permission implies the required role."
+      ],
+      "options": [
+        "$\\forall u\\ (P(u)\\Rightarrow A(u))$",
+        "$\\forall u\\ (A(u)\\Rightarrow P(u))$",
+        "$\\exists u\\ (P(u)\\land\\neg A(u))$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Le mot « seuls » énonce une condition nécessaire, pas suffisante.",
+        "'Only' states a necessary condition, not a sufficient one."
+      ],
+      "explanation": [
+        "Toute personne autorisée doit être administratrice.",
+        "Anyone allowed to publish must be an administrator."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Dans « seuls les membres peuvent voter », être membre est une condition :",
+        "In 'only members may vote', membership is a condition that is:"
+      ],
+      "hint": [
+        "Un votant doit être membre, mais un membre peut s'abstenir ou être bloqué.",
+        "A voter must be a member, but a member may abstain or be blocked."
+      ],
+      "options": [
+        [
+          "Suffisante seulement.",
+          "Sufficient only."
+        ],
+        [
+          "Nécessaire, pas nécessairement suffisante.",
+          "Necessary, not necessarily sufficient."
+        ],
+        [
+          "Ni nécessaire ni suffisante.",
+          "Neither necessary nor sufficient."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Le droit de vote implique l'appartenance ; l'inverse n'est pas garanti.",
+        "Voting rights imply membership; the converse is not guaranteed."
+      ],
+      "explanation": [
+        "« Seuls » signifie voter $\\Rightarrow$ être membre.",
+        "'Only' means voting $\\Rightarrow$ membership."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "$U=\\{a,b\\}$, seul $a$ est responsable ; $b$ approuve `r1`. La règle « seuls les responsables approuvent » est :",
+        "$U=\\{a,b\\}$, only $a$ is a manager; $b$ approves `r1`. The rule 'only managers approve' is:"
+      ],
+      "hint": [
+        "Une seule approbation d'un non-responsable suffit à réfuter.",
+        "One approval by a non-manager refutes the rule."
+      ],
+      "options": [
+        [
+          "Vraie car $a$ est responsable.",
+          "True because $a$ is a manager."
+        ],
+        [
+          "Vraie si $a$ approuve aussi.",
+          "True if $a$ approves too."
+        ],
+        [
+          "Fausse, avec le contre-exemple $(b,\\text{r1})$.",
+          "False, with counterexample $(b,\\text{r1})$."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Le comportement du responsable n'efface pas une violation par un non-responsable.",
+        "The manager's behavior cannot erase a violation by a non-manager."
+      ],
+      "explanation": [
+        "$V(b,\\text{r1})$ est vraie mais $M(b)$ fausse : l'implication échoue.",
+        "$V(b,\\text{r1})$ is true but $M(b)$ false: implication fails."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Pour $M(u)$ : responsable et $V(u,r)$ : peut valider la demande, formulez « tout responsable peut valider toutes les demandes ».",
+        "With $M(u)$: manager and $V(u,r)$: may validate a request, formalize 'every manager may validate every request'."
+      ],
+      "hint": [
+        "Conditionnez l'exigence sur le rôle, puis parcourez les demandes.",
+        "Condition the requirement on the role, then range over requests."
+      ],
+      "options": [
+        "$\\forall u\\ (M(u)\\Rightarrow\\forall r\\ V(u,r))$",
+        "$\\forall u\\forall r\\ (V(u,r)\\Rightarrow M(u))$",
+        "$\\exists u\\forall r\\ V(u,r)$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "La première phrase impose une permission aux responsables ; la règle « seuls » est l'autre implication.",
+        "The first sentence grants permissions to managers; 'only' is the other implication."
+      ],
+      "explanation": [
+        "Chaque responsable doit pouvoir valider chaque demande, sans contrainte sur les non-responsables.",
+        "Each manager must be able to validate every request, without a constraint on non-managers."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Niez $\\forall u\\ (M(u)\\Rightarrow\\forall r\\ V(u,r))$.",
+        "Negate $\\forall u\\ (M(u)\\Rightarrow\\forall r\\ V(u,r))$."
+      ],
+      "hint": [
+        "L'échec est un responsable qui ne peut pas valider une demande.",
+        "Failure is a manager who cannot validate one request."
+      ],
+      "options": [
+        "$\\forall u\\ (M(u)\\land\\forall r\\ \\neg V(u,r))$",
+        "$\\exists u\\ (M(u)\\land\\exists r\\ \\neg V(u,r))$",
+        "$\\exists u\\ (\\neg M(u)\\land\\exists r\\ V(u,r))$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "La négation exige un responsable et une demande refusée, pas tous les refus ni un non-responsable.",
+        "The negation requires a manager and one denied request, not all denials or a non-manager."
+      ],
+      "explanation": [
+        "Nier l'implication produit $M(u)\\land\\neg\\forall r\\ V(u,r)$, puis un contre-exemple $r$.",
+        "Negating implication gives $M(u)\\land\\neg\\forall r\\ V(u,r)$, then a counterexample $r$."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Quelle formule dit « il existe une demande que personne ne peut approuver » ?",
+        "Which formula says 'there is a request that nobody may approve'?"
+      ],
+      "hint": [
+        "Choisissez une demande, puis excluez tous les utilisateurs.",
+        "Choose a request, then exclude every user."
+      ],
+      "options": [
+        "$\\forall r\\exists u\\ \\neg V(u,r)$",
+        "$\\exists u\\forall r\\ \\neg V(u,r)$",
+        "$\\exists r\\forall u\\ \\neg V(u,r)$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "C'est la demande qui doit être un témoin commun à tous les refus.",
+        "The request must be a shared witness for all denials."
+      ],
+      "explanation": [
+        "L'existentielle porte sur $r$ et l'universelle sur les utilisateurs $u$.",
+        "The existential ranges over request $r$ and universal over users $u$."
+      ]
+    },
+    {
+      "objective": 1,
+      "prompt": [
+        "Soit $K(u)$ : possède une clé et $D(u)$ : peut ouvrir la porte. « Seuls les détenteurs de clé peuvent ouvrir » permet quelle situation ?",
+        "Let $K(u)$ mean 'has a key' and $D(u)$ 'may open the door'. 'Only keyholders may open' allows which situation?"
+      ],
+      "hint": [
+        "Posséder la clé n'est pas forcément suffisant.",
+        "Holding a key need not be sufficient."
+      ],
+      "options": [
+        [
+          "Un détenteur de clé ne peut pas ouvrir.",
+          "A keyholder cannot open."
+        ],
+        [
+          "Une personne sans clé peut ouvrir.",
+          "A person without a key can open."
+        ],
+        [
+          "Toute personne sans clé peut ouvrir.",
+          "Every person without a key can open."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Toute ouverture exige la clé, mais rien n'impose une ouverture à chaque détenteur.",
+        "Every opening requires a key, but no opening is promised to each keyholder."
+      ],
+      "explanation": [
+        "$D(u)\\Rightarrow K(u)$ reste vraie lorsqu'une personne a une clé mais pas l'autorisation.",
+        "$D(u)\\Rightarrow K(u)$ holds when someone has a key but no permission."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "On affirme « un code valide est nécessaire pour accéder ». Quelle implication est justifiée ?",
+        "We claim 'a valid code is necessary for access'. Which implication follows?"
+      ],
+      "hint": [
+        "Si l'accès réussit, le code ne peut pas être invalide.",
+        "If access succeeds, the code cannot be invalid."
+      ],
+      "options": [
+        "$\\text{CodeValide}\\Rightarrow\\text{Accès}$",
+        "$\\text{Accès}\\Rightarrow\\text{CodeValide}$",
+        "$\\text{Accès}\\Leftrightarrow\\text{CodeValide}$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Une condition nécessaire n'est pas automatiquement suffisante ni équivalente.",
+        "A necessary condition is not automatically sufficient or equivalent."
+      ],
+      "explanation": [
+        "L'accès garantit le code valide ; un code valide peut être refusé pour une autre raison.",
+        "Access guarantees a valid code; a valid code may still be rejected for another reason."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "$U=\\{a,b\\}$, seul $a$ a le rôle $M$ ; demandes $R=\\{r1,r2\\}$ ; seuls couples autorisés $V=\\{(a,r1),(a,r2)\\}$. La règle $\\forall u\\forall r\\ (V(u,r)\\Rightarrow M(u))$ vaut :",
+        "$U=\\{a,b\\}$, only $a$ has role $M$; requests $R=\\{r1,r2\\}$; the only allowed pairs are $V=\\{(a,r1),(a,r2)\\}$. The rule $\\forall u\\forall r\\ (V(u,r)\\Rightarrow M(u))$ is:"
+      ],
+      "hint": [
+        "Tous les couples autorisés concernent-ils un responsable ?",
+        "Does every allowed pair concern a manager?"
+      ],
+      "options": [
+        [
+          "Fausse à cause de $b$.",
+          "False because of $b$."
+        ],
+        [
+          "Fausse car $a$ approuve deux demandes.",
+          "False because $a$ approves two requests."
+        ],
+        [
+          "Vraie : aucune permission ne concerne $b$.",
+          "True: no permission concerns $b$."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Un non-responsable sans permission n'est pas une violation de l'implication.",
+        "A non-manager without permission does not violate the implication."
+      ],
+      "explanation": [
+        "Pour $b$, la prémisse $V(b,r)$ est fausse ; pour $a$, la conclusion $M(a)$ est vraie.",
+        "For $b$, premise $V(b,r)$ is false; for $a$, conclusion $M(a)$ is true."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Quelle phrase exprime $\\forall u\\ (M(u)\\Rightarrow\\exists r\\ V(u,r))$ avec demandes non vides ?",
+        "Which sentence expresses $\\forall u\\ (M(u)\\Rightarrow\\exists r\\ V(u,r))$ with nonempty requests?"
+      ],
+      "hint": [
+        "La demande peut dépendre du responsable.",
+        "The request may depend on the manager."
+      ],
+      "options": [
+        [
+          "Chaque responsable peut approuver au moins une demande.",
+          "Every manager can approve at least one request."
+        ],
+        [
+          "Chaque demande peut être approuvée par tous les responsables.",
+          "Every request can be approved by all managers."
+        ],
+        [
+          "Un seul responsable peut tout approuver.",
+          "A single manager can approve everything."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "La formule garantit au moins un témoin de demande pour chaque responsable, pas un témoin commun.",
+        "The formula provides one request witness per manager, not a shared witness."
+      ],
+      "explanation": [
+        "Le $\\exists r$ est à l'intérieur de l'implication dépendant de $u$.",
+        "The $\\exists r$ is inside the implication depending on $u$."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Niez « tous les utilisateurs autorisés peuvent approuver au moins une demande » pour $A(u)$ : autorisé.",
+        "Negate 'every authorized user may approve at least one request' with $A(u)$: authorized."
+      ],
+      "hint": [
+        "Trouvez un utilisateur autorisé qui ne peut approuver aucune demande.",
+        "Find an authorized user who cannot approve any request."
+      ],
+      "options": [
+        "$\\exists u\\ (\\neg A(u)\\land\\forall r\\ \\neg V(u,r))$",
+        "$\\exists u\\ (A(u)\\land\\forall r\\ \\neg V(u,r))$",
+        "$\\forall u\\ (A(u)\\land\\exists r\\ \\neg V(u,r))$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "La personne témoin doit satisfaire le rôle et échouer sur toutes les demandes.",
+        "The witnessing user must have the role and fail on every request."
+      ],
+      "explanation": [
+        "$\\neg\\forall u(A(u)\\Rightarrow\\exists r V(u,r))=\\exists u(A(u)\\land\\forall r\\neg V(u,r))$.",
+        "$\\neg\\forall u(A(u)\\Rightarrow\\exists r V(u,r))=\\exists u(A(u)\\land\\forall r\\neg V(u,r))$."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Niez $\\exists r\\in R\\ \\forall u\\in U\\ \\neg V(u,r)$.",
+        "Negate $\\exists r\\in R\\ \\forall u\\in U\\ \\neg V(u,r)$."
+      ],
+      "hint": [
+        "Toutes les demandes doivent avoir au moins un approbateur.",
+        "Every request must have at least one approver."
+      ],
+      "options": [
+        "$\\exists r\\in R\\ \\exists u\\in U\\ V(u,r)$",
+        "$\\forall r\\in R\\ \\forall u\\in U\\ V(u,r)$",
+        "$\\forall r\\in R\\ \\exists u\\in U\\ V(u,r)$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "La négation échange les deux quantificateurs et enlève la négation du prédicat.",
+        "The negation swaps both quantifiers and removes predicate negation."
+      ],
+      "explanation": [
+        "Il ne doit exister aucune demande sans approbateur ; chacune en a au moins un.",
+        "There must be no request without an approver; each has at least one."
+      ]
+    },
+    {
+      "objective": 1,
+      "prompt": [
+        "Une politique exige simultanément « seuls les responsables approuvent » et « tous les responsables approuvent toutes les demandes ». Pour $M(u),V(u,r)$, quelle formule les combine ?",
+        "A policy requires both 'only managers approve' and 'all managers approve every request'. For $M(u),V(u,r)$, which formula combines them?"
+      ],
+      "hint": [
+        "Les deux directions doivent être imposées pour chaque utilisateur et demande.",
+        "Both directions must hold for every user and request."
+      ],
+      "options": [
+        "$\\forall u\\forall r\\ (V(u,r)\\Leftrightarrow M(u))$",
+        "$\\exists u\\exists r\\ (V(u,r)\\Leftrightarrow M(u))$",
+        "$\\forall u\\forall r\\ (V(u,r)\\lor M(u))$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Une politique dans les deux sens est une biconditionnelle universelle, non une simple possibilité.",
+        "A two-way policy is a universal biconditional, not a mere possibility."
+      ],
+      "explanation": [
+        "Pour chaque paire $(u,r)$, l'autorisation équivaut au rôle : nécessité et suffisance réunies.",
+        "For each pair $(u,r)$, permission is equivalent to role: necessity and sufficiency together."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "$U=\\{a,b\\}$, $R=\\{x,y\\}$, $M(a)$ vrai et $M(b)$ faux ; $V=\\{(a,x),(b,y)\\}$. Combien de couples réfutent « seuls les responsables approuvent » ?",
+        "$U=\\{a,b\\}$, $R=\\{x,y\\}$, $M(a)$ true and $M(b)$ false; $V=\\{(a,x),(b,y)\\}$. How many pairs refute 'only managers approve'?"
+      ],
+      "hint": [
+        "Un couple est fautif si l'approbation est vraie et le rôle faux.",
+        "A pair violates the rule if permission is true and role false."
+      ],
+      "options": [
+        "$0$",
+        "$1$",
+        "$2$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Seule la permission $(b,y)$ appartient à un non-responsable.",
+        "Only permission $(b,y)$ belongs to a non-manager."
+      ],
+      "explanation": [
+        "$(a,x)$ respecte la règle, $(b,y)$ viole $V\\Rightarrow M$ ; les autres paires n'ont pas de permission.",
+        "$(a,x)$ respects the rule, $(b,y)$ violates $V\\Rightarrow M$; other pairs lack permission."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "La politique $\\forall u\\forall r\\ (V(u,r)\\Rightarrow M(u))$ est violée. Quelle preuve minimale suffit ?",
+        "The policy $\\forall u\\forall r\\ (V(u,r)\\Rightarrow M(u))$ is violated. What is a minimal proof?"
+      ],
+      "hint": [
+        "Une implication échoue quand la prémisse est vraie et la conclusion fausse.",
+        "An implication fails when the premise is true and the conclusion false."
+      ],
+      "options": [
+        [
+          "Un responsable sans permission.",
+          "A manager without permission."
+        ],
+        [
+          "Une demande sans aucun approbateur.",
+          "A request with no approver."
+        ],
+        [
+          "Un couple $(u,r)$ autorisé avec $M(u)$ faux.",
+          "One allowed pair $(u,r)$ with $M(u)$ false."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "L'absence de permission ne viole pas la règle « seuls ».",
+        "Lack of permission does not violate an 'only' rule."
+      ],
+      "explanation": [
+        "Le contre-exemple possède $V(u,r)=1$ et $M(u)=0$ ; cela suffit à réfuter l'universelle.",
+        "A counterexample has $V(u,r)=1$ and $M(u)=0$; that suffices to refute universality."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "lessonId": "L18",
+  "version": 2,
+  "items": [
+    {
+      "objective": 1,
+      "prompt": [
+        "Dans une table sans doublons `People(id,age)` contenant `(ana,20)`, `(bo,17)`, `(cy,22)`, que renvoie `SELECT id FROM People WHERE age >= 20` ?",
+        "In a duplicate-free `People(id,age)` table containing `(ana,20)`, `(bo,17)`, `(cy,22)`, what does `SELECT id FROM People WHERE age >= 20` return?"
+      ],
+      "hint": [
+        "Le filtre conserve les âges $20$ et plus.",
+        "The filter keeps ages $20$ and above."
+      ],
+      "options": [
+        "$\\{\\text{ana},\\text{cy}\\}$",
+        "$\\{\\text{bo}\\}$",
+        "$\\{\\text{ana},\\text{bo},\\text{cy}\\}$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "La condition dans `WHERE` retire l'âge $17$.",
+        "The `WHERE` condition removes age $17$."
+      ],
+      "explanation": [
+        "Ana a $20$ ans et Cy $22$ ; Bo échoue au filtre.",
+        "Ana is $20$ and Cy is $22$; Bo fails the filter."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Dans `SELECT p.id FROM People p WHERE p.age < 30`, que signifie `p.age < 30` ?",
+        "In `SELECT p.id FROM People p WHERE p.age < 30`, what does `p.age < 30` mean?"
+      ],
+      "hint": [
+        "`WHERE` détermine quelles lignes sont retenues.",
+        "`WHERE` determines which rows are kept."
+      ],
+      "options": [
+        [
+          "Une liste de colonnes affichées.",
+          "A list of output columns."
+        ],
+        [
+          "Un prédicat appliqué à chaque ligne `p`.",
+          "A predicate applied to each row `p`."
+        ],
+        [
+          "Une nouvelle table créée automatiquement.",
+          "A new table created automatically."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "La sélection des colonnes se fait dans `SELECT` ; le filtre est dans `WHERE`.",
+        "Columns are selected in `SELECT`; filtering happens in `WHERE`."
+      ],
+      "explanation": [
+        "La ligne $p$ est conservée si et seulement si son âge satisfait l'inégalité.",
+        "Row $p$ is kept if and only if its age satisfies the inequality."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "À quels connecteurs correspondent respectivement `AND` et `OR` dans le modèle logique simplifié sans `NULL` ?",
+        "Which connectives correspond to `AND` and `OR` in the simplified no-`NULL` logical model?"
+      ],
+      "hint": [
+        "Les mots SQL reprennent les connecteurs classiques.",
+        "The SQL words match classical connectives."
+      ],
+      "options": [
+        "$\\lor,\\land$",
+        "$\\neg,\\lor$",
+        "$\\land,\\lor$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "`AND` demande deux conditions ; `OR` en demande au moins une.",
+        "`AND` requires both conditions; `OR` at least one."
+      ],
+      "explanation": [
+        "Sans valeur manquante, `AND` est $\\land$ et `OR` est $\\lor$.",
+        "Without missing values, `AND` is $\\land$ and `OR` is $\\lor$."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Dans une sous-requête SQL, que teste `EXISTS (...)` ?",
+        "In a SQL subquery, what does `EXISTS (...)` test?"
+      ],
+      "hint": [
+        "Il suffit d'une seule ligne renvoyée.",
+        "One returned row suffices."
+      ],
+      "options": [
+        [
+          "Au moins une ligne est renvoyée.",
+          "At least one row is returned."
+        ],
+        [
+          "Toutes les lignes satisfont une condition.",
+          "All rows satisfy a condition."
+        ],
+        [
+          "Aucune ligne n'est renvoyée.",
+          "No row is returned."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "`EXISTS` exprime une existence, pas une universelle ou sa négation.",
+        "`EXISTS` expresses existence, not universal quantification or its negation."
+      ],
+      "explanation": [
+        "`EXISTS` est vrai dès qu'une sous-requête produit une ligne.",
+        "`EXISTS` is true as soon as a subquery yields a row."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "`Student(id)` contient ana et bo ; `Enrolled(student,course)` contient seulement `(ana,math)`. Qui est retenu par `WHERE NOT EXISTS` d'une inscription en math corrélée à `s.id` ?",
+        "`Student(id)` contains ana and bo; `Enrolled(student,course)` contains only `(ana,math)`. Who passes `WHERE NOT EXISTS` for a math enrollment correlated to `s.id`?"
+      ],
+      "hint": [
+        "La condition garde les étudiants sans inscription correspondante.",
+        "The condition keeps students with no matching enrollment."
+      ],
+      "options": [
+        "$\\{\\text{ana}\\}$",
+        "$\\{\\text{bo}\\}$",
+        "$\\{\\text{ana},\\text{bo}\\}$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Ana a une ligne d'inscription en math ; Bo n'en a pas.",
+        "Ana has a math enrollment row; Bo has none."
+      ],
+      "explanation": [
+        "La sous-requête d'Ana a une ligne, celle de Bo est vide ; seul Bo satisfait `NOT EXISTS`.",
+        "Ana's subquery has one row, Bo's is empty; only Bo passes `NOT EXISTS`."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Pour vérifier « tous les étudiants sont inscrits », quel schéma SQL traduit $\\forall s\\ P(s)$ ?",
+        "To check 'every student is enrolled', which SQL pattern expresses $\\forall s\\ P(s)$?"
+      ],
+      "hint": [
+        "Il ne doit exister aucun contre-exemple.",
+        "There must be no counterexample."
+      ],
+      "options": [
+        ["`EXISTS` d'un étudiant sans inscription", "`EXISTS` of a student without enrollment"],
+        ["`EXISTS` d'un étudiant quelconque", "`EXISTS` of any student"],
+        ["`NOT EXISTS` d'un étudiant sans inscription", "`NOT EXISTS` of a student without enrollment"]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Pour établir une universelle, interdisez les lignes qui échouent à $P$.",
+        "To establish a universal, exclude rows failing $P$."
+      ],
+      "explanation": [
+        "$\\forall s\\ P(s)\\equiv\\neg\\exists s\\ \\neg P(s)$.",
+        "$\\forall s\\ P(s)\\equiv\\neg\\exists s\\ \\neg P(s)$."
+      ]
+    },
+    {
+      "objective": 1,
+      "prompt": [
+        "Dans `Product(name,stock)` avec `(a,0)`, `(b,5)`, `(c,8)` sans doublons, que renvoie `SELECT name FROM Product WHERE stock > 0` ?",
+        "In duplicate-free `Product(name,stock)` with `(a,0)`, `(b,5)`, `(c,8)`, what does `SELECT name FROM Product WHERE stock > 0` return?"
+      ],
+      "hint": [
+        "Zéro ne satisfait pas une comparaison strictement positive.",
+        "Zero does not satisfy a strictly positive comparison."
+      ],
+      "options": [
+        "$\\{\\text{b},\\text{c}\\}$",
+        "$\\{\\text{a},\\text{b},\\text{c}\\}$",
+        "$\\{\\text{a}\\}$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Seules les lignes de stock strictement positif passent.",
+        "Only rows with strictly positive stock pass."
+      ],
+      "explanation": [
+        "Les produits b et c ont un stock positif ; a n'en a pas.",
+        "Products b and c have positive stock; a does not."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "La requête `SELECT t.name FROM T t WHERE t.active = 1` correspond à quelle compréhension (modèle sans `NULL`) ?",
+        "The query `SELECT t.name FROM T t WHERE t.active = 1` corresponds to which comprehension (no-`NULL` model)?"
+      ],
+      "hint": [
+        "On projette le nom des lignes satisfaisant le prédicat.",
+        "We project the name of rows satisfying the predicate."
+      ],
+      "options": [
+        "$\\{t\\in T\\mid t.active=0\\}$",
+        "$\\{t.name\\mid t\\in T\\land t.active=1\\}$",
+        "$\\{t.name\\mid t\\notin T\\}$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Le filtre doit retenir les lignes actives présentes dans $T$.",
+        "The filter must retain active rows present in $T$."
+      ],
+      "explanation": [
+        "Le résultat contient les noms des lignes $t$ telles que $t.active=1$.",
+        "The result contains names from rows $t$ for which $t.active=1$."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Pour `paid=1` et `verified=0`, quelle condition est vraie dans un modèle SQL à deux valeurs ?",
+        "For `paid=1` and `verified=0`, which condition is true in a two-valued SQL model?"
+      ],
+      "hint": [
+        "Une conjonction demande deux vrais ; la négation inverse une valeur.",
+        "Conjunction needs two true values; negation flips one value."
+      ],
+      "options": [
+        "`paid = 1 AND verified = 1`",
+        "`NOT (paid = 1)`",
+        "`paid = 1 AND NOT (verified = 1)`"
+      ],
+      "correct": 2,
+      "wrong": [
+        "La vérification est fausse, le paiement vrai.",
+        "Verification is false while payment is true."
+      ],
+      "explanation": [
+        "La troisième condition vaut vrai $\\land$ non(faux), donc vrai.",
+        "The third condition is true $\\land$ not(false), hence true."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Une sous-requête retourne zéro ligne. Quelle paire est correcte pour `EXISTS` et `NOT EXISTS` ?",
+        "A subquery returns zero rows. Which pair is correct for `EXISTS` and `NOT EXISTS`?"
+      ],
+      "hint": [
+        "`NOT EXISTS` nie la valeur booléenne de `EXISTS`.",
+        "`NOT EXISTS` negates the Boolean value of `EXISTS`."
+      ],
+      "options": [
+        [
+          "Faux, vrai.",
+          "False, true."
+        ],
+        [
+          "Vrai, faux.",
+          "True, false."
+        ],
+        [
+          "Faux, faux.",
+          "False, false."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Une sous-requête vide ne fournit aucun témoin.",
+        "An empty subquery gives no witness."
+      ],
+      "explanation": [
+        "`EXISTS` est faux sans ligne, donc `NOT EXISTS` est vrai.",
+        "`EXISTS` is false with no row, hence `NOT EXISTS` is true."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "`Student` a ana, bo, cy ; `Enrolled` a `(ana,art)`, `(bo,bio)`. Qui satisfait une sous-requête corrélée `NOT EXISTS` d'inscription en `art` ?",
+        "`Student` has ana, bo, cy; `Enrolled` has `(ana,art)`, `(bo,bio)`. Who satisfies a correlated `NOT EXISTS` subquery for enrollment in `art`?"
+      ],
+      "hint": [
+        "La requête refuse toute ligne `art` liée à l'étudiant.",
+        "The query rejects any related `art` row."
+      ],
+      "options": [
+        "$\\{\\text{ana}\\}$",
+        "$\\{\\text{bo},\\text{cy}\\}$",
+        "$\\{\\text{cy}\\}$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Bo n'a que bio et Cy aucune inscription ; tous deux n'ont pas art.",
+        "Bo only has bio and Cy has none; both lack art."
+      ],
+      "explanation": [
+        "Ana est exclue par son inscription en art ; Bo et Cy restent.",
+        "Ana is excluded by her art enrollment; Bo and Cy remain."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Dans un univers fini de lignes sans `NULL`, quelle équivalence exprime `NOT EXISTS` d'une ligne violant $P$ ?",
+        "In a finite no-`NULL` row universe, which equivalence expresses `NOT EXISTS` of a row violating $P$?"
+      ],
+      "hint": [
+        "Une universelle est l'absence de contre-exemple.",
+        "A universal is absence of counterexamples."
+      ],
+      "options": [
+        "$\\exists x\\ \\neg P(x)$",
+        "$\\forall x\\ \\neg P(x)$",
+        "$\\forall x\\ P(x)$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "Une absence de violation impose $P$ à toutes les lignes, non sa négation.",
+        "Absence of violations imposes $P$ on every row, not its negation."
+      ],
+      "explanation": [
+        "$\\neg\\exists x\\ \\neg P(x)$ est équivalent à $\\forall x\\ P(x)$.",
+        "$\\neg\\exists x\\ \\neg P(x)$ is equivalent to $\\forall x\\ P(x)$."
+      ]
+    },
+    {
+      "objective": 1,
+      "prompt": [
+        "`Task(id,done)` contient `(a,1)`, `(b,0)`, `(c,1)` ; que renvoie `SELECT id FROM Task WHERE NOT(done = 1)` sans `NULL` ?",
+        "`Task(id,done)` contains `(a,1)`, `(b,0)`, `(c,1)`; what does `SELECT id FROM Task WHERE NOT(done = 1)` return without `NULL`?"
+      ],
+      "hint": [
+        "Ne gardez que les tâches non terminées.",
+        "Keep only unfinished tasks."
+      ],
+      "options": [
+        "$\\{\\text{b}\\}$",
+        "$\\{\\text{a},\\text{c}\\}$",
+        "$\\{\\text{a},\\text{b},\\text{c}\\}$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "La négation exclut les lignes dont `done=1`.",
+        "Negation excludes rows with `done=1`."
+      ],
+      "explanation": [
+        "Seule b a `done=0`.",
+        "Only b has `done=0`."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Pour chaque étudiant, une sous-requête corrélée cherche un devoir rendu. Si seul Ali possède une ligne de rendu, qui satisfait `NOT EXISTS` sur le domaine $\\{\\text{Ali},\\text{Bea},\\text{Cy}\\}$ ?",
+        "For each student, a correlated subquery looks for a submitted assignment. If only Ali has a submission row, who satisfies `NOT EXISTS` over $\\{\\text{Ali},\\text{Bea},\\text{Cy}\\}$?"
+      ],
+      "hint": [
+        "`NOT EXISTS` conserve les étudiants sans ligne liée.",
+        "`NOT EXISTS` keeps students with no related row."
+      ],
+      "options": [
+        "$\\{\\text{Ali}\\}$",
+        "$\\{\\text{Bea},\\text{Cy}\\}$",
+        "$\\{\\text{Ali},\\text{Bea},\\text{Cy}\\}$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Ali possède un témoin qui rend `NOT EXISTS` faux.",
+        "Ali has a witness that makes `NOT EXISTS` false."
+      ],
+      "explanation": [
+        "La sous-requête est vide pour Bea et Cy seulement.",
+        "The subquery is empty only for Bea and Cy."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Une requête cherche les projets dont **tous** les jalons sont validés. Quel raisonnement est correct pour un projet sans jalons, dans ce modèle ensembliste ?",
+        "A query seeks projects with **all** milestones validated. Which reasoning is correct for a project with no milestones in this set model?"
+      ],
+      "hint": [
+        "Une universelle sur un ensemble vide est vraie.",
+        "A universal over the empty set is true."
+      ],
+      "options": [
+        [
+          "Le projet doit être exclu par définition.",
+          "The project must be excluded by definition."
+        ],
+        [
+          "Le projet a forcément un jalon caché.",
+          "The project must have a hidden milestone."
+        ],
+        [
+          "Sans contre-exemple, la condition universelle est vraie par vacuité.",
+          "With no counterexample, the universal condition is vacuously true."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Une règle métier exigeant au moins un jalon est une condition additionnelle.",
+        "A business rule requiring at least one milestone is an additional condition."
+      ],
+      "explanation": [
+        "`NOT EXISTS` de jalon non validé est vrai sans jalons ; une exigence d'existence doit être ajoutée séparément.",
+        "`NOT EXISTS` of an unvalidated milestone is true with no milestones; an existence requirement must be added separately."
+      ]
+    }
+  ]
+}

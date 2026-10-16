@@ -1,0 +1,1242 @@
+{
+  "lessonId": "L10",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L10-E07",
+      "objectiveId": "L10-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "number-set-chain-reversed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans quel plus petit ensemble de la chaîne $\\mathbb N\\subseteq\\mathbb Z\\subseteq\\mathbb Q\\subseteq\\mathbb R$ trouve-t-on $-4$ ?",
+        "en": "Which smallest set in $\\mathbb N\\subseteq\\mathbb Z\\subseteq\\mathbb Q\\subseteq\\mathbb R$ contains $-4$?"
+      },
+      "hint": {
+        "fr": "Les naturels du cours commencent à $0$.",
+        "en": "Naturals start at $0$ in this course."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\mathbb N$",
+            "en": "$\\mathbb N$"
+          },
+          "feedback": {
+            "fr": "Un entier négatif n'est pas naturel, mais tout entier est rationnel et réel.",
+            "en": "A negative integer is not natural, but all integers are rational and real."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\mathbb Z$",
+            "en": "$\\mathbb Z$"
+          },
+          "feedback": {
+            "fr": "$-4$ est un entier non naturel, donc le plus petit ensemble nommé est $\\mathbb Z$.",
+            "en": "$-4$ is a non-natural integer, so the smallest named set is $\\mathbb Z$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\mathbb R$ mais pas $\\mathbb Q$",
+            "en": "$\\mathbb R$ but not $\\mathbb Q$"
+          },
+          "feedback": {
+            "fr": "Un entier négatif n'est pas naturel, mais tout entier est rationnel et réel.",
+            "en": "A negative integer is not natural, but all integers are rational and real."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$-4$ est un entier non naturel, donc le plus petit ensemble nommé est $\\mathbb Z$.",
+        "en": "$-4$ is a non-natural integer, so the smallest named set is $\\mathbb Z$."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E08",
+      "objectiveId": "L10-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "enumeration-order-or-repetition-matters"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel ensemble possède exactement les éléments $5$ et $8$ ?",
+        "en": "Which set has exactly the elements $5$ and $8$?"
+      },
+      "hint": {
+        "fr": "L'ordre et la répétition ne créent pas de nouveaux éléments.",
+        "en": "Order and repetition do not add new elements."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{8,5,8\\}$",
+            "en": "$\\{8,5,8\\}$"
+          },
+          "feedback": {
+            "fr": "$\\{8,5,8\\}=\\{5,8\\}$ : le deuxième $8$ n'ajoute rien.",
+            "en": "$\\{8,5,8\\}=\\{5,8\\}$: the second $8$ adds nothing."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{5,6,8\\}$",
+            "en": "$\\{5,6,8\\}$"
+          },
+          "feedback": {
+            "fr": "Un ensemble ne dépend ni de l'ordre ni des répétitions, mais dépend de ses éléments.",
+            "en": "A set ignores order and repetitions but depends on which elements occur."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{5\\}$",
+            "en": "$\\{5\\}$"
+          },
+          "feedback": {
+            "fr": "Un ensemble ne dépend ni de l'ordre ni des répétitions, mais dépend de ses éléments.",
+            "en": "A set ignores order and repetitions but depends on which elements occur."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\{8,5,8\\}=\\{5,8\\}$ : le deuxième $8$ n'ajoute rien.",
+        "en": "$\\{8,5,8\\}=\\{5,8\\}$: the second $8$ adds nothing."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E09",
+      "objectiveId": "L10-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "empty-set-as-element",
+        "empty-set-has-no-subset-relation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la taille de $\\varnothing$ ?",
+        "en": "What is the size of $\\varnothing$?"
+      },
+      "hint": {
+        "fr": "L'ensemble vide n'a aucun élément.",
+        "en": "The empty set has no elements."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "L'ensemble vide n'est pas l'ensemble contenant zéro : il ne contient rien.",
+            "en": "The empty set is not the singleton containing zero: it contains nothing."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$-1$",
+            "en": "$-1$"
+          },
+          "feedback": {
+            "fr": "L'ensemble vide n'est pas l'ensemble contenant zéro : il ne contient rien.",
+            "en": "The empty set is not the singleton containing zero: it contains nothing."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Par définition $\\varnothing$ a $0$ élément.",
+            "en": "By definition $\\varnothing$ has $0$ elements."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Par définition $\\varnothing$ a $0$ élément.",
+        "en": "By definition $\\varnothing$ has $0$ elements."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E10",
+      "objectiveId": "L10-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "element-confused-with-part"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $A=\\{3,5,7\\}$, quelle écriture est vraie ?",
+        "en": "For $A=\\{3,5,7\\}$, which statement is true?"
+      },
+      "hint": {
+        "fr": "Un nombre peut être membre ; un singleton peut être partie.",
+        "en": "A number can be a member; a singleton can be a subset."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{5\\}\\in A$",
+            "en": "$\\{5\\}\\in A$"
+          },
+          "feedback": {
+            "fr": "Les membres de $A$ sont des nombres, non des singletons ; $\\subseteq$ relie des ensembles.",
+            "en": "Members of $A$ are numbers, not singletons; $\\subseteq$ relates sets."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5\\in A$",
+            "en": "$5\\in A$"
+          },
+          "feedback": {
+            "fr": "Le nombre $5$ figure dans l'énumération de $A$.",
+            "en": "The number $5$ is listed in $A$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$5\\subseteq A$",
+            "en": "$5\\subseteq A$"
+          },
+          "feedback": {
+            "fr": "Les membres de $A$ sont des nombres, non des singletons ; $\\subseteq$ relie des ensembles.",
+            "en": "Members of $A$ are numbers, not singletons; $\\subseteq$ relates sets."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le nombre $5$ figure dans l'énumération de $A$.",
+        "en": "The number $5$ is listed in $A$."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E11",
+      "objectiveId": "L10-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "inclusion-reversed",
+        "inclusion-as-overlap"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que signifie $C\\subseteq D$ ?",
+        "en": "What does $C\\subseteq D$ mean?"
+      },
+      "hint": {
+        "fr": "La relation compare les éléments de deux ensembles.",
+        "en": "The relation compares elements of two sets."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Tout élément de $C$ appartient à $D$.",
+            "en": "Every element of $C$ belongs to $D$."
+          },
+          "feedback": {
+            "fr": "$C\\subseteq D$ se définit par $\\forall c\\ (c\\in C\\Rightarrow c\\in D)$.",
+            "en": "$C\\subseteq D$ means $\\forall c\\ (c\\in C\\Rightarrow c\\in D)$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$C$ et $D$ n'ont aucun élément commun.",
+            "en": "$C$ and $D$ have no common elements."
+          },
+          "feedback": {
+            "fr": "Une inclusion peut être une égalité et impose l'appartenance de chaque élément de $C$.",
+            "en": "Inclusion can be equality and requires membership of each $C$ element."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$C$ a strictement moins d'éléments que $D$.",
+            "en": "$C$ has strictly fewer elements than $D$."
+          },
+          "feedback": {
+            "fr": "Une inclusion peut être une égalité et impose l'appartenance de chaque élément de $C$.",
+            "en": "Inclusion can be equality and requires membership of each $C$ element."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$C\\subseteq D$ se définit par $\\forall c\\ (c\\in C\\Rightarrow c\\in D)$.",
+        "en": "$C\\subseteq D$ means $\\forall c\\ (c\\in C\\Rightarrow c\\in D)$."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E12",
+      "objectiveId": "L10-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "subset-with-foreign-element"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $A=\\{2,4,6\\}$, lequel n'est pas un sous-ensemble de $A$ ?",
+        "en": "For $A=\\{2,4,6\\}$, which is not a subset of $A$?"
+      },
+      "hint": {
+        "fr": "Un seul élément absent suffit à réfuter une inclusion.",
+        "en": "One missing element refutes a subset claim."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{2,6\\}$",
+            "en": "$\\{2,6\\}$"
+          },
+          "feedback": {
+            "fr": "Le vide et tout choix d'éléments de $A$ sont des parties de $A$.",
+            "en": "The empty set and any selection of $A$ elements are subsets of $A$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\varnothing$",
+            "en": "$\\varnothing$"
+          },
+          "feedback": {
+            "fr": "Le vide et tout choix d'éléments de $A$ sont des parties de $A$.",
+            "en": "The empty set and any selection of $A$ elements are subsets of $A$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{4,8\\}$",
+            "en": "$\\{4,8\\}$"
+          },
+          "feedback": {
+            "fr": "$8\\notin A$, donc $\\{4,8\\}\\not\\subseteq A$.",
+            "en": "$8\\notin A$, so $\\{4,8\\}\\not\\subseteq A$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$8\\notin A$, donc $\\{4,8\\}\\not\\subseteq A$.",
+        "en": "$8\\notin A$, so $\\{4,8\\}\\not\\subseteq A$."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E13",
+      "objectiveId": "L10-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "number-set-chain-reversed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel nombre est rationnel mais n'est pas entier ?",
+        "en": "Which number is rational but not an integer?"
+      },
+      "hint": {
+        "fr": "Un quotient de deux entiers avec dénominateur non nul est rationnel.",
+        "en": "A quotient of integers with a nonzero denominator is rational."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$-6$",
+            "en": "$-6$"
+          },
+          "feedback": {
+            "fr": "Un entier reste entier et $\\sqrt2$ n'est pas rationnel.",
+            "en": "An integer remains an integer and $\\sqrt2$ is irrational."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\frac{7}{2}$",
+            "en": "$\\frac{7}{2}$"
+          },
+          "feedback": {
+            "fr": "$7/2=3.5$ est un rationnel non entier.",
+            "en": "$7/2=3.5$ is rational but not integral."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\sqrt2$",
+            "en": "$\\sqrt2$"
+          },
+          "feedback": {
+            "fr": "Un entier reste entier et $\\sqrt2$ n'est pas rationnel.",
+            "en": "An integer remains an integer and $\\sqrt2$ is irrational."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$7/2=3.5$ est un rationnel non entier.",
+        "en": "$7/2=3.5$ is rational but not integral."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E14",
+      "objectiveId": "L10-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "enumeration-order-or-repetition-matters"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$B=\\{1,2,2,3,1\\}$ : combien d'éléments distincts possède $B$ ?",
+        "en": "$B=\\{1,2,2,3,1\\}$: how many distinct elements does $B$ have?"
+      },
+      "hint": {
+        "fr": "Supprimez les doublons de l'énumération.",
+        "en": "Remove repetitions from the enumeration."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "$B=\\{1,2,3\\}$ et possède trois éléments.",
+            "en": "$B=\\{1,2,3\\}$ and has three elements."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Le nombre de positions écrites n'est pas le nombre d'éléments distincts.",
+            "en": "The number of written positions is not the number of distinct elements."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Le nombre de positions écrites n'est pas le nombre d'éléments distincts.",
+            "en": "The number of written positions is not the number of distinct elements."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$B=\\{1,2,3\\}$ et possède trois éléments.",
+        "en": "$B=\\{1,2,3\\}$ and has three elements."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E15",
+      "objectiveId": "L10-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "empty-set-as-element",
+        "empty-set-has-no-subset-relation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle relation est vraie pour tout ensemble $A$ ?",
+        "en": "Which relation is true for every set $A$?"
+      },
+      "hint": {
+        "fr": "Une inclusion peut être vérifiée sans trouver de membre.",
+        "en": "A subset claim can hold even without finding a member."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\varnothing\\in A$",
+            "en": "$\\varnothing\\in A$"
+          },
+          "feedback": {
+            "fr": "L'appartenance de $\\varnothing$ à $A$ n'est pas garantie ; rien n'appartient au vide.",
+            "en": "Membership of $\\varnothing$ in $A$ is not guaranteed; nothing belongs to the empty set."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A\\in\\varnothing$",
+            "en": "$A\\in\\varnothing$"
+          },
+          "feedback": {
+            "fr": "L'appartenance de $\\varnothing$ à $A$ n'est pas garantie ; rien n'appartient au vide.",
+            "en": "Membership of $\\varnothing$ in $A$ is not guaranteed; nothing belongs to the empty set."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\varnothing\\subseteq A$",
+            "en": "$\\varnothing\\subseteq A$"
+          },
+          "feedback": {
+            "fr": "Aucun élément de $\\varnothing$ ne viole l'inclusion dans $A$.",
+            "en": "No element of $\\varnothing$ can violate inclusion in $A$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Aucun élément de $\\varnothing$ ne viole l'inclusion dans $A$.",
+        "en": "No element of $\\varnothing$ can violate inclusion in $A$."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E16",
+      "objectiveId": "L10-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "element-confused-with-part"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $A=\\{\\{1\\},2\\}$. Quelle proposition est vraie ?",
+        "en": "Let $A=\\{\\{1\\},2\\}$. Which proposition is true?"
+      },
+      "hint": {
+        "fr": "Les éléments sont le singleton $\\{1\\}$ et le nombre $2$.",
+        "en": "The elements are the singleton $\\{1\\}$ and the number $2$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1\\in A$",
+            "en": "$1\\in A$"
+          },
+          "feedback": {
+            "fr": "Distinguez un élément et l'ensemble à un seul élément qui le contient.",
+            "en": "Distinguish an element from the singleton containing it."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{1\\}\\in A$",
+            "en": "$\\{1\\}\\in A$"
+          },
+          "feedback": {
+            "fr": "Le singleton $\\{1\\}$ figure lui-même comme élément de $A$.",
+            "en": "The singleton $\\{1\\}$ itself appears as a member of $A$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{2\\}\\in A$",
+            "en": "$\\{2\\}\\in A$"
+          },
+          "feedback": {
+            "fr": "Distinguez un élément et l'ensemble à un seul élément qui le contient.",
+            "en": "Distinguish an element from the singleton containing it."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le singleton $\\{1\\}$ figure lui-même comme élément de $A$.",
+        "en": "The singleton $\\{1\\}$ itself appears as a member of $A$."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E17",
+      "objectiveId": "L10-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "inclusion-reversed",
+        "inclusion-as-overlap"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soient $A=\\{1,2\\}$ et $B=\\{1,2\\}$. Quelle affirmation utilise correctement $\\subseteq$ ?",
+        "en": "Let $A=\\{1,2\\}$ and $B=\\{1,2\\}$. Which claim uses $\\subseteq$ correctly?"
+      },
+      "hint": {
+        "fr": "Le symbole d'inclusion n'exige pas que les ensembles soient distincts.",
+        "en": "The subset symbol does not require distinct sets."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Ni $A\\subseteq B$ ni $B\\subseteq A$.",
+            "en": "Neither $A\\subseteq B$ nor $B\\subseteq A$."
+          },
+          "feedback": {
+            "fr": "L'inclusion non stricte est satisfaite dans les deux sens pour des ensembles égaux.",
+            "en": "Nonstrict inclusion holds both ways for equal sets."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A\\subseteq B$ mais pas $B\\subseteq A$.",
+            "en": "$A\\subseteq B$ but not $B\\subseteq A$."
+          },
+          "feedback": {
+            "fr": "L'inclusion non stricte est satisfaite dans les deux sens pour des ensembles égaux.",
+            "en": "Nonstrict inclusion holds both ways for equal sets."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\subseteq B$ et $B\\subseteq A$.",
+            "en": "$A\\subseteq B$ and $B\\subseteq A$."
+          },
+          "feedback": {
+            "fr": "L'égalité entraîne les deux inclusions ; réciproquement, les deux inclusions prouvent l'égalité.",
+            "en": "Equality implies both inclusions, and conversely both inclusions establish equality."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "L'égalité entraîne les deux inclusions ; réciproquement, les deux inclusions prouvent l'égalité.",
+        "en": "Equality implies both inclusions, and conversely both inclusions establish equality."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E18",
+      "objectiveId": "L10-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "subset-with-foreign-element"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$A=\\{\\varnothing,\\{1\\}\\}$. Quel ensemble est une partie de $A$ mais n'est pas un élément de $A$ ?",
+        "en": "$A=\\{\\varnothing,\\{1\\}\\}$. Which set is a subset of $A$ but is not an element of $A$?"
+      },
+      "hint": {
+        "fr": "Vérifiez les deux conditions séparément.",
+        "en": "Check the two conditions separately."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{\\varnothing\\}$",
+            "en": "$\\{\\varnothing\\}$"
+          },
+          "feedback": {
+            "fr": "$\\{\\varnothing\\}\\subseteq A$ puisque $\\varnothing\\in A$, mais $\\{\\varnothing\\}\\notin A$.",
+            "en": "$\\{\\varnothing\\}\\subseteq A$ since $\\varnothing\\in A$, but $\\{\\varnothing\\}\\notin A$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\varnothing$",
+            "en": "$\\varnothing$"
+          },
+          "feedback": {
+            "fr": "Le vide et $\\{1\\}$ sont déjà membres de $A$ ; le singleton du vide n'est pas listé.",
+            "en": "The empty set and $\\{1\\}$ already belong to $A$; the singleton of the empty set is not listed."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{1\\}$",
+            "en": "$\\{1\\}$"
+          },
+          "feedback": {
+            "fr": "Le vide et $\\{1\\}$ sont déjà membres de $A$ ; le singleton du vide n'est pas listé.",
+            "en": "The empty set and $\\{1\\}$ already belong to $A$; the singleton of the empty set is not listed."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\{\\varnothing\\}\\subseteq A$ puisque $\\varnothing\\in A$, mais $\\{\\varnothing\\}\\notin A$.",
+        "en": "$\\{\\varnothing\\}\\subseteq A$ since $\\varnothing\\in A$, but $\\{\\varnothing\\}\\notin A$."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E19",
+      "objectiveId": "L10-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "number-set-chain-reversed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel énoncé est mathématiquement exact avec les conventions du cours ?",
+        "en": "Which statement is mathematically correct with the course conventions?"
+      },
+      "hint": {
+        "fr": "Distinguez les ensembles mathématiques et leurs représentations en informatique.",
+        "en": "Distinguish mathematical sets and their computer representations."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Tous les réels sont stockés exactement par les flottants ordinaires.",
+            "en": "All reals are stored exactly by ordinary floating-point values."
+          },
+          "feedback": {
+            "fr": "La représentation informatique des réels est limitée ; une fraction non entière n'est pas un entier.",
+            "en": "Computer representation of reals is limited; a nonintegral fraction is not an integer."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0\\in\\mathbb N$ et $\\mathbb Q\\subseteq\\mathbb R$.",
+            "en": "$0\\in\\mathbb N$ and $\\mathbb Q\\subseteq\\mathbb R$."
+          },
+          "feedback": {
+            "fr": "Le cours adopte $0\\in\\mathbb N$ et tout rationnel est un réel.",
+            "en": "The course adopts $0\\in\\mathbb N$ and every rational is real."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\frac12\\in\\mathbb Z$.",
+            "en": "$\\frac12\\in\\mathbb Z$."
+          },
+          "feedback": {
+            "fr": "La représentation informatique des réels est limitée ; une fraction non entière n'est pas un entier.",
+            "en": "Computer representation of reals is limited; a nonintegral fraction is not an integer."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le cours adopte $0\\in\\mathbb N$ et tout rationnel est un réel.",
+        "en": "The course adopts $0\\in\\mathbb N$ and every rational is real."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E20",
+      "objectiveId": "L10-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "element-confused-with-part"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $A=\\{0,\\{0\\}\\}$, combien de ces propositions sont vraies : $0\\in A$, $\\{0\\}\\in A$, $\\{0\\}\\subseteq A$ ?",
+        "en": "For $A=\\{0,\\{0\\}\\}$, how many are true: $0\\in A$, $\\{0\\}\\in A$, $\\{0\\}\\subseteq A$?"
+      },
+      "hint": {
+        "fr": "Le singleton $\\{0\\}$ est un élément, et son unique élément est $0$.",
+        "en": "The singleton $\\{0\\}$ is a member, and its only element is $0$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Une seule.",
+            "en": "Only one."
+          },
+          "feedback": {
+            "fr": "Testez chaque relation séparément ; les trois suivent de l'énumération.",
+            "en": "Test each relation separately; all three follow from the enumeration."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Deux.",
+            "en": "Two."
+          },
+          "feedback": {
+            "fr": "Testez chaque relation séparément ; les trois suivent de l'énumération.",
+            "en": "Test each relation separately; all three follow from the enumeration."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Trois.",
+            "en": "Three."
+          },
+          "feedback": {
+            "fr": "$A$ contient $0$ et $\\{0\\}$ ; donc $\\{0\\}$ est aussi un sous-ensemble de $A$.",
+            "en": "$A$ contains $0$ and $\\{0\\}$; therefore $\\{0\\}$ is also a subset of $A$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$A$ contient $0$ et $\\{0\\}$ ; donc $\\{0\\}$ est aussi un sous-ensemble de $A$.",
+        "en": "$A$ contains $0$ and $\\{0\\}$; therefore $\\{0\\}$ is also a subset of $A$."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L10-E21",
+      "objectiveId": "L10-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "subset-with-foreign-element"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $A=\\{1,2,3,4\\}$ et $B=\\{2,4,6\\}$, quelle preuve suffit à montrer $B\\not\\subseteq A$ ?",
+        "en": "With $A=\\{1,2,3,4\\}$ and $B=\\{2,4,6\\}$, which proof suffices to show $B\\not\\subseteq A$?"
+      },
+      "hint": {
+        "fr": "Une non-inclusion admet un témoin élémentaire.",
+        "en": "A non-inclusion has a single-element witness."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$2\\in A$ et $2\\in B$.",
+            "en": "$2\\in A$ and $2\\in B$."
+          },
+          "feedback": {
+            "fr": "Pour réfuter $B\\subseteq A$, il faut un élément de $B$ absent de $A$.",
+            "en": "To refute $B\\subseteq A$, we need an element of $B$ absent from $A$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$6\\in B$ mais $6\\notin A$.",
+            "en": "$6\\in B$ but $6\\notin A$."
+          },
+          "feedback": {
+            "fr": "Le témoin $6$ viole la condition universelle sur les membres de $B$.",
+            "en": "Witness $6$ violates the universal condition on members of $B$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1\\in A$ mais $1\\notin B$.",
+            "en": "$1\\in A$ but $1\\notin B$."
+          },
+          "feedback": {
+            "fr": "Pour réfuter $B\\subseteq A$, il faut un élément de $B$ absent de $A$.",
+            "en": "To refute $B\\subseteq A$, we need an element of $B$ absent from $A$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le témoin $6$ viole la condition universelle sur les membres de $B$.",
+        "en": "Witness $6$ violates the universal condition on members of $B$."
+      },
+      "lessonId": "L10",
+      "version": 2,
+      "prerequisites": [
+        "L09"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          41,
+          42,
+          43,
+          57
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

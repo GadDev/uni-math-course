@@ -1,0 +1,462 @@
+{
+  "lessonId": "L16",
+  "version": 2,
+  "items": [
+    {
+      "objective": 1,
+      "prompt": [
+        "Quelle formule développe $\\forall x\\in X\\ P(x)$ dans un univers $U$ ?",
+        "Which formula expands $\\forall x\\in X\\ P(x)$ in a universe $U$?"
+      ],
+      "hint": [
+        "Hors de $X$, l'implication doit être automatiquement vraie.",
+        "Outside $X$, implication should be automatically true."
+      ],
+      "options": [
+        "$\\forall x\\in U\\ (x\\in X\\Rightarrow P(x))$",
+        "$\\forall x\\in U\\ (x\\in X\\land P(x))$",
+        "$\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Une universelle bornée se développe avec $\\Rightarrow$ et reste universelle.",
+        "A bounded universal uses $\\Rightarrow$ and remains universal."
+      ],
+      "explanation": [
+        "On impose $P$ à chaque élément de $X$ sans contrainte pour les autres.",
+        "We require $P$ for each member of $X$ without constraints elsewhere."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Quelle formule développe $\\exists x\\in X\\ Q(x)$ ?",
+        "Which formula expands $\\exists x\\in X\\ Q(x)$?"
+      ],
+      "hint": [
+        "Le témoin doit être dans $X$ et satisfaire $Q$.",
+        "The witness must belong to $X$ and satisfy $Q$."
+      ],
+      "options": [
+        "$\\exists x\\ (x\\in X\\Rightarrow Q(x))$",
+        "$\\exists x\\ (x\\in X\\land Q(x))$",
+        "$\\forall x\\ (x\\in X\\land Q(x))$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "L'implication autorise des témoins hors de $X$, ce qui ne convient pas.",
+        "Implication permits witnesses outside $X$, which is incorrect."
+      ],
+      "explanation": [
+        "Une existentielle bornée combine appartenance et prédicat par une conjonction.",
+        "A bounded existential combines membership and predicate with AND."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Quel couple d'associations est correct ?",
+        "Which pair of associations is correct?"
+      ],
+      "hint": [
+        "Pour tous : implication ; il existe : conjonction.",
+        "For all: implication; there exists: conjunction."
+      ],
+      "options": [
+        [
+          "$\\forall$ avec $\\land$, $\\exists$ avec $\\Rightarrow$.",
+          "$\\forall$ with $\\land$, $\\exists$ with $\\Rightarrow$."
+        ],
+        [
+          "Les deux avec $\\lor$.",
+          "Both with $\\lor$."
+        ],
+        [
+          "$\\forall$ avec $\\Rightarrow$, $\\exists$ avec $\\land$.",
+          "$\\forall$ with $\\Rightarrow$, $\\exists$ with $\\land$."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Il faut empêcher les objets hors de $X$ de fausser l'universelle ou de témoigner pour l'existentielle.",
+        "The member must be in $X$; implication allows witnesses outside it."
+      ],
+      "explanation": [
+        "Ces connecteurs préservent exactement le sens des bornes.",
+        "These connectives preserve precisely the meaning of the bounds."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Dans $U=\\{1,2,3\\}$ et $X=\\{1\\}$, avec $P(x)$ faux partout, que vaut $\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$ ?",
+        "In $U=\\{1,2,3\\}$ and $X=\\{1\\}$, with $P(x)$ false everywhere, what is $\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$?"
+      ],
+      "hint": [
+        "Un témoin extérieur à $X$ rend l'implication vraie.",
+        "A witness outside $X$ makes the implication true."
+      ],
+      "options": [
+        [
+          "Vraie avec $x=2$.",
+          "True with $x=2$."
+        ],
+        [
+          "Fausse car $P$ est toujours faux.",
+          "False because $P$ is always false."
+        ],
+        [
+          "Impossible à évaluer.",
+          "Impossible to evaluate."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Une implication à prémisse fausse est vraie, même si sa conclusion est fausse.",
+        "An implication with a false premise is true even if its conclusion is false."
+      ],
+      "explanation": [
+        "$2\\notin X$, donc l'implication est vraie pour $x=2$ ; ce piège ne teste pas l'existence dans $X$.",
+        "$2\\notin X$, so implication is true for $x=2$; this trap does not test existence in $X$."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Quelle formule nie $\\forall x\\in X\\ P(x)$ ?",
+        "Which formula negates $\\forall x\\in X\\ P(x)$?"
+      ],
+      "hint": [
+        "Échangez le quantificateur, conservez la borne.",
+        "Swap the quantifier but keep the bound."
+      ],
+      "options": [
+        "$\\forall x\\in X\\ \\neg P(x)$",
+        "$\\exists x\\in X\\ \\neg P(x)$",
+        "$\\exists x\\notin X\\ \\neg P(x)$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Un contre-exemple doit être dans $X$, et une exception ne signifie pas que tous échouent.",
+        "A counterexample must be in $X$, and one exception does not mean all fail."
+      ],
+      "explanation": [
+        "La négation d'une universelle bornée est une existentielle bornée du prédicat nié.",
+        "Negating a bounded universal gives a bounded existential of the negated predicate."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Quelle valeur a $\\forall x\\in\\varnothing\\ (x>100)$ ?",
+        "What is the value of $\\forall x\\in\\varnothing\\ (x>100)$?"
+      ],
+      "hint": [
+        "Cherchez un élément qui pourrait violer la condition.",
+        "Look for an element that might violate the condition."
+      ],
+      "options": [
+        [
+          "Fausse.",
+          "False."
+        ],
+        [
+          "Indéfinie.",
+          "Undefined."
+        ],
+        [
+          "Vraie.",
+          "True."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Sur l'ensemble vide, aucune exception n'existe ; l'universelle est vraie.",
+        "Over the empty set, no exception exists; the universal is true."
+      ],
+      "explanation": [
+        "Aucun objet dans le domaine ne peut fournir de contre-exemple.",
+        "No domain object can provide a counterexample."
+      ]
+    },
+    {
+      "objective": 1,
+      "prompt": [
+        "Dans $U=\\{1,2,3,4\\}$, $X=\\{2,4\\}$, $P(x)$ : « $x$ est pair ». Que vaut $\\forall x\\in U\\ (x\\in X\\Rightarrow P(x))$ ?",
+        "In $U=\\{1,2,3,4\\}$, $X=\\{2,4\\}$, $P(x)$ means \"$x$ is even\". What is $\\forall x\\in U\\ (x\\in X\\Rightarrow P(x))$?"
+      ],
+      "hint": [
+        "Les objets hors de $X$ satisfont l'implication automatiquement.",
+        "Objects outside $X$ satisfy the implication automatically."
+      ],
+      "options": [
+        [
+          "Vraie.",
+          "True."
+        ],
+        [
+          "Fausse à $x=1$.",
+          "False at $x=1$."
+        ],
+        [
+          "Fausse à $x=3$.",
+          "False at $x=3$."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Pour $1,3$, la prémisse $x\\in X$ est fausse.",
+        "For $1,3$, premise $x\\in X$ is false."
+      ],
+      "explanation": [
+        "$2$ et $4$ sont pairs ; les autres objets n'imposent aucune contrainte.",
+        "$2$ and $4$ are even; the other objects impose no condition."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Dans $U=\\{0,1,2,3\\}$, $X=\\{1,2\\}$, $P(x)$ : $x>2$. Que vaut $\\exists x\\in U\\ (x\\in X\\land P(x))$ ?",
+        "In $U=\\{0,1,2,3\\}$, $X=\\{1,2\\}$, $P(x)$: $x>2$. What is $\\exists x\\in U\\ (x\\in X\\land P(x))$?"
+      ],
+      "hint": [
+        "$3$ passe le filtre mais est hors de $X$.",
+        "$3$ passes the filter but is outside $X$."
+      ],
+      "options": [
+        [
+          "Vraie grâce à $x=3$.",
+          "True thanks to $x=3$."
+        ],
+        [
+          "Fausse : aucun membre de $X$ ne passe le test.",
+          "False: no member of $X$ passes the test."
+        ],
+        [
+          "Vraie grâce à $x=2$.",
+          "True thanks to $x=2$."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Le témoin doit satisfaire simultanément les deux conditions.",
+        "The witness must satisfy both conditions simultaneously."
+      ],
+      "explanation": [
+        "Ni $1$ ni $2$ n'est strictement supérieur à $2$ ; $3$ n'est pas admissible.",
+        "Neither $1$ nor $2$ exceeds $2$; $3$ is not allowed."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Pourquoi $\\forall x\\ (x\\in X\\land P(x))$ n'est-il pas en général une expansion de $\\forall x\\in X\\ P(x)$ ?",
+        "Why is $\\forall x\\ (x\\in X\\land P(x))$ generally not an expansion of $\\forall x\\in X\\ P(x)$?"
+      ],
+      "hint": [
+        "La première impose l'appartenance à $X$ à tout l'univers.",
+        "The first requires the whole universe to belong to $X$."
+      ],
+      "options": [
+        [
+          "Elle accepte trop de témoins hors de $X$.",
+          "It accepts too many witnesses outside $X$."
+        ],
+        [
+          "Elle change toutes les valeurs de $P$.",
+          "It changes all values of $P$."
+        ],
+        [
+          "Elle exige aussi que chaque objet de l'univers appartienne à $X$.",
+          "It additionally requires every universe object to belong to $X$."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Le problème vient de la conjonction universelle, non d'un changement du prédicat.",
+        "The problem is universal conjunction, not a change of predicate."
+      ],
+      "explanation": [
+        "Dès qu'un objet est hors de $X$, cette formule conjointe est fausse.",
+        "As soon as an object is outside $X$, that conjunctive formula is false."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Dans $U=\\{a,b\\}$, $X=\\{a\\}$, $P(a)$ faux et $P(b)$ vrai. Quel énoncé est vrai ?",
+        "In $U=\\{a,b\\}$, $X=\\{a\\}$, $P(a)$ false and $P(b)$ true. Which statement is true?"
+      ],
+      "hint": [
+        "Vérifiez la différence entre témoin borné et implication non bornée.",
+        "Check the difference between a bounded witness and unbounded implication."
+      ],
+      "options": [
+        "$\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$",
+        "$\\exists x\\in X\\ P(x)$",
+        "$\\forall x\\in X\\ P(x)$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Le seul membre de $X$ ne vérifie pas $P$ ; le témoin $b$ ne marche que pour l'implication.",
+        "The sole $X$ member fails $P$; witness $b$ works only for implication."
+      ],
+      "explanation": [
+        "Pour $x=b$, $x\\notin X$ rend l'implication vraie sans témoin borné.",
+        "At $x=b$, $x\\notin X$ makes the implication true without a bounded witness."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Niez $\\exists x\\in X\\ (x=7)$. Quelle formule est équivalente ?",
+        "Negate $\\exists x\\in X\\ (x=7)$. Which formula is equivalent?"
+      ],
+      "hint": [
+        "Aucun élément de $X$ ne doit être égal à $7$.",
+        "No member of $X$ may equal $7$."
+      ],
+      "options": [
+        "$\\exists x\\in X\\ (x\\ne7)$",
+        "$\\forall x\\in X\\ (x\\ne7)$",
+        "$\\forall x\\in X\\ (x=7)$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Une seule valeur différente de $7$ ne suffit pas à exclure un témoin égal à $7$.",
+        "One value different from $7$ does not rule out a witness equal to $7$."
+      ],
+      "explanation": [
+        "La négation d'une existentielle bornée est une universelle bornée de l'inégalité.",
+        "Negating bounded existence yields bounded universality of inequality."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Sur $X=\\varnothing$, quelle paire de valeurs ont $\\forall x\\in X\\ P(x)$ et $\\exists x\\in X\\ P(x)$ ?",
+        "Over $X=\\varnothing$, what are the values of $\\forall x\\in X\\ P(x)$ and $\\exists x\\in X\\ P(x)$?"
+      ],
+      "hint": [
+        "Il n'existe aucun témoin et aucun contre-exemple.",
+        "There is no witness and no counterexample."
+      ],
+      "options": [
+        [
+          "Faux, faux.",
+          "False, false."
+        ],
+        [
+          "Vrai, vrai.",
+          "True, true."
+        ],
+        [
+          "Vrai, faux.",
+          "True, false."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "L'universelle est vraie par vacuité, l'existentielle est fausse.",
+        "The universal is vacuously true; the existential is false."
+      ],
+      "explanation": [
+        "Ces valeurs découlent directement des expansions avec $\\Rightarrow$ et $\\land$.",
+        "These values follow from the expansions using $\\Rightarrow$ and $\\land$."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Dans un univers avec un élément hors de $X$, quel défaut a $\\exists x\\ (x\\in X\\Rightarrow P(x))$ comme traduction d'une existence bornée ?",
+        "In a universe with an element outside $X$, what flaw does $\\exists x\\ (x\\in X\\Rightarrow P(x))$ have as a bounded-existence translation?"
+      ],
+      "hint": [
+        "Prenez l'élément extérieur comme témoin.",
+        "Use the outside element as witness."
+      ],
+      "options": [
+        [
+          "Elle est toujours vraie, même si aucun membre de $X$ ne vérifie $P$.",
+          "It is always true, even if no member of $X$ satisfies $P$."
+        ],
+        [
+          "Elle est toujours fausse.",
+          "It is always false."
+        ],
+        [
+          "Elle force tout objet à être dans $X$.",
+          "It forces every object into $X$."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Le témoin extérieur satisfait une implication à prémisse fausse.",
+        "The outside witness satisfies an implication with false premise."
+      ],
+      "explanation": [
+        "La formule peut être vraie par un objet hors de $X$ ; ce n'est pas l'existence requise.",
+        "The formula can be true due to an object outside $X$; that is not the required existence."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Quelle négation de $\\forall x\\in X\\ \\exists y\\in Y\\ R(x,y)$ est exacte ?",
+        "Which negation of $\\forall x\\in X\\ \\exists y\\in Y\\ R(x,y)$ is exact?"
+      ],
+      "hint": [
+        "Inversez les deux quantificateurs, gardez leurs domaines.",
+        "Flip both quantifiers and keep their domains."
+      ],
+      "options": [
+        "$\\forall x\\in X\\ \\forall y\\in Y\\ \\neg R(x,y)$",
+        "$\\exists x\\in X\\ \\forall y\\in Y\\ \\neg R(x,y)$",
+        "$\\exists y\\in Y\\ \\forall x\\in X\\ \\neg R(x,y)$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "L'échec d'un « tous les $x$ ont un $y$ » donne un $x$ sans aucun $y$ valable.",
+        "Failure of 'every $x$ has a $y$' gives one $x$ with no valid $y$."
+      ],
+      "explanation": [
+        "$\\neg\\forall x\\exists y\\ R(x,y)\\equiv\\exists x\\forall y\\ \\neg R(x,y)$ avec bornes inchangées.",
+        "$\\neg\\forall x\\exists y\\ R(x,y)\\equiv\\exists x\\forall y\\ \\neg R(x,y)$ with unchanged bounds."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "$U=\\{1,2,3\\}$, $X=\\{2\\}$ et $P(x):x<0$. Quelle paire est correcte pour $\\exists x\\in X\\ P(x)$ et $\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$ ?",
+        "$U=\\{1,2,3\\}$, $X=\\{2\\}$ and $P(x):x<0$. Which pair is correct for $\\exists x\\in X\\ P(x)$ and $\\exists x\\in U\\ (x\\in X\\Rightarrow P(x))$?"
+      ],
+      "hint": [
+        "Le second énoncé accepte $x=1$ hors de $X$.",
+        "The second accepts $x=1$ outside $X$."
+      ],
+      "options": [
+        [
+          "Vrai, vrai.",
+          "True, true."
+        ],
+        [
+          "Faux, faux.",
+          "False, false."
+        ],
+        [
+          "Faux, vrai.",
+          "False, true."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "La condition bornée échoue, mais une implication existentielle peut être vraie hors de $X$.",
+        "Bounded existence fails, but existential implication can hold outside $X$."
+      ],
+      "explanation": [
+        "$2$ ne vérifie pas $P$ ; $1\\notin X$ rend l'autre implication vraie.",
+        "$2$ fails $P$; $1\\notin X$ makes the other implication true."
+      ]
+    }
+  ]
+}

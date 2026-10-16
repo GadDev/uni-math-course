@@ -1,0 +1,399 @@
+{
+  "lessonId": "L13",
+  "version": 2,
+  "items": [
+    {
+      "objective": 1,
+      "prompt": [
+        "Que vaut $\\{n\\in\\{0,1,2,3,4\\}\\mid n>2\\}$ ?",
+        "What is $\\{n\\in\\{0,1,2,3,4\\}\\mid n>2\\}$?"
+      ],
+      "hint": [
+        "Conservez seulement les membres du domaine au-dessus de $2$.",
+        "Keep only domain members above $2$."
+      ],
+      "options": [
+        "$\\{3,4\\}$",
+        "$\\{2,3,4\\}$",
+        "$\\{3,4,5\\}$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Le test est strict et ne peut introduire un élément absent du domaine.",
+        "The test is strict and cannot introduce an element outside the domain."
+      ],
+      "explanation": [
+        "$3$ et $4$ seuls satisfont la condition dans le domaine.",
+        "Only $3$ and $4$ satisfy the condition within the domain."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Dans $X=\\{1,2,3,4,5,6,7\\}$, quels éléments vérifient « est premier » ?",
+        "In $X=\\{1,2,3,4,5,6,7\\}$, which elements satisfy 'is prime'?"
+      ],
+      "hint": [
+        "$1$ n'est pas premier.",
+        "$1$ is not prime."
+      ],
+      "options": [
+        "$\\{1,2,3,5,7\\}$",
+        "$\\{2,3,5,7\\}$",
+        "$\\{2,4,6\\}$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Un nombre premier a exactement deux diviseurs positifs.",
+        "A prime number has exactly two positive divisors."
+      ],
+      "explanation": [
+        "$2,3,5,7$ sont premiers ; $1$ et les composés sont exclus.",
+        "$2,3,5,7$ are prime; $1$ and composites are excluded."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Quel intervalle représente $\\{x\\in\\mathbb R\\mid -1<x\\leq3\\}$ en notation française ?",
+        "Which interval represents $\\{x\\in\\mathbb R\\mid -1<x\\leq3\\}$ in French interval notation?"
+      ],
+      "hint": [
+        "$-1$ est exclu, $3$ est inclus.",
+        "$-1$ is excluded and $3$ included."
+      ],
+      "options": [
+        "$[-1,3[$",
+        "$[-1,3]$",
+        "$]-1,3]$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "Le crochet extérieur exclut la borne correspondante.",
+        "The outward bracket excludes its endpoint."
+      ],
+      "explanation": [
+        "Le filtre impose ouverture à gauche et fermeture à droite.",
+        "The filter requires an open left endpoint and a closed right endpoint."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Parmi ces nombres, lequel appartient à $\\{n\\in\\mathbb N\\mid \\exists k\\in\\mathbb N\\ n=2k\\}$ ?",
+        "Which number belongs to $\\{n\\in\\mathbb N\\mid \\exists k\\in\\mathbb N\\ n=2k\\}$?"
+      ],
+      "hint": [
+        "Cherchez un multiple de $2$ avec un témoin naturel.",
+        "Look for a multiple of $2$ with a natural witness."
+      ],
+      "options": [
+        "$14$",
+        "$15$",
+        "$-2$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "$15$ est impair et $-2$ n'est pas dans $\\mathbb N$ du cours.",
+        "$15$ is odd and $-2$ is not in this course's $\\mathbb N$."
+      ],
+      "explanation": [
+        "$14=2\\cdot7$ avec $7\\in\\mathbb N$.",
+        "$14=2\\cdot7$ with $7\\in\\mathbb N$."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Que vaut $\\{x\\in\\{1,2,3\\}\\mid x^2<1\\}$ ?",
+        "What is $\\{x\\in\\{1,2,3\\}\\mid x^2<1\\}$?"
+      ],
+      "hint": [
+        "Même $1^2$ ne satisfait pas l'inégalité stricte.",
+        "Even $1^2$ fails the strict inequality."
+      ],
+      "options": [
+        "$\\{1\\}$",
+        "$\\varnothing$",
+        "$\\{0\\}$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Le domaine ne contient pas $0$ et $1$ échoue au filtre strict.",
+        "The domain excludes $0$, and $1$ fails the strict filter."
+      ],
+      "explanation": [
+        "Aucun des trois carrés n'est inférieur à $1$.",
+        "None of the three squares is below $1$."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Quelle affirmation compare correctement $A=\\{n\\in\\mathbb N\\mid n>3\\}$ et $B=\\{x\\in\\mathbb R\\mid x>3\\}$ ?",
+        "Which claim correctly compares $A=\\{n\\in\\mathbb N\\mid n>3\\}$ and $B=\\{x\\in\\mathbb R\\mid x>3\\}$?"
+      ],
+      "hint": [
+        "Un même filtre sur des domaines différents peut donner des ensembles différents.",
+        "The same filter over different domains can yield different sets."
+      ],
+      "options": [
+        "$A=B$",
+        "$B\\subseteq A$",
+        "$A\\subseteq B$ mais $A\\ne B$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "$3.5$ est dans $B$ mais pas dans $A$.",
+        "$3.5$ belongs to $B$ but not $A$."
+      ],
+      "explanation": [
+        "Tout naturel supérieur à $3$ est réel supérieur à $3$, mais $B$ contient aussi des non-entiers.",
+        "Every natural above $3$ is a real above $3$, but $B$ also contains nonintegers."
+      ]
+    },
+    {
+      "objective": 1,
+      "prompt": [
+        "Pour $X=\\{-2,-1,0,1,2\\}$, que vaut $\\{x\\in X\\mid x^2=1\\}$ ?",
+        "For $X=\\{-2,-1,0,1,2\\}$, what is $\\{x\\in X\\mid x^2=1\\}$?"
+      ],
+      "hint": [
+        "Les solutions peuvent être de signes opposés.",
+        "Solutions may have opposite signs."
+      ],
+      "options": [
+        "$\\{-1,1\\}$",
+        "$\\{1\\}$",
+        "$\\{-2,2\\}$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Les deux signes de $1$ donnent le même carré, contrairement à $2$.",
+        "Both signs of $1$ yield the same square, unlike $2$."
+      ],
+      "explanation": [
+        "$(-1)^2=1^2=1$ et aucune autre valeur de $X$ ne convient.",
+        "$(-1)^2=1^2=1$ and no other $X$ value works."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Pour $X=\\{8,9,10,11,12\\}$, quel ensemble est obtenu en gardant les nombres composés ?",
+        "For $X=\\{8,9,10,11,12\\}$, which set contains its composite numbers?"
+      ],
+      "hint": [
+        "$11$ est premier, les autres valeurs ont des diviseurs non triviaux.",
+        "$11$ is prime; the other values have nontrivial divisors."
+      ],
+      "options": [
+        "$\\{11\\}$",
+        "$\\{8,9,10,12\\}$",
+        "$\\{8,10,12\\}$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "$9=3\\cdot3$ est composé ; $11$ ne l'est pas.",
+        "$9=3\\cdot3$ is composite; $11$ is not."
+      ],
+      "explanation": [
+        "$8,9,10,12$ ont chacun un diviseur propre positif.",
+        "$8,9,10,12$ each have a proper positive divisor."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Lequel appartient à $[2,5[$ mais pas à $]2,5[$ ?",
+        "Which value belongs to $[2,5[$ but not to $]2,5[$?"
+      ],
+      "hint": [
+        "Les intervalles diffèrent à une seule extrémité.",
+        "The intervals differ at one endpoint only."
+      ],
+      "options": [
+        "$5$",
+        "$3$",
+        "$2$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "$3$ appartient aux deux et $5$ à aucun.",
+        "$3$ is in both and $5$ in neither."
+      ],
+      "explanation": [
+        "Le premier intervalle inclut $2$ et le second l'exclut.",
+        "The first interval includes $2$ and the second excludes it."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Sur $\\mathbb N$ incluant zéro, combien de nombres pairs sont strictement inférieurs à $7$ ?",
+        "Over $\\mathbb N$ including zero, how many even naturals are strictly less than $7$?"
+      ],
+      "hint": [
+        "N'oubliez pas $0=2\\cdot0$.",
+        "Remember $0=2\\cdot0$."
+      ],
+      "options": [
+        "$4$",
+        "$3$",
+        "$5$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Comptez $0$, $2$, $4$ et $6$.",
+        "Count $0$, $2$, $4$ and $6$."
+      ],
+      "explanation": [
+        "Les quatre nombres pairs inférieurs à $7$ sont $0$, $2$, $4$ et $6$.",
+        "The four even naturals below $7$ are $0$, $2$, $4$ and $6$."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Pour $A=\\{n\\in\\{2,4,6\\}\\mid n>6\\}$, quelle relation est vraie ?",
+        "For $A=\\{n\\in\\{2,4,6\\}\\mid n>6\\}$, which relation is true?"
+      ],
+      "hint": [
+        "Un résultat vide reste un sous-ensemble du domaine.",
+        "An empty result remains a subset of its domain."
+      ],
+      "options": [
+        "$A=\\{6\\}$",
+        "$A=\\varnothing$",
+        "$A=\\{7\\}$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "$6$ n'est pas strictement supérieur à $6$ et $7$ est absent du domaine.",
+        "$6$ is not strictly greater than $6$, and $7$ is outside the domain."
+      ],
+      "explanation": [
+        "Aucun élément ne passe le filtre, donc $A=\\varnothing$.",
+        "No element passes the filter, so $A=\\varnothing$."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Quelle erreur commet-on en concluant $5\\in\\{n\\in\\{1,2,3\\}\\mid n>4\\}$ ?",
+        "What error is made by concluding $5\\in\\{n\\in\\{1,2,3\\}\\mid n>4\\}$?"
+      ],
+      "hint": [
+        "La satisfaction du filtre ne suffit pas sans appartenance au domaine.",
+        "Satisfying the filter is insufficient without domain membership."
+      ],
+      "options": [
+        [
+          "$5$ n'est pas un nombre.",
+          "$5$ is not a number."
+        ],
+        [
+          "$5$ ne vérifie pas $n>4$.",
+          "$5$ does not satisfy $n>4$."
+        ],
+        [
+          "$5$ est hors du domaine de départ.",
+          "$5$ is outside the starting domain."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "$5$ vérifie bien l'inégalité mais n'est pas dans $\\{1,2,3\\}$.",
+        "$5$ satisfies the inequality but is not in $\\{1,2,3\\}$."
+      ],
+      "explanation": [
+        "Une compréhension conserve uniquement les objets de son domaine.",
+        "Comprehension selects only objects from its domain."
+      ]
+    },
+    {
+      "objective": 1,
+      "prompt": [
+        "Soit $X=\\{-4,-3,-2,-1,0,1,2,3,4\\}$. Quel filtre définit $A=\\{-2,0,2\\}$ ?",
+        "Let $X=\\{-4,-3,-2,-1,0,1,2,3,4\\}$. Which predicate defines $A=\\{-2,0,2\\}$?"
+      ],
+      "hint": [
+        "Il faut simultanément une parité et une borne.",
+        "You need both a parity condition and a bound."
+      ],
+      "options": [
+        [
+          "$x$ est pair",
+          "$x$ is even"
+        ],
+        [
+          "$x$ est pair et $|x|\\leq2$",
+          "$x$ is even and $|x|\\leq2$"
+        ],
+        [
+          "$|x|<2$",
+          "$|x|<2$"
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Le filtre doit exclure les extrémités impaires et conserver les trois nombres pairs visés.",
+        "The filter must exclude odd endpoints and keep the three target even numbers."
+      ],
+      "explanation": [
+        "La parité seule garderait aussi $-4$ et $4$ ; la borne élimine ces deux valeurs.",
+        "Evenness alone also keeps $-4$ and $4$; the bound removes both."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "À quelle compréhension correspond l'intervalle $]-\\infty,4]$ ?",
+        "Which comprehension represents the interval $]-\\infty,4]$?"
+      ],
+      "hint": [
+        "La borne $4$ est comprise.",
+        "Endpoint $4$ is included."
+      ],
+      "options": [
+        "$\\{x\\in\\mathbb R\\mid x\\leq4\\}$",
+        "$\\{x\\in\\mathbb R\\mid x<4\\}$",
+        "$\\{x\\in\\mathbb N\\mid x\\leq4\\}$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Le domaine doit être réel et l'inégalité non stricte.",
+        "The domain must be real and the inequality nonstrict."
+      ],
+      "explanation": [
+        "L'intervalle contient tous les réels jusqu'à $4$ inclus.",
+        "The interval contains all reals through $4$ inclusive."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "$A=\\{n\\in\\mathbb N\\mid n\\geq1\\}$ et $B=\\{n\\in\\mathbb Z\\mid n\\geq1\\}$. Quelle relation est correcte ?",
+        "$A=\\{n\\in\\mathbb N\\mid n\\geq1\\}$ and $B=\\{n\\in\\mathbb Z\\mid n\\geq1\\}$. Which relation is correct?"
+      ],
+      "hint": [
+        "Un entier strictement positif est un naturel dans ce cours.",
+        "Every positive integer is a natural in this course."
+      ],
+      "options": [
+        "$A\\subsetneq B$",
+        "$B\\subsetneq A$",
+        "$A=B$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "La restriction $n\\geq1$ élimine tous les entiers négatifs et zéro.",
+        "The restriction $n\\geq1$ removes negative integers and zero."
+      ],
+      "explanation": [
+        "Les deux compréhensions décrivent les entiers positifs, malgré des domaines initiaux différents.",
+        "Both comprehensions describe positive integers despite different starting domains."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  {"id":"L07-E08","kind":"table","formula":"A <=> !B"},
+  {"id":"L07-E11","kind":"table","formula":"(A => B) <=> (!B => !A)"},
+  {"id":"L07-E14","kind":"table","formula":"(A <=> B) & C"},
+  {"id":"L07-E17","kind":"table","formula":"(A & (B | C)) <=> ((A & B) | (A & C))"},
+  {"id":"L07-E21","kind":"table","formula":"((A => B) & (B => C)) <=> (A => C)"},
+  {"kind":"equivalent","left":"A <=> B","right":"(A => B) & (B => A)","expected":true},
+  {"kind":"equivalent","left":"A <=> B","right":"!A <=> !B","expected":true},
+  {"kind":"equivalent","left":"A & B","right":"A | B","expected":false}
+]

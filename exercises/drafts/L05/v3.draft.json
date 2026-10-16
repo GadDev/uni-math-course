@@ -1,0 +1,1319 @@
+{
+  "lessonId": "L05",
+  "version": 3,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L05-E07",
+      "objectiveId": "L05-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "false-antecedent"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $A=1$ et $B=0$, que vaut $A\\Rightarrow B$ ?",
+        "en": "With $A=1$ and $B=0$, what is $A\\Rightarrow B$?"
+      },
+      "hint": {
+        "fr": "Une implication a une seule ligne fausse.",
+        "en": "An implication has exactly one false row."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Une condition vraie qui conduit à une conclusion fausse réfute l'implication.",
+            "en": "A true condition with a false conclusion refutes the implication."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Exact : c'est précisément le cas d'échec.",
+            "en": "Correct: this is precisely the failure case."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Sans valeur",
+            "en": "No value"
+          },
+          "feedback": {
+            "fr": "L'affectation est complète ; la formule a une valeur.",
+            "en": "The assignment is complete; the formula has a value."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Une implication est fausse quand l'antécédent vaut $1$ et le conséquent $0$.",
+        "en": "An implication is false when the antecedent is $1$ and the consequent $0$."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E08",
+      "objectiveId": "L05-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "implication-failure"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Complétez les quatre lignes de $A\\Rightarrow\\neg B$.",
+        "en": "Complete all four rows of $A\\Rightarrow\\neg B$."
+      },
+      "hint": {
+        "fr": "Remplacez d'abord $B$ par sa négation, puis appliquez la règle de l'implication.",
+        "en": "First negate $B$, then apply the implication rule."
+      },
+      "variables": [
+        "A",
+        "B"
+      ],
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "10": true,
+        "11": false,
+        "00": true,
+        "01": true
+      },
+      "feedback": {
+        "fr": "Le seul échec est $A=1,B=1$, car $\\neg B=0$.",
+        "en": "The sole failure is $A=1,B=1$, since $\\neg B=0$."
+      },
+      "explanation": {
+        "fr": "Le seul échec est $A=1,B=1$, car $\\neg B=0$.",
+        "en": "The sole failure is $A=1,B=1$, since $\\neg B=0$."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E09",
+      "objectiveId": "L05-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "necessary-confused-with-sufficient"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour un entier $n$, être multiple de $6$ implique être pair. Quelle condition est suffisante pour que $n$ soit pair ?",
+        "en": "For an integer $n$, being a multiple of $6$ implies being even. Which condition is sufficient for $n$ to be even?"
+      },
+      "hint": {
+        "fr": "Une condition suffisante garantit la conclusion.",
+        "en": "A sufficient condition guarantees the conclusion."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Être multiple de $6$.",
+            "en": "Being a multiple of $6$."
+          },
+          "feedback": {
+            "fr": "Exact : $6k=2(3k)$ est pair.",
+            "en": "Correct: $6k=2(3k)$ is even."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Être impair.",
+            "en": "Being odd."
+          },
+          "feedback": {
+            "fr": "Un entier impair n'est précisément pas pair.",
+            "en": "An odd integer is not even."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Être supérieur à $6$.",
+            "en": "Being greater than $6$."
+          },
+          "feedback": {
+            "fr": "$7$ est supérieur à $6$ mais impair.",
+            "en": "$7$ is greater than $6$ but odd."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Pour tout entier $k$, $6k=2(3k)$ ; être multiple de $6$ suffit.",
+        "en": "For every integer $k$, $6k=2(3k)$; being a multiple of $6$ suffices."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E10",
+      "objectiveId": "L05-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "negating-implication"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule signifie exactement « $A\\Rightarrow B$ est fausse » ?",
+        "en": "Which formula means exactly “$A\\Rightarrow B$ is false”?"
+      },
+      "hint": {
+        "fr": "Cherchez l'antécédent vrai et le conséquent faux.",
+        "en": "Look for a true antecedent and a false consequent."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg A\\land B$",
+            "en": "$\\neg A\\land B$"
+          },
+          "feedback": {
+            "fr": "Un antécédent faux ne fait pas échouer l'implication.",
+            "en": "A false antecedent does not falsify an implication."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A\\lor\\neg B$",
+            "en": "$A\\lor\\neg B$"
+          },
+          "feedback": {
+            "fr": "Le « ou » serait vrai sur d'autres lignes, sans réfuter l'implication.",
+            "en": "OR would also be true on rows that do not refute implication."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\land\\neg B$",
+            "en": "$A\\land\\neg B$"
+          },
+          "feedback": {
+            "fr": "Exact : c'est la seule affectation d'échec.",
+            "en": "Correct: this is the unique failure pattern."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$\\neg(A\\Rightarrow B)\\equiv A\\land\\neg B$ par la table de l'implication.",
+        "en": "$\\neg(A\\Rightarrow B)\\equiv A\\land\\neg B$ by the implication truth table."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E11",
+      "objectiveId": "L05-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "false-antecedent"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Règle : « Si un billet est VIP, il porte une étoile. » Un billet ordinaire sans étoile contredit-il cette règle ?",
+        "en": "Rule: “If a ticket is VIP, it has a star.” Does an ordinary ticket without a star violate this rule?"
+      },
+      "hint": {
+        "fr": "Quelle propriété a été promise uniquement aux billets VIP ?",
+        "en": "Which property was promised only to VIP tickets?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui, car le billet n'a pas d'étoile.",
+            "en": "Yes, because the ticket has no star."
+          },
+          "feedback": {
+            "fr": "La règle ne promet rien aux billets non VIP.",
+            "en": "The rule promises nothing about non-VIP tickets."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non, car le billet n'est pas VIP.",
+            "en": "No, because the ticket is not VIP."
+          },
+          "feedback": {
+            "fr": "Exact : l'antécédent est faux.",
+            "en": "Correct: the antecedent is false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Impossible, car il manque la couleur.",
+            "en": "Impossible, because the colour is unknown."
+          },
+          "feedback": {
+            "fr": "La couleur n'intervient pas dans la règle.",
+            "en": "Colour is not part of the rule."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Un ticket non VIP ne fournit aucun contre-exemple à « VIP implique étoile ».",
+        "en": "A non-VIP ticket cannot refute “VIP implies star.”"
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E12",
+      "objectiveId": "L05-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "counterexample-requires-true-condition"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $\\mathbb{N}$ (avec $0$), on affirme : « Si $n$ est pair, alors $n$ est multiple de $4$. » Quel $n$ est un contre-exemple ?",
+        "en": "Over $\\mathbb{N}$ (including $0$), someone claims: “If $n$ is even, then $n$ is a multiple of $4$.” Which $n$ is a counterexample?"
+      },
+      "hint": {
+        "fr": "Cherchez un entier pair qui n'est pas divisible par $4$.",
+        "en": "Find an even integer not divisible by $4$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$8$",
+            "en": "$8$"
+          },
+          "feedback": {
+            "fr": "$8$ est pair et multiple de $4$ ; il confirme seulement ce cas.",
+            "en": "$8$ is even and divisible by $4$; it supports this case."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "$3$ est impair : l'antécédent est faux.",
+            "en": "$3$ is odd: the antecedent is false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "Exact : $6$ est pair mais pas multiple de $4$.",
+            "en": "Correct: $6$ is even but not a multiple of $4$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$6=2\\times3$ mais n'est pas divisible par $4$ ; condition vraie, conséquence fausse.",
+        "en": "$6=2\\times3$ but is not divisible by $4$; true premise, false conclusion."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E13",
+      "objectiveId": "L05-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "implication-failure"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quand $(A\\lor B)\\Rightarrow C$ est-elle fausse ? Choisissez une affectation.",
+        "en": "When is $(A\\lor B)\\Rightarrow C$ false? Choose an assignment."
+      },
+      "hint": {
+        "fr": "Le groupe $A\\lor B$ forme tout l'antécédent.",
+        "en": "The group $A\\lor B$ is the whole antecedent."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A=0,B=0,C=0$",
+            "en": "$A=0,B=0,C=0$"
+          },
+          "feedback": {
+            "fr": "L'antécédent est faux ; l'implication est vraie.",
+            "en": "The antecedent is false; the implication is true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A=1,B=0,C=0$",
+            "en": "$A=1,B=0,C=0$"
+          },
+          "feedback": {
+            "fr": "Exact : l'antécédent vaut $1$, le conséquent $0$.",
+            "en": "Correct: the antecedent is $1$, the consequent $0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A=0,B=1,C=1$",
+            "en": "$A=0,B=1,C=1$"
+          },
+          "feedback": {
+            "fr": "Antécédent et conséquent vrais donnent une implication vraie.",
+            "en": "True antecedent and consequent give a true implication."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "À $100$, $(1\\lor0)\\Rightarrow0$ est faux.",
+        "en": "At $100$, $(1\\lor0)\\Rightarrow0$ is false."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E14",
+      "objectiveId": "L05-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "false-antecedent"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Complétez la table de $(A\\land B)\\Rightarrow C$ sur $A,B,C$.",
+        "en": "Complete the table of $(A\\land B)\\Rightarrow C$ over $A,B,C$."
+      },
+      "hint": {
+        "fr": "L'implication échoue seulement lorsque $A\\land B=1$ et $C=0$.",
+        "en": "The implication fails only when $A\\land B=1$ and $C=0$."
+      },
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": true,
+        "101": true,
+        "110": false,
+        "111": true,
+        "000": true,
+        "001": true,
+        "010": true,
+        "011": true
+      },
+      "feedback": {
+        "fr": "Seule la ligne $110$ est fausse, car elle réalise $(A\\land B)=1$ et $C=0$.",
+        "en": "Only row $110$ is false, since $(A\\land B)=1$ and $C=0$."
+      },
+      "explanation": {
+        "fr": "Seule la ligne $110$ est fausse, car elle réalise $(A\\land B)=1$ et $C=0$.",
+        "en": "Only row $110$ is false, since $(A\\land B)=1$ and $C=0$."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E15",
+      "objectiveId": "L05-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "necessary-confused-with-sufficient"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Règle : « Si un dossier est validé ($V$), il est archivé ($R$). » Quelle condition est nécessaire pour $V$ ?",
+        "en": "Rule: “If a record is validated ($V$), it is archived ($R$).” Which condition is necessary for $V$?"
+      },
+      "hint": {
+        "fr": "Si $V$ est vrai, quel état doit l'être aussi ?",
+        "en": "If $V$ is true, which condition must also be true?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg R$",
+            "en": "$\\neg R$"
+          },
+          "feedback": {
+            "fr": "Un dossier validé exige $R$, pas sa négation.",
+            "en": "A validated record requires $R$, not its negation."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$V$ est nécessaire à $R$.",
+            "en": "$V$ is necessary for $R$."
+          },
+          "feedback": {
+            "fr": "L'implication ne dit pas que toute archive est validée.",
+            "en": "The implication does not say every archived record is validated."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$R$ est nécessaire à $V$.",
+            "en": "$R$ is necessary for $V$."
+          },
+          "feedback": {
+            "fr": "Exact : validation implique archivage.",
+            "en": "Correct: validation implies archiving."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "De $V\\Rightarrow R$, $R$ est nécessaire pour $V$, tandis que $V$ est suffisant pour $R$.",
+        "en": "From $V\\Rightarrow R$, $R$ is necessary for $V$, while $V$ is sufficient for $R$."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E16",
+      "objectiveId": "L05-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "negating-implication"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule décrit l'échec de $(A\\land B)\\Rightarrow C$ ?",
+        "en": "Which formula describes failure of $(A\\land B)\\Rightarrow C$?"
+      },
+      "hint": {
+        "fr": "Niez une implication entière, pas chacun de ses termes séparément.",
+        "en": "Negate the whole implication, not each part separately."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A\\land B\\land\\neg C$",
+            "en": "$A\\land B\\land\\neg C$"
+          },
+          "feedback": {
+            "fr": "Exact : les deux prémisses sont vraies et la conclusion est fausse.",
+            "en": "Correct: both premises are true and the conclusion is false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg A\\land\\neg B\\land C$",
+            "en": "$\\neg A\\land\\neg B\\land C$"
+          },
+          "feedback": {
+            "fr": "L'antécédent est alors faux et l'implication vraie.",
+            "en": "The antecedent is then false and the implication true."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg A\\lor\\neg B\\lor C$",
+            "en": "$\\neg A\\lor\\neg B\\lor C$"
+          },
+          "feedback": {
+            "fr": "Cette formule exprime l'implication elle-même, pas son échec.",
+            "en": "This formula expresses the implication itself, not its failure."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\neg((A\\land B)\\Rightarrow C)\\equiv A\\land B\\land\\neg C$.",
+        "en": "$\\neg((A\\land B)\\Rightarrow C)\\equiv A\\land B\\land\\neg C$."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E17",
+      "objectiveId": "L05-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "implication-failure"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quatre cartes ont deux faces : une face indique « de garde » ou « pas de garde », l'autre « badge ouvre » ou « badge n'ouvre pas ». On voit respectivement : de garde, pas de garde, badge ouvre, badge n'ouvre pas. Pour tester « Si de garde, alors badge ouvre », quelles cartes faut-il retourner ?",
+        "en": "Four two-sided cards show “on duty” or “off duty” on one face and “badge opens” or “badge does not open” on the other. Their visible faces are: on duty, off duty, badge opens, badge does not open. Which cards must be turned over to test “If on duty, then badge opens”?"
+      },
+      "hint": {
+        "fr": "Cherchez un employé de garde dont le badge n'ouvre pas.",
+        "en": "Look for an on-duty employee whose badge fails to open."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "De garde et badge n'ouvre pas.",
+            "en": "On duty and badge does not open."
+          },
+          "feedback": {
+            "fr": "Exact : ces faces peuvent cacher le cas d'échec.",
+            "en": "Correct: these faces may hide the failure case."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "De garde et badge ouvre.",
+            "en": "On duty and badge opens."
+          },
+          "feedback": {
+            "fr": "La face « badge ouvre » n'est pas un risque de violation.",
+            "en": "The “badge opens” face cannot reveal a violation."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Pas de garde et badge n'ouvre pas.",
+            "en": "Off duty and badge does not open."
+          },
+          "feedback": {
+            "fr": "La règle ne promet rien hors garde ; la face de garde est indispensable.",
+            "en": "The rule promises nothing off duty; the on-duty face is essential."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Pour chercher $A\\land\\neg B$, contrôlez les faces $A$ (de garde) et $\\neg B$ (badge n'ouvre pas).",
+        "en": "To search for $A\\land\\neg B$, inspect the faces $A$ (on duty) and $\\neg B$ (badge does not open)."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E18",
+      "objectiveId": "L05-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "universal-from-one-example"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur les naturels (avec $0$), on propose : « Si $n^2$ est divisible par $4$, alors $n$ est divisible par $4$. » Quel nombre réfute cette proposition ?",
+        "en": "Over natural numbers (including $0$), consider: “If $n^2$ is divisible by $4$, then $n$ is divisible by $4$.” Which number refutes this claim?"
+      },
+      "hint": {
+        "fr": "Un carré peut contenir plus de facteurs $2$ que sa racine.",
+        "en": "A square can have more factors of $2$ than its root."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "$4^2=16$ et $4$ sont tous deux divisibles par $4$.",
+            "en": "Both $4^2=16$ and $4$ are divisible by $4$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Exact : $2^2=4$, mais $2$ n'est pas multiple de $4$.",
+            "en": "Correct: $2^2=4$, but $2$ is not a multiple of $4$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "$1^2$ n'est pas divisible par $4$ : l'hypothèse échoue.",
+            "en": "$1^2$ is not divisible by $4$: the antecedent fails."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Pour $n=2$, l'antécédent est vrai et le conséquent faux, ce qui suffit à réfuter l'implication universelle.",
+        "en": "At $n=2$, the antecedent is true and the consequent false, refuting the universal implication."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E19",
+      "objectiveId": "L05-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "implication-failure"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Deux règles doivent tenir ensemble : $(A\\Rightarrow B)\\land(B\\Rightarrow C)$. Calculez leur colonne sur les huit états $A,B,C$.",
+        "en": "Two rules must both hold: $(A\\Rightarrow B)\\land(B\\Rightarrow C)$. Compute the column over all eight states $A,B,C$."
+      },
+      "hint": {
+        "fr": "Évaluez chaque implication séparément, puis faites leur conjonction.",
+        "en": "Evaluate each implication separately, then take their conjunction."
+      },
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": false,
+        "101": false,
+        "110": false,
+        "111": true,
+        "000": true,
+        "001": true,
+        "010": false,
+        "011": true
+      },
+      "feedback": {
+        "fr": "La première règle échoue sur $100$, $101$ ; la seconde sur $010$, $110$. Les autres lignes satisfont les deux.",
+        "en": "The first rule fails at $100$, $101$; the second at $010$, $110$. The other rows satisfy both."
+      },
+      "explanation": {
+        "fr": "La première règle échoue sur $100$, $101$ ; la seconde sur $010$, $110$. Les autres lignes satisfont les deux.",
+        "en": "The first rule fails at $100$, $101$; the second at $010$, $110$. The other rows satisfy both."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E20",
+      "objectiveId": "L05-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "necessary-confused-with-sufficient"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "L'accès à un coffre implique une carte valide, mais une carte valide ne garantit pas l'accès (un code peut manquer). Quelle description logique est correcte ?",
+        "en": "Access to a safe implies a valid card, but a valid card does not guarantee access (a code may be missing). Which logical description is correct?"
+      },
+      "hint": {
+        "fr": "Distinguez une condition obligatoire d'une condition qui suffit.",
+        "en": "Distinguish a required condition from one that guarantees the result."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Carte valide est suffisante pour l'accès.",
+            "en": "A valid card is sufficient for access."
+          },
+          "feedback": {
+            "fr": "Le code peut manquer malgré une carte valide.",
+            "en": "The code may be missing despite a valid card."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Accès est nécessaire pour une carte valide.",
+            "en": "Access is necessary for a valid card."
+          },
+          "feedback": {
+            "fr": "On peut avoir une carte valide sans accéder au coffre.",
+            "en": "One can have a valid card without accessing the safe."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Carte valide est nécessaire, mais pas suffisante, pour l'accès.",
+            "en": "A valid card is necessary but not sufficient for access."
+          },
+          "feedback": {
+            "fr": "Exact : tout accès exige la carte ; la carte seule ne suffit pas.",
+            "en": "Correct: all access requires the card; the card alone is insufficient."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Si $A$ est l'accès et $V$ la carte valide, $A\\Rightarrow V$, mais $V\\Rightarrow A$ peut échouer.",
+        "en": "If $A$ is access and $V$ is a valid card, $A\\Rightarrow V$, but $V\\Rightarrow A$ can fail."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L05-E21",
+      "objectiveId": "L05-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "negating-implication"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un étudiant confond $\\neg(A\\Rightarrow B)$ et $A\\Rightarrow\\neg B$. Quelle affectation montre que ces formules ne sont pas équivalentes ?",
+        "en": "A student confuses $\\neg(A\\Rightarrow B)$ with $A\\Rightarrow\\neg B$. Which assignment shows they are not equivalent?"
+      },
+      "hint": {
+        "fr": "Essayez d'abord un antécédent faux.",
+        "en": "Try a false antecedent first."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A=1,B=0$",
+            "en": "$A=1,B=0$"
+          },
+          "feedback": {
+            "fr": "Les deux formules valent $1$ ici.",
+            "en": "Both formulas are $1$ here."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A=0,B=0$",
+            "en": "$A=0,B=0$"
+          },
+          "feedback": {
+            "fr": "Exact : la première vaut $0$, la seconde $1$.",
+            "en": "Correct: the first is $0$, the second $1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A=1,B=1$",
+            "en": "$A=1,B=1$"
+          },
+          "feedback": {
+            "fr": "Les deux formules valent $0$ ici.",
+            "en": "Both formulas are $0$ here."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "À $00$, $A\\Rightarrow B$ est vraie donc sa négation fausse, tandis que $A\\Rightarrow\\neg B$ reste vraie.",
+        "en": "At $00$, $A\\Rightarrow B$ is true so its negation is false, while $A\\Rightarrow\\neg B$ remains true."
+      },
+      "lessonId": "L05",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          20,
+          21,
+          22,
+          23
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

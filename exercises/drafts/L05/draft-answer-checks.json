@@ -1,0 +1,8 @@
+[
+  {"id":"L05-E08","kind":"table","formula":"A => !B"},
+  {"id":"L05-E14","kind":"table","formula":"(A & B) => C"},
+  {"id":"L05-E19","kind":"table","formula":"(A => B) & (B => C)"},
+  {"kind":"equivalent","left":"!(A => B)","right":"A & !B","expected":true},
+  {"kind":"equivalent","left":"!((A & B) => C)","right":"A & B & !C","expected":true},
+  {"kind":"equivalent","left":"!(A => B)","right":"A => !B","expected":false}
+]

@@ -1,0 +1,1358 @@
+{
+  "lessonId": "L17",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L17-E07",
+      "objectiveId": "L17-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "product-count-as-sum"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si $A=\\{a,b\\}$ et $B=\\{1,2,3\\}$, combien de couples y a-t-il dans $A\\times B$ ?",
+        "en": "If $A=\\{a,b\\}$ and $B=\\{1,2,3\\}$, how many pairs are in $A\\times B$?"
+      },
+      "hint": {
+        "fr": "Associez chaque élément de $A$ à chacun de $B$.",
+        "en": "Pair each member of $A$ with each member of $B$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "$|A\\times B|=2\\cdot3=6$.",
+            "en": "$|A\\times B|=2\\cdot3=6$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Le nombre de couples est le produit des tailles, pas leur somme.",
+            "en": "The pair count is the product of the sizes, not their sum."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Le nombre de couples est le produit des tailles, pas leur somme.",
+            "en": "The pair count is the product of the sizes, not their sum."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$|A\\times B|=2\\cdot3=6$.",
+        "en": "$|A\\times B|=2\\cdot3=6$."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E08",
+      "objectiveId": "L17-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "predicate-value-misread"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $I=\\{(\\text{ali},\\text{math}),(\\text{bea},\\text{art})\\}$. Quel couple appartient à $I$ ?",
+        "en": "Let $I=\\{(\\text{ali},\\text{math}),(\\text{bea},\\text{art})\\}$. Which pair belongs to $I$?"
+      },
+      "hint": {
+        "fr": "L'ordre étudiant-cours compte.",
+        "en": "The student-course order matters."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(\\text{math},\\text{ali})$",
+            "en": "$(\\text{math},\\text{ali})$"
+          },
+          "feedback": {
+            "fr": "Un couple inversé ou une inscription non listée n'appartient pas à $I$.",
+            "en": "A reversed pair or an unlisted enrollment is not in $I$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(\\text{bea},\\text{art})$",
+            "en": "$(\\text{bea},\\text{art})$"
+          },
+          "feedback": {
+            "fr": "Le couple étudiant-cours de Bea et art est explicitement listé.",
+            "en": "The student-course pair for Bea and art is explicitly listed."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(\\text{ali},\\text{art})$",
+            "en": "$(\\text{ali},\\text{art})$"
+          },
+          "feedback": {
+            "fr": "Un couple inversé ou une inscription non listée n'appartient pas à $I$.",
+            "en": "A reversed pair or an unlisted enrollment is not in $I$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le couple étudiant-cours de Bea et art est explicitement listé.",
+        "en": "The student-course pair for Bea and art is explicitly listed."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E09",
+      "objectiveId": "L17-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "translation-with-swapped-quantifiers"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule exprime « Chaque membre de $S$ suit au moins un atelier de $W$ » pour $F(s,w)$ ?",
+        "en": "Which formula means 'Each member of $S$ attends at least one workshop in $W$' for $F(s,w)$?"
+      },
+      "hint": {
+        "fr": "L'atelier peut dépendre du membre.",
+        "en": "The workshop may depend on the member."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists w\\in W\\ \\forall s\\in S\\ F(s,w)$",
+            "en": "$\\exists w\\in W\\ \\forall s\\in S\\ F(s,w)$"
+          },
+          "feedback": {
+            "fr": "La phrase fixe chaque membre avant de chercher son atelier.",
+            "en": "The sentence fixes each member before looking for their workshop."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall w\\in W\\ \\exists s\\in S\\ F(s,w)$",
+            "en": "$\\forall w\\in W\\ \\exists s\\in S\\ F(s,w)$"
+          },
+          "feedback": {
+            "fr": "La phrase fixe chaque membre avant de chercher son atelier.",
+            "en": "The sentence fixes each member before looking for their workshop."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall s\\in S\\ \\exists w\\in W\\ F(s,w)$",
+            "en": "$\\forall s\\in S\\ \\exists w\\in W\\ F(s,w)$"
+          },
+          "feedback": {
+            "fr": "Le quantificateur universel porte sur les membres, l'existentiel sur l'atelier choisi.",
+            "en": "The universal ranges over members and the existential over the chosen workshop."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le quantificateur universel porte sur les membres, l'existentiel sur l'atelier choisi.",
+        "en": "The universal ranges over members and the existential over the chosen workshop."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E10",
+      "objectiveId": "L17-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "translation-with-swapped-quantifiers"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule exprime « Une salle de $R$ accueille tous les groupes de $G$ » pour $A(g,r)$ ?",
+        "en": "Which formula says 'One room in $R$ hosts every group in $G$' for $A(g,r)$?"
+      },
+      "hint": {
+        "fr": "La salle doit être la même pour tous.",
+        "en": "The room must be the same for all."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists r\\in R\\ \\forall g\\in G\\ A(g,r)$",
+            "en": "$\\exists r\\in R\\ \\forall g\\in G\\ A(g,r)$"
+          },
+          "feedback": {
+            "fr": "Il existe une salle unique témoin de l'universelle sur les groupes.",
+            "en": "One room witnesses the universal claim about groups."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall g\\in G\\ \\exists r\\in R\\ A(g,r)$",
+            "en": "$\\forall g\\in G\\ \\exists r\\in R\\ A(g,r)$"
+          },
+          "feedback": {
+            "fr": "Le choix commun doit précéder la vérification de tous les groupes.",
+            "en": "The shared choice must precede checking every group."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall r\\in R\\ \\exists g\\in G\\ A(g,r)$",
+            "en": "$\\forall r\\in R\\ \\exists g\\in G\\ A(g,r)$"
+          },
+          "feedback": {
+            "fr": "Le choix commun doit précéder la vérification de tous les groupes.",
+            "en": "The shared choice must precede checking every group."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Il existe une salle unique témoin de l'universelle sur les groupes.",
+        "en": "One room witnesses the universal claim about groups."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E11",
+      "objectiveId": "L17-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "evaluating-from-a-single-course"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$S=\\{a,b\\}$, $C=\\{p,q\\}$ et $I=\\{(a,p),(b,q)\\}$. Que vaut $\\forall s\\in S\\ \\exists c\\in C\\ I(s,c)$ ?",
+        "en": "$S=\\{a,b\\}$, $C=\\{p,q\\}$ and $I=\\{(a,p),(b,q)\\}$. What is $\\forall s\\in S\\ \\exists c\\in C\\ I(s,c)$?"
+      },
+      "hint": {
+        "fr": "Chaque étudiant peut avoir un cours différent.",
+        "en": "Each student may have a different course."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Faux : personne ne suit deux cours.",
+            "en": "False: nobody takes two courses."
+          },
+          "feedback": {
+            "fr": "L'assertion ne demande ni deux cours ni un cours commun.",
+            "en": "The claim requires neither two courses nor a shared course."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Vrai : $a$ suit $p$ et $b$ suit $q$.",
+            "en": "True: $a$ takes $p$ and $b$ takes $q$."
+          },
+          "feedback": {
+            "fr": "Chaque membre de $S$ dispose d'un témoin en $C$.",
+            "en": "Each $S$ member has a witness in $C$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Faux : aucun cours n'est commun.",
+            "en": "False: no course is shared."
+          },
+          "feedback": {
+            "fr": "L'assertion ne demande ni deux cours ni un cours commun.",
+            "en": "The claim requires neither two courses nor a shared course."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Chaque membre de $S$ dispose d'un témoin en $C$.",
+        "en": "Each $S$ member has a witness in $C$."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E12",
+      "objectiveId": "L17-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "quantifier-order-ignored"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans la relation $I=\\{(a,p),(b,q)\\}$ avec $S=\\{a,b\\}$, $C=\\{p,q\\}$, pourquoi $\\exists c\\forall s\\ I(s,c)$ est-elle fausse ?",
+        "en": "In $I=\\{(a,p),(b,q)\\}$ with $S=\\{a,b\\}$ and $C=\\{p,q\\}$, why is $\\exists c\\forall s\\ I(s,c)$ false?"
+      },
+      "hint": {
+        "fr": "Examinez $p$ et $q$ comme candidats communs.",
+        "en": "Try $p$ and $q$ as shared candidates."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Il n'existe aucun étudiant.",
+            "en": "There is no student."
+          },
+          "feedback": {
+            "fr": "Le domaine n'est pas vide ; c'est le cours commun qui manque.",
+            "en": "The domain is not empty; the shared course is missing."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Tous les étudiants suivent tous les cours.",
+            "en": "All students take all courses."
+          },
+          "feedback": {
+            "fr": "Le domaine n'est pas vide ; c'est le cours commun qui manque.",
+            "en": "The domain is not empty; the shared course is missing."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Ni $p$ ni $q$ n'est suivi par les deux étudiants.",
+            "en": "Neither $p$ nor $q$ is taken by both students."
+          },
+          "feedback": {
+            "fr": "$p$ échoue pour $b$ et $q$ échoue pour $a$.",
+            "en": "$p$ fails for $b$ and $q$ fails for $a$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$p$ échoue pour $b$ et $q$ échoue pour $a$.",
+        "en": "$p$ fails for $b$ and $q$ fails for $a$."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E13",
+      "objectiveId": "L17-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "product-count-as-sum"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si $A=\\{0,1,2\\}$ et $B=\\varnothing$, que vaut $A\\times B$ ?",
+        "en": "If $A=\\{0,1,2\\}$ and $B=\\varnothing$, what is $A\\times B$?"
+      },
+      "hint": {
+        "fr": "Aucun second composant n'est disponible.",
+        "en": "No second component is available."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\varnothing$",
+            "en": "$\\varnothing$"
+          },
+          "feedback": {
+            "fr": "Le produit avec l'ensemble vide ne contient aucun couple.",
+            "en": "The product with the empty set has no pairs."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A$",
+            "en": "$A$"
+          },
+          "feedback": {
+            "fr": "Il faut un élément de chaque facteur pour construire un couple.",
+            "en": "A pair needs one element from each factor."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{(0,0),(1,1),(2,2)\\}$",
+            "en": "$\\{(0,0),(1,1),(2,2)\\}$"
+          },
+          "feedback": {
+            "fr": "Il faut un élément de chaque facteur pour construire un couple.",
+            "en": "A pair needs one element from each factor."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le produit avec l'ensemble vide ne contient aucun couple.",
+        "en": "The product with the empty set has no pairs."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E14",
+      "objectiveId": "L17-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "predicate-value-misread"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$R=\\{(1,a),(2,b)\\}$. Quel énoncé est correct ?",
+        "en": "$R=\\{(1,a),(2,b)\\}$. Which claim is correct?"
+      },
+      "hint": {
+        "fr": "Une relation est un ensemble de couples ordonnés.",
+        "en": "A relation is a set of ordered pairs."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(a,1)\\in R$",
+            "en": "$(a,1)\\in R$"
+          },
+          "feedback": {
+            "fr": "Ni l'inversion des coordonnées ni la recombinaison ne conservent automatiquement l'appartenance.",
+            "en": "Reversing or recombining coordinates does not automatically preserve membership."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(2,b)\\in R$",
+            "en": "$(2,b)\\in R$"
+          },
+          "feedback": {
+            "fr": "Seuls les deux couples affichés sont dans $R$.",
+            "en": "Only the two listed ordered pairs belong to $R$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(1,b)\\in R$",
+            "en": "$(1,b)\\in R$"
+          },
+          "feedback": {
+            "fr": "Ni l'inversion des coordonnées ni la recombinaison ne conservent automatiquement l'appartenance.",
+            "en": "Reversing or recombining coordinates does not automatically preserve membership."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Seuls les deux couples affichés sont dans $R$.",
+        "en": "Only the two listed ordered pairs belong to $R$."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E15",
+      "objectiveId": "L17-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "translation-with-swapped-quantifiers"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $E=\\{a,b\\}$ et $C=\\{p,q\\}$, quelle relation $I$ rend vraie $\\forall e\\in E\\ \\exists c\\in C\\ I(e,c)$ ?",
+        "en": "For $E=\\{a,b\\}$ and $C=\\{p,q\\}$, which relation $I$ makes $\\forall e\\in E\\ \\exists c\\in C\\ I(e,c)$ true?"
+      },
+      "hint": {
+        "fr": "Il faut un couple ayant chaque étudiant comme premier composant.",
+        "en": "Each student must appear as the first component of a pair."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{(a,p)\\}$",
+            "en": "$\\{(a,p)\\}$"
+          },
+          "feedback": {
+            "fr": "Deux inscriptions d'un seul étudiant ne suffisent pas pour l'autre.",
+            "en": "Two enrollments by one student do not cover the other."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{(a,p),(a,q)\\}$",
+            "en": "$\\{(a,p),(a,q)\\}$"
+          },
+          "feedback": {
+            "fr": "Deux inscriptions d'un seul étudiant ne suffisent pas pour l'autre.",
+            "en": "Two enrollments by one student do not cover the other."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{(a,p),(b,p)\\}$",
+            "en": "$\\{(a,p),(b,p)\\}$"
+          },
+          "feedback": {
+            "fr": "$a$ et $b$ ont tous deux $p$ pour témoin.",
+            "en": "Both $a$ and $b$ have witness $p$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$a$ et $b$ ont tous deux $p$ pour témoin.",
+        "en": "Both $a$ and $b$ have witness $p$."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E16",
+      "objectiveId": "L17-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "translation-with-swapped-quantifiers"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle relation sur $S=\\{a,b\\}$, $C=\\{p,q\\}$ rend vraie $\\exists c\\in C\\ \\forall s\\in S\\ I(s,c)$ ?",
+        "en": "Which relation over $S=\\{a,b\\}$ and $C=\\{p,q\\}$ makes $\\exists c\\in C\\ \\forall s\\in S\\ I(s,c)$ true?"
+      },
+      "hint": {
+        "fr": "Un même cours doit apparaître pour les deux étudiants.",
+        "en": "One course must appear for both students."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{(a,q),(b,q)\\}$",
+            "en": "$\\{(a,q),(b,q)\\}$"
+          },
+          "feedback": {
+            "fr": "Le cours $q$ convient pour $a$ et $b$.",
+            "en": "Course $q$ works for both $a$ and $b$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{(a,p),(b,q)\\}$",
+            "en": "$\\{(a,p),(b,q)\\}$"
+          },
+          "feedback": {
+            "fr": "Un témoin commun doit se trouver dans les deux couples.",
+            "en": "A shared witness must appear in both pairs."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{(a,p)\\}$",
+            "en": "$\\{(a,p)\\}$"
+          },
+          "feedback": {
+            "fr": "Un témoin commun doit se trouver dans les deux couples.",
+            "en": "A shared witness must appear in both pairs."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le cours $q$ convient pour $a$ et $b$.",
+        "en": "Course $q$ works for both $a$ and $b$."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E17",
+      "objectiveId": "L17-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "evaluating-from-a-single-course"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$S=\\{a,b,c\\}$, $C=\\{x,y\\}$, $R=\\{(a,x),(b,x)\\}$. Qui réfute $\\forall s\\in S\\ \\exists c\\in C\\ R(s,c)$ ?",
+        "en": "$S=\\{a,b,c\\}$, $C=\\{x,y\\}$, $R=\\{(a,x),(b,x)\\}$. Who refutes $\\forall s\\in S\\ \\exists c\\in C\\ R(s,c)$?"
+      },
+      "hint": {
+        "fr": "Cherchez un premier composant absent de tous les couples.",
+        "en": "Look for a first component absent from all pairs."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$a$",
+            "en": "$a$"
+          },
+          "feedback": {
+            "fr": "$a$ et $b$ ont chacun une relation avec $x$.",
+            "en": "$a$ and $b$ each have a relation with $x$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$c$",
+            "en": "$c$"
+          },
+          "feedback": {
+            "fr": "Aucun couple ne commence par $c$ : cet étudiant n'a aucun témoin.",
+            "en": "No pair starts with $c$: this student has no witness."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$b$",
+            "en": "$b$"
+          },
+          "feedback": {
+            "fr": "$a$ et $b$ ont chacun une relation avec $x$.",
+            "en": "$a$ and $b$ each have a relation with $x$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Aucun couple ne commence par $c$ : cet étudiant n'a aucun témoin.",
+        "en": "No pair starts with $c$: this student has no witness."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E18",
+      "objectiveId": "L17-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "quantifier-order-ignored"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $E=\\{a,b\\}$ et $C=\\{x,y\\}$, $I=\\{(a,x),(b,y)\\}$. Quelle paire de valeurs est correcte pour $\\forall e\\exists c\\ I(e,c)$ et $\\exists c\\forall e\\ I(e,c)$ (bornes $E,C$) ?",
+        "en": "Over $E=\\{a,b\\}$ and $C=\\{x,y\\}$, $I=\\{(a,x),(b,y)\\}$. Which values apply to $\\forall e\\exists c\\ I(e,c)$ and $\\exists c\\forall e\\ I(e,c)$ (domains $E,C$)?"
+      },
+      "hint": {
+        "fr": "Distinguez un choix par étudiant d'un même choix pour tous.",
+        "en": "Distinguish one choice per student from a common choice."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vrai, vrai.",
+            "en": "True, true."
+          },
+          "feedback": {
+            "fr": "Chaque étudiant a un cours, mais aucun cours n'est partagé.",
+            "en": "Each student has a course, but none is shared."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Faux, vrai.",
+            "en": "False, true."
+          },
+          "feedback": {
+            "fr": "Chaque étudiant a un cours, mais aucun cours n'est partagé.",
+            "en": "Each student has a course, but none is shared."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Vrai, faux.",
+            "en": "True, false."
+          },
+          "feedback": {
+            "fr": "Les témoins $x$ et $y$ peuvent varier avec l'étudiant ; aucun n'est universel.",
+            "en": "Witnesses $x$ and $y$ can vary by student; neither is universal."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Les témoins $x$ et $y$ peuvent varier avec l'étudiant ; aucun n'est universel.",
+        "en": "Witnesses $x$ and $y$ can vary by student; neither is universal."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E19",
+      "objectiveId": "L17-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "translation-with-swapped-quantifiers"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec des domaines non vides $S,C$, laquelle découle toujours de $\\exists c\\in C\\ \\forall s\\in S\\ I(s,c)$ ?",
+        "en": "With nonempty domains $S,C$, which always follows from $\\exists c\\in C\\ \\forall s\\in S\\ I(s,c)$?"
+      },
+      "hint": {
+        "fr": "Le témoin commun convient en particulier à chaque étudiant.",
+        "en": "The common witness works for each student individually."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall s\\in S\\ \\exists c\\in C\\ I(s,c)$",
+            "en": "$\\forall s\\in S\\ \\exists c\\in C\\ I(s,c)$"
+          },
+          "feedback": {
+            "fr": "Réutiliser le témoin commun pour chaque $s$ démontre $\\forall s\\exists c$.",
+            "en": "Reusing the common witness for each $s$ proves $\\forall s\\exists c$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall c\\in C\\ \\forall s\\in S\\ I(s,c)$",
+            "en": "$\\forall c\\in C\\ \\forall s\\in S\\ I(s,c)$"
+          },
+          "feedback": {
+            "fr": "Un cours commun n'impose ni tous les cours ni un étudiant inscrit à tous.",
+            "en": "One common course does not require every course or a student taking every course."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists s\\in S\\ \\forall c\\in C\\ I(s,c)$",
+            "en": "$\\exists s\\in S\\ \\forall c\\in C\\ I(s,c)$"
+          },
+          "feedback": {
+            "fr": "Un cours commun n'impose ni tous les cours ni un étudiant inscrit à tous.",
+            "en": "One common course does not require every course or a student taking every course."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Réutiliser le témoin commun pour chaque $s$ démontre $\\forall s\\exists c$.",
+        "en": "Reusing the common witness for each $s$ proves $\\forall s\\exists c$."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E20",
+      "objectiveId": "L17-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "translation-with-swapped-quantifiers"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $S=\\{a,b\\}$, $C=\\{x,y\\}$, laquelle des relations force $\\exists c\\forall s\\ I(s,c)$ mais pas $\\forall c\\forall s\\ I(s,c)$ (bornes $C,S$) ?",
+        "en": "Over $S=\\{a,b\\}$, $C=\\{x,y\\}$, which relation makes $\\exists c\\forall s\\ I(s,c)$ true but $\\forall c\\forall s\\ I(s,c)$ false (domains $C,S$)?"
+      },
+      "hint": {
+        "fr": "Donnez le même cours aux deux, mais laissez manquer une inscription à l'autre.",
+        "en": "Give both one course, but leave a missing enrollment in the other."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{(a,x),(b,x),(a,y),(b,y)\\}$",
+            "en": "$\\{(a,x),(b,x),(a,y),(b,y)\\}$"
+          },
+          "feedback": {
+            "fr": "La relation complète rend les deux vraies ; la relation disjointe n'a pas de cours commun.",
+            "en": "The complete relation makes both true; the split relation has no common course."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{(a,x),(b,x)\\}$",
+            "en": "$\\{(a,x),(b,x)\\}$"
+          },
+          "feedback": {
+            "fr": "$x$ est commun, mais aucune inscription en $y$ n'est présente.",
+            "en": "$x$ is shared, but no enrollment in $y$ is present."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{(a,x),(b,y)\\}$",
+            "en": "$\\{(a,x),(b,y)\\}$"
+          },
+          "feedback": {
+            "fr": "La relation complète rend les deux vraies ; la relation disjointe n'a pas de cours commun.",
+            "en": "The complete relation makes both true; the split relation has no common course."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$x$ est commun, mais aucune inscription en $y$ n'est présente.",
+        "en": "$x$ is shared, but no enrollment in $y$ is present."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L17-E21",
+      "objectiveId": "L17-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "quantifier-order-ignored"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si l'on inverse $\\forall s\\in S\\ \\exists c\\in C\\ I(s,c)$ en $\\exists c\\in C\\ \\forall s\\in S\\ I(s,c)$, quel changement de sens apparaît ?",
+        "en": "If $\\forall s\\in S\\ \\exists c\\in C\\ I(s,c)$ is changed into $\\exists c\\in C\\ \\forall s\\in S\\ I(s,c)$, what changes?"
+      },
+      "hint": {
+        "fr": "Le choix du cours passe avant celui de l'étudiant.",
+        "en": "The course choice now comes before the student."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Le domaine des étudiants devient vide.",
+            "en": "The student domain becomes empty."
+          },
+          "feedback": {
+            "fr": "La seconde formule exige un témoin commun, pas l'inscription complète.",
+            "en": "The second formula requires a shared witness, not full enrollment."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Le cours choisi doit convenir à tous les étudiants.",
+            "en": "The chosen course must work for every student."
+          },
+          "feedback": {
+            "fr": "Déplacer $\\exists c$ devant $\\forall s$ interdit de changer $c$ selon $s$.",
+            "en": "Moving $\\exists c$ before $\\forall s$ prevents $c$ from varying with $s$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Chaque étudiant doit suivre tous les cours.",
+            "en": "Each student must take every course."
+          },
+          "feedback": {
+            "fr": "La seconde formule exige un témoin commun, pas l'inscription complète.",
+            "en": "The second formula requires a shared witness, not full enrollment."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Déplacer $\\exists c$ devant $\\forall s$ interdit de changer $c$ selon $s$.",
+        "en": "Moving $\\exists c$ before $\\forall s$ prevents $c$ from varying with $s$."
+      },
+      "lessonId": "L17",
+      "version": 2,
+      "prerequisites": [
+        "L11",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

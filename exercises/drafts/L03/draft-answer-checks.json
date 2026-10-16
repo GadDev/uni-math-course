@@ -1,0 +1,7 @@
+[
+  {"id":"L03-E11","kind":"table","formula":"A & !B"},
+  {"id":"L03-E12","kind":"table","formula":"(A | B) & C"},
+  {"id":"L03-E17","kind":"table","formula":"(A & !B) | (!A & C)"},
+  {"id":"L03-E20","kind":"table","formula":"!(A | B) | (A & B)"},
+  {"kind":"equivalent","left":"!(A | B) | (A & B)","right":"(!A & !B) | (A & B)","expected":true}
+]
