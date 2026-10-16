@@ -306,3 +306,196 @@ test('direct practice operations enforce identity, origin, idempotency and owner
     await other.close();
   }
 });
+
+for (const locale of ['fr', 'en'] as const) {
+  test(`pending choice keeps the submitted snapshot and prevents answer/hint edits (${locale})`, async ({
+    page,
+    context,
+  }) => {
+    await identify(context);
+    await page.goto(`/${locale}/lessons/L05/practice/`);
+    await page.locator('input[value="10"]').check();
+    let release!: () => void;
+    let recorded!: () => void;
+    const gate = new Promise<void>((resolve) => {
+      release = resolve;
+    });
+    const saved = new Promise<void>((resolve) => {
+      recorded = resolve;
+    });
+    await page.route('**/api/attempts/', async (route) => {
+      const response = await route.fetch();
+      recorded();
+      await gate;
+      await route.fulfill({ response });
+    });
+    try {
+      await page.locator('.pp-button-solid').click();
+      await saved;
+      await expect(page.locator('input[value="00"]')).toBeDisabled();
+      await expect(page.locator('.pp-button-outline').first()).toBeDisabled();
+      await expect(page.locator('input[value="10"]')).toBeChecked();
+      const draft = await page.evaluate(() =>
+        JSON.parse(sessionStorage.getItem('um-practice:L05')!),
+      );
+      expect(draft.entries['L05-E01'].submission).toEqual({
+        answers: { choice: '10' },
+        hintUsed: false,
+      });
+    } finally {
+      release();
+    }
+    await expect(page.locator('.pp-feedback')).toBeVisible();
+    await expect(page.locator('.pp-answer .pp-tag')).toHaveText('Correct');
+    await expect(page.locator('input:checked')).toHaveValue('10');
+    await expect(page.locator('#pp-feedback-title')).toBeFocused();
+    // Recorded choices, rather than mutable draft choices, restore feedback.
+    await page.evaluate(() => {
+      const draft = JSON.parse(sessionStorage.getItem('um-practice:L05')!);
+      draft.entries['L05-E01'].answers.choice = '00';
+      sessionStorage.setItem('um-practice:L05', JSON.stringify(draft));
+    });
+    await page.reload();
+    await expect(page.locator('.pp-feedback')).toBeVisible();
+    await expect(page.locator('input:checked')).toHaveValue('10');
+    const alternate = locale === 'fr' ? 'en' : 'fr';
+    await page
+      .getByRole('link', { name: alternate.toUpperCase(), exact: true })
+      .click();
+    await expect(page.locator('.pp-feedback')).toBeVisible();
+    await expect(page.locator('input:checked')).toHaveValue('10');
+  });
+
+  for (const exerciseIndex of [0, 1]) {
+    test(`lost acknowledgement retries the same snapshot after reload/language switch (${locale}, ${exerciseIndex})`, async ({
+      page,
+      context,
+    }) => {
+      await identify(context);
+      await page.setViewportSize({ width: 320, height: 900 });
+      await page.goto(`/${locale}/lessons/L05/practice/`);
+      const exercise = bank[exerciseIndex];
+      await page.locator('.pp-step').nth(exerciseIndex).click();
+      if (exercise.type === 'single-choice')
+        await page.locator(`input[value="${exercise.answer}"]`).check();
+      else
+        for (const [row, value] of Object.entries(exercise.answer))
+          await page
+            .locator(`input[name="${exercise.id}-${row}"][value="${value}"]`)
+            .check();
+      await page.locator('.pp-button-outline').first().click();
+      let original: Record<string, unknown>;
+      await page.route(
+        '**/api/attempts/',
+        async (route) => {
+          original = route.request().postDataJSON();
+          await route.fetch(); // Commit succeeds; only its acknowledgement is lost.
+          await route.abort('failed');
+        },
+        { times: 1 },
+      );
+      await page.locator('.pp-button-solid').click();
+      await expect(page.locator('.practice-error')).toBeVisible();
+      await expect(page.locator('.pp-question input').first()).toBeDisabled();
+      await page.reload();
+      await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
+        String(exerciseIndex + 1).padStart(2, '0'),
+      );
+      const alternate = locale === 'fr' ? 'en' : 'fr';
+      await page
+        .getByRole('link', { name: alternate.toUpperCase(), exact: true })
+        .click();
+      await expect(page.locator('.pp-question input').first()).toBeDisabled();
+      const outgoing = page.waitForRequest(
+        (request) =>
+          request.url().endsWith('/api/attempts/') &&
+          request.method() === 'POST',
+      );
+      const returned = page.waitForResponse((response) =>
+        response.url().endsWith('/api/attempts/'),
+      );
+      await page.locator('.pp-button-solid').click();
+      const resent = (await outgoing).postDataJSON();
+      expect(resent.submissionId).toBe(original!.submissionId);
+      expect(resent.response).toEqual(original!.response);
+      expect(resent.hintUsed).toBe(true);
+      const result = await (await returned).json();
+      expect(result.duplicate).toBe(true);
+      expect(result.response).toEqual(original!.response);
+      expect(result.hintUsed).toBe(true);
+      await expect(page.locator('.pp-feedback')).toBeVisible();
+      expect(
+        await page.evaluate(() => document.documentElement.scrollWidth),
+      ).toBeLessThanOrEqual(320);
+      await page.goto(`/${alternate}/progress/`);
+      await expect(page.locator('.progress-history li')).toHaveCount(1);
+    });
+  }
+}
+
+test('legacy uncertain choice reconciles saved answers before feedback and deliberate retry gets a new id', async ({
+  page,
+  context,
+}) => {
+  const session = await identify(context);
+  const submissionId = randomUUID();
+  const saved = await context.request.post('/api/attempts/', {
+    headers: { Origin: app },
+    data: {
+      submissionId,
+      exerciseId: 'L05-E01',
+      version: 1,
+      locale: 'en',
+      hintUsed: false,
+      response: { optionId: '00' },
+    },
+  });
+  expect(saved.status()).toBe(201);
+  await page.goto('/en/lessons/L05/practice/');
+  await page.locator('.pp-options').waitFor();
+  await page.evaluate(
+    ({ learner, submissionId }) => {
+      sessionStorage.setItem(
+        'um-practice:L05',
+        JSON.stringify({
+          learner,
+          currentExerciseId: 'L05-E01',
+          entries: {
+            'L05-E01': {
+              version: 1,
+              answers: { choice: '10' },
+              hintShown: false,
+              hintUsed: false,
+              submissionId,
+              result: {
+                correct: false,
+                feedback: { fr: 'old', en: 'old' },
+                explanation: { fr: 'old', en: 'old' },
+              },
+            },
+          },
+        }),
+      );
+    },
+    { learner: session.user.id, submissionId },
+  );
+  await page.reload();
+  await expect(page.locator('.pp-feedback')).toHaveCount(0);
+  await expect(page.locator('input[value="10"]')).toBeDisabled();
+  await page.getByRole('button', { name: 'Check saved response' }).click();
+  await expect(page.locator('.pp-feedback')).toBeVisible();
+  await expect(page.locator('input:checked')).toHaveValue('00');
+  await page.getByRole('button', { name: 'Try this exercise again' }).click();
+  await expect(page.locator('input[value="10"]')).toBeEnabled();
+  await page.locator('input[value="10"]').check();
+  const outgoing = page.waitForRequest(
+    (request) =>
+      request.url().endsWith('/api/attempts/') && request.method() === 'POST',
+  );
+  await page.getByRole('button', { name: 'Check my answer' }).click();
+  expect((await outgoing).postDataJSON().submissionId).not.toBe(submissionId);
+  await expect(page.locator('.pp-feedback')).toBeVisible();
+  await expect(page.locator('input:checked')).toHaveValue('10');
+  await page.goto('/en/progress/');
+  await expect(page.locator('.progress-history li')).toHaveCount(2);
+});
