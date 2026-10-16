@@ -6,6 +6,8 @@ Notable changes are recorded here. No application version has been released.
 
 ### Fixed
 
+- Reconcile repository readiness with the implemented application and link revision-specific checks plus outstanding hosted, operational and human acceptance work.
+
 - Align the math-course-studio skill with registry-selected exercise versions, immutable correction drafts and reviewed release promotion; collect misconception tags from selected banks rather than archived v1 files.
 
 - Revalidate returning tabs and restored history entries, clear confirmed stale account state, and refresh saved progress without replacing unfinished practice answers.
