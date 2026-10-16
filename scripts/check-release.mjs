@@ -3,7 +3,11 @@ import { readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export function validateReleaseApproval(version, manifestVersion, approval) {
+export function validateReleaseVersion(
+  version,
+  manifestVersion,
+  privatePackage,
+) {
   assert.match(version, /^\d+\.\d+\.\d+$/, 'Use a stable application SemVer');
   assert.equal(
     version,
@@ -11,30 +15,9 @@ export function validateReleaseApproval(version, manifestVersion, approval) {
     'Application and release manifest versions differ',
   );
   assert.equal(
-    typeof approval.approved,
-    'boolean',
-    'Release approval must be explicit',
-  );
-  if (version === '0.0.0' && !approval.approved) return;
-  assert.equal(
-    approval.approved,
+    privatePackage,
     true,
-    'Hosted pilot acceptance pending: do not merge the first release PR. Record actual acceptance evidence and approve it in a separate reviewed PR.',
-  );
-  assert.ok(
-    typeof approval.approvedBy === 'string' && approval.approvedBy.trim(),
-    'Name the actual acceptance operator',
-  );
-  assert.ok(
-    typeof approval.approvedAt === 'string' &&
-      /^\d{4}-\d{2}-\d{2}T/.test(approval.approvedAt) &&
-      Number.isFinite(Date.parse(approval.approvedAt)),
-    'Record an actual ISO acceptance time',
-  );
-  assert.equal(
-    approval.evidence,
-    'docs/PILOT_ACCEPTANCE.md',
-    'Link the authoritative acceptance record',
+    'This application must not be published to npm',
   );
 }
 
@@ -45,19 +28,7 @@ export async function checkRelease(
     JSON.parse(await readFile(resolve(root, path), 'utf8'));
   const pkg = await json('package.json');
   const manifest = await json('.release-please-manifest.json');
-  const approval = await json('.github/release-approval.json');
-  validateReleaseApproval(pkg.version, manifest['.'], approval);
-  assert.equal(
-    pkg.private,
-    true,
-    'This application must not be published to npm',
-  );
-  if (approval.approved) {
-    assert.ok(
-      (await readFile(resolve(root, approval.evidence), 'utf8')).trim(),
-      'Acceptance evidence is missing',
-    );
-  }
+  validateReleaseVersion(pkg.version, manifest['.'], pkg.private);
   return pkg.version;
 }
 

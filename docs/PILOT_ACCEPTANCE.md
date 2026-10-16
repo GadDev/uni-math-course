@@ -4,6 +4,8 @@ Reconciled: 2026-10-16 · Accountable owner: GadDev · Status: application imple
 
 This record separates repository evidence, hosted verification and human decisions. It does not certify mathematical peer review, translation fidelity, cloud configuration or class readiness. Publication decisions remain in `content/releases.json`; do not maintain a second lesson allowlist here. See [content release contracts](CONTENT_RELEASES.md).
 
+Application versioning and release automation do not depend on completing this checklist. A GitHub release identifies a checked repository snapshot; it does not certify hosted pilot readiness. Keep outstanding checks open until evidence is recorded.
+
 ## Recorded implementation and verification
 
 | Evidence | Revision / result | Boundary |
@@ -22,7 +24,7 @@ The [opt-in hosted E2E suite](HOSTED_TESTS.md) covers selected H2/H3 paths with 
 
 ## H1 checkpoint — reported production deployment
 
-Recorded 2026-10-16. Evidence source: GadDev's Vercel dashboard report, cross-checked against the GitHub Vercel commit status. **H1 remains open**: deployment identity and reported database schema comparison are partially recorded; production-project binding, environment separation and migration provenance are pending. This is not independently reproduced hosted acceptance.
+Recorded 2026-10-16. Evidence source: GadDev's Vercel dashboard report, cross-checked against the GitHub Vercel commit status. **H1 remains open**: deployment identity and reported database schema comparison are partially recorded; environment separation, the latest deployment creation timestamp and migration provenance remain pending. The newer production report below supersedes the original application deployment for subsequent tests. This is not independently reproduced hosted acceptance.
 
 | Field | Recorded value | Evidence / limitation |
 | --- | --- | --- |
@@ -36,6 +38,22 @@ Recorded 2026-10-16. Evidence source: GadDev's Vercel dashboard report, cross-ch
 | Deployment environment and separation | Pending | Explicit Production environment label and preview/production Supabase separation still need confirmation; no secret configuration values recorded |
 | Supabase project and applied schema | Reported schema comparison below | Project reference and binding to Vercel Production configuration remain unconfirmed; SQL output was supplied by the maintainer, not independently executed |
 
+### Updated production report — 2026-10-16
+
+GadDev reports that production now serves the following deployment. Preserve the earlier deployment above as historical evidence; use this updated identity for subsequent H2/H3 results only after confirming the test target. Alias routing and Vercel settings were not independently inspected.
+
+| Field | Recorded value | Evidence / limitation |
+| --- | --- | --- |
+| Application commit | [`0dbdc69594bfb41572fc4f6e9e3daa8c615fa242`](https://github.com/GadDev/uni-math-course/commit/0dbdc69594bfb41572fc4f6e9e3daa8c615fa242) | `main`; `test: add opt-in hosted pilot acceptance checks (#40)`, reported by GadDev and present in the fetched repository |
+| Unique deployment URL | https://uni-math-course-idk9h4c0x-gaddevs-projects.vercel.app/ | Maintainer-reported |
+| Reported aliases | https://uni-math-course.vercel.app/ and https://uni-math-course-git-main-gaddevs-projects.vercel.app/ | Maintainer-reported associations; aliases can move |
+| Deployment dashboard / locator | https://vercel.com/gaddevs-projects/uni-math-course/5cYmiRuGKhmpHebfrsY32dNUda1r / `5cYmiRuGKhmpHebfrsY32dNUda1r` | Retrieved from the successful [GitHub Vercel status](https://api.github.com/repos/GadDev/uni-math-course/commits/0dbdc69594bfb41572fc4f6e9e3daa8c615fa242/status); separate API `dpl_…` ID not supplied |
+| Environment / status | Production / Ready | Maintainer-reported; GitHub Vercel status independently reports success |
+| Deployment status timestamp | 2026-10-16 13:11:33 UTC (15:11:33 Europe/Luxembourg) | GitHub status creation/update time; this is not the Vercel deployment creation timestamp, which remains unknown |
+| Production Supabase binding | Confirmed by GadDev | Maintainer privately compared the queried Supabase project with Production `SUPABASE_URL`; no configuration values recorded or independently inspected |
+| Preview/production separation | Unknown | Still requires operator inspection of Preview configuration and branch overrides |
+| Migration baseline continuity | All four migration files unchanged between `45a7429` and `0dbdc69` | Repository comparison only; prior supplied schema observations remain applicable, without proving migration execution history or absence of later live database changes |
+
 The repository migration baseline at that exact application commit is:
 
 | Version | File under `supabase/migrations/` | Remote status |
@@ -47,7 +65,7 @@ The repository migration baseline at that exact application commit is:
 
 ### Reported Supabase schema comparison
 
-Date: 2026-10-16. Operator/evidence supplier: GadDev. Method: read-only SQL catalog queries and effective-privilege checks in the selected Supabase project's SQL editor; results supplied in the guided acceptance conversation. Comparison target: the four migration files at application commit `45a742978d68382c949016583243e82aa91ee4ee`. No learner records, credentials or row payloads were requested or recorded. The queried project's association with this Vercel deployment is still pending confirmation.
+Date: 2026-10-16. Operator/evidence supplier: GadDev. Method: read-only SQL catalog queries and effective-privilege checks in the selected Supabase project's SQL editor; results supplied in the guided acceptance conversation. Comparison target: the four migration files at application commit `45a742978d68382c949016583243e82aa91ee4ee`. No learner records, credentials or row payloads were requested or recorded. GadDev subsequently confirmed that the queried project matches Production `SUPABASE_URL`, as recorded in the updated production report; this was not independently inspected.
 
 | Check | Reported observation | Assessment / boundary |
 | --- | --- | --- |
@@ -63,7 +81,7 @@ Date: 2026-10-16. Operator/evidence supplier: GadDev. Method: read-only SQL cata
 
 The schema effects above are consistent with the four baseline migrations, subject to the additional server-role privilege. They do not prove which migration files were executed, their execution dates, absence of every other database object/privilege, or runtime application acceptance. Do not apply or repair migrations merely to populate history. No deployed schema was changed by this verification.
 
-Next H1 checkpoint: confirm the queried Supabase project matches the recorded deployment's Vercel Production configuration, the explicit Production environment label and exact deployment creation timestamp, plus preview/production data separation. If the production alias now targets a later deployment, record that new deployment as a separate baseline before running H2/H3. H1/H2/H3 remain open; release approval is unchanged.
+Next H1 checkpoint: inspect preview/production data separation and record the updated deployment's exact creation timestamp. Production environment and Supabase-project binding are now maintainer-confirmed. Migration execution provenance remains unavailable; retain that limitation rather than repairing history without a separate decision. H1/H2/H3 remain open; application release automation is independent of this readiness record.
 
 ## Remaining acceptance work
 

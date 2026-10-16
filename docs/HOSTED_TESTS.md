@@ -45,7 +45,7 @@ Fault tests send a real write first, then suppress or delay its acknowledgement 
 
 The custom reporter writes `private/hosted-acceptance/summary.json` with static check names, statuses, time and declared deployment identity. It excludes raw errors, assertions, credentials, tokens, account IDs/emails and attempt payloads. Traces, screenshots, videos and storage-state files are disabled; temporary Playwright failure artifacts are discarded (`preserveOutput: never`) rather than published. Do not add a standard reporter or capture browser/network dumps when real credentials are present.
 
-Read failures as incomplete evidence. Reproduce failures with the local protocol fixture or inspect privately before sharing diagnostics; do not publish raw provider responses. Review the sanitized report before copying selected results into a documentation PR. Link the tested revision and deployment and close only the specific checks completed; skipped Data API checks and human decisions stay pending. This suite does not edit the acceptance document or release approval file.
+Read failures as incomplete evidence. Reproduce failures with the local protocol fixture or inspect privately before sharing diagnostics; do not publish raw provider responses. Review the sanitized report before copying selected results into a documentation PR. Link the tested revision and deployment and close only the specific checks completed; skipped Data API checks and human decisions stay pending. This suite does not edit the acceptance document or control application releases.
 
 ## Local runner verification
 

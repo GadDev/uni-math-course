@@ -13,7 +13,7 @@ Release status (generated from content/releases.json): 20 public bilingual lesso
 - Read the README and relevant project documents before changing files.
 - Prefer focused branches and reviewable pull requests. Do not merge unless requested.
 - Run `pnpm check` after changes and `pnpm test:e2e` for reading or interaction changes.
-- Use a Conventional Commit PR title and preserve release-relevant details in the final squash commit body. Ordinary PRs do not edit CHANGELOG.md or add changeset files; Release Please maintains one release PR from final squash messages; operator activation remains separate. Preserve docs/releases/PRE_AUTOMATION.md. Never approve .github/release-approval.json without actual hosted pilot acceptance evidence; the first 0.1.0 must remain blocked until then. See docs/RELEASING.md.
+- Use a Conventional Commit PR title and preserve release-relevant details in the final squash commit body. Ordinary PRs do not edit CHANGELOG.md or add changeset files; Release Please maintains one release PR from final squash messages; the maintainer reviews and merges that PR after required checks pass. Preserve docs/releases/PRE_AUTOMATION.md. Application releases do not certify hosted pilot readiness; keep acceptance evidence separate and do not invent approval. See docs/RELEASING.md.
 - Keep the full CI job's required-check name `docs` stable. A successful current check and an up-to-date branch are merge requirements; hosted enforcement must be verified separately from workflow configuration.
 - Use the pinned Node/pnpm versions and committed lockfile. Keep server-held exercise answers out of client imports and generated pages.
 - Keep secrets, learner records, source PDFs, and unlicensed third-party assets out of Git.
