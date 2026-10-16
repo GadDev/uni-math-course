@@ -6,6 +6,7 @@ import { copy } from '../../../lib/i18n';
 import { RELEASED_LESSONS } from '../../../lib/released-lessons';
 import { glossaryCopy } from '../../../lib/glossary';
 import SignalGeometry from '../../../components/SignalGeometry.astro';
+import { chapterForPath, chapterHref } from '../../../lib/chapters';
 export async function getStaticPaths() {
   const lessons = await getCollection('lessons');
   return lessons.map((lesson) => ({
@@ -42,6 +43,17 @@ const releasedIds = new Set(
     .map((entry) => entry.data.lessonId),
 );
 const lessonNumber = lesson.data.lessonId.slice(1);
+const chapter = chapterForPath(`lessons/${lesson.data.lessonId}/`);
+if (!chapter) throw new Error('Lesson has no chapter');
+const chapterLink = chapterHref(locale, chapter);
+const outline = (await getCollection('lessons'))
+  .filter(
+    (entry) =>
+      entry.data.locale === locale &&
+      chapter.lessonIds.some((id) => id === entry.data.lessonId),
+  )
+  .sort((a, b) => a.data.lessonId.localeCompare(b.data.lessonId))
+  .map((entry) => ({ id: entry.data.lessonId, title: entry.data.title }));
 // Lessons whose exercise bank is served by the API (no answers in this module).
 const practiceLessons = RELEASED_LESSONS;
 // One representative glossary entry per lesson, linked at the end of the page.
@@ -67,10 +79,7 @@ const glossaryLinks: Record<string, [string, string]> = {
   L19: ['E55', 'all, any'],
   L20: ['E45', 'S(u, f)'],
 };
-const [glossaryId, glossaryLabel] = glossaryLinks[lesson.data.lessonId] ?? [
-  'E13',
-  '⇒',
-];
+const glossaryLink = glossaryLinks[lesson.data.lessonId];
 ---
 
 <Base
@@ -80,11 +89,11 @@ const [glossaryId, glossaryLabel] = glossaryLinks[lesson.data.lessonId] ?? [
   path={'lessons/' + lesson.data.lessonId + '/'}
   alternateAnchors={alternateAnchors}
 >
-  <main id="main" tabindex="-1" class="lesson-page">
+  <main id="main" tabindex="-1" class="lesson-page" data-chapter={chapter.id}>
     <aside class="course-outline">
       <p class="eyebrow">{text.outline}</p>
       <ol class="outline-topics">
-        {text.programme.map((topic) => (
+        {outline.map((topic) => (
           <li
             class={
               topic.id === lesson.data.lessonId ? 'current-topic' : undefined
@@ -124,7 +133,7 @@ const [glossaryId, glossaryLabel] = glossaryLinks[lesson.data.lessonId] ?? [
         class="breadcrumb"
         aria-label={locale === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'}
       >
-        <a href={'/' + locale + '/'}>{text.course}</a>
+        <a href={chapterLink}>{chapter.title[locale]}</a>
         <span aria-hidden="true"> / </span>
         <span>{lesson.data.lessonId}</span>
       </nav>
@@ -145,7 +154,10 @@ const [glossaryId, glossaryLabel] = glossaryLinks[lesson.data.lessonId] ?? [
         </nav>
       </details>
       <div class="reading-geometry">
-        <SignalGeometry compact />
+        <SignalGeometry
+          compact
+          variant={chapter.id === 'C02' ? 'decalage' : 'logic'}
+        />
       </div>
       <article class="lesson-prose" data-lesson-id={lesson.data.lessonId}>
         <Content />
@@ -171,16 +183,18 @@ const [glossaryId, glossaryLabel] = glossaryLinks[lesson.data.lessonId] ?? [
           </a>
         </p>
       )}
-      <p>
-        <a href={'/' + locale + '/glossary/#' + glossaryId}>
-          {glossaryCopy[locale].nav} : {glossaryLabel}
-        </a>
-      </p>
+      {glossaryLink && (
+        <p>
+          <a href={'/' + locale + '/glossary/#' + glossaryLink[0]}>
+            {glossaryCopy[locale].nav} : {glossaryLink[1]}
+          </a>
+        </p>
+      )}
       <p class="content-provenance">
         {lesson.data.status === 'pilot' ? text.review : text.reviewExtended}
       </p>
       <ReadingNotice locale={locale} />
-      <a class="back-link" href={'/' + locale + '/'}>
+      <a class="back-link" href={chapterLink}>
         ← {text.next}
       </a>
     </div>

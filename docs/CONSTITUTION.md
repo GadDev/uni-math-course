@@ -12,7 +12,7 @@ Automated structure checks are not mathematical review. Require a documented sec
 
 ## 2. Handle source uncertainty openly
 
-The attached course source has 96 PDF pages with repeated slide builds. Reference PDF page numbers with the title page as page 1; consolidate repeated builds into topics.
+The Chapter 1 Logique source has 96 PDF pages with repeated slide builds. Chapter 2 uses the separate 87-page Droites source; its [source map and qualifications](../exercises/drafts/chapter-02/README.md) identify the corresponding lessons. Reference PDF page numbers within each source, with the title page as page 1; consolidate repeated builds into topics. The review items below concern the Chapter 1 source.
 
 Known review items:
 

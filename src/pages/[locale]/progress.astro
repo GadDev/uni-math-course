@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import SignalGeometry from '../../components/SignalGeometry.astro';
+import { chapters, chapterHref } from '../../lib/chapters';
 import Tex from '../../components/Tex';
 import {
   practiceHref,
@@ -262,7 +263,37 @@ const recent = progress?.history.slice(0, 3) ?? [];
         <section class="progress-detail" aria-labelledby="detail">
           <h2 id="detail">{text.detail}</h2>
           <p class="lede">{text.intro}</p>
+          <nav
+            aria-label={
+              locale === 'fr'
+                ? 'Progression par chapitre'
+                : 'Progress by chapter'
+            }
+          >
+            {chapters.map((chapter) => (
+              <p>
+                <a href={`#chapter-${chapter.id}`}>
+                  {chapter.number} · {chapter.title[locale]}
+                </a>
+              </p>
+            ))}
+          </nav>
           {progress.lessons.map((lesson) => {
+            const chapter = chapters.find((chapter) =>
+              chapter.lessonIds.some((id) => id === lesson.lessonId),
+            );
+            const firstInChapter = chapter?.lessonIds[0] === lesson.lessonId;
+            const chapterRows = progress.lessons.filter((row) =>
+              chapter?.lessonIds.some((id) => id === row.lessonId),
+            );
+            const chapterAttempted = chapterRows.reduce(
+              (sum, row) => sum + row.attempted,
+              0,
+            );
+            const chapterTotal = chapterRows.reduce(
+              (sum, row) => sum + row.total,
+              0,
+            );
             const rows = new Map(
               lesson.exercises.map((item) => [item.exerciseId, item]),
             );
@@ -270,68 +301,79 @@ const recent = progress?.history.slice(0, 3) ?? [];
               .filter((exercise) => exercise.lessonId === lesson.lessonId)
               .map((exercise) => exercise.id);
             return (
-              <details open={lesson.attempted > 0}>
-                <summary>
-                  <span class="progress-detail-number">
-                    {lesson.lessonId.slice(1)}
-                  </span>
-                  <span>
-                    {lessonTitles.get(lesson.lessonId) ??
-                      `${text.lesson} ${lesson.lessonId.slice(1)}`}
-                  </span>
-                  <small>
-                    {lesson.attempted} / {lesson.total} {text.exercisesOf}
-                  </small>
-                </summary>
-                <div class="progress-table-wrap">
-                  <table class="progress-table">
-                    <thead>
-                      <tr>
-                        <th scope="col">{text.exercise}</th>
-                        <th scope="col">{text.tries}</th>
-                        <th scope="col">{text.correctTries}</th>
-                        <th scope="col">{text.latest}</th>
-                        <th scope="col">{text.evidence}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {ids.map((id) => {
-                        const row = rows.get(id);
-                        return (
-                          <tr>
-                            <th scope="row">{number(id)}</th>
-                            {row ? (
-                              <>
-                                <td>{row.attempts}</td>
-                                <td>{row.correctAttempts}</td>
-                                <td>
-                                  <span
-                                    class={
-                                      row.latestCorrect
-                                        ? 'practice-ok'
-                                        : 'practice-bad'
-                                    }
-                                  >
-                                    {row.latestCorrect ? '✓ ' : '✗ '}
-                                    {row.latestCorrect
-                                      ? text.right
-                                      : text.wrong}
-                                  </span>
-                                </td>
-                                <td>
-                                  {row.masteryEvidence ? text.yes : text.no}
-                                </td>
-                              </>
-                            ) : (
-                              <td colspan="4">{text.notTried}</td>
-                            )}
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              </details>
+              <>
+                {firstInChapter && chapter && (
+                  <h3 id={`chapter-${chapter.id}`}>
+                    <a href={chapterHref(locale, chapter)}>
+                      {chapter.number} · {chapter.title[locale]}
+                    </a>
+                    {' · '}
+                    {chapterAttempted} / {chapterTotal} {text.exercisesOf}
+                  </h3>
+                )}
+                <details open={lesson.attempted > 0}>
+                  <summary>
+                    <span class="progress-detail-number">
+                      {lesson.lessonId.slice(1)}
+                    </span>
+                    <span>
+                      {lessonTitles.get(lesson.lessonId) ??
+                        `${text.lesson} ${lesson.lessonId.slice(1)}`}
+                    </span>
+                    <small>
+                      {lesson.attempted} / {lesson.total} {text.exercisesOf}
+                    </small>
+                  </summary>
+                  <div class="progress-table-wrap">
+                    <table class="progress-table">
+                      <thead>
+                        <tr>
+                          <th scope="col">{text.exercise}</th>
+                          <th scope="col">{text.tries}</th>
+                          <th scope="col">{text.correctTries}</th>
+                          <th scope="col">{text.latest}</th>
+                          <th scope="col">{text.evidence}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {ids.map((id) => {
+                          const row = rows.get(id);
+                          return (
+                            <tr>
+                              <th scope="row">{number(id)}</th>
+                              {row ? (
+                                <>
+                                  <td>{row.attempts}</td>
+                                  <td>{row.correctAttempts}</td>
+                                  <td>
+                                    <span
+                                      class={
+                                        row.latestCorrect
+                                          ? 'practice-ok'
+                                          : 'practice-bad'
+                                      }
+                                    >
+                                      {row.latestCorrect ? '✓ ' : '✗ '}
+                                      {row.latestCorrect
+                                        ? text.right
+                                        : text.wrong}
+                                    </span>
+                                  </td>
+                                  <td>
+                                    {row.masteryEvidence ? text.yes : text.no}
+                                  </td>
+                                </>
+                              ) : (
+                                <td colspan="4">{text.notTried}</td>
+                              )}
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                </details>
+              </>
             );
           })}
         </section>

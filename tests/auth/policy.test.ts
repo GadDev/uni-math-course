@@ -41,6 +41,8 @@ test('return only to released local routes with a safe fragment', () => {
     '/fr/lessons/L05/#main',
     '/en/lessons/L05/practice/',
     '/fr/lessons/L20/practice/',
+    '/en/lessons/L21/practice/',
+    '/fr/lessons/L36/practice/?exercise=L36-E15&version=1',
     '/en/lessons/L01/',
   ])
     assert.equal(safeReturn(path, 'en'), path);
@@ -53,7 +55,7 @@ test('return only to released local routes with a safe fragment', () => {
     '/auth/callback/',
     '/en/account/?code=secret',
     '/en/lessons/missing/',
-    '/en/lessons/L21/practice/',
+    '/en/lessons/L99/practice/',
     '/en/lessons/L00/',
     '/en/#main\n',
   ])

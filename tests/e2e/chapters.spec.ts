@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 for (const locale of ['fr', 'en']) {
   for (const width of [1440, 960, 375, 320]) {
-    test(`Chapter 2 overview is public and honest about preparation (${locale}, ${width}px)`, async ({
+    test(`Chapter 2 overview lists public lessons and signed-in practice (${locale}, ${width}px)`, async ({
       page,
     }) => {
       await page.setViewportSize({ width, height: 1000 });
@@ -13,12 +13,20 @@ for (const locale of ['fr', 'en']) {
         locale === 'fr' ? 'Droites' : 'Straight lines',
       );
       await expect(page.locator('.status')).toContainText(
-        locale === 'fr' ? 'Chapitre en préparation' : 'Chapter in preparation',
+        locale === 'fr'
+          ? '16 leçons · 240 exercices'
+          : '16 lessons · 240 exercises',
       );
-      await expect(page.locator('.planned-list li')).toHaveCount(4);
-      await expect(page.locator('.planned-list a')).toHaveCount(0);
-      await expect(page.locator('.chapter-pending-action')).toBeDisabled();
-      await expect(page.locator('.chapter-empty-progress dd')).toHaveCount(3);
+      await expect(page.locator('.planned-list li')).toHaveCount(16);
+      await expect(page.locator('.planned-list a')).toHaveCount(16);
+      await expect(page.locator('.practice-copy a')).toHaveAttribute(
+        'href',
+        `/${locale}/lessons/L21/practice/`,
+      );
+      await expect(page.locator('.reading-notice a')).toHaveAttribute(
+        'href',
+        `/${locale}/progress/#chapter-C02`,
+      );
       await expect(page.locator('.katex-mathml math')).toBeAttached();
       await expect(page.locator('astro-island')).toHaveCount(0);
       await expect(page.locator('[data-variant="decalage"]')).toHaveAttribute(
@@ -33,14 +41,12 @@ for (const locale of ['fr', 'en']) {
       else await expect(page.locator('.hero-art')).toBeVisible();
       const primary = page.locator('.featured-action a');
       await primary.click();
-      await expect(page).toHaveURL(
-        new RegExp(`/${locale}/chapters/C02/#parcours$`),
-      );
+      await expect(page).toHaveURL(new RegExp(`/${locale}/lessons/L21/$`));
       const alternate = locale === 'fr' ? 'en' : 'fr';
       await page
         .getByRole('link', { name: alternate.toUpperCase(), exact: true })
         .click();
-      await expect(page).toHaveURL(`/${alternate}/chapters/C02/#parcours`);
+      await expect(page).toHaveURL(`/${alternate}/lessons/L21/`);
       await expect(page.locator('html')).toHaveAttribute('lang', alternate);
     });
   }
@@ -58,7 +64,7 @@ test('Chapter 2 reading works without JavaScript and does not change Chapter 1',
       'Droites',
     );
     await noJS.locator('.featured-action a').click();
-    await expect(noJS).toHaveURL('/fr/chapters/C02/#parcours');
+    await expect(noJS).toHaveURL('/fr/lessons/L21/');
   } finally {
     await context.close();
   }
