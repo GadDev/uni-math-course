@@ -1,0 +1,399 @@
+{
+  "lessonId": "L19",
+  "version": 3,
+  "items": [
+    {
+      "objective": 1,
+      "prompt": [
+        "Quelle expression Python teste si `t` est croissante au sens large ?",
+        "Which Python expression tests whether `t` is nondecreasing?"
+      ],
+      "hint": [
+        "Comparez chaque paire voisine avec `all`.",
+        "Use `all` on every adjacent pair."
+      ],
+      "options": [
+        "`all(t[i] <= t[i+1] for i in range(len(t)-1))`",
+        "`any(t[i] <= t[i+1] for i in range(len(t)-1))`",
+        "`all(t[i] < t[i+1] for i in range(len(t)))`"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Il faut toutes les paires, accepter l'égalité et éviter de dépasser le dernier indice.",
+        "All pairs must pass, equality is allowed, and indexing must stop before the last element."
+      ],
+      "explanation": [
+        "Chaque paire $t[i],t[i+1]$ doit satisfaire $\\leq$.",
+        "Every adjacent pair $t[i],t[i+1]$ must satisfy $\\leq$."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Quelle condition Python trouve une descente dans une liste `t` ?",
+        "Which Python condition finds a descent in list `t`?"
+      ],
+      "hint": [
+        "Une descente suffit ; utilisez `any`.",
+        "One descent suffices; use `any`."
+      ],
+      "options": [
+        "`all(t[i] > t[i+1] for i in range(len(t)-1))`",
+        "`any(t[i] > t[i+1] for i in range(len(t)-1))`",
+        "`any(t[i] < t[i+1] for i in range(len(t)-1))`"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Être non triée signifie qu'il existe une paire strictement décroissante.",
+        "Being unsorted means at least one strictly decreasing adjacent pair."
+      ],
+      "explanation": [
+        "La négation d'`all(<=)` est `any(>)` sur les mêmes indices.",
+        "Negating `all(<=)` gives `any(>)` over the same indices."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Combien de comparaisons voisines comporte une liste de longueur $6$ ?",
+        "How many adjacent comparisons does a list of length $6$ have?"
+      ],
+      "hint": [
+        "Le dernier indice de départ est $n-2$.",
+        "The last starting index is $n-2$."
+      ],
+      "options": [
+        "$6$",
+        "$4$",
+        "$5$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "Les $n$ éléments forment $n-1$ paires voisines.",
+        "$n$ elements form $n-1$ adjacent pairs."
+      ],
+      "explanation": [
+        "Les indices de départ sont $0,1,2,3,4$ : cinq comparaisons.",
+        "Starting indices are $0,1,2,3,4$: five comparisons."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Quelle expression Python détecte un doublon dans `t` ?",
+        "Which Python expression detects a duplicate in `t`?"
+      ],
+      "hint": [
+        "Comparez deux indices distincts avec `i < j`.",
+        "Compare distinct indices with `i < j`."
+      ],
+      "options": [
+        "`any(t[i] == t[j] for i in range(len(t)) for j in range(i+1,len(t)))`",
+        "`any(t[i] == t[i] for i in range(len(t)))`",
+        "`all(t[i] == t[j] for i in range(len(t)) for j in range(len(t)))`"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Comparer un élément à lui-même créerait un faux doublon ; `all` demanderait bien davantage.",
+        "Comparing an element to itself creates a false duplicate; `all` requires much more."
+      ],
+      "explanation": [
+        "Le double parcours avec $i<j$ trouve une paire de positions distinctes de même valeur.",
+        "The nested traversal with $i<j$ finds two different positions with equal values."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Pour une liste finie non vide `t` de nombres, quelle propriété caractérise un indice de maximum $i$ ?",
+        "For a finite nonempty numeric list `t`, which property characterizes an index of a maximum $i$?"
+      ],
+      "hint": [
+        "Aucune valeur de la liste ne dépasse `t[i]`.",
+        "No list value exceeds `t[i]`."
+      ],
+      "options": [
+        "$\\forall j\\ t[i]<t[j]$",
+        "$\\forall j\\ t[j]\\leq t[i]$",
+        "$\\exists j\\ t[j]>t[i]$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Un maximum domine toutes les valeurs, et l'égalité est autorisée.",
+        "A maximum is at least every value, allowing ties."
+      ],
+      "explanation": [
+        "$\\exists i\\forall j\\ t[j]\\leq t[i]$ exprime « possède un maximum ».",
+        "$\\exists i\\forall j\\ t[j]\\leq t[i]$ expresses 'has a maximum'."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Que valent `all([])` et `any([])` en Python ?",
+        "What do `all([])` and `any([])` return in Python?"
+      ],
+      "hint": [
+        "L'universelle vide est vraie, l'existentielle vide fausse.",
+        "Empty universality is true; empty existence is false."
+      ],
+      "options": [
+        [
+          "`False`, `False`",
+          "`False`, `False`"
+        ],
+        [
+          "`True`, `True`",
+          "`True`, `True`"
+        ],
+        [
+          "`True`, `False`",
+          "`True`, `False`"
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Ces fonctions suivent les conventions des quantificateurs sur une liste vide.",
+        "These functions follow quantifier conventions on an empty list."
+      ],
+      "explanation": [
+        "`all` n'a aucun contre-exemple et `any` aucun témoin.",
+        "`all` has no counterexample and `any` no witness."
+      ]
+    },
+    {
+      "objective": 1,
+      "prompt": [
+        "Pour `t=[2,2,5]`, que vaut `all(t[i] <= t[i+1] for i in range(len(t)-1))` ?",
+        "For `t=[2,2,5]`, what does `all(t[i] <= t[i+1] for i in range(len(t)-1))` return?"
+      ],
+      "hint": [
+        "Une égalité voisine est autorisée pour « croissante au sens large ».",
+        "An adjacent tie is allowed in nondecreasing order."
+      ],
+      "options": [
+        "`True`",
+        "`False`",
+        "`IndexError`"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Les comparaisons sont $2\\leq2$ et $2\\leq5$, toutes deux vraies.",
+        "The comparisons are $2\\leq2$ and $2\\leq5$, both true."
+      ],
+      "explanation": [
+        "La liste est non décroissante et l'intervalle d'indices est valide.",
+        "The list is nondecreasing and the index range is valid."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Pour `t=[4,6,5,7]`, à quel indice `i` la négation du tri est-elle vérifiée par `t[i] > t[i+1]` ?",
+        "For `t=[4,6,5,7]`, at which index `i` does `t[i] > t[i+1]` witness unsortedness?"
+      ],
+      "hint": [
+        "Cherchez la paire $6,5$.",
+        "Look for the pair $6,5$."
+      ],
+      "options": [
+        "$0$",
+        "$1$",
+        "$2$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Les indices commencent à $0$ ; $6$ est à l'indice $1$.",
+        "Indices start at $0$; $6$ is at index $1$."
+      ],
+      "explanation": [
+        "$t[1]=6>5=t[2]$.",
+        "$t[1]=6>5=t[2]$."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Pour `t` de longueur $1$, que vaut `range(len(t)-1)` ?",
+        "For a list `t` of length $1$, what is `range(len(t)-1)`?"
+      ],
+      "hint": [
+        "Il n'existe aucune paire voisine à comparer.",
+        "There are no adjacent pairs to compare."
+      ],
+      "options": [
+        "`range(1)`",
+        "`range(-1)`",
+        "`range(0)`"
+      ],
+      "correct": 2,
+      "wrong": [
+        "$n-1=0$ : la plage est vide.",
+        "$n-1=0$: the range is empty."
+      ],
+      "explanation": [
+        "Une liste singleton est triée sans effectuer de comparaison.",
+        "A singleton list is sorted without any comparison."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "La liste `t=[7,8,7]` contient un doublon. Quel couple $i<j$ le prouve ?",
+        "List `t=[7,8,7]` has a duplicate. Which pair $i<j$ proves it?"
+      ],
+      "hint": [
+        "Les deux $7$ sont aux extrémités.",
+        "The two $7$s appear at the ends."
+      ],
+      "options": [
+        "$(0,2)$",
+        "$(0,1)$",
+        "$(1,2)$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Les positions dupliquées contiennent toutes deux $7$, pas $8$.",
+        "The duplicate positions both contain $7$, not $8$."
+      ],
+      "explanation": [
+        "$t[0]=t[2]=7$ et $0<2$.",
+        "$t[0]=t[2]=7$ and $0<2$."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Pour `t=[-2,4,4,1]`, combien d'indices témoignent que `t` contient son maximum ?",
+        "For `t=[-2,4,4,1]`, how many indices witness that `t` contains a maximum?"
+      ],
+      "hint": [
+        "La valeur maximale peut apparaître plusieurs fois.",
+        "The maximum value may occur more than once."
+      ],
+      "options": [
+        "$1$",
+        "$2$",
+        "$4$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Deux positions contiennent la même valeur maximale $4$.",
+        "Two positions hold the same maximum value $4$."
+      ],
+      "explanation": [
+        "Les indices $1$ et $2$ satisfont $\\forall j\\ t[j]\\leq t[i]$.",
+        "Indices $1$ and $2$ satisfy $\\forall j\\ t[j]\\leq t[i]$."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Pour `t=[]`, que vaut `any(t[i] > t[i+1] for i in range(len(t)-1))` ?",
+        "For `t=[]`, what does `any(t[i] > t[i+1] for i in range(len(t)-1))` return?"
+      ],
+      "hint": [
+        "La plage `range(-1)` ne contient aucun indice.",
+        "The range `range(-1)` contains no indices."
+      ],
+      "options": [
+        "`True`",
+        "`IndexError`",
+        "`False`"
+      ],
+      "correct": 2,
+      "wrong": [
+        "Le générateur n'accède à aucun élément car sa plage est vide.",
+        "The generator accesses no element because its range is empty."
+      ],
+      "explanation": [
+        "`any` sur une plage vide renvoie `False` : aucune descente.",
+        "`any` over an empty range returns `False`: there is no descent."
+      ]
+    },
+    {
+      "objective": 1,
+      "prompt": [
+        "Pour `t=[3,1,2]`, combien de comparaisons de `all(t[i] <= t[i+1] for i in range(len(t)-1))` peuvent réellement être évaluées avant l'arrêt ?",
+        "For `t=[3,1,2]`, how many comparisons can `all(t[i] <= t[i+1] for i in range(len(t)-1))` actually evaluate before stopping?"
+      ],
+      "hint": [
+        "`all` s'arrête dès le premier résultat faux.",
+        "`all` stops at the first false result."
+      ],
+      "options": [
+        "$1$",
+        "$2$",
+        "$3$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "La première paire $3\\leq1$ est déjà fausse ; la suite n'est pas évaluée.",
+        "The first pair $3\\leq1$ is already false; later pairs are not evaluated."
+      ],
+      "explanation": [
+        "L'évaluation paresseuse du générateur et le court-circuit de `all` suffisent après un test.",
+        "Lazy generator evaluation and `all` short-circuit after one test."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Pour `t=[5]`, que vaut la formule de doublon utilisant `any(t[i]==t[j] for i in range(n) for j in range(i+1,n))` ?",
+        "For `t=[5]`, what does the duplicate formula `any(t[i]==t[j] for i in range(n) for j in range(i+1,n))` return?"
+      ],
+      "hint": [
+        "Il n'existe pas deux indices distincts.",
+        "There are no two distinct indices."
+      ],
+      "options": [
+        "`True`",
+        "`False`",
+        "`IndexError`"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Le parcours des couples $i<j$ est vide pour $n=1$.",
+        "The range of pairs $i<j$ is empty for $n=1$."
+      ],
+      "explanation": [
+        "Sans deux positions, aucun doublon n'est possible.",
+        "With fewer than two positions, a duplicate is impossible."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Pour `t=[]`, pourquoi $\\exists i\\forall j\\ t[j]\\leq t[i]$ est-elle fausse ?",
+        "For `t=[]`, why is $\\exists i\\forall j\\ t[j]\\leq t[i]$ false?"
+      ],
+      "hint": [
+        "L'existentielle extérieure demande un indice existant.",
+        "The outer existential requires an actual index."
+      ],
+      "options": [
+        [
+          "Parce que tous les nombres sont négatifs.",
+          "Because all numbers are negative."
+        ],
+        [
+          "Parce que les inégalités strictes ne sont pas utilisées.",
+          "Because strict inequalities are not used."
+        ],
+        [
+          "Parce qu'il n'existe aucun indice $i$ témoin.",
+          "Because there is no witnessing index $i$."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "La vacuité de l'universelle intérieure ne crée pas de témoin pour l'existentielle extérieure.",
+        "Vacuity of the inner universal cannot create a witness for the outer existential."
+      ],
+      "explanation": [
+        "Une liste vide est triée mais ne contient aucun élément maximum.",
+        "An empty list is sorted but contains no maximum element."
+      ]
+    }
+  ]
+}

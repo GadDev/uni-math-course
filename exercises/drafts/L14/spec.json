@@ -1,0 +1,390 @@
+{
+  "lessonId": "L14",
+  "version": 2,
+  "items": [
+    {
+      "objective": 1,
+      "prompt": [
+        "Combien d'éléments contient $\\mathcal P(\\{a\\})$ ?",
+        "How many elements are in $\\mathcal P(\\{a\\})$?"
+      ],
+      "hint": [
+        "Comptez le vide et l'ensemble entier.",
+        "Count the empty set and the full set."
+      ],
+      "options": [
+        "$2$",
+        "$1$",
+        "$0$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Un singleton a exactement deux parties.",
+        "A singleton has exactly two subsets."
+      ],
+      "explanation": [
+        "$\\mathcal P(\\{a\\})=\\{\\varnothing,\\{a\\}\\}$.",
+        "$\\mathcal P(\\{a\\})=\\{\\varnothing,\\{a\\}\\}$."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Quelle expression appartient à $\\mathcal P(\\{x,y,z\\})$ ?",
+        "Which expression belongs to $\\mathcal P(\\{x,y,z\\})$?"
+      ],
+      "hint": [
+        "Un élément de l'ensemble des parties est un sous-ensemble.",
+        "A powerset member is a subset."
+      ],
+      "options": [
+        "$x$",
+        "$\\{x,z\\}$",
+        "$\\{x,w\\}$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Il faut un ensemble composé uniquement des éléments de départ.",
+        "It must be a set containing only starting-set elements."
+      ],
+      "explanation": [
+        "$\\{x,z\\}$ est une partie de $\\{x,y,z\\}$.",
+        "$\\{x,z\\}$ is a subset of $\\{x,y,z\\}$."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Pour tout ensemble $A$, lequel appartient à $\\mathcal P(A)$ ?",
+        "For every set $A$, which belongs to $\\mathcal P(A)$?"
+      ],
+      "hint": [
+        "Le vide est partie de chaque ensemble.",
+        "The empty set is a subset of every set."
+      ],
+      "options": [
+        "$A\\cup\\{q\\}$",
+        "$q$",
+        "$\\varnothing$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "Un objet arbitraire n'est pas forcément une partie de $A$.",
+        "An arbitrary object need not be a subset of $A$."
+      ],
+      "explanation": [
+        "$\\varnothing\\subseteq A$ implique $\\varnothing\\in\\mathcal P(A)$.",
+        "$\\varnothing\\subseteq A$ implies $\\varnothing\\in\\mathcal P(A)$."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Combien de parties possède un ensemble à cinq éléments distincts ?",
+        "How many subsets does a set of five distinct elements have?"
+      ],
+      "hint": [
+        "Chaque élément est choisi ou écarté indépendamment.",
+        "Each element is independently included or excluded."
+      ],
+      "options": [
+        "$32$",
+        "$10$",
+        "$25$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Le compte est exponentiel : $2^n$.",
+        "The count is exponential: $2^n$."
+      ],
+      "explanation": [
+        "$2^5=32$ possibilités de choix.",
+        "$2^5=32$ inclusion patterns."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Pour $A=\\{1,2\\}$, quelle relation est vraie ?",
+        "For $A=\\{1,2\\}$, which relation is true?"
+      ],
+      "hint": [
+        "Distinguez un nombre d'une partie contenant ce nombre.",
+        "Distinguish a number from a subset containing it."
+      ],
+      "options": [
+        "$1\\in\\mathcal P(A)$",
+        "$\\{1\\}\\in\\mathcal P(A)$",
+        "$\\{3\\}\\in\\mathcal P(A)$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Les éléments de $\\mathcal P(A)$ sont des ensembles contenus dans $A$.",
+        "Members of $\\mathcal P(A)$ are sets contained in $A$."
+      ],
+      "explanation": [
+        "$\\{1\\}\\subseteq A$ mais $1$ n'est pas lui-même une partie de $A$.",
+        "$\\{1\\}\\subseteq A$ but $1$ is not itself a subset of $A$."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Combien d'éléments contient $\\mathcal P(\\varnothing)$ ?",
+        "How many elements does $\\mathcal P(\\varnothing)$ have?"
+      ],
+      "hint": [
+        "L'ensemble vide est sa propre partie.",
+        "The empty set is its own subset."
+      ],
+      "options": [
+        "$0$",
+        "$2$",
+        "$1$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "Le vide a une seule partie : lui-même.",
+        "The empty set has exactly one subset: itself."
+      ],
+      "explanation": [
+        "$\\mathcal P(\\varnothing)=\\{\\varnothing\\}$, qui contient un élément.",
+        "$\\mathcal P(\\varnothing)=\\{\\varnothing\\}$, which has one element."
+      ]
+    },
+    {
+      "objective": 1,
+      "prompt": [
+        "Listez toutes les parties de $B=\\{p,q\\}$. Quel résultat est complet ?",
+        "List all subsets of $B=\\{p,q\\}$. Which result is complete?"
+      ],
+      "hint": [
+        "Il existe deux choix par élément.",
+        "There are two choices per element."
+      ],
+      "options": [
+        "$\\{\\varnothing,\\{p\\},\\{q\\},\\{p,q\\}\\}$",
+        "$\\{\\{p\\},\\{q\\},\\{p,q\\}\\}$",
+        "$\\{\\varnothing,\\{p,q\\}\\}$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "N'oubliez ni le vide ni les deux singletons.",
+        "Do not omit the empty set or either singleton."
+      ],
+      "explanation": [
+        "Les quatre parties correspondent aux $2^2$ choix d'inclusion.",
+        "The four subsets correspond to the $2^2$ inclusion choices."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Soit $A=\\{1,2,3\\}$. Quel ensemble n'est pas dans $\\mathcal P(A)$ ?",
+        "Let $A=\\{1,2,3\\}$. Which set does not belong to $\\mathcal P(A)$?"
+      ],
+      "hint": [
+        "Un élément extérieur à $A$ exclut la candidature.",
+        "An element outside $A$ disqualifies a candidate."
+      ],
+      "options": [
+        "$\\{1,3\\}$",
+        "$\\{2,4\\}$",
+        "$\\varnothing$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Toute partie peut omettre des éléments mais ne peut inclure $4$.",
+        "A subset may omit elements but cannot include $4$."
+      ],
+      "explanation": [
+        "$4\\notin A$, donc $\\{2,4\\}\\notin\\mathcal P(A)$.",
+        "$4\\notin A$, so $\\{2,4\\}\\notin\\mathcal P(A)$."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Si $C=\\{4,5\\}$, quel membre est toujours présent dans $\\mathcal P(C)$ ?",
+        "If $C=\\{4,5\\}$, which member is always present in $\\mathcal P(C)$?"
+      ],
+      "hint": [
+        "Un ensemble est aussi une partie de lui-même.",
+        "A set is also a subset of itself."
+      ],
+      "options": [
+        "$4$",
+        "$\\{4,5,6\\}$",
+        "$C$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "Le nombre $4$ n'est pas une partie et $6$ est absent de $C$.",
+        "Number $4$ is not a subset and $6$ is outside $C$."
+      ],
+      "explanation": [
+        "$C\\subseteq C$, donc $C\\in\\mathcal P(C)$.",
+        "$C\\subseteq C$, so $C\\in\\mathcal P(C)$."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Si $\\mathcal P(D)$ contient $16$ éléments et $D$ est fini, combien d'éléments contient $D$ ?",
+        "If $\\mathcal P(D)$ has $16$ elements and $D$ is finite, how many elements does $D$ have?"
+      ],
+      "hint": [
+        "Résolvez $2^n=16$.",
+        "Solve $2^n=16$."
+      ],
+      "options": [
+        "$4$",
+        "$8$",
+        "$2$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Le nombre de parties est une puissance de deux.",
+        "The subset count is a power of two."
+      ],
+      "explanation": [
+        "$2^4=16$ ; $D$ possède quatre éléments.",
+        "$2^4=16$; $D$ has four elements."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Pour $A=\\{\\varnothing,1\\}$, quelle affirmation est vraie ?",
+        "For $A=\\{\\varnothing,1\\}$, which claim is true?"
+      ],
+      "hint": [
+        "Une partie de $A$ est un ensemble d'éléments de $A$.",
+        "A subset of $A$ is a set of members of $A$."
+      ],
+      "options": [
+        "$1\\in\\mathcal P(A)$",
+        "$\\{\\varnothing\\}\\in\\mathcal P(A)$",
+        "$\\{2\\}\\in\\mathcal P(A)$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "$1$ n'est pas une partie, mais l'ensemble contenant $\\varnothing$ en est une.",
+        "$1$ is not a subset, but the set containing $\\varnothing$ is."
+      ],
+      "explanation": [
+        "Puisque $\\varnothing\\in A$, son singleton est une partie de $A$.",
+        "Because $\\varnothing\\in A$, its singleton is a subset of $A$."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Quelle est la taille de $\\mathcal P(\\mathcal P(\\varnothing))$ ?",
+        "What is the size of $\\mathcal P(\\mathcal P(\\varnothing))$?"
+      ],
+      "hint": [
+        "Calculez d'abord $\\mathcal P(\\varnothing)$.",
+        "Compute $\\mathcal P(\\varnothing)$ first."
+      ],
+      "options": [
+        "$0$",
+        "$1$",
+        "$2$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "L'ensemble intérieur contient un élément ; son ensemble des parties en contient deux.",
+        "The inner set has one element; its powerset has two."
+      ],
+      "explanation": [
+        "$\\mathcal P(\\varnothing)=\\{\\varnothing\\}$, donc le deuxième ensemble des parties a $2$ membres.",
+        "$\\mathcal P(\\varnothing)=\\{\\varnothing\\}$, so the next powerset has $2$ members."
+      ]
+    },
+    {
+      "objective": 1,
+      "prompt": [
+        "Pour $A=\\{a,b,c\\}$, combien de parties contiennent l'élément $a$ ?",
+        "For $A=\\{a,b,c\\}$, how many subsets contain $a$?"
+      ],
+      "hint": [
+        "Fixez $a$ inclus, choisissez librement les deux autres.",
+        "Include $a$; freely choose the other two."
+      ],
+      "options": [
+        "$4$",
+        "$3$",
+        "$8$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Deux éléments restent libres, ce qui donne $2^2$ choix.",
+        "Two elements remain free, giving $2^2$ choices."
+      ],
+      "explanation": [
+        "Il existe quatre parties avec $a$ : $\\{a\\}$, $\\{a,b\\}$, $\\{a,c\\}$, $A$.",
+        "Four subsets contain $a$: $\\{a\\}$, $\\{a,b\\}$, $\\{a,c\\}$, $A$."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Pour $A=\\{1,2\\}$, quelles relations entre $\\{1\\}$, $A$ et $\\mathcal P(A)$ sont toutes deux vraies ?",
+        "For $A=\\{1,2\\}$, which relations involving $\\{1\\}$, $A$ and $\\mathcal P(A)$ are both true?"
+      ],
+      "hint": [
+        "Une partie de $A$ est un élément de $\\mathcal P(A)$.",
+        "A subset of $A$ is a member of $\\mathcal P(A)$."
+      ],
+      "options": [
+        "$\\{1\\}\\in A$ et $1\\in\\mathcal P(A)$",
+        "$\\{1\\}\\subseteq A$ et $\\{1\\}\\in\\mathcal P(A)$",
+        "$1\\subseteq A$ et $A\\in A$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Ne permutez pas appartenance et inclusion, et ne confondez pas un nombre avec un ensemble.",
+        "Do not swap membership and subset relations or confuse a number with a set."
+      ],
+      "explanation": [
+        "$\\{1\\}$ est un sous-ensemble de $A$, donc il appartient à l'ensemble de ses parties.",
+        "$\\{1\\}$ is a subset of $A$, hence is a member of its powerset."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "De $A\\in\\mathcal P(A)$ pour un ensemble $A$, peut-on déduire $A\\in A$ ?",
+        "Does $A\\in\\mathcal P(A)$ for a set $A$ imply $A\\in A$?"
+      ],
+      "hint": [
+        "La première propriété est toujours vraie. La seconde demande une hypothèse d'auto-appartenance.",
+        "The first property always holds. The second concerns self-membership."
+      ],
+      "options": [
+        [
+          "Oui, car $A$ est sa propre partie.",
+          "Yes, because $A$ is its own subset."
+        ],
+        [
+          "Non, car $A\\in\\mathcal P(A)$ est faux.",
+          "No, because $A\\in\\mathcal P(A)$ is false."
+        ],
+        [
+          "$A\\in\\mathcal P(A)$ est vrai, mais ne donne pas $A\\in A$.",
+          "$A\\in\\mathcal P(A)$ is true but does not imply $A\\in A$."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Ne déduisez pas $A\\in A$ de $A\\subseteq A$ ; ce sont des relations différentes.",
+        "Do not infer $A\\in A$ from $A\\subseteq A$; they are different relations."
+      ],
+      "explanation": [
+        "Tout ensemble est sa propre partie, mais cela ne décide pas son auto-appartenance.",
+        "Every set is its own subset, but this does not decide self-membership."
+      ]
+    }
+  ]
+}

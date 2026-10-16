@@ -1,0 +1,111 @@
+{
+  "lessonId":"L06","version":2,"items":[
+    {
+      "id":"L06-E07","objectiveId":"L06-O01","difficulty":"easy","misconceptions":["converse-read-as-original"],
+      "prompt":["Quelle est la réciproque de « $A$ implique $B$ » ?","What is the converse of “$A$ implies $B$”?"],
+      "hint":["La réciproque échange les rôles de l'antécédent et du conséquent.","The converse swaps antecedent and consequent."],
+      "options":[["$B\\Rightarrow A$","$B\\Rightarrow A$","Exact : les deux côtés sont échangés.","Correct: the two sides are swapped."],["$\\neg B\\Rightarrow\\neg A$","$\\neg B\\Rightarrow\\neg A$","C'est la contraposée, et non la réciproque.","That is the contrapositive, not the converse."],["$A\\Rightarrow B$","$A\\Rightarrow B$","La formule est inchangée.","The formula is unchanged."]],
+      "correct":0,"explanation":["La réciproque de $A\\Rightarrow B$ est $B\\Rightarrow A$.","The converse of $A\\Rightarrow B$ is $B\\Rightarrow A$."]
+    },
+    {
+      "id":"L06-E08","objectiveId":"L06-O02","difficulty":"easy","misconceptions":["contrapositive-confused-with-converse"],
+      "prompt":["Quelle formule est la contraposée de $A\\Rightarrow B$ ?","Which formula is the contrapositive of $A\\Rightarrow B$?"],
+      "hint":["Inversez les deux propositions ET niez-les.","Swap both statements AND negate them."],
+      "options":[["$B\\Rightarrow A$","$B\\Rightarrow A$","Il manque les deux négations.","Both negations are missing."],["$\\neg B\\Rightarrow\\neg A$","$\\neg B\\Rightarrow\\neg A$","Exact : on échange et on nie.","Correct: swap and negate."],["$\\neg A\\Rightarrow\\neg B$","$\\neg A\\Rightarrow\\neg B$","C'est l'inverse, pas la contraposée.","That is the inverse, not the contrapositive."]],
+      "correct":1,"explanation":["La contraposée est $\\neg B\\Rightarrow\\neg A$ et garde la valeur de l'implication initiale.","The contrapositive is $\\neg B\\Rightarrow\\neg A$ and preserves the original implication's truth value."]
+    },
+    {
+      "id":"L06-E09","objectiveId":"L06-O03","difficulty":"easy","misconceptions":["implication-equivalent-to-converse"],
+      "prompt":["Quelle paire de formules est logiquement équivalente pour toutes valeurs booléennes de $A,B$ ?","Which pair of formulas is logically equivalent for all Boolean values of $A,B$?"],
+      "hint":["La contraposée conserve la même table ; la réciproque peut changer la table.","The contrapositive preserves the table; the converse can differ."],
+      "options":[["$A\\Rightarrow B$ et $B\\Rightarrow A$","$A\\Rightarrow B$ and $B\\Rightarrow A$","Sur $A=0,B=1$, leurs valeurs diffèrent.","At $A=0,B=1$, their values differ."],["$A\\Rightarrow B$ et $\\neg A\\Rightarrow\\neg B$","$A\\Rightarrow B$ and $\\neg A\\Rightarrow\\neg B$","L'inverse est différent sur $A=0,B=1$.","The inverse differs at $A=0,B=1$."],["$A\\Rightarrow B$ et $\\neg B\\Rightarrow\\neg A$","$A\\Rightarrow B$ and $\\neg B\\Rightarrow\\neg A$","Exact : implication et contraposée sont équivalentes.","Correct: implication and contrapositive are equivalent."]],
+      "correct":2,"explanation":["Les deux formules sont fausses uniquement lorsque $A=1,B=0$.","Both formulas are false only when $A=1,B=0$."]
+    },
+    {
+      "id":"L06-E10","objectiveId":"L06-O04","difficulty":"easy","misconceptions":["converse-confused-with-contrapositive"],"type":"truth-table",
+      "prompt":["La règle initiale est $A\\Rightarrow\\neg B$. Construisez la table de sa réciproque $\\neg B\\Rightarrow A$.","The original rule is $A\\Rightarrow\\neg B$. Build the truth table of its converse $\\neg B\\Rightarrow A$."],
+      "hint":["L'antécédent de la réciproque devient $\\neg B$.","The antecedent of the converse becomes $\\neg B$."],
+      "variables":["A","B"],"rows":[{"id":"00","A":false,"B":false},{"id":"01","A":false,"B":true},{"id":"10","A":true,"B":false},{"id":"11","A":true,"B":true}],
+      "answer":{"00":false,"01":true,"10":true,"11":true},
+      "feedback":["La réciproque est fausse à $00$ : $\\neg B=1$, $A=0$.","The converse is false at $00$: $\\neg B=1$, $A=0$."]
+    },
+    {
+      "id":"L06-E11","objectiveId":"L06-O05","difficulty":"easy","misconceptions":["denying-the-antecedent"],
+      "prompt":["Une règle stipule : « Si une personne entre ($E$), elle possède un badge ($B$). » Elle n'a pas de badge. Que peut-on déduire ?","A rule says: “If a person enters ($E$), they have a badge ($B$).” They have no badge. What follows?"],
+      "hint":["Appliquez la contraposée de $E\\Rightarrow B$.","Apply the contrapositive of $E\\Rightarrow B$."],
+      "options":[["Elle entre quand même.","They still enter.","Cela donnerait un cas d'entrée sans badge, contraire à la règle.","That would be entry without a badge, violating the rule."],["Elle n'entre pas.","They do not enter.","Exact : sans badge, aucune entrée compatible avec la règle.","Correct: without a badge, no entry is compatible with the rule."],["Elle possède un autre badge.","They have a different badge.","La règle ne décrit pas d'autre badge ; l'hypothèse indique l'absence de badge.","The rule says nothing about another badge; the premise says no badge."]],
+      "correct":1,"explanation":["$E\\Rightarrow B$ équivaut à $\\neg B\\Rightarrow\\neg E$.","$E\\Rightarrow B$ is equivalent to $\\neg B\\Rightarrow\\neg E$."]
+    },
+    {
+      "id":"L06-E12","objectiveId":"L06-O06","difficulty":"medium","misconceptions":["only-reversed"],
+      "prompt":["« Un étudiant peut utiliser la salle seulement s'il est inscrit. » Avec $S$ : utilise la salle, $I$ : inscrit, quelle formule traduit cette condition ?","“A student may use the room only if registered.” With $S$: uses the room, $I$: registered, which formula expresses the condition?"],
+      "hint":["« Seulement si » introduit une condition nécessaire.","“Only if” introduces a necessary condition."],
+      "options":[["$I\\Rightarrow S$","$I\\Rightarrow S$","Cette réciproque accorderait l'accès à toute personne inscrite.","This converse would grant access to everyone registered."],["$S\\Leftrightarrow I$","$S\\Leftrightarrow I$","Une biconditionnelle ajoute la réciproque non annoncée.","A biconditional adds an unstated converse."],["$S\\Rightarrow I$","$S\\Rightarrow I$","Exact : utiliser la salle impose l'inscription.","Correct: using the room requires registration."]],
+      "correct":2,"explanation":["Un usage sans inscription violerait la règle : $S\\Rightarrow I$.","Using the room without registration would violate the rule: $S\\Rightarrow I$."]
+    },
+    {
+      "id":"L06-E13","objectiveId":"L06-O01","difficulty":"medium","misconceptions":["converse-read-as-original"],
+      "prompt":["Sur les entiers, « divisible par $8$ implique divisible par $4$ » est vrai. Que vaut sa réciproque ?","Over integers, “divisible by $8$ implies divisible by $4$” is true. What about its converse?"],
+      "hint":["La réciproque part d'une divisibilité par $4$ ; cherchez un nombre qui ne soit pas divisible par $8$.","The converse starts from divisibility by $4$; seek a number not divisible by $8$."],
+      "options":[["Elle est fausse : $4$ fournit un contre-exemple.","It is false: $4$ is a counterexample.","Exact : $4$ est multiple de $4$ mais pas de $8$.","Correct: $4$ is a multiple of $4$ but not of $8$."],["Elle est vraie parce que l'originale est vraie.","It is true because the original is true.","Une implication n'est pas en général équivalente à sa réciproque.","An implication is not generally equivalent to its converse."],["Elle n'a pas de valeur de vérité.","It has no truth value.","Les deux propriétés sont définies sur les entiers.","Both properties are defined over integers."]],
+      "correct":0,"explanation":["La réciproque affirme « multiple de $4$ implique multiple de $8$ » ; $4$ la réfute.","The converse says “multiple of $4$ implies multiple of $8$”; $4$ refutes it."]
+    },
+    {
+      "id":"L06-E14","objectiveId":"L06-O02","difficulty":"medium","misconceptions":["contrapositive-confused-with-converse"],
+      "prompt":["Quelle est la contraposée de $(A\\land B)\\Rightarrow C$ ?","What is the contrapositive of $(A\\land B)\\Rightarrow C$?"],
+      "hint":["Niez toute la conjonction antécédente, et échangez avec le conséquent.","Negate the whole antecedent conjunction and swap it with the consequent."],
+      "options":[["$C\\Rightarrow(A\\land B)$","$C\\Rightarrow(A\\land B)$","C'est la réciproque, sans négations.","That is the converse, without negations."],["$\\neg C\\Rightarrow\\neg(A\\land B)$","$\\neg C\\Rightarrow\\neg(A\\land B)$","Exact : le groupement antécédent reste sous la négation.","Correct: the original grouped antecedent remains under negation."],["$(\\neg A\\land\\neg B)\\Rightarrow\\neg C$","$(\\neg A\\land\\neg B)\\Rightarrow\\neg C$","Vous avez nié les parties séparément sans échanger les rôles.","You negated parts separately without swapping roles."]],
+      "correct":1,"explanation":["Pour $P=A\\land B$, la contraposée de $P\\Rightarrow C$ est $\\neg C\\Rightarrow\\neg P$.","With $P=A\\land B$, the contrapositive of $P\\Rightarrow C$ is $\\neg C\\Rightarrow\\neg P$."]
+    },
+    {
+      "id":"L06-E15","objectiveId":"L06-O03","difficulty":"medium","misconceptions":["implication-equivalent-to-inverse"],
+      "prompt":["Un étudiant affirme que $A\\Rightarrow B$ équivaut à son inverse $\\neg A\\Rightarrow\\neg B$. Quelle affectation montre que cette affirmation est fausse ?","A student claims $A\\Rightarrow B$ is equivalent to its inverse $\\neg A\\Rightarrow\\neg B$. Which assignment disproves that?"],
+      "hint":["Cherchez un antécédent $A$ faux avec $B$ vrai.","Try a false antecedent $A$ with true $B$."],
+      "options":[["$A=1,B=1$","$A=1,B=1$","Les deux implications sont vraies ici.","Both implications are true here."],["$A=0,B=0$","$A=0,B=0$","Les deux implications sont vraies ici.","Both implications are true here."],["$A=0,B=1$","$A=0,B=1$","Exact : l'originale est vraie, mais l'inverse est fausse.","Correct: the original is true but the inverse is false."]],
+      "correct":2,"explanation":["À $01$, $0\\Rightarrow1=1$, mais $1\\Rightarrow0=0$.","At $01$, $0\\Rightarrow1=1$, but $1\\Rightarrow0=0$."]
+    },
+    {
+      "id":"L06-E16","objectiveId":"L06-O04","difficulty":"medium","misconceptions":["converse-confused-with-contrapositive"],"type":"truth-table",
+      "prompt":["La règle initiale est $C\\Rightarrow(A\\lor B)$. Construisez la table de sa réciproque $(A\\lor B)\\Rightarrow C$ sur $A,B,C$.","The original rule is $C\\Rightarrow(A\\lor B)$. Build the table of its converse $(A\\lor B)\\Rightarrow C$ over $A,B,C$."],
+      "hint":["Le groupe $A\\lor B$ est tout l'antécédent de la réciproque.","The group $A\\lor B$ is the entire antecedent of the converse."],
+      "variables":["A","B","C"],"rows":[{"id":"000","A":false,"B":false,"C":false},{"id":"001","A":false,"B":false,"C":true},{"id":"010","A":false,"B":true,"C":false},{"id":"011","A":false,"B":true,"C":true},{"id":"100","A":true,"B":false,"C":false},{"id":"101","A":true,"B":false,"C":true},{"id":"110","A":true,"B":true,"C":false},{"id":"111","A":true,"B":true,"C":true}],
+      "answer":{"000":true,"001":true,"010":false,"011":true,"100":false,"101":true,"110":false,"111":true},
+      "feedback":["La réciproque échoue sur $010$, $100$, $110$ : au moins un de $A,B$ est vrai et $C$ est faux.","The converse fails at $010$, $100$, $110$: at least one of $A,B$ is true and $C$ is false."]
+    },
+    {
+      "id":"L06-E17","objectiveId":"L06-O05","difficulty":"hard","misconceptions":["contrapositive-confused-with-converse"],
+      "prompt":["Deux règles sont établies : « si $A$, alors $B$ » et « si $B$, alors $C$ ». On constate $C=0$. Quelle conclusion est imposée par ces deux règles ?","Two rules hold: “if $A$, then $B$” and “if $B$, then $C$.” We observe $C=0$. Which conclusion follows necessarily?"],
+      "hint":["Remontez les deux règles par contraposition.","Work backwards through both rules by contraposition."],
+      "options":[["$A=1$","$A=1$","Cela impliquerait $B=1$ puis $C=1$, en contradiction avec l'observation.","That would imply $B=1$ then $C=1$, contradicting the observation."],["$A=0$ et $B=0$","$A=0$ and $B=0$","Exact : $\\neg C$ impose $\\neg B$, puis $\\neg A$.","Correct: $\\neg C$ implies $\\neg B$, then $\\neg A$."],["$B=1$ mais $A=0$","$B=1$ but $A=0$","$B=1$ impliquerait $C=1$, impossible ici.","$B=1$ would imply $C=1$, impossible here."]],
+      "correct":1,"explanation":["$B\\Rightarrow C$ donne $\\neg C\\Rightarrow\\neg B$ ; $A\\Rightarrow B$ donne $\\neg B\\Rightarrow\\neg A$.","$B\\Rightarrow C$ gives $\\neg C\\Rightarrow\\neg B$; $A\\Rightarrow B$ gives $\\neg B\\Rightarrow\\neg A$."]
+    },
+    {
+      "id":"L06-E18","objectiveId":"L06-O06","difficulty":"hard","misconceptions":["only-reversed"],
+      "prompt":["« On peut consulter le laboratoire seulement si un encadrant est présent. » La présence d'un encadrant est-elle suffisante pour garantir l'accès ?","“The laboratory may be accessed only if a supervisor is present.” Is the supervisor's presence sufficient to guarantee access?"],
+      "hint":["La règle donne une condition obligatoire ; elle ne promet pas la réciproque.","The rule states a necessary condition, not a promise of its converse."],
+      "options":[["Oui, car la présence garantit automatiquement tout accès.","Yes, because presence automatically guarantees access.","La règle n'annonce pas que toutes les autres conditions d'accès sont satisfaites.","The rule does not say all other access conditions are met."],["Non, parce que la présence n'est jamais nécessaire.","No, because presence is never necessary.","La présence est justement nécessaire dans « seulement si ».","Presence is precisely necessary in an “only if” statement."],["Non : la présence est nécessaire, mais peut ne pas suffire.","No: presence is necessary but may not suffice.","Exact : accès implique présence, pas forcément l'inverse.","Correct: access implies presence, not necessarily the converse."]],
+      "correct":2,"explanation":["En notant $A$ l'accès et $P$ la présence, on sait $A\\Rightarrow P$, mais pas $P\\Rightarrow A$.","Writing $A$ for access and $P$ for presence, we know $A\\Rightarrow P$ but not $P\\Rightarrow A$."]
+    },
+    {
+      "id":"L06-E19","objectiveId":"L06-O03","difficulty":"hard","misconceptions":["implication-equivalent-to-inverse"],
+      "prompt":["On compare $P=(A\\Rightarrow B)$, sa réciproque $R=(B\\Rightarrow A)$, son inverse $I=(\\neg A\\Rightarrow\\neg B)$ et sa contraposée $C=(\\neg B\\Rightarrow\\neg A)$. Quelles paires sont toujours équivalentes ?","Compare $P=(A\\Rightarrow B)$, its converse $R=(B\\Rightarrow A)$, inverse $I=(\\neg A\\Rightarrow\\neg B)$ and contrapositive $C=(\\neg B\\Rightarrow\\neg A)$. Which pairs are always equivalent?"],
+      "hint":["La contraposée de la réciproque est aussi son équivalent.","The contrapositive of the converse is equivalent to it as well."],
+      "options":[["$P\\equiv R$ et $I\\equiv C$","$P\\equiv R$ and $I\\equiv C$","À $A=0,B=1$, $P$ et $R$ diffèrent.","At $A=0,B=1$, $P$ and $R$ differ."],["$P\\equiv C$ et $R\\equiv I$","$P\\equiv C$ and $R\\equiv I$","Exact : chaque implication équivaut à sa contraposée.","Correct: each implication is equivalent to its contrapositive."],["$P\\equiv I$ et $R\\equiv C$","$P\\equiv I$ and $R\\equiv C$","L'inverse et l'originale diffèrent à $A=0,B=1$.","The inverse and original differ at $A=0,B=1$."]],
+      "correct":1,"explanation":["$C$ est la contraposée de $P$ et $I$ celle de $R$ ; les deux paires sont donc équivalentes.","$C$ is the contrapositive of $P$, and $I$ of $R$; both pairs are therefore equivalent."]
+    },
+    {
+      "id":"L06-E20","objectiveId":"L06-O02","difficulty":"hard","misconceptions":["negation-scope-misread"],
+      "prompt":["Un système applique $A\\Rightarrow(B\\lor C)$. Quelle formule exprime sa contraposée en n'utilisant que $A,B,C,\\neg,\\land,\\Rightarrow$ ?","A system applies $A\\Rightarrow(B\\lor C)$. Which formula expresses its contrapositive using only $A,B,C,\\neg,\\land,\\Rightarrow$?"],
+      "hint":["Niez le groupe $B\\lor C$ en une seule fois, puis appliquez De Morgan.","Negate $B\\lor C$ as a whole, then apply De Morgan."],
+      "options":[["$(\\neg B\\land\\neg C)\\Rightarrow\\neg A$","$(\\neg B\\land\\neg C)\\Rightarrow\\neg A$","Exact : la négation de $B\\lor C$ exige deux négations conjointes.","Correct: negating $B\\lor C$ requires both negations together."],["$(\\neg B\\lor\\neg C)\\Rightarrow\\neg A$","$(\\neg B\\lor\\neg C)\\Rightarrow\\neg A$","De Morgan remplace ici « ou » par « et ».","De Morgan changes OR into AND here."],["$\\neg A\\Rightarrow(\\neg B\\land\\neg C)$","$\\neg A\\Rightarrow(\\neg B\\land\\neg C)$","L'ordre des deux côtés n'a pas été échangé.","The two sides have not been swapped."]],
+      "correct":0,"explanation":["La contraposée est $\\neg(B\\lor C)\\Rightarrow\\neg A$, soit $(\\neg B\\land\\neg C)\\Rightarrow\\neg A$.","The contrapositive is $\\neg(B\\lor C)\\Rightarrow\\neg A$, or $(\\neg B\\land\\neg C)\\Rightarrow\\neg A$."]
+    },
+    {
+      "id":"L06-E21","objectiveId":"L06-O01","difficulty":"hard","misconceptions":["converse-read-as-original"],
+      "prompt":["Tout carré est un rectangle. Un élève affirme que la réciproque est aussi vraie. Quel exemple géométrique suffit à la réfuter ?","Every square is a rectangle. A student claims the converse is also true. Which geometric example refutes it?"],
+      "hint":["Pour réfuter la réciproque, cherchez un rectangle qui ne soit pas carré.","To refute the converse, find a rectangle that is not a square."],
+      "options":[["Un carré de côté $2$.","A square with side length $2$.","C'est un carré et un rectangle, donc pas un contre-exemple.","It is both a square and a rectangle, so not a counterexample."],["Un triangle rectangle.","A right triangle.","Un triangle n'est pas un rectangle au sens de quadrilatère.","A triangle is not a rectangle in the quadrilateral sense."],["Un rectangle de côtés $2$ et $3$.","A rectangle with sides $2$ and $3$.","Exact : c'est un rectangle, mais ses côtés ne sont pas tous égaux.","Correct: it is a rectangle, but its sides are not all equal."]],
+      "correct":2,"explanation":["La réciproque « tout rectangle est un carré » est fausse à cause d'un rectangle non carré.","The converse “every rectangle is a square” is false because of a non-square rectangle."]
+    }
+  ]
+}

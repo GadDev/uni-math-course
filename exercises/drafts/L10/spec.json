@@ -1,0 +1,546 @@
+{
+  "lessonId": "L10",
+  "version": 2,
+  "items": [
+    {
+      "id": "L10-E07",
+      "objectiveId": "L10-O01",
+      "difficulty": "easy",
+      "prompt": [
+        "Dans quel plus petit ensemble de la chaîne $\\mathbb N\\subseteq\\mathbb Z\\subseteq\\mathbb Q\\subseteq\\mathbb R$ trouve-t-on $-4$ ?",
+        "Which smallest set in $\\mathbb N\\subseteq\\mathbb Z\\subseteq\\mathbb Q\\subseteq\\mathbb R$ contains $-4$?"
+      ],
+      "hint": [
+        "Les naturels du cours commencent à $0$.",
+        "Naturals start at $0$ in this course."
+      ],
+      "options": [
+        [
+          "$\\mathbb N$",
+          "$\\mathbb N$"
+        ],
+        [
+          "$\\mathbb Z$",
+          "$\\mathbb Z$"
+        ],
+        [
+          "$\\mathbb R$ mais pas $\\mathbb Q$",
+          "$\\mathbb R$ but not $\\mathbb Q$"
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Un entier négatif n'est pas naturel, mais tout entier est rationnel et réel.",
+        "A negative integer is not natural, but all integers are rational and real."
+      ],
+      "explanation": [
+        "$-4$ est un entier non naturel, donc le plus petit ensemble nommé est $\\mathbb Z$.",
+        "$-4$ is a non-natural integer, so the smallest named set is $\\mathbb Z$."
+      ]
+    },
+    {
+      "id": "L10-E08",
+      "objectiveId": "L10-O02",
+      "difficulty": "easy",
+      "prompt": [
+        "Quel ensemble possède exactement les éléments $5$ et $8$ ?",
+        "Which set has exactly the elements $5$ and $8$?"
+      ],
+      "hint": [
+        "L'ordre et la répétition ne créent pas de nouveaux éléments.",
+        "Order and repetition do not add new elements."
+      ],
+      "options": [
+        [
+          "$\\{8,5,8\\}$",
+          "$\\{8,5,8\\}$"
+        ],
+        [
+          "$\\{5,6,8\\}$",
+          "$\\{5,6,8\\}$"
+        ],
+        [
+          "$\\{5\\}$",
+          "$\\{5\\}$"
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Un ensemble ne dépend ni de l'ordre ni des répétitions, mais dépend de ses éléments.",
+        "A set ignores order and repetitions but depends on which elements occur."
+      ],
+      "explanation": [
+        "$\\{8,5,8\\}=\\{5,8\\}$ : le deuxième $8$ n'ajoute rien.",
+        "$\\{8,5,8\\}=\\{5,8\\}$: the second $8$ adds nothing."
+      ]
+    },
+    {
+      "id": "L10-E09",
+      "objectiveId": "L10-O03",
+      "difficulty": "easy",
+      "prompt": [
+        "Quelle est la taille de $\\varnothing$ ?",
+        "What is the size of $\\varnothing$?"
+      ],
+      "hint": [
+        "L'ensemble vide n'a aucun élément.",
+        "The empty set has no elements."
+      ],
+      "options": [
+        [
+          "$1$",
+          "$1$"
+        ],
+        [
+          "$-1$",
+          "$-1$"
+        ],
+        [
+          "$0$",
+          "$0$"
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "L'ensemble vide n'est pas l'ensemble contenant zéro : il ne contient rien.",
+        "The empty set is not the singleton containing zero: it contains nothing."
+      ],
+      "explanation": [
+        "Par définition $\\varnothing$ a $0$ élément.",
+        "By definition $\\varnothing$ has $0$ elements."
+      ]
+    },
+    {
+      "id": "L10-E10",
+      "objectiveId": "L10-O04",
+      "difficulty": "easy",
+      "prompt": [
+        "Pour $A=\\{3,5,7\\}$, quelle écriture est vraie ?",
+        "For $A=\\{3,5,7\\}$, which statement is true?"
+      ],
+      "hint": [
+        "Un nombre peut être membre ; un singleton peut être partie.",
+        "A number can be a member; a singleton can be a subset."
+      ],
+      "options": [
+        [
+          "$\\{5\\}\\in A$",
+          "$\\{5\\}\\in A$"
+        ],
+        [
+          "$5\\in A$",
+          "$5\\in A$"
+        ],
+        [
+          "$5\\subseteq A$",
+          "$5\\subseteq A$"
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Les membres de $A$ sont des nombres, non des singletons ; $\\subseteq$ relie des ensembles.",
+        "Members of $A$ are numbers, not singletons; $\\subseteq$ relates sets."
+      ],
+      "explanation": [
+        "Le nombre $5$ figure dans l'énumération de $A$.",
+        "The number $5$ is listed in $A$."
+      ]
+    },
+    {
+      "id": "L10-E11",
+      "objectiveId": "L10-O05",
+      "difficulty": "easy",
+      "prompt": [
+        "Que signifie $C\\subseteq D$ ?",
+        "What does $C\\subseteq D$ mean?"
+      ],
+      "hint": [
+        "La relation compare les éléments de deux ensembles.",
+        "The relation compares elements of two sets."
+      ],
+      "options": [
+        [
+          "Tout élément de $C$ appartient à $D$.",
+          "Every element of $C$ belongs to $D$."
+        ],
+        [
+          "$C$ et $D$ n'ont aucun élément commun.",
+          "$C$ and $D$ have no common elements."
+        ],
+        [
+          "$C$ a strictement moins d'éléments que $D$.",
+          "$C$ has strictly fewer elements than $D$."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Une inclusion peut être une égalité et impose l'appartenance de chaque élément de $C$.",
+        "Inclusion can be equality and requires membership of each $C$ element."
+      ],
+      "explanation": [
+        "$C\\subseteq D$ se définit par $\\forall c\\ (c\\in C\\Rightarrow c\\in D)$.",
+        "$C\\subseteq D$ means $\\forall c\\ (c\\in C\\Rightarrow c\\in D)$."
+      ]
+    },
+    {
+      "id": "L10-E12",
+      "objectiveId": "L10-O06",
+      "difficulty": "medium",
+      "prompt": [
+        "Pour $A=\\{2,4,6\\}$, lequel n'est pas un sous-ensemble de $A$ ?",
+        "For $A=\\{2,4,6\\}$, which is not a subset of $A$?"
+      ],
+      "hint": [
+        "Un seul élément absent suffit à réfuter une inclusion.",
+        "One missing element refutes a subset claim."
+      ],
+      "options": [
+        [
+          "$\\{2,6\\}$",
+          "$\\{2,6\\}$"
+        ],
+        [
+          "$\\varnothing$",
+          "$\\varnothing$"
+        ],
+        [
+          "$\\{4,8\\}$",
+          "$\\{4,8\\}$"
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Le vide et tout choix d'éléments de $A$ sont des parties de $A$.",
+        "The empty set and any selection of $A$ elements are subsets of $A$."
+      ],
+      "explanation": [
+        "$8\\notin A$, donc $\\{4,8\\}\\not\\subseteq A$.",
+        "$8\\notin A$, so $\\{4,8\\}\\not\\subseteq A$."
+      ]
+    },
+    {
+      "id": "L10-E13",
+      "objectiveId": "L10-O01",
+      "difficulty": "medium",
+      "prompt": [
+        "Quel nombre est rationnel mais n'est pas entier ?",
+        "Which number is rational but not an integer?"
+      ],
+      "hint": [
+        "Un quotient de deux entiers avec dénominateur non nul est rationnel.",
+        "A quotient of integers with a nonzero denominator is rational."
+      ],
+      "options": [
+        [
+          "$-6$",
+          "$-6$"
+        ],
+        [
+          "$\\frac{7}{2}$",
+          "$\\frac{7}{2}$"
+        ],
+        [
+          "$\\sqrt2$",
+          "$\\sqrt2$"
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Un entier reste entier et $\\sqrt2$ n'est pas rationnel.",
+        "An integer remains an integer and $\\sqrt2$ is irrational."
+      ],
+      "explanation": [
+        "$7/2=3.5$ est un rationnel non entier.",
+        "$7/2=3.5$ is rational but not integral."
+      ]
+    },
+    {
+      "id": "L10-E14",
+      "objectiveId": "L10-O02",
+      "difficulty": "medium",
+      "prompt": [
+        "$B=\\{1,2,2,3,1\\}$ : combien d'éléments distincts possède $B$ ?",
+        "$B=\\{1,2,2,3,1\\}$: how many distinct elements does $B$ have?"
+      ],
+      "hint": [
+        "Supprimez les doublons de l'énumération.",
+        "Remove repetitions from the enumeration."
+      ],
+      "options": [
+        [
+          "$3$",
+          "$3$"
+        ],
+        [
+          "$5$",
+          "$5$"
+        ],
+        [
+          "$2$",
+          "$2$"
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Le nombre de positions écrites n'est pas le nombre d'éléments distincts.",
+        "The number of written positions is not the number of distinct elements."
+      ],
+      "explanation": [
+        "$B=\\{1,2,3\\}$ et possède trois éléments.",
+        "$B=\\{1,2,3\\}$ and has three elements."
+      ]
+    },
+    {
+      "id": "L10-E15",
+      "objectiveId": "L10-O03",
+      "difficulty": "medium",
+      "prompt": [
+        "Quelle relation est vraie pour tout ensemble $A$ ?",
+        "Which relation is true for every set $A$?"
+      ],
+      "hint": [
+        "Une inclusion peut être vérifiée sans trouver de membre.",
+        "A subset claim can hold even without finding a member."
+      ],
+      "options": [
+        [
+          "$\\varnothing\\in A$",
+          "$\\varnothing\\in A$"
+        ],
+        [
+          "$A\\in\\varnothing$",
+          "$A\\in\\varnothing$"
+        ],
+        [
+          "$\\varnothing\\subseteq A$",
+          "$\\varnothing\\subseteq A$"
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "L'appartenance de $\\varnothing$ à $A$ n'est pas garantie ; rien n'appartient au vide.",
+        "Membership of $\\varnothing$ in $A$ is not guaranteed; nothing belongs to the empty set."
+      ],
+      "explanation": [
+        "Aucun élément de $\\varnothing$ ne viole l'inclusion dans $A$.",
+        "No element of $\\varnothing$ can violate inclusion in $A$."
+      ]
+    },
+    {
+      "id": "L10-E16",
+      "objectiveId": "L10-O04",
+      "difficulty": "medium",
+      "prompt": [
+        "Soit $A=\\{\\{1\\},2\\}$. Quelle proposition est vraie ?",
+        "Let $A=\\{\\{1\\},2\\}$. Which proposition is true?"
+      ],
+      "hint": [
+        "Les éléments sont le singleton $\\{1\\}$ et le nombre $2$.",
+        "The elements are the singleton $\\{1\\}$ and the number $2$."
+      ],
+      "options": [
+        [
+          "$1\\in A$",
+          "$1\\in A$"
+        ],
+        [
+          "$\\{1\\}\\in A$",
+          "$\\{1\\}\\in A$"
+        ],
+        [
+          "$\\{2\\}\\in A$",
+          "$\\{2\\}\\in A$"
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Distinguez un élément et l'ensemble à un seul élément qui le contient.",
+        "Distinguish an element from the singleton containing it."
+      ],
+      "explanation": [
+        "Le singleton $\\{1\\}$ figure lui-même comme élément de $A$.",
+        "The singleton $\\{1\\}$ itself appears as a member of $A$."
+      ]
+    },
+    {
+      "id": "L10-E17",
+      "objectiveId": "L10-O05",
+      "difficulty": "hard",
+      "prompt": [
+        "Soient $A=\\{1,2\\}$ et $B=\\{1,2\\}$. Quelle affirmation utilise correctement $\\subseteq$ ?",
+        "Let $A=\\{1,2\\}$ and $B=\\{1,2\\}$. Which claim uses $\\subseteq$ correctly?"
+      ],
+      "hint": [
+        "Le symbole d'inclusion n'exige pas que les ensembles soient distincts.",
+        "The subset symbol does not require distinct sets."
+      ],
+      "options": [
+        [
+          "Ni $A\\subseteq B$ ni $B\\subseteq A$.",
+          "Neither $A\\subseteq B$ nor $B\\subseteq A$."
+        ],
+        [
+          "$A\\subseteq B$ mais pas $B\\subseteq A$.",
+          "$A\\subseteq B$ but not $B\\subseteq A$."
+        ],
+        [
+          "$A\\subseteq B$ et $B\\subseteq A$.",
+          "$A\\subseteq B$ and $B\\subseteq A$."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "L'inclusion non stricte est satisfaite dans les deux sens pour des ensembles égaux.",
+        "Nonstrict inclusion holds both ways for equal sets."
+      ],
+      "explanation": [
+        "L'égalité entraîne les deux inclusions ; réciproquement, les deux inclusions prouvent l'égalité.",
+        "Equality implies both inclusions, and conversely both inclusions establish equality."
+      ]
+    },
+    {
+      "id": "L10-E18",
+      "objectiveId": "L10-O06",
+      "difficulty": "hard",
+      "prompt": [
+        "$A=\\{\\varnothing,\\{1\\}\\}$. Quel ensemble est une partie de $A$ mais n'est pas un élément de $A$ ?",
+        "$A=\\{\\varnothing,\\{1\\}\\}$. Which set is a subset of $A$ but is not an element of $A$?"
+      ],
+      "hint": [
+        "Vérifiez les deux conditions séparément.",
+        "Check the two conditions separately."
+      ],
+      "options": [
+        [
+          "$\\{\\varnothing\\}$",
+          "$\\{\\varnothing\\}$"
+        ],
+        [
+          "$\\varnothing$",
+          "$\\varnothing$"
+        ],
+        [
+          "$\\{1\\}$",
+          "$\\{1\\}$"
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Le vide et $\\{1\\}$ sont déjà membres de $A$ ; le singleton du vide n'est pas listé.",
+        "The empty set and $\\{1\\}$ already belong to $A$; the singleton of the empty set is not listed."
+      ],
+      "explanation": [
+        "$\\{\\varnothing\\}\\subseteq A$ puisque $\\varnothing\\in A$, mais $\\{\\varnothing\\}\\notin A$.",
+        "$\\{\\varnothing\\}\\subseteq A$ since $\\varnothing\\in A$, but $\\{\\varnothing\\}\\notin A$."
+      ]
+    },
+    {
+      "id": "L10-E19",
+      "objectiveId": "L10-O01",
+      "difficulty": "hard",
+      "prompt": [
+        "Quel énoncé est mathématiquement exact avec les conventions du cours ?",
+        "Which statement is mathematically correct with the course conventions?"
+      ],
+      "hint": [
+        "Distinguez les ensembles mathématiques et leurs représentations en informatique.",
+        "Distinguish mathematical sets and their computer representations."
+      ],
+      "options": [
+        [
+          "Tous les réels sont stockés exactement par les flottants ordinaires.",
+          "All reals are stored exactly by ordinary floating-point values."
+        ],
+        [
+          "$0\\in\\mathbb N$ et $\\mathbb Q\\subseteq\\mathbb R$.",
+          "$0\\in\\mathbb N$ and $\\mathbb Q\\subseteq\\mathbb R$."
+        ],
+        [
+          "$\\frac12\\in\\mathbb Z$.",
+          "$\\frac12\\in\\mathbb Z$."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "La représentation informatique des réels est limitée ; une fraction non entière n'est pas un entier.",
+        "Computer representation of reals is limited; a nonintegral fraction is not an integer."
+      ],
+      "explanation": [
+        "Le cours adopte $0\\in\\mathbb N$ et tout rationnel est un réel.",
+        "The course adopts $0\\in\\mathbb N$ and every rational is real."
+      ]
+    },
+    {
+      "id": "L10-E20",
+      "objectiveId": "L10-O04",
+      "difficulty": "hard",
+      "prompt": [
+        "Pour $A=\\{0,\\{0\\}\\}$, combien de ces propositions sont vraies : $0\\in A$, $\\{0\\}\\in A$, $\\{0\\}\\subseteq A$ ?",
+        "For $A=\\{0,\\{0\\}\\}$, how many are true: $0\\in A$, $\\{0\\}\\in A$, $\\{0\\}\\subseteq A$?"
+      ],
+      "hint": [
+        "Le singleton $\\{0\\}$ est un élément, et son unique élément est $0$.",
+        "The singleton $\\{0\\}$ is a member, and its only element is $0$."
+      ],
+      "options": [
+        [
+          "Une seule.",
+          "Only one."
+        ],
+        [
+          "Deux.",
+          "Two."
+        ],
+        [
+          "Trois.",
+          "Three."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Testez chaque relation séparément ; les trois suivent de l'énumération.",
+        "Test each relation separately; all three follow from the enumeration."
+      ],
+      "explanation": [
+        "$A$ contient $0$ et $\\{0\\}$ ; donc $\\{0\\}$ est aussi un sous-ensemble de $A$.",
+        "$A$ contains $0$ and $\\{0\\}$; therefore $\\{0\\}$ is also a subset of $A$."
+      ]
+    },
+    {
+      "id": "L10-E21",
+      "objectiveId": "L10-O06",
+      "difficulty": "hard",
+      "prompt": [
+        "Avec $A=\\{1,2,3,4\\}$ et $B=\\{2,4,6\\}$, quelle preuve suffit à montrer $B\\not\\subseteq A$ ?",
+        "With $A=\\{1,2,3,4\\}$ and $B=\\{2,4,6\\}$, which proof suffices to show $B\\not\\subseteq A$?"
+      ],
+      "hint": [
+        "Une non-inclusion admet un témoin élémentaire.",
+        "A non-inclusion has a single-element witness."
+      ],
+      "options": [
+        [
+          "$2\\in A$ et $2\\in B$.",
+          "$2\\in A$ and $2\\in B$."
+        ],
+        [
+          "$6\\in B$ mais $6\\notin A$.",
+          "$6\\in B$ but $6\\notin A$."
+        ],
+        [
+          "$1\\in A$ mais $1\\notin B$.",
+          "$1\\in A$ but $1\\notin B$."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Pour réfuter $B\\subseteq A$, il faut un élément de $B$ absent de $A$.",
+        "To refute $B\\subseteq A$, we need an element of $B$ absent from $A$."
+      ],
+      "explanation": [
+        "Le témoin $6$ viole la condition universelle sur les membres de $B$.",
+        "Witness $6$ violates the universal condition on members of $B$."
+      ]
+    }
+  ]
+}

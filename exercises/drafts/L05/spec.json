@@ -1,0 +1,723 @@
+{
+  "lessonId": "L05",
+  "version": 3,
+  "items": [
+    {
+      "id": "L05-E07",
+      "objectiveId": "L05-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "false-antecedent"
+      ],
+      "prompt": [
+        "Avec $A=1$ et $B=0$, que vaut $A\\Rightarrow B$ ?",
+        "With $A=1$ and $B=0$, what is $A\\Rightarrow B$?"
+      ],
+      "hint": [
+        "Une implication a une seule ligne fausse.",
+        "An implication has exactly one false row."
+      ],
+      "options": [
+        [
+          "$1$",
+          "$1$",
+          "Une condition vraie qui conduit à une conclusion fausse réfute l'implication.",
+          "A true condition with a false conclusion refutes the implication."
+        ],
+        [
+          "$0$",
+          "$0$",
+          "Exact : c'est précisément le cas d'échec.",
+          "Correct: this is precisely the failure case."
+        ],
+        [
+          "Sans valeur",
+          "No value",
+          "L'affectation est complète ; la formule a une valeur.",
+          "The assignment is complete; the formula has a value."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "Une implication est fausse quand l'antécédent vaut $1$ et le conséquent $0$.",
+        "An implication is false when the antecedent is $1$ and the consequent $0$."
+      ]
+    },
+    {
+      "id": "L05-E08",
+      "objectiveId": "L05-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "implication-failure"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Complétez les quatre lignes de $A\\Rightarrow\\neg B$.",
+        "Complete all four rows of $A\\Rightarrow\\neg B$."
+      ],
+      "hint": [
+        "Remplacez d'abord $B$ par sa négation, puis appliquez la règle de l'implication.",
+        "First negate $B$, then apply the implication rule."
+      ],
+      "variables": [
+        "A",
+        "B"
+      ],
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "10": true,
+        "11": false,
+        "00": true,
+        "01": true
+      },
+      "feedback": [
+        "Le seul échec est $A=1,B=1$, car $\\neg B=0$.",
+        "The sole failure is $A=1,B=1$, since $\\neg B=0$."
+      ]
+    },
+    {
+      "id": "L05-E09",
+      "objectiveId": "L05-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "necessary-confused-with-sufficient"
+      ],
+      "prompt": [
+        "Pour un entier $n$, être multiple de $6$ implique être pair. Quelle condition est suffisante pour que $n$ soit pair ?",
+        "For an integer $n$, being a multiple of $6$ implies being even. Which condition is sufficient for $n$ to be even?"
+      ],
+      "hint": [
+        "Une condition suffisante garantit la conclusion.",
+        "A sufficient condition guarantees the conclusion."
+      ],
+      "options": [
+        [
+          "Être multiple de $6$.",
+          "Being a multiple of $6$.",
+          "Exact : $6k=2(3k)$ est pair.",
+          "Correct: $6k=2(3k)$ is even."
+        ],
+        [
+          "Être impair.",
+          "Being odd.",
+          "Un entier impair n'est précisément pas pair.",
+          "An odd integer is not even."
+        ],
+        [
+          "Être supérieur à $6$.",
+          "Being greater than $6$.",
+          "$7$ est supérieur à $6$ mais impair.",
+          "$7$ is greater than $6$ but odd."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "Pour tout entier $k$, $6k=2(3k)$ ; être multiple de $6$ suffit.",
+        "For every integer $k$, $6k=2(3k)$; being a multiple of $6$ suffices."
+      ]
+    },
+    {
+      "id": "L05-E10",
+      "objectiveId": "L05-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "negating-implication"
+      ],
+      "prompt": [
+        "Quelle formule signifie exactement « $A\\Rightarrow B$ est fausse » ?",
+        "Which formula means exactly “$A\\Rightarrow B$ is false”?"
+      ],
+      "hint": [
+        "Cherchez l'antécédent vrai et le conséquent faux.",
+        "Look for a true antecedent and a false consequent."
+      ],
+      "options": [
+        [
+          "$\\neg A\\land B$",
+          "$\\neg A\\land B$",
+          "Un antécédent faux ne fait pas échouer l'implication.",
+          "A false antecedent does not falsify an implication."
+        ],
+        [
+          "$A\\lor\\neg B$",
+          "$A\\lor\\neg B$",
+          "Le « ou » serait vrai sur d'autres lignes, sans réfuter l'implication.",
+          "OR would also be true on rows that do not refute implication."
+        ],
+        [
+          "$A\\land\\neg B$",
+          "$A\\land\\neg B$",
+          "Exact : c'est la seule affectation d'échec.",
+          "Correct: this is the unique failure pattern."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "$\\neg(A\\Rightarrow B)\\equiv A\\land\\neg B$ par la table de l'implication.",
+        "$\\neg(A\\Rightarrow B)\\equiv A\\land\\neg B$ by the implication truth table."
+      ]
+    },
+    {
+      "id": "L05-E11",
+      "objectiveId": "L05-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "false-antecedent"
+      ],
+      "prompt": [
+        "Règle : « Si un billet est VIP, il porte une étoile. » Un billet ordinaire sans étoile contredit-il cette règle ?",
+        "Rule: “If a ticket is VIP, it has a star.” Does an ordinary ticket without a star violate this rule?"
+      ],
+      "hint": [
+        "Quelle propriété a été promise uniquement aux billets VIP ?",
+        "Which property was promised only to VIP tickets?"
+      ],
+      "options": [
+        [
+          "Oui, car le billet n'a pas d'étoile.",
+          "Yes, because the ticket has no star.",
+          "La règle ne promet rien aux billets non VIP.",
+          "The rule promises nothing about non-VIP tickets."
+        ],
+        [
+          "Non, car le billet n'est pas VIP.",
+          "No, because the ticket is not VIP.",
+          "Exact : l'antécédent est faux.",
+          "Correct: the antecedent is false."
+        ],
+        [
+          "Impossible, car il manque la couleur.",
+          "Impossible, because the colour is unknown.",
+          "La couleur n'intervient pas dans la règle.",
+          "Colour is not part of the rule."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "Un ticket non VIP ne fournit aucun contre-exemple à « VIP implique étoile ».",
+        "A non-VIP ticket cannot refute “VIP implies star.”"
+      ]
+    },
+    {
+      "id": "L05-E12",
+      "objectiveId": "L05-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "counterexample-requires-true-condition"
+      ],
+      "prompt": [
+        "Sur $\\mathbb{N}$ (avec $0$), on affirme : « Si $n$ est pair, alors $n$ est multiple de $4$. » Quel $n$ est un contre-exemple ?",
+        "Over $\\mathbb{N}$ (including $0$), someone claims: “If $n$ is even, then $n$ is a multiple of $4$.” Which $n$ is a counterexample?"
+      ],
+      "hint": [
+        "Cherchez un entier pair qui n'est pas divisible par $4$.",
+        "Find an even integer not divisible by $4$."
+      ],
+      "options": [
+        [
+          "$8$",
+          "$8$",
+          "$8$ est pair et multiple de $4$ ; il confirme seulement ce cas.",
+          "$8$ is even and divisible by $4$; it supports this case."
+        ],
+        [
+          "$3$",
+          "$3$",
+          "$3$ est impair : l'antécédent est faux.",
+          "$3$ is odd: the antecedent is false."
+        ],
+        [
+          "$6$",
+          "$6$",
+          "Exact : $6$ est pair mais pas multiple de $4$.",
+          "Correct: $6$ is even but not a multiple of $4$."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "$6=2\\times3$ mais n'est pas divisible par $4$ ; condition vraie, conséquence fausse.",
+        "$6=2\\times3$ but is not divisible by $4$; true premise, false conclusion."
+      ]
+    },
+    {
+      "id": "L05-E13",
+      "objectiveId": "L05-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "implication-failure"
+      ],
+      "prompt": [
+        "Quand $(A\\lor B)\\Rightarrow C$ est-elle fausse ? Choisissez une affectation.",
+        "When is $(A\\lor B)\\Rightarrow C$ false? Choose an assignment."
+      ],
+      "hint": [
+        "Le groupe $A\\lor B$ forme tout l'antécédent.",
+        "The group $A\\lor B$ is the whole antecedent."
+      ],
+      "options": [
+        [
+          "$A=0,B=0,C=0$",
+          "$A=0,B=0,C=0$",
+          "L'antécédent est faux ; l'implication est vraie.",
+          "The antecedent is false; the implication is true."
+        ],
+        [
+          "$A=1,B=0,C=0$",
+          "$A=1,B=0,C=0$",
+          "Exact : l'antécédent vaut $1$, le conséquent $0$.",
+          "Correct: the antecedent is $1$, the consequent $0$."
+        ],
+        [
+          "$A=0,B=1,C=1$",
+          "$A=0,B=1,C=1$",
+          "Antécédent et conséquent vrais donnent une implication vraie.",
+          "True antecedent and consequent give a true implication."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "À $100$, $(1\\lor0)\\Rightarrow0$ est faux.",
+        "At $100$, $(1\\lor0)\\Rightarrow0$ is false."
+      ]
+    },
+    {
+      "id": "L05-E14",
+      "objectiveId": "L05-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "false-antecedent"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Complétez la table de $(A\\land B)\\Rightarrow C$ sur $A,B,C$.",
+        "Complete the table of $(A\\land B)\\Rightarrow C$ over $A,B,C$."
+      ],
+      "hint": [
+        "L'implication échoue seulement lorsque $A\\land B=1$ et $C=0$.",
+        "The implication fails only when $A\\land B=1$ and $C=0$."
+      ],
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": true,
+        "101": true,
+        "110": false,
+        "111": true,
+        "000": true,
+        "001": true,
+        "010": true,
+        "011": true
+      },
+      "feedback": [
+        "Seule la ligne $110$ est fausse, car elle réalise $(A\\land B)=1$ et $C=0$.",
+        "Only row $110$ is false, since $(A\\land B)=1$ and $C=0$."
+      ]
+    },
+    {
+      "id": "L05-E15",
+      "objectiveId": "L05-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "necessary-confused-with-sufficient"
+      ],
+      "prompt": [
+        "Règle : « Si un dossier est validé ($V$), il est archivé ($R$). » Quelle condition est nécessaire pour $V$ ?",
+        "Rule: “If a record is validated ($V$), it is archived ($R$).” Which condition is necessary for $V$?"
+      ],
+      "hint": [
+        "Si $V$ est vrai, quel état doit l'être aussi ?",
+        "If $V$ is true, which condition must also be true?"
+      ],
+      "options": [
+        [
+          "$\\neg R$",
+          "$\\neg R$",
+          "Un dossier validé exige $R$, pas sa négation.",
+          "A validated record requires $R$, not its negation."
+        ],
+        [
+          "$V$ est nécessaire à $R$.",
+          "$V$ is necessary for $R$.",
+          "L'implication ne dit pas que toute archive est validée.",
+          "The implication does not say every archived record is validated."
+        ],
+        [
+          "$R$ est nécessaire à $V$.",
+          "$R$ is necessary for $V$.",
+          "Exact : validation implique archivage.",
+          "Correct: validation implies archiving."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "De $V\\Rightarrow R$, $R$ est nécessaire pour $V$, tandis que $V$ est suffisant pour $R$.",
+        "From $V\\Rightarrow R$, $R$ is necessary for $V$, while $V$ is sufficient for $R$."
+      ]
+    },
+    {
+      "id": "L05-E16",
+      "objectiveId": "L05-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "negating-implication"
+      ],
+      "prompt": [
+        "Quelle formule décrit l'échec de $(A\\land B)\\Rightarrow C$ ?",
+        "Which formula describes failure of $(A\\land B)\\Rightarrow C$?"
+      ],
+      "hint": [
+        "Niez une implication entière, pas chacun de ses termes séparément.",
+        "Negate the whole implication, not each part separately."
+      ],
+      "options": [
+        [
+          "$A\\land B\\land\\neg C$",
+          "$A\\land B\\land\\neg C$",
+          "Exact : les deux prémisses sont vraies et la conclusion est fausse.",
+          "Correct: both premises are true and the conclusion is false."
+        ],
+        [
+          "$\\neg A\\land\\neg B\\land C$",
+          "$\\neg A\\land\\neg B\\land C$",
+          "L'antécédent est alors faux et l'implication vraie.",
+          "The antecedent is then false and the implication true."
+        ],
+        [
+          "$\\neg A\\lor\\neg B\\lor C$",
+          "$\\neg A\\lor\\neg B\\lor C$",
+          "Cette formule exprime l'implication elle-même, pas son échec.",
+          "This formula expresses the implication itself, not its failure."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "$\\neg((A\\land B)\\Rightarrow C)\\equiv A\\land B\\land\\neg C$.",
+        "$\\neg((A\\land B)\\Rightarrow C)\\equiv A\\land B\\land\\neg C$."
+      ]
+    },
+    {
+      "id": "L05-E17",
+      "objectiveId": "L05-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "implication-failure"
+      ],
+      "prompt": [
+        "Quatre cartes ont deux faces : une face indique « de garde » ou « pas de garde », l'autre « badge ouvre » ou « badge n'ouvre pas ». On voit respectivement : de garde, pas de garde, badge ouvre, badge n'ouvre pas. Pour tester « Si de garde, alors badge ouvre », quelles cartes faut-il retourner ?",
+        "Four two-sided cards show “on duty” or “off duty” on one face and “badge opens” or “badge does not open” on the other. Their visible faces are: on duty, off duty, badge opens, badge does not open. Which cards must be turned over to test “If on duty, then badge opens”?"
+      ],
+      "hint": [
+        "Cherchez un employé de garde dont le badge n'ouvre pas.",
+        "Look for an on-duty employee whose badge fails to open."
+      ],
+      "options": [
+        [
+          "De garde et badge n'ouvre pas.",
+          "On duty and badge does not open.",
+          "Exact : ces faces peuvent cacher le cas d'échec.",
+          "Correct: these faces may hide the failure case."
+        ],
+        [
+          "De garde et badge ouvre.",
+          "On duty and badge opens.",
+          "La face « badge ouvre » n'est pas un risque de violation.",
+          "The “badge opens” face cannot reveal a violation."
+        ],
+        [
+          "Pas de garde et badge n'ouvre pas.",
+          "Off duty and badge does not open.",
+          "La règle ne promet rien hors garde ; la face de garde est indispensable.",
+          "The rule promises nothing off duty; the on-duty face is essential."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "Pour chercher $A\\land\\neg B$, contrôlez les faces $A$ (de garde) et $\\neg B$ (badge n'ouvre pas).",
+        "To search for $A\\land\\neg B$, inspect the faces $A$ (on duty) and $\\neg B$ (badge does not open)."
+      ]
+    },
+    {
+      "id": "L05-E18",
+      "objectiveId": "L05-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "universal-from-one-example"
+      ],
+      "prompt": [
+        "Sur les naturels (avec $0$), on propose : « Si $n^2$ est divisible par $4$, alors $n$ est divisible par $4$. » Quel nombre réfute cette proposition ?",
+        "Over natural numbers (including $0$), consider: “If $n^2$ is divisible by $4$, then $n$ is divisible by $4$.” Which number refutes this claim?"
+      ],
+      "hint": [
+        "Un carré peut contenir plus de facteurs $2$ que sa racine.",
+        "A square can have more factors of $2$ than its root."
+      ],
+      "options": [
+        [
+          "$4$",
+          "$4$",
+          "$4^2=16$ et $4$ sont tous deux divisibles par $4$.",
+          "Both $4^2=16$ and $4$ are divisible by $4$."
+        ],
+        [
+          "$2$",
+          "$2$",
+          "Exact : $2^2=4$, mais $2$ n'est pas multiple de $4$.",
+          "Correct: $2^2=4$, but $2$ is not a multiple of $4$."
+        ],
+        [
+          "$1$",
+          "$1$",
+          "$1^2$ n'est pas divisible par $4$ : l'hypothèse échoue.",
+          "$1^2$ is not divisible by $4$: the antecedent fails."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "Pour $n=2$, l'antécédent est vrai et le conséquent faux, ce qui suffit à réfuter l'implication universelle.",
+        "At $n=2$, the antecedent is true and the consequent false, refuting the universal implication."
+      ]
+    },
+    {
+      "id": "L05-E19",
+      "objectiveId": "L05-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "implication-failure"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Deux règles doivent tenir ensemble : $(A\\Rightarrow B)\\land(B\\Rightarrow C)$. Calculez leur colonne sur les huit états $A,B,C$.",
+        "Two rules must both hold: $(A\\Rightarrow B)\\land(B\\Rightarrow C)$. Compute the column over all eight states $A,B,C$."
+      ],
+      "hint": [
+        "Évaluez chaque implication séparément, puis faites leur conjonction.",
+        "Evaluate each implication separately, then take their conjunction."
+      ],
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": false,
+        "101": false,
+        "110": false,
+        "111": true,
+        "000": true,
+        "001": true,
+        "010": false,
+        "011": true
+      },
+      "feedback": [
+        "La première règle échoue sur $100$, $101$ ; la seconde sur $010$, $110$. Les autres lignes satisfont les deux.",
+        "The first rule fails at $100$, $101$; the second at $010$, $110$. The other rows satisfy both."
+      ]
+    },
+    {
+      "id": "L05-E20",
+      "objectiveId": "L05-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "necessary-confused-with-sufficient"
+      ],
+      "prompt": [
+        "L'accès à un coffre implique une carte valide, mais une carte valide ne garantit pas l'accès (un code peut manquer). Quelle description logique est correcte ?",
+        "Access to a safe implies a valid card, but a valid card does not guarantee access (a code may be missing). Which logical description is correct?"
+      ],
+      "hint": [
+        "Distinguez une condition obligatoire d'une condition qui suffit.",
+        "Distinguish a required condition from one that guarantees the result."
+      ],
+      "options": [
+        [
+          "Carte valide est suffisante pour l'accès.",
+          "A valid card is sufficient for access.",
+          "Le code peut manquer malgré une carte valide.",
+          "The code may be missing despite a valid card."
+        ],
+        [
+          "Accès est nécessaire pour une carte valide.",
+          "Access is necessary for a valid card.",
+          "On peut avoir une carte valide sans accéder au coffre.",
+          "One can have a valid card without accessing the safe."
+        ],
+        [
+          "Carte valide est nécessaire, mais pas suffisante, pour l'accès.",
+          "A valid card is necessary but not sufficient for access.",
+          "Exact : tout accès exige la carte ; la carte seule ne suffit pas.",
+          "Correct: all access requires the card; the card alone is insufficient."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "Si $A$ est l'accès et $V$ la carte valide, $A\\Rightarrow V$, mais $V\\Rightarrow A$ peut échouer.",
+        "If $A$ is access and $V$ is a valid card, $A\\Rightarrow V$, but $V\\Rightarrow A$ can fail."
+      ]
+    },
+    {
+      "id": "L05-E21",
+      "objectiveId": "L05-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "negating-implication"
+      ],
+      "prompt": [
+        "Un étudiant confond $\\neg(A\\Rightarrow B)$ et $A\\Rightarrow\\neg B$. Quelle affectation montre que ces formules ne sont pas équivalentes ?",
+        "A student confuses $\\neg(A\\Rightarrow B)$ with $A\\Rightarrow\\neg B$. Which assignment shows they are not equivalent?"
+      ],
+      "hint": [
+        "Essayez d'abord un antécédent faux.",
+        "Try a false antecedent first."
+      ],
+      "options": [
+        [
+          "$A=1,B=0$",
+          "$A=1,B=0$",
+          "Les deux formules valent $1$ ici.",
+          "Both formulas are $1$ here."
+        ],
+        [
+          "$A=0,B=0$",
+          "$A=0,B=0$",
+          "Exact : la première vaut $0$, la seconde $1$.",
+          "Correct: the first is $0$, the second $1$."
+        ],
+        [
+          "$A=1,B=1$",
+          "$A=1,B=1$",
+          "Les deux formules valent $0$ ici.",
+          "Both formulas are $0$ here."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "À $00$, $A\\Rightarrow B$ est vraie donc sa négation fausse, tandis que $A\\Rightarrow\\neg B$ reste vraie.",
+        "At $00$, $A\\Rightarrow B$ is true so its negation is false, while $A\\Rightarrow\\neg B$ remains true."
+      ]
+    }
+  ]
+}

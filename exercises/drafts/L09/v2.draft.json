@@ -1,0 +1,1238 @@
+{
+  "lessonId": "L09",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L09-E07",
+      "objectiveId": "L09-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "set-confused-with-statement"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans l'approche informelle, que représente $S=\\{a,b\\}$ ?",
+        "en": "In the informal approach, what does $S=\\{a,b\\}$ represent?"
+      },
+      "hint": {
+        "fr": "Regardez les objets entre accolades.",
+        "en": "Look at the objects inside braces."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Une collection de deux objets.",
+            "en": "A collection of two objects."
+          },
+          "feedback": {
+            "fr": "$S$ contient exactement les objets $a$ et $b$ si ces objets sont distincts.",
+            "en": "$S$ contains exactly $a$ and $b$ if those objects are distinct."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Une seule assertion.",
+            "en": "A single proposition."
+          },
+          "feedback": {
+            "fr": "Les accolades énumèrent des éléments, pas des connecteurs logiques.",
+            "en": "Braces enumerate elements, not logical connectives."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Une implication logique.",
+            "en": "A logical implication."
+          },
+          "feedback": {
+            "fr": "Les accolades énumèrent des éléments, pas des connecteurs logiques.",
+            "en": "Braces enumerate elements, not logical connectives."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$S$ contient exactement les objets $a$ et $b$ si ces objets sont distincts.",
+        "en": "$S$ contains exactly $a$ and $b$ if those objects are distinct."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E08",
+      "objectiveId": "L09-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "any-collection-is-a-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi la règle « toute condition définit un ensemble » doit-elle être restreinte ?",
+        "en": "Why must the rule 'every condition defines a set' be restricted?"
+      },
+      "hint": {
+        "fr": "Pensez à l'auto-appartenance.",
+        "en": "Think about self-membership."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Elle empêcherait de construire des ensembles finis.",
+            "en": "It would prevent constructing finite sets."
+          },
+          "feedback": {
+            "fr": "Les ensembles finis et l'ensemble vide restent admis ; le problème est une compréhension sans borne.",
+            "en": "Finite sets and the empty set remain valid; unrestricted comprehension is the problem."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Elle permet la contradiction de Russell.",
+            "en": "It allows Russell's contradiction."
+          },
+          "feedback": {
+            "fr": "La collection de tous les ensembles ne se contenant pas eux-mêmes conduit à une contradiction.",
+            "en": "The collection of all sets not containing themselves leads to a contradiction."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Elle interdit l'ensemble vide.",
+            "en": "It forbids the empty set."
+          },
+          "feedback": {
+            "fr": "Les ensembles finis et l'ensemble vide restent admis ; le problème est une compréhension sans borne.",
+            "en": "Finite sets and the empty set remain valid; unrestricted comprehension is the problem."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La collection de tous les ensembles ne se contenant pas eux-mêmes conduit à une contradiction.",
+        "en": "The collection of all sets not containing themselves leads to a contradiction."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E09",
+      "objectiveId": "L09-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "russell-collection-misdescribed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle propriété caractérise un objet $x$ candidat à la collection de Russell $E$ ?",
+        "en": "Which property defines a candidate object $x$ for Russell's collection $E$?"
+      },
+      "hint": {
+        "fr": "La définition porte sur l'appartenance d'un ensemble à lui-même.",
+        "en": "The definition concerns whether a set belongs to itself."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x\\in x$",
+            "en": "$x\\in x$"
+          },
+          "feedback": {
+            "fr": "La propriété demande précisément que $x$ ne soit pas membre de lui-même.",
+            "en": "The property specifically asks that $x$ not be a member of itself."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x\\in E$ sans condition",
+            "en": "$x\\in E$ without a condition"
+          },
+          "feedback": {
+            "fr": "La propriété demande précisément que $x$ ne soit pas membre de lui-même.",
+            "en": "The property specifically asks that $x$ not be a member of itself."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x\\notin x$",
+            "en": "$x\\notin x$"
+          },
+          "feedback": {
+            "fr": "Par définition informelle, $E=\\{x\\mid x\\notin x\\}$, une construction non admise comme ensemble.",
+            "en": "Informally $E=\\{x\\mid x\\notin x\\}$, a construction not admitted as a set."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Par définition informelle, $E=\\{x\\mid x\\notin x\\}$, une construction non admise comme ensemble.",
+        "en": "Informally $E=\\{x\\mid x\\notin x\\}$, a construction not admitted as a set."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E10",
+      "objectiveId": "L09-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "contradiction-missed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si l'on suppose $E\\notin E$ pour la collection de Russell, quelle conséquence apparaît ?",
+        "en": "If we assume $E\\notin E$ for Russell's collection, what follows?"
+      },
+      "hint": {
+        "fr": "Appliquez la condition $x\\notin x$ à $x=E$.",
+        "en": "Apply $x\\notin x$ to $x=E$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$E$ satisfait son critère et devrait appartenir à $E$.",
+            "en": "$E$ satisfies its criterion and should belong to $E$."
+          },
+          "feedback": {
+            "fr": "Supposer $E\\notin E$ impose $E\\in E$ ; les deux statuts sont incompatibles.",
+            "en": "Assuming $E\\notin E$ forces $E\\in E$; the two statuses conflict."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$E$ devient automatiquement l'ensemble vide.",
+            "en": "$E$ automatically becomes the empty set."
+          },
+          "feedback": {
+            "fr": "Substituer $x=E$ dans la règle retourne précisément la conclusion opposée.",
+            "en": "Substituting $x=E$ into the rule gives exactly the opposite conclusion."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "La condition ne peut rien conclure.",
+            "en": "The condition cannot imply anything."
+          },
+          "feedback": {
+            "fr": "Substituer $x=E$ dans la règle retourne précisément la conclusion opposée.",
+            "en": "Substituting $x=E$ into the rule gives exactly the opposite conclusion."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Supposer $E\\notin E$ impose $E\\in E$ ; les deux statuts sont incompatibles.",
+        "en": "Assuming $E\\notin E$ forces $E\\in E$; the two statuses conflict."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E11",
+      "objectiveId": "L09-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "accepted-set-kinds"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle définition d'ensemble est admise dans le cadre du cours ?",
+        "en": "Which set definition is allowed within the course's framework?"
+      },
+      "hint": {
+        "fr": "Une compréhension doit sélectionner dans un ensemble déjà donné.",
+        "en": "Comprehension should select from an already given set."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Tous les objets satisfaisant n'importe quelle propriété, sans domaine.",
+            "en": "All objects satisfying any property, with no domain."
+          },
+          "feedback": {
+            "fr": "Une compréhension sans ensemble de départ n'est pas la construction retenue ici.",
+            "en": "Comprehension without a starting set is not the construction used here."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{n\\in\\mathbb N\\mid n<5\\}$",
+            "en": "$\\{n\\in\\mathbb N\\mid n<5\\}$"
+          },
+          "feedback": {
+            "fr": "La propriété filtre le domaine déjà admis $\\mathbb N$.",
+            "en": "The condition filters the already admitted domain $\\mathbb N$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Tous les ensembles qui ne se contiennent pas.",
+            "en": "All sets that do not contain themselves."
+          },
+          "feedback": {
+            "fr": "Une compréhension sans ensemble de départ n'est pas la construction retenue ici.",
+            "en": "Comprehension without a starting set is not the construction used here."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La propriété filtre le domaine déjà admis $\\mathbb N$.",
+        "en": "The condition filters the already admitted domain $\\mathbb N$."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E12",
+      "objectiveId": "L09-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "comprehension-without-ambient-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que garantit le domaine $X$ dans $\\{x\\in X\\mid P(x)\\}$ ?",
+        "en": "What does the domain $X$ ensure in $\\{x\\in X\\mid P(x)\\}$?"
+      },
+      "hint": {
+        "fr": "La sélection ne crée pas un ensemble de tous les objets possibles.",
+        "en": "The selection does not create a set of all possible objects."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Le résultat doit contenir tous les objets imaginables.",
+            "en": "The result must contain all imaginable objects."
+          },
+          "feedback": {
+            "fr": "Le filtre $P$ peut ne conserver aucun élément, mais il n'en ajoute pas hors de $X$.",
+            "en": "The predicate $P$ may keep no elements, but cannot add any outside $X$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "La propriété $P$ doit toujours être vraie.",
+            "en": "The property $P$ must always hold."
+          },
+          "feedback": {
+            "fr": "Le filtre $P$ peut ne conserver aucun élément, mais il n'en ajoute pas hors de $X$.",
+            "en": "The predicate $P$ may keep no elements, but cannot add any outside $X$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Chaque résultat est d'abord un élément de $X$.",
+            "en": "Every result is already an element of $X$."
+          },
+          "feedback": {
+            "fr": "Le résultat est par construction un sous-ensemble de l'ensemble de départ $X$.",
+            "en": "The result is by construction a subset of the starting set $X$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le résultat est par construction un sous-ensemble de l'ensemble de départ $X$.",
+        "en": "The result is by construction a subset of the starting set $X$."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E13",
+      "objectiveId": "L09-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "set-confused-with-statement"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $T=\\{m,a,t,h\\}$, quelle affirmation est valide au sens informel ?",
+        "en": "For $T=\\{m,a,t,h\\}$, which informal claim is valid?"
+      },
+      "hint": {
+        "fr": "Une collection est déterminée par les objets qu'elle rassemble.",
+        "en": "A collection is determined by the objects it contains."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$a\\in T$",
+            "en": "$a\\in T$"
+          },
+          "feedback": {
+            "fr": "La lettre $a$ est explicitement présente dans l'énumération.",
+            "en": "The letter $a$ appears explicitly in the enumeration."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$z\\in T$",
+            "en": "$z\\in T$"
+          },
+          "feedback": {
+            "fr": "Seules les quatre lettres énumérées sont membres de $T$.",
+            "en": "Only the four listed letters belong to $T$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$T$ est une assertion booléenne.",
+            "en": "$T$ is a Boolean proposition."
+          },
+          "feedback": {
+            "fr": "Seules les quatre lettres énumérées sont membres de $T$.",
+            "en": "Only the four listed letters belong to $T$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La lettre $a$ est explicitement présente dans l'énumération.",
+        "en": "The letter $a$ appears explicitly in the enumeration."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E14",
+      "objectiveId": "L09-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "any-collection-is-a-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un élève affirme : « si je peux énoncer une propriété, l'ensemble de tous ses objets existe ». Quelle réserve est pertinente ?",
+        "en": "A student claims: 'if I can state a property, the set of all its objects exists'. Which qualification matters?"
+      },
+      "hint": {
+        "fr": "Le cas de Russell est une propriété exprimable.",
+        "en": "Russell's case is an expressible property."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Toute propriété donne nécessairement un ensemble fini.",
+            "en": "Every property necessarily gives a finite set."
+          },
+          "feedback": {
+            "fr": "La taille ou la nature des éléments n'empêche pas la contradiction de Russell.",
+            "en": "Size or element type does not prevent Russell's contradiction."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Il faut des règles de formation ; toute compréhension illimitée n'est pas permise.",
+            "en": "Formation rules are needed; unrestricted comprehension is not always allowed."
+          },
+          "feedback": {
+            "fr": "L'auto-appartenance montre qu'une compréhension sans domaine n'est pas un principe sûr.",
+            "en": "Self-membership shows that unrestricted comprehension is not a safe principle."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Seuls les ensembles de lettres existent.",
+            "en": "Only sets of letters exist."
+          },
+          "feedback": {
+            "fr": "La taille ou la nature des éléments n'empêche pas la contradiction de Russell.",
+            "en": "Size or element type does not prevent Russell's contradiction."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "L'auto-appartenance montre qu'une compréhension sans domaine n'est pas un principe sûr.",
+        "en": "Self-membership shows that unrestricted comprehension is not a safe principle."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E15",
+      "objectiveId": "L09-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "russell-collection-misdescribed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans la définition de Russell, quelle formule exprime le test de candidature pour $x=E$ ?",
+        "en": "In Russell's definition, which formula expresses the membership test for $x=E$?"
+      },
+      "hint": {
+        "fr": "Remplacez $x$ par $E$ dans $x\\notin x$.",
+        "en": "Replace $x$ by $E$ in $x\\notin x$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$E\\in E\\Leftrightarrow E\\in E$",
+            "en": "$E\\in E\\Leftrightarrow E\\in E$"
+          },
+          "feedback": {
+            "fr": "La condition d'entrée est la négation exacte de l'auto-appartenance.",
+            "en": "The membership condition is precisely the negation of self-membership."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$E\\notin E\\Leftrightarrow E\\notin E$",
+            "en": "$E\\notin E\\Leftrightarrow E\\notin E$"
+          },
+          "feedback": {
+            "fr": "La condition d'entrée est la négation exacte de l'auto-appartenance.",
+            "en": "The membership condition is precisely the negation of self-membership."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$E\\in E\\Leftrightarrow E\\notin E$",
+            "en": "$E\\in E\\Leftrightarrow E\\notin E$"
+          },
+          "feedback": {
+            "fr": "La règle impose qu'une assertion ait la même valeur que sa négation, impossible en logique booléenne.",
+            "en": "The rule forces a proposition to agree with its negation, impossible in Boolean logic."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La règle impose qu'une assertion ait la même valeur que sa négation, impossible en logique booléenne.",
+        "en": "The rule forces a proposition to agree with its negation, impossible in Boolean logic."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E16",
+      "objectiveId": "L09-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "contradiction-missed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi vérifier seulement l'hypothèse $E\\in E$ ne termine-t-il pas l'argument de Russell ?",
+        "en": "Why is checking only $E\\in E$ insufficient to finish Russell's argument?"
+      },
+      "hint": {
+        "fr": "Une définition contradictoire échoue dans les deux cas possibles.",
+        "en": "A contradictory definition fails for both possibilities."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Il faut aussi supposer $E\\notin E$ et obtenir l'inverse.",
+            "en": "We must also assume $E\\notin E$ and derive the opposite."
+          },
+          "feedback": {
+            "fr": "$E\\in E$ mène à $E\\notin E$ et la seconde hypothèse mène à la première.",
+            "en": "$E\\in E$ leads to $E\\notin E$, and the other assumption leads back."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Il suffit de compter les membres de $E$.",
+            "en": "It suffices to count $E$'s elements."
+          },
+          "feedback": {
+            "fr": "Ni un cardinal ni un autre ensemble ne résout le test d'auto-appartenance.",
+            "en": "Neither a cardinality nor another set settles self-membership."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Il faut remplacer $E$ par l'ensemble vide.",
+            "en": "We must replace $E$ by the empty set."
+          },
+          "feedback": {
+            "fr": "Ni un cardinal ni un autre ensemble ne résout le test d'auto-appartenance.",
+            "en": "Neither a cardinality nor another set settles self-membership."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$E\\in E$ mène à $E\\notin E$ et la seconde hypothèse mène à la première.",
+        "en": "$E\\in E$ leads to $E\\notin E$, and the other assumption leads back."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E17",
+      "objectiveId": "L09-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "accepted-set-kinds"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $X=\\{\\varnothing,\\{\\varnothing\\}\\}$ et $R=\\{x\\in X\\mid x\\notin x\\}$. Pourquoi la contradiction de Russell ne suit-elle pas de cette définition ?",
+        "en": "Let $X=\\{\\varnothing,\\{\\varnothing\\}\\}$ and $R=\\{x\\in X\\mid x\\notin x\\}$. Why does Russell's contradiction not follow from this definition?"
+      },
+      "hint": {
+        "fr": "Ne confondez pas compréhension bornée et la collection universelle de Russell.",
+        "en": "Do not confuse bounded comprehension with Russell's unrestricted collection."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "C'est forcément le paradoxe de Russell.",
+            "en": "It must be Russell's paradox."
+          },
+          "feedback": {
+            "fr": "Le domaine $X$ est explicitement borné ; on ne peut pas supposer que le résultat $R$ y appartient.",
+            "en": "The domain $X$ is explicitly bounded; we cannot assume that the result $R$ belongs to it."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "La règle ne teste que les membres de $X$ ; on ne peut appliquer la condition à $R$ sans établir $R\\in X$.",
+            "en": "The rule only tests members of $X$; it cannot be applied to $R$ unless $R\\in X$ is established."
+          },
+          "feedback": {
+            "fr": "La compréhension définit une partie de $X$. Le pas auto-référent de Russell exigeait le droit de tester $R$ lui-même comme membre du domaine.",
+            "en": "Comprehension defines a subset of $X$. Russell's self-referential step required permission to test $R$ itself as a domain member."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "La sélection englobe tous les ensembles possibles.",
+            "en": "The selection includes every possible set."
+          },
+          "feedback": {
+            "fr": "Le domaine $X$ est explicitement borné ; on ne peut pas supposer que le résultat $R$ y appartient.",
+            "en": "The domain $X$ is explicitly bounded; we cannot assume that the result $R$ belongs to it."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La compréhension définit une partie de $X$. Le pas auto-référent de Russell exigeait le droit de tester $R$ lui-même comme membre du domaine.",
+        "en": "Comprehension defines a subset of $X$. Russell's self-referential step required permission to test $R$ itself as a domain member."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E18",
+      "objectiveId": "L09-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "comprehension-without-ambient-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $X=\\{1,2,3,4\\}$ et $A=\\{x\\in X\\mid x^2>9\\}$. Pourquoi cette définition n'a-t-elle pas le problème de Russell ?",
+        "en": "Let $X=\\{1,2,3,4\\}$ and $A=\\{x\\in X\\mid x^2>9\\}$. Why does this definition avoid Russell's problem?"
+      },
+      "hint": {
+        "fr": "Distinguez le domaine et le filtre.",
+        "en": "Distinguish the domain from its filter."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Parce que $A$ contient au moins trois éléments.",
+            "en": "Because $A$ has at least three elements."
+          },
+          "feedback": {
+            "fr": "Le point décisif est la restriction explicite au domaine $X$, non la taille du résultat.",
+            "en": "The key point is explicit restriction to $X$, not the result's size."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Parce que toute condition numérique est universelle.",
+            "en": "Because every numerical condition is universal."
+          },
+          "feedback": {
+            "fr": "Le point décisif est la restriction explicite au domaine $X$, non la taille du résultat.",
+            "en": "The key point is explicit restriction to $X$, not the result's size."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Parce que $A$ ne sélectionne que des éléments du $X$ déjà donné.",
+            "en": "Because $A$ only selects from the already given $X$."
+          },
+          "feedback": {
+            "fr": "La compréhension bornée donne ici $A=\\{4\\}$ ; elle ne crée pas un ensemble universel auto-référent.",
+            "en": "Bounded comprehension here gives $A=\\{4\\}$; it does not create a self-referential universal set."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La compréhension bornée donne ici $A=\\{4\\}$ ; elle ne crée pas un ensemble universel auto-référent.",
+        "en": "Bounded comprehension here gives $A=\\{4\\}$; it does not create a self-referential universal set."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E19",
+      "objectiveId": "L09-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "any-collection-is-a-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un programme accepte comme ensemble toute collection définie par une phrase. Quel contre-exemple logique réfute cette politique ?",
+        "en": "A program accepts every collection described by a sentence as a set. Which logical counterexample refutes this policy?"
+      },
+      "hint": {
+        "fr": "Cherchez une phrase qui se retourne contre sa propre appartenance.",
+        "en": "Seek a sentence that contradicts its own membership."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "La collection de tous les ensembles qui ne se contiennent pas eux-mêmes.",
+            "en": "The collection of all sets that do not contain themselves."
+          },
+          "feedback": {
+            "fr": "Appliquer la condition à la collection elle-même produit $E\\in E\\Leftrightarrow E\\notin E$.",
+            "en": "Applying the condition to the collection itself yields $E\\in E\\Leftrightarrow E\\notin E$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{0,1\\}$",
+            "en": "$\\{0,1\\}$"
+          },
+          "feedback": {
+            "fr": "Les ensembles finis ou les sous-ensembles des naturels ne produisent pas ce paradoxe.",
+            "en": "Finite sets or subsets of the naturals do not produce this paradox."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "L'ensemble des naturels pairs.",
+            "en": "The set of even naturals."
+          },
+          "feedback": {
+            "fr": "Les ensembles finis ou les sous-ensembles des naturels ne produisent pas ce paradoxe.",
+            "en": "Finite sets or subsets of the naturals do not produce this paradox."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Appliquer la condition à la collection elle-même produit $E\\in E\\Leftrightarrow E\\notin E$.",
+        "en": "Applying the condition to the collection itself yields $E\\in E\\Leftrightarrow E\\notin E$."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E20",
+      "objectiveId": "L09-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "contradiction-missed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un booléen $v$ code « $E\\in E$ ». La règle de Russell exige $v=\\neg v$. Combien de valeurs parmi $0,1$ conviennent ?",
+        "en": "A Boolean $v$ encodes '$E\\in E$'. Russell's rule requires $v=\\neg v$. How many values in $0,1$ work?"
+      },
+      "hint": {
+        "fr": "Testez les deux valeurs booléennes.",
+        "en": "Test both Boolean values."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Une, car $v=0$ convient.",
+            "en": "One, because $v=0$ works."
+          },
+          "feedback": {
+            "fr": "$\\neg0=1$ et $\\neg1=0$ : aucune égalité n'est possible.",
+            "en": "$\\neg0=1$ and $\\neg1=0$: neither equality holds."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Aucune.",
+            "en": "None."
+          },
+          "feedback": {
+            "fr": "La négation échange $0$ et $1$ : un booléen ne peut pas coïncider avec sa négation.",
+            "en": "Negation swaps $0$ and $1$: no Boolean equals its negation."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Deux, car la formule est toujours vraie.",
+            "en": "Two, because the formula is always true."
+          },
+          "feedback": {
+            "fr": "$\\neg0=1$ et $\\neg1=0$ : aucune égalité n'est possible.",
+            "en": "$\\neg0=1$ and $\\neg1=0$: neither equality holds."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La négation échange $0$ et $1$ : un booléen ne peut pas coïncider avec sa négation.",
+        "en": "Negation swaps $0$ and $1$: no Boolean equals its negation."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L09-E21",
+      "objectiveId": "L09-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "comprehension-without-ambient-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "On choisit deux ensembles existants $X$ et $Y$ et l'on définit $B=\\{x\\in X\\mid x\\notin Y\\}$. Quelle inclusion est forcément vraie ?",
+        "en": "Given existing sets $X$ and $Y$, define $B=\\{x\\in X\\mid x\\notin Y\\}$. Which inclusion must hold?"
+      },
+      "hint": {
+        "fr": "Le prédicat retire des éléments de $X$ ; il n'en ajoute pas.",
+        "en": "The predicate removes elements from $X$ and adds none."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$Y\\subseteq B$",
+            "en": "$Y\\subseteq B$"
+          },
+          "feedback": {
+            "fr": "La sélection peut retirer tout ou partie de $X$ ; elle ne garantit rien sur l'inclusion de $Y$.",
+            "en": "Selection can remove some or all of $X$; it gives no inclusion of $Y$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$X\\subseteq B$",
+            "en": "$X\\subseteq B$"
+          },
+          "feedback": {
+            "fr": "La sélection peut retirer tout ou partie de $X$ ; elle ne garantit rien sur l'inclusion de $Y$.",
+            "en": "Selection can remove some or all of $X$; it gives no inclusion of $Y$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$B\\subseteq X$",
+            "en": "$B\\subseteq X$"
+          },
+          "feedback": {
+            "fr": "Chaque élément de $B$ est explicitement pris dans $X$, même lorsque $B=\\varnothing$.",
+            "en": "Every element of $B$ is explicitly drawn from $X$, even when $B=\\varnothing$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Chaque élément de $B$ est explicitement pris dans $X$, même lorsque $B=\\varnothing$.",
+        "en": "Every element of $B$ is explicitly drawn from $X$, even when $B=\\varnothing$."
+      },
+      "lessonId": "L09",
+      "version": 2,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39,
+          40
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

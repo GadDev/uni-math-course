@@ -1,0 +1,546 @@
+{
+  "lessonId": "L09",
+  "version": 2,
+  "items": [
+    {
+      "id": "L09-E07",
+      "objectiveId": "L09-O01",
+      "difficulty": "easy",
+      "prompt": [
+        "Dans l'approche informelle, que représente $S=\\{a,b\\}$ ?",
+        "In the informal approach, what does $S=\\{a,b\\}$ represent?"
+      ],
+      "hint": [
+        "Regardez les objets entre accolades.",
+        "Look at the objects inside braces."
+      ],
+      "options": [
+        [
+          "Une collection de deux objets.",
+          "A collection of two objects."
+        ],
+        [
+          "Une seule assertion.",
+          "A single proposition."
+        ],
+        [
+          "Une implication logique.",
+          "A logical implication."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Les accolades énumèrent des éléments, pas des connecteurs logiques.",
+        "Braces enumerate elements, not logical connectives."
+      ],
+      "explanation": [
+        "$S$ contient exactement les objets $a$ et $b$ si ces objets sont distincts.",
+        "$S$ contains exactly $a$ and $b$ if those objects are distinct."
+      ]
+    },
+    {
+      "id": "L09-E08",
+      "objectiveId": "L09-O02",
+      "difficulty": "easy",
+      "prompt": [
+        "Pourquoi la règle « toute condition définit un ensemble » doit-elle être restreinte ?",
+        "Why must the rule 'every condition defines a set' be restricted?"
+      ],
+      "hint": [
+        "Pensez à l'auto-appartenance.",
+        "Think about self-membership."
+      ],
+      "options": [
+        [
+          "Elle empêcherait de construire des ensembles finis.",
+          "It would prevent constructing finite sets."
+        ],
+        [
+          "Elle permet la contradiction de Russell.",
+          "It allows Russell's contradiction."
+        ],
+        [
+          "Elle interdit l'ensemble vide.",
+          "It forbids the empty set."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Les ensembles finis et l'ensemble vide restent admis ; le problème est une compréhension sans borne.",
+        "Finite sets and the empty set remain valid; unrestricted comprehension is the problem."
+      ],
+      "explanation": [
+        "La collection de tous les ensembles ne se contenant pas eux-mêmes conduit à une contradiction.",
+        "The collection of all sets not containing themselves leads to a contradiction."
+      ]
+    },
+    {
+      "id": "L09-E09",
+      "objectiveId": "L09-O03",
+      "difficulty": "easy",
+      "prompt": [
+        "Quelle propriété caractérise un objet $x$ candidat à la collection de Russell $E$ ?",
+        "Which property defines a candidate object $x$ for Russell's collection $E$?"
+      ],
+      "hint": [
+        "La définition porte sur l'appartenance d'un ensemble à lui-même.",
+        "The definition concerns whether a set belongs to itself."
+      ],
+      "options": [
+        [
+          "$x\\in x$",
+          "$x\\in x$"
+        ],
+        [
+          "$x\\in E$ sans condition",
+          "$x\\in E$ without a condition"
+        ],
+        [
+          "$x\\notin x$",
+          "$x\\notin x$"
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "La propriété demande précisément que $x$ ne soit pas membre de lui-même.",
+        "The property specifically asks that $x$ not be a member of itself."
+      ],
+      "explanation": [
+        "Par définition informelle, $E=\\{x\\mid x\\notin x\\}$, une construction non admise comme ensemble.",
+        "Informally $E=\\{x\\mid x\\notin x\\}$, a construction not admitted as a set."
+      ]
+    },
+    {
+      "id": "L09-E10",
+      "objectiveId": "L09-O04",
+      "difficulty": "easy",
+      "prompt": [
+        "Si l'on suppose $E\\notin E$ pour la collection de Russell, quelle conséquence apparaît ?",
+        "If we assume $E\\notin E$ for Russell's collection, what follows?"
+      ],
+      "hint": [
+        "Appliquez la condition $x\\notin x$ à $x=E$.",
+        "Apply $x\\notin x$ to $x=E$."
+      ],
+      "options": [
+        [
+          "$E$ satisfait son critère et devrait appartenir à $E$.",
+          "$E$ satisfies its criterion and should belong to $E$."
+        ],
+        [
+          "$E$ devient automatiquement l'ensemble vide.",
+          "$E$ automatically becomes the empty set."
+        ],
+        [
+          "La condition ne peut rien conclure.",
+          "The condition cannot imply anything."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Substituer $x=E$ dans la règle retourne précisément la conclusion opposée.",
+        "Substituting $x=E$ into the rule gives exactly the opposite conclusion."
+      ],
+      "explanation": [
+        "Supposer $E\\notin E$ impose $E\\in E$ ; les deux statuts sont incompatibles.",
+        "Assuming $E\\notin E$ forces $E\\in E$; the two statuses conflict."
+      ]
+    },
+    {
+      "id": "L09-E11",
+      "objectiveId": "L09-O05",
+      "difficulty": "easy",
+      "prompt": [
+        "Quelle définition d'ensemble est admise dans le cadre du cours ?",
+        "Which set definition is allowed within the course's framework?"
+      ],
+      "hint": [
+        "Une compréhension doit sélectionner dans un ensemble déjà donné.",
+        "Comprehension should select from an already given set."
+      ],
+      "options": [
+        [
+          "Tous les objets satisfaisant n'importe quelle propriété, sans domaine.",
+          "All objects satisfying any property, with no domain."
+        ],
+        [
+          "$\\{n\\in\\mathbb N\\mid n<5\\}$",
+          "$\\{n\\in\\mathbb N\\mid n<5\\}$"
+        ],
+        [
+          "Tous les ensembles qui ne se contiennent pas.",
+          "All sets that do not contain themselves."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Une compréhension sans ensemble de départ n'est pas la construction retenue ici.",
+        "Comprehension without a starting set is not the construction used here."
+      ],
+      "explanation": [
+        "La propriété filtre le domaine déjà admis $\\mathbb N$.",
+        "The condition filters the already admitted domain $\\mathbb N$."
+      ]
+    },
+    {
+      "id": "L09-E12",
+      "objectiveId": "L09-O06",
+      "difficulty": "medium",
+      "prompt": [
+        "Que garantit le domaine $X$ dans $\\{x\\in X\\mid P(x)\\}$ ?",
+        "What does the domain $X$ ensure in $\\{x\\in X\\mid P(x)\\}$?"
+      ],
+      "hint": [
+        "La sélection ne crée pas un ensemble de tous les objets possibles.",
+        "The selection does not create a set of all possible objects."
+      ],
+      "options": [
+        [
+          "Le résultat doit contenir tous les objets imaginables.",
+          "The result must contain all imaginable objects."
+        ],
+        [
+          "La propriété $P$ doit toujours être vraie.",
+          "The property $P$ must always hold."
+        ],
+        [
+          "Chaque résultat est d'abord un élément de $X$.",
+          "Every result is already an element of $X$."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Le filtre $P$ peut ne conserver aucun élément, mais il n'en ajoute pas hors de $X$.",
+        "The predicate $P$ may keep no elements, but cannot add any outside $X$."
+      ],
+      "explanation": [
+        "Le résultat est par construction un sous-ensemble de l'ensemble de départ $X$.",
+        "The result is by construction a subset of the starting set $X$."
+      ]
+    },
+    {
+      "id": "L09-E13",
+      "objectiveId": "L09-O01",
+      "difficulty": "medium",
+      "prompt": [
+        "Pour $T=\\{m,a,t,h\\}$, quelle affirmation est valide au sens informel ?",
+        "For $T=\\{m,a,t,h\\}$, which informal claim is valid?"
+      ],
+      "hint": [
+        "Une collection est déterminée par les objets qu'elle rassemble.",
+        "A collection is determined by the objects it contains."
+      ],
+      "options": [
+        [
+          "$a\\in T$",
+          "$a\\in T$"
+        ],
+        [
+          "$z\\in T$",
+          "$z\\in T$"
+        ],
+        [
+          "$T$ est une assertion booléenne.",
+          "$T$ is a Boolean proposition."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Seules les quatre lettres énumérées sont membres de $T$.",
+        "Only the four listed letters belong to $T$."
+      ],
+      "explanation": [
+        "La lettre $a$ est explicitement présente dans l'énumération.",
+        "The letter $a$ appears explicitly in the enumeration."
+      ]
+    },
+    {
+      "id": "L09-E14",
+      "objectiveId": "L09-O02",
+      "difficulty": "medium",
+      "prompt": [
+        "Un élève affirme : « si je peux énoncer une propriété, l'ensemble de tous ses objets existe ». Quelle réserve est pertinente ?",
+        "A student claims: 'if I can state a property, the set of all its objects exists'. Which qualification matters?"
+      ],
+      "hint": [
+        "Le cas de Russell est une propriété exprimable.",
+        "Russell's case is an expressible property."
+      ],
+      "options": [
+        [
+          "Toute propriété donne nécessairement un ensemble fini.",
+          "Every property necessarily gives a finite set."
+        ],
+        [
+          "Il faut des règles de formation ; toute compréhension illimitée n'est pas permise.",
+          "Formation rules are needed; unrestricted comprehension is not always allowed."
+        ],
+        [
+          "Seuls les ensembles de lettres existent.",
+          "Only sets of letters exist."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "La taille ou la nature des éléments n'empêche pas la contradiction de Russell.",
+        "Size or element type does not prevent Russell's contradiction."
+      ],
+      "explanation": [
+        "L'auto-appartenance montre qu'une compréhension sans domaine n'est pas un principe sûr.",
+        "Self-membership shows that unrestricted comprehension is not a safe principle."
+      ]
+    },
+    {
+      "id": "L09-E15",
+      "objectiveId": "L09-O03",
+      "difficulty": "medium",
+      "prompt": [
+        "Dans la définition de Russell, quelle formule exprime le test de candidature pour $x=E$ ?",
+        "In Russell's definition, which formula expresses the membership test for $x=E$?"
+      ],
+      "hint": [
+        "Remplacez $x$ par $E$ dans $x\\notin x$.",
+        "Replace $x$ by $E$ in $x\\notin x$."
+      ],
+      "options": [
+        [
+          "$E\\in E\\Leftrightarrow E\\in E$",
+          "$E\\in E\\Leftrightarrow E\\in E$"
+        ],
+        [
+          "$E\\notin E\\Leftrightarrow E\\notin E$",
+          "$E\\notin E\\Leftrightarrow E\\notin E$"
+        ],
+        [
+          "$E\\in E\\Leftrightarrow E\\notin E$",
+          "$E\\in E\\Leftrightarrow E\\notin E$"
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "La condition d'entrée est la négation exacte de l'auto-appartenance.",
+        "The membership condition is precisely the negation of self-membership."
+      ],
+      "explanation": [
+        "La règle impose qu'une assertion ait la même valeur que sa négation, impossible en logique booléenne.",
+        "The rule forces a proposition to agree with its negation, impossible in Boolean logic."
+      ]
+    },
+    {
+      "id": "L09-E16",
+      "objectiveId": "L09-O04",
+      "difficulty": "medium",
+      "prompt": [
+        "Pourquoi vérifier seulement l'hypothèse $E\\in E$ ne termine-t-il pas l'argument de Russell ?",
+        "Why is checking only $E\\in E$ insufficient to finish Russell's argument?"
+      ],
+      "hint": [
+        "Une définition contradictoire échoue dans les deux cas possibles.",
+        "A contradictory definition fails for both possibilities."
+      ],
+      "options": [
+        [
+          "Il faut aussi supposer $E\\notin E$ et obtenir l'inverse.",
+          "We must also assume $E\\notin E$ and derive the opposite."
+        ],
+        [
+          "Il suffit de compter les membres de $E$.",
+          "It suffices to count $E$'s elements."
+        ],
+        [
+          "Il faut remplacer $E$ par l'ensemble vide.",
+          "We must replace $E$ by the empty set."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Ni un cardinal ni un autre ensemble ne résout le test d'auto-appartenance.",
+        "Neither a cardinality nor another set settles self-membership."
+      ],
+      "explanation": [
+        "$E\\in E$ mène à $E\\notin E$ et la seconde hypothèse mène à la première.",
+        "$E\\in E$ leads to $E\\notin E$, and the other assumption leads back."
+      ]
+    },
+    {
+      "id": "L09-E17",
+      "objectiveId": "L09-O05",
+      "difficulty": "hard",
+      "prompt": [
+        "Soit $X=\\{\\varnothing,\\{\\varnothing\\}\\}$ et $R=\\{x\\in X\\mid x\\notin x\\}$. Pourquoi la contradiction de Russell ne suit-elle pas de cette définition ?",
+        "Let $X=\\{\\varnothing,\\{\\varnothing\\}\\}$ and $R=\\{x\\in X\\mid x\\notin x\\}$. Why does Russell's contradiction not follow from this definition?"
+      ],
+      "hint": [
+        "Ne confondez pas compréhension bornée et la collection universelle de Russell.",
+        "Do not confuse bounded comprehension with Russell's unrestricted collection."
+      ],
+      "options": [
+        [
+          "C'est forcément le paradoxe de Russell.",
+          "It must be Russell's paradox."
+        ],
+        [
+          "La règle ne teste que les membres de $X$ ; on ne peut appliquer la condition à $R$ sans établir $R\\in X$.",
+          "The rule only tests members of $X$; it cannot be applied to $R$ unless $R\\in X$ is established."
+        ],
+        [
+          "La sélection englobe tous les ensembles possibles.",
+          "The selection includes every possible set."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Le domaine $X$ est explicitement borné ; on ne peut pas supposer que le résultat $R$ y appartient.",
+        "The domain $X$ is explicitly bounded; we cannot assume that the result $R$ belongs to it."
+      ],
+      "explanation": [
+        "La compréhension définit une partie de $X$. Le pas auto-référent de Russell exigeait le droit de tester $R$ lui-même comme membre du domaine.",
+        "Comprehension defines a subset of $X$. Russell's self-referential step required permission to test $R$ itself as a domain member."
+      ]
+    },
+    {
+      "id": "L09-E18",
+      "objectiveId": "L09-O06",
+      "difficulty": "hard",
+      "prompt": [
+        "Soit $X=\\{1,2,3,4\\}$ et $A=\\{x\\in X\\mid x^2>9\\}$. Pourquoi cette définition n'a-t-elle pas le problème de Russell ?",
+        "Let $X=\\{1,2,3,4\\}$ and $A=\\{x\\in X\\mid x^2>9\\}$. Why does this definition avoid Russell's problem?"
+      ],
+      "hint": [
+        "Distinguez le domaine et le filtre.",
+        "Distinguish the domain from its filter."
+      ],
+      "options": [
+        [
+          "Parce que $A$ contient au moins trois éléments.",
+          "Because $A$ has at least three elements."
+        ],
+        [
+          "Parce que toute condition numérique est universelle.",
+          "Because every numerical condition is universal."
+        ],
+        [
+          "Parce que $A$ ne sélectionne que des éléments du $X$ déjà donné.",
+          "Because $A$ only selects from the already given $X$."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Le point décisif est la restriction explicite au domaine $X$, non la taille du résultat.",
+        "The key point is explicit restriction to $X$, not the result's size."
+      ],
+      "explanation": [
+        "La compréhension bornée donne ici $A=\\{4\\}$ ; elle ne crée pas un ensemble universel auto-référent.",
+        "Bounded comprehension here gives $A=\\{4\\}$; it does not create a self-referential universal set."
+      ]
+    },
+    {
+      "id": "L09-E19",
+      "objectiveId": "L09-O02",
+      "difficulty": "hard",
+      "prompt": [
+        "Un programme accepte comme ensemble toute collection définie par une phrase. Quel contre-exemple logique réfute cette politique ?",
+        "A program accepts every collection described by a sentence as a set. Which logical counterexample refutes this policy?"
+      ],
+      "hint": [
+        "Cherchez une phrase qui se retourne contre sa propre appartenance.",
+        "Seek a sentence that contradicts its own membership."
+      ],
+      "options": [
+        [
+          "La collection de tous les ensembles qui ne se contiennent pas eux-mêmes.",
+          "The collection of all sets that do not contain themselves."
+        ],
+        [
+          "$\\{0,1\\}$",
+          "$\\{0,1\\}$"
+        ],
+        [
+          "L'ensemble des naturels pairs.",
+          "The set of even naturals."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Les ensembles finis ou les sous-ensembles des naturels ne produisent pas ce paradoxe.",
+        "Finite sets or subsets of the naturals do not produce this paradox."
+      ],
+      "explanation": [
+        "Appliquer la condition à la collection elle-même produit $E\\in E\\Leftrightarrow E\\notin E$.",
+        "Applying the condition to the collection itself yields $E\\in E\\Leftrightarrow E\\notin E$."
+      ]
+    },
+    {
+      "id": "L09-E20",
+      "objectiveId": "L09-O04",
+      "difficulty": "hard",
+      "prompt": [
+        "Un booléen $v$ code « $E\\in E$ ». La règle de Russell exige $v=\\neg v$. Combien de valeurs parmi $0,1$ conviennent ?",
+        "A Boolean $v$ encodes '$E\\in E$'. Russell's rule requires $v=\\neg v$. How many values in $0,1$ work?"
+      ],
+      "hint": [
+        "Testez les deux valeurs booléennes.",
+        "Test both Boolean values."
+      ],
+      "options": [
+        [
+          "Une, car $v=0$ convient.",
+          "One, because $v=0$ works."
+        ],
+        [
+          "Aucune.",
+          "None."
+        ],
+        [
+          "Deux, car la formule est toujours vraie.",
+          "Two, because the formula is always true."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "$\\neg0=1$ et $\\neg1=0$ : aucune égalité n'est possible.",
+        "$\\neg0=1$ and $\\neg1=0$: neither equality holds."
+      ],
+      "explanation": [
+        "La négation échange $0$ et $1$ : un booléen ne peut pas coïncider avec sa négation.",
+        "Negation swaps $0$ and $1$: no Boolean equals its negation."
+      ]
+    },
+    {
+      "id": "L09-E21",
+      "objectiveId": "L09-O06",
+      "difficulty": "hard",
+      "prompt": [
+        "On choisit deux ensembles existants $X$ et $Y$ et l'on définit $B=\\{x\\in X\\mid x\\notin Y\\}$. Quelle inclusion est forcément vraie ?",
+        "Given existing sets $X$ and $Y$, define $B=\\{x\\in X\\mid x\\notin Y\\}$. Which inclusion must hold?"
+      ],
+      "hint": [
+        "Le prédicat retire des éléments de $X$ ; il n'en ajoute pas.",
+        "The predicate removes elements from $X$ and adds none."
+      ],
+      "options": [
+        [
+          "$Y\\subseteq B$",
+          "$Y\\subseteq B$"
+        ],
+        [
+          "$X\\subseteq B$",
+          "$X\\subseteq B$"
+        ],
+        [
+          "$B\\subseteq X$",
+          "$B\\subseteq X$"
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "La sélection peut retirer tout ou partie de $X$ ; elle ne garantit rien sur l'inclusion de $Y$.",
+        "Selection can remove some or all of $X$; it gives no inclusion of $Y$."
+      ],
+      "explanation": [
+        "Chaque élément de $B$ est explicitement pris dans $X$, même lorsque $B=\\varnothing$.",
+        "Every element of $B$ is explicitly drawn from $X$, even when $B=\\varnothing$."
+      ]
+    }
+  ]
+}

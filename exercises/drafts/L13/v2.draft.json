@@ -1,0 +1,1280 @@
+{
+  "lessonId": "L13",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L13-E07",
+      "objectiveId": "L13-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "filter-ignored",
+        "domain-element-dropped"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que vaut $\\{n\\in\\{0,1,2,3,4\\}\\mid n>2\\}$ ?",
+        "en": "What is $\\{n\\in\\{0,1,2,3,4\\}\\mid n>2\\}$?"
+      },
+      "hint": {
+        "fr": "Conservez seulement les membres du domaine au-dessus de $2$.",
+        "en": "Keep only domain members above $2$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{3,4\\}$",
+            "en": "$\\{3,4\\}$"
+          },
+          "feedback": {
+            "fr": "$3$ et $4$ seuls satisfont la condition dans le domaine.",
+            "en": "Only $3$ and $4$ satisfy the condition within the domain."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{2,3,4\\}$",
+            "en": "$\\{2,3,4\\}$"
+          },
+          "feedback": {
+            "fr": "Le test est strict et ne peut introduire un élément absent du domaine.",
+            "en": "The test is strict and cannot introduce an element outside the domain."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{3,4,5\\}$",
+            "en": "$\\{3,4,5\\}$"
+          },
+          "feedback": {
+            "fr": "Le test est strict et ne peut introduire un élément absent du domaine.",
+            "en": "The test is strict and cannot introduce an element outside the domain."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$3$ et $4$ seuls satisfont la condition dans le domaine.",
+        "en": "Only $3$ and $4$ satisfy the condition within the domain."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E08",
+      "objectiveId": "L13-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "one-is-prime",
+        "wrong-filter-application"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $X=\\{1,2,3,4,5,6,7\\}$, quels éléments vérifient « est premier » ?",
+        "en": "In $X=\\{1,2,3,4,5,6,7\\}$, which elements satisfy 'is prime'?"
+      },
+      "hint": {
+        "fr": "$1$ n'est pas premier.",
+        "en": "$1$ is not prime."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{1,2,3,5,7\\}$",
+            "en": "$\\{1,2,3,5,7\\}$"
+          },
+          "feedback": {
+            "fr": "Un nombre premier a exactement deux diviseurs positifs.",
+            "en": "A prime number has exactly two positive divisors."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{2,3,5,7\\}$",
+            "en": "$\\{2,3,5,7\\}$"
+          },
+          "feedback": {
+            "fr": "$2,3,5,7$ sont premiers ; $1$ et les composés sont exclus.",
+            "en": "$2,3,5,7$ are prime; $1$ and composites are excluded."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{2,4,6\\}$",
+            "en": "$\\{2,4,6\\}$"
+          },
+          "feedback": {
+            "fr": "Un nombre premier a exactement deux diviseurs positifs.",
+            "en": "A prime number has exactly two positive divisors."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$2,3,5,7$ sont premiers ; $1$ et les composés sont exclus.",
+        "en": "$2,3,5,7$ are prime; $1$ and composites are excluded."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E09",
+      "objectiveId": "L13-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "interval-bracket-direction"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel intervalle représente $\\{x\\in\\mathbb R\\mid -1<x\\leq3\\}$ en notation française ?",
+        "en": "Which interval represents $\\{x\\in\\mathbb R\\mid -1<x\\leq3\\}$ in French interval notation?"
+      },
+      "hint": {
+        "fr": "$-1$ est exclu, $3$ est inclus.",
+        "en": "$-1$ is excluded and $3$ included."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$[-1,3[$",
+            "en": "$[-1,3[$"
+          },
+          "feedback": {
+            "fr": "Le crochet extérieur exclut la borne correspondante.",
+            "en": "The outward bracket excludes its endpoint."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$[-1,3]$",
+            "en": "$[-1,3]$"
+          },
+          "feedback": {
+            "fr": "Le crochet extérieur exclut la borne correspondante.",
+            "en": "The outward bracket excludes its endpoint."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$]-1,3]$",
+            "en": "$]-1,3]$"
+          },
+          "feedback": {
+            "fr": "Le filtre impose ouverture à gauche et fermeture à droite.",
+            "en": "The filter requires an open left endpoint and a closed right endpoint."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le filtre impose ouverture à gauche et fermeture à droite.",
+        "en": "The filter requires an open left endpoint and a closed right endpoint."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E10",
+      "objectiveId": "L13-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "zero-not-even",
+        "odd-accepted"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Parmi ces nombres, lequel appartient à $\\{n\\in\\mathbb N\\mid \\exists k\\in\\mathbb N\\ n=2k\\}$ ?",
+        "en": "Which number belongs to $\\{n\\in\\mathbb N\\mid \\exists k\\in\\mathbb N\\ n=2k\\}$?"
+      },
+      "hint": {
+        "fr": "Cherchez un multiple de $2$ avec un témoin naturel.",
+        "en": "Look for a multiple of $2$ with a natural witness."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$14$",
+            "en": "$14$"
+          },
+          "feedback": {
+            "fr": "$14=2\\cdot7$ avec $7\\in\\mathbb N$.",
+            "en": "$14=2\\cdot7$ with $7\\in\\mathbb N$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$15$",
+            "en": "$15$"
+          },
+          "feedback": {
+            "fr": "$15$ est impair et $-2$ n'est pas dans $\\mathbb N$ du cours.",
+            "en": "$15$ is odd and $-2$ is not in this course's $\\mathbb N$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$-2$",
+            "en": "$-2$"
+          },
+          "feedback": {
+            "fr": "$15$ est impair et $-2$ n'est pas dans $\\mathbb N$ du cours.",
+            "en": "$15$ is odd and $-2$ is not in this course's $\\mathbb N$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$14=2\\cdot7$ avec $7\\in\\mathbb N$.",
+        "en": "$14=2\\cdot7$ with $7\\in\\mathbb N$."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E11",
+      "objectiveId": "L13-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "empty-set-not-a-set",
+        "nonempty-guess"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que vaut $\\{x\\in\\{1,2,3\\}\\mid x^2<1\\}$ ?",
+        "en": "What is $\\{x\\in\\{1,2,3\\}\\mid x^2<1\\}$?"
+      },
+      "hint": {
+        "fr": "Même $1^2$ ne satisfait pas l'inégalité stricte.",
+        "en": "Even $1^2$ fails the strict inequality."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{1\\}$",
+            "en": "$\\{1\\}$"
+          },
+          "feedback": {
+            "fr": "Le domaine ne contient pas $0$ et $1$ échoue au filtre strict.",
+            "en": "The domain excludes $0$, and $1$ fails the strict filter."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\varnothing$",
+            "en": "$\\varnothing$"
+          },
+          "feedback": {
+            "fr": "Aucun des trois carrés n'est inférieur à $1$.",
+            "en": "None of the three squares is below $1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{0\\}$",
+            "en": "$\\{0\\}$"
+          },
+          "feedback": {
+            "fr": "Le domaine ne contient pas $0$ et $1$ échoue au filtre strict.",
+            "en": "The domain excludes $0$, and $1$ fails the strict filter."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Aucun des trois carrés n'est inférieur à $1$.",
+        "en": "None of the three squares is below $1$."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E12",
+      "objectiveId": "L13-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "domain-ignored",
+        "same-filter-same-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle affirmation compare correctement $A=\\{n\\in\\mathbb N\\mid n>3\\}$ et $B=\\{x\\in\\mathbb R\\mid x>3\\}$ ?",
+        "en": "Which claim correctly compares $A=\\{n\\in\\mathbb N\\mid n>3\\}$ and $B=\\{x\\in\\mathbb R\\mid x>3\\}$?"
+      },
+      "hint": {
+        "fr": "Un même filtre sur des domaines différents peut donner des ensembles différents.",
+        "en": "The same filter over different domains can yield different sets."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A=B$",
+            "en": "$A=B$"
+          },
+          "feedback": {
+            "fr": "$3.5$ est dans $B$ mais pas dans $A$.",
+            "en": "$3.5$ belongs to $B$ but not $A$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$B\\subseteq A$",
+            "en": "$B\\subseteq A$"
+          },
+          "feedback": {
+            "fr": "$3.5$ est dans $B$ mais pas dans $A$.",
+            "en": "$3.5$ belongs to $B$ but not $A$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\subseteq B$ mais $A\\ne B$",
+            "en": "$A\\subseteq B$ mais $A\\ne B$"
+          },
+          "feedback": {
+            "fr": "Tout naturel supérieur à $3$ est réel supérieur à $3$, mais $B$ contient aussi des non-entiers.",
+            "en": "Every natural above $3$ is a real above $3$, but $B$ also contains nonintegers."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Tout naturel supérieur à $3$ est réel supérieur à $3$, mais $B$ contient aussi des non-entiers.",
+        "en": "Every natural above $3$ is a real above $3$, but $B$ also contains nonintegers."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E13",
+      "objectiveId": "L13-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "filter-ignored",
+        "domain-element-dropped"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $X=\\{-2,-1,0,1,2\\}$, que vaut $\\{x\\in X\\mid x^2=1\\}$ ?",
+        "en": "For $X=\\{-2,-1,0,1,2\\}$, what is $\\{x\\in X\\mid x^2=1\\}$?"
+      },
+      "hint": {
+        "fr": "Les solutions peuvent être de signes opposés.",
+        "en": "Solutions may have opposite signs."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{-1,1\\}$",
+            "en": "$\\{-1,1\\}$"
+          },
+          "feedback": {
+            "fr": "$(-1)^2=1^2=1$ et aucune autre valeur de $X$ ne convient.",
+            "en": "$(-1)^2=1^2=1$ and no other $X$ value works."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{1\\}$",
+            "en": "$\\{1\\}$"
+          },
+          "feedback": {
+            "fr": "Les deux signes de $1$ donnent le même carré, contrairement à $2$.",
+            "en": "Both signs of $1$ yield the same square, unlike $2$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{-2,2\\}$",
+            "en": "$\\{-2,2\\}$"
+          },
+          "feedback": {
+            "fr": "Les deux signes de $1$ donnent le même carré, contrairement à $2$.",
+            "en": "Both signs of $1$ yield the same square, unlike $2$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$(-1)^2=1^2=1$ et aucune autre valeur de $X$ ne convient.",
+        "en": "$(-1)^2=1^2=1$ and no other $X$ value works."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E14",
+      "objectiveId": "L13-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "one-is-prime",
+        "wrong-filter-application"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $X=\\{8,9,10,11,12\\}$, quel ensemble est obtenu en gardant les nombres composés ?",
+        "en": "For $X=\\{8,9,10,11,12\\}$, which set contains its composite numbers?"
+      },
+      "hint": {
+        "fr": "$11$ est premier, les autres valeurs ont des diviseurs non triviaux.",
+        "en": "$11$ is prime; the other values have nontrivial divisors."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{11\\}$",
+            "en": "$\\{11\\}$"
+          },
+          "feedback": {
+            "fr": "$9=3\\cdot3$ est composé ; $11$ ne l'est pas.",
+            "en": "$9=3\\cdot3$ is composite; $11$ is not."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{8,9,10,12\\}$",
+            "en": "$\\{8,9,10,12\\}$"
+          },
+          "feedback": {
+            "fr": "$8,9,10,12$ ont chacun un diviseur propre positif.",
+            "en": "$8,9,10,12$ each have a proper positive divisor."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{8,10,12\\}$",
+            "en": "$\\{8,10,12\\}$"
+          },
+          "feedback": {
+            "fr": "$9=3\\cdot3$ est composé ; $11$ ne l'est pas.",
+            "en": "$9=3\\cdot3$ is composite; $11$ is not."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$8,9,10,12$ ont chacun un diviseur propre positif.",
+        "en": "$8,9,10,12$ each have a proper positive divisor."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E15",
+      "objectiveId": "L13-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "interval-bracket-direction"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Lequel appartient à $[2,5[$ mais pas à $]2,5[$ ?",
+        "en": "Which value belongs to $[2,5[$ but not to $]2,5[$?"
+      },
+      "hint": {
+        "fr": "Les intervalles diffèrent à une seule extrémité.",
+        "en": "The intervals differ at one endpoint only."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "$3$ appartient aux deux et $5$ à aucun.",
+            "en": "$3$ is in both and $5$ in neither."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "$3$ appartient aux deux et $5$ à aucun.",
+            "en": "$3$ is in both and $5$ in neither."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Le premier intervalle inclut $2$ et le second l'exclut.",
+            "en": "The first interval includes $2$ and the second excludes it."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le premier intervalle inclut $2$ et le second l'exclut.",
+        "en": "The first interval includes $2$ and the second excludes it."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E16",
+      "objectiveId": "L13-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "zero-not-even",
+        "odd-accepted"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $\\mathbb N$ incluant zéro, combien de nombres pairs sont strictement inférieurs à $7$ ?",
+        "en": "Over $\\mathbb N$ including zero, how many even naturals are strictly less than $7$?"
+      },
+      "hint": {
+        "fr": "N'oubliez pas $0=2\\cdot0$.",
+        "en": "Remember $0=2\\cdot0$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Les quatre nombres pairs inférieurs à $7$ sont $0$, $2$, $4$ et $6$.",
+            "en": "The four even naturals below $7$ are $0$, $2$, $4$ and $6$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Comptez $0$, $2$, $4$ et $6$.",
+            "en": "Count $0$, $2$, $4$ and $6$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Comptez $0$, $2$, $4$ et $6$.",
+            "en": "Count $0$, $2$, $4$ and $6$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Les quatre nombres pairs inférieurs à $7$ sont $0$, $2$, $4$ et $6$.",
+        "en": "The four even naturals below $7$ are $0$, $2$, $4$ and $6$."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E17",
+      "objectiveId": "L13-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "empty-set-not-a-set",
+        "nonempty-guess"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $A=\\{n\\in\\{2,4,6\\}\\mid n>6\\}$, quelle relation est vraie ?",
+        "en": "For $A=\\{n\\in\\{2,4,6\\}\\mid n>6\\}$, which relation is true?"
+      },
+      "hint": {
+        "fr": "Un résultat vide reste un sous-ensemble du domaine.",
+        "en": "An empty result remains a subset of its domain."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A=\\{6\\}$",
+            "en": "$A=\\{6\\}$"
+          },
+          "feedback": {
+            "fr": "$6$ n'est pas strictement supérieur à $6$ et $7$ est absent du domaine.",
+            "en": "$6$ is not strictly greater than $6$, and $7$ is outside the domain."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A=\\varnothing$",
+            "en": "$A=\\varnothing$"
+          },
+          "feedback": {
+            "fr": "Aucun élément ne passe le filtre, donc $A=\\varnothing$.",
+            "en": "No element passes the filter, so $A=\\varnothing$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A=\\{7\\}$",
+            "en": "$A=\\{7\\}$"
+          },
+          "feedback": {
+            "fr": "$6$ n'est pas strictement supérieur à $6$ et $7$ est absent du domaine.",
+            "en": "$6$ is not strictly greater than $6$, and $7$ is outside the domain."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Aucun élément ne passe le filtre, donc $A=\\varnothing$.",
+        "en": "No element passes the filter, so $A=\\varnothing$."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E18",
+      "objectiveId": "L13-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "domain-ignored",
+        "same-filter-same-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle erreur commet-on en concluant $5\\in\\{n\\in\\{1,2,3\\}\\mid n>4\\}$ ?",
+        "en": "What error is made by concluding $5\\in\\{n\\in\\{1,2,3\\}\\mid n>4\\}$?"
+      },
+      "hint": {
+        "fr": "La satisfaction du filtre ne suffit pas sans appartenance au domaine.",
+        "en": "Satisfying the filter is insufficient without domain membership."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$5$ n'est pas un nombre.",
+            "en": "$5$ is not a number."
+          },
+          "feedback": {
+            "fr": "$5$ vérifie bien l'inégalité mais n'est pas dans $\\{1,2,3\\}$.",
+            "en": "$5$ satisfies the inequality but is not in $\\{1,2,3\\}$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5$ ne vérifie pas $n>4$.",
+            "en": "$5$ does not satisfy $n>4$."
+          },
+          "feedback": {
+            "fr": "$5$ vérifie bien l'inégalité mais n'est pas dans $\\{1,2,3\\}$.",
+            "en": "$5$ satisfies the inequality but is not in $\\{1,2,3\\}$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$5$ est hors du domaine de départ.",
+            "en": "$5$ is outside the starting domain."
+          },
+          "feedback": {
+            "fr": "Une compréhension conserve uniquement les objets de son domaine.",
+            "en": "Comprehension selects only objects from its domain."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Une compréhension conserve uniquement les objets de son domaine.",
+        "en": "Comprehension selects only objects from its domain."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E19",
+      "objectiveId": "L13-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "filter-ignored",
+        "domain-element-dropped"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $X=\\{-4,-3,-2,-1,0,1,2,3,4\\}$. Quel filtre définit $A=\\{-2,0,2\\}$ ?",
+        "en": "Let $X=\\{-4,-3,-2,-1,0,1,2,3,4\\}$. Which predicate defines $A=\\{-2,0,2\\}$?"
+      },
+      "hint": {
+        "fr": "Il faut simultanément une parité et une borne.",
+        "en": "You need both a parity condition and a bound."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x$ est pair",
+            "en": "$x$ is even"
+          },
+          "feedback": {
+            "fr": "Le filtre doit exclure les extrémités impaires et conserver les trois nombres pairs visés.",
+            "en": "The filter must exclude odd endpoints and keep the three target even numbers."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x$ est pair et $|x|\\leq2$",
+            "en": "$x$ is even and $|x|\\leq2$"
+          },
+          "feedback": {
+            "fr": "La parité seule garderait aussi $-4$ et $4$ ; la borne élimine ces deux valeurs.",
+            "en": "Evenness alone also keeps $-4$ and $4$; the bound removes both."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$|x|<2$",
+            "en": "$|x|<2$"
+          },
+          "feedback": {
+            "fr": "Le filtre doit exclure les extrémités impaires et conserver les trois nombres pairs visés.",
+            "en": "The filter must exclude odd endpoints and keep the three target even numbers."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La parité seule garderait aussi $-4$ et $4$ ; la borne élimine ces deux valeurs.",
+        "en": "Evenness alone also keeps $-4$ and $4$; the bound removes both."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E20",
+      "objectiveId": "L13-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "interval-bracket-direction"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "À quelle compréhension correspond l'intervalle $]-\\infty,4]$ ?",
+        "en": "Which comprehension represents the interval $]-\\infty,4]$?"
+      },
+      "hint": {
+        "fr": "La borne $4$ est comprise.",
+        "en": "Endpoint $4$ is included."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{x\\in\\mathbb R\\mid x\\leq4\\}$",
+            "en": "$\\{x\\in\\mathbb R\\mid x\\leq4\\}$"
+          },
+          "feedback": {
+            "fr": "L'intervalle contient tous les réels jusqu'à $4$ inclus.",
+            "en": "The interval contains all reals through $4$ inclusive."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{x\\in\\mathbb R\\mid x<4\\}$",
+            "en": "$\\{x\\in\\mathbb R\\mid x<4\\}$"
+          },
+          "feedback": {
+            "fr": "Le domaine doit être réel et l'inégalité non stricte.",
+            "en": "The domain must be real and the inequality nonstrict."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{x\\in\\mathbb N\\mid x\\leq4\\}$",
+            "en": "$\\{x\\in\\mathbb N\\mid x\\leq4\\}$"
+          },
+          "feedback": {
+            "fr": "Le domaine doit être réel et l'inégalité non stricte.",
+            "en": "The domain must be real and the inequality nonstrict."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "L'intervalle contient tous les réels jusqu'à $4$ inclus.",
+        "en": "The interval contains all reals through $4$ inclusive."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E21",
+      "objectiveId": "L13-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "domain-ignored",
+        "same-filter-same-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$A=\\{n\\in\\mathbb N\\mid n\\geq1\\}$ et $B=\\{n\\in\\mathbb Z\\mid n\\geq1\\}$. Quelle relation est correcte ?",
+        "en": "$A=\\{n\\in\\mathbb N\\mid n\\geq1\\}$ and $B=\\{n\\in\\mathbb Z\\mid n\\geq1\\}$. Which relation is correct?"
+      },
+      "hint": {
+        "fr": "Un entier strictement positif est un naturel dans ce cours.",
+        "en": "Every positive integer is a natural in this course."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A\\subsetneq B$",
+            "en": "$A\\subsetneq B$"
+          },
+          "feedback": {
+            "fr": "La restriction $n\\geq1$ élimine tous les entiers négatifs et zéro.",
+            "en": "The restriction $n\\geq1$ removes negative integers and zero."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$B\\subsetneq A$",
+            "en": "$B\\subsetneq A$"
+          },
+          "feedback": {
+            "fr": "La restriction $n\\geq1$ élimine tous les entiers négatifs et zéro.",
+            "en": "The restriction $n\\geq1$ removes negative integers and zero."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A=B$",
+            "en": "$A=B$"
+          },
+          "feedback": {
+            "fr": "Les deux compréhensions décrivent les entiers positifs, malgré des domaines initiaux différents.",
+            "en": "Both comprehensions describe positive integers despite different starting domains."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Les deux compréhensions décrivent les entiers positifs, malgré des domaines initiaux différents.",
+        "en": "Both comprehensions describe positive integers despite different starting domains."
+      },
+      "lessonId": "L13",
+      "version": 2,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

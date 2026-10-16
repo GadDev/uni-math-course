@@ -1,0 +1,399 @@
+{
+  "lessonId": "L15",
+  "version": 2,
+  "items": [
+    {
+      "objective": 1,
+      "prompt": [
+        "Soient $A=\\{1,2,5\\}$ et $B=\\{2,3,5\\}$. Que vaut $A\\cap B$ ?",
+        "Let $A=\\{1,2,5\\}$ and $B=\\{2,3,5\\}$. What is $A\\cap B$?"
+      ],
+      "hint": [
+        "Gardez les éléments présents dans les deux ensembles.",
+        "Keep elements present in both sets."
+      ],
+      "options": [
+        "$\\{2,5\\}$",
+        "$\\{1,2,3,5\\}$",
+        "$\\{1,3\\}$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "L'intersection exige deux appartenances simultanées.",
+        "Intersection requires membership in both sets."
+      ],
+      "explanation": [
+        "Les seuls membres communs sont $2$ et $5$.",
+        "The only common members are $2$ and $5$."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Avec $A=\\{0,2\\}$ et $B=\\{1,2,3\\}$, que vaut $A\\cup B$ ?",
+        "With $A=\\{0,2\\}$ and $B=\\{1,2,3\\}$, what is $A\\cup B$?"
+      ],
+      "hint": [
+        "L'union accepte une appartenance à l'un ou l'autre.",
+        "Union allows membership in either set."
+      ],
+      "options": [
+        "$\\{2\\}$",
+        "$\\{0,1,2,3\\}$",
+        "$\\{0,1,3\\}$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "L'union garde tous les membres distincts des deux ensembles.",
+        "Union keeps all distinct members from both sets."
+      ],
+      "explanation": [
+        "Les éléments réunis sont $0$, $1$, $2$ et $3$.",
+        "The combined elements are $0$, $1$, $2$ and $3$."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Dans $C=\\{a,b,c,d\\}$, le complémentaire de $A=\\{a,c\\}$ est :",
+        "In $C=\\{a,b,c,d\\}$, the complement of $A=\\{a,c\\}$ is:"
+      ],
+      "hint": [
+        "Ne prenez que les objets de $C$ qui sont hors de $A$.",
+        "Take objects in $C$ but outside $A$."
+      ],
+      "options": [
+        "$\\{a,c\\}$",
+        "$\\{a,b,c,d\\}$",
+        "$\\{b,d\\}$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "Un complémentaire relatif exclut les membres de $A$.",
+        "A relative complement excludes elements of $A$."
+      ],
+      "explanation": [
+        "$C\\setminus A=\\{b,d\\}$.",
+        "$C\\setminus A=\\{b,d\\}$."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Quelle identité de de Morgan est correcte lorsque $A,B\\subseteq C$ ?",
+        "Which De Morgan identity is correct when $A,B\\subseteq C$?"
+      ],
+      "hint": [
+        "Nier une union donne l'intersection des négations.",
+        "Negating a union gives an intersection of negations."
+      ],
+      "options": [
+        "$C\\setminus(A\\cup B)=(C\\setminus A)\\cap(C\\setminus B)$",
+        "$C\\setminus(A\\cup B)=(C\\setminus A)\\cup(C\\setminus B)$",
+        "$C\\setminus(A\\cup B)=A\\cap B$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "L'opération extérieure bascule de $\\cup$ à $\\cap$.",
+        "The outer operation switches from $\\cup$ to $\\cap$."
+      ],
+      "explanation": [
+        "Un élément hors de l'union est hors de $A$ et hors de $B$.",
+        "An element outside the union is outside both $A$ and $B$."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Pourquoi $C$ doit-il être indiqué pour un complémentaire relatif ?",
+        "Why must $C$ be specified for a relative complement?"
+      ],
+      "hint": [
+        "Le « dehors » dépend du domaine envisagé.",
+        "What is 'outside' depends on the chosen domain."
+      ],
+      "options": [
+        [
+          "L'ensemble $A$ change de contenu.",
+          "Set $A$ changes its contents."
+        ],
+        [
+          "$C\\setminus A$ dépend des éléments disponibles dans $C$.",
+          "$C\\setminus A$ depends on the elements available in $C$."
+        ],
+        [
+          "Le complémentaire est toujours vide.",
+          "The complement is always empty."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Changer d'ensemble ambiant change ce qui est considéré hors de $A$.",
+        "Changing the ambient set changes what counts as outside $A$."
+      ],
+      "explanation": [
+        "Par exemple, $\\{1,2,3\\}\\setminus\\{1\\}=\\{2,3\\}$, mais ajouter $4$ à l'ambiant ajoute $4$ au complément.",
+        "For example, $\\{1,2,3\\}\\setminus\\{1\\}=\\{2,3\\}$, but adding $4$ to the ambient set adds $4$ to the complement."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Que signifie $x\\in A\\cap B$ en logique ?",
+        "What does $x\\in A\\cap B$ mean logically?"
+      ],
+      "hint": [
+        "L'intersection est analogue au « et ».",
+        "Intersection corresponds to AND."
+      ],
+      "options": [
+        "$x\\in A\\lor x\\in B$",
+        "$x\\notin A$",
+        "$x\\in A\\land x\\in B$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "L'intersection exige les deux appartenances, non une seule.",
+        "Intersection requires both memberships, not just one."
+      ],
+      "explanation": [
+        "L'intersection encode une conjonction des prédicats d'appartenance.",
+        "Intersection encodes conjunction of membership predicates."
+      ]
+    },
+    {
+      "objective": 1,
+      "prompt": [
+        "Si $A=\\{2,4,6\\}$ et $B=\\{1,3,5\\}$, que vaut $A\\cap B$ ?",
+        "If $A=\\{2,4,6\\}$ and $B=\\{1,3,5\\}$, what is $A\\cap B$?"
+      ],
+      "hint": [
+        "Les nombres de parités opposées ne se recouvrent pas ici.",
+        "These opposite-parity values do not overlap."
+      ],
+      "options": [
+        "$\\varnothing$",
+        "$A$",
+        "$B$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Aucun nombre n'est listé dans les deux ensembles.",
+        "No number appears in both sets."
+      ],
+      "explanation": [
+        "L'intersection de ces ensembles disjoints est vide.",
+        "The intersection of these disjoint sets is empty."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "$A=\\{1,2\\}$ et $B=\\{2,3\\}$. Combien d'éléments a $A\\cup B$ ?",
+        "$A=\\{1,2\\}$ and $B=\\{2,3\\}$. How many elements does $A\\cup B$ have?"
+      ],
+      "hint": [
+        "Ne comptez pas $2$ deux fois.",
+        "Do not count $2$ twice."
+      ],
+      "options": [
+        "$4$",
+        "$3$",
+        "$2$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "La réunion contient les trois éléments distincts $1,2,3$.",
+        "The union contains the three distinct elements $1,2,3$."
+      ],
+      "explanation": [
+        "$A\\cup B=\\{1,2,3\\}$, donc cardinal $3$.",
+        "$A\\cup B=\\{1,2,3\\}$, hence size $3$."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Dans $C=\\{1,2,3,4,5\\}$, quel est $C\\setminus(A\\cup B)$ si $A=\\{1,3\\}$ et $B=\\{2,3\\}$ ?",
+        "In $C=\\{1,2,3,4,5\\}$, what is $C\\setminus(A\\cup B)$ if $A=\\{1,3\\}$ and $B=\\{2,3\\}$?"
+      ],
+      "hint": [
+        "Commencez par calculer l'union.",
+        "First compute the union."
+      ],
+      "options": [
+        "$\\{1,2,3\\}$",
+        "$\\{3\\}$",
+        "$\\{4,5\\}$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "L'union vaut $\\{1,2,3\\}$ ; retirez-la de $C$.",
+        "The union is $\\{1,2,3\\}$; remove it from $C$."
+      ],
+      "explanation": [
+        "Seuls $4$ et $5$ sont hors de $A\\cup B$ dans l'ambiant $C$.",
+        "Only $4$ and $5$ lie outside $A\\cup B$ within $C$."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Quelle distributivité traduit $x\\in A\\cap(B\\cup D)$ ?",
+        "Which distributivity rewrites $x\\in A\\cap(B\\cup D)$?"
+      ],
+      "hint": [
+        "Distribuez une conjonction sur une disjonction.",
+        "Distribute AND over OR."
+      ],
+      "options": [
+        "$x\\in(A\\cap B)\\cup(A\\cap D)$",
+        "$x\\in(A\\cup B)\\cap D$",
+        "$x\\in(A\\cap B)\\cap D$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "La condition $x\\in A$ doit accompagner chaque branche $B$ ou $D$.",
+        "The condition $x\\in A$ must accompany both branches $B$ and $D$."
+      ],
+      "explanation": [
+        "$A\\cap(B\\cup D)=(A\\cap B)\\cup(A\\cap D)$.",
+        "$A\\cap(B\\cup D)=(A\\cap B)\\cup(A\\cap D)$."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Soit $A=\\{1\\}$ ; $C_1=\\{1,2\\}$ et $C_2=\\{1,2,3\\}$. Quelle affirmation est vraie ?",
+        "Let $A=\\{1\\}$; $C_1=\\{1,2\\}$ and $C_2=\\{1,2,3\\}$. Which claim is true?"
+      ],
+      "hint": [
+        "Calculez le complément de $A$ dans chaque ensemble ambiant.",
+        "Compute the complement of $A$ in each ambient set."
+      ],
+      "options": [
+        [
+          "Les deux complémentaires sont égaux.",
+          "Both complements are equal."
+        ],
+        [
+          "$C_1\\setminus A=\\{2\\}$ et $C_2\\setminus A=\\{2,3\\}$.",
+          "$C_1\\setminus A=\\{2\\}$ and $C_2\\setminus A=\\{2,3\\}$."
+        ],
+        [
+          "Le deuxième complément contient $1$.",
+          "The second complement contains $1$."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "L'ajout de $3$ à l'ambiant ajoute $3$, sans jamais réintroduire $1$.",
+        "Adding $3$ to the ambient set adds $3$, without reintroducing $1$."
+      ],
+      "explanation": [
+        "Les complémentaires relatifs dépendent de $C_1$ et $C_2$.",
+        "Relative complements depend on $C_1$ and $C_2$."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Quelle formule logique décrit $x\\in C\\setminus A$ ?",
+        "Which logical formula describes $x\\in C\\setminus A$?"
+      ],
+      "hint": [
+        "L'appartenance à l'ambiant est nécessaire.",
+        "Membership of the ambient set is required."
+      ],
+      "options": [
+        "$x\\in A\\lor x\\in C$",
+        "$x\\notin A$",
+        "$(x\\in C)\\land(x\\notin A)$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "Être hors de $A$ ne suffit pas : $x$ doit aussi appartenir à $C$.",
+        "Being outside $A$ is insufficient: $x$ must also belong to $C$."
+      ],
+      "explanation": [
+        "La différence $C\\setminus A$ est l'ambiant avec les membres de $A$ retirés.",
+        "The difference $C\\setminus A$ is the ambient set with the $A$ members removed."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Dans $C$ avec $A,B\\subseteq C$, quelle identité vaut pour $C\\setminus(A\\cap B)$ ?",
+        "In $C$ with $A,B\\subseteq C$, which identity holds for $C\\setminus(A\\cap B)$?"
+      ],
+      "hint": [
+        "Nier « $A$ et $B$ » donne « non $A$ ou non $B$ ».",
+        "Negating \"$A$ and $B$\" gives \"not $A$ or not $B$\"."
+      ],
+      "options": [
+        "$(C\\setminus A)\\cup(C\\setminus B)$",
+        "$(C\\setminus A)\\cap(C\\setminus B)$",
+        "$A\\cup B$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "La loi de de Morgan échange intersection et union.",
+        "De Morgan switches intersection and union."
+      ],
+      "explanation": [
+        "Un élément hors de $A\\cap B$ manque au moins l'une des deux appartenances.",
+        "An element outside $A\\cap B$ lacks at least one of the two memberships."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Si $A\\subseteq B$, que vaut nécessairement $A\\cup B$ ?",
+        "If $A\\subseteq B$, what must $A\\cup B$ equal?"
+      ],
+      "hint": [
+        "Tous les éléments de $A$ sont déjà présents dans $B$.",
+        "All members of $A$ already appear in $B$."
+      ],
+      "options": [
+        "$A$",
+        "$B$",
+        "$\\varnothing$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Ajouter $A$ à $B$ n'ajoute aucun nouvel élément.",
+        "Union with $A$ adds no new member to $B$."
+      ],
+      "explanation": [
+        "L'inclusion implique $A\\cup B=B$ même si $A=\\varnothing$.",
+        "Inclusion implies $A\\cup B=B$ even if $A=\\varnothing$."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "$x$ appartient à $A$ mais ni à $B$ ni à $D$. À quel ensemble appartient-il assurément ?",
+        "$x$ belongs to $A$ but neither $B$ nor $D$. Which set must contain it?"
+      ],
+      "hint": [
+        "Combinez appartenance à $A$ et exclusion de $B\\cup D$.",
+        "Combine membership in $A$ with exclusion from $B\\cup D$."
+      ],
+      "options": [
+        "$A\\cap B$",
+        "$B\\cup D$",
+        "$A\\setminus(B\\cup D)$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "L'intersection avec $B$ exige une appartenance que l'énoncé exclut.",
+        "Intersection with $B$ requires membership ruled out by the stem."
+      ],
+      "explanation": [
+        "$x\\in A$ et $x\\notin B\\cup D$, donc il est dans la différence.",
+        "$x\\in A$ and $x\\notin B\\cup D$, so it is in the difference."
+      ]
+    }
+  ]
+}

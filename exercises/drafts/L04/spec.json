@@ -1,0 +1,757 @@
+{
+  "lessonId": "L04",
+  "version": 3,
+  "items": [
+    {
+      "id": "L04-E07",
+      "objectiveId": "L04-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "equivalence-as-connective"
+      ],
+      "prompt": [
+        "Que signifie $P\\equiv Q$ pour deux formules propositionnelles $P$ et $Q$ ?",
+        "What does $P\\equiv Q$ mean for two propositional formulas $P$ and $Q$?"
+      ],
+      "hint": [
+        "Pensez à toutes les lignes des tables de vérité.",
+        "Think about all rows of the truth tables."
+      ],
+      "options": [
+        [
+          "$P$ et $Q$ ont la même valeur sur une ligne seulement.",
+          "$P$ and $Q$ agree on just one row.",
+          "Une ligne commune ne suffit pas pour une équivalence.",
+          "Agreement on one row does not establish equivalence."
+        ],
+        [
+          "$P$ et $Q$ ont la même valeur pour toute affectation.",
+          "$P$ and $Q$ agree under every assignment.",
+          "Exact : leurs colonnes de vérité sont identiques.",
+          "Correct: their truth-table columns are identical."
+        ],
+        [
+          "$P$ et $Q$ sont toutes les deux vraies sur une affectation.",
+          "$P$ and $Q$ are both true under one assignment.",
+          "Deux formules peuvent être vraies ensemble sans être équivalentes.",
+          "Two formulas can both be true on one row without being equivalent."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "L'équivalence sémantique compare toutes les affectations, non une seule ligne.",
+        "Semantic equivalence compares every assignment, not just one row."
+      ]
+    },
+    {
+      "id": "L04-E08",
+      "objectiveId": "L04-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "distributivity-with-wrong-operator"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Complétez la table de $A\\land(B\\lor C)$ pour les huit lignes $A,B,C$.",
+        "Complete the table for $A\\land(B\\lor C)$ over all eight rows $A,B,C$."
+      ],
+      "hint": [
+        "Sans $A=1$, la conjonction extérieure est fausse.",
+        "Without $A=1$, the outer conjunction is false."
+      ],
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": false,
+        "101": true,
+        "110": true,
+        "111": true,
+        "000": false,
+        "001": false,
+        "010": false,
+        "011": false
+      },
+      "feedback": [
+        "La formule est vraie seulement quand $A=1$ et au moins une de $B,C$ vaut $1$ : $101$, $110$, $111$.",
+        "The formula is true only when $A=1$ and at least one of $B,C$ is $1$: $101$, $110$, $111$."
+      ]
+    },
+    {
+      "id": "L04-E09",
+      "objectiveId": "L04-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "de-morgan-misapplied"
+      ],
+      "prompt": [
+        "Quelle formule est équivalente à $\\neg(A\\lor B)$ pour toutes les valeurs de $A,B$ ?",
+        "Which formula is equivalent to $\\neg(A\\lor B)$ for every value of $A,B$?"
+      ],
+      "hint": [
+        "La négation du « ou » impose que les deux assertions soient fausses.",
+        "Negating OR requires both statements to be false."
+      ],
+      "options": [
+        [
+          "$\\neg A\\lor\\neg B$",
+          "$\\neg A\\lor\\neg B$",
+          "Cette formule est vraie même si une seule assertion est fausse.",
+          "This is true even if only one statement is false."
+        ],
+        [
+          "$A\\land B$",
+          "$A\\land B$",
+          "Cette formule exige deux valeurs vraies au lieu de deux valeurs fausses.",
+          "This requires two true values rather than two false ones."
+        ],
+        [
+          "$\\neg A\\land\\neg B$",
+          "$\\neg A\\land\\neg B$",
+          "Exact : c'est la loi de De Morgan pour « ou ».",
+          "Correct: this is De Morgan's law for OR."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "$\\neg(A\\lor B)$ vaut $1$ seulement sur $00$, tout comme $\\neg A\\land\\neg B$.",
+        "$\\neg(A\\lor B)$ is $1$ only on $00$, as is $\\neg A\\land\\neg B$."
+      ]
+    },
+    {
+      "id": "L04-E10",
+      "objectiveId": "L04-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "tautology-confused-with-satisfiable"
+      ],
+      "prompt": [
+        "Sur les valeurs booléennes de $B$, quelle formule est une tautologie ?",
+        "Over Boolean values of $B$, which formula is a tautology?"
+      ],
+      "hint": [
+        "Une tautologie reste vraie pour $B=0$ comme pour $B=1$.",
+        "A tautology stays true for both $B=0$ and $B=1$."
+      ],
+      "options": [
+        [
+          "$B\\lor\\neg B$",
+          "$B\\lor\\neg B$",
+          "Exact : l'une des deux propositions est nécessairement vraie.",
+          "Correct: one of the two statements must be true."
+        ],
+        [
+          "$B\\land\\neg B$",
+          "$B\\land\\neg B$",
+          "Une proposition et sa négation ne sont jamais vraies ensemble.",
+          "A statement and its negation are never both true."
+        ],
+        [
+          "$B$",
+          "$B$",
+          "$B$ est faux sur l'affectation $B=0$.",
+          "$B$ is false when $B=0$."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "La loi du tiers exclu donne $B\\lor\\neg B=1$ sur les deux lignes.",
+        "Excluded middle gives $B\\lor\\neg B=1$ on both rows."
+      ]
+    },
+    {
+      "id": "L04-E11",
+      "objectiveId": "L04-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "equivalence-checked-on-one-row"
+      ],
+      "prompt": [
+        "Pour réfuter $A\\land(B\\lor C)\\equiv(A\\land B)\\lor C$, quelle affectation suffit ?",
+        "Which assignment suffices to refute $A\\land(B\\lor C)\\equiv(A\\land B)\\lor C$?"
+      ],
+      "hint": [
+        "Cherchez une ligne avec $C=1$ mais $A=0$.",
+        "Try a row with $C=1$ but $A=0$."
+      ],
+      "options": [
+        [
+          "$A=1,B=1,C=1$",
+          "$A=1,B=1,C=1$",
+          "Les deux expressions valent $1$ ici.",
+          "Both expressions are $1$ here."
+        ],
+        [
+          "$A=0,B=0,C=1$",
+          "$A=0,B=0,C=1$",
+          "Exact : la gauche vaut $0$, la droite vaut $1$.",
+          "Correct: the left is $0$, the right is $1$."
+        ],
+        [
+          "$A=0,B=0,C=0$",
+          "$A=0,B=0,C=0$",
+          "Les deux expressions valent $0$ ici.",
+          "Both expressions are $0$ here."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "À $001$, $0\\land(0\\lor1)=0$, mais $(0\\land0)\\lor1=1$.",
+        "At $001$, $0\\land(0\\lor1)=0$, but $(0\\land0)\\lor1=1$."
+      ]
+    },
+    {
+      "id": "L04-E12",
+      "objectiveId": "L04-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "de-morgan-misapplied"
+      ],
+      "prompt": [
+        "Laquelle de ces équivalences proposées est fausse ?",
+        "Which of these proposed equivalences is false?"
+      ],
+      "hint": [
+        "Comparez le cas où une seule des assertions est vraie.",
+        "Compare the case where exactly one statement is true."
+      ],
+      "options": [
+        [
+          "$A\\lor(B\\land C)\\equiv(A\\lor B)\\land(A\\lor C)$",
+          "$A\\lor(B\\land C)\\equiv(A\\lor B)\\land(A\\lor C)$",
+          "C'est la distributivité correcte de « ou ».",
+          "This is the correct distributive law for OR."
+        ],
+        [
+          "$A\\land(B\\lor C)\\equiv(A\\land B)\\lor(A\\land C)$",
+          "$A\\land(B\\lor C)\\equiv(A\\land B)\\lor(A\\land C)$",
+          "C'est la distributivité correcte de « et ».",
+          "This is the correct distributive law for AND."
+        ],
+        [
+          "$\\neg(A\\lor B)\\equiv\\neg A\\lor\\neg B$",
+          "$\\neg(A\\lor B)\\equiv\\neg A\\lor\\neg B$",
+          "Exact : avec $A=1,B=0$, les deux côtés diffèrent.",
+          "Correct: with $A=1,B=0$, the two sides differ."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "La loi correcte est $\\neg(A\\lor B)\\equiv\\neg A\\land\\neg B$.",
+        "The correct law is $\\neg(A\\lor B)\\equiv\\neg A\\land\\neg B$."
+      ]
+    },
+    {
+      "id": "L04-E13",
+      "objectiveId": "L04-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "negation-scope-misread"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Calculez la table de $\\neg(A\\lor B)\\lor C$. Votre colonne doit représenter toutes les affectations $A,B,C$.",
+        "Compute the table for $\\neg(A\\lor B)\\lor C$. Your column must represent every assignment $A,B,C$."
+      ],
+      "hint": [
+        "La formule ne peut être fausse que si les deux termes de la disjonction le sont.",
+        "The formula can be false only if both disjuncts are false."
+      ],
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": false,
+        "101": true,
+        "110": false,
+        "111": true,
+        "000": true,
+        "001": true,
+        "010": false,
+        "011": true
+      },
+      "feedback": [
+        "Quand $C=1$, la formule est vraie ; avec $C=0$, elle n'est vraie que si $A=B=0$.",
+        "When $C=1$, the formula is true; with $C=0$, it is true only if $A=B=0$."
+      ]
+    },
+    {
+      "id": "L04-E14",
+      "objectiveId": "L04-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "distributivity-with-wrong-operator"
+      ],
+      "prompt": [
+        "Quelle formule se simplifie en $A\\lor(A\\land B)$ pour toutes les valeurs booléennes ?",
+        "Which formula has the same value as $A\\lor(A\\land B)$ for every Boolean assignment?"
+      ],
+      "hint": [
+        "Si $A=1$, que vaut le « ou » ? Si $A=0$, que devient la conjonction ?",
+        "If $A=1$, what is OR? If $A=0$, what becomes of the conjunction?"
+      ],
+      "options": [
+        [
+          "$A$",
+          "$A$",
+          "Exact : c'est la loi d'absorption.",
+          "Correct: this is the absorption law."
+        ],
+        [
+          "$B$",
+          "$B$",
+          "Avec $A=1,B=0$, le résultat vaut $1$ mais $B=0$.",
+          "With $A=1,B=0$, the result is $1$ but $B=0$."
+        ],
+        [
+          "$A\\land B$",
+          "$A\\land B$",
+          "Avec $A=1,B=0$, la formule originale vaut $1$ mais la conjonction $0$.",
+          "With $A=1,B=0$, the original formula is $1$ but the conjunction $0$."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "$A\\lor(A\\land B)=A\\land(1\\lor B)=A$ ; le test des deux valeurs de $A$ confirme.",
+        "$A\\lor(A\\land B)=A\\land(1\\lor B)=A$; checking both values of $A$ confirms."
+      ]
+    },
+    {
+      "id": "L04-E15",
+      "objectiveId": "L04-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "contradiction-confused-with-tautology"
+      ],
+      "prompt": [
+        "Quelle formule est une contradiction, c'est-à-dire fausse pour toutes les affectations ?",
+        "Which formula is a contradiction, false for every assignment?"
+      ],
+      "hint": [
+        "Une contradiction doit être fausse même quand $A=1$.",
+        "A contradiction must remain false even when $A=1$."
+      ],
+      "options": [
+        [
+          "$A\\lor\\neg A$",
+          "$A\\lor\\neg A$",
+          "Cette formule est toujours vraie.",
+          "This formula is always true."
+        ],
+        [
+          "$A\\land\\neg A$",
+          "$A\\land\\neg A$",
+          "Exact : aucun $A$ ne peut être à la fois vrai et faux.",
+          "Correct: no $A$ can be true and false simultaneously."
+        ],
+        [
+          "$A\\land B$",
+          "$A\\land B$",
+          "Cette formule est vraie pour $A=B=1$.",
+          "This formula is true when $A=B=1$."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "Le produit logique de $A$ et de sa négation vaut toujours $0$.",
+        "AND applied to $A$ and its negation is always $0$."
+      ]
+    },
+    {
+      "id": "L04-E16",
+      "objectiveId": "L04-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "equivalence-checked-on-one-row"
+      ],
+      "prompt": [
+        "Un étudiant vérifie deux formules sur $A=0,B=0$ et obtient la même valeur. Que peut-il conclure sur leur équivalence sémantique ?",
+        "A student checks two formulas at $A=0,B=0$ and gets the same value. What can be concluded about their semantic equivalence?"
+      ],
+      "hint": [
+        "Une équivalence porte sur toutes les affectations possibles.",
+        "An equivalence concerns all possible assignments."
+      ],
+      "options": [
+        [
+          "Elles sont nécessairement équivalentes.",
+          "They must be equivalent.",
+          "Une seule ligne commune n'établit rien pour les trois autres.",
+          "One agreeing row says nothing about the other three."
+        ],
+        [
+          "Elles ne sont nécessairement pas équivalentes.",
+          "They must not be equivalent.",
+          "Un accord local n'exclut pas l'accord sur toutes les autres lignes.",
+          "Local agreement does not rule out agreement on all other rows."
+        ],
+        [
+          "Il faut encore comparer les trois autres lignes.",
+          "The other three rows must still be compared.",
+          "Exact : l'équivalence exige quatre accords sur quatre lignes.",
+          "Correct: equivalence requires agreement on all four rows."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "Avec deux variables, l'accord sur $00$ n'établit que $1$ des $4$ comparaisons nécessaires.",
+        "With two variables, agreement on $00$ establishes only $1$ of the $4$ necessary comparisons."
+      ]
+    },
+    {
+      "id": "L04-E17",
+      "objectiveId": "L04-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "equivalence-needs-only-some-rows"
+      ],
+      "prompt": [
+        "Une simplification erronée affirme $A\\land(B\\lor C)\\equiv(A\\land B)\\lor(B\\land C)$. Pour réfuter la règle, quel contre-exemple utiliser ?",
+        "A faulty simplification claims $A\\land(B\\lor C)\\equiv(A\\land B)\\lor(B\\land C)$. Which counterexample refutes the rule?"
+      ],
+      "hint": [
+        "Cherchez un cas où $C$ suffit avec $A$ mais où $B$ est faux.",
+        "Find a case where $C$ suffices together with $A$ while $B$ is false."
+      ],
+      "options": [
+        [
+          "$A=0,B=0,C=0$",
+          "$A=0,B=0,C=0$",
+          "Les deux côtés valent $0$ ; ce n'est pas une réfutation.",
+          "Both sides are $0$; this does not refute the rule."
+        ],
+        [
+          "$A=1,B=0,C=1$",
+          "$A=1,B=0,C=1$",
+          "Exact : la gauche vaut $1$, la droite $0$.",
+          "Correct: the left is $1$, the right $0$."
+        ],
+        [
+          "$A=1,B=1,C=1$",
+          "$A=1,B=1,C=1$",
+          "Les deux côtés valent $1$ ; ils s'accordent.",
+          "Both sides are $1$; they agree."
+        ]
+      ],
+      "correct": 1,
+      "explanation": [
+        "Avec $(1,0,1)$, $1\\land(0\\lor1)=1$, mais $(1\\land0)\\lor(0\\land1)=0$.",
+        "With $(1,0,1)$, $1\\land(0\\lor1)=1$, but $(1\\land0)\\lor(0\\land1)=0$."
+      ]
+    },
+    {
+      "id": "L04-E18",
+      "objectiveId": "L04-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "row-skipped-or-copied"
+      ],
+      "type": "truth-table",
+      "prompt": [
+        "Deux contrôles sont réunis par $(A\\lor B)\\land(\\neg A\\lor C)$. Construisez les huit valeurs pour $A,B,C$ avant de décider si ce contrôle se simplifie.",
+        "Two checks combine as $(A\\lor B)\\land(\\neg A\\lor C)$. Build all eight values for $A,B,C$ before deciding whether the condition simplifies."
+      ],
+      "hint": [
+        "Évaluez chacune des deux parenthèses séparément sur chaque affectation.",
+        "Evaluate the two parenthesised parts separately on each assignment."
+      ],
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": false,
+        "101": true,
+        "110": false,
+        "111": true,
+        "000": false,
+        "001": false,
+        "010": true,
+        "011": true
+      },
+      "feedback": [
+        "Quand $A=0$, $B$ suffit ; quand $A=1$, $C$ est nécessaire. Les lignes vraies sont $010$, $011$, $101$, $111$.",
+        "When $A=0$, $B$ suffices; when $A=1$, $C$ is required. True rows are $010$, $011$, $101$, $111$."
+      ]
+    },
+    {
+      "id": "L04-E19",
+      "objectiveId": "L04-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "de-morgan-misapplied",
+        "distributivity-with-wrong-operator"
+      ],
+      "prompt": [
+        "Quelle formule est équivalente à $\\neg(A\\land(B\\lor C))$ pour toutes les affectations ?",
+        "Which formula is equivalent to $\\neg(A\\land(B\\lor C))$ for every assignment?"
+      ],
+      "hint": [
+        "Niez d'abord la conjonction extérieure ; traitez ensuite la disjonction intérieure.",
+        "First negate the outer conjunction; then handle the inner disjunction."
+      ],
+      "options": [
+        [
+          "$\\neg A\\land(\\neg B\\lor\\neg C)$",
+          "$\\neg A\\land(\\neg B\\lor\\neg C)$",
+          "Nier une conjonction donne un « ou » extérieur, pas « et ».",
+          "Negating a conjunction gives an outer OR, not AND."
+        ],
+        [
+          "$\\neg A\\lor\\neg B\\lor\\neg C$",
+          "$\\neg A\\lor\\neg B\\lor\\neg C$",
+          "Nier $B\\lor C$ impose les deux négations ensemble.",
+          "Negating $B\\lor C$ requires both negations together."
+        ],
+        [
+          "$\\neg A\\lor(\\neg B\\land\\neg C)$",
+          "$\\neg A\\lor(\\neg B\\land\\neg C)$",
+          "Exact : deux applications correctes de De Morgan.",
+          "Correct: two correct applications of De Morgan."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "$\\neg(A\\land X)=\\neg A\\lor\\neg X$ avec $X=B\\lor C$ ; puis $\\neg X=\\neg B\\land\\neg C$.",
+        "$\\neg(A\\land X)=\\neg A\\lor\\neg X$ with $X=B\\lor C$; then $\\neg X=\\neg B\\land\\neg C$."
+      ]
+    },
+    {
+      "id": "L04-E20",
+      "objectiveId": "L04-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "tautology-confusion"
+      ],
+      "prompt": [
+        "Un filtre booléen doit accepter toute affectation de $A$ et $B$. Quelle formule est garantie vraie sans dépendre du filtre ?",
+        "A Boolean filter must accept every assignment of $A$ and $B$. Which formula is guaranteed true for all input values?"
+      ],
+      "hint": [
+        "Trouvez une formule où une assertion et sa négation couvrent tous les cas.",
+        "Find a formula where a statement and its negation cover all cases."
+      ],
+      "options": [
+        [
+          "$(A\\land B)\\lor\\neg A\\lor\\neg B$",
+          "$(A\\land B)\\lor\\neg A\\lor\\neg B$",
+          "Exact : c'est $(A\\land B)\\lor\\neg(A\\land B)$, toujours vrai.",
+          "Correct: this is $(A\\land B)\\lor\\neg(A\\land B)$, always true."
+        ],
+        [
+          "$(A\\lor B)\\land\\neg A$",
+          "$(A\\lor B)\\land\\neg A$",
+          "Avec $A=1$, cette conjonction devient fausse.",
+          "With $A=1$, this conjunction becomes false."
+        ],
+        [
+          "$A\\land(B\\lor\\neg B)$",
+          "$A\\land(B\\lor\\neg B)$",
+          "Cette formule se réduit à $A$ et échoue sur $A=0$.",
+          "This reduces to $A$ and fails when $A=0$."
+        ]
+      ],
+      "correct": 0,
+      "explanation": [
+        "De Morgan donne $\\neg(A\\land B)=\\neg A\\lor\\neg B$, donc le premier choix est de la forme $X\\lor\\neg X$.",
+        "De Morgan gives $\\neg(A\\land B)=\\neg A\\lor\\neg B$, so the first option has the form $X\\lor\\neg X$."
+      ]
+    },
+    {
+      "id": "L04-E21",
+      "objectiveId": "L04-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "equivalence-means-agreement-on-some-rows"
+      ],
+      "prompt": [
+        "Un élève ne teste que $A=B=0$ et $A=B=1$ et affirme $A\\lor B\\equiv A\\land B$. Quelle affectation démontre son erreur ?",
+        "A student tests only $A=B=0$ and $A=B=1$ and claims $A\\lor B\\equiv A\\land B$. Which assignment proves the mistake?"
+      ],
+      "hint": [
+        "Examinez une ligne où les deux valeurs sont différentes.",
+        "Examine a row where the two values differ."
+      ],
+      "options": [
+        [
+          "$A=0,B=0$",
+          "$A=0,B=0$",
+          "Les deux formules valent $0$, comme l'élève l'a déjà vu.",
+          "Both formulas are $0$, as the student already observed."
+        ],
+        [
+          "$A=1,B=1$",
+          "$A=1,B=1$",
+          "Les deux formules valent $1$, comme l'élève l'a déjà vu.",
+          "Both formulas are $1$, as the student already observed."
+        ],
+        [
+          "$A=0,B=1$",
+          "$A=0,B=1$",
+          "Exact : $A\\lor B=1$ mais $A\\land B=0$.",
+          "Correct: $A\\lor B=1$ but $A\\land B=0$."
+        ]
+      ],
+      "correct": 2,
+      "explanation": [
+        "Une ligne discordante suffit à réfuter l'équivalence : à $01$, le « ou » vaut $1$ et le « et » $0$.",
+        "One disagreeing row refutes equivalence: at $01$, OR is $1$ and AND is $0$."
+      ]
+    }
+  ]
+}

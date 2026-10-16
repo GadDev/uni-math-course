@@ -49,6 +49,10 @@ const examplesByObjective = new Map(
 );
 
 const bilingual = (value) => {
+  if (typeof value === 'string') {
+    assert.ok(value.trim());
+    return { fr: value, en: value };
+  }
   if (Array.isArray(value)) {
     assert.equal(value.length, 2, 'Bilingual pair needs French then English');
     value = { fr: value[0], en: value[1] };
@@ -58,13 +62,48 @@ const bilingual = (value) => {
   return value;
 };
 
-const exercises = spec.items.map((item) => {
-  assert.ok(
-    !oldIds.has(item.id),
-    `New exercise ID was used in an archive: ${item.id}`,
-  );
-  const base = examplesByObjective.get(item.objectiveId);
-  assert.ok(base, `No lesson objective matches ${item.objectiveId}`);
+const exercises = spec.items.map((item, index) => {
+  const id =
+    item.id ?? `${spec.lessonId}-E${String(index + 7).padStart(2, '0')}`;
+  const objectiveId =
+    item.objectiveId ??
+    `${spec.lessonId}-O${String(item.objective).padStart(2, '0')}`;
+  assert.ok(!oldIds.has(id), `New exercise ID was used in an archive: ${id}`);
+  const base = examplesByObjective.get(objectiveId);
+  assert.ok(base, `No lesson objective matches ${objectiveId}`);
+  const common = {
+    id,
+    objectiveId,
+    difficulty:
+      item.difficulty ?? (index < 5 ? 'easy' : index < 10 ? 'medium' : 'hard'),
+    misconceptions: item.misconceptions ?? base.misconceptions,
+  };
+  const metadata = {
+    lessonId: spec.lessonId,
+    version: spec.version,
+    prerequisites: base.prerequisites,
+    provenance: base.provenance,
+  };
+  if (item.type === 'truth-table') {
+    assert.ok(Array.isArray(item.variables));
+    assert.ok(Array.isArray(item.rows));
+    assert.ok(item.answer && typeof item.answer === 'object');
+    return {
+      ...common,
+      type: 'truth-table',
+      prompt: bilingual(item.prompt),
+      hint: bilingual(item.hint),
+      variables: item.variables,
+      rows: item.rows,
+      answer: item.answer,
+      feedback: bilingual(item.feedback),
+      explanation: bilingual(item.explanation ?? item.feedback),
+      ...metadata,
+      grading: { kind: 'labelled-boolean-cells', rejectUnknownFields: true },
+      evidence: base.evidence,
+    };
+  }
+  assert.ok(!item.type || item.type === 'single-choice');
   assert.ok(item.options.length >= 3);
   assert.ok(
     Number.isInteger(item.correct) &&
@@ -72,28 +111,36 @@ const exercises = spec.items.map((item) => {
       item.correct < item.options.length,
   );
   return {
-    id: item.id,
-    objectiveId: item.objectiveId,
-    difficulty: item.difficulty,
-    misconceptions: item.misconceptions,
+    ...common,
     type: 'single-choice',
     prompt: bilingual(item.prompt),
     hint: bilingual(item.hint),
     options: item.options.map((option, index) => ({
       id: String.fromCharCode(97 + index),
       label: bilingual(
-        Array.isArray(option) ? option.slice(0, 2) : option.label,
+        Array.isArray(option)
+          ? option.slice(0, 2)
+          : typeof option === 'string'
+            ? option
+            : option.label,
       ),
       feedback: bilingual(
-        Array.isArray(option) ? option.slice(2, 4) : option.feedback,
+        Array.isArray(option)
+          ? option.length === 2
+            ? index === item.correct
+              ? item.explanation
+              : item.wrong
+            : option.slice(2, 4)
+          : typeof option === 'string'
+            ? index === item.correct
+              ? item.explanation
+              : item.wrong
+            : option.feedback,
       ),
     })),
     answer: String.fromCharCode(97 + item.correct),
     explanation: bilingual(item.explanation),
-    lessonId: spec.lessonId,
-    version: spec.version,
-    prerequisites: base.prerequisites,
-    provenance: base.provenance,
+    ...metadata,
     grading: { kind: 'exact-option-id', rejectUnknownFields: true },
     evidence: base.evidence,
   };
