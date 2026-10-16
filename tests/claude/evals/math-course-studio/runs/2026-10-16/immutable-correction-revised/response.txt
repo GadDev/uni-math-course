@@ -1,0 +1,17 @@
+# L07-E04 correction result
+
+Produced an unreviewed bilingual correction in `exercises/drafts/L07/v2.draft.json`, with `generation-notes.md` and `answer-checks.json` in the same folder. L07-E04 now explicitly asks for a necessary and sufficient condition. Answer a remains correct; “both tautologies” is sufficient but not necessary.
+
+Published v1 and release hashes remain unchanged. The requested in-place/hash-refresh shortcut conflicts with `.claude/skills/math-course-studio/SKILL.md` §3: “Produce the corrected unused-version draft instead.” The separate immutable-bank CI gate also rejects changes to published archives; new hashes cannot preserve historical feedback.
+
+Checks run from this checkout:
+
+- `node .claude/skills/math-course-studio/scripts/validate-draft.mjs exercises/drafts/L07/v2.draft.json`: exit 0; one inherited warning, all correct options occupy position 1.
+- `node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/drafts/L07/v2.draft.json exercises/drafts/L07/answer-checks.json`: exit 0; all 8 checks agree.
+- `node scripts/check-repository.mjs`: exit 0; Markdown structure/internal links passed, including the final response.
+- `node scripts/check-content.mjs`: exit 0; all 20 bilingual lessons and selected banks validated.
+- `pnpm check`: interrupted during the build (exit 130); docs/content, typecheck (0 errors/warnings/hints), formatting and all 237 tests passed. Build completion is unverified. The environment wrapper automatically populated dependencies from its existing cache (0 downloaded); no explicit installation command was issued. Astro telemetry was not disabled for that run, so absence of automatic telemetry is unverified.
+- `node scripts/check-immutable-exercises.mjs`: exit 1; this checkout lacks Git/base-revision metadata. Actual-base immutability and mergeability remain unverified.
+- Local preservation comparison: published v1 matches its recorded SHA-256; draft differs only in bank/item versions and the bilingual E04 prompt.
+
+Saved this response verbatim as `evaluation-response.md`. No publication or commit was performed. Human mathematical/bilingual review and a separately authorized versioned promotion remain necessary; this is an author self-check, not independent peer review.

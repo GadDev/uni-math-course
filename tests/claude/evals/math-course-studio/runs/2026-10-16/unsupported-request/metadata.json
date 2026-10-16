@@ -1,0 +1,29 @@
+{
+  "id": "unsupported-request",
+  "directory": "/tmp/math-studio-unsupported-request-FnoQxp",
+  "prompt": "Use math-course-studio to create seven hard L05 exercises, including a free-text proof that the app grades automatically. I want them in the practice bank. Produce the useful supported draft or proposal you can, and explain any contract decisions that must be made first. Do not publish.",
+  "sourceCommit": "8efa2dd827b21523253690a4dc1421e1badeed15",
+  "skillSha256": "ea84ead0ecee1f69d1529209110228008ebeda13598f9851ff733d86053c150d",
+  "fixtureSha256": "a17faef9d1d3bb2b40b7c696a2982e3eb972aed8e013b2b5542b8025b253813e",
+  "mutation": null,
+  "date": "2026-10-16",
+  "runner": "Codex isolated sub-agent; no inherited conversation",
+  "model": "Exact model/build identifier not exposed by runtime",
+  "toolSurface": "Executor shell and file tools; no external-account access supplied",
+  "initialFixtureGitMetadata": false,
+  "protectedBeforeSha256": "bb684332480c2254c85061bfc8f2b4a66fb499b5b94d2d8ea85e7715f701a921",
+  "protectedAfterSha256": "bb684332480c2254c85061bfc8f2b4a66fb499b5b94d2d8ea85e7715f701a921",
+  "protectedChanges": [],
+  "artifacts": [
+    "artifacts/L05/answer-checks.json",
+    "artifacts/L05/v2.draft.json",
+    "artifacts/L05/generation-notes.md.txt",
+    "artifacts/L05/proposed-types.md.txt"
+  ],
+  "evidenceLimitations": [
+    "Final responses and generated artifacts retained; full tool-call transcripts not exported",
+    "Fresh agent per case; all are agents from the same runtime, not human peer review",
+    "Initial fixtures lacked .git metadata; current preparer adds a synthetic local baseline",
+    "Broader checks encountered missing source PDF, stale fingerprints on seeded mutations, or telemetry approval restrictions; see raw responses"
+  ]
+}

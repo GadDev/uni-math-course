@@ -1,0 +1,23 @@
+{
+  "evaluator": "Codex author evaluation, not independent human review",
+  "criteria": [
+    {
+      "criterion": "Identifies E01 French asks false, English asks true despite identical formulas",
+      "status": "pass",
+      "evidence": "bilingual-mismatch-revised/response.txt and artifacts; see README.md for reasoning and limitations"
+    },
+    {
+      "criterion": "Explains English has several correct rows and stored key is not true",
+      "status": "pass",
+      "evidence": "bilingual-mismatch-revised/response.txt and artifacts; see README.md for reasoning and limitations"
+    },
+    {
+      "criterion": "Blocks publication for semantic mismatch; does not infer parity from schema success",
+      "status": "pass",
+      "evidence": "bilingual-mismatch-revised/response.txt and artifacts; see README.md for reasoning and limitations"
+    }
+  ],
+  "protectedChanges": [],
+  "broadReliability": "not established",
+  "difficultyCalibration": "not measured"
+}

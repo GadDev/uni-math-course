@@ -37,6 +37,8 @@ Notable changes are recorded here. No application version has been released.
 
 ### Added
 
+- Define easy/medium/hard editorial authoring guidance within the existing two-label bank contract, with reproducible behavioural evaluation cases and recorded agent results.
+
 - Public searchable bilingual symbol glossary: 56 mathematics/logic/code entries and eight code-notation references, with spoken readings in both languages, source-page references, a page-48 correction note and language-preserving entry links.
 
 - Signal styling for the public programme and L05 reading pages, with responsive course navigation, lesson contents, self-hosted licensed display typography and bilingual section switching.

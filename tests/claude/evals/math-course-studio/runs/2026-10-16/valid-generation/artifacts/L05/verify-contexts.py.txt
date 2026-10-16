@@ -1,0 +1,23 @@
+"""Author self-check of bounded numeric cases and all card inspections."""
+from itertools import combinations, product
+
+nums = range(13)
+assert all(not (n > 8) or n > 3 for n in nums)
+assert not (5 > 8) and 5 > 3
+assert [n for n in nums if n >= 4 and not n > 4] == [4]
+visible = [(True, None), (False, None), (None, True), (None, False)]
+models = []
+for hidden in product([False, True], repeat=4):
+    cards = [
+        (r if r is not None else h, s if s is not None else h)
+        for (r, s), h in zip(visible, hidden)
+    ]
+    models.append([i for i, (r, s) in enumerate(cards) if r and not s])
+sufficient = []
+for size in range(5):
+    for subset in combinations(range(4), size):
+        if all(not bad or any(i in subset for i in bad) for bad in models):
+            sufficient.append(subset)
+minimal = [s for s in sufficient if len(s) == min(map(len, sufficient))]
+assert minimal == [(0, 3)]
+print('PASS: E03 forward implication on 0..12 and converse witness 5; E06 counterexamples on 0..12 = [4]; E05 all 16 hidden-side models and 16 inspection subsets: unique minimum (red, unstamped).')

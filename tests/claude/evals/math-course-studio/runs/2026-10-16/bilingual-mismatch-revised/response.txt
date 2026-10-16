@@ -1,0 +1,11 @@
+# L05 review
+
+Created `exercises/drafts/L05/lesson-review.md` and reproducible `answer-checks.json` beside it.
+
+Blocking finding: E01 asks “false” in French but “true” in English. The shared key accepts false assignment `10` and rejects all three valid English answers. E02–E06 align; every option and table answer was checked.
+
+Checks: 10 logic checks and 108 content tests passed; final Markdown check passed for 82 files. Content validation and `ASTRO_TELEMETRY_DISABLED=1 pnpm check` failed on the existing stale L05 bank fingerprint.
+
+The pnpm invocation unexpectedly auto-installed 587 cached packages before running checks, violating the no-install constraint. No further pnpm commands were run. Published content, registry, manifests and lockfile remain unchanged; nothing was published or committed.
+
+Human translation/mathematical review and a separately authorized immutable-version correction remain necessary. Source PDF comparison was unavailable.

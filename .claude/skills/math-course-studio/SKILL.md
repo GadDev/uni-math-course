@@ -56,7 +56,7 @@ Keep reasoning out of exercise JSON. Record a compact trace (branches, scores, w
 
 ## 3. Mode: generate
 
-Read `references/bank-design.md` before designing the six items.
+Read `references/bank-design.md` before designing the six items. Use its easy/medium/hard editorial framework relative to the lesson’s objectives and taught prerequisites; record each level and rationale in the notes. Stored difficulty remains `foundation` or `application`; three editorial levels do not create three product labels or permit extra items.
 
 1. **Map** each objective → source pages → prerequisite status (source-taught / prerequisite support / enrichment).
 2. **Branch** on misconceptions: top three plausible errors per objective. List reusable tags with `node .claude/skills/math-course-studio/scripts/validate-draft.mjs --list-tags` before coining new ones.
@@ -66,6 +66,8 @@ Read `references/bank-design.md` before designing the six items.
 6. **Assemble** exactly six items (`Lxx-E01`–`E06`, one per objective), write `v<N>.draft.json`, then validate. For a correction, choose an unused version above all existing bank versions; for a new lesson start at 1. Keep bank and item versions equal. Record the selected base version and proposed version in the notes.
 
 Drafts go to `exercises/drafts/<Lxx>/v<N>.draft.json`, never over a published bank. Published `vN.json` files are immutable, including their wording, domains, answer keys and grading contracts. Retain them for historical feedback; a correction does not regrade old attempts or make an already-seen exercise ID fresh mastery evidence.
+
+If a correction request asks to edit an archive in place or refresh hashes as a shortcut, explain that fingerprints do not bypass the immutable-bank CI gate or protect old feedback. Produce the corrected unused-version draft instead. Treat a deliberate change to the version/history contract as a separate policy and migration task, not an incidental wording fix. Do not claim the correction is mergeable without checking the immutable-bank gate against the actual base revision.
 
 **Drafts are committed in pull requests**, not ignored: the PR is the content-review checkpoint. A draft must pass the validator, its notes must pass `check:docs`, it must contain no copied slide text, and its notes must say it is unreviewed. Do not change the release registry or refresh hashes merely to make a draft pass. Promotion is a separate, explicitly requested and reviewed step: add the new immutable `exercises/<Lxx>/v<N>.json`, document actual mathematical and bilingual review, then select it and renew the required evidence/fingerprints under `docs/CONTENT_RELEASES.md`. Existing unreviewed exceptions do not authorize new ones. Never invent reviewer names/dates or reuse old evidence as certification of changed content.
 
@@ -112,6 +114,8 @@ Environment pitfalls: the confinement hook rejects `cd`, `..`, `$VAR`/`~` paths,
 - Do not describe planned quizzes, grading or saved progress as implemented (AGENTS.md).
 - Do not edit lessons or published banks during a review unless asked; propose changes as findings.
 - Do not touch `.gitignore`, `.claude/settings*.json` or `.claude/hooks/`. Do not commit unless asked, and never to `main`.
+
+For repeatable behavioural checks of this skill, see `references/behavioural-evaluations.md`. Fixture preparation and helper tests are not model-evaluation results.
 
 ## 8. Final message
 

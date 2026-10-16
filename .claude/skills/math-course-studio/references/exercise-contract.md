@@ -100,6 +100,8 @@ Derive `answer` by computation (script or hand enumeration of all 2ⁿ rows), ne
 
 For a separately authorized promotion:
 
+An in-place correction request does not make hash renewal a safe workaround: the separate immutable-bank gate rejects archive edits. Explain the consequence and offer an unused-version draft. A deliberate policy override needs its own version/history migration scope and cannot be presented as an ordinary content correction.
+
 1. Add the new immutable `exercises/<Lxx>/v<N>.json`; never replace, delete or rename an existing bank. Preserve stable exercise IDs for corrections. An already-seen ID remains practice-only across versions; fresh-evidence item design is a separate contract decision under the six-ID limit.
 2. Record actual mathematical and French/English review for the changed material in an evidence document. Old review evidence does not automatically certify a new version. Existing unreviewed exceptions do not authorize additional exceptions; any exception requires an explicit owner decision. Never fabricate reviewer names or dates.
 3. Select the new version in `content/releases.json` and renew its mathematical/translation review states and evidence as appropriate. Update SHA-256 fingerprints for the selected bank and both full lesson files only after the review decision. If the French source changed, deliberately renew `translation.sourceFingerprint` after checking English fidelity or obtaining an explicit authorized exception; refreshing only `fingerprints` is insufficient. Paired lesson frontmatter versions must match each other; they are separate from bank version selection.
@@ -120,6 +122,9 @@ Selected base version, proposed unused version, registry review/translation stat
 
 ## Coverage
 Objective → source pages → source-taught / prerequisite / enrichment.
+
+## Editorial difficulty
+Per item: objective, easy/medium/hard level, stored label, taught prerequisites, scaffolding, concise demand rationale, similarity to worked examples and uncertainty. Use bank-design section 1b; no forced split or schema additions.
 
 ## Reasoning trace
 One tree-of-thoughts block per item (see reasoning-protocols.md section 5).

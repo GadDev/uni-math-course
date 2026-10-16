@@ -1,0 +1,76 @@
+# L05 alternative exercise draft — 2026-10-16
+
+Status: unreviewed draft; author self-check with a different derivation, not independent peer review. Mathematical and bilingual human review still required. No publication or new release evidence is asserted.
+
+## Versions and scope
+
+The registry selects L05 v1 with mathematical and translation states self-checked and no practice withdrawal. The only existing L05 archive is v1.json. Proposed unused bank version: 2; all six item versions are 2. The v1 bank, lesson files and release registry remain unchanged. Existing review evidence does not certify this draft. Stable E01–E06 IDs are retained as alternative objective slots; previously seen IDs do not become fresh mastery evidence across versions.
+
+The request for seven hard items including an automatically graded free-text proof exceeds current contracts. scripts/check-content.mjs accepts exactly six items, unique E01–E06 and O01–O06, and only single-choice/truth-table. Drafts are excluded by the lesson-folder name filter, so a separate draft validator is necessary. The seventh task is L05-P01 in proposed-types.md, outside JSON. No schema, checker, application or release-policy change is made. Unsupported automatic proof grading is not implemented or claimed.
+
+## Coverage and prerequisites
+
+Every item cites original-project-work and coverage pages [20, 21, 22, 23], matching both lessons. Objective meanings follow the selected bank and the lesson's six-topic practice summary. No source PDF is present in the checkout, so source-page alignment is based on the repository course map and lesson, not a new PDF comparison. No copied slide content is used. Constitution source defects (page 48, pages 19/25/31, 60–65, 71–89, 94) are outside this scope; no new source discrepancy was established.
+
+| Item | Objective | Coverage / status | Prerequisites and scaffolding | Editorial level / stored label |
+| --- | --- | --- | --- | --- |
+| E01 | O01: implication value/failure | 20–23; source-taught | L01/L02 plus L05 failure rule; explicit missing-value assumption | Medium / application |
+| E02 | O02: truth table | 20–23; source-taught with connective composition | L01/L02 plus L05; parenthesised inner formula identified | Medium / application |
+| E03 | O03: necessary/sufficient | 20–23; source-taught with prerequisite OR | L01/L02 plus L05; explicit meanings for three predicates | Hard / application |
+| E04 | O04: negation | 20–23; source-taught with prerequisite OR/AND | L01/L02 plus L05; audit context, no supplied transformation | Hard / application |
+| E05 | O05: natural-language rule | 20–23; source-taught application | L01/L02 plus L05; two-face categories and unknown sides explicit | Hard / application |
+| E06 | O06: numeric counterexample | 20–23; source-taught plus prerequisite comparisons | L01/L02 plus L05; ℕ includes zero, inclusive OR explicit | Hard / application |
+| P01 | O04 primary, O05 secondary | 20–23; optional proof-production extension | All above; optional failure-case hint, no proof skeleton | Hard / proposed application |
+
+E01 requires reasoning over both completions of an incomplete log; E02 combines taught evaluations but remains mechanical. They are honestly medium, rather than falsely labelled hard to satisfy a quota. E03 transfers two verbal conditions into a guaranteed rule; E04 transfers negation into an exact audit filter; E05 requires a minimal inspection strategy; E06 identifies the entire exception set rather than a witness. P01 produces a general justification. All editorial judgments need pilot calibration. There is no new hard product label.
+
+Compared with the lesson and selected bank: E01 changes full assignments into partial information; E02 nests rather than repeats the plain implication table; E03 combines distinct conditions rather than restates their names; E04 audits compound triggers rather than recognises the bare negation formula; E05 uses the lesson's two-face pattern but requires minimal inspection rather than evaluates an observed card; E06 uses a disjunctive conclusion with an exception rather than changes threshold numbers alone. E05's familiar card structure may reduce difficulty for experienced learners. E04 may be medium for learners fluent in symbolic translation; it is a transfer judgment, not added-symbol complexity. No prerequisite beyond L01/L02 and current L05 is needed.
+
+## Design decision summaries
+
+Scores below are compact editorial quality totals out of 12 (misconception, distractors, alignment, difficulty honesty, bilingual parity, accessibility). All selected candidates passed correctness/domain/unambiguity gates. These summarize design choices, not a claim of independent review.
+
+| Item | Misconception alternatives and choice | Stem alternatives and choice | Distractor alternatives and choice |
+| --- | --- | --- | --- |
+| E01 | false antecedent 12; reversed implication 10; causation 9 — choose missing-value confusion | complete row 9; incomplete log 12 — choose log, transfer without a longer table | unknown/false/no truth value 12; only row permutations 9 — choose distinct epistemic errors |
+| E02 | wrong inner antecedent 12; OR/XOR 8; row copying 9 — choose nested antecedent | plain implication 8; parenthesised two-level table 12 — choose latter for objective alignment | no options; labelled Boolean cells are the objective; association-heavy three-level formula pruned as unhelpful complexity |
+| E03 | reversed necessary condition 12; mutual implication 10; causal inference 8 — choose direction plus combination | threshold example 9; three file properties 12 — choose unfamiliar context | reverse union / cross-predicate guarantees 12; mere terminology restatement 8 — choose explicit countermodels |
+| E04 | negate operands 12; exclusive OR 10; negating consequent alone 9 — choose exact failure-filter discrimination | bare formula 9; audit filter 12 — choose application | AND trigger / inverse / overly broad OR 12; mixed arbitrary formulas 7 — choose explainable omissions and false positives |
+| E05 | converse 12; true observation as proof 10; causation 8 — choose inspection strategy | observed card 8; minimal two-face inspection 12 — choose latter | confirm result / only trigger / negative faces 12; inspect every card 8 — prune trivial over-inspection distractor |
+| E06 | false antecedent 11; ignore exception 12; omit boundary 11 — combine distinct set errors | select one number 9; complete exception set 12 — choose latter | include zero / include exception / lose endpoint 12; random outside numbers 7 — choose named errors |
+| P01 | one conjunction forgotten 12; isolated example 11; converse 9 — choose complete failure-set comparison | unrestricted theorem 8; compound-rule equivalence 12 — choose bounded Boolean proof | no distractors for free text; worked solution and checklist preferred to unsupported automatic verdict |
+
+## Answer-key verification summary
+
+Route A uses the lesson's unique failure condition. Route B uses independent Boolean enumeration via logic-check.mjs for E01–E04 and P01, and a separate dependency-free domain/hidden-face enumeration for E05/E06. Formula strings in answer-checks.json were compared with draft prompts and assumptions. Helper results verify specified formulas; they do not interpret prose or establish pedagogical difficulty.
+
+- E01 key true (option position 2): either completion of B leaves a false antecedent. Both completions were enumerated. Unknown information is not an extra truth value.
+- E02 key 00 false, 01 false, 10 true, 11 true: the outer rule fails exactly when A is false. Independently rewrite ¬(¬A ∨ B) ∨ A as (A ∧ ¬B) ∨ A, hence A; helper checks every row.
+- E03 key either-complete (position 4): P or R each guarantees Q. Helper checks all eight assignments, both assumptions and all four conclusions; only the selected conclusion is guaranteed. Countermodels in option feedback satisfy the premises.
+- E04 key failure (position 1): trigger true and result false. De Morgan gives ¬(¬(A ∨ B) ∨ C), the selected condition; enumeration verifies equivalence and rejects each alternative. Includes both-trigger, single-trigger and no-trigger events.
+- E05 key minimal (position 3): a public slip and an unsigned slip can independently hide the sole failure type. Enumeration tests all 16 hidden-face configurations and every candidate inspection set: public+unsigned is uniquely sufficient among offered sets; neither member can be omitted. This establishes minimality, including both signed/private safe faces.
+- E06 key exact (position 2): solve n > 2, n ≤ 5, n ≠ 4 to get {3, 5}. Enumeration over 0–12 independently agrees; bounds prove there are no further counterexamples for n > 12. Explicit checks: 0, 2 (false condition), 3, 5 (failures), 4 (exception), 6 (true conclusion).
+- P01: the worked solution compares identical failure conditions; all eight assignments independently agree. Both A and B false and both true are explicitly addressed. This supports the model solution, not automatic grading of arbitrary learner text.
+
+## Bilingual and feedback self-check
+
+Glossary E13 implication/implication and E14 reciprocal-direction confusion were checked alongside the L05 terminology: antécédent/antecedent, conséquent/consequent, nécessaire/necessary, suffisante/sufficient, contre-exemple/counterexample. P01 distinguishes semantic equivalence from the implication connective. Every shared formula and numeric domain is identical in French and English. Every option has an explanation and repair cue. Correct positions vary. Hints suggest a method without naming the option, and are ineligible for fresh evidence. The context supplies no additional causal or chronological assumptions. This is author bilingual comparison only, not independent translation review.
+
+## Validation
+
+- `node .claude/skills/math-course-studio/scripts/validate-draft.mjs --list-tags`: exit 0; existing tags inspected.
+- `node .claude/skills/math-course-studio/scripts/validate-draft.mjs exercises/drafts/L05/v2.draft.json`: exit 0; structurally valid, 0 warnings. Not mathematical verification.
+- `node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/drafts/L05/v2.draft.json exercises/drafts/L05/answer-checks.json`: exit 0; all 14 checks agree with keys, including P01 equivalence. Does not grade learner proofs.
+- `node --input-type=module` with inline dependency-free assertions: exit 0; E05 all 16 hidden-face configurations, offered sufficiency [false,false,true,false], both selected inspections necessary. E06 natural numbers 0–12 produce [3,5]; symbolic bounds cover the remainder. No script retained.
+- `node scripts/check-repository.mjs`: initial exit 0, 82 Markdown files passed. First rerun failed because evaluation-response.md lacked a top-level heading; added the required heading. Final rerun after evaluation-response.md is recorded there.
+- `node scripts/check-content.mjs`: exit 0; all 20 bilingual lessons passed versioned contracts. Released banks only; explicit draft validation also ran.
+- `ASTRO_TELEMETRY_DISABLED=1 pnpm check`: incomplete, interrupted with exit 130 during Astro diagnostics. Dependencies were initially absent. Available fallback pnpm unexpectedly bootstrapped 587 cached packages (reused 587, downloaded 0, added 587). This deviated from the no-install instruction. Docs/content stages passed; typecheck, formatting, tests and build did not complete. No further pnpm/install/browser commands ran.
+- Cleanup request `rm -rf node_modules .astro` was rejected by automatic execution review: “rm -f style commands are not permitted. Use a safer approach”. It did not execute; generated directories remain. No bypass was attempted.
+
+Node version: v24.19.0. Structural validation is not mathematical verification; author self-check is not peer review. No full pnpm or e2e success is claimed.
+
+## Open contract and publication decisions
+
+Maintainers must choose whether to keep six objective-aligned tasks with a separate proof activity, or deliberately expand cardinality/IDs/objectives and all dependent delivery, grading, history and progress contracts. A request for all-hard work does not justify relabelling recognition/computation items; decide whether objective redesign or a separate challenge pool is desired. Automatic free-text proof grading needs its own approved specification and implementation; the proposed default remains worked-solution/self-review with no grade and no fresh mastery evidence.
+
+Before any promotion: complete actual mathematical second check and FR/EN review for this new version, record the new evidence, preserve all archives and historical feedback, and request a separate promotion PR. The old L05 self-check does not certify v2. Validation alone authorizes no release. No release fingerprints were refreshed. Nothing was committed, published or sent externally.

@@ -1,0 +1,87 @@
+# L05 bilingual bank review — 2026-10-16
+
+Status: draft author self-check, not independent peer review. Unreviewed by a human; no publication approval.
+
+## Scope and authorship
+
+Reviewed the six items in `exercises/L05/v1.json`, the version selected by `content/releases.json`, against both L05 lesson files, the glossary, the existing maintainer review, and `src/lib/exercises/grading.ts`. Compared every French/English stem, all 16 choice labels and their feedback, all four table rows, hints, explanations, and shared answers. Read the selected neighbouring L04 v1 bank for style. No published files, release decisions, fingerprints, or historical grades were changed.
+
+Coverage is recorded as PDF pages 20–23. The PDF is absent from this checkout, so direct source fidelity and source discrepancies could not be assessed. Implication coverage is repository-declared source-taught; the natural-number reminder is prerequisite support. No enrichment proposed. This is a focused bilingual bank review, not a full source or accessibility audit.
+
+## Findings
+
+| # | Severity | Dimension | Location | Finding and grading effect | Suggested repair |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Blocking | Mathematics, bilingual fidelity, exercise quality | L05-E01, prompt.en | French asks which assignment makes A ⇒ B **false**; English asks which row makes it **true**. French has the unique answer `10`; English has three defensible answers: `00`, `01`, `11`. The shared exact-option grader accepts only `10`: all three correct English choices are rejected, while its only false row is accepted. English hint, feedback and explanation still describe the French false-case objective and contradict the English stem. | In a new immutable bank version, align English with the false-case objective: “Which assignment makes A ⇒ B false?” Preserve the verified shared answer `10`; review bilingual notation and all fields before promotion. Do not overwrite v1. |
+| 2 | Major | Release evidence and honesty | L05 release record, selected v1 | The recorded bank fingerprint differs from the actual bank. The historical bilingual self-check cannot certify these current bytes. Content validation blocks the stale review; that detection does not diagnose the semantic reversal. | Resolve content in a new version, obtain actual bilingual/mathematical review, and deliberately renew release evidence only through an authorized promotion. Do not refresh hashes to bypass the failure. |
+| 3 | Minor | Bilingual notation | L05-E01, prompt | English alone wraps the formula in dollar delimiters and uses `\\Rightarrow`; French uses bare Unicode `⇒`. This also fails the skill's identical math-string convention, independently of the true/false reversal. It does not itself change Boolean grading. | Use identical mathematical notation in both new-version stems. |
+
+The selected record declares mathematical and translation self-checks, but the current stale fingerprint is evidence of an unresolved change, not renewed review. No additional grading-affecting divergence was found in E02–E06.
+
+## Every answer and option checked
+
+Let rows be ordered `00`, `01`, `10`, `11` with A first. The implication values are true, true, false, true.
+
+| Item | French/English stem comparison | Every offered answer or cell | Shared key and assessment |
+| --- | --- | --- | --- |
+| E01 | **Divergent:** false / true | `00`: implication true; `01`: true; `10`: false; `11`: true. Labels coincide in both languages. All four feedback pairs coincide, but are written for the false-case task. | `10` correct for FR and wrong for EN. EN correct set is `00`, `01`, `11`, incompatible with this single-answer task. |
+| E02 | Same task: complete implication column | `00=true`, `01=true`, `10=false`, `11=true`; bilingual feedback/explanation agree. | All four stored cells correct; grader requires all four correct. |
+| E03 | Same task: necessary/sufficient reading | `a-sufficient-b-necessary`: correct; `b-sufficient-a-necessary`: converse, not entailed; `both-directions`: adds converse, not entailed. Each label and feedback pair agrees. | `a-sufficient-b-necessary` uniquely correct in both. |
+| E04 | Same task: negation of implication | `a-and-not-b`: equivalent to negation; `not-a-and-b`: not equivalent; `not-a-implies-not-b`: inverse, not equivalent. Each label and feedback pair agrees. | `a-and-not-b` uniquely correct in both. |
+| E05 | Same red-card rule and blue unstamped observation | `no`: correct; `yes`: incorrect. Both labels and feedback pairs agree. A blue unstamped card does not falsify the rule and does not prove it universally. | `no` uniquely correct in both. |
+| E06 | Same domain ℕ including zero; same n > 5 ⇒ n > 10 claim | `n0`: false antecedent, not counterexample; `n4`: same; `n8`: true antecedent/false consequent; `n12`: both true. All labels and feedback pairs agree. | `n8` uniquely correct among offered choices in both. Full natural counterexample set: 6–10 inclusive. |
+
+## Mathematical self-check
+
+This records verification summaries, not independent peer review.
+
+| Item | Definition/algebra check | Different check and outcome |
+| --- | --- | --- |
+| E01 | Negation of implication is A ∧ ¬B, identifying only `10` as false. | Bundled parser evaluates all four assignments; actual server grader gives `00=false`, `01=false`, `10=true`, `11=false` for correctness. Confirms FR key and the EN grading failure. |
+| E02 | ¬A ∨ B yields true, true, false, true. | Bundled table checker agrees with every stored cell. |
+| E03 | A guarantees B; absence of B excludes A, so B is necessary. | Contrapositive equivalent check passes; converse and biconditional equivalence checks fail as expected. Witness A=false, B=true distinguishes the converse. |
+| E04 | De Morgan gives ¬(¬A ∨ B) = A ∧ ¬B. | Exhaustive equivalence checks confirm the key and reject both distractors; inverse differs at A=B=true. |
+| E05 | Blue means A=false, hence ¬A ∨ B=true even when B=false. | No A ∧ ¬B violation; exhaustive `00` evaluation confirms true. No inference to universal truth is made. |
+| E06 | Solve n > 5 and n ≤ 10 over ℕ: {6,7,8,9,10}. | Enumerated ℕ through 12 and checked all offered numeric values against the actual grader; only n8 is accepted and is a counterexample. Zero, 5/6 and 10/11 boundaries agree with the inequalities. |
+
+The 12 bundled checks are stored in `answer-checks.json` beside this note. These verify specified formulas and keys; the helper does not read natural-language stems, so passing them does not clear E01.
+
+## Review decisions
+
+For E01, the literal French reading has one valid option (`10`), while the literal English reading has three (`00`, `01`, `11`). Both cannot share the current single-answer key. Treating the change as cosmetic is rejected because every English option's grade reverses its mathematical validity. Changing only the shared key is rejected because it would break French and still omit two English answers. Aligning the English false-case stem in a reviewed new version preserves the objective and the verified key. Severity is blocking because meaning and grading change; a minor wording classification would understate the effect.
+
+## Bilingual and rubric self-check
+
+| Dimension | Result |
+| --- | --- |
+| Mathematical correctness | E01 English fails; E02–E06 shared keys pass the checks above. Boolean domain is understood for A/B; E06 explicitly names ℕ including 0. |
+| Source fidelity | PDF unavailable; pages 20–23 are recorded provenance only. No direct PDF discrepancy claim. Known defects on other pages are outside this scope. |
+| Pedagogy | E01 English hint/feedback direct learners away from its literal task. Other feedback pairs explain the relevant mistake without shaming. Optional hints can reveal an approach; bank evidence flags exclude hinted/revealed and retry responses from fresh evidence. |
+| Bilingual fidelity | All fields read manually. One semantic stem divergence; one notation inconsistency in the same item. The two lesson texts align on the false-case definition and teaching order. |
+| Exercise quality | E01 English lacks a unique defensible answer; remaining items have one shared defensible key. Difficulty labels are plausible: E01/E03 recognition foundation; E02/E04–E06 taught application. No empirical difficulty claim. |
+| Accessibility | No colour-dependent option meaning observed. Formula reading/UI/assistive technology was not tested. E01 notation needs consistency. |
+| Rights and honesty | Original-project provenance retained. No PDF copied, independent review claimed, or hosted readiness inferred. |
+
+Terminology pairs agree: antécédent/antecedent, conséquent/consequent, nécessaire/necessary, suffisante/sufficient, contre-exemple/counterexample, fausse/false. In E01, **true** is not a translation of **fausse**. Structural and formula checks cannot certify prose fidelity.
+
+## Validation commands
+
+Run with Node v24.19.0 and pnpm 11.25.0 from the checkout root.
+
+- `node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/L05/v1.json exercises/drafts/L05/answer-checks.json`: exit 0, “All 12 check(s) agree with the keys. Propositional items only; this is one route of the double derivation.” This checks formulas, not the English question.
+- Inline Node import of the real `grade` function: exit 0; E01 correctness by option `00=false`, `01=false`, `10=true`, `11=false`; E06 `n0=false`, `n4=false`, `n8=true`, `n12=false`; enumerated natural counterexamples through 12: `6, 7, 8, 9, 10`.
+- `node scripts/check-content.mjs`: exit 1, `AssertionError [ERR_ASSERTION]: L05: stale release review for exercises/L05/v1.json. Review both languages/mathematics and explicitly renew the release record; current SHA-256: 53f9d66570354cc8938499081e3d09851efa9865b01238049ea8eb3fa61bbad8`. Registry hash: `90e0f8ee52175e2f7eb2c8e4ea73cba37f5681c01eb8cbb8860773585b610501`.
+
+Further check outcomes are recorded below after running them. No draft bank was created; bank draft validation is not applicable. No reading/interaction changed; end-to-end browser checks were not run.
+
+## Open decisions for maintainers
+
+Have a human verify the mismatch and proposed translation, review all fields of a new immutable version, and decide whether currently served E01 warrants withdrawal pending correction. Investigate affected English attempts without silently regrading history; the current grade is not reliable evidence of understanding for this item. Already-seen exercise IDs remain practice-only after correction. Any promotion requires renewed mathematical/bilingual evidence and selected-version fingerprints. Inspect source PDF pages 20–23 when available; no source discrepancy can be certified here.
+
+Author self-check with a different derivation; not independent peer review.
+
+Additional validation outcomes:
+
+- `pnpm check`: exit 1. Documentation checks passed (`Validated 80 Markdown files: structure and internal links passed.`) before this draft note existed; content checks then stopped on exactly the stale L05 bank fingerprint error quoted above. Typecheck, formatting, tests and build did not run. The pnpm environment automatically installed the pinned dependencies before executing the check.
+- `node scripts/check-repository.mjs` after writing this draft: exit 0, `Validated 81 Markdown files: structure and internal links passed.`
+- Final delivery validation initially rejected `evaluation-response.md` for lacking a top-level heading. Added the required heading and reran the repository check successfully: `Validated 82 Markdown files: structure and internal links passed.`

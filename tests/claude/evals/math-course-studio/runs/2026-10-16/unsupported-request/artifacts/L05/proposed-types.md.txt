@@ -1,0 +1,41 @@
+# L05 seventh exercise — free-text proof proposal
+
+**Proposed — not checker-accepted.** These types are not implemented in the application or the content checker. Adopting any of them needs a maintainer decision and checker/UI work.
+
+Status: unreviewed; author self-check with a different derivation, not independent peer review. This is the seventh authored activity, not a seventh bank entry. It is not served in practice.
+
+### L05-P01 — free-text proof with worked solution and self-review (proposed)
+
+- Objective: L05-O04 (negation/rewrite of implication), integrating O02 and O05.
+- Difficulty: editorial hard; proposed stored label `application`.
+- Prerequisites: L01, L02, L05; Boolean assertions and inclusive OR. No knowledge of contraposition or quantifiers is required.
+- Misconceptions: `negating-implication`, `and-or-swapped`, `universal-from-one-example`.
+- Domain: all Boolean assignments to assertions A, B, C.
+- Provenance: original-project-work; repository course-map coverage pages 20–23. Original solution, not a source proof transcription. Source PDF not inspected; page alignment uses the lesson metadata.
+
+Prompt (FR): Pour toutes les valeurs booléennes des assertions $A$, $B$, $C$, démontrez que $(A ∨ B) ⇒ C$ est sémantiquement équivalente à $(A ⇒ C) ∧ (B ⇒ C)$. Rédigez une preuve libre ; distinguez une équivalence sémantique d’une implication. Vous pouvez décrire exactement les cas d’échec des deux formules.
+
+Prompt (EN): For all Boolean values of statements $A$, $B$, $C$, prove that $(A ∨ B) ⇒ C$ is semantically equivalent to $(A ⇒ C) ∧ (B ⇒ C)$. Write a free-text proof; distinguish semantic equivalence from implication. You may describe exactly the failure cases of both formulas.
+
+Hint (FR): Cherchez les affectations qui font échouer chaque formule, plutôt que quelques exemples où elles sont vraies.
+
+Hint (EN): Look for assignments that make each formula fail, rather than a few examples where they are true.
+
+Model solution (FR), travail original : La première formule est fausse exactement quand $C$ est fausse et au moins une des assertions $A$, $B$ est vraie. La seconde formule est fausse exactement quand au moins une des implications est fausse : $A$ est vraie et $C$ fausse, ou $B$ est vraie et $C$ fausse. Ce sont exactement les mêmes affectations. Les deux formules ont donc la même valeur pour toute affectation, ce qui prouve leur équivalence sémantique.
+
+Model solution (EN), original work: The first formula is false exactly when $C$ is false and at least one of $A$, $B$ is true. The second formula is false exactly when at least one implication is false: $A$ is true and $C$ false, or $B$ is true and $C$ false. These are exactly the same assignments. Both formulas therefore have the same value under every assignment, proving semantic equivalence.
+
+Self-review (FR): Ai-je couvert toutes les affectations, y compris quand $C$ est vraie et quand $A$, $B$ sont toutes deux fausses ? Ai-je utilisé OU inclusif ? Ai-je justifié les deux sens de la correspondance des cas d’échec ? Ma conclusion concerne-t-elle l’équivalence sémantique plutôt qu’un exemple ?
+
+Self-review (EN): Have I covered all assignments, including when $C$ is true and when $A$, $B$ are both false? Did I use inclusive OR? Did I justify both directions of the correspondence of failure cases? Does my conclusion concern semantic equivalence rather than one example?
+
+Verification: author semantic failure-case check agrees with exhaustive enumeration of all eight assignments by `logic-check.mjs`, check `L05-P01-model` in `answer-checks.json`.
+
+Proposed grading contract: **no automatic grading**. A learner may compare their answer with the original worked solution and checklist after attempting it. Do not assign a server grade, automatic pass/fail, rewards or fresh mastery evidence to this proof or to the self-review. Revealing the solution cannot create independent evidence. This document does not add an input field or persist proof submissions.
+
+## Decisions required before bank inclusion or automatic grading
+
+1. Decide whether seven activities means expanding the six-objective bank or adding a separate enrichment activity. The checker currently requires exactly E01–E06, with one item per O01–O06. Changing it needs matching selection, navigation, progress and tests, not merely `exerciseCount: 7` or an E07 ID.
+2. Decide a proof assessment policy. The supported proposal is worked solution plus self-review. Automatic grading would need a separately approved change to Constitution section 5, a precise accepted proof language/rubric, valid-alternative handling, invalid-proof and adversarial evaluation, bilingual feedback, appeal/manual-review policy, and privacy/cost decisions if a service is considered. No external grader or dependency is introduced here. A bounded choice of a valid argument is a possible deterministic alternative, but assesses recognition rather than free-text proof production.
+3. Define stable identities, versioned submission/grade records, mastery eligibility and historical feedback before changing types or bank cardinality. Existing attempts retain their original grades; seen E01–E06 IDs are not fresh evidence after a version change. Proposed P01 has no accepted runtime identity yet.
+4. Complete actual mathematical and FR/EN review. A separate explicitly authorized promotion would add an immutable bank, select its version in the release registry and renew evidence/fingerprints. None of these steps is performed here.

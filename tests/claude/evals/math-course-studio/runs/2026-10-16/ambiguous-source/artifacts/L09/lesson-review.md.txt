@@ -1,0 +1,60 @@
+# L09 proposed source statement review — 2026-10-16
+
+Status: draft; unreviewed author self-check with a different derivation, not independent peer review. This is a scoped review of one proposed statement, not certification of the lesson or bank.
+
+## Scope and source evidence
+
+Reviewed the proposed claim over humans: $\exists x\in H\;\forall y\in H,\;\operatorname{age}(x)>\operatorname{age}(y)$, with the proposed key “true”. Ages are ordinary comparable numbers measured at the same reference time. No empirical information about human ages is needed for the literal claim.
+
+Repository context read: the L09 French/English lessons, selected bank exercises/L09/v1.json, neighbouring selected L08/v1.json, release contracts and registry, Constitution, checker, and review references. Both selected banks are version 1 with existing unreviewed exceptions; these do not authorize new publication. No published material or release metadata was changed.
+
+The repository Constitution §2 and review rubric identify PDF page 48 (title page counted as page 1) as the strict-age example labelled true. The original source PDF, docs/Logique_01 (1).pdf, is absent from this checkout. Its exact wording, symbols, domain qualifications and surrounding slide context were therefore not inspected. The reported source label comes from the request and repository documentation, not direct PDF verification. The stated formula is definitely false; the source's precise intended statement remains uncertain.
+
+Current L09 covers Russell's paradox and PDF pages 37–40, not quantifiers on page 48. The proposed item's lesson placement and provenance must be resolved before authoring it as an L09 bank item.
+
+## Findings
+
+| # | Severity | Dimension | Location | Finding | Suggested repair |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Blocking | Mathematical correctness | Proposed statement; reported PDF p. 48 | The proposed true key is wrong: the universal quantifier includes the witness itself. | Reject true. A literal true/false question must key false and explain self-comparison. |
+| 2 | Major | Source fidelity | Reported PDF p. 48; Constitution §2 | Direct PDF verification is unavailable; possible intended repairs have different meanings. | Record the discrepancy explicitly; inspect page 48 when the PDF is available. Do not silently repair or assert what the author intended. |
+| 3 | Major | Pedagogy and alignment | L09 sourcePages and objectives | A quantified-age item does not match the current Russell-focused lesson coverage. | Place it in the quantifier lesson after checking its objectives, or obtain an explicit reviewed scope change. |
+| 4 | Note | Bilingual fidelity | Future item only | No bilingual exercise has been authored or certified here. | Keep the same domain, strict inequality, quantifiers and self-comparison feedback in FR/EN; review prose manually. |
+| 5 | Note | Exercise quality | Future item only | “Oldest person exists” distracts from the actual quantifier defect and introduces empirical assumptions. | Prefer the literal false question or an original finite, explicit age model. |
+| 6 | Note | Accessibility | Review statement | Plain reading: “There is a human who is strictly older than every human, including themselves.” | Retain an explicit plain-language reading in a future item. |
+| 7 | Note | Rights and honesty | Review scope | This note paraphrases the supplied proposal; no slide text or artwork is reproduced. | Keep original authored wording and provenance; do not treat structural checks as mathematical review. |
+
+## Mathematical self-check
+
+**Literal answer: false.** If a proposed witness is x, the allowed case y = x requires age(x) > age(x), which no ordinary numerical age satisfies. If H were empty, the existential would still be false.
+
+**Different verification route: negate the claim.** Its negation is $\forall x\in H\;\exists y\in H,\;\operatorname{age}(x)\leq\operatorname{age}(y)$. Every x has the witness y = x by reflexivity of ≤, so the negation is true; for empty H it is vacuously true. Both routes agree. This is an author self-check, not independent peer review.
+
+## Competing readings and authoring choices
+
+| Reading | Truth status | Authoring decision |
+| --- | --- | --- |
+| Literal strict comparison with every human | False for every domain H, including empty H | Keep this reading for the supplied formula; reject the proposed true key. |
+| Strictly older than every *other* human: $\exists x\in H\;\forall y\in H,\;(y\ne x\Rightarrow\operatorname{age}(x)>\operatorname{age}(y))$ | True exactly when a unique person attains the greatest age; false for an empty domain, a tie at the greatest age, or no attained maximum | Conditional, not established over unspecified humans. Excluding self alone cannot justify true. |
+| At least as old as every human: $\exists x\in H\;\forall y\in H,\;\operatorname{age}(x)\geq\operatorname{age}(y)$ | True on a finite nonempty domain of numerical ages, including ties; false on an empty domain and potentially false on an infinite domain with no attained maximum | Viable only as an explicitly changed, original statement with sufficient assumptions. |
+
+The two repaired readings are possibilities, not claims about the missing PDF. An infinite domain may have a maximum or lack one; boundedness alone also does not ensure attainment. On a singleton domain, the literal statement is false while both repaired readings are true (the “other human” condition is vacuous). Two people tied for greatest age make the strict-other reading false and the non-strict reading true.
+
+Review decision: blocking rather than minor, because the supplied true key would grade correct reasoning as wrong. The literal reading passes correctness and unambiguity with key false; neither repaired reading may inherit a true key without its own stated assumptions. For authoring, retain the literal false claim to target self-comparison, or prefer a small fictional finite domain with explicit numerical ages. Resolve lesson alignment first. Do not use real-world uniqueness of an oldest human as an unstated premise.
+
+## Validation commands
+
+Results will be recorded below. No bank draft was created, so bank validation and the propositional logic checker are inapplicable; neither can certify this quantified statement. No reading or interaction changes were made, so browser tests are out of scope.
+
+## Maintainer decisions
+
+Inspect source PDF page 48 to confirm the actual expression, label and context. Choose the intended teaching objective and lesson, then obtain a second mathematical check and FR/EN review of any authored exercise. Any future bank change requires a new immutable version and a separately authorized reviewed promotion under docs/CONTENT_RELEASES.md; this note does not authorize publication.
+
+Recorded results:
+
+- `node scripts/check-repository.mjs`: exit 0; `Validated 81 Markdown files: structure and internal links passed.` (before evaluation-response.md was added).
+- `node scripts/check-content.mjs`: exit 0; `Validated 20 lessons in French/English with versioned exercise contracts: L01, L02, L03, L04, L05, L06, L07, L08, L09, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20.`
+- `pnpm check`: exit 0; documentation/content passed; Astro check reported 75 files, 0 errors, 0 warnings, 0 hints; formatting passed; tests 237, pass 237, fail 0, cancelled 0, skipped 0, todo 0; production build completed. These are structural/software checks, not proof of mathematical truth or source fidelity.
+- `git status --short`: exit 128; `fatal: not a git repository (or any of the parent directories): .git`. This checkout has no Git metadata, so Git-based change verification was unavailable.
+- Initial documentation recheck after adding evaluation-response.md: exit 1; `evaluation-response.md: expected one top-level heading, found 0`. Added the required heading.
+- Final documentation recheck after fixing evaluation-response.md: `node scripts/check-repository.mjs`, exit 0; `Validated 82 Markdown files: structure and internal links passed.`

@@ -1,0 +1,26 @@
+# L05 draft generation result
+
+Produced an unreviewed six-item bilingual L05 draft for adults returning to mathematics, using existing single-choice and truth-table types. Notes explain easy, medium and hard demand, prerequisites, worked-example similarity and review limitations.
+
+Files under `/tmp/math-studio-valid-generation-vSw2Xk/`:
+
+- `exercises/drafts/L05/v2.draft.json`
+- `exercises/drafts/L05/generation-notes.md`
+- `exercises/drafts/L05/answer-checks.json`
+- `exercises/drafts/L05/verify-contexts.py`
+- `exercises/drafts/L05/check-output.txt`
+- `evaluation-response.md` (this response, verbatim)
+
+Checks run:
+
+- `node .claude/skills/math-course-studio/scripts/validate-draft.mjs --list-tags`: exit 0; reused existing tags.
+- `node .claude/skills/math-course-studio/scripts/validate-draft.mjs exercises/drafts/L05/v2.draft.json`: exit 0; structurally valid, 0 warnings.
+- `node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/drafts/L05/v2.draft.json exercises/drafts/L05/answer-checks.json`: exit 0; all 9 checks agree.
+- Inline Python assertions, then `python exercises/drafts/L05/verify-contexts.py`: both exit 0; numeric cases on 0..12 pass; all 16 card models and 16 inspection subsets confirm the unique minimum red/unstamped strategy.
+- `node scripts/check-repository.mjs`: exit 0; initially validated 81 Markdown files; adding this response without a heading caused one failure, corrected by adding its required heading; final run validated 82 Markdown files, structure and internal links passed.
+- `node scripts/check-content.mjs`: exit 0; validated 20 bilingual lessons with versioned contracts.
+- `pnpm check`: full completion unverified. Captured log reports typecheck 75 files, 0 errors/warnings/hints; formatting passed; 237 tests passed, 0 failed; build reached Vercel function bundling.
+
+Automatic approval review rejected polling the full check because Astro triggered telemetry to `telemetry.astro.build`, violating the no-external-services constraint. No retry or bypass was attempted.
+
+No publication, commit or release changes. Human mathematics and translation review remain pending; the source PDF was unavailable, so source-page fidelity was not independently checked.

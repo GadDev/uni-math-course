@@ -1,0 +1,53 @@
+# L05 seventh exercise proposal
+
+**Proposed — not checker-accepted.** This free-text proof type is not implemented in the application or the content checker. Adopting it needs a maintainer decision and checker/UI work. No automatic proof checker exists.
+
+## L05-P01 — free-text proof with worked solution and self-review
+
+- Status: unreviewed proposal; seventh authored task, outside the six-item bank.
+- Objectives: primary L05-O04 (negation/failure), secondary L05-O05 (rule interpretation). This is not a seventh objective.
+- Editorial difficulty: hard; stored vocabulary if adopted: application. Producing an exhaustive justification transfers taught implication semantics to a compound rule. No scaffolded gaps are supplied.
+- Prerequisites: L01, L02, and the present L05 lesson; inclusive OR, AND, NOT and implication. No contrapositive theorem or later lesson is required.
+- Misconceptions: negating-implication; one-conjunction-forgotten; implication-equivalent-to-converse (existing tags).
+- Domain: A, B, C are arbitrary Boolean assertions. There are eight assignments; no unstated causal relationship.
+- Provenance: original-project-work; coverage pages [20, 21, 22, 23]; repository-course-map, not a copied PDF proof. This extends source-taught implication with prerequisite connectives.
+
+### Prompt (FR)
+
+Pour trois assertions booléennes arbitraires A, B, C, démontrez que les deux règles suivantes ont la même valeur de vérité pour toute affectation : (A ∨ B) ⇒ C et (A ⇒ C) ∧ (B ⇒ C). Rédigez une preuve en texte libre fondée sur leurs cas d’échec ; expliquez pourquoi votre argument couvre aussi le cas où A et B sont toutes deux fausses. Le OU est inclusif.
+
+### Prompt (EN)
+
+For arbitrary Boolean statements A, B, C, prove that the following two rules have the same truth value under every assignment: (A ∨ B) ⇒ C and (A ⇒ C) ∧ (B ⇒ C). Write a free-text proof using their failure cases; explain why your argument also covers the case where A and B are both false. OR is inclusive.
+
+### Optional hint (FR / EN)
+
+FR : Comparez les situations qui rendent chaque règle fausse, plutôt que de prouver séparément chaque cas vrai.
+
+EN: Compare the situations making each rule false, rather than proving each true case separately.
+
+### Worked solution — original project work (FR)
+
+La première règle échoue exactement lorsque C est fausse et qu’au moins une des assertions A, B est vraie. La seconde échoue lorsqu’au moins une de ses deux implications échoue : A vraie avec C fausse, ou B vraie avec C fausse. Ce sont exactement les mêmes situations. Les deux règles sont donc fausses ensemble, et vraies dans toutes les autres affectations. Si A et B sont toutes deux fausses, chaque antécédent est faux ; les deux règles sont vraies, quelle que soit C. Si A et B sont toutes deux vraies, les deux règles ont la valeur de C. L’équivalence porte sur toutes les affectations, pas seulement sur un exemple.
+
+### Worked solution — original project work (EN)
+
+The first rule fails exactly when C is false and at least one of A, B is true. The second fails when at least one of its implications fails: A true with C false, or B true with C false. These are exactly the same situations. Both rules are therefore false together and true in every other assignment. If A and B are both false, every antecedent is false; both rules are true regardless of C. If A and B are both true, both rules have the value of C. The equivalence concerns every assignment, not just one example.
+
+### Proposed grading contract and feedback
+
+No automatic grade. Learner self-review against the worked solution; accept other mathematically valid proofs, including a complete truth table, for human review. This is a proposal, not an enabled submission endpoint. Do not store an inferred correct/incorrect grade or count self-reported correctness as mastery evidence.
+
+Self-review (FR): ai-je décrit exactement l’échec de chaque implication, traité le OU inclusif, couvert toutes les affectations et distingué l’équivalence sémantique du connecteur d’implication ? Un exemple isolé ne suffit pas ; comparer tous les cas d’échec ou fournir une table complète.
+
+Self-review (EN): did I describe exactly each implication’s failure, handle inclusive OR, cover every assignment, and distinguish semantic equivalence from the implication connective? One example is insufficient; compare all failure cases or supply a complete table.
+
+Hinted or solution-revealed work is not fresh independent mastery evidence. Proposed self-review feedback (FR / EN): « Comparez votre preuve avec les critères ; aucun verdict automatique n’est disponible. » / “Compare your proof with the checklist; no automatic verdict is available.”
+
+### Verification and decisions
+
+Author mathematical self-check: failure-set argument above agrees with independent enumeration of all eight Boolean assignments, recorded in generation-notes.md. Author bilingual comparison only; not independent peer review.
+
+Before any seven-item bank: decide cardinality and objective coverage, stable item IDs beyond E01–E06, progression/fresh-evidence treatment across versions, schema/checker/UI/API delivery, grading/history compatibility and tests. Keeping six supported items plus a separate self-review activity is an alternative product decision, not the current implementation.
+
+Automatic free-text grading is a separate proposal requiring an approved grading specification: accepted proof language and equivalence of valid arguments, soundness/completeness expectations, undecidable/unrecognised responses, feedback and human appeal, bilingual parity, answer-version history and mastery policy. Decide whether a restricted structured proof format is acceptable. If an external or model-based grader is contemplated, decide data handling, cost and reliability before implementation. No service has been selected or contacted. Until such work is approved and implemented, keep the proof as worked-solution/self-review only.

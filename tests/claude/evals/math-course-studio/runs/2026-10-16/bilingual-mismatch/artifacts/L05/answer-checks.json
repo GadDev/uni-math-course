@@ -1,0 +1,14 @@
+[
+  {"id":"L05-E02","kind":"table","formula":"A => B"},
+  {"kind":"value","formula":"A => B","assignment":{"A":false,"B":false},"expected":true},
+  {"kind":"value","formula":"A => B","assignment":{"A":false,"B":true},"expected":true},
+  {"kind":"value","formula":"A => B","assignment":{"A":true,"B":false},"expected":false},
+  {"kind":"value","formula":"A => B","assignment":{"A":true,"B":true},"expected":true},
+  {"kind":"equivalent","left":"A => B","right":"!A | B","expected":true},
+  {"kind":"equivalent","left":"A => B","right":"!B => !A","expected":true},
+  {"kind":"equivalent","left":"A => B","right":"B => A","expected":false},
+  {"kind":"equivalent","left":"A => B","right":"A <=> B","expected":false},
+  {"kind":"equivalent","left":"!(A => B)","right":"A & !B","expected":true},
+  {"kind":"equivalent","left":"!(A => B)","right":"!A & B","expected":false},
+  {"kind":"equivalent","left":"!(A => B)","right":"!A => !B","expected":false}
+]
