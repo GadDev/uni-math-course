@@ -1,52 +1,51 @@
 import assert from 'node:assert/strict';
+import { mkdtemp, writeFile, rm } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { test } from 'node:test';
-import { validateReleaseApproval } from '../../scripts/check-release.mjs';
+import {
+  checkRelease,
+  validateReleaseVersion,
+} from '../../scripts/check-release.mjs';
 
-const pending = {
-  approved: false,
-  approvedBy: null,
-  approvedAt: null,
-  evidence: null,
-};
-const accepted = {
-  approved: true,
-  approvedBy: 'Synthetic test operator',
-  approvedAt: '2026-10-16T10:00:00Z',
-  evidence: 'docs/PILOT_ACCEPTANCE.md',
-};
-
-test('the unreleased scaffold can merge while hosted acceptance is pending', () => {
-  validateReleaseApproval('0.0.0', '0.0.0', pending);
-});
-test('first and later release versions fail closed without acceptance', () => {
-  for (const version of ['0.1.0', '0.0.1', '0.2.0', '1.0.0']) {
-    assert.throws(
-      () => validateReleaseApproval(version, version, pending),
-      /Hosted pilot acceptance pending/,
-    );
+test('scaffold, first and later application releases need no hosted approval', () => {
+  for (const version of ['0.0.0', '0.1.0', '0.1.1', '0.2.0', '1.0.0']) {
+    validateReleaseVersion(version, version, true);
   }
 });
-test('approval requires an operator, time and authoritative evidence', () => {
-  for (const field of ['approvedBy', 'approvedAt', 'evidence']) {
-    assert.throws(() =>
-      validateReleaseApproval('0.1.0', '0.1.0', { ...accepted, [field]: null }),
-    );
-  }
-  validateReleaseApproval('0.1.0', '0.1.0', accepted);
-  assert.throws(() =>
-    validateReleaseApproval('0.0.0', '0.0.0', {
-      ...accepted,
-      approvedBy: null,
-    }),
-  );
-});
-test('version drift and missing approval cannot silently pass', () => {
+
+test('version drift, unsupported versions and npm publication fail', () => {
   assert.throws(
-    () => validateReleaseApproval('0.1.0', '0.0.0', accepted),
+    () => validateReleaseVersion('0.1.0', '0.0.0', true),
     /versions differ/,
   );
-  assert.throws(
-    () => validateReleaseApproval('0.0.0', '0.0.0', {}),
-    /approval must be explicit/,
-  );
+  for (const version of ['invalid', '0.1', 'v0.1.0', '0.1.0-beta.1']) {
+    assert.throws(
+      () => validateReleaseVersion(version, version, true),
+      /stable application SemVer/,
+    );
+  }
+  for (const privatePackage of [false, undefined]) {
+    assert.throws(
+      () => validateReleaseVersion('0.1.0', '0.1.0', privatePackage),
+      /must not be published/,
+    );
+  }
+});
+
+test('first release checks only package and manifest, without an approval file', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'release-policy-'));
+  try {
+    await writeFile(
+      join(root, 'package.json'),
+      JSON.stringify({ version: '0.1.0', private: true }),
+    );
+    await writeFile(
+      join(root, '.release-please-manifest.json'),
+      JSON.stringify({ '.': '0.1.0' }),
+    );
+    assert.equal(await checkRelease(root), '0.1.0');
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
 });
