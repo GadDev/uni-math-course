@@ -155,6 +155,22 @@ export async function startAuthFixture(port = 54329) {
         const service = req.headers.apikey === 'sb_secret_protocol_fixture';
         if (!service && !record) return failure();
         if (
+          url.pathname === '/rest/v1/rpc/read_attempt_history' &&
+          req.method === 'POST'
+        ) {
+          if (!record) return failure(403);
+          return json(
+            200,
+            attempts
+              .filter((a) => a.user_id === record.user.id)
+              .sort(
+                (a, b) =>
+                  b.created_at.localeCompare(a.created_at) ||
+                  b.id.localeCompare(a.id),
+              ),
+          );
+        }
+        if (
           url.pathname === '/rest/v1/rpc/record_attempt' &&
           req.method === 'POST'
         ) {

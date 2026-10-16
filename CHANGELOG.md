@@ -6,6 +6,9 @@ Notable changes are recorded here. No application version has been released.
 
 ### Fixed
 
+- Keep withdrawn and archived attempts in lifetime history, read one owner-scoped database snapshot, and label historical feedback without regrading saved results.
+- Require freshness records for every public reading lesson, including when practice is disabled, and align implementation documentation.
+
 - Preserve hint exposure, active exercise and answers across language changes; keep an existing session after failed replacement sign-in and clear practice drafts on browser logout.
 - Make first-attempt evidence transactional, retain historical exercise feedback by version, and preserve lifetime progress beyond 500 attempts.
 - Bind served practice versions and both lesson languages to explicit review/exception fingerprints, with immutable-version and database contract checks.

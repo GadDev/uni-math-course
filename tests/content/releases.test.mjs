@@ -1,7 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { validateReleases } from '../../scripts/check-releases.mjs';
+import {
+  validateReleases,
+  validateReleaseCoverage,
+} from '../../scripts/check-releases.mjs';
 
 const fixture = () => {
   const files = {
@@ -42,6 +45,26 @@ test('release fingerprints accept the recorded pair and explicit exception', asy
   await validateReleases(releases, read);
   releases.lessons.L05.review = 'unreviewed-exception';
   await validateReleases(releases, read);
+});
+
+test('removing a release record cannot bypass freshness for a public reading lesson', () => {
+  const { releases } = fixture();
+  validateReleaseCoverage(releases, ['L05']);
+  assert.throws(
+    () => validateReleaseCoverage({ lessons: {} }, ['L05']),
+    /Every public reading lesson/,
+  );
+});
+
+test('withdrawing practice still checks the French/English reading fingerprints', async () => {
+  const { releases, files, read } = fixture();
+  releases.lessons.L05.practice = false;
+  await validateReleases(releases, read);
+  files['content/lessons/L05/en.md'] += ' edited';
+  await assert.rejects(
+    validateReleases(releases, read),
+    /stale release review/,
+  );
 });
 
 for (const path of [

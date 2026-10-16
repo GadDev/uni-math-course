@@ -147,6 +147,11 @@ async function checkLesson(lessonId, bank) {
     );
   }
   assert.equal(
+    frontmatter(texts[0]).version,
+    frontmatter(texts[1]).version,
+    `${lessonId} French/English lesson versions diverged`,
+  );
+  assert.equal(
     frontmatter(texts[0]).status,
     frontmatter(texts[1]).status,
     `${lessonId} French/English status diverged`,

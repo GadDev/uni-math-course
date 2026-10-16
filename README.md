@@ -4,7 +4,7 @@ A French/English mathematics learning pilot for university students and adults r
 
 The first course is **logic and sets**. The learning loop is: understand a concept, inspect a worked example, practise, receive feedback, and revisit mistakes.
 
-Status: **reading and practice implemented; hosted class acceptance pending** · Maintainer: [GadDev](https://github.com/GadDev) · Last status review: 2026-10-15
+Status: **reading and practice implemented; hosted class acceptance pending** · Maintainer: [GadDev](https://github.com/GadDev) · Last status review: 2026-10-16
 
 ## What works
 
@@ -51,6 +51,7 @@ The check covers repository links/structure, content parity/contracts, types, fo
 - [Authentication and sessions](docs/AUTHENTICATION.md)
 - [Practice, grading and progress](docs/PRACTICE.md)
 - [Content release contracts](docs/CONTENT_RELEASES.md)
+- [Learning contract audit](docs/LEARNING_CONTRACT_AUDIT.md)
 
 ## Repository guide
 
