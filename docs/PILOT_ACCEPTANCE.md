@@ -22,7 +22,7 @@ The [opt-in hosted E2E suite](HOSTED_TESTS.md) covers selected H2/H3 paths with 
 
 ## H1 checkpoint — reported production deployment
 
-Recorded 2026-10-16. Evidence source: GadDev's Vercel dashboard report, cross-checked against the GitHub Vercel commit status. **H1 remains open**: deployment identity is partially recorded; database migration/schema verification and environment separation are pending. This is not independently reproduced hosted acceptance.
+Recorded 2026-10-16. Evidence source: GadDev's Vercel dashboard report, cross-checked against the GitHub Vercel commit status. **H1 remains open**: deployment identity and reported database schema comparison are partially recorded; production-project binding, environment separation and migration provenance are pending. This is not independently reproduced hosted acceptance.
 
 | Field | Recorded value | Evidence / limitation |
 | --- | --- | --- |
@@ -34,18 +34,36 @@ Recorded 2026-10-16. Evidence source: GadDev's Vercel dashboard report, cross-ch
 | Git source | `main` at [`45a742978d68382c949016583243e82aa91ee4ee`](https://github.com/GadDev/uni-math-course/commit/45a742978d68382c949016583243e82aa91ee4ee) | Commit exists: `feat(skill): add difficulty guidance and behavioural evaluations (#35)`; later commits do not change this baseline |
 | Exact deployment creation time | Pending | Dashboard report said “8m ago”; no exact timestamp inferred |
 | Deployment environment and separation | Pending | Explicit Production environment label and preview/production Supabase separation still need confirmation; no secret configuration values recorded |
-| Supabase project and applied schema | Pending | No deployed database metadata has been provided |
+| Supabase project and applied schema | Reported schema comparison below | Project reference and binding to Vercel Production configuration remain unconfirmed; SQL output was supplied by the maintainer, not independently executed |
 
 The repository migration baseline at that exact application commit is:
 
 | Version | File under `supabase/migrations/` | Remote status |
 | --- | --- | --- |
-| `20261014120000` | `20261014120000_attempts.sql` | Pending verification |
-| `20261015120000` | `20261015120000_attempts_service_role_grant.sql` | Pending verification |
-| `20261015220000` | `20261015220000_record_attempt.sql` | Pending verification |
-| `20261016050000` | `20261016050000_attempt_history_snapshot.sql` | Pending verification |
+| `20261014120000` | `20261014120000_attempts.sql` | Reported columns, constraints, indexes and RLS match; migration execution history unavailable |
+| `20261015120000` | `20261015120000_attempts_service_role_grant.sql` | Required effective select/insert permissions reported present; additional TRUNCATE privilege noted below |
+| `20261015220000` | `20261015220000_record_attempt.sql` | Reported function definition, invoker security, search path and tested execute permissions match |
+| `20261016050000` | `20261016050000_attempt_history_snapshot.sql` | Reported function definition, stable snapshot, invoker security and tested execute permissions match |
 
-Next checkpoint: identify the Supabase project used by this production deployment, inspect migration history and compare actual table/function/grant/RLS definitions. A migration-history row alone does not prove the live schema matches the file, and SQL-editor execution may not have populated CLI migration history. Do not apply or repair migrations merely to make the history match.
+### Reported Supabase schema comparison
+
+Date: 2026-10-16. Operator/evidence supplier: GadDev. Method: read-only SQL catalog queries and effective-privilege checks in the selected Supabase project's SQL editor; results supplied in the guided acceptance conversation. Comparison target: the four migration files at application commit `45a742978d68382c949016583243e82aa91ee4ee`. No learner records, credentials or row payloads were requested or recorded. The queried project's association with this Vercel deployment is still pending confirmation.
+
+| Check | Reported observation | Assessment / boundary |
+| --- | --- | --- |
+| Migration history | `to_regclass('supabase_migrations.schema_migrations')` returned null | No migration history table resolved in the queried database. Applied migration versions/dates cannot be established from this result; manual SQL application is possible but unconfirmed |
+| Table columns | All 12 columns, types, NOT NULL flags and defaults match the initial attempts migration | Structural comparison passes for the supplied output |
+| Constraints | Primary key on `id`; foreign key to `auth.users(id)` with ON DELETE CASCADE; unique `(user_id, submission_id)`; four checks for lesson ID, exercise ID, positive version and FR/EN locale | All seven reported constraints match |
+| RLS | Enabled; not forced; one permissive `attempts_select_own` SELECT policy for `authenticated`, using `auth.uid() = user_id`; no write policies reported | Matches the migration; not a substitute for two-account API isolation testing |
+| Browser-role effective privileges | `anon`: all seven queried capabilities false. `authenticated`: SELECT and history execution true; INSERT/UPDATE/DELETE/TRUNCATE and grading execution false | Matches the expected browser-facing boundary for the queried capabilities |
+| Server-role effective privileges | `service_role`: SELECT, INSERT, TRUNCATE and grading execution true; UPDATE/DELETE and history execution false | Required writer access exists. Additional TRUNCATE permission is not needed by the application writer; record for a separate least-privilege decision. No privilege changes made |
+| `record_attempt(jsonb)` | PL/pgSQL; invoker security; empty search path; transaction-scoped advisory lock per learner/exercise; duplicate lookup; insertion and first unaided/correct evidence eligibility in one transaction | Definition matches the baseline; live concurrent-write and retry behavior still require H3 evidence |
+| `read_attempt_history()` | SQL STABLE; invoker security; empty search path; owner filter using `auth.uid()`; one JSON aggregate ordered by created time and ID descending, with empty-array fallback | Definition matches the baseline; live Data API authorization still requires H3 evidence |
+| Indexes | Unique primary-key index on `id`; unique learner/submission index; `(user_id, created_at DESC)` and `(user_id, exercise_id)` indexes | All four reported definitions match |
+
+The schema effects above are consistent with the four baseline migrations, subject to the additional server-role privilege. They do not prove which migration files were executed, their execution dates, absence of every other database object/privilege, or runtime application acceptance. Do not apply or repair migrations merely to populate history. No deployed schema was changed by this verification.
+
+Next H1 checkpoint: confirm the queried Supabase project matches the recorded deployment's Vercel Production configuration, the explicit Production environment label and exact deployment creation timestamp, plus preview/production data separation. If the production alias now targets a later deployment, record that new deployment as a separate baseline before running H2/H3. H1/H2/H3 remain open; release approval is unchanged.
 
 ## Remaining acceptance work
 
