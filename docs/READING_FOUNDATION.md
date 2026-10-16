@@ -2,7 +2,7 @@
 
 ## Implemented feature
 
-French/English programme pages and L01–L20 reading are public. L05 has documented mathematical/bilingual self-check evidence; other practice banks retain the explicit unreviewed exception. Practice and private progress are implemented locally; see [PRACTICE.md](PRACTICE.md). Hosted acceptance remains unverified.
+French/English programme pages and L01–L20 reading are public. L05 and L07 have documented mathematical/bilingual author self-check evidence (not independent review); other practice banks retain the explicit unreviewed exception. Practice and private progress are implemented locally; see [PRACTICE.md](PRACTICE.md). Hosted acceptance remains unverified.
 
 Astro prerenders the pages. A native HTML details/summary disclosure provides the reading tip on programme and lesson pages, with keyboard support and no hydration or JavaScript requirement. Radix CSS is no longer imported globally; React remains available for signed-in practice. KaTeX emits HTML and MathML; mathematical readings are explained in the lesson. Switching language preserves the current lesson and maps its section fragment to the corresponding translated heading. Missing paired translations or mismatched heading counts/depths block the build; heading order must also be reviewed for semantic alignment.
 

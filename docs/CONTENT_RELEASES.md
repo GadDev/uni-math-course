@@ -6,7 +6,9 @@
 
 L05 has the documented author self-check in [L05_REVIEW.md](content/L05_REVIEW.md), using different derivations and bilingual checks. It is not independent peer review. The initial fingerprints bind the existing files to that record; capturing hashes does not constitute a new human review.
 
-L01–L04 and L06–L20 remain served under the maintainer's explicit pre-review release decision, already recorded in `src/lib/released-lessons.ts` and [PRACTICE.md](PRACTICE.md) before this change. Their state is `unreviewed-exception`; the practice notice remains visible. This preserves an existing exception, not permission to release additional unreviewed material. These banks do not establish class-pilot readiness.
+L07 v2 has the scoped correction and full-bank/lesson author self-check in [L07_REVIEW.md](content/L07_REVIEW.md). Its v1 archive remains available for historical feedback. This is AI-assisted self-check evidence, not independent human review.
+
+L01–L04, L06 and L08–L20 remain served under the maintainer's explicit pre-review release decision, already recorded in `src/lib/released-lessons.ts` and [PRACTICE.md](PRACTICE.md) before this change. Their state is `unreviewed-exception`; the practice notice remains visible. This preserves an existing exception, not permission to release additional unreviewed material. These banks do not establish class-pilot readiness.
 
 ## Authoritative metadata and documentation
 
