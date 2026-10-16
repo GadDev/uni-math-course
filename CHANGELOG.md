@@ -8,6 +8,7 @@ Notable changes are recorded here. No application version has been released.
 
 - Revalidate returning tabs and restored history entries, clear confirmed stale account state, and refresh saved progress without replacing unfinished practice answers.
 
+- Correct L05’s French/English prerequisite, number-reference and practice availability guidance, with scoped evidence and renewed lesson fingerprints.
 - Reject stale learner submissions before persistence or duplicate replay; clear old tab answers and drafts before loading the current account.
 
 - Preserve explicit exercise-review destinations through sign-in errors and language changes while keeping ordinary draft restoration.
