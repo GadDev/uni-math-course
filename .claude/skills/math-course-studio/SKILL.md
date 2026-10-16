@@ -11,7 +11,7 @@ Three modes share one rubric and one reasoning protocol:
 
 | Mode | Input | Output (all under `exercises/drafts/`) |
 | --- | --- | --- |
-| **generate** | one lesson | `<Lxx>/v1.draft.json`, `<Lxx>/generation-notes.md`, optional `<Lxx>/proposed-types.md` |
+| **generate** | one lesson | `<Lxx>/v<N>.draft.json`, `<Lxx>/generation-notes.md`, optional `<Lxx>/proposed-types.md` |
 | **review-lesson** | one lesson (text + bank) | `<Lxx>/lesson-review.md` |
 | **review-course** | all lessons | `course-review.md` |
 
@@ -32,9 +32,10 @@ For a range or "all lessons", work one lesson at a time, write each note to disk
 **Always** (they change, stale memory of them causes broken output):
 - `AGENTS.md`; skim `docs/CONSTITUTION.md` (read §1–§2 in full: correctness rules and known source defects).
 - `scripts/check-content.mjs` — the **source of truth** for a valid bank. If it disagrees with a reference file, the script wins; tell the user the reference is stale.
+- `docs/CONTENT_RELEASES.md` and `content/releases.json` — the publication contract and selected bank versions, mathematical/translation review evidence, fingerprints and practice withdrawals. Draft validation alone does not authorize publication.
 
 **Per mode**:
-- generate / review-lesson: `content/lessons/<Lxx>/fr.md` and `en.md`; `exercises/<Lxx>/v1.json` if present; one neighbouring bank for style.
+- generate / review-lesson: `content/lessons/<Lxx>/fr.md` and `en.md`; `exercises/<Lxx>/v<N>.json`, where N is the version selected by `content/releases.json`; one neighbouring selected bank for style. If the record or selected file is missing, report it; never fall back to v1 or the highest filename. A `practice: false` record is withdrawn from new practice, not permission to delete its archives or ignore its public reading checks.
 - review-lesson: also `docs/content/L05_REVIEW.md` (note model) and any existing `docs/content/<Lxx>_REVIEW.md`.
 - review-course: run the course map first (section 5).
 
@@ -62,11 +63,11 @@ Read `references/bank-design.md` before designing the six items.
 3. **Branch** on stem and distractors; score; prune. Each distractor is a named plausible error with feedback that explains why it fails and how to repair the reasoning.
 4. **Verify** the survivor with two derivations. State the domain in the prompt.
 5. **Write** French and English together from one shared answer. `$...$` strings are identical in both languages; only prose differs.
-6. **Assemble** exactly six items (`Lxx-E01`–`E06`, one per objective), write `v1.draft.json`, then validate.
+6. **Assemble** exactly six items (`Lxx-E01`–`E06`, one per objective), write `v<N>.draft.json`, then validate. For a correction, choose an unused version above all existing bank versions; for a new lesson start at 1. Keep bank and item versions equal. Record the selected base version and proposed version in the notes.
 
-Drafts go to `exercises/drafts/<Lxx>/`, never over `exercises/<Lxx>/v1.json` (every lesson already has a published v1; the checker accepts only version 1 with six items, and replacing it would silently reinterpret past attempts).
+Drafts go to `exercises/drafts/<Lxx>/v<N>.draft.json`, never over a published bank. Published `vN.json` files are immutable, including their wording, domains, answer keys and grading contracts. Retain them for historical feedback; a correction does not regrade old attempts or make an already-seen exercise ID fresh mastery evidence.
 
-**Drafts are committed in pull requests**, not ignored: the PR is the content-review checkpoint. Therefore a draft must be safe to commit: it passes the validator, its notes pass `check:docs` (below), it never contains copied slide text, and its status says it is unreviewed. Promotion to `exercises/<Lxx>/v1.json` happens in a separate, reviewed step after the mathematical second check and translation review. If a change to a published exercise is needed, that needs a version bump, which the checker does not yet support: raise it as an open decision, do not work around it.
+**Drafts are committed in pull requests**, not ignored: the PR is the content-review checkpoint. A draft must pass the validator, its notes must pass `check:docs`, it must contain no copied slide text, and its notes must say it is unreviewed. Do not change the release registry or refresh hashes merely to make a draft pass. Promotion is a separate, explicitly requested and reviewed step: add the new immutable `exercises/<Lxx>/v<N>.json`, document actual mathematical and bilingual review, then select it and renew the required evidence/fingerprints under `docs/CONTENT_RELEASES.md`. Existing unreviewed exceptions do not authorize new ones. Never invent reviewer names/dates or reuse old evidence as certification of changed content.
 
 Non-checker types (proof-completion, numeric/counterexample, error-spotting) are optional and go only in `proposed-types.md` (create it only if you have something worth proposing), headed **proposed — not checker-accepted**. Proofs use a worked solution plus self-review; there is no automatic proof checker and you must not claim one.
 
@@ -92,11 +93,11 @@ It prints the prerequisite table, source-page coverage (gaps and overlaps), dura
 
 ## 6. Verification, in this order
 
-From the repository root, use paths relative to it:
+From the repository root, use paths relative to it. Replace `<Lxx>` and `<N>` with the target lesson and proposed version before running:
 
 ```sh
-node .claude/skills/math-course-studio/scripts/validate-draft.mjs exercises/drafts/<Lxx>/v1.draft.json
-node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/drafts/<Lxx>/v1.draft.json exercises/drafts/<Lxx>/answer-checks.json   # propositional items
+node .claude/skills/math-course-studio/scripts/validate-draft.mjs exercises/drafts/<Lxx>/v<N>.draft.json
+node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/drafts/<Lxx>/v<N>.draft.json exercises/drafts/<Lxx>/answer-checks.json   # propositional items
 node scripts/check-repository.mjs     # always after writing any .md: draft notes are link-checked
 node scripts/check-content.mjs
 ```

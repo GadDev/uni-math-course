@@ -8,9 +8,10 @@
 // Usage (works from any directory):
 //   node .claude/skills/math-course-studio/scripts/validate-draft.mjs <draft.json>
 //   node .claude/skills/math-course-studio/scripts/validate-draft.mjs --list-tags
-import { readFile, readdir } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 import { basename, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadSelectedBanks } from './released-banks.mjs';
 
 const root = fileURLToPath(new URL('../../../../', import.meta.url));
 const argument = process.argv[2];
@@ -18,8 +19,7 @@ const argument = process.argv[2];
 if (argument === '--list-tags') {
   // Existing misconception tags with their use counts: reuse before inventing.
   const counts = new Map();
-  for (const name of (await readdir(`${root}exercises`)).filter((n) => /^L\d{2}$/.test(n))) {
-    const bank = JSON.parse(await readFile(`${root}exercises/${name}/v1.json`, 'utf8'));
+  for (const bank of await loadSelectedBanks(root)) {
     for (const exercise of bank.exercises)
       for (const tag of exercise.misconceptions) counts.set(tag, (counts.get(tag) ?? 0) + 1);
   }

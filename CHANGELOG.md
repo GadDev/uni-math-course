@@ -6,6 +6,8 @@ Notable changes are recorded here. No application version has been released.
 
 ### Fixed
 
+- Align the math-course-studio skill with registry-selected exercise versions, immutable correction drafts and reviewed release promotion; collect misconception tags from selected banks rather than archived v1 files.
+
 - Reject stale learner submissions before persistence or duplicate replay; clear old tab answers and drafts before loading the current account.
 
 - Preserve explicit exercise-review destinations through sign-in errors and language changes while keeping ordinary draft restoration.
