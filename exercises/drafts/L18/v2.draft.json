@@ -1,0 +1,1313 @@
+{
+  "lessonId": "L18",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L18-E07",
+      "objectiveId": "L18-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "query-result-confused-with-table"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans une table sans doublons `People(id,age)` contenant `(ana,20)`, `(bo,17)`, `(cy,22)`, que renvoie `SELECT id FROM People WHERE age >= 20` ?",
+        "en": "In a duplicate-free `People(id,age)` table containing `(ana,20)`, `(bo,17)`, `(cy,22)`, what does `SELECT id FROM People WHERE age >= 20` return?"
+      },
+      "hint": {
+        "fr": "Le filtre conserve les âges $20$ et plus.",
+        "en": "The filter keeps ages $20$ and above."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{\\text{ana},\\text{cy}\\}$",
+            "en": "$\\{\\text{ana},\\text{cy}\\}$"
+          },
+          "feedback": {
+            "fr": "Ana a $20$ ans et Cy $22$ ; Bo échoue au filtre.",
+            "en": "Ana is $20$ and Cy is $22$; Bo fails the filter."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{\\text{bo}\\}$",
+            "en": "$\\{\\text{bo}\\}$"
+          },
+          "feedback": {
+            "fr": "La condition dans `WHERE` retire l'âge $17$.",
+            "en": "The `WHERE` condition removes age $17$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{\\text{ana},\\text{bo},\\text{cy}\\}$",
+            "en": "$\\{\\text{ana},\\text{bo},\\text{cy}\\}$"
+          },
+          "feedback": {
+            "fr": "La condition dans `WHERE` retire l'âge $17$.",
+            "en": "The `WHERE` condition removes age $17$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Ana a $20$ ans et Cy $22$ ; Bo échoue au filtre.",
+        "en": "Ana is $20$ and Cy is $22$; Bo fails the filter."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E08",
+      "objectiveId": "L18-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "predicate-confused-with-select-list"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans `SELECT p.id FROM People p WHERE p.age < 30`, que signifie `p.age < 30` ?",
+        "en": "In `SELECT p.id FROM People p WHERE p.age < 30`, what does `p.age < 30` mean?"
+      },
+      "hint": {
+        "fr": "`WHERE` détermine quelles lignes sont retenues.",
+        "en": "`WHERE` determines which rows are kept."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Une liste de colonnes affichées.",
+            "en": "A list of output columns."
+          },
+          "feedback": {
+            "fr": "La sélection des colonnes se fait dans `SELECT` ; le filtre est dans `WHERE`.",
+            "en": "Columns are selected in `SELECT`; filtering happens in `WHERE`."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Un prédicat appliqué à chaque ligne `p`.",
+            "en": "A predicate applied to each row `p`."
+          },
+          "feedback": {
+            "fr": "La ligne $p$ est conservée si et seulement si son âge satisfait l'inégalité.",
+            "en": "Row $p$ is kept if and only if its age satisfies the inequality."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Une nouvelle table créée automatiquement.",
+            "en": "A new table created automatically."
+          },
+          "feedback": {
+            "fr": "La sélection des colonnes se fait dans `SELECT` ; le filtre est dans `WHERE`.",
+            "en": "Columns are selected in `SELECT`; filtering happens in `WHERE`."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La ligne $p$ est conservée si et seulement si son âge satisfait l'inégalité.",
+        "en": "Row $p$ is kept if and only if its age satisfies the inequality."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E09",
+      "objectiveId": "L18-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "and-or-swapped"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "À quels connecteurs correspondent respectivement `AND` et `OR` dans le modèle logique simplifié sans `NULL` ?",
+        "en": "Which connectives correspond to `AND` and `OR` in the simplified no-`NULL` logical model?"
+      },
+      "hint": {
+        "fr": "Les mots SQL reprennent les connecteurs classiques.",
+        "en": "The SQL words match classical connectives."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\lor,\\land$",
+            "en": "$\\lor,\\land$"
+          },
+          "feedback": {
+            "fr": "`AND` demande deux conditions ; `OR` en demande au moins une.",
+            "en": "`AND` requires both conditions; `OR` at least one."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg,\\lor$",
+            "en": "$\\neg,\\lor$"
+          },
+          "feedback": {
+            "fr": "`AND` demande deux conditions ; `OR` en demande au moins une.",
+            "en": "`AND` requires both conditions; `OR` at least one."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\land,\\lor$",
+            "en": "$\\land,\\lor$"
+          },
+          "feedback": {
+            "fr": "Sans valeur manquante, `AND` est $\\land$ et `OR` est $\\lor$.",
+            "en": "Without missing values, `AND` is $\\land$ and `OR` is $\\lor$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Sans valeur manquante, `AND` est $\\land$ et `OR` est $\\lor$.",
+        "en": "Without missing values, `AND` is $\\land$ and `OR` is $\\lor$."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E10",
+      "objectiveId": "L18-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "not-exists-as-exists-not"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans une sous-requête SQL, que teste `EXISTS (...)` ?",
+        "en": "In a SQL subquery, what does `EXISTS (...)` test?"
+      },
+      "hint": {
+        "fr": "Il suffit d'une seule ligne renvoyée.",
+        "en": "One returned row suffices."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Au moins une ligne est renvoyée.",
+            "en": "At least one row is returned."
+          },
+          "feedback": {
+            "fr": "`EXISTS` est vrai dès qu'une sous-requête produit une ligne.",
+            "en": "`EXISTS` is true as soon as a subquery yields a row."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Toutes les lignes satisfont une condition.",
+            "en": "All rows satisfy a condition."
+          },
+          "feedback": {
+            "fr": "`EXISTS` exprime une existence, pas une universelle ou sa négation.",
+            "en": "`EXISTS` expresses existence, not universal quantification or its negation."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Aucune ligne n'est renvoyée.",
+            "en": "No row is returned."
+          },
+          "feedback": {
+            "fr": "`EXISTS` exprime une existence, pas une universelle ou sa négation.",
+            "en": "`EXISTS` expresses existence, not universal quantification or its negation."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "`EXISTS` est vrai dès qu'une sous-requête produit une ligne.",
+        "en": "`EXISTS` is true as soon as a subquery yields a row."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E11",
+      "objectiveId": "L18-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "not-exists-misread-as-all-rows"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "`Student(id)` contient ana et bo ; `Enrolled(student,course)` contient seulement `(ana,math)`. Qui est retenu par `WHERE NOT EXISTS` d'une inscription en math corrélée à `s.id` ?",
+        "en": "`Student(id)` contains ana and bo; `Enrolled(student,course)` contains only `(ana,math)`. Who passes `WHERE NOT EXISTS` for a math enrollment correlated to `s.id`?"
+      },
+      "hint": {
+        "fr": "La condition garde les étudiants sans inscription correspondante.",
+        "en": "The condition keeps students with no matching enrollment."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{\\text{ana}\\}$",
+            "en": "$\\{\\text{ana}\\}$"
+          },
+          "feedback": {
+            "fr": "Ana a une ligne d'inscription en math ; Bo n'en a pas.",
+            "en": "Ana has a math enrollment row; Bo has none."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{\\text{bo}\\}$",
+            "en": "$\\{\\text{bo}\\}$"
+          },
+          "feedback": {
+            "fr": "La sous-requête d'Ana a une ligne, celle de Bo est vide ; seul Bo satisfait `NOT EXISTS`.",
+            "en": "Ana's subquery has one row, Bo's is empty; only Bo passes `NOT EXISTS`."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{\\text{ana},\\text{bo}\\}$",
+            "en": "$\\{\\text{ana},\\text{bo}\\}$"
+          },
+          "feedback": {
+            "fr": "Ana a une ligne d'inscription en math ; Bo n'en a pas.",
+            "en": "Ana has a math enrollment row; Bo has none."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La sous-requête d'Ana a une ligne, celle de Bo est vide ; seul Bo satisfait `NOT EXISTS`.",
+        "en": "Ana's subquery has one row, Bo's is empty; only Bo passes `NOT EXISTS`."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E12",
+      "objectiveId": "L18-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "forall-replacement-misformed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour vérifier « tous les étudiants sont inscrits », quel schéma SQL traduit $\\forall s\\ P(s)$ ?",
+        "en": "To check 'every student is enrolled', which SQL pattern expresses $\\forall s\\ P(s)$?"
+      },
+      "hint": {
+        "fr": "Il ne doit exister aucun contre-exemple.",
+        "en": "There must be no counterexample."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "`EXISTS` d'un étudiant sans inscription",
+            "en": "`EXISTS` of a student without enrollment"
+          },
+          "feedback": {
+            "fr": "Pour établir une universelle, interdisez les lignes qui échouent à $P$.",
+            "en": "To establish a universal, exclude rows failing $P$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "`EXISTS` d'un étudiant quelconque",
+            "en": "`EXISTS` of any student"
+          },
+          "feedback": {
+            "fr": "Pour établir une universelle, interdisez les lignes qui échouent à $P$.",
+            "en": "To establish a universal, exclude rows failing $P$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "`NOT EXISTS` d'un étudiant sans inscription",
+            "en": "`NOT EXISTS` of a student without enrollment"
+          },
+          "feedback": {
+            "fr": "$\\forall s\\ P(s)\\equiv\\neg\\exists s\\ \\neg P(s)$.",
+            "en": "$\\forall s\\ P(s)\\equiv\\neg\\exists s\\ \\neg P(s)$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$\\forall s\\ P(s)\\equiv\\neg\\exists s\\ \\neg P(s)$.",
+        "en": "$\\forall s\\ P(s)\\equiv\\neg\\exists s\\ \\neg P(s)$."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E13",
+      "objectiveId": "L18-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "query-result-confused-with-table"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans `Product(name,stock)` avec `(a,0)`, `(b,5)`, `(c,8)` sans doublons, que renvoie `SELECT name FROM Product WHERE stock > 0` ?",
+        "en": "In duplicate-free `Product(name,stock)` with `(a,0)`, `(b,5)`, `(c,8)`, what does `SELECT name FROM Product WHERE stock > 0` return?"
+      },
+      "hint": {
+        "fr": "Zéro ne satisfait pas une comparaison strictement positive.",
+        "en": "Zero does not satisfy a strictly positive comparison."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{\\text{b},\\text{c}\\}$",
+            "en": "$\\{\\text{b},\\text{c}\\}$"
+          },
+          "feedback": {
+            "fr": "Les produits b et c ont un stock positif ; a n'en a pas.",
+            "en": "Products b and c have positive stock; a does not."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{\\text{a},\\text{b},\\text{c}\\}$",
+            "en": "$\\{\\text{a},\\text{b},\\text{c}\\}$"
+          },
+          "feedback": {
+            "fr": "Seules les lignes de stock strictement positif passent.",
+            "en": "Only rows with strictly positive stock pass."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{\\text{a}\\}$",
+            "en": "$\\{\\text{a}\\}$"
+          },
+          "feedback": {
+            "fr": "Seules les lignes de stock strictement positif passent.",
+            "en": "Only rows with strictly positive stock pass."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Les produits b et c ont un stock positif ; a n'en a pas.",
+        "en": "Products b and c have positive stock; a does not."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E14",
+      "objectiveId": "L18-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "predicate-confused-with-select-list"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "La requête `SELECT t.name FROM T t WHERE t.active = 1` correspond à quelle compréhension (modèle sans `NULL`) ?",
+        "en": "The query `SELECT t.name FROM T t WHERE t.active = 1` corresponds to which comprehension (no-`NULL` model)?"
+      },
+      "hint": {
+        "fr": "On projette le nom des lignes satisfaisant le prédicat.",
+        "en": "We project the name of rows satisfying the predicate."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{t\\in T\\mid t.active=0\\}$",
+            "en": "$\\{t\\in T\\mid t.active=0\\}$"
+          },
+          "feedback": {
+            "fr": "Le filtre doit retenir les lignes actives présentes dans $T$.",
+            "en": "The filter must retain active rows present in $T$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{t.name\\mid t\\in T\\land t.active=1\\}$",
+            "en": "$\\{t.name\\mid t\\in T\\land t.active=1\\}$"
+          },
+          "feedback": {
+            "fr": "Le résultat contient les noms des lignes $t$ telles que $t.active=1$.",
+            "en": "The result contains names from rows $t$ for which $t.active=1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{t.name\\mid t\\notin T\\}$",
+            "en": "$\\{t.name\\mid t\\notin T\\}$"
+          },
+          "feedback": {
+            "fr": "Le filtre doit retenir les lignes actives présentes dans $T$.",
+            "en": "The filter must retain active rows present in $T$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le résultat contient les noms des lignes $t$ telles que $t.active=1$.",
+        "en": "The result contains names from rows $t$ for which $t.active=1$."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E15",
+      "objectiveId": "L18-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "and-or-swapped"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour `paid=1` et `verified=0`, quelle condition est vraie dans un modèle SQL à deux valeurs ?",
+        "en": "For `paid=1` and `verified=0`, which condition is true in a two-valued SQL model?"
+      },
+      "hint": {
+        "fr": "Une conjonction demande deux vrais ; la négation inverse une valeur.",
+        "en": "Conjunction needs two true values; negation flips one value."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "`paid = 1 AND verified = 1`",
+            "en": "`paid = 1 AND verified = 1`"
+          },
+          "feedback": {
+            "fr": "La vérification est fausse, le paiement vrai.",
+            "en": "Verification is false while payment is true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "`NOT (paid = 1)`",
+            "en": "`NOT (paid = 1)`"
+          },
+          "feedback": {
+            "fr": "La vérification est fausse, le paiement vrai.",
+            "en": "Verification is false while payment is true."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "`paid = 1 AND NOT (verified = 1)`",
+            "en": "`paid = 1 AND NOT (verified = 1)`"
+          },
+          "feedback": {
+            "fr": "La troisième condition vaut vrai $\\land$ non(faux), donc vrai.",
+            "en": "The third condition is true $\\land$ not(false), hence true."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La troisième condition vaut vrai $\\land$ non(faux), donc vrai.",
+        "en": "The third condition is true $\\land$ not(false), hence true."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E16",
+      "objectiveId": "L18-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "not-exists-as-exists-not"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une sous-requête retourne zéro ligne. Quelle paire est correcte pour `EXISTS` et `NOT EXISTS` ?",
+        "en": "A subquery returns zero rows. Which pair is correct for `EXISTS` and `NOT EXISTS`?"
+      },
+      "hint": {
+        "fr": "`NOT EXISTS` nie la valeur booléenne de `EXISTS`.",
+        "en": "`NOT EXISTS` negates the Boolean value of `EXISTS`."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Faux, vrai.",
+            "en": "False, true."
+          },
+          "feedback": {
+            "fr": "`EXISTS` est faux sans ligne, donc `NOT EXISTS` est vrai.",
+            "en": "`EXISTS` is false with no row, hence `NOT EXISTS` is true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Vrai, faux.",
+            "en": "True, false."
+          },
+          "feedback": {
+            "fr": "Une sous-requête vide ne fournit aucun témoin.",
+            "en": "An empty subquery gives no witness."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Faux, faux.",
+            "en": "False, false."
+          },
+          "feedback": {
+            "fr": "Une sous-requête vide ne fournit aucun témoin.",
+            "en": "An empty subquery gives no witness."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "`EXISTS` est faux sans ligne, donc `NOT EXISTS` est vrai.",
+        "en": "`EXISTS` is false with no row, hence `NOT EXISTS` is true."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E17",
+      "objectiveId": "L18-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "not-exists-misread-as-all-rows"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "`Student` a ana, bo, cy ; `Enrolled` a `(ana,art)`, `(bo,bio)`. Qui satisfait une sous-requête corrélée `NOT EXISTS` d'inscription en `art` ?",
+        "en": "`Student` has ana, bo, cy; `Enrolled` has `(ana,art)`, `(bo,bio)`. Who satisfies a correlated `NOT EXISTS` subquery for enrollment in `art`?"
+      },
+      "hint": {
+        "fr": "La requête refuse toute ligne `art` liée à l'étudiant.",
+        "en": "The query rejects any related `art` row."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{\\text{ana}\\}$",
+            "en": "$\\{\\text{ana}\\}$"
+          },
+          "feedback": {
+            "fr": "Bo n'a que bio et Cy aucune inscription ; tous deux n'ont pas art.",
+            "en": "Bo only has bio and Cy has none; both lack art."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{\\text{bo},\\text{cy}\\}$",
+            "en": "$\\{\\text{bo},\\text{cy}\\}$"
+          },
+          "feedback": {
+            "fr": "Ana est exclue par son inscription en art ; Bo et Cy restent.",
+            "en": "Ana is excluded by her art enrollment; Bo and Cy remain."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{\\text{cy}\\}$",
+            "en": "$\\{\\text{cy}\\}$"
+          },
+          "feedback": {
+            "fr": "Bo n'a que bio et Cy aucune inscription ; tous deux n'ont pas art.",
+            "en": "Bo only has bio and Cy has none; both lack art."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Ana est exclue par son inscription en art ; Bo et Cy restent.",
+        "en": "Ana is excluded by her art enrollment; Bo and Cy remain."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E18",
+      "objectiveId": "L18-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "forall-replacement-misformed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans un univers fini de lignes sans `NULL`, quelle équivalence exprime `NOT EXISTS` d'une ligne violant $P$ ?",
+        "en": "In a finite no-`NULL` row universe, which equivalence expresses `NOT EXISTS` of a row violating $P$?"
+      },
+      "hint": {
+        "fr": "Une universelle est l'absence de contre-exemple.",
+        "en": "A universal is absence of counterexamples."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists x\\ \\neg P(x)$",
+            "en": "$\\exists x\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Une absence de violation impose $P$ à toutes les lignes, non sa négation.",
+            "en": "Absence of violations imposes $P$ on every row, not its negation."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall x\\ \\neg P(x)$",
+            "en": "$\\forall x\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Une absence de violation impose $P$ à toutes les lignes, non sa négation.",
+            "en": "Absence of violations imposes $P$ on every row, not its negation."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall x\\ P(x)$",
+            "en": "$\\forall x\\ P(x)$"
+          },
+          "feedback": {
+            "fr": "$\\neg\\exists x\\ \\neg P(x)$ est équivalent à $\\forall x\\ P(x)$.",
+            "en": "$\\neg\\exists x\\ \\neg P(x)$ is equivalent to $\\forall x\\ P(x)$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$\\neg\\exists x\\ \\neg P(x)$ est équivalent à $\\forall x\\ P(x)$.",
+        "en": "$\\neg\\exists x\\ \\neg P(x)$ is equivalent to $\\forall x\\ P(x)$."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E19",
+      "objectiveId": "L18-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "query-result-confused-with-table"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "`Task(id,done)` contient `(a,1)`, `(b,0)`, `(c,1)` ; que renvoie `SELECT id FROM Task WHERE NOT(done = 1)` sans `NULL` ?",
+        "en": "`Task(id,done)` contains `(a,1)`, `(b,0)`, `(c,1)`; what does `SELECT id FROM Task WHERE NOT(done = 1)` return without `NULL`?"
+      },
+      "hint": {
+        "fr": "Ne gardez que les tâches non terminées.",
+        "en": "Keep only unfinished tasks."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{\\text{b}\\}$",
+            "en": "$\\{\\text{b}\\}$"
+          },
+          "feedback": {
+            "fr": "Seule b a `done=0`.",
+            "en": "Only b has `done=0`."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{\\text{a},\\text{c}\\}$",
+            "en": "$\\{\\text{a},\\text{c}\\}$"
+          },
+          "feedback": {
+            "fr": "La négation exclut les lignes dont `done=1`.",
+            "en": "Negation excludes rows with `done=1`."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{\\text{a},\\text{b},\\text{c}\\}$",
+            "en": "$\\{\\text{a},\\text{b},\\text{c}\\}$"
+          },
+          "feedback": {
+            "fr": "La négation exclut les lignes dont `done=1`.",
+            "en": "Negation excludes rows with `done=1`."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Seule b a `done=0`.",
+        "en": "Only b has `done=0`."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E20",
+      "objectiveId": "L18-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "not-exists-as-exists-not"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour chaque étudiant, une sous-requête corrélée cherche un devoir rendu. Si seul Ali possède une ligne de rendu, qui satisfait `NOT EXISTS` sur le domaine $\\{\\text{Ali},\\text{Bea},\\text{Cy}\\}$ ?",
+        "en": "For each student, a correlated subquery looks for a submitted assignment. If only Ali has a submission row, who satisfies `NOT EXISTS` over $\\{\\text{Ali},\\text{Bea},\\text{Cy}\\}$?"
+      },
+      "hint": {
+        "fr": "`NOT EXISTS` conserve les étudiants sans ligne liée.",
+        "en": "`NOT EXISTS` keeps students with no related row."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{\\text{Ali}\\}$",
+            "en": "$\\{\\text{Ali}\\}$"
+          },
+          "feedback": {
+            "fr": "Ali possède un témoin qui rend `NOT EXISTS` faux.",
+            "en": "Ali has a witness that makes `NOT EXISTS` false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{\\text{Bea},\\text{Cy}\\}$",
+            "en": "$\\{\\text{Bea},\\text{Cy}\\}$"
+          },
+          "feedback": {
+            "fr": "La sous-requête est vide pour Bea et Cy seulement.",
+            "en": "The subquery is empty only for Bea and Cy."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{\\text{Ali},\\text{Bea},\\text{Cy}\\}$",
+            "en": "$\\{\\text{Ali},\\text{Bea},\\text{Cy}\\}$"
+          },
+          "feedback": {
+            "fr": "Ali possède un témoin qui rend `NOT EXISTS` faux.",
+            "en": "Ali has a witness that makes `NOT EXISTS` false."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La sous-requête est vide pour Bea et Cy seulement.",
+        "en": "The subquery is empty only for Bea and Cy."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L18-E21",
+      "objectiveId": "L18-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "forall-replacement-misformed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une requête cherche les projets dont **tous** les jalons sont validés. Quel raisonnement est correct pour un projet sans jalons, dans ce modèle ensembliste ?",
+        "en": "A query seeks projects with **all** milestones validated. Which reasoning is correct for a project with no milestones in this set model?"
+      },
+      "hint": {
+        "fr": "Une universelle sur un ensemble vide est vraie.",
+        "en": "A universal over the empty set is true."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Le projet doit être exclu par définition.",
+            "en": "The project must be excluded by definition."
+          },
+          "feedback": {
+            "fr": "Une règle métier exigeant au moins un jalon est une condition additionnelle.",
+            "en": "A business rule requiring at least one milestone is an additional condition."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Le projet a forcément un jalon caché.",
+            "en": "The project must have a hidden milestone."
+          },
+          "feedback": {
+            "fr": "Une règle métier exigeant au moins un jalon est une condition additionnelle.",
+            "en": "A business rule requiring at least one milestone is an additional condition."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Sans contre-exemple, la condition universelle est vraie par vacuité.",
+            "en": "With no counterexample, the universal condition is vacuously true."
+          },
+          "feedback": {
+            "fr": "`NOT EXISTS` de jalon non validé est vrai sans jalons ; une exigence d'existence doit être ajoutée séparément.",
+            "en": "`NOT EXISTS` of an unvalidated milestone is true with no milestones; an existence requirement must be added separately."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "`NOT EXISTS` de jalon non validé est vrai sans jalons ; une exigence d'existence doit être ajoutée séparément.",
+        "en": "`NOT EXISTS` of an unvalidated milestone is true with no milestones; an existence requirement must be added separately."
+      },
+      "lessonId": "L18",
+      "version": 2,
+      "prerequisites": [
+        "L16",
+        "L17"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

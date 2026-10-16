@@ -1,0 +1,1383 @@
+{
+  "lessonId": "L04",
+  "version": 3,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L04-E07",
+      "objectiveId": "L04-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "equivalence-as-connective"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que signifie $P\\equiv Q$ pour deux formules propositionnelles $P$ et $Q$ ?",
+        "en": "What does $P\\equiv Q$ mean for two propositional formulas $P$ and $Q$?"
+      },
+      "hint": {
+        "fr": "Pensez à toutes les lignes des tables de vérité.",
+        "en": "Think about all rows of the truth tables."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$P$ et $Q$ ont la même valeur sur une ligne seulement.",
+            "en": "$P$ and $Q$ agree on just one row."
+          },
+          "feedback": {
+            "fr": "Une ligne commune ne suffit pas pour une équivalence.",
+            "en": "Agreement on one row does not establish equivalence."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$P$ et $Q$ ont la même valeur pour toute affectation.",
+            "en": "$P$ and $Q$ agree under every assignment."
+          },
+          "feedback": {
+            "fr": "Exact : leurs colonnes de vérité sont identiques.",
+            "en": "Correct: their truth-table columns are identical."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$P$ et $Q$ sont toutes les deux vraies sur une affectation.",
+            "en": "$P$ and $Q$ are both true under one assignment."
+          },
+          "feedback": {
+            "fr": "Deux formules peuvent être vraies ensemble sans être équivalentes.",
+            "en": "Two formulas can both be true on one row without being equivalent."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "L'équivalence sémantique compare toutes les affectations, non une seule ligne.",
+        "en": "Semantic equivalence compares every assignment, not just one row."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E08",
+      "objectiveId": "L04-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "distributivity-with-wrong-operator"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Complétez la table de $A\\land(B\\lor C)$ pour les huit lignes $A,B,C$.",
+        "en": "Complete the table for $A\\land(B\\lor C)$ over all eight rows $A,B,C$."
+      },
+      "hint": {
+        "fr": "Sans $A=1$, la conjonction extérieure est fausse.",
+        "en": "Without $A=1$, the outer conjunction is false."
+      },
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": false,
+        "101": true,
+        "110": true,
+        "111": true,
+        "000": false,
+        "001": false,
+        "010": false,
+        "011": false
+      },
+      "feedback": {
+        "fr": "La formule est vraie seulement quand $A=1$ et au moins une de $B,C$ vaut $1$ : $101$, $110$, $111$.",
+        "en": "The formula is true only when $A=1$ and at least one of $B,C$ is $1$: $101$, $110$, $111$."
+      },
+      "explanation": {
+        "fr": "La formule est vraie seulement quand $A=1$ et au moins une de $B,C$ vaut $1$ : $101$, $110$, $111$.",
+        "en": "The formula is true only when $A=1$ and at least one of $B,C$ is $1$: $101$, $110$, $111$."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E09",
+      "objectiveId": "L04-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "de-morgan-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule est équivalente à $\\neg(A\\lor B)$ pour toutes les valeurs de $A,B$ ?",
+        "en": "Which formula is equivalent to $\\neg(A\\lor B)$ for every value of $A,B$?"
+      },
+      "hint": {
+        "fr": "La négation du « ou » impose que les deux assertions soient fausses.",
+        "en": "Negating OR requires both statements to be false."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg A\\lor\\neg B$",
+            "en": "$\\neg A\\lor\\neg B$"
+          },
+          "feedback": {
+            "fr": "Cette formule est vraie même si une seule assertion est fausse.",
+            "en": "This is true even if only one statement is false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A\\land B$",
+            "en": "$A\\land B$"
+          },
+          "feedback": {
+            "fr": "Cette formule exige deux valeurs vraies au lieu de deux valeurs fausses.",
+            "en": "This requires two true values rather than two false ones."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg A\\land\\neg B$",
+            "en": "$\\neg A\\land\\neg B$"
+          },
+          "feedback": {
+            "fr": "Exact : c'est la loi de De Morgan pour « ou ».",
+            "en": "Correct: this is De Morgan's law for OR."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$\\neg(A\\lor B)$ vaut $1$ seulement sur $00$, tout comme $\\neg A\\land\\neg B$.",
+        "en": "$\\neg(A\\lor B)$ is $1$ only on $00$, as is $\\neg A\\land\\neg B$."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E10",
+      "objectiveId": "L04-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "tautology-confused-with-satisfiable"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur les valeurs booléennes de $B$, quelle formule est une tautologie ?",
+        "en": "Over Boolean values of $B$, which formula is a tautology?"
+      },
+      "hint": {
+        "fr": "Une tautologie reste vraie pour $B=0$ comme pour $B=1$.",
+        "en": "A tautology stays true for both $B=0$ and $B=1$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$B\\lor\\neg B$",
+            "en": "$B\\lor\\neg B$"
+          },
+          "feedback": {
+            "fr": "Exact : l'une des deux propositions est nécessairement vraie.",
+            "en": "Correct: one of the two statements must be true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$B\\land\\neg B$",
+            "en": "$B\\land\\neg B$"
+          },
+          "feedback": {
+            "fr": "Une proposition et sa négation ne sont jamais vraies ensemble.",
+            "en": "A statement and its negation are never both true."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$B$",
+            "en": "$B$"
+          },
+          "feedback": {
+            "fr": "$B$ est faux sur l'affectation $B=0$.",
+            "en": "$B$ is false when $B=0$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La loi du tiers exclu donne $B\\lor\\neg B=1$ sur les deux lignes.",
+        "en": "Excluded middle gives $B\\lor\\neg B=1$ on both rows."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E11",
+      "objectiveId": "L04-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "equivalence-checked-on-one-row"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour réfuter $A\\land(B\\lor C)\\equiv(A\\land B)\\lor C$, quelle affectation suffit ?",
+        "en": "Which assignment suffices to refute $A\\land(B\\lor C)\\equiv(A\\land B)\\lor C$?"
+      },
+      "hint": {
+        "fr": "Cherchez une ligne avec $C=1$ mais $A=0$.",
+        "en": "Try a row with $C=1$ but $A=0$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A=1,B=1,C=1$",
+            "en": "$A=1,B=1,C=1$"
+          },
+          "feedback": {
+            "fr": "Les deux expressions valent $1$ ici.",
+            "en": "Both expressions are $1$ here."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A=0,B=0,C=1$",
+            "en": "$A=0,B=0,C=1$"
+          },
+          "feedback": {
+            "fr": "Exact : la gauche vaut $0$, la droite vaut $1$.",
+            "en": "Correct: the left is $0$, the right is $1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A=0,B=0,C=0$",
+            "en": "$A=0,B=0,C=0$"
+          },
+          "feedback": {
+            "fr": "Les deux expressions valent $0$ ici.",
+            "en": "Both expressions are $0$ here."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "À $001$, $0\\land(0\\lor1)=0$, mais $(0\\land0)\\lor1=1$.",
+        "en": "At $001$, $0\\land(0\\lor1)=0$, but $(0\\land0)\\lor1=1$."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E12",
+      "objectiveId": "L04-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "de-morgan-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces équivalences proposées est fausse ?",
+        "en": "Which of these proposed equivalences is false?"
+      },
+      "hint": {
+        "fr": "Comparez le cas où une seule des assertions est vraie.",
+        "en": "Compare the case where exactly one statement is true."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A\\lor(B\\land C)\\equiv(A\\lor B)\\land(A\\lor C)$",
+            "en": "$A\\lor(B\\land C)\\equiv(A\\lor B)\\land(A\\lor C)$"
+          },
+          "feedback": {
+            "fr": "C'est la distributivité correcte de « ou ».",
+            "en": "This is the correct distributive law for OR."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A\\land(B\\lor C)\\equiv(A\\land B)\\lor(A\\land C)$",
+            "en": "$A\\land(B\\lor C)\\equiv(A\\land B)\\lor(A\\land C)$"
+          },
+          "feedback": {
+            "fr": "C'est la distributivité correcte de « et ».",
+            "en": "This is the correct distributive law for AND."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg(A\\lor B)\\equiv\\neg A\\lor\\neg B$",
+            "en": "$\\neg(A\\lor B)\\equiv\\neg A\\lor\\neg B$"
+          },
+          "feedback": {
+            "fr": "Exact : avec $A=1,B=0$, les deux côtés diffèrent.",
+            "en": "Correct: with $A=1,B=0$, the two sides differ."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La loi correcte est $\\neg(A\\lor B)\\equiv\\neg A\\land\\neg B$.",
+        "en": "The correct law is $\\neg(A\\lor B)\\equiv\\neg A\\land\\neg B$."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E13",
+      "objectiveId": "L04-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "negation-scope-misread"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Calculez la table de $\\neg(A\\lor B)\\lor C$. Votre colonne doit représenter toutes les affectations $A,B,C$.",
+        "en": "Compute the table for $\\neg(A\\lor B)\\lor C$. Your column must represent every assignment $A,B,C$."
+      },
+      "hint": {
+        "fr": "La formule ne peut être fausse que si les deux termes de la disjonction le sont.",
+        "en": "The formula can be false only if both disjuncts are false."
+      },
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": false,
+        "101": true,
+        "110": false,
+        "111": true,
+        "000": true,
+        "001": true,
+        "010": false,
+        "011": true
+      },
+      "feedback": {
+        "fr": "Quand $C=1$, la formule est vraie ; avec $C=0$, elle n'est vraie que si $A=B=0$.",
+        "en": "When $C=1$, the formula is true; with $C=0$, it is true only if $A=B=0$."
+      },
+      "explanation": {
+        "fr": "Quand $C=1$, la formule est vraie ; avec $C=0$, elle n'est vraie que si $A=B=0$.",
+        "en": "When $C=1$, the formula is true; with $C=0$, it is true only if $A=B=0$."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E14",
+      "objectiveId": "L04-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "distributivity-with-wrong-operator"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule se simplifie en $A\\lor(A\\land B)$ pour toutes les valeurs booléennes ?",
+        "en": "Which formula has the same value as $A\\lor(A\\land B)$ for every Boolean assignment?"
+      },
+      "hint": {
+        "fr": "Si $A=1$, que vaut le « ou » ? Si $A=0$, que devient la conjonction ?",
+        "en": "If $A=1$, what is OR? If $A=0$, what becomes of the conjunction?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A$",
+            "en": "$A$"
+          },
+          "feedback": {
+            "fr": "Exact : c'est la loi d'absorption.",
+            "en": "Correct: this is the absorption law."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$B$",
+            "en": "$B$"
+          },
+          "feedback": {
+            "fr": "Avec $A=1,B=0$, le résultat vaut $1$ mais $B=0$.",
+            "en": "With $A=1,B=0$, the result is $1$ but $B=0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\land B$",
+            "en": "$A\\land B$"
+          },
+          "feedback": {
+            "fr": "Avec $A=1,B=0$, la formule originale vaut $1$ mais la conjonction $0$.",
+            "en": "With $A=1,B=0$, the original formula is $1$ but the conjunction $0$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$A\\lor(A\\land B)=A\\land(1\\lor B)=A$ ; le test des deux valeurs de $A$ confirme.",
+        "en": "$A\\lor(A\\land B)=A\\land(1\\lor B)=A$; checking both values of $A$ confirms."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E15",
+      "objectiveId": "L04-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "contradiction-confused-with-tautology"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule est une contradiction, c'est-à-dire fausse pour toutes les affectations ?",
+        "en": "Which formula is a contradiction, false for every assignment?"
+      },
+      "hint": {
+        "fr": "Une contradiction doit être fausse même quand $A=1$.",
+        "en": "A contradiction must remain false even when $A=1$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A\\lor\\neg A$",
+            "en": "$A\\lor\\neg A$"
+          },
+          "feedback": {
+            "fr": "Cette formule est toujours vraie.",
+            "en": "This formula is always true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A\\land\\neg A$",
+            "en": "$A\\land\\neg A$"
+          },
+          "feedback": {
+            "fr": "Exact : aucun $A$ ne peut être à la fois vrai et faux.",
+            "en": "Correct: no $A$ can be true and false simultaneously."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\land B$",
+            "en": "$A\\land B$"
+          },
+          "feedback": {
+            "fr": "Cette formule est vraie pour $A=B=1$.",
+            "en": "This formula is true when $A=B=1$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le produit logique de $A$ et de sa négation vaut toujours $0$.",
+        "en": "AND applied to $A$ and its negation is always $0$."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E16",
+      "objectiveId": "L04-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "equivalence-checked-on-one-row"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un étudiant vérifie deux formules sur $A=0,B=0$ et obtient la même valeur. Que peut-il conclure sur leur équivalence sémantique ?",
+        "en": "A student checks two formulas at $A=0,B=0$ and gets the same value. What can be concluded about their semantic equivalence?"
+      },
+      "hint": {
+        "fr": "Une équivalence porte sur toutes les affectations possibles.",
+        "en": "An equivalence concerns all possible assignments."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Elles sont nécessairement équivalentes.",
+            "en": "They must be equivalent."
+          },
+          "feedback": {
+            "fr": "Une seule ligne commune n'établit rien pour les trois autres.",
+            "en": "One agreeing row says nothing about the other three."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Elles ne sont nécessairement pas équivalentes.",
+            "en": "They must not be equivalent."
+          },
+          "feedback": {
+            "fr": "Un accord local n'exclut pas l'accord sur toutes les autres lignes.",
+            "en": "Local agreement does not rule out agreement on all other rows."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Il faut encore comparer les trois autres lignes.",
+            "en": "The other three rows must still be compared."
+          },
+          "feedback": {
+            "fr": "Exact : l'équivalence exige quatre accords sur quatre lignes.",
+            "en": "Correct: equivalence requires agreement on all four rows."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Avec deux variables, l'accord sur $00$ n'établit que $1$ des $4$ comparaisons nécessaires.",
+        "en": "With two variables, agreement on $00$ establishes only $1$ of the $4$ necessary comparisons."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E17",
+      "objectiveId": "L04-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "equivalence-needs-only-some-rows"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une simplification erronée affirme $A\\land(B\\lor C)\\equiv(A\\land B)\\lor(B\\land C)$. Pour réfuter la règle, quel contre-exemple utiliser ?",
+        "en": "A faulty simplification claims $A\\land(B\\lor C)\\equiv(A\\land B)\\lor(B\\land C)$. Which counterexample refutes the rule?"
+      },
+      "hint": {
+        "fr": "Cherchez un cas où $C$ suffit avec $A$ mais où $B$ est faux.",
+        "en": "Find a case where $C$ suffices together with $A$ while $B$ is false."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A=0,B=0,C=0$",
+            "en": "$A=0,B=0,C=0$"
+          },
+          "feedback": {
+            "fr": "Les deux côtés valent $0$ ; ce n'est pas une réfutation.",
+            "en": "Both sides are $0$; this does not refute the rule."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A=1,B=0,C=1$",
+            "en": "$A=1,B=0,C=1$"
+          },
+          "feedback": {
+            "fr": "Exact : la gauche vaut $1$, la droite $0$.",
+            "en": "Correct: the left is $1$, the right $0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A=1,B=1,C=1$",
+            "en": "$A=1,B=1,C=1$"
+          },
+          "feedback": {
+            "fr": "Les deux côtés valent $1$ ; ils s'accordent.",
+            "en": "Both sides are $1$; they agree."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Avec $(1,0,1)$, $1\\land(0\\lor1)=1$, mais $(1\\land0)\\lor(0\\land1)=0$.",
+        "en": "With $(1,0,1)$, $1\\land(0\\lor1)=1$, but $(1\\land0)\\lor(0\\land1)=0$."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E18",
+      "objectiveId": "L04-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "row-skipped-or-copied"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Deux contrôles sont réunis par $(A\\lor B)\\land(\\neg A\\lor C)$. Construisez les huit valeurs pour $A,B,C$ avant de décider si ce contrôle se simplifie.",
+        "en": "Two checks combine as $(A\\lor B)\\land(\\neg A\\lor C)$. Build all eight values for $A,B,C$ before deciding whether the condition simplifies."
+      },
+      "hint": {
+        "fr": "Évaluez chacune des deux parenthèses séparément sur chaque affectation.",
+        "en": "Evaluate the two parenthesised parts separately on each assignment."
+      },
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": false,
+        "101": true,
+        "110": false,
+        "111": true,
+        "000": false,
+        "001": false,
+        "010": true,
+        "011": true
+      },
+      "feedback": {
+        "fr": "Quand $A=0$, $B$ suffit ; quand $A=1$, $C$ est nécessaire. Les lignes vraies sont $010$, $011$, $101$, $111$.",
+        "en": "When $A=0$, $B$ suffices; when $A=1$, $C$ is required. True rows are $010$, $011$, $101$, $111$."
+      },
+      "explanation": {
+        "fr": "Quand $A=0$, $B$ suffit ; quand $A=1$, $C$ est nécessaire. Les lignes vraies sont $010$, $011$, $101$, $111$.",
+        "en": "When $A=0$, $B$ suffices; when $A=1$, $C$ is required. True rows are $010$, $011$, $101$, $111$."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E19",
+      "objectiveId": "L04-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "de-morgan-misapplied",
+        "distributivity-with-wrong-operator"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule est équivalente à $\\neg(A\\land(B\\lor C))$ pour toutes les affectations ?",
+        "en": "Which formula is equivalent to $\\neg(A\\land(B\\lor C))$ for every assignment?"
+      },
+      "hint": {
+        "fr": "Niez d'abord la conjonction extérieure ; traitez ensuite la disjonction intérieure.",
+        "en": "First negate the outer conjunction; then handle the inner disjunction."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg A\\land(\\neg B\\lor\\neg C)$",
+            "en": "$\\neg A\\land(\\neg B\\lor\\neg C)$"
+          },
+          "feedback": {
+            "fr": "Nier une conjonction donne un « ou » extérieur, pas « et ».",
+            "en": "Negating a conjunction gives an outer OR, not AND."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg A\\lor\\neg B\\lor\\neg C$",
+            "en": "$\\neg A\\lor\\neg B\\lor\\neg C$"
+          },
+          "feedback": {
+            "fr": "Nier $B\\lor C$ impose les deux négations ensemble.",
+            "en": "Negating $B\\lor C$ requires both negations together."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg A\\lor(\\neg B\\land\\neg C)$",
+            "en": "$\\neg A\\lor(\\neg B\\land\\neg C)$"
+          },
+          "feedback": {
+            "fr": "Exact : deux applications correctes de De Morgan.",
+            "en": "Correct: two correct applications of De Morgan."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$\\neg(A\\land X)=\\neg A\\lor\\neg X$ avec $X=B\\lor C$ ; puis $\\neg X=\\neg B\\land\\neg C$.",
+        "en": "$\\neg(A\\land X)=\\neg A\\lor\\neg X$ with $X=B\\lor C$; then $\\neg X=\\neg B\\land\\neg C$."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E20",
+      "objectiveId": "L04-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "tautology-confusion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un filtre booléen doit accepter toute affectation de $A$ et $B$. Quelle formule est garantie vraie sans dépendre du filtre ?",
+        "en": "A Boolean filter must accept every assignment of $A$ and $B$. Which formula is guaranteed true for all input values?"
+      },
+      "hint": {
+        "fr": "Trouvez une formule où une assertion et sa négation couvrent tous les cas.",
+        "en": "Find a formula where a statement and its negation cover all cases."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(A\\land B)\\lor\\neg A\\lor\\neg B$",
+            "en": "$(A\\land B)\\lor\\neg A\\lor\\neg B$"
+          },
+          "feedback": {
+            "fr": "Exact : c'est $(A\\land B)\\lor\\neg(A\\land B)$, toujours vrai.",
+            "en": "Correct: this is $(A\\land B)\\lor\\neg(A\\land B)$, always true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(A\\lor B)\\land\\neg A$",
+            "en": "$(A\\lor B)\\land\\neg A$"
+          },
+          "feedback": {
+            "fr": "Avec $A=1$, cette conjonction devient fausse.",
+            "en": "With $A=1$, this conjunction becomes false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\land(B\\lor\\neg B)$",
+            "en": "$A\\land(B\\lor\\neg B)$"
+          },
+          "feedback": {
+            "fr": "Cette formule se réduit à $A$ et échoue sur $A=0$.",
+            "en": "This reduces to $A$ and fails when $A=0$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "De Morgan donne $\\neg(A\\land B)=\\neg A\\lor\\neg B$, donc le premier choix est de la forme $X\\lor\\neg X$.",
+        "en": "De Morgan gives $\\neg(A\\land B)=\\neg A\\lor\\neg B$, so the first option has the form $X\\lor\\neg X$."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E21",
+      "objectiveId": "L04-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "equivalence-means-agreement-on-some-rows"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un élève ne teste que $A=B=0$ et $A=B=1$ et affirme $A\\lor B\\equiv A\\land B$. Quelle affectation démontre son erreur ?",
+        "en": "A student tests only $A=B=0$ and $A=B=1$ and claims $A\\lor B\\equiv A\\land B$. Which assignment proves the mistake?"
+      },
+      "hint": {
+        "fr": "Examinez une ligne où les deux valeurs sont différentes.",
+        "en": "Examine a row where the two values differ."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A=0,B=0$",
+            "en": "$A=0,B=0$"
+          },
+          "feedback": {
+            "fr": "Les deux formules valent $0$, comme l'élève l'a déjà vu.",
+            "en": "Both formulas are $0$, as the student already observed."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A=1,B=1$",
+            "en": "$A=1,B=1$"
+          },
+          "feedback": {
+            "fr": "Les deux formules valent $1$, comme l'élève l'a déjà vu.",
+            "en": "Both formulas are $1$, as the student already observed."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A=0,B=1$",
+            "en": "$A=0,B=1$"
+          },
+          "feedback": {
+            "fr": "Exact : $A\\lor B=1$ mais $A\\land B=0$.",
+            "en": "Correct: $A\\lor B=1$ but $A\\land B=0$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Une ligne discordante suffit à réfuter l'équivalence : à $01$, le « ou » vaut $1$ et le « et » $0$.",
+        "en": "One disagreeing row refutes equivalence: at $01$, OR is $1$ and AND is $0$."
+      },
+      "lessonId": "L04",
+      "version": 3,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

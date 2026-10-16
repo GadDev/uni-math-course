@@ -1,0 +1,1231 @@
+{
+  "lessonId": "L12",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L12-E07",
+      "objectiveId": "L12-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "negation-of-forall-as-forall-not"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule nie $\\forall x\\ P(x)$ ?",
+        "en": "Which formula negates $\\forall x\\ P(x)$?"
+      },
+      "hint": {
+        "fr": "Remplacez « tous » par « au moins un contre-exemple ».",
+        "en": "Replace 'all' with 'at least one counterexample'."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists x\\ \\neg P(x)$",
+            "en": "$\\exists x\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Il suffit d'un $x$ pour lequel $P$ échoue.",
+            "en": "One $x$ for which $P$ fails is sufficient."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall x\\ \\neg P(x)$",
+            "en": "$\\forall x\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "La négation change à la fois le quantificateur et le prédicat.",
+            "en": "Negation changes both the quantifier and the predicate."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists x\\ P(x)$",
+            "en": "$\\exists x\\ P(x)$"
+          },
+          "feedback": {
+            "fr": "La négation change à la fois le quantificateur et le prédicat.",
+            "en": "Negation changes both the quantifier and the predicate."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Il suffit d'un $x$ pour lequel $P$ échoue.",
+        "en": "One $x$ for which $P$ fails is sufficient."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E08",
+      "objectiveId": "L12-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "negation-of-exists-as-exists-not"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule nie $\\exists n\\ Q(n)$ ?",
+        "en": "Which formula negates $\\exists n\\ Q(n)$?"
+      },
+      "hint": {
+        "fr": "Aucun témoin ne doit subsister.",
+        "en": "No witness may remain."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists n\\ \\neg Q(n)$",
+            "en": "$\\exists n\\ \\neg Q(n)$"
+          },
+          "feedback": {
+            "fr": "Si aucun objet ne vérifie $Q$, tous vérifient $\\neg Q$.",
+            "en": "If no object satisfies $Q$, all satisfy $\\neg Q$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall n\\ \\neg Q(n)$",
+            "en": "$\\forall n\\ \\neg Q(n)$"
+          },
+          "feedback": {
+            "fr": "$\\neg\\exists n\\ Q(n)\\equiv\\forall n\\ \\neg Q(n)$.",
+            "en": "$\\neg\\exists n\\ Q(n)\\equiv\\forall n\\ \\neg Q(n)$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall n\\ Q(n)$",
+            "en": "$\\forall n\\ Q(n)$"
+          },
+          "feedback": {
+            "fr": "Si aucun objet ne vérifie $Q$, tous vérifient $\\neg Q$.",
+            "en": "If no object satisfies $Q$, all satisfy $\\neg Q$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$\\neg\\exists n\\ Q(n)\\equiv\\forall n\\ \\neg Q(n)$.",
+        "en": "$\\neg\\exists n\\ Q(n)\\equiv\\forall n\\ \\neg Q(n)$."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E09",
+      "objectiveId": "L12-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "everyday-negation-of-all",
+        "no-instead-of-not-all"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Niez : « Tous les trains de cette liste sont à l'heure ».",
+        "en": "Negate: 'Every train on this list is on time'."
+      },
+      "hint": {
+        "fr": "Il suffit d'un train de la liste en retard.",
+        "en": "One late train from the list suffices."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Aucun train de la liste n'est à l'heure.",
+            "en": "No train on the list is on time."
+          },
+          "feedback": {
+            "fr": "La négation d'un « tous » n'exige pas que tous les cas échouent.",
+            "en": "Negating 'all' does not require every case to fail."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Tous les trains sont en retard.",
+            "en": "Every train is late."
+          },
+          "feedback": {
+            "fr": "La négation d'un « tous » n'exige pas que tous les cas échouent.",
+            "en": "Negating 'all' does not require every case to fail."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Au moins un train de la liste n'est pas à l'heure.",
+            "en": "At least one train on the list is not on time."
+          },
+          "feedback": {
+            "fr": "Une seule exception suffit à rendre la phrase universelle fausse.",
+            "en": "One exception suffices to falsify the universal sentence."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Une seule exception suffit à rendre la phrase universelle fausse.",
+        "en": "One exception suffices to falsify the universal sentence."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E10",
+      "objectiveId": "L12-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "counterexample-misidentified"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $X=\\{2,4,6\\}$, quel contre-exemple réfute $\\forall x\\in X\\ (x<6)$ ?",
+        "en": "Over $X=\\{2,4,6\\}$, which counterexample refutes $\\forall x\\in X\\ (x<6)$?"
+      },
+      "hint": {
+        "fr": "La comparaison est stricte.",
+        "en": "The inequality is strict."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "$6\\in X$ et $6<6$ est faux.",
+            "en": "$6\\in X$ and $6<6$ is false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "$2$ et $4$ sont strictement inférieurs à $6$ ; $6$ ne l'est pas.",
+            "en": "$2$ and $4$ are strictly below $6$; $6$ is not."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "$2$ et $4$ sont strictement inférieurs à $6$ ; $6$ ne l'est pas.",
+            "en": "$2$ and $4$ are strictly below $6$; $6$ is not."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$6\\in X$ et $6<6$ est faux.",
+        "en": "$6\\in X$ and $6<6$ is false."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E11",
+      "objectiveId": "L12-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "everyday-negation-of-exists",
+        "one-missing-instead-of-none"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle phrase nie « Un fichier du dossier est corrompu » ?",
+        "en": "Which sentence negates 'A file in the folder is corrupted'?"
+      },
+      "hint": {
+        "fr": "Nier une existence impose une propriété à tous les éléments.",
+        "en": "Negating existence imposes a property on every element."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Au moins deux fichiers sont corrompus.",
+            "en": "At least two files are corrupted."
+          },
+          "feedback": {
+            "fr": "La négation interdit tout témoin corrompu, pas seulement quelques-uns.",
+            "en": "The negation forbids every corrupted witness, not just some."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Aucun fichier du dossier n'est corrompu.",
+            "en": "No file in the folder is corrupted."
+          },
+          "feedback": {
+            "fr": "Dire qu'aucun fichier n'est corrompu équivaut à dire que tous sont intacts.",
+            "en": "Saying no file is corrupted means all are intact."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Certains fichiers sont intacts.",
+            "en": "Some files are intact."
+          },
+          "feedback": {
+            "fr": "La négation interdit tout témoin corrompu, pas seulement quelques-uns.",
+            "en": "The negation forbids every corrupted witness, not just some."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Dire qu'aucun fichier n'est corrompu équivaut à dire que tous sont intacts.",
+        "en": "Saying no file is corrupted means all are intact."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E12",
+      "objectiveId": "L12-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "negating-only-the-predicate",
+        "strict-versus-non-strict"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Niez $\\forall n\\in\\mathbb N\\ (n\\geq0)$ selon la convention du cours.",
+        "en": "Negate $\\forall n\\in\\mathbb N\\ (n\\geq0)$ under this course's convention."
+      },
+      "hint": {
+        "fr": "Changez le quantificateur et niez $\\geq$.",
+        "en": "Change the quantifier and negate $\\geq$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists n\\in\\mathbb N\\ (n<0)$",
+            "en": "$\\exists n\\in\\mathbb N\\ (n<0)$"
+          },
+          "feedback": {
+            "fr": "La formule est bien la négation logique, même si elle est fausse car aucun naturel du cours n'est négatif.",
+            "en": "The formula is the logical negation, even though it is false because no natural is negative."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall n\\in\\mathbb N\\ (n<0)$",
+            "en": "$\\forall n\\in\\mathbb N\\ (n<0)$"
+          },
+          "feedback": {
+            "fr": "La négation de $n\\geq0$ est $n<0$, et il faut un témoin.",
+            "en": "The negation of $n\\geq0$ is $n<0$, requiring a witness."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists n\\in\\mathbb N\\ (n=0)$",
+            "en": "$\\exists n\\in\\mathbb N\\ (n=0)$"
+          },
+          "feedback": {
+            "fr": "La négation de $n\\geq0$ est $n<0$, et il faut un témoin.",
+            "en": "The negation of $n\\geq0$ is $n<0$, requiring a witness."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La formule est bien la négation logique, même si elle est fausse car aucun naturel du cours n'est négatif.",
+        "en": "The formula is the logical negation, even though it is false because no natural is negative."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E13",
+      "objectiveId": "L12-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "negation-of-forall-as-forall-not"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $X=\\{0,1,2\\}$, $P(x)$ signifie $x>0$. Quelle phrase exprime $\\neg\\forall x\\in X\\ P(x)$ ?",
+        "en": "Over $X=\\{0,1,2\\}$, $P(x)$ means $x>0$. Which sentence expresses $\\neg\\forall x\\in X\\ P(x)$?"
+      },
+      "hint": {
+        "fr": "Un élément du domaine ne vérifie pas $P$.",
+        "en": "An element of the domain fails $P$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Tous les éléments sont positifs.",
+            "en": "All elements are positive."
+          },
+          "feedback": {
+            "fr": "Une exception suffit ; elle n'impose pas que toutes les valeurs soient négatives.",
+            "en": "One exception suffices; it does not force all values to be negative."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Il existe un élément non strictement positif.",
+            "en": "There is an element that is not strictly positive."
+          },
+          "feedback": {
+            "fr": "$0$ est un témoin de $\\exists x\\in X\\ (x\\leq0)$.",
+            "en": "$0$ witnesses $\\exists x\\in X\\ (x\\leq0)$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Tous les éléments sont négatifs.",
+            "en": "All elements are negative."
+          },
+          "feedback": {
+            "fr": "Une exception suffit ; elle n'impose pas que toutes les valeurs soient négatives.",
+            "en": "One exception suffices; it does not force all values to be negative."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$0$ est un témoin de $\\exists x\\in X\\ (x\\leq0)$.",
+        "en": "$0$ witnesses $\\exists x\\in X\\ (x\\leq0)$."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E14",
+      "objectiveId": "L12-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "negation-of-exists-as-exists-not"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle négation de $\\exists x\\in\\mathbb R\\ (x^2=-1)$ est correcte ?",
+        "en": "Which negation of $\\exists x\\in\\mathbb R\\ (x^2=-1)$ is correct?"
+      },
+      "hint": {
+        "fr": "Conservez le domaine $\\mathbb R$.",
+        "en": "Keep the domain $\\mathbb R$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists x\\in\\mathbb R\\ (x^2\\ne-1)$",
+            "en": "$\\exists x\\in\\mathbb R\\ (x^2\\ne-1)$"
+          },
+          "feedback": {
+            "fr": "Le quantificateur existentiel nié devient universel et le prédicat est inversé.",
+            "en": "Negated existence becomes universal and the predicate is reversed."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall x\\in\\mathbb R\\ (x^2=-1)$",
+            "en": "$\\forall x\\in\\mathbb R\\ (x^2=-1)$"
+          },
+          "feedback": {
+            "fr": "Le quantificateur existentiel nié devient universel et le prédicat est inversé.",
+            "en": "Negated existence becomes universal and the predicate is reversed."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall x\\in\\mathbb R\\ (x^2\\ne-1)$",
+            "en": "$\\forall x\\in\\mathbb R\\ (x^2\\ne-1)$"
+          },
+          "feedback": {
+            "fr": "Tout carré réel est non négatif, donc la négation est vraie.",
+            "en": "Every real square is nonnegative, so the negation is true."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Tout carré réel est non négatif, donc la négation est vraie.",
+        "en": "Every real square is nonnegative, so the negation is true."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E15",
+      "objectiveId": "L12-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "everyday-negation-of-all",
+        "no-instead-of-not-all"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Niez « Chaque employé connaît au moins une langue du catalogue » sans changer le domaine des employés.",
+        "en": "Negate 'Every employee knows at least one language in the catalog' without changing the employee domain."
+      },
+      "hint": {
+        "fr": "Une exception ne connaît aucune langue de ce catalogue.",
+        "en": "An exception knows no language from that catalog."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Un employé ne connaît aucune langue du catalogue.",
+            "en": "An employee knows no language from the catalog."
+          },
+          "feedback": {
+            "fr": "$\\neg\\forall e\\exists l\\ K(e,l)\\equiv\\exists e\\forall l\\ \\neg K(e,l)$, avec domaines fixés.",
+            "en": "$\\neg\\forall e\\exists l\\ K(e,l)\\equiv\\exists e\\forall l\\ \\neg K(e,l)$, with fixed domains."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Aucun employé ne connaît de langue.",
+            "en": "No employee knows a language."
+          },
+          "feedback": {
+            "fr": "La négation cible un employé qui échoue à l'existence, pas tous les employés.",
+            "en": "The negation targets one employee who fails existence, not all employees."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Tous les employés connaissent toutes les langues.",
+            "en": "Every employee knows every language."
+          },
+          "feedback": {
+            "fr": "La négation cible un employé qui échoue à l'existence, pas tous les employés.",
+            "en": "The negation targets one employee who fails existence, not all employees."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\neg\\forall e\\exists l\\ K(e,l)\\equiv\\exists e\\forall l\\ \\neg K(e,l)$, avec domaines fixés.",
+        "en": "$\\neg\\forall e\\exists l\\ K(e,l)\\equiv\\exists e\\forall l\\ \\neg K(e,l)$, with fixed domains."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E16",
+      "objectiveId": "L12-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "counterexample-misidentified"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $X=\\{1,2,3,4\\}$, $P(x)$ signifie « $x$ est impair ». Quel ensemble rassemble tous les contre-exemples à $\\forall x\\in X\\ P(x)$ ?",
+        "en": "Over $X=\\{1,2,3,4\\}$, $P(x)$ means \"$x$ is odd\". Which set contains all counterexamples to $\\forall x\\in X\\ P(x)$?"
+      },
+      "hint": {
+        "fr": "Cherchez les éléments pairs du domaine.",
+        "en": "Look for the even elements in the domain."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{1,3\\}$",
+            "en": "$\\{1,3\\}$"
+          },
+          "feedback": {
+            "fr": "Une exception doit échouer au prédicat « impair ».",
+            "en": "A counterexample must fail the predicate 'odd'."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{2,4\\}$",
+            "en": "$\\{2,4\\}$"
+          },
+          "feedback": {
+            "fr": "$2$ et $4$ sont les deux témoins de la négation existentielle.",
+            "en": "$2$ and $4$ are the two witnesses of the existential negation."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{1,2,3,4\\}$",
+            "en": "$\\{1,2,3,4\\}$"
+          },
+          "feedback": {
+            "fr": "Une exception doit échouer au prédicat « impair ».",
+            "en": "A counterexample must fail the predicate 'odd'."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$2$ et $4$ sont les deux témoins de la négation existentielle.",
+        "en": "$2$ and $4$ are the two witnesses of the existential negation."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E17",
+      "objectiveId": "L12-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "everyday-negation-of-exists",
+        "one-missing-instead-of-none"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle négation de « Il existe un code accepté par tous les serveurs » est exacte ?",
+        "en": "Which is the exact negation of 'There is a code accepted by all servers'?"
+      },
+      "hint": {
+        "fr": "Niez successivement l'existence d'un code et l'universalité des serveurs.",
+        "en": "Negate both the existence of a code and the universality over servers."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Aucun serveur n'accepte aucun code.",
+            "en": "No server accepts any code."
+          },
+          "feedback": {
+            "fr": "La négation laisse le serveur qui refuse dépendre du code.",
+            "en": "The negation lets the rejecting server depend on the code."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Au moins un code est refusé par tous les serveurs.",
+            "en": "At least one code is rejected by every server."
+          },
+          "feedback": {
+            "fr": "La négation laisse le serveur qui refuse dépendre du code.",
+            "en": "The negation lets the rejecting server depend on the code."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Pour chaque code, au moins un serveur le refuse.",
+            "en": "For each code, at least one server rejects it."
+          },
+          "feedback": {
+            "fr": "$\\neg\\exists c\\forall s\\ A(s,c)\\equiv\\forall c\\exists s\\ \\neg A(s,c)$.",
+            "en": "$\\neg\\exists c\\forall s\\ A(s,c)\\equiv\\forall c\\exists s\\ \\neg A(s,c)$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$\\neg\\exists c\\forall s\\ A(s,c)\\equiv\\forall c\\exists s\\ \\neg A(s,c)$.",
+        "en": "$\\neg\\exists c\\forall s\\ A(s,c)\\equiv\\forall c\\exists s\\ \\neg A(s,c)$."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E18",
+      "objectiveId": "L12-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "negating-only-the-predicate",
+        "strict-versus-non-strict"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $\\mathbb N$, niez « tout $n$ vérifie $n^2\\geq n$ ».",
+        "en": "Over $\\mathbb N$, negate 'every $n$ satisfies $n^2\\geq n$'."
+      },
+      "hint": {
+        "fr": "Nier $\\geq$ produit $<$.",
+        "en": "Negating $\\geq$ gives $<$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists n\\in\\mathbb N\\ (n^2<n)$",
+            "en": "$\\exists n\\in\\mathbb N\\ (n^2<n)$"
+          },
+          "feedback": {
+            "fr": "La négation formelle est existentielle ; elle est fausse sur $\\mathbb N$ puisque $n^2\\geq n$ pour chaque naturel.",
+            "en": "The formal negation is existential; it is false on $\\mathbb N$ since $n^2\\geq n$ for every natural."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall n\\in\\mathbb N\\ (n^2<n)$",
+            "en": "$\\forall n\\in\\mathbb N\\ (n^2<n)$"
+          },
+          "feedback": {
+            "fr": "Une négation universelle exige un témoin et inverse le signe de comparaison.",
+            "en": "Negating a universal requires a witness and reverses the comparison."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists n\\in\\mathbb N\\ (n^2=n)$",
+            "en": "$\\exists n\\in\\mathbb N\\ (n^2=n)$"
+          },
+          "feedback": {
+            "fr": "Une négation universelle exige un témoin et inverse le signe de comparaison.",
+            "en": "Negating a universal requires a witness and reverses the comparison."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La négation formelle est existentielle ; elle est fausse sur $\\mathbb N$ puisque $n^2\\geq n$ pour chaque naturel.",
+        "en": "The formal negation is existential; it is false on $\\mathbb N$ since $n^2\\geq n$ for every natural."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E19",
+      "objectiveId": "L12-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "negation-of-forall-as-forall-not"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $P$ vrai sur exactement un des trois éléments de $X$, quelles valeurs ont $\\neg\\forall x\\in X\\ P(x)$ et $\\forall x\\in X\\ \\neg P(x)$ ?",
+        "en": "For $P$ true on exactly one of three elements of $X$, what are the truth values of $\\neg\\forall x\\in X\\ P(x)$ and $\\forall x\\in X\\ \\neg P(x)$?"
+      },
+      "hint": {
+        "fr": "Il existe un échec de $P$, mais aussi un succès.",
+        "en": "There is a failure of $P$, but also a success."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vrai, faux.",
+            "en": "True, false."
+          },
+          "feedback": {
+            "fr": "Le premier est vrai grâce aux deux échecs, le second est faux à cause du succès.",
+            "en": "The first is true due to the two failures; the second is false due to the success."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Faux, vrai.",
+            "en": "False, true."
+          },
+          "feedback": {
+            "fr": "Ne confondez pas « au moins un échec » et « tous échouent ».",
+            "en": "Do not confuse 'at least one failure' with 'all fail'."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Vrai, vrai.",
+            "en": "True, true."
+          },
+          "feedback": {
+            "fr": "Ne confondez pas « au moins un échec » et « tous échouent ».",
+            "en": "Do not confuse 'at least one failure' with 'all fail'."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le premier est vrai grâce aux deux échecs, le second est faux à cause du succès.",
+        "en": "The first is true due to the two failures; the second is false due to the success."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E20",
+      "objectiveId": "L12-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "everyday-negation-of-all",
+        "no-instead-of-not-all"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un contrôle affirme « Tous les tickets sont résolus » et l'audit trouve un ticket ouvert. Quelle conclusion logique est justifiée ?",
+        "en": "A check states 'All tickets are resolved', and an audit finds one open ticket. Which logical conclusion follows?"
+      },
+      "hint": {
+        "fr": "Un témoin contredit l'universelle.",
+        "en": "A witness contradicts a universal claim."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Tous les tickets sont ouverts.",
+            "en": "All tickets are open."
+          },
+          "feedback": {
+            "fr": "Un seul ticket ouvert ne donne pas le statut de tous les autres.",
+            "en": "One open ticket says nothing about the statuses of all others."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Il existe un ticket non résolu ; l'universelle est fausse.",
+            "en": "There is an unresolved ticket; the universal is false."
+          },
+          "feedback": {
+            "fr": "Ce ticket constitue le témoin de $\\exists t\\ \\neg P(t)$.",
+            "en": "That ticket witnesses $\\exists t\\ \\neg P(t)$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Il n'existe aucun ticket résolu.",
+            "en": "No ticket is resolved."
+          },
+          "feedback": {
+            "fr": "Un seul ticket ouvert ne donne pas le statut de tous les autres.",
+            "en": "One open ticket says nothing about the statuses of all others."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Ce ticket constitue le témoin de $\\exists t\\ \\neg P(t)$.",
+        "en": "That ticket witnesses $\\exists t\\ \\neg P(t)$."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L12-E21",
+      "objectiveId": "L12-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "everyday-negation-of-exists",
+        "one-missing-instead-of-none"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur le domaine vide, quelle paire de valeurs est correcte pour $\\neg\\exists x\\ P(x)$ et $\\exists x\\ \\neg P(x)$ ?",
+        "en": "Over an empty domain, what is the correct truth-value pair for $\\neg\\exists x\\ P(x)$ and $\\exists x\\ \\neg P(x)$?"
+      },
+      "hint": {
+        "fr": "Aucune affirmation existentielle ne possède de témoin sur le vide.",
+        "en": "No existential claim has a witness over the empty set."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Faux, vrai.",
+            "en": "False, true."
+          },
+          "feedback": {
+            "fr": "Toute existentielle sur le vide est fausse ; sa négation est vraie.",
+            "en": "Every existential over an empty domain is false; its negation is true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Vrai, vrai.",
+            "en": "True, true."
+          },
+          "feedback": {
+            "fr": "Toute existentielle sur le vide est fausse ; sa négation est vraie.",
+            "en": "Every existential over an empty domain is false; its negation is true."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Vrai, faux.",
+            "en": "True, false."
+          },
+          "feedback": {
+            "fr": "Sur le vide, $\\exists x\\ P(x)$ et $\\exists x\\ \\neg P(x)$ sont fausses.",
+            "en": "On the empty set, both $\\exists x\\ P(x)$ and $\\exists x\\ \\neg P(x)$ are false."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Sur le vide, $\\exists x\\ P(x)$ et $\\exists x\\ \\neg P(x)$ sont fausses.",
+        "en": "On the empty set, both $\\exists x\\ P(x)$ and $\\exists x\\ \\neg P(x)$ are false."
+      },
+      "lessonId": "L12",
+      "version": 2,
+      "prerequisites": [
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          49,
+          50,
+          51
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

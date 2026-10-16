@@ -1,0 +1,438 @@
+{
+  "lessonId": "L11",
+  "version": 2,
+  "items": [
+    {
+      "objective": 1,
+      "prompt": [
+        "Sur $X=\\{1,2,3\\}$, laquelle est un prédicat avant choix de $x$ ?",
+        "Over $X=\\{1,2,3\\}$, which is a predicate before choosing $x$?"
+      ],
+      "hint": [
+        "Le prédicat contient une variable non encore fixée.",
+        "A predicate contains a variable not yet fixed."
+      ],
+      "options": [
+        "$x>1$",
+        "$2>1$",
+        "$1=1$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Les comparaisons de nombres donnés ont déjà une valeur de vérité.",
+        "Comparisons of fixed numbers already have a truth value."
+      ],
+      "explanation": [
+        "$x>1$ devient vrai ou faux selon la valeur choisie dans $X$.",
+        "$x>1$ becomes true or false depending on the chosen value in $X$."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Pour $P(t)$ : $t^2=9$ sur $\\mathbb Z$, que vaut $P(-3)$ ?",
+        "For $P(t)$: $t^2=9$ over $\\mathbb Z$, what is $P(-3)$?"
+      ],
+      "hint": [
+        "Remplacez $t$ par $-3$.",
+        "Substitute $t$ with $-3$."
+      ],
+      "options": [
+        [
+          "Vrai.",
+          "True."
+        ],
+        [
+          "Faux.",
+          "False."
+        ],
+        [
+          "Sans domaine.",
+          "Without a domain."
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Le domaine est précisé et $(-3)^2=9$.",
+        "The domain is given and $(-3)^2=9$."
+      ],
+      "explanation": [
+        "L'instance $P(-3)$ est vraie car $9=9$.",
+        "The instance $P(-3)$ is true because $9=9$."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Sur $X=\\{2,4,6\\}$, $P(x)$ signifie « $x$ est pair ». Quelle assertion est vraie ?",
+        "Over $X=\\{2,4,6\\}$, $P(x)$ means \"$x$ is even\". Which statement is true?"
+      ],
+      "hint": [
+        "Vérifiez chaque élément de $X$.",
+        "Check every element of $X$."
+      ],
+      "options": [
+        "$\\forall x\\in X\\ P(x)$",
+        "$\\forall x\\in X\\ \\neg P(x)$",
+        "$\\exists x\\in X\\ \\neg P(x)$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Tous les éléments de ce domaine sont pairs.",
+        "Every element of this domain is even."
+      ],
+      "explanation": [
+        "$2$, $4$ et $6$ vérifient $P$, donc la proposition universelle est vraie.",
+        "$2$, $4$ and $6$ satisfy $P$, so the universal claim holds."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Sur $X=\\{1,3,5\\}$, quelle valeur témoigne de $\\exists x\\in X\\ (x>4)$ ?",
+        "Over $X=\\{1,3,5\\}$, which value witnesses $\\exists x\\in X\\ (x>4)$?"
+      ],
+      "hint": [
+        "Le témoin appartient au domaine et satisfait la propriété.",
+        "A witness must belong to the domain and satisfy the condition."
+      ],
+      "options": [
+        "$3$",
+        "$5$",
+        "$6$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "$3$ ne dépasse pas $4$ et $6$ ne figure pas dans $X$.",
+        "$3$ is not above $4$ and $6$ is outside $X$."
+      ],
+      "explanation": [
+        "$5\\in X$ et $5>4$.",
+        "$5\\in X$ and $5>4$."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Sur quel domaine $\\forall x\\ (x\\geq0)$ est-elle vraie ?",
+        "Over which domain is $\\forall x\\ (x\\geq0)$ true?"
+      ],
+      "hint": [
+        "Un seul nombre négatif rend une universelle fausse.",
+        "One negative number falsifies a universal claim."
+      ],
+      "options": [
+        "$\\mathbb Z$",
+        "$\\mathbb R$",
+        "$\\mathbb N$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "Les entiers et les réels contiennent des nombres négatifs.",
+        "Integers and reals contain negative numbers."
+      ],
+      "explanation": [
+        "Dans ce cours, $\\mathbb N$ contient seulement $0,1,2,\\ldots$.",
+        "In this course, $\\mathbb N$ contains only $0,1,2,\\ldots$."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Sur $X=\\{\\text{Paris},\\text{Luxembourg}\\}$, soit $P(v)$ : « $v$ est une capitale ». Quelle assertion est vraie ?",
+        "Over $X=\\{\\text{Paris},\\text{Luxembourg}\\}$, let $P(v)$ mean \"$v$ is a capital\". Which claim is true?"
+      ],
+      "hint": [
+        "Les deux villes sont des capitales.",
+        "Both cities are capitals."
+      ],
+      "options": [
+        "$\\forall v\\in X\\ P(v)$",
+        "$\\forall v\\in X\\ \\neg P(v)$",
+        "$\\neg\\exists v\\in X\\ P(v)$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Les deux villes satisfont le prédicat, elles ne le réfutent pas.",
+        "Both cities satisfy the predicate; they do not refute it."
+      ],
+      "explanation": [
+        "Paris est capitale de la France et Luxembourg du Luxembourg.",
+        "Paris is France's capital and Luxembourg is Luxembourg's capital."
+      ]
+    },
+    {
+      "objective": 1,
+      "prompt": [
+        "$Q(a,b)$ : « $a+b$ est pair » sur $\\mathbb Z^2$. Quelle interprétation est correcte ?",
+        "$Q(a,b)$: \"$a+b$ is even\" over $\\mathbb Z^2$. Which interpretation is correct?"
+      ],
+      "hint": [
+        "Il faut donner des valeurs aux deux variables.",
+        "Both variables need values."
+      ],
+      "options": [
+        [
+          "$Q$ est toujours faux.",
+          "$Q$ is always false."
+        ],
+        [
+          "$Q$ dépend du couple choisi.",
+          "$Q$ depends on the chosen pair."
+        ],
+        [
+          "$Q$ possède déjà une valeur unique sans couple.",
+          "$Q$ already has one truth value without a pair."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "$Q(1,1)$ est vraie, mais $Q(1,2)$ est fausse.",
+        "$Q(1,1)$ is true but $Q(1,2)$ is false."
+      ],
+      "explanation": [
+        "La valeur du prédicat binaire varie avec $(a,b)$.",
+        "The binary predicate's value depends on $(a,b)$."
+      ]
+    },
+    {
+      "objective": 2,
+      "prompt": [
+        "Soit $P(x)$ : $x<0$ sur $X=\\{-2,0,2\\}$. Quelle paire de valeurs de $P$ est correcte ?",
+        "Let $P(x)$ mean $x<0$ over $X=\\{-2,0,2\\}$. Which pair of values of $P$ is correct?"
+      ],
+      "hint": [
+        "Zéro n'est pas strictement négatif.",
+        "Zero is not strictly negative."
+      ],
+      "options": [
+        [
+          "$P(-2)=1,\\ P(0)=0$",
+          "$P(-2)=1,\\ P(0)=0$"
+        ],
+        [
+          "$P(-2)=0,\\ P(0)=1$",
+          "$P(-2)=0,\\ P(0)=1$"
+        ],
+        [
+          "$P(-2)=1,\\ P(0)=1$",
+          "$P(-2)=1,\\ P(0)=1$"
+        ]
+      ],
+      "correct": 0,
+      "wrong": [
+        "Un strict inférieur exclut la valeur frontière $0$.",
+        "A strict inequality excludes boundary value $0$."
+      ],
+      "explanation": [
+        "$-2<0$ est vrai et $0<0$ est faux.",
+        "$-2<0$ is true and $0<0$ is false."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Sur $X=\\{0,1,2,3\\}$, que conclure de $\\forall x\\in X\\ (x<3)$ ?",
+        "Over $X=\\{0,1,2,3\\}$, what follows about $\\forall x\\in X\\ (x<3)$?"
+      ],
+      "hint": [
+        "Cherchez un seul contre-exemple.",
+        "Look for one counterexample."
+      ],
+      "options": [
+        [
+          "Vraie avec témoin $0$.",
+          "True with witness $0$."
+        ],
+        [
+          "Fausse à cause de $3$.",
+          "False because of $3$."
+        ],
+        [
+          "Vraie car $X$ est fini.",
+          "True because $X$ is finite."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Une universelle exige tous les éléments ; le fait qu'un élément passe ne suffit pas.",
+        "A universal claim needs all elements; one passing element is insufficient."
+      ],
+      "explanation": [
+        "$3\\in X$ et $3<3$ est faux.",
+        "$3\\in X$ and $3<3$ is false."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Sur $X=\\{4,6,8\\}$, quel témoin prouve $\\exists x\\in X\\ (x/3=2)$ ?",
+        "Over $X=\\{4,6,8\\}$, which witness proves $\\exists x\\in X\\ (x/3=2)$?"
+      ],
+      "hint": [
+        "Résolvez l'équation $x/3=2$ dans le domaine.",
+        "Solve $x/3=2$ within the domain."
+      ],
+      "options": [
+        "$4$",
+        "$8$",
+        "$6$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "$4/3$ et $8/3$ ne valent pas $2$.",
+        "$4/3$ and $8/3$ do not equal $2$."
+      ],
+      "explanation": [
+        "$6/3=2$ et $6$ appartient à $X$.",
+        "$6/3=2$ and $6$ belongs to $X$."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Soit $P(x)$ : $x^2<4$. Quelle assertion est vraie sur $X=\\{-1,0,1\\}$ mais fausse sur $Y=\\{-2,-1,0,1,2\\}$ ?",
+        "Let $P(x)$ mean $x^2<4$. Which assertion is true on $X=\\{-1,0,1\\}$ but false on $Y=\\{-2,-1,0,1,2\\}$?"
+      ],
+      "hint": [
+        "Vérifiez les bornes $-2$ et $2$.",
+        "Check the boundary values $-2$ and $2$."
+      ],
+      "options": [
+        "$\\forall x\\ P(x)$",
+        "$\\exists x\\ P(x)$",
+        "$\\exists x\\ \\neg P(x)$"
+      ],
+      "correct": 0,
+      "wrong": [
+        "Le changement de domaine affecte l'universelle ; l'existentielle reste vraie dans les deux.",
+        "The domain change affects the universal; the existential remains true in both."
+      ],
+      "explanation": [
+        "Tous les éléments de $X$ ont un carré inférieur à $4$, mais $P(2)$ est faux dans $Y$.",
+        "Every member of $X$ squares below $4$, but $P(2)$ is false in $Y$."
+      ]
+    },
+    {
+      "objective": 6,
+      "prompt": [
+        "Sur $X=\\{\\text{Riga},\\text{Vilnius},\\text{Bruxelles}\\}$, $P(v)$ signifie « $v$ est une capitale de l'UE ». Quel test réfuterait $\\forall v\\in X\\ P(v)$ ?",
+        "Over $X=\\{\\text{Riga},\\text{Vilnius},\\text{Bruxelles}\\}$, $P(v)$ means \"$v$ is an EU country capital\". What would refute $\\forall v\\in X\\ P(v)$?"
+      ],
+      "hint": [
+        "Il faudrait trouver dans $X$ une ville qui n'est pas capitale du pays visé.",
+        "You would need a member of $X$ that is not a capital of its country."
+      ],
+      "options": [
+        [
+          "Vérifier les trois villes.",
+          "Check all three cities."
+        ],
+        [
+          "Trouver une ville de $X$ qui ne satisfait pas $P$.",
+          "Find a city in $X$ that fails $P$."
+        ],
+        [
+          "Trouver une ville hors de $X$ qui ne satisfait pas $P$.",
+          "Find a city outside $X$ that fails $P$."
+        ]
+      ],
+      "correct": 1,
+      "wrong": [
+        "Seul un membre du domaine peut servir de contre-exemple ; une vérification n'est pas un contre-exemple.",
+        "Only a domain member can be a counterexample; checking is not itself a counterexample."
+      ],
+      "explanation": [
+        "Une assertion universelle est réfutée par un membre de son domaine qui échoue au prédicat.",
+        "A universal assertion is refuted by a domain member that fails the predicate."
+      ]
+    },
+    {
+      "objective": 3,
+      "prompt": [
+        "Dans $X=\\{0,2,4\\}$, $P(x)$ : « $x$ est pair ». Quel changement minimal rendrait $\\forall x\\in X\\ P(x)$ faux ?",
+        "In $X=\\{0,2,4\\}$, $P(x)$ means \"$x$ is even\". Which minimal change makes $\\forall x\\in X\\ P(x)$ false?"
+      ],
+      "hint": [
+        "Ajouter un contre-exemple au domaine suffit.",
+        "Adding one counterexample to the domain suffices."
+      ],
+      "options": [
+        [
+          "Ajouter $6$ à $X$.",
+          "Add $6$ to $X$."
+        ],
+        [
+          "Retirer $2$ de $X$.",
+          "Remove $2$ from $X$."
+        ],
+        [
+          "Ajouter $3$ à $X$.",
+          "Add $3$ to $X$."
+        ]
+      ],
+      "correct": 2,
+      "wrong": [
+        "Retirer ou ajouter un nombre pair laisse tous les membres pairs.",
+        "Removing or adding an even number leaves every member even."
+      ],
+      "explanation": [
+        "$3$ est impair ; sa présence suffit à réfuter « tous pairs ».",
+        "$3$ is odd; its presence refutes 'all even'."
+      ]
+    },
+    {
+      "objective": 4,
+      "prompt": [
+        "Sur $X=\\{-3,-1,1,3\\}$, combien de témoins satisfont $\\exists x\\in X\\ (x^2=9)$ ?",
+        "Over $X=\\{-3,-1,1,3\\}$, how many witnesses satisfy $\\exists x\\in X\\ (x^2=9)$?"
+      ],
+      "hint": [
+        "Une équation au carré peut avoir deux solutions opposées.",
+        "A squared equation can have opposite solutions."
+      ],
+      "options": [
+        "$1$",
+        "$2$",
+        "$4$"
+      ],
+      "correct": 1,
+      "wrong": [
+        "Seuls les deux nombres de valeur absolue $3$ conviennent.",
+        "Only the two numbers with absolute value $3$ work."
+      ],
+      "explanation": [
+        "$x=-3$ et $x=3$ satisfont l'égalité, contrairement à $\\pm1$.",
+        "$x=-3$ and $x=3$ satisfy the equality, unlike $\\pm1$."
+      ]
+    },
+    {
+      "objective": 5,
+      "prompt": [
+        "Un collègue conclut de $\\exists x\\in X\\ P(x)$ que $\\forall x\\in X\\ P(x)$. Quel modèle fini réfute ce raisonnement ?",
+        "From $\\exists x\\in X\\ P(x)$, a colleague infers $\\forall x\\in X\\ P(x)$. Which finite model refutes that?"
+      ],
+      "hint": [
+        "Cherchez un domaine ayant au moins un succès et au moins un échec.",
+        "Find a domain with at least one success and one failure."
+      ],
+      "options": [
+        "$X=\\{2,4\\},\\ P(x):x<5$",
+        [
+          "$X=\\varnothing$",
+          "$X=\\varnothing$"
+        ],
+        "$X=\\{2,5\\},\\ P(x):x<5$"
+      ],
+      "correct": 2,
+      "wrong": [
+        "Il faut un témoin et un contre-exemple dans le même domaine.",
+        "We need both a witness and a counterexample in the same domain."
+      ],
+      "explanation": [
+        "$2$ témoigne de $\\exists$, tandis que $5$ réfute $\\forall$.",
+        "$2$ witnesses $\\exists$, while $5$ refutes $\\forall$."
+      ]
+    }
+  ]
+}

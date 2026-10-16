@@ -1,0 +1,8 @@
+[
+  {"id":"L04-E08","kind":"table","formula":"A & (B | C)"},
+  {"id":"L04-E13","kind":"table","formula":"!(A | B) | C"},
+  {"id":"L04-E18","kind":"table","formula":"(A | B) & (!A | C)"},
+  {"kind":"equivalent","left":"A | (A & B)","right":"A","expected":true},
+  {"kind":"equivalent","left":"!(A & (B | C))","right":"!A | (!B & !C)","expected":true},
+  {"kind":"classify","formula":"(A & B) | !A | !B","expected":"tautology"}
+]

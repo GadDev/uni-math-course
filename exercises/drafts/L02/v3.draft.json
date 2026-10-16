@@ -1,0 +1,1285 @@
+{
+  "lessonId": "L02",
+  "version": 3,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L02-E07",
+      "objectiveId": "L02-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "or-notation-confused-with-and-or-not"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel symbole signifie « non $A$ » ?",
+        "en": "Which symbol means “not $A$”?"
+      },
+      "hint": {
+        "fr": "Repérez l'opérateur qui inverse une valeur de vérité.",
+        "en": "Find the operator that reverses a truth value."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A \\land B$",
+            "en": "$A \\land B$"
+          },
+          "feedback": {
+            "fr": "C'est une conjonction de deux propositions, pas une négation.",
+            "en": "This is a conjunction of two propositions, not a negation."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg A$",
+            "en": "$\\neg A$"
+          },
+          "feedback": {
+            "fr": "Exact : $\\neg$ inverse la valeur de $A$.",
+            "en": "Correct: $\\neg$ reverses the value of $A$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A \\lor B$",
+            "en": "$A \\lor B$"
+          },
+          "feedback": {
+            "fr": "C'est une disjonction inclusive, pas une négation.",
+            "en": "This is inclusive disjunction, not negation."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La négation de $A$ se note $\\neg A$.",
+        "en": "The negation of $A$ is written $\\neg A$."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E08",
+      "objectiveId": "L02-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "and-treated-as-or"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si $A=0$ et $B=1$, quelle est la valeur de $A \\land B$ ?",
+        "en": "If $A=0$ and $B=1$, what is the value of $A \\land B$?"
+      },
+      "hint": {
+        "fr": "Une conjonction requiert que les deux propositions soient vraies.",
+        "en": "A conjunction requires both propositions to be true."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Une seule valeur vraie ne suffit pas à rendre la conjonction vraie.",
+            "en": "One true value is insufficient to make the conjunction true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Valeur inconnue",
+            "en": "Unknown value"
+          },
+          "feedback": {
+            "fr": "Les deux valeurs sont données ; le résultat est déterminé.",
+            "en": "Both values are supplied; the result is determined."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Exact : $A$ est fausse, donc la conjonction est fausse.",
+            "en": "Correct: $A$ is false, so the conjunction is false."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$0 \\land 1=0$ : « et » exige deux valeurs égales à $1$.",
+        "en": "$0 \\land 1=0$: “and” requires two values equal to $1$."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E09",
+      "objectiveId": "L02-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "inclusive-or-treated-as-exclusive"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si $A=0$ et $B=1$, que vaut la disjonction inclusive $A \\lor B$ ?",
+        "en": "If $A=0$ and $B=1$, what is inclusive disjunction $A \\lor B$?"
+      },
+      "hint": {
+        "fr": "Pour « ou » inclusif, au moins une proposition vraie suffit.",
+        "en": "For inclusive “or”, at least one true proposition suffices."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Exact : $B$ est vraie.",
+            "en": "Correct: $B$ is true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Une disjonction n'exige pas que les deux termes soient vrais.",
+            "en": "A disjunction does not require both terms to be true."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Indéterminé",
+            "en": "Undetermined"
+          },
+          "feedback": {
+            "fr": "L'affectation fixe la valeur de chaque terme.",
+            "en": "The assignment fixes each term's value."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$0 \\lor 1=1$ ; il suffit d'un terme vrai.",
+        "en": "$0 \\lor 1=1$; one true term is enough."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E10",
+      "objectiveId": "L02-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "negation-scope-misread"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $A=1$ et $B=0$, calculez $(\\neg A)\\lor B$.",
+        "en": "For $A=1$ and $B=0$, compute $(\\neg A)\\lor B$."
+      },
+      "hint": {
+        "fr": "Commencez par la négation de $A$.",
+        "en": "Start with the negation of $A$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "$\\neg A=0$ et $B=0$ : aucun terme n'est vrai.",
+            "en": "$\\neg A=0$ and $B=0$: neither term is true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Exact : la disjonction de deux valeurs fausses est fausse.",
+            "en": "Correct: the disjunction of two false values is false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Aucune valeur",
+            "en": "No value"
+          },
+          "feedback": {
+            "fr": "La formule est déterminée par les valeurs données.",
+            "en": "The supplied values determine the formula."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$\\neg 1=0$, puis $0\\lor0=0$.",
+        "en": "$\\neg 1=0$, then $0\\lor0=0$."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E11",
+      "objectiveId": "L02-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "negation-forgotten"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule est vraie quelle que soit la valeur de $A$ ?",
+        "en": "Which formula is true regardless of the value of $A$?"
+      },
+      "hint": {
+        "fr": "Testez $A=0$ puis $A=1$.",
+        "en": "Test $A=0$ and then $A=1$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A\\land\\neg A$",
+            "en": "$A\\land\\neg A$"
+          },
+          "feedback": {
+            "fr": "Une proposition et sa négation ne peuvent pas être vraies ensemble.",
+            "en": "A proposition and its negation cannot both be true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A\\land A$",
+            "en": "$A\\land A$"
+          },
+          "feedback": {
+            "fr": "Cette formule est fausse lorsque $A=0$.",
+            "en": "This formula is false when $A=0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\lor\\neg A$",
+            "en": "$A\\lor\\neg A$"
+          },
+          "feedback": {
+            "fr": "Exact : l'un des deux termes est toujours vrai.",
+            "en": "Correct: one of the terms is always true."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Pour $A=0$ ou $A=1$, $A\\lor\\neg A$ vaut $1$.",
+        "en": "For $A=0$ or $A=1$, $A\\lor\\neg A$ has value $1$."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E12",
+      "objectiveId": "L02-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "missing-parentheses-with-mixed-connectives"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $A=1$, $B=0$, $C=1$, que vaut $A\\land(B\\lor C)$ ?",
+        "en": "For $A=1$, $B=0$, $C=1$, what is $A\\land(B\\lor C)$?"
+      },
+      "hint": {
+        "fr": "Calculez d'abord l'expression entre parenthèses.",
+        "en": "Evaluate the parenthesized expression first."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Exact : $B\\lor C=1$, puis $A\\land1=1$.",
+            "en": "Correct: $B\\lor C=1$, then $A\\land1=1$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Prendre $B$ seul et ignorer $C$ ferait perdre la valeur vraie de la parenthèse.",
+            "en": "Using $B$ alone and ignoring $C$ loses the true value of the parentheses."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Non défini",
+            "en": "Undefined"
+          },
+          "feedback": {
+            "fr": "Toutes les variables et les parenthèses sont définies.",
+            "en": "All variables and parentheses are defined."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$B\\lor C=0\\lor1=1$, donc $A\\land(B\\lor C)=1\\land1=1$.",
+        "en": "$B\\lor C=0\\lor1=1$, hence $A\\land(B\\lor C)=1\\land1=1$."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E13",
+      "objectiveId": "L02-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "inclusive-or-treated-as-exclusive"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$A$ signifie « le laboratoire est ouvert », $B$ « la bibliothèque est ouverte ». Quelle formule signifie « au moins un des deux lieux est ouvert » ?",
+        "en": "$A$ means “the laboratory is open” and $B$ “the library is open.” Which formula means “at least one of the two places is open”?"
+      },
+      "hint": {
+        "fr": "« Au moins un » permet aussi que les deux soient ouverts.",
+        "en": "“At least one” also allows both to be open."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A\\land B$",
+            "en": "$A\\land B$"
+          },
+          "feedback": {
+            "fr": "Cette formule exige les deux lieux ouverts.",
+            "en": "This formula requires both places to be open."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A\\lor B$",
+            "en": "$A\\lor B$"
+          },
+          "feedback": {
+            "fr": "Exact : le « ou » inclusif comprend un lieu ou les deux.",
+            "en": "Correct: inclusive “or” covers one place or both."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg A\\land\\neg B$",
+            "en": "$\\neg A\\land\\neg B$"
+          },
+          "feedback": {
+            "fr": "Cette formule indique que les deux lieux sont fermés.",
+            "en": "This formula says both places are closed."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "« Au moins un » correspond à la disjonction inclusive $A\\lor B$.",
+        "en": "“At least one” corresponds to inclusive disjunction $A\\lor B$."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E14",
+      "objectiveId": "L02-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "and-treated-as-or"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour accéder à une salle, il faut une carte valide $A$ et un code correct $B$. La carte est valide, le code est incorrect. Que vaut $A\\land B$ ?",
+        "en": "Entering a room requires a valid card $A$ and a correct code $B$. The card is valid but the code is wrong. What is $A\\land B$?"
+      },
+      "hint": {
+        "fr": "Les deux conditions doivent être satisfaites simultanément.",
+        "en": "Both conditions must hold simultaneously."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Exact : $A=1$, $B=0$, et $1\\land0=0$.",
+            "en": "Correct: $A=1$, $B=0$, and $1\\land0=0$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Une carte valide ne compense pas un code incorrect pour un « et ».",
+            "en": "A valid card does not compensate for an incorrect code in an “and” condition."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "La valeur dépend de l'utilisateur.",
+            "en": "It depends on the user."
+          },
+          "feedback": {
+            "fr": "Les deux faits nécessaires sont déjà donnés.",
+            "en": "Both required facts are already specified."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le contrôle conjoint échoue si l'une des deux conditions est fausse.",
+        "en": "The joint check fails when either condition is false."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E15",
+      "objectiveId": "L02-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "inclusive-or-treated-as-exclusive"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$A=1$ et $B=1$. Quelle distinction entre « $A$ ou $B$ » inclusif et « exactement un des deux » est correcte ?",
+        "en": "$A=1$ and $B=1$. Which distinction between inclusive “$A$ or $B$” and “exactly one of them” is correct?"
+      },
+      "hint": {
+        "fr": "Les deux propositions vraies satisfont « au moins une », pas « exactement une ».",
+        "en": "Both true propositions satisfy “at least one,” not “exactly one.”"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Les deux affirmations sont vraies.",
+            "en": "Both claims are true."
+          },
+          "feedback": {
+            "fr": "« Exactement un » échoue lorsque les deux sont vrais.",
+            "en": "“Exactly one” fails when both are true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Les deux affirmations sont fausses.",
+            "en": "Both claims are false."
+          },
+          "feedback": {
+            "fr": "Le « ou » inclusif est vrai dès qu'au moins un terme est vrai.",
+            "en": "Inclusive “or” is true when at least one term is true."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Le « ou » inclusif est vrai ; « exactement un » est faux.",
+            "en": "Inclusive “or” is true; “exactly one” is false."
+          },
+          "feedback": {
+            "fr": "Exact : il y a deux propositions vraies.",
+            "en": "Correct: both propositions are true."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$A\\lor B=1$ avec deux valeurs vraies, tandis que « exactement un » n'est pas satisfait.",
+        "en": "$A\\lor B=1$ with both values true, while “exactly one” is not satisfied."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E16",
+      "objectiveId": "L02-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "de-morgan-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $A=0$ et $B=0$, que vaut $\\neg(A\\lor B)$ ?",
+        "en": "For $A=0$ and $B=0$, what is $\\neg(A\\lor B)$?"
+      },
+      "hint": {
+        "fr": "Évaluez le « ou » avant de le nier.",
+        "en": "Evaluate “or” before negating it."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Le « ou » intérieur vaut $0$ ; la négation le rend vrai.",
+            "en": "The inner “or” is $0$; negation makes it true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Exact : $\\neg(0\\lor0)=\\neg0=1$.",
+            "en": "Correct: $\\neg(0\\lor0)=\\neg0=1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Indéterminé",
+            "en": "Undetermined"
+          },
+          "feedback": {
+            "fr": "Les deux valeurs sont fixées et la formule est complète.",
+            "en": "Both values are fixed and the formula is complete."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$A\\lor B=0$ puis sa négation vaut $1$.",
+        "en": "$A\\lor B=0$, and its negation is $1$."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E17",
+      "objectiveId": "L02-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "missing-parentheses-with-mixed-connectives",
+        "and-or-swapped"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour quelle affectation les formules $(A\\lor B)\\land C$ et $A\\lor(B\\land C)$ ont-elles des valeurs différentes ?",
+        "en": "Under which assignment do $(A\\lor B)\\land C$ and $A\\lor(B\\land C)$ have different truth values?"
+      },
+      "hint": {
+        "fr": "Une formule exige $C$, tandis que l'autre peut être vraie grâce à $A$ seul.",
+        "en": "One formula requires $C$, while the other can be true from $A$ alone."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A=0, B=0, C=0$",
+            "en": "$A=0, B=0, C=0$"
+          },
+          "feedback": {
+            "fr": "Les deux formules valent $0$ ici.",
+            "en": "Both formulas have value $0$ here."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A=1, B=0, C=1$",
+            "en": "$A=1, B=0, C=1$"
+          },
+          "feedback": {
+            "fr": "Les deux formules valent $1$ ici.",
+            "en": "Both formulas have value $1$ here."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A=1, B=0, C=0$",
+            "en": "$A=1, B=0, C=0$"
+          },
+          "feedback": {
+            "fr": "Exact : la première vaut $0$, la seconde $1$.",
+            "en": "Correct: the first is $0$, the second $1$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Avec $(1,0,0)$, $(1\\lor0)\\land0=0$, mais $1\\lor(0\\land0)=1$.",
+        "en": "With $(1,0,0)$, $(1\\lor0)\\land0=0$, but $1\\lor(0\\land0)=1$."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E18",
+      "objectiveId": "L02-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "contradiction-confused-with-tautology"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Deux capteurs indépendants $A$ et $B$ peuvent être vrais ou faux. En mode test, une alarme ne doit jamais s'activer, quelle que soit leur combinaison. Quelle formule garantit ce résultat ?",
+        "en": "Two independent sensors $A$ and $B$ may be true or false. In test mode, an alarm must never activate, whatever their combination. Which formula guarantees this?"
+      },
+      "hint": {
+        "fr": "Une formule qui vaut toujours $0$ reste fausse même lorsque les deux capteurs sont actifs.",
+        "en": "A formula that is always $0$ stays false even when both sensors are active."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(A\\lor B)\\land\\neg(A\\lor B)$",
+            "en": "$(A\\lor B)\\land\\neg(A\\lor B)$"
+          },
+          "feedback": {
+            "fr": "Exact : $X\\land\\neg X$ vaut $0$ pour toute valeur de $X=A\\lor B$.",
+            "en": "Correct: $X\\land\\neg X$ is $0$ for either value of $X=A\\lor B$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A\\land\\neg B$",
+            "en": "$A\\land\\neg B$"
+          },
+          "feedback": {
+            "fr": "Si $A=1$ et $B=0$, l'alarme s'activerait.",
+            "en": "With $A=1$ and $B=0$, the alarm would activate."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg(A\\land B)$",
+            "en": "$\\neg(A\\land B)$"
+          },
+          "feedback": {
+            "fr": "Si $A=B=0$, cette formule vaut $1$.",
+            "en": "With $A=B=0$, this formula is $1$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "En posant $X=A\\lor B$, on obtient $X\\land\\neg X=0$ pour les quatre combinaisons des deux capteurs.",
+        "en": "With $X=A\\lor B$, we get $X\\land\\neg X=0$ for all four sensor combinations."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E19",
+      "objectiveId": "L02-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "inclusive-or-treated-as-exclusive"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une alerte suit la règle $(A\\lor B)\\land\\neg C$ : $A$ signifie « chaleur », $B$ « fumée », et $C$ « mode maintenance ». Les trois conditions sont vraies. Le système affiche-t-il l'alerte ?",
+        "en": "An alert follows $(A\\lor B)\\land\\neg C$: $A$ means “heat”, $B$ “smoke”, and $C$ “maintenance mode”. All three conditions are true. Does the system show an alert?"
+      },
+      "hint": {
+        "fr": "Le « ou » inclusif accepte les deux capteurs, puis le mode maintenance peut bloquer le résultat.",
+        "en": "Inclusive “or” accepts both sensors, but maintenance mode may block the result."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui : les deux capteurs annulent la condition de maintenance.",
+            "en": "Yes: two sensors override maintenance mode."
+          },
+          "feedback": {
+            "fr": "Le « et » final exige aussi $\\neg C=1$ ; les capteurs ne contournent pas cet obstacle.",
+            "en": "The final “and” also requires $\\neg C=1$; sensors do not bypass it."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non : $A\\lor B=1$, mais $\\neg C=0$.",
+            "en": "No: $A\\lor B=1$, but $\\neg C=0$."
+          },
+          "feedback": {
+            "fr": "Exact : la conjonction finale est fausse malgré les deux capteurs actifs.",
+            "en": "Correct: the final conjunction is false despite both sensors being active."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Impossible à décider : les trois conditions sont vraies.",
+            "en": "Impossible to decide: all three conditions are true."
+          },
+          "feedback": {
+            "fr": "Toutes les valeurs sont fournies ; il faut appliquer la formule.",
+            "en": "All values are supplied; evaluate the formula."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$(1\\lor1)\\land\\neg1=1\\land0=0$ : le mode maintenance bloque l'alerte.",
+        "en": "$(1\\lor1)\\land\\neg1=1\\land0=0$: maintenance mode blocks the alert."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E20",
+      "objectiveId": "L02-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "negation-scope-misread",
+        "missing-parentheses-with-mixed-connectives"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un audit utilise la formule de blocage $\\neg((A\\land B)\\lor C)$, avec $A$, $B$ et $C$ booléens. Un élève affirme : « Si $A=1$, le blocage vaut toujours $0$. » Quelle affectation réfute son affirmation ?",
+        "en": "An audit uses the blocking formula $\\neg((A\\land B)\\lor C)$, with Boolean $A$, $B$ and $C$. A student claims: “If $A=1$, blocking is always $0$.” Which assignment refutes the claim?"
+      },
+      "hint": {
+        "fr": "Cherchez un cas avec $A=1$ qui rende la partie intérieure fausse.",
+        "en": "Find a case with $A=1$ that makes the inner expression false."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A=1, B=1, C=0$",
+            "en": "$A=1, B=1, C=0$"
+          },
+          "feedback": {
+            "fr": "Ici $A\\land B=1$ ; la formule de blocage vaut $0$ et ne réfute pas l'affirmation.",
+            "en": "Here $A\\land B=1$; blocking is $0$ and does not refute the claim."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A=1, B=0, C=1$",
+            "en": "$A=1, B=0, C=1$"
+          },
+          "feedback": {
+            "fr": "Ici $C=1$, donc la formule de blocage vaut $0$.",
+            "en": "Here $C=1$, so blocking is $0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A=1, B=0, C=0$",
+            "en": "$A=1, B=0, C=0$"
+          },
+          "feedback": {
+            "fr": "Exact : la formule de blocage vaut $1$ et constitue un contre-exemple.",
+            "en": "Correct: the blocking formula is $1$, providing a counterexample."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Pour $(1,0,0)$, $\\neg((1\\land0)\\lor0)=1$. Un seul cas contredit « toujours $0$ ».",
+        "en": "For $(1,0,0)$, $\\neg((1\\land0)\\lor0)=1$. One case refutes “always $0$”."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L02-E21",
+      "objectiveId": "L02-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "and-treated-as-or"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une porte s'ouvre par le contrôle $(A\\land B)\\lor(B\\land C)$ : deux chemins possibles, chacun exigeant deux validations. Quelle validation, si elle échoue seule, garantit une porte fermée quelles que soient les deux autres valeurs ?",
+        "en": "A door opens under the condition $(A\\land B)\\lor(B\\land C)$: two possible paths, each requiring two checks. Which one failed check guarantees that the door stays closed regardless of the other two values?"
+      },
+      "hint": {
+        "fr": "Cherchez la condition commune aux deux chemins, puis testez l'autre chemin quand un contrôle échoue.",
+        "en": "Find the condition common to both paths, then test the remaining path when a check fails."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A=0$",
+            "en": "$A=0$"
+          },
+          "feedback": {
+            "fr": "Le chemin $B\\land C$ peut encore être vrai si $B=C=1$.",
+            "en": "The path $B\\land C$ can still be true if $B=C=1$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$B=0$",
+            "en": "$B=0$"
+          },
+          "feedback": {
+            "fr": "Exact : $B$ est obligatoire dans les deux chemins, qui valent alors $0$.",
+            "en": "Correct: $B$ is required by both paths, which are then both $0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$C=0$",
+            "en": "$C=0$"
+          },
+          "feedback": {
+            "fr": "Le chemin $A\\land B$ peut encore être vrai si $A=B=1$.",
+            "en": "The path $A\\land B$ can still be true if $A=B=1$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "On factorise : $(A\\land B)\\lor(B\\land C)=B\\land(A\\lor C)$. Avec $B=0$, aucun chemin ne peut s'ouvrir ; la vérification directe des deux termes confirme.",
+        "en": "Factorising gives $(A\\land B)\\lor(B\\land C)=B\\land(A\\lor C)$. With $B=0$, neither path can open; checking both terms directly confirms this."
+      },
+      "lessonId": "L02",
+      "version": 3,
+      "prerequisites": [
+        "L01"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}
