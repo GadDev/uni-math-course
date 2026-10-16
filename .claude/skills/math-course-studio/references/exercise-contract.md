@@ -6,10 +6,10 @@ Re-read `scripts/check-content.mjs` before generating. This file explains the in
 
 | Rule | Consequence for generation |
 | --- | --- |
-| `bank.lessonId` matches `^L\d{2}$`, positive integer `version`, `exerciseCount === 6`, six exercises | Exactly six items per bank |
-| Item IDs `Lxx-E01`…`Lxx-E06`, unique | Number items in order |
-| `objectiveId` `Lxx-O01`…`Lxx-O06`, unique, one item per objective | One item per objective; six objectives |
-| `difficulty` ∈ `foundation`, `application` | No other labels |
+| `bank.lessonId` matches `^L\d{2}$`, positive integer `version`, `exerciseCount === exercises.length`, at least six exercises | Count is flexible; every objective must remain covered |
+| Item IDs `Lxx-E01`…`Lxx-E99` (and beyond), unique within a bank | Use unused IDs for new questions so they can provide fresh evidence |
+| `objectiveId` `Lxx-O01`…`Lxx-O06`; all six represented | Multiple items may assess the same objective |
+| `difficulty` ∈ `easy`, `medium`, `hard`, `foundation`, `application` | Prefer the first three for new items; legacy values are archival compatibility |
 | `prerequisites` and `misconceptions` non-empty | Always tag |
 | `provenance.origin === "original-project-work"`; `coveragePages` non-empty and **identical across the bank** | Cite the lesson's `sourcePages` on every item |
 | `grading.rejectUnknownFields === true` | Keep it |
@@ -27,7 +27,7 @@ Example correction version 2: choose the next unused version for the actual less
 {
   "id": "L05-E01",
   "objectiveId": "L05-O01",
-  "difficulty": "foundation",
+  "difficulty": "easy",
   "misconceptions": ["implication-failure"],
   "type": "single-choice",
   "prompt": { "fr": "…", "en": "…" },
@@ -55,7 +55,7 @@ Example correction version 2: choose the next unused version for the actual less
 }
 ```
 
-Example bank envelope: `{ "lessonId", "version": 2, "status": "review-candidate", "exerciseCount": 6, "exercises": [...] }`.
+Example bank envelope: `{ "lessonId", "version": 2, "status": "review-candidate", "exerciseCount": 15, "exercises": [...] }`.
 
 ## Truth-table specifics
 
@@ -82,7 +82,7 @@ Derive `answer` by computation (script or hand enumeration of all 2ⁿ rows), ne
 
 ## Limits that surprise people
 
-- A bank is **exactly six items, one per objective**. "Add more exercises to L07" cannot be satisfied inside the checker; offer alternative drafts for existing items or flag it to maintainers.
+- A bank may contain **as many items as the authoring goal needs**, with all six objectives covered. For the default expansion, draft 5 easy + 5 medium + 5 hard new items; the quota is a request, not a universal schema maximum. Newly added IDs must not collide with IDs in archived banks.
 - Only `single-choice` and `truth-table` exist. Sets, relations and quantifier lessons usually have no truth-table material.
 - Version selection is explicit in `content/releases.json`, not inferred from filenames or bank `status`. A structurally valid draft is not a reviewed or selected release. Missing records/files are errors, not a reason to fall back to v1.
 - The `drafts/` folder escapes the content check only because its name does not match `^L\d{2}$` (re-confirm in the script each run). Do not rename it to look like a lesson ID.
@@ -94,6 +94,7 @@ Derive `answer` by computation (script or hand enumeration of all 2ⁿ rows), ne
 
 - Review the registry-selected `exercises/<Lxx>/v<N>.json`. Read archives only for an explicit historical comparison. `validate-draft.mjs --list-tags` collects tags from each registry-selected bank, including withdrawn practice records; it does not aggregate historical versions.
 - Draft files: `exercises/drafts/<Lxx>/v<N>.draft.json` plus `generation-notes.md` (and optional `proposed-types.md`, `answer-checks.json`). Use the next unused version for a correction. Keep the bank's `status` as `review-candidate` and notes explicitly unreviewed. Replace placeholders before running commands.
+- For a larger **new single-choice** batch, optionally author `spec.json` with all complete item-specific fields, then run `node scripts/assemble-exercise-draft.mjs exercises/drafts/<Lxx>/spec.json`; keep the source spec and generated draft together. The assembler copies metadata but never invents a prompt, distractor, answer or justification. It rejects reused exercise IDs to protect fresh-item identity; correction drafts can be authored directly.
 - Validate structure, lesson alignment and notation parity: `node .claude/skills/math-course-studio/scripts/validate-draft.mjs exercises/drafts/<Lxx>/v<N>.draft.json`.
 - Validate propositional truth-table keys against a formula: `node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/drafts/<Lxx>/v<N>.draft.json exercises/drafts/<Lxx>/answer-checks.json` (format in `reasoning-protocols.md`). These checks do not verify the release registry or certify mathematical/translation review.
 - Stop at the draft unless promotion is requested. Do not update release fingerprints to make a draft pass.
@@ -102,7 +103,7 @@ For a separately authorized promotion:
 
 An in-place correction request does not make hash renewal a safe workaround: the separate immutable-bank gate rejects archive edits. Explain the consequence and offer an unused-version draft. A deliberate policy override needs its own version/history migration scope and cannot be presented as an ordinary content correction.
 
-1. Add the new immutable `exercises/<Lxx>/v<N>.json`; never replace, delete or rename an existing bank. Preserve stable exercise IDs for corrections. An already-seen ID remains practice-only across versions; fresh-evidence item design is a separate contract decision under the six-ID limit.
+1. Add the new immutable `exercises/<Lxx>/v<N>.json`; never replace, delete or rename an existing bank. Preserve stable exercise IDs for corrections and allocate fresh IDs for new questions. An already-seen ID remains practice-only across versions.
 2. Record actual mathematical and French/English review for the changed material in an evidence document. Old review evidence does not automatically certify a new version. Existing unreviewed exceptions do not authorize additional exceptions; any exception requires an explicit owner decision. Never fabricate reviewer names or dates.
 3. Select the new version in `content/releases.json` and renew its mathematical/translation review states and evidence as appropriate. Update SHA-256 fingerprints for the selected bank and both full lesson files only after the review decision. If the French source changed, deliberately renew `translation.sourceFingerprint` after checking English fidelity or obtaining an explicit authorized exception; refreshing only `fingerprints` is insufficient. Paired lesson frontmatter versions must match each other; they are separate from bank version selection.
 4. Preserve any `practice: false` withdrawal unless reactivation is explicitly requested. Keep its reading freshness records and historical banks; never remove a record to bypass checks.
@@ -124,7 +125,7 @@ Selected base version, proposed unused version, registry review/translation stat
 Objective → source pages → source-taught / prerequisite / enrichment.
 
 ## Editorial difficulty
-Per item: objective, easy/medium/hard level, stored label, taught prerequisites, scaffolding, concise demand rationale, similarity to worked examples and uncertainty. Use bank-design section 1b; no forced split or schema additions.
+Per item: objective, easy/medium/hard level, taught prerequisites, scaffolding, concise demand rationale, similarity to worked examples and uncertainty. Use bank-design section 1b; apply the requested split, without pretending that the levels are learner-calibrated.
 
 ## Reasoning trace
 One tree-of-thoughts block per item (see reasoning-protocols.md section 5).
