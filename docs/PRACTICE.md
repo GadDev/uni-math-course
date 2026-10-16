@@ -37,6 +37,12 @@ When another tab replaces the browser session, the old activity cannot submit it
 
 Before sending an answer, the activity snapshots its choices and hint flag under the existing submission ID and persists them in the tab draft. Choices and hints stay locked until a save is confirmed, including after a network failure, reload or language change. “Check saved response” retries the same snapshot and ID; it does not create a distinct attempt. The API returns the stored response/version/hint flag for both new and duplicate submissions, and feedback displays those recorded choices. A learner can start a distinct attempt through the feedback retry action, which allocates a new submission ID.
 
+Submission waiting is bounded to 15 seconds, including response-body reading. A timeout or lost acknowledgement means the save is **unconfirmed**, not definitely absent: the server may have committed after the browser stopped waiting. The bilingual notice offers exact-snapshot replay with the original submission ID; no automatic retry or new ID is introduced. The deadline timer is cleared when the request settles.
+
+A `409 version_mismatch` has a separate bilingual explanation and disables repeat submission of that stale version. An explicit current-version action reloads exercise data, keeps the selected exercise by ID where available, discards incompatible versioned answers, and preserves compatible drafts for other exercises. It never automatically submits an old answer to the current version. Persisted attempt history is unaffected.
+
+A submission `401` keeps the sign-in action and the existing activity snapshot while that activity remains open. Same-learner renewal can retry that snapshot. This does not override the privacy policy: confirmed anonymous/logout tab revalidation or an account change clears private drafts; restoration through a sign-in navigation is not guaranteed. The visible footnote distinguishes tab-local unfinished answers from persisted history and explains that closing the tab or unavailable browser storage can lose unfinished work.
+
 Legacy cached feedback without a recorded response is resolved against its existing submission ID before being shown. Storage remains best-effort: if sessionStorage is blocked or the tab is closed, the local snapshot may be unavailable; an already saved attempt remains in server history. Navigating away does not guarantee that an in-flight request was cancelled or saved. Hosted acceptance remains separate.
 
 ## Data and keys
