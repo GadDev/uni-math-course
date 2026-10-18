@@ -1,11 +1,11 @@
 ---
 lessonId: L35
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Calculer et justifier les moindres carrés"
 summary: "Compléter le carré pour obtenir la meilleure droite, puis programmer le calcul."
-minutes: 25
+minutes: 45
 objectives: [L35-O01, L35-O02, L35-O03, L35-O04, L35-O05, L35-O06]
 prerequisites: [L22, L26, L34]
 sourcePages: [68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79]
@@ -23,21 +23,116 @@ sourcePages: [68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79]
 
 Prérequis : L22, L26, L34. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
 
-## Compléter le carré
+<span id="pdf-68" class="source-topic-marker"></span>
+
+## La formule : ce que l’on cherche à calculer
+
+**PDF, page 68.** Si les abscisses ne sont pas toutes égales, $S_{xx}>0$ et la meilleure droite pour prédire $y$ à partir de $x$ est donnée par $m=S_{xy}/S_{xx}$ puis $p=\bar y-m\bar x$. Calculer d’abord les moyennes, puis les écarts, puis les sommes : les symboles ne remplacent pas ces étapes.
+
+La droite passe par le point moyen $(\bar x,\bar y)$ : remplacer $x$ par $\bar x$ donne $m\bar x+(\bar y-m\bar x)=\bar y$. Nous allons justifier la formule sans dérivées, comme le PDF, en utilisant les identités remarquables et les sommes. Commencer par le carré ci-dessous ; le calcul complet sur quatre années vient ensuite. Le petit jeu de trois observations et le code sont des exemples supplémentaires conservés.
+
+<p class="source-next"><a href="/fr/lessons/L35/#pdf-69">Suite du PDF : Compléter le carré →</a></p>
+
+<span id="pdf-69" class="source-topic-marker"></span>
+
+## Compléter le carré : construire la réécriture
+
+**Exemple du PDF, page 69.** Pour transformer $x^2+6x+1$, chercher un carré $(x+a)^2=x^2+2ax+a^2$. Le coefficient $6$ impose $2a=6$, donc $a=3$.
+
+1. Ajouter puis retirer le même nombre : $x^2+6x+1=x^2+6x+9-9+1$.
+2. Reconnaître le carré : $(x+3)^2-8$.
+3. Utiliser son signe : $(x+3)^2\ge0$, donc la valeur est au moins $-8$.
+4. Atteindre cette valeur : $x=-3$ annule le carré, donc le minimum vaut $-8$.
+
+La recette générale est $x^2+bx=(x+b/2)^2-b^2/4$. **Exemple supplémentaire :** $x^2-4x+7=(x-2)^2+3$ a pour minimum $3$, atteint en $x=2$. Le dessin montre le point le plus bas ; le calcul prouve qu’aucune autre valeur n’est plus petite. Pour un coefficient dominant positif $A$, on peut d’abord le mettre en facteur avant d’appliquer la même idée.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/complete-square.svg" alt="Parabole y égale x carré plus 6x plus 1, minimum en moins 3,moins 8." width="440" height="360" loading="lazy" />
+<figcaption>Le carré est nul au sommet et non négatif ailleurs.</figcaption>
+</figure>
+
+## Exemple supplémentaire : un autre minimum
 
 L’identité $m^2-6m+11=(m-3)^2+2$ montre un minimum égal à $2$, atteint uniquement à $m=3$. Plus généralement, $Am^2-2Bm+C=A(m-B/A)^2+C-B^2/A$ pour $A>0$. Cette méthode trouve le minimum sans dérivées, car le carré est positif ou nul.
 
-## Étape 1 : fixer la pente
+<p class="source-next"><a href="/fr/lessons/L35/#pdf-70">Suite du PDF : Preuve : le meilleur p →</a></p>
 
-Écrire $X_i=x_i-\bar x$, $Y_i=y_i-\bar y$ et $q=\bar y-m\bar x-p$. Alors $e_i=Y_i-mX_i+q$. Comme les sommes des écarts centrés sont nulles, le développement donne $S(m,p)=\sum_i(Y_i-mX_i)^2+nq^2$. Pour une pente fixée et $n\ge1$, le minimum en $p$ est unique : $p=\bar y-m\bar x$. La droite optimale passe donc par le point moyen.
+<span id="pdf-70" class="source-topic-marker"></span>
 
-## Étape 2 : optimiser la pente
+## Preuve, première partie : le meilleur p
 
-Avec cet intercept, la perte devient $S_{yy}-2mS_{xy}+m^2S_{xx}$. Si $S_{xx}>0$, compléter le carré donne $S_{xx}(m-S_{xy}/S_{xx})^2+S_{yy}-S_{xy}^2/S_{xx}$. Le minimum unique est donc atteint pour $m=S_{xy}/S_{xx}$ et $p=\bar y-m\bar x$. La perte minimale est $S_{yy}-S_{xy}^2/S_{xx}$.
+**Chemin de calcul du PDF, pages 70–71 — preuve expliquée.** Fixer $m$ signifie choisir provisoirement une pente, puis ne faire varier que l’intercept $p$. Poser $r_i=y_i-mx_i$ donne $e_i=r_i-p$. Développer avec l’identité remarquable :
+
+$$S(m,p)=\sum_i(r_i-p)^2=\sum_i r_i^2-2p\sum_i r_i+np^2.$$
+
+Le terme $p^2$ est constant dans la somme, d’où $np^2$. Poser $\bar r=(1/n)\sum_i r_i$ permet de réécrire cette expression comme $n(p-\bar r)^2+\sum_i r_i^2-n\bar r^2$. Les deux derniers termes ne dépendent pas de $p$. Puisque $n>0$, le minimum est atteint uniquement en $p=\bar r$.
+
+Enfin, la linéarité de la somme donne $\bar r=\bar y-m\bar x$. C’est exactement l’intercept annoncé. L’intercept est fixé pour chaque pente ; il reste maintenant à choisir la pente.
+
+<p class="source-next"><a href="/fr/lessons/L35/#pdf-72">Suite du PDF : Preuve : le meilleur m →</a></p>
+
+<span id="pdf-72" class="source-topic-marker"></span>
+
+## Preuve, deuxième partie : le meilleur m
+
+**PDF, page 72.** Après avoir choisi $p=\bar y-m\bar x$, les résidus deviennent $(y_i-\bar y)-m(x_i-\bar x)$. Développer chaque carré avec $(a-b)^2=a^2-2ab+b^2$, puis additionner, donne trois colonnes : $S_{yy}$, $-2mS_{xy}$ et $m^2S_{xx}$.
+
+La perte est donc un polynôme du second degré en $m$, à coefficient dominant $S_{xx}>0$. Compléter le carré donne $S_{xx}(m-S_{xy}/S_{xx})^2+S_{yy}-S_{xy}^2/S_{xx}$. Le seul morceau qui varie avec $m$ est le premier carré : l’annuler donne $m=S_{xy}/S_{xx}$. La somme des écarts au carré $S_{xx}$ est nulle seulement si toutes les abscisses sont égales ; ce cas demande un traitement séparé.
+
+<p class="source-next"><a href="/fr/lessons/L35/#pdf-73">Suite du PDF : À la main, sur quatre années →</a></p>
+
+<span id="pdf-73" class="source-topic-marker"></span>
+
+## À la main, sur quatre années : le tableau du PDF
+
+**Exemple du PDF, pages 73–76.** Garder 2000, 2003, 2005 et 2009. Les données sont $(8{,}2;5{,}0)$, $(5{,}3;4{,}4)$, $(4{,}0;4{,}1)$ et $(3{,}7;4{,}1)$. Les moyennes sont $\bar x=(8{,}2+5{,}3+4{,}0+3{,}7)/4=5{,}3$ et $\bar y=(5{,}0+4{,}4+4{,}1+4{,}1)/4=4{,}4$.
+
+| Année | $x_i$ | $y_i$ | $x_i-\bar x$ | $y_i-\bar y$ |
+| --- | --- | --- | --- | --- |
+| 2000 | 8,2 | 5,0 | 2,9 | 0,6 |
+| 2003 | 5,3 | 4,4 | 0 | 0 |
+| 2005 | 4,0 | 4,1 | −1,3 | −0,3 |
+| 2009 | 3,7 | 4,1 | −1,6 | −0,3 |
+
+| Année | $(x_i-\bar x)(y_i-\bar y)$ | $(x_i-\bar x)^2$ |
+| --- | --- | --- |
+| 2000 | 1,74 | 8,41 |
+| 2003 | 0 | 0 |
+| 2005 | 0,39 | 1,69 |
+| 2009 | 0,48 | 2,56 |
+| Somme | $S_{xy}=2{,}61$ | $S_{xx}=12{,}66$ |
+
+Pour lire une ligne : $2{,}9\cdot0{,}6=1{,}74$ et $2{,}9^2=8{,}41$. Additionner ensuite chaque colonne, plutôt que mélanger produits et carrés. On obtient $m=2{,}61/12{,}66\approx0{,}206$ et $p=4{,}4-m\cdot5{,}3\approx3{,}31$. Garder la valeur non arrondie de $m$ pendant le calcul ; arrondir l’affichage à la fin.
+
+<p class="source-next"><a href="/fr/lessons/L35/#pdf-77">Suite du PDF : Résultat et prédiction →</a></p>
+
+<span id="pdf-77" class="source-topic-marker"></span>
+
+## Résultat et prédiction : lire la droite ajustée
+
+**PDF, pages 77–78.** La droite calculée sur quatre années est approximativement $\hat y=0{,}206x+3{,}31$. Les quatre points utilisés pour l’ajustement sont distingués des six autres sur le graphique. Elle passe par le point moyen $(5{,}3;4{,}4)$ avant l’arrondi des coefficients.
+
+Pour $x=2$ livres de margarine par personne et par an, les coefficients affichés donnent $\hat y=0{,}206\cdot2+3{,}31\approx3{,}72$ divorces pour mille habitants. C’est une **prédiction numérique du modèle**, hors de l’intervalle observé $[3{,}7;8{,}2]$. Cela ne démontre ni une causalité ni une prévision fiable. Les limites sont étudiées ensuite.
+
+**Exemple supplémentaire.** À $x=5{,}3$, les coefficients non arrondis redonnent exactement $4{,}4$. Ce contrôle du point moyen est un bon moyen de détecter une erreur d’intercept.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/regression-four.svg" alt="Droite ajustée aux quatre années sélectionnées, six autres observations en croix et point moyen en losange." width="440" height="360" loading="lazy" />
+<figcaption>Quatre points pour le calcul ; six autres pour comparer visuellement.</figcaption>
+</figure>
 
 ## Exemple guidé : trois observations originales
 
 Pour $(0,1),(1,2),(2,2)$, on a $\bar x=1$, $\bar y=5/3$, $S_{xx}=2$, $S_{xy}=1$ et $S_{yy}=2/3$. Ainsi $m=1/2$ et $p=7/6$. Les résidus sont $-1/6,1/3,-1/6$ : leur somme est nulle et leur somme des carrés vaut $1/6$. À $x=3$, le modèle prédit $8/3$. Ce calcul est une prédiction du modèle, pas une certitude sur une observation future.
+
+<p class="source-next"><a href="/fr/lessons/L35/#pdf-79">Suite du PDF : En Python →</a></p>
+
+<span id="pdf-79" class="source-topic-marker"></span>
+
+## En Python : refaire les calculs du PDF
+
+Le PDF utilise les dix observations, et non seulement les quatre du calcul manuel : le résultat est donc légèrement différent. La fonction `fit` ci-dessous reprend les sommes centrées avec des contrôles d’entrée. La définition vient d’abord, puis son appel sur les dix observations.
+
 
 ## Exemple guidé : programmer le calcul
 
@@ -58,9 +153,21 @@ def fit(points):
     return m, yb - m * xb
 ```
 
+```python
+x = [8.2, 7.0, 6.5, 5.3, 5.2, 4.0, 4.6, 4.5, 4.2, 3.7]
+y = [5.0, 4.7, 4.6, 4.4, 4.3, 4.1, 4.2, 4.2, 4.2, 4.1]
+m, p = fit(list(zip(x, y)))
+print(round(m, 4), round(p, 4))  # 0.2014 3.3086
+```
+
+`zip` associe les valeurs de même position, pour former les couples de données. `sum` effectue une somme ; `** 2` élève au carré. La liste vide et les abscisses toutes égales sont refusées parce que la formule ne fournit pas alors une pente unique. Le PDF présente aussi `numpy.polyfit(x, y, 1)` ; la version détaillée conserve ici chaque étape visible, sans bibliothèque supplémentaire.
+
+
 ## Que se passe-t-il si les entrées sont constantes ?
 
 Si tous les $x_i$ valent $c$, seule la valeur $mc+p$ est observée. Toute paire satisfaisant $mc+p=\bar y$ minimise la perte ; la pente n’est pas identifiable. Il ne faut pas diviser par $S_{xx}=0$. Des ordonnées constantes avec des abscisses variables posent un autre cas : la meilleure pente est zéro et l’intercept est l’ordonnée commune.
+
+<p class="source-next"><a href="/fr/lessons/L36/#pdf-80">Suite du PDF : Vous venez de faire du machine learning →</a></p>
 
 ## Pratique et bilan
 

@@ -15,8 +15,9 @@ export const droitesCopy = {
     rules: 'Les règles du jeu',
     description:
       'Consolider les opérations, développer et factoriser pour manipuler les équations d’une droite.',
-    outline: 'Le parcours complet',
-    outlineNote: '16 leçons, des bases algébriques aux limites des modèles',
+    outline: 'Les leçons et leur pratique',
+    outlineNote:
+      'Les sujets du PDF sont regroupés en 16 leçons avec leurs exercices.',
     goals: 'Ce que vous explorerez',
     objectives: [
       'Passer d’une équation à sa représentation dans un repère.',
@@ -46,8 +47,9 @@ export const droitesCopy = {
     rules: 'The rules of the game',
     description:
       'Revisit operations, expansion and factorisation to work with the equations of a straight line.',
-    outline: 'The complete path',
-    outlineNote: '16 lessons, from algebraic foundations to model limits',
+    outline: 'Lessons and practice',
+    outlineNote:
+      'The PDF topics are grouped into 16 lessons with their exercises.',
     goals: 'What you will explore',
     objectives: [
       'Connect an equation with its representation in a coordinate system.',

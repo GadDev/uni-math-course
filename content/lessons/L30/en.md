@@ -1,11 +1,11 @@
 ---
 lessonId: L30
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Two points and intersections"
 summary: "Construct a line and distinguish unique intersection, parallelism and coincidence."
-minutes: 18
+minutes: 30
 objectives: [L30-O01, L30-O02, L30-O03, L30-O04, L30-O05, L30-O06]
 prerequisites: [L25, L29]
 sourcePages: [40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
@@ -23,6 +23,19 @@ sourcePages: [40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
 
 Prerequisites: L25, L29. Domains and restrictions stated below are part of every rule.
 
+<span id="pdf-40" class="source-topic-marker"></span>
+
+## Two points: finding the Celsius–Fahrenheit conversion
+
+**PDF example, pages 40–43.** Assume the conversion is affine. The observations are $(C,F)=(0,32)$ and $(100,212)$. Fahrenheit changes by $212-32=180$ while Celsius changes by $100-0=100$.
+
+1. Slope: $m=(212-32)/(100-0)=1{,}8$.
+2. Intercept: $p=32-1{,}8\cdot0=32$.
+3. Conversion: $F=1{,}8C+32$.
+4. For $F=50$, solving $50=1{,}8C+32$ gives $C=(50-32)/1{,}8=10$.
+
+The letters change, not the method: input $C$ replaces $x$ and output $F$ replaces $y$. **Additional example:** at $C=20$, the formula gives $F=68$. Substituting into the inverse formula recovers $20$.
+
 ## Two distinct points
 
 For $A=(x_1,y_1)$ and $B=(x_2,y_2)$ with $x_1\ne x_2$, slope is $m=(y_2-y_1)/(x_2-x_1)$. Then $p=y_1-mx_1$. Reversing point order changes both quotient signs and preserves slope. If horizontal coordinates agree and points are distinct, the line is vertical. Repeating a single point does not determine a unique line.
@@ -31,9 +44,49 @@ For $A=(x_1,y_1)$ and $B=(x_2,y_2)$ with $x_1\ne x_2$, slope is $m=(y_2-y_1)/(x_
 
 For $(1,4)$ and $(3,10)$, slope is $(10-4)/(3-1)=3$ and intercept is $4-3\cdot1=1$. The line is $y=3x+1$. Checking both points is quick and detects sign errors. Form $y-y_1=m(x-x_1)$ also gives the equation without immediately calculating the intercept.
 
+<p class="source-next"><a href="/en/lessons/L30/#pdf-44">Next in the PDF : Intersection of two lines →</a></p>
+
+<span id="pdf-44" class="source-topic-marker"></span>
+
+## Intersection: the same temperature in both units
+
+**PDF example, pages 44–45.** Seek a number expressed identically in Celsius and Fahrenheit: require $F=C$ as well as $F=1{,}8C+32$. Replace $F$ with $C$: $C=1{,}8C+32$, then $-0{,}8C=32$ and $C=-40$. The intersection is $(C,F)=(-40,-40)$.
+
+In the drawing, the intersection is the point shared by both lines. Algebra gives its exact coordinates. Give both coordinates and check both equations, rather than solving only for the first unknown.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/temperature.svg" alt="Lines F equals C and F equals 1.8C plus 32 intersect at minus 40,minus 40." width="440" height="360" loading="lazy" />
+<figcaption>The shared point satisfies both equations at once.</figcaption>
+</figure>
+
 ## Guided example: intersection
 
 Lines $y=2x+1$ and $y=-x+7$ meet when $2x+1=-x+7$. We obtain $x=2$, then $y=5$. The result is point $(2,5)$, not merely its horizontal coordinate. Both substitutions indeed give $5$.
+
+<p class="source-next"><a href="/en/lessons/L30/#pdf-46">Next in the PDF : Three situations →</a></p>
+
+<span id="pdf-46" class="source-topic-marker"></span>
+
+## Three situations: one, no or infinitely many solutions
+
+**PDF examples, pages 46–49.** For $y=2x+1$ and $y=-x+4$, solve $2x+1=-x+4$, hence $3x=3$ and intersection $(1,3)$. For $y=2x+1$ and $y=2x+5$, eliminating $2x$ gives $1=5$: no solution. For $y=2x+1$ and $2y=4x+2$, the second equation doubles the first: every point on the line is shared.
+
+These cases explain the three outcomes of a system. A single equation with two unknowns can describe infinitely many pairs: the expression $0=0$ does not mean zero is the only possible coordinate.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/intersection-one.svg" alt="Two lines intersect at point 1,3." width="440" height="360" loading="lazy" />
+<figcaption>One solution.</figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/intersection-none.svg" alt="Two distinct parallel lines do not intersect." width="440" height="360" loading="lazy" />
+<figcaption>No solution.</figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/intersection-many.svg" alt="Two equations represent the same line, with solid and dotted strokes overlapping." width="440" height="360" loading="lazy" />
+<figcaption>Infinitely many shared points.</figcaption>
+</figure>
 
 ## One, none or infinitely many
 
@@ -42,6 +95,8 @@ For two nonvertical lines, different slopes give one intersection. Equal slopes 
 ## Verticals and application domain
 
 To intersect $x=4$ and $y=-x+6$, directly substitute the fixed horizontal coordinate to obtain $(4,2)$. Two distinct vertical lines do not intersect. In a cost or conversion model, an algebraic intersection may lie outside the usable domain. A negative quantity or extrapolation does not acquire practical meaning merely because it solves the equations.
+
+<p class="source-next"><a href="/en/lessons/L31/#pdf-50">Next in the PDF : The two half-planes →</a></p>
 
 ## Practice and recap
 

@@ -1,11 +1,11 @@
 ---
 lessonId: L21
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Calculating with real numbers"
 summary: "Precedence, signs and reversible operations: a dependable foundation for equations."
-minutes: 14
+minutes: 20
 objectives: [L21-O01, L21-O02, L21-O03, L21-O04, L21-O05, L21-O06]
 prerequisites: [L10]
 sourcePages: [4, 5, 6]
@@ -23,9 +23,33 @@ sourcePages: [4, 5, 6]
 
 Prerequisites: L10. Domains and restrictions stated below are part of every rule.
 
+<span id="pdf-4" class="source-topic-marker"></span>
+
+## Order of operations: one calculation, one step
+
+**PDF example, pages 4–5 — rewritten explanation.** In $2+3\cdot4^2$, the square applies to $4$, not to $3\cdot4$.
+
+1. Power: $4^2=16$.
+2. Multiplication: $3\cdot16=48$.
+3. Addition: $2+48=50$.
+
+Read this as “two plus three times the square of four”. In contrast, $(2+3)\cdot4^2=80$: parentheses change the instruction. For $8\div2(2+2)$, this course’s stated convention gives multiplication and division equal priority, working left to right: $8\div2\cdot4=16$. Write $8/(2(2+2))$ if you intend $1$; make the grouping visible.
+
+**Additional example.** $-3^2+(-3)^2=-9+9=0$. The first term takes the opposite of a square; the second squares the negative number itself. A power’s base is the number or group receiving the exponent.
+
 ## The calculation contract
 
 Work in $\mathbb{R}$. An expression is a calculation instruction, not simply a sequence to read from left to right. Parentheses, powers, products and quotients, then sums and differences determine the order. At equal precedence, process products and quotients from left to right, as with sums and differences. Write the grouping: a fraction bar groups its whole numerator and denominator.
+
+<p class="source-next"><a href="/en/lessons/L21/#pdf-6">Next in the PDF : Basic rules →</a></p>
+
+<span id="pdf-6" class="source-topic-marker"></span>
+
+## Basic rules: opposite and reciprocal
+
+The opposite of $a$ is $-a$: together they sum to zero, $a+(-a)=0$. For $a\ne0$, its reciprocal is $1/a$: their product is one, $a(1/a)=1$. Thus the opposite of $4$ is $-4$, whereas its reciprocal is $1/4$. Subtraction and division use these different ideas: $a-b=a+(-b)$ and $a/b=a(1/b)$ for $b\ne0$.
+
+The numbers $0$ and $1$ have specific roles: $a+0=a$, $a\cdot1=a$ and $a\cdot0=0$. A minus before a group multiplies the **whole** group by $-1$: $-(a+b)=-a-b$ and $a-(b-c)=a-b+c$. For example, $7-(2-5)=7-2+5=10$. Calculating $2-5=-3$ first gives the same result.
 
 ## Signs and operations
 
@@ -42,6 +66,8 @@ Addition and multiplication are commutative and associative: changing their orde
 ## Guided example: zero is not permission
 
 For $a\ne0$, $a/a=1$. At $a=0$, this expression is undefined. The equality $0\cdot u=0$ holds for every real $u$: it therefore cannot determine a quotient $0/0$. Likewise, $0u=0v$ does not imply $u=v$. Before cancelling, name the factor you divide by and check that it is nonzero.
+
+<p class="source-next"><a href="/en/lessons/L22/#pdf-7">Next in the PDF : Expanding and factorising →</a></p>
 
 ## Practice and recap
 

@@ -7,6 +7,8 @@ import katex from 'katex';
 import { getCollection } from 'astro:content';
 import { droitesGroups } from '../../../lib/droites-lessons';
 import '../../../styles/chapter-overview.css';
+import '../../../styles/droites-teaching.css';
+import DroitesSourcePath from '../../../components/DroitesSourcePath.astro';
 
 export function getStaticPaths() {
   return locales.map((locale) => ({ params: { locale }, props: { locale } }));
@@ -81,6 +83,7 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
         </a>
       </div>
     </section>
+    <DroitesSourcePath locale={locale} />
     <section
       class="planned-section"
       id="parcours"
