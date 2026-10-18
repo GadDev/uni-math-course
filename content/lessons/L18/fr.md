@@ -1,11 +1,11 @@
 ---
 lessonId: L18
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "SQL comme compréhension : EXISTS et NOT EXISTS"
 summary: "Lire une requête SELECT comme un ensemble défini par compréhension, associer AND, OR, NOT à ∧, ∨, ¬, et associer EXISTS et NOT EXISTS à ∃ et ¬∃."
-minutes: 14
+minutes: 18
 objectives: [L18-O01, L18-O02, L18-O03, L18-O04, L18-O05, L18-O06]
 prerequisites: [L16, L17]
 sourcePages: [82, 83, 84, 85, 86, 87, 88, 89]
@@ -17,6 +17,12 @@ sourcePages: [82, 83, 84, 85, 86, 87, 88, 89]
 À la fin de cette leçon, vous savez lire une requête `SELECT` comme un ensemble défini par compréhension, associer `AND`, `OR`, `NOT` à $\land$, $\lor$, $\neg$, et associer `EXISTS` et `NOT EXISTS` à $\exists$ et $\neg\exists$.
 
 **Prérequis :** L16 (quantificateurs bornés) et L17 (tables comme ensembles de couples).
+
+## Lire le code avant de l’exécuter
+
+`SELECT` choisit les colonnes affichées, `FROM` donne la table et `WHERE` filtre ses lignes. `e` et `s` sont des noms courts pour une ligne ; le point dans `e.course` donne accès à son champ course. Les guillemets de `'art'` désignent du texte. Dans une sous-requête, `SELECT *` sélectionne toutes les colonnes ; `EXISTS` vérifie seulement s’il reste au moins une ligne.
+
+Pour analyser la sous-requête de l’exemple, fixez d’abord `s` à lia : une ligne en art existe, donc `NOT EXISTS` est faux et lia est écartée. Pour max, aucune ligne en art ne reste : max est gardé. Ce filtre ressemble à la compréhension de L13 : parcourir un ensemble donné et garder les éléments qui passent le test. « Pas inscrit en art » permet pourtant d’être inscrit en bio ; ce n’est pas « inscrit à aucun cours ».
 
 ## La base de données jouet
 
@@ -71,10 +77,10 @@ Le résultat d’une requête dépend des tables. La même requête sur d’autr
 
 Les six exercices pilotes portent sur la lecture d’une requête, le prédicat, les connecteurs, `EXISTS`, une requête `NOT EXISTS` et le remplacement de $\forall$.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 
 ## À retenir
 
-Une requête `SELECT … WHERE` est un ensemble défini par compréhension. `EXISTS` est $\exists$, `NOT EXISTS` est $\neg\exists$, et $\forall$ s’écrit avec $\neg\exists\neg$.
+Dans le modèle simplifié sans doublons ni valeurs manquantes de cette leçon, on lit une requête `SELECT … WHERE` comme une compréhension. `EXISTS` est $\exists$, `NOT EXISTS` est $\neg\exists$, et $\forall$ s’écrit avec $\neg\exists\neg$.
 
 Texte et exemples originaux du projet. La couverture suit les pages 82 à 89 du PDF selon la carte du cours du dépôt ; les données et les requêtes d’exemple sont originales.

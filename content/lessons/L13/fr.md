@@ -1,11 +1,11 @@
 ---
 lessonId: L13
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Ensembles définis par compréhension"
 summary: "Lire et calculer un ensemble défini par compréhension, y compris les intervalles et les nombres pairs, et séparer le domaine du filtre."
-minutes: 12
+minutes: 16
 objectives: [L13-O01, L13-O02, L13-O03, L13-O04, L13-O05, L13-O06]
 prerequisites: [L10, L11]
 sourcePages: [52, 53, 54, 55, 56]
@@ -17,6 +17,14 @@ sourcePages: [52, 53, 54, 55, 56]
 À la fin de cette leçon, vous savez lire $\{a \in X \mid P(a)\}$, le calculer pour un $X$ fini, reconnaître les intervalles et les nombres pairs écrits ainsi, et séparer le domaine $X$ du filtre $P$.
 
 **Prérequis :** L10 (ensembles et énumération) et L11 (prédicats).
+
+## Voir le filtre agir
+
+![Intervalle ouvert de deux à quatre : bornes exclues, cercles vides ; intervalle fermé : bornes incluses, points pleins.](/diagrams/interval-endpoints.svg)
+
+Pour $X = \{1,2,3,4\}$ et le test « être supérieur à deux », un et deux sont rejetés ; trois et quatre sont gardés. L’ensemble résultat contient seulement trois et quatre. Le symbole $\mid$ sépare les objets candidats du test, et se lit « tels que ».
+
+Dans un intervalle, $+\infty$ n’est pas un nombre réel que l’on pourrait inclure : le crochet de ce côté est toujours ouvert. Comparez $]2,4[$ (sans deux ni quatre) et $[2,4]$ (avec les deux bornes).
 
 ## Définition
 
@@ -59,7 +67,7 @@ Le résultat dépend des deux parties. $\{n \in \{1, 2, 3\} \mid n > 5\} = \varn
 
 Les six exercices pilotes portent sur une compréhension finie, deux intervalles, les nombres pairs, un résultat vide et un filtre sur les nombres premiers.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 
 ## À retenir
 

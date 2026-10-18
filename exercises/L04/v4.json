@@ -1,0 +1,1304 @@
+{
+  "lessonId": "L04",
+  "version": 4,
+  "status": "review-candidate",
+  "exerciseCount": 14,
+  "exercises": [
+    {
+      "id": "L04-E01",
+      "objectiveId": "L04-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "equivalence-means-agreement-on-some-rows",
+        "equivalence-as-connective"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que signifie $A \\equiv B$ ?",
+        "en": "What does $A \\equiv B$ mean?"
+      },
+      "hint": {
+        "fr": "Pensez à la table de vérité complète, et non à une seule ligne.",
+        "en": "Think about the complete truth table, not a single row."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A$ et $B$ ont la même valeur pour au moins une affectation.",
+            "en": "$A$ and $B$ have the same value for at least one assignment."
+          },
+          "feedback": {
+            "fr": "Un accord sur une seule ligne ne suffit pas : des formules différentes peuvent coïncider à un endroit.",
+            "en": "Agreement on one row is not enough: different formulas can coincide somewhere."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A$ et $B$ ont la même valeur pour toute affectation, donc la même table de vérité.",
+            "en": "$A$ and $B$ have the same value for every assignment, hence the same truth table."
+          },
+          "feedback": {
+            "fr": "Exact : l’équivalence sémantique exige l’accord sur toutes les lignes.",
+            "en": "Correct: semantic equivalence requires agreement on every row."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A$ et $B$ utilisent les mêmes lettres.",
+            "en": "$A$ and $B$ use the same letters."
+          },
+          "feedback": {
+            "fr": "Des formules peuvent utiliser les mêmes lettres sans être équivalentes, comme $A \\land B$ et $A \\lor B$.",
+            "en": "Formulas can use the same letters without being equivalent, such as $A \\land B$ and $A \\lor B$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A \\land B$ est une tautologie.",
+            "en": "$A \\land B$ is a tautology."
+          },
+          "feedback": {
+            "fr": "Ce n’est pas la définition : $A \\land B$ est fausse, par exemple, pour $A = 0$.",
+            "en": "This is not the definition: $A \\land B$ is false, for example, when $A = 0$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$A \\equiv B$ signifie que les deux formules ont la même table de vérité. $\\equiv$ compare deux formules ; ce n’est pas un connecteur à l’intérieur d’une formule.",
+        "en": "$A \\equiv B$ means that the two formulas have the same truth table. $\\equiv$ compares two formulas; it is not a connective inside a formula."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E02",
+      "objectiveId": "L04-O03",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "negating-each-part-of-a-conjunction",
+        "de-morgan-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces formules est équivalente à $\\neg (A \\land B)$ ?",
+        "en": "Which of these formulas is equivalent to $\\neg (A \\land B)$?"
+      },
+      "hint": {
+        "fr": "Une loi de de Morgan indique comment la négation traverse la conjonction.",
+        "en": "A De Morgan law says how negation passes through a conjunction."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg A \\land \\neg B$",
+            "en": "$\\neg A \\land \\neg B$"
+          },
+          "feedback": {
+            "fr": "Non : pour $A = 0$ et $B = 1$, la formule vaut $0$ alors que $\\neg (A \\land B)$ vaut $1$.",
+            "en": "No: for $A = 0$ and $B = 1$, this formula is $0$ while $\\neg (A \\land B)$ is $1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg A \\lor B$",
+            "en": "$\\neg A \\lor B$"
+          },
+          "feedback": {
+            "fr": "Non : pour $A = 1$ et $B = 0$, cette formule vaut $0$ alors que $\\neg (A \\land B)$ vaut $1$.",
+            "en": "No: for $A = 1$ and $B = 0$, this formula is $0$ while $\\neg (A \\land B)$ is $1$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A \\lor \\neg B$",
+            "en": "$A \\lor \\neg B$"
+          },
+          "feedback": {
+            "fr": "Non : pour $A = 0$ et $B = 1$, cette formule vaut $0$ alors que $\\neg (A \\land B)$ vaut $1$.",
+            "en": "No: for $A = 0$ and $B = 1$, this formula is $0$ while $\\neg (A \\land B)$ is $1$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg A \\lor \\neg B$",
+            "en": "$\\neg A \\lor \\neg B$"
+          },
+          "feedback": {
+            "fr": "Exact : la négation traverse la conjonction et la transforme en disjonction.",
+            "en": "Correct: negation passes through the conjunction and turns it into a disjunction."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La loi de de Morgan donne $\\neg (A \\land B) \\equiv \\neg A \\lor \\neg B$. Les trois autres formules diffèrent sur au moins une ligne.",
+        "en": "De Morgan’s law gives $\\neg (A \\land B) \\equiv \\neg A \\lor \\neg B$. The other three formulas differ on at least one row."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E03",
+      "objectiveId": "L04-O02",
+      "difficulty": "application",
+      "misconceptions": [
+        "distributivity-with-wrong-operator",
+        "row-skipped"
+      ],
+      "type": "truth-table",
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "prompt": {
+        "fr": "Complétez la colonne de $\\neg(A \\lor (B \\land C))$ pour les huit affectations. Après correction, comparez-la à $\\neg A \\land (\\neg B \\lor \\neg C)$ pour votre auto-vérification : seule la colonne remplie est notée.",
+        "en": "Complete the column of $\\neg(A \\lor (B \\land C))$ for all eight assignments. After grading, compare it with $\\neg A \\land (\\neg B \\lor \\neg C)$ for self-review: only the completed column is graded."
+      },
+      "hint": {
+        "fr": "Calculez la conjonction intérieure, puis la disjonction, puis la négation extérieure.",
+        "en": "Compute the inner conjunction, then the disjunction, then the outer negation."
+      },
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "000": true,
+        "001": true,
+        "010": true,
+        "011": false,
+        "100": false,
+        "101": false,
+        "110": false,
+        "111": false
+      },
+      "feedback": {
+        "fr": "Les lignes 000, 001 et 010 valent 1 ; les autres valent 0. La comparaison de de Morgan est une auto-vérification non notée.",
+        "en": "Rows 000, 001 and 010 equal 1; the others equal 0. The De Morgan comparison is ungraded self-review."
+      },
+      "explanation": {
+        "fr": "De Morgan donne $\\neg(A \\lor (B \\land C)) \\equiv \\neg A \\land (\\neg B \\lor \\neg C)$. Quand $A=1$, la négation extérieure est fausse ; quand $A=0$, elle échoue seulement si $B=C=1$.",
+        "en": "De Morgan gives $\\neg(A \\lor (B \\land C)) \\equiv \\neg A \\land (\\neg B \\lor \\neg C)$. When $A=1$, the outer negation is false; when $A=0$, it fails only if $B=C=1$."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E04",
+      "objectiveId": "L04-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "tautology-confused-with-satisfiable",
+        "contradiction-confused-with-tautology"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces formules est une tautologie ?",
+        "en": "Which of these formulas is a tautology?"
+      },
+      "hint": {
+        "fr": "Une tautologie est vraie pour toute affectation. Vérifiez les deux lignes possibles pour chaque lettre.",
+        "en": "A tautology is true for every assignment. Check both values of each letter."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(A \\land B) \\lor \\neg(A \\land B)$",
+            "en": "$(A \\land B) \\lor \\neg(A \\land B)$"
+          },
+          "feedback": {
+            "fr": "Exact : la formule est de la forme $X \\lor \\neg X$, vraie pour toute valeur de $X$.",
+            "en": "Correct: the formula has the form $X \\lor \\neg X$, which is true for every value of $X$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A \\land \\neg A$",
+            "en": "$A \\land \\neg A$"
+          },
+          "feedback": {
+            "fr": "C’est une contradiction : elle est fausse pour toute valeur de $A$.",
+            "en": "This is a contradiction: it is false for every value of $A$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A \\lor B$",
+            "en": "$A \\lor B$"
+          },
+          "feedback": {
+            "fr": "Elle est vraie pour $A = 1$, mais fausse pour $A = B = 0$ : ni tautologie ni contradiction.",
+            "en": "It is true for $A = 1$, but false for $A = B = 0$: neither a tautology nor a contradiction."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\neg\\top$",
+            "en": "$\\neg\\top$"
+          },
+          "feedback": {
+            "fr": "C’est une contradiction, car $\\top$ est toujours vraie.",
+            "en": "This is a contradiction, because $\\top$ is always true."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Une tautologie est vraie sur toutes les lignes. $(A \\land B) \\lor \\neg(A \\land B)$ est vraie quelles que soient $A$ et $B$.",
+        "en": "A tautology is true on every row. $(A \\land B) \\lor \\neg(A \\land B)$ is true whatever $A$ and $B$ are."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E05",
+      "objectiveId": "L04-O06",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "excluded-middle-misremembered",
+        "non-contradiction-confused-with-tautology"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces équivalences est fausse ?",
+        "en": "Which of these equivalences is false?"
+      },
+      "hint": {
+        "fr": "Évaluez les deux membres de chaque équivalence pour A=0 puis A=1 ; recherchez un désaccord.",
+        "en": "Evaluate both sides of each equivalence for A=0 and then A=1; look for disagreement."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A \\lor \\neg A \\equiv \\top$",
+            "en": "$A \\lor \\neg A \\equiv \\top$"
+          },
+          "feedback": {
+            "fr": "Vraie : c’est la loi du tiers exclu.",
+            "en": "True: this is the excluded middle law."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A \\land \\neg A \\equiv \\neg\\top$",
+            "en": "$A \\land \\neg A \\equiv \\neg\\top$"
+          },
+          "feedback": {
+            "fr": "Vraie : c’est la loi de non-contradiction.",
+            "en": "True: this is the non-contradiction law."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A \\land \\neg A \\equiv \\top$",
+            "en": "$A \\land \\neg A \\equiv \\top$"
+          },
+          "feedback": {
+            "fr": "Fausse : $A \\land \\neg A$ est toujours fausse, alors que $\\top$ est toujours vraie.",
+            "en": "False: $A \\land \\neg A$ is always false, whereas $\\top$ is always true."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\neg\\neg A \\equiv A$",
+            "en": "$\\neg\\neg A \\equiv A$"
+          },
+          "feedback": {
+            "fr": "Vraie : c’est la double négation.",
+            "en": "True: this is double negation."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$A \\land \\neg A$ est une contradiction, donc équivalente à $\\neg\\top$, et non à $\\top$.",
+        "en": "$A \\land \\neg A$ is a contradiction, so it is equivalent to $\\neg\\top$, not to $\\top$."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E06",
+      "objectiveId": "L04-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "agreement-on-some-rows-taken-as-equivalence",
+        "counterexample-row-misread"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle affectation réfute l’équivalence $A \\land (B \\lor C) \\equiv A \\land B$ ?",
+        "en": "Which assignment refutes the equivalence $A \\land (B \\lor C) \\equiv A \\land B$?"
+      },
+      "hint": {
+        "fr": "Cherchez une ligne où les deux membres ne prennent pas la même valeur. Une ligne suffit.",
+        "en": "Look for a row where the two sides differ. One row is enough."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A = 1$, $B = 0$, $C = 0$",
+            "en": "$A = 1$, $B = 0$, $C = 0$"
+          },
+          "feedback": {
+            "fr": "Les deux membres valent $0$ : cette ligne ne réfute rien.",
+            "en": "Both sides equal $0$: this row refutes nothing."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A = 1$, $B = 0$, $C = 1$",
+            "en": "$A = 1$, $B = 0$, $C = 1$"
+          },
+          "feedback": {
+            "fr": "Exact : le membre de gauche vaut $1 \\land (0 \\lor 1) = 1$, celui de droite $1 \\land 0 = 0$.",
+            "en": "Correct: the left side is $1 \\land (0 \\lor 1) = 1$, the right side $1 \\land 0 = 0$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A = 0$, $B = 1$, $C = 1$",
+            "en": "$A = 0$, $B = 1$, $C = 1$"
+          },
+          "feedback": {
+            "fr": "Avec $A = 0$, les deux membres valent $0$ : cette ligne ne réfute rien.",
+            "en": "With $A = 0$, both sides equal $0$: this row refutes nothing."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A = 1$, $B = 1$, $C = 1$",
+            "en": "$A = 1$, $B = 1$, $C = 1$"
+          },
+          "feedback": {
+            "fr": "Les deux membres valent $1$ : cette ligne ne réfute rien.",
+            "en": "Both sides equal $1$: this row refutes nothing."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Une seule ligne où les valeurs diffèrent suffit à réfuter l’équivalence. Ici, la ligne $A = 1$, $B = 0$, $C = 1$ convient.",
+        "en": "A single row where the values differ is enough to refute the equivalence. Here, the row $A = 1$, $B = 0$, $C = 1$ works."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E22",
+      "objectiveId": "L04-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "boolean-law-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour des variables propositionnelles $A$, $B$, $C$. Quelle réécriture de $\\neg A \\lor B$ change seulement l’ordre des deux parties ?",
+        "en": "For propositional variables $A$, $B$, $C$. Which rewrite of $\\neg A \\lor B$ changes only the order of the two parts?"
+      },
+      "hint": {
+        "fr": "Repérez le connecteur principal et la portée des négations avant de choisir une loi.",
+        "en": "Identify the main connective and the scope of negations before choosing a law."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$B \\lor \\neg A$",
+            "en": "$B \\lor \\neg A$"
+          },
+          "feedback": {
+            "fr": "Exact : appliquez la commutativité en conservant chaque partie et sa portée.",
+            "en": "Correct: apply commutativity, preserving each part and its scope."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$B \\lor A$",
+            "en": "$B \\lor A$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=0, B=0, C=0$ : il donne $0$ au lieu de $1$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=0, B=0, C=0$: it gives $0$ instead of $1$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$B \\land \\neg A$",
+            "en": "$B \\land \\neg A$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=0, B=0, C=0$ : il donne $0$ au lieu de $1$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=0, B=0, C=0$: it gives $0$ instead of $1$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La commutativité donne $B \\lor \\neg A$. Les autres propositions échouent sur les affectations indiquées dans leur correction.",
+        "en": "Using commutativity gives $B \\lor \\neg A$. The other choices fail on the assignments shown in their feedback."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E23",
+      "objectiveId": "L04-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "boolean-law-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour des variables propositionnelles $A$, $B$, $C$. Quelle formule regroupe autrement $A \\land (B \\land \\neg C)$ sans changer les connecteurs ?",
+        "en": "For propositional variables $A$, $B$, $C$. Which formula regroups $A \\land (B \\land \\neg C)$ without changing the connectives?"
+      },
+      "hint": {
+        "fr": "Repérez le connecteur principal et la portée des négations avant de choisir une loi.",
+        "en": "Identify the main connective and the scope of negations before choosing a law."
+      },
+      "options": [
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(A \\land B) \\land C$",
+            "en": "$(A \\land B) \\land C$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=1, B=1, C=0$ : il donne $0$ au lieu de $1$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=1, B=1, C=0$: it gives $0$ instead of $1$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(A \\land B) \\land \\neg C$",
+            "en": "$(A \\land B) \\land \\neg C$"
+          },
+          "feedback": {
+            "fr": "Exact : appliquez la associativité en conservant chaque partie et sa portée.",
+            "en": "Correct: apply associativity, preserving each part and its scope."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(A \\lor B) \\land \\neg C$",
+            "en": "$(A \\lor B) \\land \\neg C$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=0, B=1, C=0$ : il donne $1$ au lieu de $0$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=0, B=1, C=0$: it gives $1$ instead of $0$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La associativité donne $(A \\land B) \\land \\neg C$. Les autres propositions échouent sur les affectations indiquées dans leur correction.",
+        "en": "Using associativity gives $(A \\land B) \\land \\neg C$. The other choices fail on the assignments shown in their feedback."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E24",
+      "objectiveId": "L04-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "boolean-law-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour des variables propositionnelles $A$, $B$, $C$. Quelle formule obtient-on en annulant les deux négations extérieures de $\\neg\\neg(A \\lor \\neg B)$ ?",
+        "en": "For propositional variables $A$, $B$, $C$. Which formula results from cancelling the two outer negations in $\\neg\\neg(A \\lor \\neg B)$?"
+      },
+      "hint": {
+        "fr": "Repérez le connecteur principal et la portée des négations avant de choisir une loi.",
+        "en": "Identify the main connective and the scope of negations before choosing a law."
+      },
+      "options": [
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg A \\lor B$",
+            "en": "$\\neg A \\lor B$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=0, B=1, C=0$ : il donne $1$ au lieu de $0$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=0, B=1, C=0$: it gives $1$ instead of $0$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A \\land \\neg B$",
+            "en": "$A \\land \\neg B$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=0, B=0, C=0$ : il donne $0$ au lieu de $1$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=0, B=0, C=0$: it gives $0$ instead of $1$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A \\lor \\neg B$",
+            "en": "$A \\lor \\neg B$"
+          },
+          "feedback": {
+            "fr": "Exact : appliquez la double négation en conservant chaque partie et sa portée.",
+            "en": "Correct: apply double negation, preserving each part and its scope."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La double négation donne $A \\lor \\neg B$. Les autres propositions échouent sur les affectations indiquées dans leur correction.",
+        "en": "Using double negation gives $A \\lor \\neg B$. The other choices fail on the assignments shown in their feedback."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E25",
+      "objectiveId": "L04-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "boolean-law-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour des variables propositionnelles $A$, $B$, $C$. Quelle formule est fausse pour toutes les affectations de $A$ et $B$ ?",
+        "en": "For propositional variables $A$, $B$, $C$. Which formula is false for every assignment of $A$ and $B$?"
+      },
+      "hint": {
+        "fr": "Repérez le connecteur principal et la portée des négations avant de choisir une loi.",
+        "en": "Identify the main connective and the scope of negations before choosing a law."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(A \\lor B) \\land \\neg(A \\lor B)$",
+            "en": "$(A \\lor B) \\land \\neg(A \\lor B)$"
+          },
+          "feedback": {
+            "fr": "Exact : appliquez la non-contradiction en conservant chaque partie et sa portée.",
+            "en": "Correct: apply non-contradiction, preserving each part and its scope."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(A \\lor B) \\lor \\neg(A \\lor B)$",
+            "en": "$(A \\lor B) \\lor \\neg(A \\lor B)$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=0, B=0, C=0$ : il donne $1$ au lieu de $0$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=0, B=0, C=0$: it gives $1$ instead of $0$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A \\lor B$",
+            "en": "$A \\lor B$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=0, B=1, C=0$ : il donne $1$ au lieu de $0$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=0, B=1, C=0$: it gives $1$ instead of $0$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La non-contradiction donne $(A \\lor B) \\land \\neg(A \\lor B)$. Les autres propositions échouent sur les affectations indiquées dans leur correction.",
+        "en": "Using non-contradiction gives $(A \\lor B) \\land \\neg(A \\lor B)$. The other choices fail on the assignments shown in their feedback."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E26",
+      "objectiveId": "L04-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "distributivity-with-wrong-operator"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour des variables propositionnelles $A$, $B$, $C$. Quelle formule développe $\\neg A \\lor (B \\land C)$ par distributivité ?",
+        "en": "For propositional variables $A$, $B$, $C$. Which formula expands $\\neg A \\lor (B \\land C)$ by distributivity?"
+      },
+      "hint": {
+        "fr": "Repérez le connecteur principal et la portée des négations avant de choisir une loi.",
+        "en": "Identify the main connective and the scope of negations before choosing a law."
+      },
+      "options": [
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(\\neg A \\lor B) \\land C$",
+            "en": "$(\\neg A \\lor B) \\land C$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=0, B=0, C=0$ : il donne $0$ au lieu de $1$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=0, B=0, C=0$: it gives $0$ instead of $1$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(\\neg A \\lor B) \\land (\\neg A \\lor C)$",
+            "en": "$(\\neg A \\lor B) \\land (\\neg A \\lor C)$"
+          },
+          "feedback": {
+            "fr": "Exact : appliquez la distributivité de OU sur ET en conservant chaque partie et sa portée.",
+            "en": "Correct: apply distributivity of OR over AND, preserving each part and its scope."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(\\neg A \\land B) \\lor (\\neg A \\land C)$",
+            "en": "$(\\neg A \\land B) \\lor (\\neg A \\land C)$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=0, B=0, C=0$ : il donne $0$ au lieu de $1$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=0, B=0, C=0$: it gives $0$ instead of $1$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La distributivité de OU sur ET donne $(\\neg A \\lor B) \\land (\\neg A \\lor C)$. Les autres propositions échouent sur les affectations indiquées dans leur correction.",
+        "en": "Using distributivity of OR over AND gives $(\\neg A \\lor B) \\land (\\neg A \\lor C)$. The other choices fail on the assignments shown in their feedback."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E27",
+      "objectiveId": "L04-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "distributivity-with-wrong-operator"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour des variables propositionnelles $A$, $B$, $C$. Quelle formule factorise $(A \\lor B) \\land (A \\lor \\neg C)$ ?",
+        "en": "For propositional variables $A$, $B$, $C$. Which formula factors $(A \\lor B) \\land (A \\lor \\neg C)$?"
+      },
+      "hint": {
+        "fr": "Repérez le connecteur principal et la portée des négations avant de choisir une loi.",
+        "en": "Identify the main connective and the scope of negations before choosing a law."
+      },
+      "options": [
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A \\land (B \\lor \\neg C)$",
+            "en": "$A \\land (B \\lor \\neg C)$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=0, B=1, C=0$ : il donne $0$ au lieu de $1$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=0, B=1, C=0$: it gives $0$ instead of $1$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A \\lor (B \\lor \\neg C)$",
+            "en": "$A \\lor (B \\lor \\neg C)$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=0, B=0, C=0$ : il donne $1$ au lieu de $0$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=0, B=0, C=0$: it gives $1$ instead of $0$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A \\lor (B \\land \\neg C)$",
+            "en": "$A \\lor (B \\land \\neg C)$"
+          },
+          "feedback": {
+            "fr": "Exact : appliquez la distributivité en sens inverse en conservant chaque partie et sa portée.",
+            "en": "Correct: apply distributivity in reverse, preserving each part and its scope."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La distributivité en sens inverse donne $A \\lor (B \\land \\neg C)$. Les autres propositions échouent sur les affectations indiquées dans leur correction.",
+        "en": "Using distributivity in reverse gives $A \\lor (B \\land \\neg C)$. The other choices fail on the assignments shown in their feedback."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E28",
+      "objectiveId": "L04-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "de-morgan-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour des variables propositionnelles $A$, $B$, $C$. Quelle formule est équivalente à $\\neg((A \\lor B) \\land \\neg C)$ ?",
+        "en": "For propositional variables $A$, $B$, $C$. Which formula is equivalent to $\\neg((A \\lor B) \\land \\neg C)$?"
+      },
+      "hint": {
+        "fr": "Repérez le connecteur principal et la portée des négations avant de choisir une loi.",
+        "en": "Identify the main connective and the scope of negations before choosing a law."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(\\neg A \\land \\neg B) \\lor C$",
+            "en": "$(\\neg A \\land \\neg B) \\lor C$"
+          },
+          "feedback": {
+            "fr": "Exact : appliquez la de Morgan puis double négation en conservant chaque partie et sa portée.",
+            "en": "Correct: apply De Morgan then double negation, preserving each part and its scope."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(\\neg A \\lor \\neg B) \\lor C$",
+            "en": "$(\\neg A \\lor \\neg B) \\lor C$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=0, B=1, C=0$ : il donne $1$ au lieu de $0$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=0, B=1, C=0$: it gives $1$ instead of $0$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(\\neg A \\land \\neg B) \\land C$",
+            "en": "$(\\neg A \\land \\neg B) \\land C$"
+          },
+          "feedback": {
+            "fr": "Ce choix échoue pour $A=0, B=0, C=0$ : il donne $0$ au lieu de $1$. Reprenez la portée de chaque connecteur et appliquez la loi sans perdre de partie.",
+            "en": "This choice fails for $A=0, B=0, C=0$: it gives $0$ instead of $1$. Revisit each connective’s scope and apply the law without losing a part."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La de Morgan puis double négation donne $(\\neg A \\land \\neg B) \\lor C$. Les autres propositions échouent sur les affectations indiquées dans leur correction.",
+        "en": "Using De Morgan then double negation gives $(\\neg A \\land \\neg B) \\lor C$. The other choices fail on the assignments shown in their feedback."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L04-E29",
+      "objectiveId": "L04-O05",
+      "difficulty": "medium",
+      "misconceptions": [
+        "equivalence-means-agreement-on-some-rows",
+        "equivalence-as-connective"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle affectation réfute $A \\land (B \\lor C) \\equiv (A \\land B) \\lor C$ ?",
+        "en": "Which assignment refutes $A \\land (B \\lor C) \\equiv (A \\land B) \\lor C$?"
+      },
+      "hint": {
+        "fr": "Comparez les deux membres ; une seule ligne différente suffit.",
+        "en": "Compare both sides; one differing row is enough."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A=0, B=0, C=0$",
+            "en": "$A=0, B=0, C=0$"
+          },
+          "feedback": {
+            "fr": "Le membre de gauche vaut $0$, celui de droite $0$ : ils coïncident sur cette ligne, qui ne réfute donc rien.",
+            "en": "The left side is $0$, the right side $0$: they agree on this row, so it refutes nothing."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A=0, B=0, C=1$",
+            "en": "$A=0, B=0, C=1$"
+          },
+          "feedback": {
+            "fr": "Le membre de gauche vaut $0$, celui de droite $1$ : cette ligne réfute l’équivalence.",
+            "en": "The left side is $0$, the right side $1$: this row refutes equivalence."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A=1, B=0, C=1$",
+            "en": "$A=1, B=0, C=1$"
+          },
+          "feedback": {
+            "fr": "Le membre de gauche vaut $1$, celui de droite $1$ : ils coïncident sur cette ligne, qui ne réfute donc rien.",
+            "en": "The left side is $1$, the right side $1$: they agree on this row, so it refutes nothing."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A=1, B=1, C=1$",
+            "en": "$A=1, B=1, C=1$"
+          },
+          "feedback": {
+            "fr": "Le membre de gauche vaut $1$, celui de droite $1$ : ils coïncident sur cette ligne, qui ne réfute donc rien.",
+            "en": "The left side is $1$, the right side $1$: they agree on this row, so it refutes nothing."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Pour $A=0, B=0, C=1$, le membre de gauche est faux et celui de droite vrai. Le terme $C$ à droite a perdu la condition $A$.",
+        "en": "For $A=0, B=0, C=1$, the left side is false and the right side true. The term $C$ on the right has lost condition $A$."
+      },
+      "lessonId": "L04",
+      "version": 4,
+      "prerequisites": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 ---
 lessonId: L03
 locale: fr
-version: 2
+version: 3
 status: pilot
 title: "Tables de vérité : calculer une formule ligne par ligne"
 summary: "Lister toutes les affectations, construire une table colonne par colonne à partir des sous-formules, évaluer une formule sur une ligne et vérifier une table complétée."
-minutes: 12
+minutes: 16
 objectives: [L03-O01, L03-O02, L03-O03, L03-O04, L03-O05, L03-O06]
 prerequisites: [L01, L02]
 sourcePages: [13, 14]
@@ -18,6 +18,12 @@ sourcePages: [13, 14]
 
 **Prérequis :** L01 (valeurs de vérité $1$ et $0$) et L02 (les connecteurs $\land$, $\lor$, $\neg$).
 
+## Pourquoi doubler le nombre de lignes ?
+
+![Arbre des affectations : A vaut zéro ou un ; chaque branche se divise selon B, donnant 00, 01, 10 et 11.](/diagrams/truth-assignments.svg)
+
+Une variable donne deux lignes, deux variables en donnent quatre et trois en donnent huit. Pour ajouter $C$ à une ligne déjà fixée pour $A$ et $B$, faites deux copies : une avec $C = 0$, l’autre avec $C = 1$. Vous n’avez pas besoin de connaître le calcul binaire pour appliquer cette méthode.
+
 ## Assertions atomiques et composées
 
 Une assertion est **atomique** lorsqu’elle n’est pas construite à partir d’autres assertions avec $\lor$, $\land$ ou $\neg$. Sinon, elle est **composée**.
@@ -29,7 +35,7 @@ Une table de vérité décrit une assertion composée pour toutes les affectatio
 
 ## Lister les lignes
 
-Avec $n$ assertions atomiques, il y a $2^n$ affectations. Listez-les de façon systématique : commencez par tous les zéros et comptez en binaire. Pour trois assertions $A$, $B$, $C$, les huit lignes sont $000$, $001$, $010$, $011$, $100$, $101$, $110$ et $111$.
+Une **affectation** est un choix de valeur pour chaque variable : par exemple $A = 0$, $B = 1$. Avec $n$ variables propositionnelles distinctes et librement assignables, il y a $2^n$ affectations. Répéter une lettre dans une formule ne crée pas une nouvelle variable ; la constante $\top$ ne crée aucun choix. Listez-les de façon systématique : commencez par tous les zéros et comptez en binaire. Pour trois assertions $A$, $B$, $C$, les huit lignes sont $000$, $001$, $010$, $011$, $100$, $101$, $110$ et $111$.
 
 ## Construire une table colonne par colonne
 
@@ -53,6 +59,19 @@ Ce travail guidé, dont la solution est visible, n’est pas une réponse indép
 ## Piège : une ligne n’est pas toute la table
 
 Évaluer une formule sur une seule ligne ne la décrit pas. Il faut couvrir toutes les affectations. Une erreur fréquente consiste à écrire trop peu de lignes, ou à recopier une valeur de la ligne précédente au lieu de la recalculer.
+
+## Retour à l’exemple de la page 14
+
+La formule du PDF est $A \land (B \lor \neg A)$. Voici son calcul complété, rédigé pour cette application :
+
+| A | B | ¬A | B ∨ ¬A | A ∧ (B ∨ ¬A) |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 1 | 0 |
+| 0 | 1 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 | 0 |
+| 1 | 1 | 0 | 1 | 1 |
+
+Quand A est fausse, le ET final échoue ; quand A est vraie, le résultat dépend de B. Les colonnes intermédiaires permettent de comprendre chaque ligne, au lieu de mémoriser la dernière.
 
 ## Pratique indépendante
 

@@ -1,11 +1,11 @@
 ---
 lessonId: L19
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Python all et any : tri, doublons et maximum"
 summary: "Traduire des énoncés sur une liste en ∀ et ∃ puis en all et any de Python, et traiter les cas limites des listes courtes."
-minutes: 14
+minutes: 20
 objectives: [L19-O01, L19-O02, L19-O03, L19-O04, L19-O05, L19-O06]
 prerequisites: [L16]
 sourcePages: [90, 91, 92, 93, 94]
@@ -17,6 +17,18 @@ sourcePages: [90, 91, 92, 93, 94]
 À la fin de cette leçon, vous savez traduire « la liste est triée », « la liste contient un doublon » et « la liste contient son maximum » en $\forall$ et $\exists$, les écrire avec `all` et `any` de Python, et énoncer les cas limites.
 
 **Prérequis :** L16 (quantificateurs bornés).
+
+## Lire les indices avant la formule
+
+Pour `t = [1, 3, 2]`, voici où se trouvent les valeurs :
+
+| indice i | 0 | 1 | 2 |
+| --- | --- | --- | --- |
+| t[i] | 1 | 3 | 2 |
+
+Le premier indice est zéro. `range(n-1)` produit les départs des paires voisines, sans inclure sa borne d’arrêt. `for i in ...` fait parcourir ces départs ; `all` demande que chaque test soit vrai et `any` qu’au moins un le soit. J regroupe toutes les positions et K seulement celles qui ont une suivante. Pour les listes de zéro ou un élément, K est vide : interprétez aussi la notation $\{0,\ldots,n-2\}$ des exercices comme ce domaine de départs valide, jamais comme des indices négatifs à parcourir.
+
+Relisez séparément les trois objectifs : trier compare des voisins, détecter un doublon compare deux positions distinctes et chercher un maximum compare un candidat à toutes les valeurs. Un maximum peut apparaître plusieurs fois.
 
 ## Une liste et ses indices
 

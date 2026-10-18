@@ -169,7 +169,20 @@ export async function validateRepository(
           urlPath.startsWith('/') ? directory : dirname(path),
           urlPath.replace(/^\/+/, ''),
         );
-    const present = await exists(dest);
+    let present = await exists(dest);
+    // Astro serves files in public/ at root-relative URLs. Resolve only real
+    // static files here; missing routes and traversal still fail below.
+    if (!present && urlPath.startsWith('/')) {
+      const asset = resolve(directory, 'public', urlPath.replace(/^\/+/, ''));
+      const assetRelative = relative(resolve(directory, 'public'), asset);
+      const assetStat = assetRelative.startsWith('..')
+        ? null
+        : await exists(asset);
+      if (assetStat?.isFile()) {
+        dest = asset;
+        present = assetStat;
+      }
+    }
     if (present) dest = await realpath(dest);
     const rel = relative(directory, dest);
     if (rel === '..' || rel.startsWith('../'))

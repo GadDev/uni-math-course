@@ -1,7 +1,7 @@
 ---
 lessonId: L06
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Converse, contrapositive and everyday language"
 summary: "Write the converse and contrapositive of an implication, know which one is equivalent to it, and avoid reading “if” as “only if” in everyday language."
@@ -41,7 +41,7 @@ $$
 | 1 | 0 | 0 | 0 | 1 |
 | 1 | 1 | 1 | 1 | 1 |
 
-The columns for $A \Rightarrow B$ and its contrapositive agree on every row. The converse differs on rows $01$ and $10$, so an implication and its converse are **not** equivalent. This explanation is original project work.
+The columns for $A \Rightarrow B$ and its contrapositive agree on every row. The converse differs on rows $01$ and $10$, so the two patterns are **not equivalent in general**. Particular statements can nevertheless satisfy both directions. This explanation is original project work.
 
 ## Guided example: divisible by 4
 
@@ -60,6 +60,10 @@ A manager says: “If you finish the report, you get a day off.” An employee g
 But the manager may have intended the other direction of implication: a day off **only** for people who finished the report. That is $B \Rightarrow A$, where $A$ is “you finish the report” and $B$ is “you get a day off”. The sentence actually spoken, $A \Rightarrow B$, says nothing about people who did not finish.
 
 To say what you mean, write the implication in the direction you intend, then check its converse and its contrapositive.
+
+## Reading the comparison
+
+For reading a table, revisit L03; for the symbol $\equiv$, revisit L04. On row $01$, the original implication is true and its converse false. On row $10$, the reverse happens. Neither direction therefore guarantees the other by itself.
 
 ## Independent practice
 

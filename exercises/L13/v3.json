@@ -1,0 +1,583 @@
+{
+  "lessonId": "L13",
+  "version": 3,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L13-E01",
+      "objectiveId": "L13-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "filter-ignored",
+        "domain-element-dropped"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $X = \\{1,2,3,4,5,6\\}$ et $P(n)$ le test « n est pair ». Que vaut $\\{n \\in X \\mid P(n)\\}$ ?",
+        "en": "Let $X = \\{1,2,3,4,5,6\\}$ and let $P(n)$ be the test “n is even”. What is $\\{n \\in X \\mid P(n)\\}$?"
+      },
+      "hint": {
+        "fr": "Gardez seulement les éléments pairs de l’ensemble donné.",
+        "en": "Keep only the even elements of the given set."
+      },
+      "options": [
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\{2, 4\\}$",
+            "en": "$\\{2, 4\\}$"
+          },
+          "feedback": {
+            "fr": "L’élément pair $6$ est oublié.",
+            "en": "The even element $6$ is missing."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{2, 4, 6\\}$",
+            "en": "$\\{2, 4, 6\\}$"
+          },
+          "feedback": {
+            "fr": "Exact : ce sont les éléments pairs de l’ensemble donné.",
+            "en": "Correct: these are the even elements of the given set."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{1, 3, 5\\}$",
+            "en": "$\\{1, 3, 5\\}$"
+          },
+          "feedback": {
+            "fr": "Ce sont les éléments impairs : le filtre est inversé.",
+            "en": "These are the odd elements: the filter is inverted."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{1, 2, 3, 4, 5, 6\\}$",
+            "en": "$\\{1, 2, 3, 4, 5, 6\\}$"
+          },
+          "feedback": {
+            "fr": "Le filtre n’a pas été appliqué.",
+            "en": "The filter was not applied."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "On garde dans $X$ exactement les éléments pour lesquels le prédicat est vrai.",
+        "en": "We keep in $X$ exactly the elements for which the predicate is true."
+      },
+      "lessonId": "L13",
+      "version": 3,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E02",
+      "objectiveId": "L13-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "one-is-prime",
+        "wrong-filter-application"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $X = \\{0,1,2,\\ldots,10\\}$ et $P(n)$ le test « n est premier ». Que vaut $\\{n \\in X \\mid P(n)\\}$ ?",
+        "en": "Let $X = \\{0,1,2,\\ldots,10\\}$ and let $P(n)$ be the test “n is prime”. What is $\\{n \\in X \\mid P(n)\\}$?"
+      },
+      "hint": {
+        "fr": "Un nombre premier est supérieur à $1$ et n’a que deux diviseurs positifs.",
+        "en": "A prime is greater than $1$ and has exactly two positive divisors."
+      },
+      "options": [
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{2, 3, 5, 7, 9\\}$",
+            "en": "$\\{2, 3, 5, 7, 9\\}$"
+          },
+          "feedback": {
+            "fr": "$9 = 3 \\times 3$ n’est pas premier.",
+            "en": "$9 = 3 \\times 3$ is not prime."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\{3, 5, 7\\}$",
+            "en": "$\\{3, 5, 7\\}$"
+          },
+          "feedback": {
+            "fr": "$2$ est premier : il manque.",
+            "en": "$2$ is prime: it is missing."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{2, 3, 5, 7\\}$",
+            "en": "$\\{2, 3, 5, 7\\}$"
+          },
+          "feedback": {
+            "fr": "Exact : ce sont les nombres premiers de $0$ à $10$.",
+            "en": "Correct: these are the primes from $0$ to $10$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{1, 2, 3, 5, 7\\}$",
+            "en": "$\\{1, 2, 3, 5, 7\\}$"
+          },
+          "feedback": {
+            "fr": "$1$ n’est pas premier : il n’a qu’un seul diviseur positif.",
+            "en": "$1$ is not prime: it has only one positive divisor."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Les nombres premiers de $0$ à $10$ sont $2$, $3$, $5$ et $7$.",
+        "en": "The primes from $0$ to $10$ are $2$, $3$, $5$ and $7$."
+      },
+      "lessonId": "L13",
+      "version": 3,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E03",
+      "objectiveId": "L13-O03",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "interval-bracket-direction"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel intervalle est égal à $\\{x \\in \\mathbb{R} \\mid x > 2\\}$ ?",
+        "en": "Which interval equals $\\{x \\in \\mathbb{R} \\mid x > 2\\}$?"
+      },
+      "hint": {
+        "fr": "L’inégalité est stricte : la borne $2$ est exclue.",
+        "en": "The inequality is strict: the endpoint $2$ is excluded."
+      },
+      "options": [
+        {
+          "id": "b",
+          "label": {
+            "fr": "$[2, +\\infty[$",
+            "en": "$[2, +\\infty[$"
+          },
+          "feedback": {
+            "fr": "Ce serait $x \\geq 2$ : la borne $2$ serait incluse.",
+            "en": "This would be $x \\geq 2$: the endpoint $2$ would be included."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$]-\\infty, 2[$",
+            "en": "$]-\\infty, 2[$"
+          },
+          "feedback": {
+            "fr": "Ce sont les réels $x < 2$.",
+            "en": "These are the reals $x < 2$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$[10, +\\infty[$",
+            "en": "$[10, +\\infty[$"
+          },
+          "feedback": {
+            "fr": "Cet intervalle commence à $10$ et ne contient pas $3$.",
+            "en": "This interval starts at $10$ and does not contain $3$."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$]2, +\\infty[$",
+            "en": "$]2, +\\infty[$"
+          },
+          "feedback": {
+            "fr": "Exact : la borne $2$ est exclue et il n’y a pas de borne supérieure.",
+            "en": "Correct: the endpoint $2$ is excluded and there is no upper bound."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$x > 2$ s’écrit $]2, +\\infty[$ avec la notation française.",
+        "en": "$x > 2$ is written $]2, +\\infty[$ in French notation."
+      },
+      "lessonId": "L13",
+      "version": 3,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E04",
+      "objectiveId": "L13-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "zero-not-even",
+        "odd-accepted"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel nombre appartient à $\\{n \\in \\mathbb{N} \\mid \\exists k \\in \\mathbb{N}\\ n = 2k\\}$ ?",
+        "en": "Which number belongs to $\\{n \\in \\mathbb{N} \\mid \\exists k \\in \\mathbb{N}\\ n = 2k\\}$?"
+      },
+      "hint": {
+        "fr": "Cherchez un naturel de la forme $2k$ ; rappelez-vous que $0 \\in \\mathbb{N}$.",
+        "en": "Look for a natural number of the form $2k$; remember $0 \\in \\mathbb{N}$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Exact : $0 = 2 \\cdot 0$ avec $k = 0 \\in \\mathbb{N}$.",
+            "en": "Correct: $0 = 2 \\cdot 0$ with $k = 0 \\in \\mathbb{N}$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$7$",
+            "en": "$7$"
+          },
+          "feedback": {
+            "fr": "$7$ est impair : aucun $k$ naturel ne vérifie $7 = 2k$.",
+            "en": "$7$ is odd: no natural $k$ satisfies $7 = 2k$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$-2$",
+            "en": "$-2$"
+          },
+          "feedback": {
+            "fr": "$-2 \\notin \\mathbb{N}$ : il n’est pas dans le domaine.",
+            "en": "$-2 \\notin \\mathbb{N}$: it is not in the domain."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "$3$ est impair.",
+            "en": "$3$ is odd."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "L’ensemble est $\\{0, 2, 4, \\ldots\\}$, et $0$ en fait partie.",
+        "en": "The set is $\\{0, 2, 4, \\ldots\\}$, and $0$ belongs to it."
+      },
+      "lessonId": "L13",
+      "version": 3,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E05",
+      "objectiveId": "L13-O05",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "empty-set-not-a-set",
+        "nonempty-guess"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que vaut $\\{n \\in \\{1, 2, 3\\} \\mid n > 5\\}$ ?",
+        "en": "What is $\\{n \\in \\{1, 2, 3\\} \\mid n > 5\\}$?"
+      },
+      "hint": {
+        "fr": "Testez chaque élément du domaine avant de construire la liste résultat.",
+        "en": "Test every element of the domain before constructing the result list."
+      },
+      "options": [
+        {
+          "id": "d",
+          "label": {
+            "fr": "Ce n’est pas un ensemble",
+            "en": "It is not a set"
+          },
+          "feedback": {
+            "fr": "C’est bien un ensemble : l’ensemble vide.",
+            "en": "It is a set: the empty set."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\varnothing$",
+            "en": "$\\varnothing$"
+          },
+          "feedback": {
+            "fr": "Exact : le filtre élimine tous les éléments.",
+            "en": "Correct: the filter removes every element."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{5\\}$",
+            "en": "$\\{5\\}$"
+          },
+          "feedback": {
+            "fr": "$5$ n’est pas dans le domaine $\\{1, 2, 3\\}$.",
+            "en": "$5$ is not in the domain $\\{1, 2, 3\\}$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{1, 2, 3\\}$",
+            "en": "$\\{1, 2, 3\\}$"
+          },
+          "feedback": {
+            "fr": "Le filtre n’a pas été appliqué.",
+            "en": "The filter was not applied."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Une compréhension peut donner l’ensemble vide.",
+        "en": "A comprehension can give the empty set."
+      },
+      "lessonId": "L13",
+      "version": 3,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L13-E06",
+      "objectiveId": "L13-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "domain-ignored",
+        "same-filter-same-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle affirmation est correcte pour $\\{x \\in \\mathbb{N} \\mid x > 2\\}$ et $\\{x \\in \\mathbb{R} \\mid x > 2\\}$ ?",
+        "en": "Which claim is correct for $\\{x \\in \\mathbb{N} \\mid x > 2\\}$ and $\\{x \\in \\mathbb{R} \\mid x > 2\\}$?"
+      },
+      "hint": {
+        "fr": "Cherchez un réel supérieur à $2$ qui n’est pas un naturel.",
+        "en": "Look for a real greater than $2$ that is not a natural number."
+      },
+      "options": [
+        {
+          "id": "c",
+          "label": {
+            "fr": "Le premier contient le second.",
+            "en": "The first contains the second."
+          },
+          "feedback": {
+            "fr": "C’est l’inverse : le premier est inclus dans le second.",
+            "en": "It is the other way round: the first is included in the second."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Le second est vide.",
+            "en": "The second is empty."
+          },
+          "feedback": {
+            "fr": "$3 \\in \\mathbb{R}$ et $3 > 2$ : le second n’est pas vide.",
+            "en": "$3 \\in \\mathbb{R}$ and $3 > 2$: the second is not empty."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "Ce sont deux ensembles différents : $\\frac{5}{2}$ est dans le second seulement.",
+            "en": "They are different sets: $\\frac{5}{2}$ is in the second only."
+          },
+          "feedback": {
+            "fr": "Exact : le domaine change l’ensemble.",
+            "en": "Correct: the domain changes the set."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Ils sont égaux, car le filtre est le même.",
+            "en": "They are equal, because the filter is the same."
+          },
+          "feedback": {
+            "fr": "Le filtre est le même, mais pas le domaine.",
+            "en": "The filter is the same, but the domain is not."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Même filtre, domaines différents : $\\frac{5}{2}$ distingue les deux ensembles.",
+        "en": "Same filter, different domains: $\\frac{5}{2}$ tells the two sets apart."
+      },
+      "lessonId": "L13",
+      "version": 3,
+      "prerequisites": [
+        "L10",
+        "L11"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}
