@@ -1,0 +1,137 @@
+[
+  {
+    "id": "L24-E01",
+    "correctOption": "a",
+    "kind": "calculation",
+    "expression": "solve(4*x+3-19,x)[0]",
+    "candidates": [
+      "4",
+      "11/2",
+      "16"
+    ]
+  },
+  {
+    "id": "L24-E02",
+    "correctOption": "c",
+    "kind": "calculation",
+    "expression": "solve(5*x-2-3*x-8,x)[0]",
+    "candidates": [
+      "5",
+      "3",
+      "10"
+    ]
+  },
+  {
+    "id": "L24-E03",
+    "correctOption": "b",
+    "kind": "argument",
+    "argument": "At -3 equality holds; at 0 the original inequality holds; at -4 it fails. Multiplication by the negative constant maps the complete half-line x>=-3 exactly to values <=9."
+  },
+  {
+    "id": "L24-E04",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "At 3 the left side is 7, which fails the strict inequality. For x=3+h the inequality is exactly 2h>0, equivalent to h>0."
+  },
+  {
+    "id": "L24-E05",
+    "correctOption": "c",
+    "kind": "calculation",
+    "expression": "solveset(Eq(x**2,x),x,domain=S.Reals)",
+    "candidates": [
+      "FiniteSet(0,1)",
+      "FiniteSet(1)",
+      "FiniteSet(0)"
+    ]
+  },
+  {
+    "id": "L24-E06",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "solve(3*(x-2)-(2*x+1),x)[0]",
+    "candidates": [
+      "7",
+      "-5",
+      "5"
+    ]
+  },
+  {
+    "id": "L24-E07",
+    "correctOption": "a",
+    "kind": "calculation",
+    "expression": "solve((x-1)/2-(x+3)/3,x)[0]",
+    "candidates": [
+      "9",
+      "-9",
+      "3"
+    ]
+  },
+  {
+    "id": "L24-E08",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "Write x=-4+h. The original left side is 6-2h, at least 6 exactly when h<=0, proving the complete boundary and direction."
+  },
+  {
+    "id": "L24-E09",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "solveset(Eq(x**2,9),x,domain=S.Reals)",
+    "candidates": [
+      "FiniteSet(-3,3)",
+      "FiniteSet(3)",
+      "FiniteSet(-9,9)"
+    ]
+  },
+  {
+    "id": "L24-E10",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "Factoring yields x+2 for x!=2. Setting this to 4 forces x=2, contradicting the domain. Substitution of 4 gives 6 rather than 4."
+  },
+  {
+    "id": "L24-E11",
+    "correctOption": "c",
+    "kind": "argument",
+    "argument": "For a=0 the predicate is 0=0 independently of x. For a nonzero its multiplicative inverse exists and gives x=1. Taking a=1 excludes the universal-zero proposal."
+  },
+  {
+    "id": "L24-E12",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "FiniteSet(0,2)-FiniteSet(2)",
+    "candidates": [
+      "FiniteSet(0)",
+      "FiniteSet(-2)",
+      "FiniteSet(1)"
+    ]
+  },
+  {
+    "id": "L24-E13",
+    "correctOption": "a",
+    "kind": "argument",
+    "argument": "For negative x, multiplying x<1 by x reverses the direction, giving x²>x. A positive x strictly between 0 and 1 satisfies the proposed conclusion; x=1 does not meet the premise."
+  },
+  {
+    "id": "L24-E14",
+    "correctOption": "c",
+    "kind": "calculation",
+    "expression": "ceiling(Rational(7,2))-1",
+    "candidates": [
+      "3",
+      "4",
+      "7"
+    ]
+  },
+  {
+    "id": "L24-E15",
+    "correctOption": "b",
+    "kind": "calculation",
+    "expression": "solveset(Eq(sqrt(x),x-2),x,domain=S.Reals)",
+    "candidates": [
+      "FiniteSet(4)",
+      "FiniteSet(1,4)",
+      "FiniteSet(1)"
+    ]
+  }
+]

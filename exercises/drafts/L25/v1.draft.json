@@ -1,0 +1,1208 @@
+{
+  "lessonId": "L25",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L25-E01",
+      "objectiveId": "L25-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "pair-must-satisfy-both"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $\\mathbb{R}^2$, quel couple satisfait $x+y=7$ et $x-y=1$ ?",
+        "en": "In $\\mathbb{R}^2$, which pair satisfies $x+y=7$ and $x-y=1$ ?"
+      },
+      "hint": {
+        "fr": "Un couple doit satisfaire les deux équations.",
+        "en": "A pair must satisfy both equations."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(4;3)$",
+            "en": "$(4;3)$"
+          },
+          "feedback": {
+            "fr": "Additionner les équations donne $2x=8$, puis $y=3$.",
+            "en": "Adding gives $2x=8$, then $y=3$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(3;4)$",
+            "en": "$(3;4)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Additionner les équations donne $2x=8$, puis $y=3$.",
+            "en": "This proposal does not fit. Adding gives $2x=8$, then $y=3$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(7;1)$",
+            "en": "$(7;1)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Additionner les équations donne $2x=8$, puis $y=3$.",
+            "en": "This proposal does not fit. Adding gives $2x=8$, then $y=3$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Additionner les équations donne $2x=8$, puis $y=3$.",
+        "en": "Adding gives $2x=8$, then $y=3$."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E02",
+      "objectiveId": "L25-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "substitution"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $x,y\\in\\mathbb{R}$, $y=2x$ et $x+y=9$. Quelle est la valeur de $x$ ?",
+        "en": "For $x,y\\in\\mathbb{R}$, $y=2x$ and $x+y=9$. What is $x$ ?"
+      },
+      "hint": {
+        "fr": "Exprimez une inconnue puis remplacez-la partout.",
+        "en": "Express one unknown then substitute it everywhere."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La substitution donne $3x=9$.",
+            "en": "This proposal does not fit. Substitution gives $3x=9$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$9$",
+            "en": "$9$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La substitution donne $3x=9$.",
+            "en": "This proposal does not fit. Substitution gives $3x=9$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "La substitution donne $3x=9$.",
+            "en": "Substitution gives $3x=9$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La substitution donne $3x=9$.",
+        "en": "Substitution gives $3x=9$."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E03",
+      "objectiveId": "L25-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "elimination"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $x,y\\in\\mathbb{R}$, $2x+y=11$ et $x+y=7$. Quelle est la valeur de $x$ ?",
+        "en": "For $x,y\\in\\mathbb{R}$, $2x+y=11$ and $x+y=7$. What is $x$ ?"
+      },
+      "hint": {
+        "fr": "Combinez les lignes pour annuler un coefficient.",
+        "en": "Combine rows to cancel a coefficient."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$18$",
+            "en": "$18$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Soustraire les lignes élimine $y$.",
+            "en": "This proposal does not fit. Subtracting the rows eliminates $y$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Soustraire les lignes élimine $y$.",
+            "en": "Subtracting the rows eliminates $y$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Soustraire les lignes élimine $y$.",
+            "en": "This proposal does not fit. Subtracting the rows eliminates $y$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Soustraire les lignes élimine $y$.",
+        "en": "Subtracting the rows eliminates $y$."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E04",
+      "objectiveId": "L25-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "model-units"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Deux cahiers et un stylo coûtent $8$ euros ; un cahier et un stylo coûtent $5$ euros. Quel est le prix du cahier ?",
+        "en": "Two notebooks and one pen cost $8$ euros; one notebook and one pen cost $5$ euros. What is the notebook price ?"
+      },
+      "hint": {
+        "fr": "Définissez chaque inconnue et son unité.",
+        "en": "Define each unknown and its unit."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "La différence des achats est un cahier, de prix $8-5=3$.",
+            "en": "The difference between purchases is one notebook, priced $8-5=3$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La différence des achats est un cahier, de prix $8-5=3$.",
+            "en": "This proposal does not fit. The difference between purchases is one notebook, priced $8-5=3$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La différence des achats est un cahier, de prix $8-5=3$.",
+            "en": "This proposal does not fit. The difference between purchases is one notebook, priced $8-5=3$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La différence des achats est un cahier, de prix $8-5=3$.",
+        "en": "The difference between purchases is one notebook, priced $8-5=3$."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E05",
+      "objectiveId": "L25-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "dependent-equations"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $\\mathbb{R}^2$, combien de solutions ont $x+y=4$ et $x+y=6$ ?",
+        "en": "In $\\mathbb{R}^2$, how many solutions do $x+y=4$ and $x+y=6$ have ?"
+      },
+      "hint": {
+        "fr": "Une identité et une contradiction ont des sens différents.",
+        "en": "An identity and a contradiction mean different things."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Une.",
+            "en": "One."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La même somme ne peut valoir simultanément $4$ et $6$.",
+            "en": "This proposal does not fit. The same sum cannot be both $4$ and $6$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Une infinité.",
+            "en": "Infinitely many."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La même somme ne peut valoir simultanément $4$ et $6$.",
+            "en": "This proposal does not fit. The same sum cannot be both $4$ and $6$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Aucune.",
+            "en": "None."
+          },
+          "feedback": {
+            "fr": "La même somme ne peut valoir simultanément $4$ et $6$.",
+            "en": "The same sum cannot be both $4$ and $6$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La même somme ne peut valoir simultanément $4$ et $6$.",
+        "en": "The same sum cannot be both $4$ and $6$."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E06",
+      "objectiveId": "L25-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "substitution"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $\\mathbb{R}^2$, résoudre $y=x+2$ et $2x+y=11$.",
+        "en": "In $\\mathbb{R}^2$, solve $y=x+2$ and $2x+y=11$."
+      },
+      "hint": {
+        "fr": "Exprimez une inconnue puis remplacez-la partout.",
+        "en": "Express one unknown then substitute it everywhere."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(3;9)$",
+            "en": "$(3;9)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La substitution donne $3x+2=11$, puis $y=5$.",
+            "en": "This proposal does not fit. Substitution gives $3x+2=11$, then $y=5$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(3;5)$",
+            "en": "$(3;5)$"
+          },
+          "feedback": {
+            "fr": "La substitution donne $3x+2=11$, puis $y=5$.",
+            "en": "Substitution gives $3x+2=11$, then $y=5$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(5;3)$",
+            "en": "$(5;3)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La substitution donne $3x+2=11$, puis $y=5$.",
+            "en": "This proposal does not fit. Substitution gives $3x+2=11$, then $y=5$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La substitution donne $3x+2=11$, puis $y=5$.",
+        "en": "Substitution gives $3x+2=11$, then $y=5$."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E07",
+      "objectiveId": "L25-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "elimination"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $\\mathbb{R}^2$, résoudre $2x+3y=13$ et $x-y=4$.",
+        "en": "In $\\mathbb{R}^2$, solve $2x+3y=13$ and $x-y=4$."
+      },
+      "hint": {
+        "fr": "Combinez les lignes pour annuler un coefficient.",
+        "en": "Combine rows to cancel a coefficient."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(5;1)$",
+            "en": "$(5;1)$"
+          },
+          "feedback": {
+            "fr": "Remplacer $x$ par $y+4$ donne $5y=5$.",
+            "en": "Replacing $x$ with $y+4$ gives $5y=5$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(1;5)$",
+            "en": "$(1;5)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Remplacer $x$ par $y+4$ donne $5y=5$.",
+            "en": "This proposal does not fit. Replacing $x$ with $y+4$ gives $5y=5$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(4;1)$",
+            "en": "$(4;1)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Remplacer $x$ par $y+4$ donne $5y=5$.",
+            "en": "This proposal does not fit. Replacing $x$ with $y+4$ gives $5y=5$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Remplacer $x$ par $y+4$ donne $5y=5$.",
+        "en": "Replacing $x$ with $y+4$ gives $5y=5$."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E08",
+      "objectiveId": "L25-O05",
+      "difficulty": "medium",
+      "misconceptions": [
+        "dependent-equations"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $\\mathbb{R}^2$, comparer $x-2y=3$ et $2x-4y=6$.",
+        "en": "In $\\mathbb{R}^2$, compare $x-2y=3$ and $2x-4y=6$."
+      },
+      "hint": {
+        "fr": "Une identité et une contradiction ont des sens différents.",
+        "en": "An identity and a contradiction mean different things."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Un unique couple commun.",
+            "en": "Exactly one common pair."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La seconde équation est le double de la première.",
+            "en": "This proposal does not fit. The second equation is twice the first."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Aucun couple commun.",
+            "en": "No common pair."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La seconde équation est le double de la première.",
+            "en": "This proposal does not fit. The second equation is twice the first."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Une infinité de couples communs.",
+            "en": "Infinitely many common pairs."
+          },
+          "feedback": {
+            "fr": "La seconde équation est le double de la première.",
+            "en": "The second equation is twice the first."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La seconde équation est le double de la première.",
+        "en": "The second equation is twice the first."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E09",
+      "objectiveId": "L25-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "model-units"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Des entrées coûtent $5$ euros pour un adulte et $3$ euros pour un enfant. Avec $a,e\\in\\mathbb{N}$, quelle équation exprime une recette de $40$ euros ?",
+        "en": "Tickets cost $5$ euros per adult and $3$ euros per child. With $a,e\\in\\mathbb{N}$, which equation expresses revenue of $40$ euros ?"
+      },
+      "hint": {
+        "fr": "Définissez chaque inconnue et son unité.",
+        "en": "Define each unknown and its unit."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$a+e=40$",
+            "en": "$a+e=40$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Chaque effectif multiplie son prix ; la somme est une recette, pas un nombre de personnes.",
+            "en": "This proposal does not fit. Each count multiplies its price; the sum is revenue, not a headcount."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5a+3e=40$",
+            "en": "$5a+3e=40$"
+          },
+          "feedback": {
+            "fr": "Chaque effectif multiplie son prix ; la somme est une recette, pas un nombre de personnes.",
+            "en": "Each count multiplies its price; the sum is revenue, not a headcount."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3a+5e=40$",
+            "en": "$3a+5e=40$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Chaque effectif multiplie son prix ; la somme est une recette, pas un nombre de personnes.",
+            "en": "This proposal does not fit. Each count multiplies its price; the sum is revenue, not a headcount."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Chaque effectif multiplie son prix ; la somme est une recette, pas un nombre de personnes.",
+        "en": "Each count multiplies its price; the sum is revenue, not a headcount."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E10",
+      "objectiveId": "L25-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "pair-must-satisfy-both"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $\\mathbb{R}^2$, quel couple satisfait $3x+y=2$ et $x-y=-2$ ?",
+        "en": "In $\\mathbb{R}^2$, which pair satisfies $3x+y=2$ and $x-y=-2$ ?"
+      },
+      "hint": {
+        "fr": "Un couple doit satisfaire les deux équations.",
+        "en": "A pair must satisfy both equations."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(0;2)$",
+            "en": "$(0;2)$"
+          },
+          "feedback": {
+            "fr": "Additionner donne $4x=0$, puis $y=2$.",
+            "en": "Adding gives $4x=0$, then $y=2$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(1;-1)$",
+            "en": "$(1;-1)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Additionner donne $4x=0$, puis $y=2$.",
+            "en": "This proposal does not fit. Adding gives $4x=0$, then $y=2$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(2;0)$",
+            "en": "$(2;0)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Additionner donne $4x=0$, puis $y=2$.",
+            "en": "This proposal does not fit. Adding gives $4x=0$, then $y=2$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Additionner donne $4x=0$, puis $y=2$.",
+        "en": "Adding gives $4x=0$, then $y=2$."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E11",
+      "objectiveId": "L25-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "parameter-degeneracy"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour quel réel $a$ les équations $x+y=5$ et $x+ay=5$ ont-elles une infinité de solutions ?",
+        "en": "For which real $a$ do $x+y=5$ and $x+ay=5$ have infinitely many solutions ?"
+      },
+      "hint": {
+        "fr": "Repérez quand les équations cessent d’être distinctes.",
+        "en": "Identify when the equations cease to be distinct."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La différence est $(a-1)y=0$. Les lignes coïncident pour $a=1$.",
+            "en": "This proposal does not fit. Their difference is $(a-1)y=0$. The rows coincide for $a=1$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La différence est $(a-1)y=0$. Les lignes coïncident pour $a=1$.",
+            "en": "This proposal does not fit. Their difference is $(a-1)y=0$. The rows coincide for $a=1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "La différence est $(a-1)y=0$. Les lignes coïncident pour $a=1$.",
+            "en": "Their difference is $(a-1)y=0$. The rows coincide for $a=1$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La différence est $(a-1)y=0$. Les lignes coïncident pour $a=1$.",
+        "en": "Their difference is $(a-1)y=0$. The rows coincide for $a=1$."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E12",
+      "objectiveId": "L25-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "dependent-equations"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "On élimine une inconnue et obtient $0=0$. Quelle conclusion est justifiée sans autre information ?",
+        "en": "Eliminating an unknown gives $0=0$. Which conclusion is justified without further information ?"
+      },
+      "hint": {
+        "fr": "Une identité et une contradiction ont des sens différents.",
+        "en": "An identity and a contradiction mean different things."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Il n’existe aucune solution.",
+            "en": "There is no solution."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une identité n’impose aucune valeur ; l’équation restante conserve ses contraintes.",
+            "en": "This proposal does not fit. An identity fixes no value; the remaining equation retains its constraints."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Revenir à l’autre équation pour décrire les couples.",
+            "en": "Return to the other equation to describe the pairs."
+          },
+          "feedback": {
+            "fr": "Une identité n’impose aucune valeur ; l’équation restante conserve ses contraintes.",
+            "en": "An identity fixes no value; the remaining equation retains its constraints."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Les deux inconnues sont nulles.",
+            "en": "Both unknowns are zero."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une identité n’impose aucune valeur ; l’équation restante conserve ses contraintes.",
+            "en": "This proposal does not fit. An identity fixes no value; the remaining equation retains its constraints."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Une identité n’impose aucune valeur ; l’équation restante conserve ses contraintes.",
+        "en": "An identity fixes no value; the remaining equation retains its constraints."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E13",
+      "objectiveId": "L25-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "model-units"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Des prix réels $a,e$ satisfont $a+e=4$ et $2a+e=3$. Peut-on accepter la solution comme deux prix non négatifs ?",
+        "en": "Real prices $a,e$ satisfy $a+e=4$ and $2a+e=3$. Can the solution represent two nonnegative prices ?"
+      },
+      "hint": {
+        "fr": "Définissez chaque inconnue et son unité.",
+        "en": "Define each unknown and its unit."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Non : le prix adulte est négatif.",
+            "en": "No: the adult price is negative."
+          },
+          "feedback": {
+            "fr": "La différence donne $a=-1$, puis $e=5$ ; la contrainte de prix échoue.",
+            "en": "Subtraction gives $a=-1$, then $e=5$; the price constraint fails."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Oui : tous les systèmes donnent des prix possibles.",
+            "en": "Yes: every system gives possible prices."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La différence donne $a=-1$, puis $e=5$ ; la contrainte de prix échoue.",
+            "en": "This proposal does not fit. Subtraction gives $a=-1$, then $e=5$; the price constraint fails."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Oui : les deux prix valent $1$.",
+            "en": "Yes: both prices are $1$."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La différence donne $a=-1$, puis $e=5$ ; la contrainte de prix échoue.",
+            "en": "This proposal does not fit. Subtraction gives $a=-1$, then $e=5$; the price constraint fails."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La différence donne $a=-1$, puis $e=5$ ; la contrainte de prix échoue.",
+        "en": "Subtraction gives $a=-1$, then $e=5$; the price constraint fails."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E14",
+      "objectiveId": "L25-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "elimination"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel choix conserve exactement les solutions de $x+y=7$ et $2x-y=2$ dans $\\mathbb{R}^2$ ?",
+        "en": "Which choice preserves exactly the solutions of $x+y=7$ and $2x-y=2$ in $\\mathbb{R}^2$ ?"
+      },
+      "hint": {
+        "fr": "Combinez les lignes pour annuler un coefficient.",
+        "en": "Combine rows to cancel a coefficient."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Remplacer les deux lignes par $3x=9$.",
+            "en": "Replace both rows with $3x=9$."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Il faut conserver une ligne pour retrouver $y$. L’addition de lignes est réversible si l’autre reste disponible.",
+            "en": "This proposal does not fit. A row must remain to recover $y$. Adding rows is reversible when the other is retained."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Garder seulement $x+y=7$.",
+            "en": "Keep only $x+y=7$."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Il faut conserver une ligne pour retrouver $y$. L’addition de lignes est réversible si l’autre reste disponible.",
+            "en": "This proposal does not fit. A row must remain to recover $y$. Adding rows is reversible when the other is retained."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Garder la première ligne et remplacer la seconde par $3x=9$.",
+            "en": "Keep the first row and replace the second with $3x=9$."
+          },
+          "feedback": {
+            "fr": "Il faut conserver une ligne pour retrouver $y$. L’addition de lignes est réversible si l’autre reste disponible.",
+            "en": "A row must remain to recover $y$. Adding rows is reversible when the other is retained."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Il faut conserver une ligne pour retrouver $y$. L’addition de lignes est réversible si l’autre reste disponible.",
+        "en": "A row must remain to recover $y$. Adding rows is reversible when the other is retained."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L25-E15",
+      "objectiveId": "L25-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "parameter-degeneracy"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $\\mathbb{R}^2$, $ax+y=1$ et $2ax+2y=3$ peuvent-elles avoir une solution pour un réel $a$ ?",
+        "en": "In $\\mathbb{R}^2$, can $ax+y=1$ and $2ax+2y=3$ have a solution for any real $a$ ?"
+      },
+      "hint": {
+        "fr": "Repérez quand les équations cessent d’être distinctes.",
+        "en": "Identify when the equations cease to be distinct."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui, seulement pour $a=1$.",
+            "en": "Yes, only for $a=1$."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Doubler la première ligne impose $2ax+2y=2$, incompatible avec $3$.",
+            "en": "This proposal does not fit. Doubling the first row requires $2ax+2y=2$, incompatible with $3$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non, quel que soit le paramètre.",
+            "en": "No, regardless of the parameter."
+          },
+          "feedback": {
+            "fr": "Doubler la première ligne impose $2ax+2y=2$, incompatible avec $3$.",
+            "en": "Doubling the first row requires $2ax+2y=2$, incompatible with $3$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Oui, seulement pour $a=0$.",
+            "en": "Yes, only for $a=0$."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Doubler la première ligne impose $2ax+2y=2$, incompatible avec $3$.",
+            "en": "This proposal does not fit. Doubling the first row requires $2ax+2y=2$, incompatible with $3$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Doubler la première ligne impose $2ax+2y=2$, incompatible avec $3$.",
+        "en": "Doubling the first row requires $2ax+2y=2$, incompatible with $3$."
+      },
+      "lessonId": "L25",
+      "version": 1,
+      "prerequisites": [
+        "L24"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          23,
+          24
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}
