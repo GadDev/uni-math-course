@@ -46,6 +46,7 @@ for (const locale of ['fr', 'en']) {
         }
         expect(
           await page.evaluate(() => document.documentElement.scrollWidth),
+          `${locale}/${lesson} must fit the 320px viewport`,
         ).toBeLessThanOrEqual(320);
       }
     } finally {

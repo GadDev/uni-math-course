@@ -13,3 +13,7 @@ Status: local author verification; browser/hosted acceptance is not established.
 - git diff --check: passed.
 
 node scripts/check-immutable-exercises.mjs passed against origin/main after committing. The branch was rebased onto main 417e91c; its only new base changes were README badges/artwork, and all reviewed lesson/bank inputs were unchanged. Existing bank archives are retained byte-for-byte; new selected archives and identical complete candidate copies are added. See docs/content/CHAPTER_01_REVIEW.md for per-key arguments, actual review scope and remaining editorial work.
+
+## Integration update
+
+Merged main abac4cb4df7aa3fab55c69a42f38018bb85364cc, preserving its documentation removals and the Chapter 1 content/release records. Git merged README and roadmap changes without text conflicts. The previous CI run passed 177 browser tests but failed the French 320px reading test at a 354px document width. Lesson headings now allow language-aware hyphenation with wrapping for oversized words; the regression reports the exact locale and lesson when an overflow occurs. The integration pnpm check passed all 276 tests and the production build. Browser validation is rerun by CI on the updated branch.
