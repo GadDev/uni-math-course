@@ -1,12 +1,31 @@
 {
-  "version": 1,
-  "source": {
-    "title": "Mathématiques Générales — Logique et ensembles",
-    "author": "Bruno Teheux",
-    "institution": "University of Luxembourg",
-    "year": "2026–2027",
-    "pageCount": 96
-  },
+  "version": 2,
+  "sources": [
+    {
+      "title": "Mathématiques Générales — Logique et ensembles",
+      "author": "Bruno Teheux",
+      "institution": "University of Luxembourg",
+      "year": "2026–2027",
+      "pageCount": 96,
+      "id": "logic",
+      "shortTitle": {
+        "fr": "Logique",
+        "en": "Logic"
+      }
+    },
+    {
+      "id": "droites",
+      "shortTitle": {
+        "fr": "Droites et régression",
+        "en": "Lines and regression"
+      },
+      "title": "Mathématiques Générales — Droites : du papier à l’écran, puis au machine learning",
+      "author": "Bruno Teheux",
+      "institution": "University of Luxembourg",
+      "year": "2026–2027",
+      "pageCount": 87
+    }
+  ],
   "categories": [
     {
       "id": "basics",
@@ -48,6 +67,34 @@
       "title": {
         "fr": "Passer du symbole au code",
         "en": "From symbols to code"
+      }
+    },
+    {
+      "id": "algebra",
+      "title": {
+        "fr": "Algèbre : puissances et transformations",
+        "en": "Algebra: powers and transformations"
+      }
+    },
+    {
+      "id": "sums",
+      "title": {
+        "fr": "Sommes, indices et moyennes",
+        "en": "Sums, subscripts and means"
+      }
+    },
+    {
+      "id": "geometry",
+      "title": {
+        "fr": "Coordonnées, droites et écran",
+        "en": "Coordinates, lines and screens"
+      }
+    },
+    {
+      "id": "regression",
+      "title": {
+        "fr": "Régression et corrélation",
+        "en": "Regression and correlation"
       }
     }
   ],
@@ -91,7 +138,8 @@
         "reading": "A and B.",
         "explanation": "Here A and B are statements. Later, A and B denote sets.",
         "confusion": "A capital letter does not guarantee a set: A is also a statement or the predicate name in A(u)."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E02",
@@ -128,7 +176,8 @@
         "reading": "True and false gives false.",
         "explanation": "The two conditions are not both true.",
         "confusion": "In a number set, 0 and 1 are also ordinary numbers."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E03",
@@ -163,7 +212,8 @@
         "reading": "A and, in parentheses, B or not A.",
         "explanation": "We need A, together with either B or the negation of A.",
         "confusion": "In P(x), parentheses hold an argument; in (x,c), they form an ordered pair."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E04",
@@ -203,7 +253,8 @@
         "reading": "The set zero, two, four, and so on.",
         "explanation": "Continue with all the even natural numbers.",
         "confusion": "The dots specify a pattern only when context makes it clear. In EXISTS(...), they stand for a subquery."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E05",
@@ -233,7 +284,8 @@
         "reading": "A of u means: u is an administrator.",
         "explanation": "We specify what the name A(u) means.",
         "confusion": "The colon in f : X → Y has a different role; := is a separate symbol."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E06",
@@ -261,7 +313,8 @@
         "reading": "A or not A is semantically equivalent to true.",
         "explanation": "In classical logic, A is true or A is false.",
         "confusion": "The symbol can be named “top”, but read by its meaning, “true”."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E07",
@@ -286,7 +339,8 @@
         "reading": "A and not A is semantically equivalent to not true, hence false.",
         "explanation": "A statement and its negation cannot both be true.",
         "confusion": "The PDF writes ¬⊤; it does not introduce the symbol ⊥."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E08",
@@ -327,7 +381,8 @@
         "reading": "A and B.",
         "explanation": "Both conditions are required.",
         "confusion": "The dot is a logical synonym in A·B; this is not a numerical multiplication in the PDF."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E09",
@@ -368,7 +423,8 @@
         "reading": "A or B, possibly both.",
         "explanation": "One true condition is enough; two also work.",
         "confusion": "A+B means OR here, but i+1 is ordinary addition on pages 91–94."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E10",
@@ -393,7 +449,8 @@
         "reading": "Either A or B, but not both.",
         "explanation": "When A and B are both true, the result is false.",
         "confusion": "The PDF mentions the acronym XOR without assigning a symbol such as ⊕."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E11",
@@ -436,7 +493,8 @@
         "reading": "Not A, or B.",
         "explanation": "NOT applies only to A in this formula.",
         "confusion": "A′ is named “A prime”, but means “not A” here; it is not a derivative. ¬A∨B and ¬(A∨B) differ."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E12",
@@ -461,7 +519,8 @@
         "reading": "Not not A is semantically equivalent to A.",
         "explanation": "Denying that A is false amounts to asserting A in classical logic.",
         "confusion": ""
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E13",
@@ -499,7 +558,8 @@
         "reading": "If x is greater than or equal to ten, then x is greater than or equal to five.",
         "explanation": "The first condition is enough to guarantee the second.",
         "confusion": "A⇒B guarantees neither A nor the converse B⇒A. It is true when A is false."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E14",
@@ -524,7 +584,8 @@
         "reading": "If A then B is semantically equivalent to if not B then not A.",
         "explanation": "The contrapositive expresses the same logical condition.",
         "confusion": "The converse is generally not equivalent to the original implication."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E15",
@@ -549,7 +610,8 @@
         "reading": "A if and only if B.",
         "explanation": "Both implications A⇒B and B⇒A must be true.",
         "confusion": "This statement can be false for some values of A and B."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E16",
@@ -587,7 +649,8 @@
         "reading": "A or B is semantically equivalent to B or A.",
         "explanation": "Changing this order does not change any row of the truth table.",
         "confusion": "≡ compares statements; ⇔ builds a statement. The PDF explicitly stresses this distinction."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E17",
@@ -613,7 +676,8 @@
         "reading": "n equals two times k.",
         "explanation": "With k a natural number, n is an even natural number.",
         "confusion": "= asserts equality; := introduces a definition."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E18",
@@ -644,7 +708,8 @@
         "reading": "x is greater than two.",
         "explanation": "Three works; two does not.",
         "confusion": "> excludes the boundary; ≥ includes it."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E19",
@@ -668,7 +733,8 @@
         "reading": "x is greater than or equal to ten.",
         "explanation": "Ten works, as does eleven.",
         "confusion": ""
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E20",
@@ -695,7 +761,8 @@
         "reading": "t at index i is less than or equal to t at index i plus one.",
         "explanation": "An element does not exceed the next one; equal values are allowed.",
         "confusion": "“Sorted” here means nondecreasing."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E21",
@@ -723,7 +790,8 @@
         "reading": "From zero to n minus two; and t at index i plus one.",
         "explanation": "We visit positions that have a following element.",
         "confusion": "The + in i+1 is arithmetic; the one in A+B on page 10 means logical OR."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E22",
@@ -749,7 +817,8 @@
         "reading": "The set of natural numbers n such that there exists a natural number k for which n equals two times k.",
         "explanation": "This describes the even natural numbers, including zero.",
         "confusion": "2k is a product; 2^A on page 58 denotes a power set."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E23",
@@ -776,7 +845,8 @@
         "reading": "The set of natural numbers n that are twice a natural number k is zero, two, four, and so on.",
         "explanation": "The PDF example shows that zero is included among the natural numbers here.",
         "confusion": "Whether zero is included varies between books."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E24",
@@ -800,7 +870,8 @@
         "reading": "The set of natural numbers is a subset of the set of integers.",
         "explanation": "Every natural number is an integer.",
         "confusion": ""
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E25",
@@ -824,7 +895,8 @@
         "reading": "The set of integers is a subset of the set of rational numbers.",
         "explanation": "Every integer can be expressed as a fraction with denominator one.",
         "confusion": "The explanation of “rational” is a teaching reminder; the PDF names the set without developing fractions."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E26",
@@ -854,7 +926,8 @@
         "reading": "The set of rational numbers is a subset of the set of real numbers.",
         "explanation": "The real numbers contain the rationals and also the irrationals.",
         "confusion": "N, Z, Q, R are rendered here in blackboard bold for readability."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E27",
@@ -882,7 +955,8 @@
         "reading": "The open interval from two to positive infinity.",
         "explanation": "It contains all real numbers greater than two.",
         "confusion": "+∞ is not a real number and is never an element of this interval."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E28",
@@ -910,7 +984,8 @@
         "reading": "The interval from ten, inclusive, to positive infinity.",
         "explanation": "Ten and all larger real numbers are allowed.",
         "confusion": "Common English equivalents are [10,+∞) and (2,+∞), added as notation translations. t[i] is indexing, not an interval."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E29",
@@ -955,7 +1030,8 @@
         "reading": "The set containing one, two and four.",
         "explanation": "Its elements are one, two and four.",
         "confusion": "A set does not depend on order or repetitions. The comma in (x,c) separates components of an ordered pair."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E30",
@@ -980,7 +1056,8 @@
         "reading": "The empty set belongs to the power set of the set one, two.",
         "explanation": "The empty set is a subset of every set.",
         "confusion": "∅ is a set, not the number zero. {∅} has one element and is not empty."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E31",
@@ -1034,7 +1111,8 @@
         "reading": "a is an element of A.",
         "explanation": "a is among the elements of A.",
         "confusion": "∈ relates an element to a set; ⊆ relates two sets. An element can itself be a set."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E32",
@@ -1062,7 +1140,8 @@
         "reading": "B is a subset of A.",
         "explanation": "A contains all the elements of B.",
         "confusion": "This does not require B to be smaller: A⊆A is true."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E33",
@@ -1096,7 +1175,8 @@
         "reading": "The set of real numbers x such that x is greater than two.",
         "explanation": "We keep only the real numbers above two.",
         "confusion": "The bar means “such that”; it is neither division nor absolute value here."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E34",
@@ -1131,7 +1211,8 @@
         "reading": "A intersection B equals the set two, three.",
         "explanation": "The elements common to A and B are exactly two and three.",
         "confusion": "Equality does not mean “same elements in the same order”: order does not matter in a set."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E35",
@@ -1155,7 +1236,8 @@
         "reading": "The power set of the set one, two is the set containing the empty set, the singleton one, the singleton two, and the set one, two.",
         "explanation": "It contains four subsets; its elements are themselves sets.",
         "confusion": "Read 2^A as “power set of A” in this course; it is not “two times A”. Distinguish the predicate P(x) from calligraphic P(A)."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E36",
@@ -1184,7 +1266,8 @@
         "reading": "A intersection B equals the set two, three.",
         "explanation": "For A={1,2,3} and B={2,3,4,5}, only two and three are common.",
         "confusion": "∩ operates on sets; ∧ on statements. Both correspond to an “and” idea."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E37",
@@ -1213,7 +1296,8 @@
         "reading": "A union B equals the set one, two, three, four, five.",
         "explanation": "Common elements are not repeated.",
         "confusion": "The OR in union is inclusive; elements on both sides remain included."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E38",
@@ -1240,7 +1324,8 @@
         "reading": "The complement of A in A union B is the set four, five.",
         "explanation": "For A={1,2,3} and B={2,3,4,5}, remove the elements of A from their union.",
         "confusion": "The bar and superscript C form complement notation here; C is not a numerical exponent. The result depends on C."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E39",
@@ -1264,7 +1349,8 @@
         "reading": "The ordered pair x, c belongs to E cross C.",
         "explanation": "The first component is a student; the second is a course.",
         "confusion": "(x,c) is a pair; {x,c} is a set."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E40",
@@ -1288,7 +1374,8 @@
         "reading": "E cross C is defined as the set of pairs x, c such that x belongs to E and c belongs to C.",
         "explanation": "We form all possible student-course pairs, not just actual enrolments.",
         "confusion": "× forms a product of sets here, not a product of numbers."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E41",
@@ -1312,7 +1399,8 @@
         "reading": "E cross C is defined as the set of pairs x, c with x in E and c in C.",
         "explanation": "We establish a definition, then use this notation.",
         "confusion": "In this mathematics context, := is a definition; its programming meaning depends on the language."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E42",
@@ -1338,7 +1426,8 @@
         "reading": "f of zero, one, zero equals one.",
         "explanation": "The corresponding table row gives output one.",
         "confusion": "The commas separate arguments; they do not form a decimal number."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E43",
@@ -1362,7 +1451,8 @@
         "reading": "f is a function from the set of n-tuples of zeros and ones to the set zero, one.",
         "explanation": "An input contains n truth values; the output contains one.",
         "confusion": "→ indicates a function; ⇒ is an implication between statements."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E44",
@@ -1386,7 +1476,8 @@
         "reading": "f assigns a truth value to each n-tuple of truth values.",
         "explanation": "The superscript n indicates the number of positions in each input.",
         "confusion": "{0,1}^n is a set of tuples; 2^A on page 58 is the chosen notation for the power set."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E45",
@@ -1444,7 +1535,8 @@
         "reading": "I of x, c: x is enrolled in course c.",
         "explanation": "I denotes a relation between a student and a course here.",
         "confusion": "P(x) does not mean P multiplied by x. A(u) is a predicate, while A alone elsewhere represents a statement or set."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E46",
@@ -1491,7 +1583,8 @@
         "reading": "For every x, P of x.",
         "explanation": "No element of the domain may be an exception.",
         "confusion": "The domain must be known. For P(x) meaning x>2, the statement is false over the reals and true over [10,+∞[."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E47",
@@ -1540,7 +1633,8 @@
         "reading": "There exists an x such that P of x.",
         "explanation": "One suitable example is enough.",
         "confusion": "“There exists” means at least one, not exactly one."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E48",
@@ -1581,7 +1675,8 @@
         "reading": "For every x in X, P of x; that is, for every x, if x belongs to X then P of x.",
         "explanation": "The requirement applies only to elements of X.",
         "confusion": "The course uses ⇒ to expand this abbreviation."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E49",
@@ -1625,7 +1720,8 @@
         "reading": "There exists an x in X such that P of x; that is, there exists an x that belongs to X and satisfies P.",
         "explanation": "The witness must both belong to X and have the property.",
         "confusion": "Replacing ∧ with ⇒ would allow an object outside X to make the implication true without satisfying P."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E50",
@@ -1655,7 +1751,8 @@
         "reading": "It is not true that every x in X satisfies P; this is equivalent to saying that there exists an x in X that does not satisfy P.",
         "explanation": "One counterexample is enough to refute a universal claim.",
         "confusion": "The other rule is ¬∃x∈X P(x) ≡ ∀x∈X ¬P(x): “none” means “every element fails P”."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E51",
@@ -1688,7 +1785,8 @@
         "reading": "For every student x in E, there exists a course c in C in which x is enrolled.",
         "explanation": "The course can vary by student. In the PDF table, the statement is false because cleo has no course.",
         "confusion": "∃c∈C ∀x∈E I(x,c) says “there is one common course taken by everyone”. The PDF also marks this second statement false."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E52",
@@ -1716,7 +1814,8 @@
         "reading": "EXISTS corresponds to “there exists”.",
         "explanation": "EXISTS is true when the subquery returns at least one row.",
         "confusion": "Here the sides are notations being matched; this is not a definition of a new connective."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E53",
@@ -1747,7 +1846,8 @@
         "reading": "The set of students x for whom there exists no course c in which x is enrolled is the set containing cleo.",
         "explanation": "cleo is the only student with no enrolment in the PDF data.",
         "confusion": "The PDF uses a simplified model without duplicates. Details of real SQL, including NULL, are not developed."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E54",
@@ -1775,7 +1875,8 @@
         "reading": "For every index i from zero to n minus two, t at index i is less than or equal to t at index i plus one.",
         "explanation": "Each element is compared with the next to check the ordering.",
         "confusion": "Brackets in t[i] give a position; those in [10,+∞[ delimit an interval."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E55",
@@ -1803,7 +1904,8 @@
         "reading": "There exists an index i from zero to n minus two such that t at index i is greater than the next element.",
         "explanation": "One descent is enough to show the list is not sorted in the course sense.",
         "confusion": "The corresponding code is any(t[i] > t[i+1] for i in range(n-1))."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "E56",
@@ -1830,7 +1932,8 @@
         "reading": "The set of indices from zero through n minus two, inclusive.",
         "explanation": "The range stop is excluded. For n=4, range(n-1) produces 0, 1, 2.",
         "confusion": "Teaching addition: for a list of zero or one element, there is no adjacent pair to check; interpret the index domain as empty."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "G57",
@@ -1862,7 +1965,8 @@
         "reading": "The cours field of i equals prog.",
         "explanation": "This tests the course name in row i.",
         "confusion": "The dot is not multiplication here."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "G58",
@@ -1889,7 +1993,8 @@
         "reading": "The string prog.",
         "explanation": "The course name is text.",
         "confusion": "A string is not a variable name."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "G59",
@@ -1917,7 +2022,8 @@
         "reading": "Select all columns from Inscrit.",
         "explanation": "The query keeps every column of the table.",
         "confusion": "This asterisk does not mean multiplication."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "G60",
@@ -1949,7 +2055,8 @@
         "reading": "Select the students enrolled in prog; end of statement.",
         "explanation": "This marks where the query ends.",
         "confusion": "Usually this sign is not spoken when reading the meaning of the query."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "G61",
@@ -1981,7 +2088,8 @@
         "reading": "Select the student identifiers.",
         "explanation": "e is an alias referring to a row of the Etudiant table.",
         "confusion": "This SQL query uses the simplified course model."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "G62",
@@ -2009,7 +2117,8 @@
         "reading": "For i ranging over indices zero through n minus two.",
         "explanation": "For a list of length at least two, visit the positions that have a next element.",
         "confusion": "Here in is a loop keyword."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "G63",
@@ -2038,7 +2147,8 @@
         "reading": "There is at least one row returned by this subquery.",
         "explanation": "The dots stand for the subquery text.",
         "confusion": "These parentheses are not an ordered pair."
-      }
+      },
+      "sourceId": "logic"
     },
     {
       "id": "G64",
@@ -2067,6 +2177,2309 @@
         "reading": "The statement marked with a star.",
         "explanation": "This refers to a sentence in the text.",
         "confusion": "The star is not multiplication here."
+      },
+      "sourceId": "logic"
+    },
+    {
+      "id": "D002",
+      "category": "numbers",
+      "sourceId": "droites",
+      "notation": "0;\\ 1",
+      "example": "a+0=a,\\qquad a\\cdot1=a,\\qquad a\\cdot0=0",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        6,
+        14
+      ],
+      "fr": {
+        "name": "Zéro ; un",
+        "meaning": "Éléments neutres de l’addition et de la multiplication ; zéro annule un produit.",
+        "reading": "a plus zéro égale a ; a fois un égale a ; a fois zéro égale zéro.",
+        "explanation": "Ajouter zéro ou multiplier par un ne change pas a.",
+        "confusion": "Ici 0 et 1 sont des nombres, pas des valeurs de vérité."
+      },
+      "en": {
+        "name": "Zero; one",
+        "meaning": "Identity values for addition and multiplication; zero makes a product zero.",
+        "reading": "a plus zero equals a; a times one equals a; a times zero equals zero.",
+        "explanation": "Adding zero or multiplying by one leaves a unchanged.",
+        "confusion": "Here 0 and 1 are numbers, not truth values."
+      }
+    },
+    {
+      "id": "D003",
+      "category": "numbers",
+      "sourceId": "droites",
+      "notation": "4{,}5;\\ 0{,}206",
+      "example": "m\\approx0{,}206",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        24,
+        41,
+        62,
+        76,
+        77,
+        78,
+        79
+      ],
+      "fr": {
+        "name": "Virgule décimale",
+        "meaning": "Sépare la partie entière de la partie décimale.",
+        "reading": "m vaut environ zéro virgule deux zéro six.",
+        "explanation": "Le point décimal anglais correspond à la virgule française.",
+        "confusion": "Dans (x,y), la virgule sépare deux coordonnées ; dans Python, 8.2 est décimal et les virgules séparent les éléments."
+      },
+      "en": {
+        "name": "Decimal comma",
+        "meaning": "Separates the whole-number part from the fractional part.",
+        "reading": "m is approximately zero point two zero six.",
+        "explanation": "The English decimal point corresponds to the French decimal comma.",
+        "confusion": "In (x,y), the comma separates two coordinates; in Python, 8.2 is a decimal and commas separate items."
+      }
+    },
+    {
+      "id": "D006",
+      "category": "numbers",
+      "sourceId": "droites",
+      "notation": "-a;\\ -3",
+      "example": "a+(-a)=0",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        4,
+        5,
+        6,
+        21,
+        22,
+        69
+      ],
+      "fr": {
+        "name": "Opposé ; signe moins unaire",
+        "meaning": "Donne le nombre qui, ajouté à a, produit zéro.",
+        "reading": "a plus l’opposé de a égale zéro.",
+        "explanation": "L’opposé de trois est moins trois.",
+        "confusion": "−a n’est pas forcément négatif : si a est négatif, −a est positif."
+      },
+      "en": {
+        "name": "Additive inverse; unary minus",
+        "meaning": "Gives the number that adds to a to make zero.",
+        "reading": "a plus the opposite of a equals zero.",
+        "explanation": "The opposite of three is negative three.",
+        "confusion": "−a is not necessarily negative: if a is negative, −a is positive."
+      }
+    },
+    {
+      "id": "D007",
+      "category": "numbers",
+      "sourceId": "droites",
+      "notation": "\\cdot",
+      "example": "0{,}206\\cdot2+3{,}31\\approx3{,}72",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        4,
+        5,
+        6,
+        13,
+        41,
+        51,
+        76,
+        78
+      ],
+      "fr": {
+        "name": "Multiplication explicite",
+        "meaning": "Multiplie les deux quantités.",
+        "reading": "Zéro virgule deux zéro six fois deux, plus trois virgule trois un, vaut environ trois virgule sept deux.",
+        "explanation": "Le produit fait partie du calcul d’une prédiction.",
+        "confusion": "Le point centré n’est pas le point décimal de Python."
+      },
+      "en": {
+        "name": "Explicit multiplication",
+        "meaning": "Multiplies the two quantities.",
+        "reading": "Zero point two zero six times two, plus three point three one, is approximately three point seven two.",
+        "explanation": "The product is part of a prediction calculation.",
+        "confusion": "The centered dot is not the Python decimal point."
+      }
+    },
+    {
+      "id": "D009",
+      "category": "numbers",
+      "sourceId": "droites",
+      "notation": "\\div",
+      "example": "8\\div2\\cdot4=16",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        4,
+        5
+      ],
+      "fr": {
+        "name": "Division en ligne",
+        "meaning": "Divise la quantité de gauche par celle de droite, non nulle.",
+        "reading": "Huit divisé par deux, puis multiplié par quatre, égale seize.",
+        "explanation": "Le cours effectue multiplication et division de gauche à droite.",
+        "confusion": "La question 8÷2(2+2) est volontairement ambiguë hors convention ; préciser les parenthèses."
+      },
+      "en": {
+        "name": "Inline division",
+        "meaning": "Divides the left quantity by the nonzero right quantity.",
+        "reading": "Eight divided by two, then multiplied by four, equals sixteen.",
+        "explanation": "The course evaluates multiplication and division from left to right.",
+        "confusion": "The question 8÷2(2+2) is deliberately ambiguous without a convention; clarify the parentheses."
+      }
+    },
+    {
+      "id": "D010",
+      "category": "numbers",
+      "sourceId": "droites",
+      "notation": "\\frac ab;\\ a/b;\\ \\frac1a",
+      "example": "\\frac12+\\frac13=\\frac56",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        6,
+        13,
+        14,
+        25,
+        40,
+        58,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81
+      ],
+      "fr": {
+        "name": "Fraction ; quotient ; inverse",
+        "meaning": "La barre divise tout le numérateur par tout le dénominateur, non nul.",
+        "reading": "Un demi plus un tiers égale cinq sixièmes.",
+        "explanation": "On met les fractions au même dénominateur : trois sixièmes plus deux sixièmes.",
+        "confusion": "1/a est l’inverse multiplicatif de a ; −a est son opposé. Aucun dénominateur ne peut être zéro."
+      },
+      "en": {
+        "name": "Fraction; quotient; reciprocal",
+        "meaning": "The bar divides the entire numerator by the entire nonzero denominator.",
+        "reading": "One half plus one third equals five sixths.",
+        "explanation": "Use a common denominator: three sixths plus two sixths.",
+        "confusion": "1/a is the multiplicative inverse of a; −a is its additive inverse. No denominator may be zero."
+      }
+    },
+    {
+      "id": "D013",
+      "category": "numbers",
+      "sourceId": "droites",
+      "notation": "\\neq",
+      "example": "x_A\\neq x_B",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        6,
+        13,
+        14,
+        40,
+        41,
+        42,
+        43
+      ],
+      "fr": {
+        "name": "Différent de",
+        "meaning": "Exclut l’égalité entre les deux valeurs.",
+        "reading": "x indice A est différent de x indice B.",
+        "explanation": "Les deux points n’ont pas la même abscisse.",
+        "confusion": "Cette condition évite un dénominateur nul dans la formule de pente."
+      },
+      "en": {
+        "name": "Not equal to",
+        "meaning": "Rules out equality between the two values.",
+        "reading": "x subscript A is not equal to x subscript B.",
+        "explanation": "The two points do not have the same horizontal coordinate.",
+        "confusion": "This condition prevents a zero denominator in the slope formula."
+      }
+    },
+    {
+      "id": "D014",
+      "category": "numbers",
+      "sourceId": "droites",
+      "notation": "<",
+      "example": "x<2",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        21,
+        22,
+        50,
+        51
+      ],
+      "fr": {
+        "name": "Strictement inférieur à",
+        "meaning": "La valeur de gauche est plus petite ; égalité exclue.",
+        "reading": "x est strictement inférieur à deux.",
+        "explanation": "Deux ne fait pas partie des solutions.",
+        "confusion": ""
+      },
+      "en": {
+        "name": "Less than",
+        "meaning": "The left value is smaller; equality is excluded.",
+        "reading": "x is less than two.",
+        "explanation": "Two is not included among the solutions.",
+        "confusion": ""
+      }
+    },
+    {
+      "id": "D019",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "a^n;\\ x^2",
+      "example": "4^2=16",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        4,
+        14,
+        15,
+        16,
+        17,
+        18,
+        69
+      ],
+      "fr": {
+        "name": "Puissance ; carré ; exposant",
+        "meaning": "Pour n entier positif, a puissance n est le produit de n facteurs a.",
+        "reading": "Quatre au carré égale seize.",
+        "explanation": "Quatre est multiplié par lui-même.",
+        "confusion": "Un exposant n’est pas un indice : x² est un carré ; x₂ est une valeur repérée."
+      },
+      "en": {
+        "name": "Power; square; exponent",
+        "meaning": "For positive integer n, a to the nth power is the product of n factors a.",
+        "reading": "Four squared equals sixteen.",
+        "explanation": "Four is multiplied by itself.",
+        "confusion": "An exponent is not a subscript: x² is a square; x₂ is a labelled value."
+      }
+    },
+    {
+      "id": "D020",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "a^0;\\ a^{-n}",
+      "example": "a^0=1,\\qquad a^{-n}=\\frac1{a^n}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        14
+      ],
+      "fr": {
+        "name": "Exposant nul ; exposant négatif",
+        "meaning": "Pour a non nul, a puissance zéro vaut un ; l’exposant négatif donne un inverse.",
+        "reading": "a puissance zéro égale un ; a puissance moins n égale un sur a puissance n.",
+        "explanation": "Le signe moins de l’exposant ne rend pas automatiquement le résultat négatif.",
+        "confusion": "Le cours pose a non nul ; il ne définit pas 0⁰."
+      },
+      "en": {
+        "name": "Zero exponent; negative exponent",
+        "meaning": "For nonzero a, a to the power zero is one; a negative exponent gives a reciprocal.",
+        "reading": "a to the power zero equals one; a to the power negative n equals one over a to the power n.",
+        "explanation": "A minus sign in the exponent does not automatically make the result negative.",
+        "confusion": "The course assumes a is nonzero; it does not define 0⁰."
+      }
+    },
+    {
+      "id": "D021",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "a^na^k;\\ (a^n)^k;\\ (ab)^n",
+      "example": "a^na^k=a^{n+k},\\qquad(a^n)^k=a^{nk},\\qquad(ab)^n=a^nb^n",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        14
+      ],
+      "fr": {
+        "name": "Règles des puissances",
+        "meaning": "Pour les hypothèses du cours, on additionne ou multiplie les exposants selon l’opération.",
+        "reading": "a puissance n fois a puissance k égale a puissance n plus k ; a puissance n, le tout puissance k, égale a puissance n fois k ; a fois b, le tout puissance n, égale a puissance n fois b puissance n.",
+        "explanation": "Le produit de puissances de même base et la puissance d’une puissance sont deux cas différents.",
+        "confusion": "Ici a,b sont non nuls et n,k sont entiers relatifs."
+      },
+      "en": {
+        "name": "Exponent laws",
+        "meaning": "Under the course assumptions, add or multiply exponents according to the operation.",
+        "reading": "a to the n times a to the k equals a to the n plus k; a to the n, all to the k, equals a to the n times k; a times b, all to the n, equals a to the n times b to the n.",
+        "explanation": "Multiplying powers with the same base and raising a power to a power are different cases.",
+        "confusion": "Here a,b are nonzero and n,k are integers."
+      }
+    },
+    {
+      "id": "D022",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "\\sqrt a",
+      "example": "\\sqrt{25}=5",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        14,
+        29,
+        30,
+        34,
+        81
+      ],
+      "fr": {
+        "name": "Racine carrée",
+        "meaning": "Pour a positif ou nul, l’unique réel non négatif dont le carré vaut a.",
+        "reading": "La racine carrée de vingt-cinq égale cinq.",
+        "explanation": "Cinq est non négatif et cinq au carré vaut vingt-cinq.",
+        "confusion": "√25 n’est pas « plus ou moins cinq ». L’équation b²=25 a, elle, deux solutions."
+      },
+      "en": {
+        "name": "Square root",
+        "meaning": "For nonnegative a, the unique nonnegative real number whose square equals a.",
+        "reading": "The square root of twenty-five equals five.",
+        "explanation": "Five is nonnegative and five squared is twenty-five.",
+        "confusion": "√25 is not “plus or minus five”. The equation b²=25 does have two solutions."
+      }
+    },
+    {
+      "id": "D023",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "|a|;\\ |m|;\\ |e_i|;\\ |r|",
+      "example": "|m|>1",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        14,
+        58,
+        66,
+        81
+      ],
+      "fr": {
+        "name": "Valeur absolue",
+        "meaning": "La distance d’un réel à zéro, toujours non négative.",
+        "reading": "La valeur absolue de m est strictement supérieure à un.",
+        "explanation": "La pente peut être supérieure à un ou inférieure à moins un.",
+        "confusion": "Ces deux barres ne sont pas la barre de fraction, ni la barre au-dessus de x̄."
+      },
+      "en": {
+        "name": "Absolute value",
+        "meaning": "The distance of a real number from zero, always nonnegative.",
+        "reading": "The absolute value of m is greater than one.",
+        "explanation": "The slope may be greater than one or less than negative one.",
+        "confusion": "These two bars are neither a fraction bar nor the bar above x̄."
+      }
+    },
+    {
+      "id": "D024",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "\\sqrt{a^2}=|a|",
+      "example": "\\sqrt{(-3)^2}=3",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        14
+      ],
+      "fr": {
+        "name": "Racine d’un carré",
+        "meaning": "La racine principale du carré donne la valeur absolue, pour tout a réel.",
+        "reading": "La racine carrée du carré de moins trois égale trois.",
+        "explanation": "Le carré vaut neuf ; sa racine principale vaut trois.",
+        "confusion": "Remplacer √(a²) par a est faux si a est négatif."
+      },
+      "en": {
+        "name": "Square root of a square",
+        "meaning": "The principal square root of a square gives the absolute value, for every real a.",
+        "reading": "The square root of the square of negative three equals three.",
+        "explanation": "The square is nine; its principal square root is three.",
+        "confusion": "Replacing √(a²) with a is wrong when a is negative."
+      }
+    },
+    {
+      "id": "D025",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "(a+b)^2",
+      "example": "(a+b)^2=a^2+2ab+b^2",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "fr": {
+        "name": "Carré d’une somme",
+        "meaning": "Développe en deux carrés et un double produit.",
+        "reading": "a plus b, le tout au carré, égale a au carré plus deux fois a fois b plus b au carré.",
+        "explanation": "Le terme du milieu vient de deux rectangles de même aire dans le schéma.",
+        "confusion": "Le terme 2ab ne doit pas disparaître. Le dessin utilise des longueurs non négatives ; l’identité est valable pour tous les réels."
+      },
+      "en": {
+        "name": "Square of a sum",
+        "meaning": "Expands into two squares and twice a product.",
+        "reading": "a plus b, all squared, equals a squared plus two times a times b plus b squared.",
+        "explanation": "The middle term comes from two rectangles of equal area in the diagram.",
+        "confusion": "The term 2ab must not disappear. The diagram uses nonnegative lengths; the identity holds for all reals."
+      }
+    },
+    {
+      "id": "D026",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "(a-b)^2",
+      "example": "(2x-3)^2=4x^2-12x+9",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "fr": {
+        "name": "Carré d’une différence",
+        "meaning": "Le double produit est soustrait.",
+        "reading": "Deux x moins trois, le tout au carré, égale quatre x au carré moins douze x plus neuf.",
+        "explanation": "Le dernier terme reste positif : c’est le carré de trois.",
+        "confusion": "(a−b)² n’est pas a²−b²."
+      },
+      "en": {
+        "name": "Square of a difference",
+        "meaning": "Twice the product is subtracted.",
+        "reading": "Two x minus three, all squared, equals four x squared minus twelve x plus nine.",
+        "explanation": "The final term remains positive: it is three squared.",
+        "confusion": "(a−b)² is not a²−b²."
+      }
+    },
+    {
+      "id": "D027",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "(a+b)(a-b)",
+      "example": "(a+b)(a-b)=a^2-b^2",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "fr": {
+        "name": "Produit de deux expressions conjuguées ; différence de carrés",
+        "meaning": "Les termes croisés s’annulent.",
+        "reading": "Le produit de a plus b par a moins b égale a au carré moins b au carré.",
+        "explanation": "Développer le produit fait apparaître deux termes opposés.",
+        "confusion": "Les deux facteurs doivent avoir les mêmes a et b, avec des signes opposés."
+      },
+      "en": {
+        "name": "Product of conjugate expressions; difference of squares",
+        "meaning": "The cross terms cancel.",
+        "reading": "The product of a plus b and a minus b equals a squared minus b squared.",
+        "explanation": "Expanding the product produces two opposite terms.",
+        "confusion": "The two factors must have the same a and b, with opposite signs."
+      }
+    },
+    {
+      "id": "D028",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "\\rightleftarrows",
+      "example": "a(b+c)\\rightleftarrows ab+ac",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "fr": {
+        "name": "Flèches développer/factoriser",
+        "meaning": "Montrent qu’une transformation se parcourt dans les deux sens.",
+        "reading": "Développer le produit de a par la somme de b et c donne a fois b plus a fois c ; factoriser fait le chemin inverse.",
+        "explanation": "Le calcul garde la même valeur, sous une autre forme.",
+        "confusion": "Ce repère de transformation n’est pas la flèche ⇔ entre deux équations."
+      },
+      "en": {
+        "name": "Expand/factorize arrows",
+        "meaning": "Show that a transformation can be used in either direction.",
+        "reading": "Expanding the product of a and the sum of b and c gives a times b plus a times c; factoring reverses the process.",
+        "explanation": "The calculation keeps the same value in a different form.",
+        "confusion": "This transformation marker is not the ⇔ arrow between two equations."
+      }
+    },
+    {
+      "id": "D029",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "\\Leftrightarrow",
+      "example": "3x+5=11\\Leftrightarrow3x=6\\Leftrightarrow x=2",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        19,
+        20,
+        21,
+        22,
+        34,
+        35,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        58
+      ],
+      "fr": {
+        "name": "Équivalence d’équations ou d’inéquations",
+        "meaning": "Les deux conditions ont exactement les mêmes solutions dans le domaine choisi.",
+        "reading": "Trois x plus cinq égale onze si et seulement si trois x égale six, si et seulement si x égale deux.",
+        "explanation": "Chaque étape conserve toutes les solutions réelles.",
+        "confusion": "La fausse équivalence x²=x ⇔ x=1 est un piège explicitement corrigé page 20 : zéro est aussi solution."
+      },
+      "en": {
+        "name": "Equivalence of equations or inequalities",
+        "meaning": "Both conditions have exactly the same solutions in the chosen domain.",
+        "reading": "Three x plus five equals eleven if and only if three x equals six, if and only if x equals two.",
+        "explanation": "Each step preserves all real solutions.",
+        "confusion": "The false equivalence x²=x ⇔ x=1 is a trap explicitly corrected on page 20: zero is also a solution."
+      }
+    },
+    {
+      "id": "D030",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "\\begin{cases}c+k=4{,}5\\\\2c+k=7\\end{cases}",
+      "example": "\\begin{cases}c+k=4{,}5\\\\2c+k=7\\end{cases}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        24
+      ],
+      "fr": {
+        "name": "Accolade de système ; système 2 × 2",
+        "meaning": "Les deux équations doivent être satisfaites simultanément par les mêmes inconnues.",
+        "reading": "c plus k égale quatre virgule cinq, et deux c plus k égale sept.",
+        "explanation": "Les mêmes prix c et k doivent convenir aux deux achats.",
+        "confusion": "L’accolade de système n’est pas une liste de deux valeurs. 2 × 2 décrit deux équations à deux inconnues."
+      },
+      "en": {
+        "name": "System brace; 2-by-2 system",
+        "meaning": "Both equations must be satisfied simultaneously by the same unknowns.",
+        "reading": "c plus k equals four point five, and two c plus k equals seven.",
+        "explanation": "The same prices c and k must fit both purchases.",
+        "confusion": "A system brace is not a list of two values. 2 × 2 describes two equations in two unknowns."
+      }
+    },
+    {
+      "id": "D031",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "x^2+bx=\\left(x+\\frac b2\\right)^2-\\frac{b^2}4",
+      "example": "x^2+6x+1=(x+3)^2-8",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        69
+      ],
+      "fr": {
+        "name": "Compléter le carré",
+        "meaning": "Réécrit un trinôme à partir d’un carré et d’une correction.",
+        "reading": "x au carré plus six x plus un égale x plus trois, le tout au carré, moins huit.",
+        "explanation": "Le carré est au moins zéro ; le minimum est donc moins huit.",
+        "confusion": "Le minimum est atteint ici seulement pour x=−3."
+      },
+      "en": {
+        "name": "Completing the square",
+        "meaning": "Rewrites a quadratic expression using a square and a correction.",
+        "reading": "x squared plus six x plus one equals x plus three, all squared, minus eight.",
+        "explanation": "The square is at least zero; the minimum is therefore negative eight.",
+        "confusion": "Here the minimum is reached only when x=−3."
+      }
+    },
+    {
+      "id": "D032",
+      "category": "algebra",
+      "sourceId": "droites",
+      "notation": "aX^2+bX+c;\\ X=-\\frac b{2a}",
+      "example": "X=-\\frac b{2a}\\qquad(a>0)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        69,
+        70,
+        71,
+        72
+      ],
+      "fr": {
+        "name": "Trinôme et abscisse du minimum",
+        "meaning": "Si a est strictement positif, le trinôme est minimal pour X égal à moins b sur deux a.",
+        "reading": "X égale moins b divisé par deux fois a, avec a strictement positif.",
+        "explanation": "Le dénominateur entier est 2a.",
+        "confusion": "Si a est négatif, ce point est un maximum ; si a vaut zéro, cette formule ne s’applique pas."
+      },
+      "en": {
+        "name": "Quadratic and minimizer",
+        "meaning": "If a is strictly positive, the quadratic is minimized at X equal to negative b over two a.",
+        "reading": "X equals negative b divided by two times a, with a greater than zero.",
+        "explanation": "The entire denominator is 2a.",
+        "confusion": "If a is negative, this point is a maximum; if a is zero, this formula does not apply."
+      }
+    },
+    {
+      "id": "D033",
+      "category": "sums",
+      "sourceId": "droites",
+      "notation": "a_i;\\ x_i;\\ y_i;\\ a_1,\\ldots,a_n",
+      "example": "x_1,\\ldots,x_n",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        25,
+        26,
+        62,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "fr": {
+        "name": "Indice ; terme d’une liste",
+        "meaning": "Le petit caractère inférieur identifie un terme ou une observation.",
+        "reading": "x indice un, jusqu’à x indice n.",
+        "explanation": "Il y a n valeurs repérées par leurs indices.",
+        "confusion": "xᵢ n’est pas x puissance i. En Python, le premier élément d’une liste porte l’indice zéro."
+      },
+      "en": {
+        "name": "Subscript; list term",
+        "meaning": "The small lower character identifies a term or observation.",
+        "reading": "x subscript one through x subscript n.",
+        "explanation": "There are n values identified by their indices.",
+        "confusion": "xᵢ is not x to the power i. In Python, the first list element has index zero."
+      }
+    },
+    {
+      "id": "D034",
+      "category": "sums",
+      "sourceId": "droites",
+      "notation": "\\sum_{i=1}^{n}a_i",
+      "example": "\\sum_{i=1}^{n}a_i=a_1+a_2+\\cdots+a_n",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        25,
+        26,
+        67,
+        70,
+        71,
+        72
+      ],
+      "fr": {
+        "name": "Sigma majuscule ; somme indexée",
+        "meaning": "Additionne le terme aᵢ pour chaque entier i de 1 à n.",
+        "reading": "La somme, pour i allant de un à n, de a indice i égale a indice un plus a indice deux, et ainsi de suite jusqu’à a indice n.",
+        "explanation": "i est le compteur ; 1 est le départ et n la dernière valeur incluse.",
+        "confusion": "Le grand Σ n’est ni un E, ni une variable à multiplier. n doit être un entier positif dans ces listes de données."
+      },
+      "en": {
+        "name": "Capital sigma; indexed sum",
+        "meaning": "Adds aᵢ for every integer i from 1 through n.",
+        "reading": "The sum, for i from one through n, of a subscript i equals a subscript one plus a subscript two, and so on through a subscript n.",
+        "explanation": "i is the counter; 1 is the start and n is the final included value.",
+        "confusion": "The large Σ is neither an E nor a variable to multiply. Here n must be a positive integer for these data lists."
+      }
+    },
+    {
+      "id": "D035",
+      "category": "sums",
+      "sourceId": "droites",
+      "notation": "\\sum e_i;\\ \\sum|e_i|;\\ \\sum e_i^2;\\ \\sum_i r_i",
+      "example": "\\sum e_i^2",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        66,
+        70,
+        71,
+        75,
+        76
+      ],
+      "fr": {
+        "name": "Somme abrégée ; bornes implicites",
+        "meaning": "Les indices à parcourir sont déterminés par les données déjà annoncées.",
+        "reading": "La somme des carrés des résidus e indice i.",
+        "explanation": "On met chaque résidu au carré avant d’additionner.",
+        "confusion": "Σeᵢ² et (Σeᵢ)² ne sont pas la même expression. La somme sous un tableau additionne ses colonnes numériques."
+      },
+      "en": {
+        "name": "Abbreviated sum; implicit bounds",
+        "meaning": "The indices to include are determined by the previously specified data.",
+        "reading": "The sum of the squared residuals e subscript i.",
+        "explanation": "Square each residual before adding.",
+        "confusion": "Σeᵢ² and (Σeᵢ)² are different expressions. The sum sign under a table totals its numerical columns."
+      }
+    },
+    {
+      "id": "D036",
+      "category": "sums",
+      "sourceId": "droites",
+      "notation": "\\bar x;\\ \\bar y",
+      "example": "\\bar x=\\frac1n\\sum_{i=1}^{n}x_i",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        25,
+        26,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76
+      ],
+      "fr": {
+        "name": "x barre ; y barre ; moyenne",
+        "meaning": "La somme des valeurs divisée par leur nombre non nul.",
+        "reading": "x barre égale un sur n fois la somme, de i égal un à n, des x indice i.",
+        "explanation": "On additionne toutes les observations de x, puis on divise par n.",
+        "confusion": "La barre indique une moyenne ici ; ce n’est pas le complémentaire d’un ensemble."
+      },
+      "en": {
+        "name": "x bar; y bar; mean",
+        "meaning": "The sum of the values divided by their nonzero count.",
+        "reading": "x bar equals one over n times the sum, from i equals one through n, of x subscript i.",
+        "explanation": "Add all x observations, then divide by n.",
+        "confusion": "The bar indicates a mean here; it is not a set complement."
+      }
+    },
+    {
+      "id": "D037",
+      "category": "sums",
+      "sourceId": "droites",
+      "notation": "\\sum_{i=1}^{n}(x_i-\\bar x)=0",
+      "example": "\\sum_{i=1}^{n}(x_i-\\bar x)=0",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        25,
+        26,
+        75,
+        76
+      ],
+      "fr": {
+        "name": "Somme des écarts à la moyenne",
+        "meaning": "Les écarts signés à la moyenne se compensent exactement.",
+        "reading": "La somme, pour i de un à n, de x indice i moins x barre, égale zéro.",
+        "explanation": "Des écarts positifs et négatifs peuvent s’annuler.",
+        "confusion": "Une somme nulle ne signifie pas que tous ses termes sont nuls."
+      },
+      "en": {
+        "name": "Sum of deviations from the mean",
+        "meaning": "Signed deviations from the mean cancel exactly.",
+        "reading": "The sum, for i from one through n, of x subscript i minus x bar, equals zero.",
+        "explanation": "Positive and negative deviations can cancel.",
+        "confusion": "A zero sum does not mean every term is zero."
+      }
+    },
+    {
+      "id": "D038",
+      "category": "sums",
+      "sourceId": "droites",
+      "notation": "\\sum_{i=1}^{n}(a_i+b_i);\\ \\sum_{i=1}^{n}ca_i;\\ \\sum_{i=1}^{n}c",
+      "example": "\\sum_{i=1}^{n}(a_i+b_i)=\\sum_{i=1}^{n}a_i+\\sum_{i=1}^{n}b_i,\\qquad\\sum_{i=1}^{n}ca_i=c\\sum_{i=1}^{n}a_i,\\qquad\\sum_{i=1}^{n}c=nc",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        25,
+        26
+      ],
+      "fr": {
+        "name": "Règles de somme et facteur constant",
+        "meaning": "On peut séparer une somme de termes, sortir un facteur constant et compter n copies d’une constante.",
+        "reading": "La somme des a indice i plus b indice i égale la somme des a indice i plus la somme des b indice i ; la somme des c fois a indice i égale c fois la somme des a indice i ; la somme de n copies de c vaut n fois c. Chaque somme va de i égal un à n.",
+        "explanation": "La constante c ne change pas quand i parcourt les termes.",
+        "confusion": "On ne peut pas sortir de la somme un facteur qui varie avec i en le traitant comme une constante."
+      },
+      "en": {
+        "name": "Sum rules and constant factor",
+        "meaning": "We can split sums of terms, factor out a constant and count n copies of a constant.",
+        "reading": "The sum of a subscript i plus b subscript i equals the sum of a subscript i plus the sum of b subscript i; the sum of c times a subscript i equals c times the sum of a subscript i; the sum of n copies of c is n times c. Every sum runs from i equals one through n.",
+        "explanation": "The constant c does not change as i runs through the terms.",
+        "confusion": "A factor that varies with i cannot be taken outside the sum as though it were constant."
+      }
+    },
+    {
+      "id": "D042",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "\\notin",
+      "example": "(2,4)\\notin\\mathcal C",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        32
+      ],
+      "fr": {
+        "name": "Non-appartenance",
+        "meaning": "L’objet n’est pas un élément de l’ensemble.",
+        "reading": "Le couple deux, quatre n’appartient pas à la courbe C.",
+        "explanation": "Pour x=2, la droite y=2x+1 impose y=5, et non 4.",
+        "confusion": "∉ nie une appartenance ; ≠ compare deux valeurs."
+      },
+      "en": {
+        "name": "Non-membership",
+        "meaning": "The object is not an element of the set.",
+        "reading": "The ordered pair two, four does not belong to curve C.",
+        "explanation": "For x=2, the line y=2x+1 requires y=5, not 4.",
+        "confusion": "∉ denies membership; ≠ compares two values."
+      }
+    },
+    {
+      "id": "D043",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "\\mathbb R^2;\\ \\mathbb R\\times\\mathbb R",
+      "example": "\\mathbb R^2=\\mathbb R\\times\\mathbb R",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        28,
+        31,
+        32
+      ],
+      "fr": {
+        "name": "Plan réel ; produit cartésien",
+        "meaning": "Tous les couples ordonnés de deux réels.",
+        "reading": "R deux égale R croix R, le plan des couples de réels.",
+        "explanation": "Deux coordonnées sont nécessaires pour repérer un point du plan.",
+        "confusion": "L’exposant 2 désigne ici une puissance cartésienne ; il ne met pas chaque réel au carré."
+      },
+      "en": {
+        "name": "Real plane; Cartesian product",
+        "meaning": "All ordered pairs of two real numbers.",
+        "reading": "R squared equals R cross R, the plane of pairs of real numbers.",
+        "explanation": "Two coordinates locate a point in the plane.",
+        "confusion": "Here the exponent 2 denotes a Cartesian power; it does not square every real number."
+      }
+    },
+    {
+      "id": "D045",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "]-\\infty,2[",
+      "example": "]-\\infty,2[",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        22
+      ],
+      "fr": {
+        "name": "Intervalle ouvert ; crochets exclusifs",
+        "meaning": "Tous les réels strictement inférieurs à deux.",
+        "reading": "L’intervalle de moins l’infini à deux, deux exclu.",
+        "explanation": "C’est l’ensemble des solutions de x<2.",
+        "confusion": "La notation anglaise usuelle (−∞,2) est donnée comme traduction ajoutée ; la notation source reste française."
+      },
+      "en": {
+        "name": "Open interval; excluding brackets",
+        "meaning": "All real numbers less than two.",
+        "reading": "The interval from negative infinity to two, excluding two.",
+        "explanation": "It is the solution set of x<2.",
+        "confusion": "The usual English notation (−∞,2) is an added notation translation; the source notation remains French."
+      }
+    },
+    {
+      "id": "D046",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "-\\infty",
+      "example": "x\\in]-\\infty,2[",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        22
+      ],
+      "fr": {
+        "name": "Moins l’infini",
+        "meaning": "Indique qu’il n’y a pas de borne inférieure réelle finie.",
+        "reading": "x appartient à l’intervalle de moins l’infini à deux exclu.",
+        "explanation": "On peut descendre aussi loin que voulu parmi les réels plus petits que deux.",
+        "confusion": "−∞ n’est pas un nombre réel ni un élément de cet intervalle."
+      },
+      "en": {
+        "name": "Negative infinity",
+        "meaning": "Indicates there is no finite real lower bound.",
+        "reading": "x belongs to the interval from negative infinity to two, excluding two.",
+        "explanation": "We can go arbitrarily far down among real numbers below two.",
+        "confusion": "−∞ is not a real number or an element of this interval."
+      }
+    },
+    {
+      "id": "D047",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "[3{,}7;\\,8{,}2]",
+      "example": "x\\in[3{,}7;\\,8{,}2]",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        85,
+        86
+      ],
+      "fr": {
+        "name": "Intervalle fermé ; point-virgule séparateur",
+        "meaning": "Comprend les deux bornes et tous les réels entre elles.",
+        "reading": "x est compris entre trois virgule sept et huit virgule deux, bornes comprises.",
+        "explanation": "C’est la plage observée de consommation dans les données.",
+        "confusion": "Le point-virgule sépare les bornes ; les virgules appartiennent aux nombres décimaux."
+      },
+      "en": {
+        "name": "Closed interval; separating semicolon",
+        "meaning": "Includes both endpoints and every real number between them.",
+        "reading": "x lies between three point seven and eight point two, inclusive.",
+        "explanation": "This is the observed consumption range in the data.",
+        "confusion": "The semicolon separates endpoints; the commas belong to decimal numbers."
+      }
+    },
+    {
+      "id": "D049",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "O;\\ x;\\ y",
+      "example": "O=(0,0)",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        28,
+        29,
+        30,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "fr": {
+        "name": "Origine ; axes des abscisses et des ordonnées",
+        "meaning": "O est l’intersection des axes ; les graduations donnent l’échelle.",
+        "reading": "L’origine O a pour coordonnées zéro, zéro.",
+        "explanation": "Dans le repère mathématique illustré, x augmente vers la droite et y vers le haut.",
+        "confusion": "O est une lettre ; 0 est le nombre zéro. La direction verticale de l’écran diffère."
+      },
+      "en": {
+        "name": "Origin; horizontal x-axis and vertical y-axis",
+        "meaning": "O is the axes intersection; tick marks give the scale.",
+        "reading": "The origin O has coordinates zero, zero.",
+        "explanation": "In the illustrated mathematical frame, x increases rightward and y upward.",
+        "confusion": "O is a letter; 0 is the number zero. The screen vertical direction differs."
+      }
+    },
+    {
+      "id": "D050",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "x_A,y_A;\\ x_B,y_B",
+      "example": "A(x_A,y_A)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        29,
+        30,
+        40,
+        41,
+        42,
+        43
+      ],
+      "fr": {
+        "name": "Indices de coordonnées d’un point",
+        "meaning": "A ou B indique le point auquel la coordonnée appartient.",
+        "reading": "A de coordonnées x indice A, y indice A.",
+        "explanation": "xA est l’abscisse du point A, et yA son ordonnée.",
+        "confusion": "L’indice A ne signifie pas multiplier par A."
+      },
+      "en": {
+        "name": "Point-coordinate subscripts",
+        "meaning": "A or B identifies the point to which the coordinate belongs.",
+        "reading": "A with coordinates x subscript A, y subscript A.",
+        "explanation": "xA is the horizontal coordinate of A, and yA its vertical coordinate.",
+        "confusion": "The subscript A does not mean multiplication by A."
+      }
+    },
+    {
+      "id": "D051",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "d(A,B)",
+      "example": "d(A,B)=\\sqrt{(x_B-x_A)^2+(y_B-y_A)^2}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        29,
+        30,
+        34
+      ],
+      "fr": {
+        "name": "Distance entre deux points",
+        "meaning": "Longueur non négative du segment qui relie A à B.",
+        "reading": "La distance de A à B est la racine carrée de la somme du carré de x B moins x A et du carré de y B moins y A.",
+        "explanation": "Le théorème de Pythagore combine les deux déplacements perpendiculaires.",
+        "confusion": "La racine porte sur la somme entière ; le signe moins entre coordonnées est conservé avant de mettre au carré."
+      },
+      "en": {
+        "name": "Distance between two points",
+        "meaning": "Nonnegative length of the segment joining A and B.",
+        "reading": "The distance from A to B is the square root of the sum of the square of x B minus x A and the square of y B minus y A.",
+        "explanation": "Pythagoras combines the two perpendicular displacements.",
+        "confusion": "The root covers the whole sum; keep the subtraction between coordinates before squaring."
+      }
+    },
+    {
+      "id": "D053",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "x^2+y^2=4;\\ y=x^2;\\ x=y^2",
+      "example": "x^2+y^2=4\\Leftrightarrow d((x,y),O)=2",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        33,
+        34
+      ],
+      "fr": {
+        "name": "Équations de cercle et de paraboles",
+        "meaning": "Des équations différentes imposent des formes de courbes différentes.",
+        "reading": "x au carré plus y au carré égale quatre si et seulement si la distance du point x, y à O vaut deux.",
+        "explanation": "C’est le cercle de centre O et de rayon deux.",
+        "confusion": "y=x² et x=y² ne décrivent pas la même orientation de parabole."
+      },
+      "en": {
+        "name": "Circle and parabola equations",
+        "meaning": "Different equations impose different curve shapes.",
+        "reading": "x squared plus y squared equals four if and only if the distance from point x, y to O equals two.",
+        "explanation": "This is the circle centered at O with radius two.",
+        "confusion": "y=x² and x=y² do not describe the same parabola orientation."
+      }
+    },
+    {
+      "id": "D054",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "\\underbrace{\\quad}_{a}\\ \\underbrace{\\quad}_{b}",
+      "example": "(a+b)^2",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "fr": {
+        "name": "Accolades de longueur dans un dessin",
+        "meaning": "Relient une portion du dessin à la longueur qui la mesure.",
+        "reading": "a plus b, le tout au carré.",
+        "explanation": "Les accolades sous le carré séparent un côté en deux longueurs a et b ; la formule donne l’aire totale.",
+        "confusion": "Ces accolades de mesure ne délimitent ni un ensemble ni un système d’équations."
+      },
+      "en": {
+        "name": "Length braces in a diagram",
+        "meaning": "Connect a portion of a diagram to its measured length.",
+        "reading": "a plus b, all squared.",
+        "explanation": "The braces below the square divide a side into lengths a and b; the formula gives the total area.",
+        "confusion": "These measurement braces enclose neither a set nor a system of equations."
+      }
+    },
+    {
+      "id": "D055",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "y=mx+p",
+      "example": "y=2x+1",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "fr": {
+        "name": "Équation réduite d’une droite",
+        "meaning": "Pour une droite non verticale, m règle la pente et p l’ordonnée à l’origine.",
+        "reading": "y égale deux x plus un.",
+        "explanation": "Un pas de un en x ajoute deux à y ; à x=0, y vaut un.",
+        "confusion": "Une droite verticale ne peut pas s’écrire sous cette forme."
+      },
+      "en": {
+        "name": "Slope-intercept form of a line",
+        "meaning": "For a nonvertical line, m controls slope and p the y-intercept.",
+        "reading": "y equals two x plus one.",
+        "explanation": "A step of one in x adds two to y; at x=0, y is one.",
+        "confusion": "A vertical line cannot be written in this form."
+      }
+    },
+    {
+      "id": "D056",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "m",
+      "example": "\\Delta y=m\\,\\Delta x",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        56,
+        57,
+        58,
+        59,
+        68,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "fr": {
+        "name": "Pente ; coefficient directeur",
+        "meaning": "Variation de y par unité de variation de x, si cette dernière n’est pas nulle.",
+        "reading": "Delta y égale m fois delta x.",
+        "explanation": "m compare la variation verticale à la variation horizontale.",
+        "confusion": "Une pente peut être négative, nulle ou positive ; ses unités dépendent des axes."
+      },
+      "en": {
+        "name": "Slope",
+        "meaning": "Change in y per unit change in x, when the latter is nonzero.",
+        "reading": "Delta y equals m times delta x.",
+        "explanation": "m compares vertical change to horizontal change.",
+        "confusion": "A slope may be negative, zero or positive; its units depend on the axes."
+      }
+    },
+    {
+      "id": "D057",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "p;\\ (0,p)",
+      "example": "y=2x+10",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        68,
+        76,
+        77,
+        78,
+        79,
+        80
+      ],
+      "fr": {
+        "name": "Ordonnée à l’origine",
+        "meaning": "La valeur de y lorsque x vaut zéro.",
+        "reading": "y égale deux x plus dix.",
+        "explanation": "Dans le forfait du cours, dix est le coût fixe même si aucun Go n’est utilisé.",
+        "confusion": "p n’est pas la pente : le coefficient de x est m."
+      },
+      "en": {
+        "name": "y-intercept",
+        "meaning": "The value of y when x equals zero.",
+        "reading": "y equals two x plus ten.",
+        "explanation": "In the course subscription example, ten is the fixed cost even when no GB is used.",
+        "confusion": "p is not the slope: the coefficient of x is m."
+      }
+    },
+    {
+      "id": "D058",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "\\Delta x;\\ \\Delta y",
+      "example": "m=\\frac{\\Delta y}{\\Delta x}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        38,
+        59
+      ],
+      "fr": {
+        "name": "Delta majuscule ; variation",
+        "meaning": "Désigne une différence entre une valeur finale et une valeur initiale.",
+        "reading": "m égale delta y sur delta x.",
+        "explanation": "On divise la variation verticale par l’horizontale, non nulle.",
+        "confusion": "Δx n’est pas nécessairement un petit déplacement ni une dérivée."
+      },
+      "en": {
+        "name": "Capital delta; change",
+        "meaning": "Denotes a difference between a final and an initial value.",
+        "reading": "m equals delta y over delta x.",
+        "explanation": "Divide vertical change by nonzero horizontal change.",
+        "confusion": "Δx need not be a small change and is not a derivative."
+      }
+    },
+    {
+      "id": "D059",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "m=\\frac{y_B-y_A}{x_B-x_A};\\ p=y_A-mx_A",
+      "example": "m=\\frac{212-32}{100-0}=1{,}8",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        40,
+        41,
+        42,
+        43
+      ],
+      "fr": {
+        "name": "Pente et intercept obtenus avec deux points",
+        "meaning": "Calcule la droite lorsque xA et xB sont différents.",
+        "reading": "m égale deux cent douze moins trente-deux, divisé par cent moins zéro, soit un virgule huit.",
+        "explanation": "Les deux différences doivent utiliser le même ordre des points.",
+        "confusion": "Pour xA=xB, la pente n’est pas définie ; les points distincts donnent une droite verticale."
+      },
+      "en": {
+        "name": "Slope and intercept from two points",
+        "meaning": "Computes the line when xA and xB differ.",
+        "reading": "m equals two hundred twelve minus thirty-two, divided by one hundred minus zero, which is one point eight.",
+        "explanation": "Both differences must use the same point order.",
+        "confusion": "When xA=xB, the slope is undefined; distinct points give a vertical line."
+      }
+    },
+    {
+      "id": "D060",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "\\mapsto",
+      "example": "(2,1)\\mapsto(500,250)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        38,
+        55
+      ],
+      "fr": {
+        "name": "Flèche « est envoyé sur »",
+        "meaning": "Associe une entrée à sa sortie dans une fonction ou transformation.",
+        "reading": "Le couple deux, un est envoyé sur le couple cinq cents, deux cent cinquante.",
+        "explanation": "On convertit le point mathématique en coordonnées écran.",
+        "confusion": "↦ ne signifie pas une égalité entre les deux couples, ni une implication."
+      },
+      "en": {
+        "name": "Maps-to arrow",
+        "meaning": "Associates an input with its output in a function or transformation.",
+        "reading": "The pair two, one maps to the pair five hundred, two hundred fifty.",
+        "explanation": "The mathematical point is converted to screen coordinates.",
+        "confusion": "↦ means neither equality between the pairs nor implication."
+      }
+    },
+    {
+      "id": "D061",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "ax+by=c",
+      "example": "ax+by=c",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        50,
+        51,
+        60,
+        87
+      ],
+      "fr": {
+        "name": "Équation générale d’une droite",
+        "meaning": "Décrit une droite si a et b ne sont pas tous deux nuls.",
+        "reading": "a fois x plus b fois y égale c.",
+        "explanation": "Cette forme peut aussi représenter des droites verticales.",
+        "confusion": "La condition sur a,b est un rappel nécessaire : 0x+0y=c ne définit pas une droite."
+      },
+      "en": {
+        "name": "General equation of a line",
+        "meaning": "Describes a line if a and b are not both zero.",
+        "reading": "a times x plus b times y equals c.",
+        "explanation": "This form can also represent vertical lines.",
+        "confusion": "The condition on a,b is a necessary reminder: 0x+0y=c does not define a line."
+      }
+    },
+    {
+      "id": "D062",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "\\{ax+by>c\\};\\ \\{ax+by<c\\}",
+      "example": "\\{ax+by>c\\}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        50,
+        51
+      ],
+      "fr": {
+        "name": "Notation abrégée de demi-plan",
+        "meaning": "Les points du plan satisfaisant l’une des deux inégalités strictes.",
+        "reading": "L’ensemble des points pour lesquels a x plus b y est strictement supérieur à c.",
+        "explanation": "On décrit une région du plan, pas un seul nombre.",
+        "confusion": "La droite frontière ax+by=c n’appartient à aucun de ces deux demi-plans ouverts."
+      },
+      "en": {
+        "name": "Abbreviated half-plane notation",
+        "meaning": "Points in the plane satisfying one of the two strict inequalities.",
+        "reading": "The set of points for which a x plus b y is greater than c.",
+        "explanation": "This describes a plane region, not a single number.",
+        "confusion": "The boundary line ax+by=c belongs to neither of these open half-planes."
+      }
+    },
+    {
+      "id": "D063",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "f(x,y)=\\Delta y\\,x-\\Delta x\\,y",
+      "example": "f(x,y)=\\Delta y\\,x-\\Delta x\\,y",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        59
+      ],
+      "fr": {
+        "name": "Fonction de test de signe",
+        "meaning": "Une valeur calculée à partir des deux coordonnées permet de choisir un côté.",
+        "reading": "f de x, y égale delta y fois x moins delta x fois y.",
+        "explanation": "Pour la droite de la page 59 passant par l’origine, zéro indique un point sur la droite.",
+        "confusion": "Le f de cette formule est un nom de fonction ; f(x,y) n’est pas f multiplié par x puis y."
+      },
+      "en": {
+        "name": "Sign-test function",
+        "meaning": "A value computed from the two coordinates can distinguish sides.",
+        "reading": "f of x, y equals delta y times x minus delta x times y.",
+        "explanation": "For the page-59 line through the origin, zero indicates a point on the line.",
+        "confusion": "Here f is a function name; f(x,y) is not f multiplied by x then y."
+      }
+    },
+    {
+      "id": "D064",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "W\\times H;\\ 800\\times600",
+      "example": "800\\times600",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        53,
+        54,
+        55
+      ],
+      "fr": {
+        "name": "Dimensions d’une image",
+        "meaning": "W colonnes de pixels et H lignes de pixels.",
+        "reading": "Huit cents pixels de large sur six cents pixels de haut.",
+        "explanation": "L’image contient huit cents colonnes et six cents lignes.",
+        "confusion": "× décrit ici des dimensions ; ℝ×ℝ est un produit cartésien."
+      },
+      "en": {
+        "name": "Image dimensions",
+        "meaning": "W pixel columns and H pixel rows.",
+        "reading": "Eight hundred pixels wide by six hundred pixels high.",
+        "explanation": "The image has eight hundred columns and six hundred rows.",
+        "confusion": "Here × describes dimensions; ℝ×ℝ is a Cartesian product."
+      }
+    },
+    {
+      "id": "D065",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "u,v;\\ (u_1,v_1),(u_2,v_2)",
+      "example": "(u,v)=(5,2)",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        53,
+        54,
+        55,
+        56,
+        57,
+        58
+      ],
+      "fr": {
+        "name": "Coordonnées écran et extrémités indexées",
+        "meaning": "u repère la colonne, v la ligne ; les indices 1 et 2 distinguent les extrémités.",
+        "reading": "Le pixel u, v a pour coordonnées cinq, deux.",
+        "explanation": "Il est dans la colonne cinq et la ligne deux, numérotées à partir de zéro.",
+        "confusion": "Dans ce repère écran, v augmente vers le bas ; y augmente vers le haut dans le repère mathématique."
+      },
+      "en": {
+        "name": "Screen coordinates and indexed endpoints",
+        "meaning": "u identifies the column, v the row; subscripts 1 and 2 distinguish endpoints.",
+        "reading": "Pixel u, v has coordinates five, two.",
+        "explanation": "It is in column five and row two, counted from zero.",
+        "confusion": "In this screen frame, v increases downward; y increases upward in the mathematical frame."
+      }
+    },
+    {
+      "id": "D066",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "u=400+50x;\\ v=300-50y",
+      "example": "u=400+50x,\\qquad v=300-50y",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        54,
+        55
+      ],
+      "fr": {
+        "name": "Transformation affine de coordonnées",
+        "meaning": "Translate l’origine et change l’échelle, en inversant le sens vertical.",
+        "reading": "u égale quatre cents plus cinquante x ; v égale trois cents moins cinquante y.",
+        "explanation": "Une unité mathématique correspond à cinquante pixels, avec l’origine au centre.",
+        "confusion": "Le moins dans v=300−50y est nécessaire pour faire monter un point quand y augmente."
+      },
+      "en": {
+        "name": "Affine coordinate transformation",
+        "meaning": "Translates the origin and changes scale, reversing the vertical direction.",
+        "reading": "u equals four hundred plus fifty x; v equals three hundred minus fifty y.",
+        "explanation": "One mathematical unit corresponds to fifty pixels, with the origin at the center.",
+        "confusion": "The minus in v=300−50y is needed to move a point upward when y increases."
+      }
+    },
+    {
+      "id": "D067",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "E;\\ NE;\\ M;\\ ABC",
+      "example": "E=(x+1,y),\\quad NE=(x+1,y+1),\\quad M=(x+1,y+\\tfrac12)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        59,
+        60
+      ],
+      "fr": {
+        "name": "Étiquettes géométriques",
+        "meaning": "E et NE nomment des pixels candidats, M un milieu ; ABC nomme un triangle par ses sommets.",
+        "reading": "E est le pixel x plus un, y ; N E est x plus un, y plus un ; M est x plus un, y plus un demi.",
+        "explanation": "La figure de Bresenham utilise ici un axe vertical vers le haut.",
+        "confusion": "E n’est pas ici le prédicat E(x,y) ; ABC ne signifie pas multiplier A, B et C."
+      },
+      "en": {
+        "name": "Geometric labels",
+        "meaning": "E and NE name candidate pixels, M a midpoint; ABC names a triangle by its vertices.",
+        "reading": "E is the pixel x plus one, y; N E is x plus one, y plus one; M is x plus one, y plus one half.",
+        "explanation": "The Bresenham diagram uses an upward vertical axis here.",
+        "confusion": "E is not the predicate E(x,y) here; ABC does not mean multiplying A, B and C."
+      }
+    },
+    {
+      "id": "D068",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "°C; °F; €; Go",
+      "example": "F = 1,8 C + 32",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        23,
+        24,
+        38,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45
+      ],
+      "format": "code",
+      "fr": {
+        "name": "Unités : températures, prix et données",
+        "meaning": "Les unités précisent la grandeur et donnent un sens à la pente.",
+        "reading": "La température en degrés Fahrenheit égale un virgule huit fois la température en degrés Celsius plus trente-deux.",
+        "explanation": "C et F désignent ici les valeurs numériques des températures dans les unités indiquées.",
+        "confusion": "Go signifie gigaoctet, lu GB en anglais ; ce n’est pas un produit de variables G et o."
+      },
+      "en": {
+        "name": "Units: temperature, price and data",
+        "meaning": "Units specify the quantity and give meaning to a slope.",
+        "reading": "The temperature in degrees Fahrenheit equals one point eight times the temperature in degrees Celsius plus thirty-two.",
+        "explanation": "Here C and F denote numerical temperature values in the indicated units.",
+        "confusion": "French Go means gigaoctet, read GB in English; it is not a product of variables G and o."
+      }
+    },
+    {
+      "id": "D069",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "\\longrightarrow",
+      "example": "x\\longrightarrow",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        28,
+        29,
+        30,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        53,
+        54,
+        55
+      ],
+      "fr": {
+        "name": "Flèche d’axe",
+        "meaning": "Indique le sens dans lequel la coordonnée augmente sur le dessin.",
+        "reading": "Sur cet axe horizontal, x augmente vers la droite.",
+        "explanation": "La flèche donne une orientation au repère.",
+        "confusion": "Une flèche d’axe n’est pas la flèche ↦ d’une transformation ni une équivalence ⇔."
+      },
+      "en": {
+        "name": "Axis arrow",
+        "meaning": "Shows the direction in which the coordinate increases on the diagram.",
+        "reading": "On this horizontal axis, x increases to the right.",
+        "explanation": "The arrow gives the coordinate frame an orientation.",
+        "confusion": "An axis arrow is neither the ↦ transformation arrow nor the ⇔ equivalence sign."
+      }
+    },
+    {
+      "id": "D070",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "\\text{livres/hab./an};\\ \\text{divorces pour 1000 hab.}",
+      "example": "x_i=8{,}2\\quad\\text{livres/hab./an}",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        62,
+        77,
+        78
+      ],
+      "fr": {
+        "name": "Unités composées et taux",
+        "meaning": "La barre se lit « par » ; le taux est rapporté à une population annoncée.",
+        "reading": "x indice i vaut huit virgule deux livres par habitant et par an.",
+        "explanation": "La première observation mesure une consommation moyenne par personne.",
+        "confusion": "Les livres sont ici une unité de masse, pas une devise ni des ouvrages."
+      },
+      "en": {
+        "name": "Compound units and rates",
+        "meaning": "The slash reads “per”; the rate refers to the stated population size.",
+        "reading": "x subscript i is eight point two pounds per person per year.",
+        "explanation": "The first observation measures average consumption per person.",
+        "confusion": "Here pounds are a mass unit, not currency or books."
+      }
+    },
+    {
+      "id": "D071",
+      "category": "geometry",
+      "sourceId": "droites",
+      "notation": "ax+by-c",
+      "example": "ax+by-c",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        60,
+        87
+      ],
+      "fr": {
+        "name": "Expression de test d’un côté de droite",
+        "meaning": "Son signe indique de quel côté d’une droite ax+by=c se trouve un point.",
+        "reading": "a fois x plus b fois y moins c.",
+        "explanation": "Une valeur zéro place le point sur la droite ; des signes opposés distinguent les deux côtés.",
+        "confusion": "Il faut a et b non tous deux nuls pour obtenir une vraie frontière linéaire."
+      },
+      "en": {
+        "name": "Line-side test expression",
+        "meaning": "Its sign identifies which side of a line ax+by=c contains a point.",
+        "reading": "a times x plus b times y minus c.",
+        "explanation": "Zero places the point on the line; opposite signs distinguish its two sides.",
+        "confusion": "a and b must not both be zero to obtain a genuine line boundary."
+      }
+    },
+    {
+      "id": "D072",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "\\approx",
+      "example": "y\\approx0{,}206x+3{,}31",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        63,
+        64,
+        76,
+        77,
+        78,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87
+      ],
+      "fr": {
+        "name": "Approximativement égal à",
+        "meaning": "Signale une approximation, un arrondi ou une relation de modèle imparfaite.",
+        "reading": "y est approximativement égal à zéro virgule deux zéro six fois x plus trois virgule trois un.",
+        "explanation": "La droite approche les observations et les coefficients affichés sont arrondis.",
+        "confusion": "≈ n’est pas = : une approximation ne doit pas devenir une identité exacte dans un calcul."
+      },
+      "en": {
+        "name": "Approximately equal to",
+        "meaning": "Signals an approximation, rounding or an imperfect model relationship.",
+        "reading": "y is approximately zero point two zero six times x plus three point three one.",
+        "explanation": "The line approximates the observations and the displayed coefficients are rounded.",
+        "confusion": "≈ is not =: an approximation must not become an exact identity in a calculation."
+      }
+    },
+    {
+      "id": "D073",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "(x_i,y_i);\\ (x_1,y_1),\\ldots,(x_n,y_n)",
+      "example": "(x_1,y_1),\\ldots,(x_n,y_n)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        62,
+        65,
+        66,
+        67,
+        80
+      ],
+      "fr": {
+        "name": "Observation ; paire de données",
+        "meaning": "Les deux mesures portant le même indice appartiennent à la même observation.",
+        "reading": "Les couples x indice un, y indice un, jusqu’à x indice n, y indice n.",
+        "explanation": "Le jeu de données comporte n couples.",
+        "confusion": "L’indice i identifie ici une observation ; page 87, un indice peut au contraire identifier une variable explicative."
+      },
+      "en": {
+        "name": "Observation; data pair",
+        "meaning": "Two measurements with the same subscript belong to the same observation.",
+        "reading": "The pairs x subscript one, y subscript one, through x subscript n, y subscript n.",
+        "explanation": "The data set contains n pairs.",
+        "confusion": "Here i identifies an observation; on page 87, a subscript can instead identify an explanatory variable."
+      }
+    },
+    {
+      "id": "D074",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "e_i",
+      "example": "e_i=y_i-(mx_i+p)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        65,
+        66,
+        67
+      ],
+      "fr": {
+        "name": "Résidu ; erreur signée",
+        "meaning": "Valeur observée moins valeur prédite pour l’observation i.",
+        "reading": "e indice i égale y indice i moins, entre parenthèses, m x indice i plus p.",
+        "explanation": "Un point au-dessus de la droite a un résidu positif.",
+        "confusion": "Le résidu est vertical ; ce n’est pas la distance perpendiculaire du point à la droite. e₃ dans le dessin est le troisième résidu."
+      },
+      "en": {
+        "name": "Residual; signed error",
+        "meaning": "Observed value minus predicted value for observation i.",
+        "reading": "e subscript i equals y subscript i minus, in parentheses, m x subscript i plus p.",
+        "explanation": "A point above the line has a positive residual.",
+        "confusion": "The residual is vertical; it is not the perpendicular distance from the point to the line. e₃ in the diagram is the third residual."
+      }
+    },
+    {
+      "id": "D075",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "S(m,p)",
+      "example": "S(m,p)=\\sum_{i=1}^{n}e_i^2=\\sum_{i=1}^{n}(y_i-mx_i-p)^2",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        67,
+        70,
+        71,
+        72,
+        80
+      ],
+      "fr": {
+        "name": "Somme des carrés des résidus ; fonction de coût",
+        "meaning": "Mesure l’erreur totale de la droite choisie par m et p.",
+        "reading": "S de m, p égale la somme des carrés des résidus, soit la somme, de i égal un à n, de y indice i moins m x indice i moins p, le tout au carré.",
+        "explanation": "On cherche les paramètres qui rendent cette somme aussi petite que possible.",
+        "confusion": "S est toujours non négatif, et peut valoir zéro si tous les points sont sur la droite."
+      },
+      "en": {
+        "name": "Residual sum of squares; loss function",
+        "meaning": "Measures the total error of the line specified by m and p.",
+        "reading": "S of m, p equals the sum of squared residuals, namely the sum, from i equals one through n, of y subscript i minus m x subscript i minus p, all squared.",
+        "explanation": "We seek the parameters making this sum as small as possible.",
+        "confusion": "S is always nonnegative, and can be zero if every point lies on the line."
+      }
+    },
+    {
+      "id": "D076",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "S_{xx}",
+      "example": "S_{xx}=\\sum_{i=1}^{n}(x_i-\\bar x)^2",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        67,
+        68,
+        72,
+        75,
+        76,
+        81
+      ],
+      "fr": {
+        "name": "Somme des carrés des écarts en x",
+        "meaning": "Mesure la dispersion des valeurs x autour de leur moyenne, sans division par n.",
+        "reading": "S indice x x égale la somme, pour i de un à n, de x indice i moins x barre, le tout au carré.",
+        "explanation": "Il est strictement positif exactement quand les x ne sont pas tous égaux.",
+        "confusion": "Les lettres xx sont une étiquette d’indice, pas une puissance ni un produit à ajouter."
+      },
+      "en": {
+        "name": "Sum of squared x deviations",
+        "meaning": "Measures spread of x values around their mean, without division by n.",
+        "reading": "S subscript x x equals the sum, for i from one through n, of x subscript i minus x bar, all squared.",
+        "explanation": "It is strictly positive exactly when the x values are not all equal.",
+        "confusion": "The letters xx form a subscript label, not a power or an extra product."
+      }
+    },
+    {
+      "id": "D077",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "S_{xy}",
+      "example": "S_{xy}=\\sum_{i=1}^{n}(x_i-\\bar x)(y_i-\\bar y)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        67,
+        68,
+        72,
+        75,
+        76,
+        81
+      ],
+      "fr": {
+        "name": "Somme des produits des écarts centrés",
+        "meaning": "Combine les écarts de x et de y appartenant à la même observation.",
+        "reading": "S indice x y égale la somme des produits de x indice i moins x barre par y indice i moins y barre.",
+        "explanation": "Des écarts de même signe donnent une contribution positive.",
+        "confusion": "Sxy peut être négatif ; contrairement à Sxx, ce n’est pas une somme de carrés."
+      },
+      "en": {
+        "name": "Sum of cross-products of centered deviations",
+        "meaning": "Combines x and y deviations belonging to the same observation.",
+        "reading": "S subscript x y equals the sum of the products of x subscript i minus x bar and y subscript i minus y bar.",
+        "explanation": "Deviations with the same sign give a positive contribution.",
+        "confusion": "Sxy can be negative; unlike Sxx, it is not a sum of squares."
+      }
+    },
+    {
+      "id": "D078",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "S_{yy}",
+      "example": "S_{yy}=\\sum_{i=1}^{n}(y_i-\\bar y)^2",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        67,
+        72,
+        81
+      ],
+      "fr": {
+        "name": "Somme des carrés des écarts en y",
+        "meaning": "Mesure la dispersion des y autour de leur moyenne.",
+        "reading": "S indice y y égale la somme des carrés des écarts de y indice i à y barre.",
+        "explanation": "La somme est nulle si tous les y sont égaux.",
+        "confusion": "Syy n’est pas la somme des carrés des résidus S(m,p)."
+      },
+      "en": {
+        "name": "Sum of squared y deviations",
+        "meaning": "Measures spread of y values around their mean.",
+        "reading": "S subscript y y equals the sum of the squared deviations of y subscript i from y bar.",
+        "explanation": "The sum is zero if all y values are equal.",
+        "confusion": "Syy is not the residual sum of squares S(m,p)."
+      }
+    },
+    {
+      "id": "D079",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "m=\\frac{S_{xy}}{S_{xx}};\\ p=\\bar y-m\\bar x",
+      "example": "m=\\frac{S_{xy}}{S_{xx}},\\qquad p=\\bar y-m\\bar x",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        68,
+        72,
+        76
+      ],
+      "fr": {
+        "name": "Paramètres de moindres carrés",
+        "meaning": "Déterminent l’unique droite de régression y en x lorsque Sxx est strictement positif.",
+        "reading": "m égale S indice x y sur S indice x x ; p égale y barre moins m fois x barre.",
+        "explanation": "La droite obtenue passe par le point moyen (x barre, y barre).",
+        "confusion": "Il faut des données et des x non tous égaux ; ne jamais diviser par Sxx nul."
+      },
+      "en": {
+        "name": "Least-squares parameters",
+        "meaning": "Determine the unique regression line of y on x when Sxx is strictly positive.",
+        "reading": "m equals S subscript x y over S subscript x x; p equals y bar minus m times x bar.",
+        "explanation": "The resulting line passes through the mean point (x bar, y bar).",
+        "confusion": "Data are required and the x values must not all be equal; never divide by zero Sxx."
+      }
+    },
+    {
+      "id": "D080",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "r_i=y_i-mx_i",
+      "example": "r_i=y_i-mx_i",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        70,
+        71
+      ],
+      "fr": {
+        "name": "Variable auxiliaire de preuve",
+        "meaning": "Pour m fixé, on enlève mxi à yi avant de choisir p.",
+        "reading": "r indice i égale y indice i moins m x indice i.",
+        "explanation": "La preuve écrit ensuite chaque résidu sous la forme r indice i moins p.",
+        "confusion": "rᵢ n’est ni le résidu final eᵢ ni le coefficient de corrélation r."
+      },
+      "en": {
+        "name": "Auxiliary proof variable",
+        "meaning": "For fixed m, subtract mxi from yi before choosing p.",
+        "reading": "r subscript i equals y subscript i minus m x subscript i.",
+        "explanation": "The proof then writes each residual as r subscript i minus p.",
+        "confusion": "rᵢ is neither the final residual eᵢ nor the correlation coefficient r."
+      }
+    },
+    {
+      "id": "D081",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "\\hat y",
+      "example": "\\hat y=mx+p",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        80
+      ],
+      "fr": {
+        "name": "y chapeau ; prédiction",
+        "meaning": "Valeur renvoyée par le modèle pour un x choisi.",
+        "reading": "y chapeau égale m x plus p.",
+        "explanation": "La valeur est calculée par la droite, pas mesurée directement.",
+        "confusion": "Ne pas confondre y chapeau, valeur prédite, et y barre, moyenne des observations."
+      },
+      "en": {
+        "name": "y hat; prediction",
+        "meaning": "Value returned by the model for a chosen x.",
+        "reading": "y hat equals m x plus p.",
+        "explanation": "The value is computed by the line, not directly measured.",
+        "confusion": "Do not confuse y hat, a predicted value, with y bar, the observation mean."
+      }
+    },
+    {
+      "id": "D082",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "\\frac1n S(m,p);\\ \\mathrm{MSE}",
+      "example": "\\frac1n S(m,p)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        80
+      ],
+      "fr": {
+        "name": "Erreur quadratique moyenne",
+        "meaning": "La somme des carrés des résidus divisée par le nombre de données non nul.",
+        "reading": "Un sur n fois S de m, p, l’erreur quadratique moyenne.",
+        "explanation": "On passe d’une erreur totale à une erreur moyenne par observation.",
+        "confusion": "Ici, ce n’est ni la racine de la moyenne ni une division par n−2."
+      },
+      "en": {
+        "name": "Mean squared error",
+        "meaning": "The residual sum of squares divided by the nonzero number of data points.",
+        "reading": "One over n times S of m, p, the mean squared error.",
+        "explanation": "This turns a total error into a mean error per observation.",
+        "confusion": "Here this is neither a square root of the mean nor division by n−2."
+      }
+    },
+    {
+      "id": "D083",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "r=\\frac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}",
+      "example": "r=\\frac{S_{xy}}{\\sqrt{S_{xx}S_{yy}}}",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        81,
+        82,
+        83,
+        84
+      ],
+      "fr": {
+        "name": "Coefficient de corrélation linéaire",
+        "meaning": "Mesure le sens et l’intensité de l’association linéaire, si les deux dispersions sont non nulles.",
+        "reading": "r égale S indice x y divisé par la racine carrée du produit de S indice x x et S indice y y.",
+        "explanation": "Le signe indique le sens de l’association ; la valeur absolue est comprise entre zéro et un.",
+        "confusion": "r est sans unité et ne démontre pas une causalité. Si Sxx ou Syy vaut zéro, cette formule ne définit pas r."
+      },
+      "en": {
+        "name": "Linear correlation coefficient",
+        "meaning": "Measures direction and strength of linear association, if both spreads are nonzero.",
+        "reading": "r equals S subscript x y divided by the square root of the product of S subscript x x and S subscript y y.",
+        "explanation": "The sign gives the association direction; the absolute value lies between zero and one.",
+        "confusion": "r is unitless and does not establish causation. If Sxx or Syy is zero, this formula does not define r."
+      }
+    },
+    {
+      "id": "D084",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "|r|=1;\\ -1\\leq r\\leq1",
+      "example": "|r|=1",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        81
+      ],
+      "fr": {
+        "name": "Bornes et corrélation parfaite",
+        "meaning": "Si r est défini, sa valeur absolue un correspond à un alignement parfait non horizontal et non vertical.",
+        "reading": "La valeur absolue de r égale un.",
+        "explanation": "r peut valoir un ou moins un.",
+        "confusion": "Des points sur une horizontale ou une verticale ont une dispersion nulle : ils sont alignés mais r n’est pas défini."
+      },
+      "en": {
+        "name": "Bounds and perfect correlation",
+        "meaning": "When r is defined, absolute value one corresponds to perfect alignment that is neither horizontal nor vertical.",
+        "reading": "The absolute value of r equals one.",
+        "explanation": "r may equal one or negative one.",
+        "confusion": "Points on a horizontal or vertical line have zero spread in one variable: they are aligned, but r is undefined."
+      }
+    },
+    {
+      "id": "D085",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "m_1x_1+m_2x_2+p;\\ m_1x_1+\\cdots+m_kx_k+p",
+      "example": "y\\approx m_1x_1+m_2x_2+p",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        87
+      ],
+      "fr": {
+        "name": "Indices de variables et de coefficients",
+        "meaning": "Chaque variable explicative a son coefficient ; l’indice repère ici une caractéristique.",
+        "reading": "y vaut approximativement m indice un fois x indice un plus m indice deux fois x indice deux plus p.",
+        "explanation": "Dans l’exemple, une variable représente la surface et l’autre l’étage.",
+        "confusion": "Ces indices de caractéristiques ne désignent pas les années-observations du tableau précédent."
+      },
+      "en": {
+        "name": "Variable and coefficient subscripts",
+        "meaning": "Each explanatory variable has a coefficient; the subscript here identifies a feature.",
+        "reading": "y is approximately m subscript one times x subscript one plus m subscript two times x subscript two plus p.",
+        "explanation": "In the example, one variable represents area and the other the floor.",
+        "confusion": "These feature subscripts do not identify the year-observations in the earlier table."
+      }
+    },
+    {
+      "id": "D086",
+      "category": "regression",
+      "sourceId": "droites",
+      "notation": "\\square",
+      "example": "\\square",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        72
+      ],
+      "fr": {
+        "name": "Carré de fin de preuve",
+        "meaning": "Marque que la démonstration est terminée.",
+        "reading": "Fin de la démonstration.",
+        "explanation": "Ce signe ferme le raisonnement.",
+        "confusion": "Ce petit carré ne demande pas de mettre l’expression précédente au carré."
+      },
+      "en": {
+        "name": "End-of-proof square",
+        "meaning": "Marks the end of a proof.",
+        "reading": "End of proof.",
+        "explanation": "This symbol closes the argument.",
+        "confusion": "This small square does not ask you to square the preceding expression."
+      }
+    },
+    {
+      "id": "D087",
+      "category": "code",
+      "sourceId": "droites",
+      "notation": "=",
+      "example": "m = sxy / sxx",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        79
+      ],
+      "format": "code",
+      "fr": {
+        "name": "Affectation Python",
+        "meaning": "Stocke le résultat de droite dans le nom de gauche.",
+        "reading": "Affecter à m le quotient de sxy par sxx.",
+        "explanation": "On calcule une valeur puis on la mémorise.",
+        "confusion": "En code, = n’affirme pas une équation à résoudre."
+      },
+      "en": {
+        "name": "Python assignment",
+        "meaning": "Stores the result on the right under the name on the left.",
+        "reading": "Assign to m the quotient of sxy by sxx.",
+        "explanation": "Compute a value, then store it.",
+        "confusion": "In code, = does not state an equation to solve."
+      }
+    },
+    {
+      "id": "D088",
+      "category": "code",
+      "sourceId": "droites",
+      "notation": "[...]; ,; 8.2",
+      "example": "x = [8.2, 7.0, 6.5, 5.3, 5.2, 4.0, 4.6, 4.5, 4.2, 3.7]",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        79
+      ],
+      "format": "code",
+      "fr": {
+        "name": "Liste Python ; séparateur ; point décimal",
+        "meaning": "Les crochets contiennent les éléments ; les virgules les séparent et le point note les décimales.",
+        "reading": "x reçoit la liste huit virgule deux, sept, six virgule cinq, cinq virgule trois, cinq virgule deux, quatre, quatre virgule six, quatre virgule cinq, quatre virgule deux et trois virgule sept.",
+        "explanation": "x est ici toute une liste et non une seule coordonnée.",
+        "confusion": "[3,7;8,2] est un intervalle français en mathématiques ; ce n’est pas la syntaxe d’une liste Python."
+      },
+      "en": {
+        "name": "Python list; separator; decimal point",
+        "meaning": "Brackets contain items; commas separate them and the point marks decimals.",
+        "reading": "x is assigned the list eight point two, seven, six point five, five point three, five point two, four, four point six, four point five, four point two and three point seven.",
+        "explanation": "Here x is a whole list rather than a single coordinate.",
+        "confusion": "[3,7;8,2] is a French mathematical interval, not Python list syntax."
+      }
+    },
+    {
+      "id": "D089",
+      "category": "code",
+      "sourceId": "droites",
+      "notation": "*; **; /",
+      "example": "sxx = sum((a - xb) ** 2 for a in x)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        56,
+        57,
+        58,
+        79
+      ],
+      "format": "code",
+      "fr": {
+        "name": "Produit, puissance et division Python",
+        "meaning": "Traduisent une multiplication, une puissance et un quotient dans le code.",
+        "reading": "Affecter à sxx la somme des carrés de a moins xb, pour chaque a de x.",
+        "explanation": "** 2 met chaque écart au carré.",
+        "confusion": "Le produit implicite 2x n’est pas une écriture Python de multiplication."
+      },
+      "en": {
+        "name": "Python product, power and division",
+        "meaning": "Encode multiplication, exponentiation and division.",
+        "reading": "Assign to sxx the sum of the squares of a minus xb, for each a in x.",
+        "explanation": "** 2 squares each deviation.",
+        "confusion": "Implicit 2x is not Python multiplication syntax."
+      }
+    },
+    {
+      "id": "D090",
+      "category": "code",
+      "sourceId": "droites",
+      "notation": "len(...); sum(...)",
+      "example": "n = len(x)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        79
+      ],
+      "format": "code",
+      "fr": {
+        "name": "Nombre d’éléments ; somme Python",
+        "meaning": "len compte les éléments ; sum les additionne.",
+        "reading": "n reçoit le nombre d’éléments de x.",
+        "explanation": "La liste du PDF comporte dix observations.",
+        "confusion": "sum(x)/n exige n non nul."
+      },
+      "en": {
+        "name": "Item count; Python sum",
+        "meaning": "len counts items; sum adds them.",
+        "reading": "n is assigned the number of items in x.",
+        "explanation": "The PDF list contains ten observations.",
+        "confusion": "sum(x)/n requires n to be nonzero."
+      }
+    },
+    {
+      "id": "D091",
+      "category": "code",
+      "sourceId": "droites",
+      "notation": "xb, yb = ...",
+      "example": "xb, yb = sum(x) / n, sum(y) / n",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        79
+      ],
+      "format": "code",
+      "fr": {
+        "name": "Affectation multiple ; noms des moyennes",
+        "meaning": "Attribue séparément les deux résultats aux deux noms.",
+        "reading": "xb reçoit la somme des x divisée par n ; yb reçoit la somme des y divisée par n.",
+        "explanation": "xb traduit x barre et yb traduit y barre dans ce code.",
+        "confusion": "La virgule sépare deux valeurs ; ce n’est pas une virgule décimale."
+      },
+      "en": {
+        "name": "Multiple assignment; mean variable names",
+        "meaning": "Assigns the two results separately to the two names.",
+        "reading": "xb receives the sum of x divided by n; yb receives the sum of y divided by n.",
+        "explanation": "xb represents x bar and yb represents y bar in this code.",
+        "confusion": "The comma separates two values; it is not a decimal comma."
+      }
+    },
+    {
+      "id": "D092",
+      "category": "code",
+      "sourceId": "droites",
+      "notation": "zip(x, y); for a, b in ...",
+      "example": "sxy = sum((a - xb) * (b - yb) for a, b in zip(x, y))",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        79
+      ],
+      "format": "code",
+      "fr": {
+        "name": "Parcours de paires",
+        "meaning": "Associe les éléments de même position des deux listes puis les parcourt.",
+        "reading": "sxy reçoit la somme des produits des écarts à leurs moyennes, en parcourant ensemble les listes x et y.",
+        "explanation": "a et b désignent les deux valeurs d’une même observation pendant la boucle.",
+        "confusion": "Les deux listes doivent représenter des observations correspondantes ; ici elles ont la même longueur."
+      },
+      "en": {
+        "name": "Iterating over pairs",
+        "meaning": "Pairs items at the same position in the two lists, then iterates over them.",
+        "reading": "sxy receives the sum of products of deviations from their means, iterating over x and y together.",
+        "explanation": "a and b denote the two values of one observation during iteration.",
+        "confusion": "The lists must represent corresponding observations; here they have the same length."
+      }
+    },
+    {
+      "id": "D094",
+      "category": "code",
+      "sourceId": "droites",
+      "notation": "round(...); allumer(...)",
+      "example": "allumer(u, round(v1 + m * (u - u1)))",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        56,
+        57,
+        58
+      ],
+      "format": "code",
+      "fr": {
+        "name": "Arrondi ; appel de fonction de dessin",
+        "meaning": "round arrondit un réel ; allumer représente l’action d’activer un pixel.",
+        "reading": "Allumer le pixel de colonne u et de ligne obtenue en arrondissant v un plus m fois u moins u un.",
+        "explanation": "Les parenthèses indiquent des arguments de fonctions, pas uniquement un regroupement algébrique.",
+        "confusion": "allumer est un nom pédagogique, pas une fonction Python intégrée définie par le PDF."
+      },
+      "en": {
+        "name": "Rounding; drawing-function call",
+        "meaning": "round rounds a real number; allumer represents activating a pixel.",
+        "reading": "Light the pixel at column u and at the row obtained by rounding v one plus m times u minus u one.",
+        "explanation": "The parentheses indicate function arguments, not just algebraic grouping.",
+        "confusion": "allumer is a teaching name, not a built-in Python function defined by the PDF."
+      }
+    },
+    {
+      "id": "D095",
+      "category": "code",
+      "sourceId": "droites",
+      "notation": "np.polyfit(x, y, 1); np.",
+      "example": "m, p = np.polyfit(x, y, 1)",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        79
+      ],
+      "format": "code",
+      "fr": {
+        "name": "Ajustement polynomial ; point d’accès au module",
+        "meaning": "Appelle la fonction polyfit de NumPy avec degré un.",
+        "reading": "m et p reçoivent les coefficients de l’ajustement polynomial de y en x de degré un.",
+        "explanation": "Le degré un demande une droite. np est l’alias créé par import numpy as np.",
+        "confusion": "Le point dans np.polyfit est un accès au module, pas un produit ni un point décimal."
+      },
+      "en": {
+        "name": "Polynomial fitting; module-access dot",
+        "meaning": "Calls NumPy polyfit with degree one.",
+        "reading": "m and p receive the coefficients of the degree-one polynomial fit of y on x.",
+        "explanation": "Degree one asks for a straight line. np is the alias created by import numpy as np.",
+        "confusion": "The dot in np.polyfit accesses a module member; it is neither multiplication nor a decimal point."
+      }
+    },
+    {
+      "id": "D096",
+      "category": "code",
+      "sourceId": "droites",
+      "notation": "#; print(...)",
+      "example": "print(m, p)  # 0.2013... 3.3086...",
+      "exampleOrigin": "source-formula",
+      "sourcePages": [
+        79
+      ],
+      "format": "code",
+      "fr": {
+        "name": "Commentaire ; affichage Python",
+        "meaning": "# introduit un commentaire non exécuté ; print affiche les valeurs.",
+        "reading": "Afficher m puis p ; le commentaire donne le début de leurs décimales.",
+        "explanation": "Le commentaire n’intervient pas dans le calcul.",
+        "confusion": "Les points de suspension du commentaire ne sont pas une notation de somme."
+      },
+      "en": {
+        "name": "Python comment; printing",
+        "meaning": "# introduces a non-executed comment; print displays values.",
+        "reading": "Print m then p; the comment gives the beginning of their decimal expansions.",
+        "explanation": "The comment does not take part in the calculation.",
+        "confusion": "The ellipses in the comment are not sum notation."
       }
     }
   ]
