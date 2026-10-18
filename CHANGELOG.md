@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.7.0](https://github.com/GadDev/uni-math-course/compare/v0.6.0...v0.7.0) (2026-10-18)
+
+
+### Features
+
+* **course:** align Droites reading with PDF topics and visual examples ([#64](https://github.com/GadDev/uni-math-course/issues/64)) ([dd4461c](https://github.com/GadDev/uni-math-course/commit/dd4461c7892471217efb9ca73e839badc3971ac8))
+
 ## [0.6.0](https://github.com/GadDev/uni-math-course/compare/v0.5.1...v0.6.0) (2026-10-18)
 
 
