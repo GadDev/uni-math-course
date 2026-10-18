@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.4.0](https://github.com/GadDev/uni-math-course/compare/v0.3.0...v0.4.0) (2026-10-18)
+
+
+### Features
+
+* **content:** draft bilingual Droites lessons and 240 exercises ([#57](https://github.com/GadDev/uni-math-course/issues/57)) ([5aa261f](https://github.com/GadDev/uni-math-course/commit/5aa261fccaffd4b3f009011f7e09199306618115))
+
 ## [0.3.0](https://github.com/GadDev/uni-math-course/compare/v0.2.1...v0.3.0) (2026-10-16)
 
 
