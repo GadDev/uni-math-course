@@ -38,13 +38,22 @@ const math = (value: string, displayMode = false) =>
     <aside class="glossary-guide" aria-labelledby="guide-title">
       <h2 id="guide-title">{text.review}</h2>
       <p>{text.conventions}</p>
-      <p>
-        {text.sourceNote} <cite>{glossary.source.title}</cite> (
-        {glossary.source.year}).
-      </p>
+      <p>{text.sourceNote}</p>
+      <ul>
+        {glossary.sources.map((source) => (
+          <li>
+            <cite>{source.title}</cite> ({source.year}) · {source.pageCount}{' '}
+            pages
+          </li>
+        ))}
+      </ul>
       <details>
         <summary>{text.discrepancyTitle}</summary>
         <p>{text.discrepancy}</p>
+      </details>
+      <details>
+        <summary>{text.droitesTitle}</summary>
+        <p>{text.droitesNote}</p>
       </details>
     </aside>
     <form class="glossary-filters" hidden role="search" aria-label={text.nav}>
@@ -96,6 +105,11 @@ const math = (value: string, displayMode = false) =>
           {glossary.entries
             .filter((entry) => entry.category === category.id)
             .map((entry) => {
+              const source = glossary.sources.find(
+                (item) => item.id === entry.sourceId,
+              );
+              if (!source)
+                throw new Error('Unknown glossary source: ' + entry.sourceId);
               const current = entry[locale];
               const translated = entry[other];
               return (
@@ -128,7 +142,8 @@ const math = (value: string, displayMode = false) =>
                   </h3>
                   <p>{current.meaning}</p>
                   <p class="glossary-provenance">
-                    {text.pages}: {entry.sourcePages.join(', ')} ·{' '}
+                    {source.shortTitle[locale]} · {text.pages}:{' '}
+                    {entry.sourcePages.join(', ')} ·{' '}
                     {entry.exampleOrigin === 'teaching-example'
                       ? text.teaching
                       : text.sourceExample}
