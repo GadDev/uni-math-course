@@ -32,13 +32,19 @@ jobs:
         with:
           node-version-file: .node-version
       - name: Require current checked main and consistent release version
+        id: preflight
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
           current="$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq '.object.sha')"
-          test "$current" = "$GITHUB_SHA" || { echo "Stale run: dispatch the latest main revision."; exit 1; }
+          if test "$current" != "$GITHUB_SHA"; then
+            echo "::notice::Superseded revision: release work is left to current main."
+            echo "Superseded revision: skipped release work; current main will handle pending releases after its docs check succeeds." >> "$GITHUB_STEP_SUMMARY"
+            echo "release=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
           require_docs() {
             checked="$(gh api "repos/$GITHUB_REPOSITORY/commits/$1/check-runs?per_page=100" --jq '[.check_runs[] | select(.name == "docs" and .app.id == 15368)] | sort_by(.id) | last | .conclusion == "success"')"
             test "$checked" = true || { echo "A successful docs check for exact SHA $1 is required."; exit 1; }
@@ -50,8 +56,10 @@ jobs:
             require_docs "$release_sha"
           done <<< "$pending"
           node scripts/check-release.mjs
+          echo "release=true" >> "$GITHUB_OUTPUT"
       - name: Create repository-scoped release token
         id: app
+        if: steps.preflight.outputs.release == 'true'
         uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         with:
           client-id: ${{ vars.RELEASE_PLEASE_CLIENT_ID }}
@@ -61,6 +69,7 @@ jobs:
           permission-pull-requests: write
       - name: Maintain release PR and tag merged releases
         id: release
+        if: steps.preflight.outputs.release == 'true'
         uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
         with:
           token: ${{ steps.app.outputs.token }}
