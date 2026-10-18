@@ -117,6 +117,10 @@ export async function validateRepository(
       if (spaces && spaces !== 2)
         errors.push(name + ':' + number + ': trailing whitespace');
       visible.push([number, line]);
+      for (const explicit of line.matchAll(
+        /<[a-z][^>]*\bid=(["'])([^"']+)\1/gi,
+      ))
+        anchors.add(explicit[2]);
       const heading = line.match(/^ {0,3}(#{1,6})\s+(.+?)\s*$/);
       if (heading) {
         if (heading[1].length === 1) h1++;

@@ -1,0 +1,96 @@
+.source-path {
+  margin: 2rem 0;
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+}
+.source-path h2 {
+  margin: 0 0 1rem;
+}
+.source-path details {
+  border-top: 1px solid var(--soft-line);
+}
+.source-path summary {
+  min-height: 48px;
+  padding: 1rem 0;
+  font-weight: 700;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.source-path summary span {
+  color: var(--accent);
+  margin-right: 0.4rem;
+}
+.source-path ol {
+  margin: 0 0 1rem;
+  padding-left: 1.4rem;
+}
+.source-path li {
+  padding: 0.35rem 0;
+}
+.source-path li a {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+.source-path li small {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+.source-path-compact {
+  padding: 1rem;
+  font-size: 0.85rem;
+}
+.source-path-compact h2 {
+  font-size: 1.1rem;
+}
+.source-path-compact summary {
+  padding: 0.7rem 0;
+}
+.source-topic-marker {
+  display: block;
+  clear: both;
+  scroll-margin-top: 2rem;
+}
+.source-next {
+  border-top: 1px solid var(--soft-line);
+  padding-top: 1rem;
+  font-size: 0.95rem;
+}
+.lesson-prose .teaching-figure {
+  margin: 1.8rem 0;
+  padding: 1rem;
+  border: 1px solid var(--soft-line);
+  background: #fffdf8;
+}
+.teaching-figure img {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: auto;
+}
+.teaching-figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.lesson-page[data-chapter='C02'] .lesson-prose td {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+  .lesson-prose .teaching-figure {
+    padding: 0.35rem;
+  }
+  .lesson-prose .teaching-figure figcaption {
+    padding: 0.4rem;
+  }
+  .source-path {
+    padding: 0.8rem;
+  }
+  .lesson-page[data-chapter='C02'] .lesson-prose table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+}

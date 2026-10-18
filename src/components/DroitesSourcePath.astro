@@ -1,0 +1,46 @@
+---
+import { droitesSourceParts } from '../lib/droites-source';
+import type { Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+  lessonId?: string;
+}
+const { locale, lessonId } = Astro.props;
+const title =
+  locale === 'fr' ? 'Suivre le plan du PDF' : 'Follow the PDF structure';
+---
+
+<nav
+  class:list={['source-path', { 'source-path-compact': !!lessonId }]}
+  aria-label={title}
+>
+  <h2>{title}</h2>
+  {!lessonId && (
+    <p>
+      {locale === 'fr'
+        ? 'Les cinq parties et leurs sujets suivent le PDF. Chaque lien ouvre le bon passage, avec les exemples du cours, des explications et des exemples supplémentaires.'
+        : 'The five parts and their topics follow the PDF. Each link opens the relevant passage, with the course examples, explanations and additional examples.'}
+    </p>
+  )}
+  {droitesSourceParts.map((part, index) => (
+    <details
+      open={
+        !lessonId || part.topics.some((topic) => topic.lessonId === lessonId)
+      }
+    >
+      <summary>
+        <span>{String(index + 1).padStart(2, '0')}</span> {part.title[locale]}
+      </summary>
+      <ol>
+        {part.topics.map((topic) => (
+          <li>
+            <a href={`/${locale}/lessons/${topic.lessonId}/#pdf-${topic.page}`}>
+              {topic.title[locale]}
+            </a>
+            <small>PDF p. {topic.page}</small>
+          </li>
+        ))}
+      </ol>
+    </details>
+  ))}
+</nav>

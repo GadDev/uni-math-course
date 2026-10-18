@@ -1,11 +1,11 @@
 ---
 lessonId: L25
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Systèmes de deux équations"
 summary: "Substitution, élimination et interprétation du nombre de solutions."
-minutes: 16
+minutes: 23
 objectives: [L25-O01, L25-O02, L25-O03, L25-O04, L25-O05, L25-O06]
 prerequisites: [L24]
 sourcePages: [23, 24]
@@ -22,6 +22,21 @@ sourcePages: [23, 24]
 - Analyser un système paramétré.
 
 Prérequis : L24. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
+
+<span id="pdf-23" class="source-topic-marker"></span>
+
+## Systèmes : du café aux deux équations
+
+**Exemple du PDF, pages 23–24.** Notons $c$ le prix d’un café et $k$ celui d’un croissant, en euros. Les achats imposent simultanément $c+k=4{,}5$ et $2c+k=7$.
+
+| Achat | Équation |
+| --- | --- |
+| Un café, un croissant | $c+k=4{,}5$ |
+| Deux cafés, un croissant | $2c+k=7$ |
+
+Soustraire la première ligne de la seconde enlève exactement le même croissant : $(2c+k)-(c+k)=7-4{,}5$, donc $c=2{,}5$. Revenir à la première ligne donne $k=4{,}5-2{,}5=2$. Vérifier les achats : $2{,}5+2=4{,}5$ et $2\cdot2{,}5+2=7$.
+
+Le couple solution est $(c,k)=(2{,}5;2)$, dans cet ordre. Une **substitution** remplace une inconnue par une expression égale ; une **élimination** combine les lignes pour faire disparaître une inconnue. Les exemples suivants montrent les deux méthodes avec d’autres nombres.
 
 ## Deux conditions simultanées
 
@@ -42,6 +57,8 @@ Une élimination peut donner une valeur précise, une contradiction comme $0=2$,
 ## Paramètres et contraintes
 
 Dans $x+y=5$ et $x+ay=5$, soustraire donne $(a-1)y=0$. Si $a\ne1$, on trouve $y=0$ puis $x=5$. Si $a=1$, les deux lignes sont identiques et il existe une infinité de couples. Une division prématurée par $a-1$ aurait supprimé ce cas. Après le calcul algébrique, revenez toujours aux contraintes du problème initial.
+
+<p class="source-next"><a href="/fr/lessons/L26/#pdf-25">Suite du PDF : La notation sigma (Σ) →</a></p>
 
 ## Pratique et bilan
 

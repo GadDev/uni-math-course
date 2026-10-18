@@ -1,11 +1,11 @@
 ---
 lessonId: L21
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Calculer dans les réels"
 summary: "Priorités, signes et opérations réversibles : poser des bases fiables avant les équations."
-minutes: 14
+minutes: 20
 objectives: [L21-O01, L21-O02, L21-O03, L21-O04, L21-O05, L21-O06]
 prerequisites: [L10]
 sourcePages: [4, 5, 6]
@@ -23,9 +23,33 @@ sourcePages: [4, 5, 6]
 
 Prérequis : L10. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
 
+<span id="pdf-4" class="source-topic-marker"></span>
+
+## Priorité des opérations : un calcul, une étape
+
+**Exemple du PDF, pages 4–5 — explication réécrite.** Dans $2+3\cdot4^2$, le carré porte sur $4$, pas sur $3\cdot4$.
+
+1. Puissance : $4^2=16$.
+2. Multiplication : $3\cdot16=48$.
+3. Addition : $2+48=50$.
+
+On lit « deux plus trois fois le carré de quatre ». À l’inverse, $(2+3)\cdot4^2=80$ : les parenthèses changent la consigne. Pour l’écriture $8\div2(2+2)$, la convention annoncée dans ce cours traite multiplication et division au même niveau, de gauche à droite : $8\div2\cdot4=16$. Écrivez $8/(2(2+2))$ si vous voulez obtenir $1$ ; rendez l’intention visible.
+
+**Exemple supplémentaire.** $-3^2+(-3)^2=-9+9=0$. Dans le premier terme, on prend l’opposé du carré ; dans le second, on élève le nombre négatif au carré. La base d’une puissance est le nombre ou le groupe qui reçoit l’exposant.
+
 ## Le contrat de calcul
 
 On travaille dans $\mathbb{R}$. Une expression est une consigne de calcul, pas une suite à lire uniquement de gauche à droite. Parenthèses, puissances, produits et quotients, puis sommes et différences fixent l’ordre. À niveau égal, produits et quotients se traitent de gauche à droite, comme sommes et différences. Écrivez les regroupements : une barre de fraction regroupe tout son numérateur et son dénominateur.
+
+<p class="source-next"><a href="/fr/lessons/L21/#pdf-6">Suite du PDF : Les règles de base →</a></p>
+
+<span id="pdf-6" class="source-topic-marker"></span>
+
+## Les règles de base : opposé et inverse
+
+L’opposé de $a$ est $-a$ : leur somme vaut zéro, $a+(-a)=0$. Pour $a\ne0$, son inverse est $1/a$ : leur produit vaut un, $a(1/a)=1$. Ainsi l’opposé de $4$ est $-4$, tandis que son inverse est $1/4$. Soustraire et diviser utilisent ces deux idées différentes : $a-b=a+(-b)$ et $a/b=a(1/b)$ pour $b\ne0$.
+
+Les nombres $0$ et $1$ jouent des rôles précis : $a+0=a$, $a\cdot1=a$ et $a\cdot0=0$. Un moins devant un groupe multiplie **tout** le groupe par $-1$ : $-(a+b)=-a-b$ et $a-(b-c)=a-b+c$. Par exemple, $7-(2-5)=7-2+5=10$. Le résultat reste le même si l’on calcule d’abord $2-5=-3$.
 
 ## Signes et opérations
 
@@ -42,6 +66,8 @@ Addition et multiplication sont commutatives et associatives : changer leur ordr
 ## Exemple guidé : le zéro n’est pas une permission
 
 Pour $a\ne0$, $a/a=1$. À $a=0$, cette écriture n’est pas définie. L’égalité $0\cdot u=0$ est vraie pour tout réel $u$ : elle ne permet donc pas de déterminer un quotient $0/0$. De même, l’égalité $0u=0v$ ne permet pas de conclure $u=v$. Avant toute simplification, nommez le facteur par lequel vous divisez et vérifiez qu’il n’est pas nul.
+
+<p class="source-next"><a href="/fr/lessons/L22/#pdf-7">Suite du PDF : Développer et factoriser →</a></p>
 
 ## Pratique et bilan
 

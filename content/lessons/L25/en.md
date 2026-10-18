@@ -1,11 +1,11 @@
 ---
 lessonId: L25
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Systems of two equations"
 summary: "Substitution, elimination and interpreting the number of solutions."
-minutes: 16
+minutes: 23
 objectives: [L25-O01, L25-O02, L25-O03, L25-O04, L25-O05, L25-O06]
 prerequisites: [L24]
 sourcePages: [23, 24]
@@ -22,6 +22,21 @@ sourcePages: [23, 24]
 - Analyse a parameterised system.
 
 Prerequisites: L24. Domains and restrictions stated below are part of every rule.
+
+<span id="pdf-23" class="source-topic-marker"></span>
+
+## Systems: from coffee to two equations
+
+**PDF example, pages 23–24.** Let $c$ be the price of a coffee and $k$ the price of a croissant, in euros. Both purchases must hold: $c+k=4{,}5$ and $2c+k=7$.
+
+| Purchase | Equation |
+| --- | --- |
+| One coffee, one croissant | $c+k=4{,}5$ |
+| Two coffees, one croissant | $2c+k=7$ |
+
+Subtract the first row from the second to remove the same croissant: $(2c+k)-(c+k)=7-4{,}5$, so $c=2{,}5$. Return to the first row: $k=4{,}5-2{,}5=2$. Check the purchases: $2{,}5+2=4{,}5$ and $2\cdot2{,}5+2=7$.
+
+The solution pair is $(c,k)=(2{,}5;2)$, in that order. **Substitution** replaces an unknown with an equal expression; **elimination** combines equations to remove an unknown. The following examples show both methods with different numbers.
 
 ## Two simultaneous conditions
 
@@ -42,6 +57,8 @@ Elimination can yield a specific value, a contradiction such as $0=2$, or an ide
 ## Parameters and constraints
 
 In $x+y=5$ and $x+ay=5$, subtraction gives $(a-1)y=0$. If $a\ne1$, then $y=0$ and $x=5$. If $a=1$, the rows are identical and infinitely many pairs work. Dividing prematurely by $a-1$ would remove this case. After algebraic calculation, always return to the original problem constraints.
+
+<p class="source-next"><a href="/en/lessons/L26/#pdf-25">Next in the PDF : Sigma notation (Σ) →</a></p>
 
 ## Practice and recap
 

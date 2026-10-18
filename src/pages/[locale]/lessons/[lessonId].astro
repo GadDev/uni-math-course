@@ -6,6 +6,8 @@ import { copy } from '../../../lib/i18n';
 import { RELEASED_LESSONS } from '../../../lib/released-lessons';
 import { glossaryCopy } from '../../../lib/glossary';
 import SignalGeometry from '../../../components/SignalGeometry.astro';
+import DroitesSourcePath from '../../../components/DroitesSourcePath.astro';
+import '../../../styles/droites-teaching.css';
 import { chapterForPath, chapterHref } from '../../../lib/chapters';
 export async function getStaticPaths() {
   const lessons = await getCollection('lessons');
@@ -127,6 +129,9 @@ const glossaryLink = glossaryLinks[lesson.data.lessonId];
           ))}
         </ol>
       </nav>
+      {chapter.id === 'C02' && (
+        <DroitesSourcePath locale={locale} lessonId={lesson.data.lessonId} />
+      )}
     </aside>
     <div class="reading-column">
       <nav
