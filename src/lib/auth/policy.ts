@@ -1,4 +1,5 @@
 import { practiceHref, practiceTarget } from '../practice-navigation.ts';
+import { lessonReleases, RELEASED_LESSONS } from '../released-lessons.ts';
 
 export type AuthConfig = {
   url: string;
@@ -76,9 +77,17 @@ export function safeReturn(value: unknown, locale: AuthLocale): string {
   ).split('?');
   if (
     extra !== undefined ||
-    !/^\/(fr|en)\/(?:account\/|progress\/|(?:lessons\/L(?:0[1-9]|1[0-9]|20)\/(?:practice\/)?)?)(?:#[a-zA-Z0-9_-]+)?$/.test(
+    !/^\/(fr|en)\/(?:account\/|progress\/|(?:lessons\/L\d{2}\/(?:practice\/)?)?)(?:#[a-zA-Z0-9_-]+)?$/.test(
       path + fragment,
     )
+  )
+    return fallback;
+  const releasedLesson = path.match(/lessons\/(L\d{2})\//)?.[1];
+  if (
+    releasedLesson &&
+    (!Object.hasOwn(lessonReleases, releasedLesson) ||
+      (path.endsWith('/practice/') &&
+        !RELEASED_LESSONS.includes(releasedLesson)))
   )
     return fallback;
   if (query === undefined) return value;

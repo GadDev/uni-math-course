@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../../../layouts/Base.astro';
 import PracticeActivity from '../../../../components/PracticeActivity';
 import SignalGeometry from '../../../../components/SignalGeometry.astro';
+import { chapterForPath } from '../../../../lib/chapters';
 import { copy } from '../../../../lib/i18n';
 import {
   practiceHref,
@@ -56,27 +57,41 @@ const example = headings.find(
     /^(exemple guidé|guided example)/i.test(heading.text),
 );
 const lessonHref = `/${locale}/lessons/${lessonId}/`;
-const topic = text.programme.find((item) => item.id === lessonId);
+const chapter = chapterForPath(`lessons/${lessonId}/practice/`);
+if (!chapter) throw new Error('Practice lesson has no chapter');
+const outline = lessons
+  .filter(
+    (entry) =>
+      entry.data.locale === locale &&
+      chapter.lessonIds.some((id) => id === entry.data.lessonId),
+  )
+  .sort((a, b) => a.data.lessonId.localeCompare(b.data.lessonId))
+  .map((entry) => ({ id: entry.data.lessonId, title: entry.data.title }));
 const lessonNumber = lessonId.slice(1);
 ---
 
 <Base
   locale={locale}
-  title={`${topic?.title ?? lessonId} · ${locale === 'fr' ? 'Pratique' : 'Practice'}`}
+  title={`${lesson.data.title} · ${locale === 'fr' ? 'Pratique' : 'Practice'}`}
   description={lesson.data.summary}
   path={`lessons/${lessonId}/practice/`}
   alternateHref={practiceHref(alternate, lessonId, target)}
 >
-  <main id="main" tabindex="-1" class="lesson-page practice-page">
+  <main
+    id="main"
+    tabindex="-1"
+    class="lesson-page practice-page"
+    data-chapter={chapter.id}
+  >
     <aside class="course-outline">
       <p class="eyebrow">
-        {lessonNumber} / {topic?.title}
+        {lessonNumber} / {lesson.data.title}
       </p>
       <p class="outline-big" aria-hidden="true">
         {lessonNumber}
       </p>
       <ol class="outline-topics" aria-label={text.outline}>
-        {text.programme.map((item) => (
+        {outline.map((item) => (
           <li
             class={item.id === lessonId ? 'current-topic' : undefined}
             aria-current={item.id === lessonId ? 'page' : undefined}
@@ -96,7 +111,10 @@ const lessonNumber = lessonId.slice(1);
     </aside>
     <div class="reading-column practice-column">
       <div class="practice-geometry">
-        <SignalGeometry compact />
+        <SignalGeometry
+          compact
+          variant={chapter.id === 'C02' ? 'decalage' : 'logic'}
+        />
       </div>
       <PracticeActivity
         client:load

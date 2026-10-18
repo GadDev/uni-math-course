@@ -16,7 +16,7 @@ Public lessons and the symbol glossary can be read without an account. Practice 
 ## Features
 
 - Public French/English programme pages and lessons.
-- Public [Chapter 2 overview](https://uni-math-course.vercel.app/fr/chapters/C02/) for straight lines, with the selected green Décalage artwork. Its lessons and exercises are in preparation; see [chapter integration](docs/CHAPTERS.md).
+- Public [Chapter 2 overview](https://uni-math-course.vercel.app/fr/chapters/C02/) for straight lines, with the selected green Décalage artwork. The learning path contains 16 bilingual lessons (L21–L36), worked examples and 240 exercises with saved practice; see [chapter integration](docs/CHAPTERS.md).
 - Public searchable French/English symbol glossary, with bilingual readings, source pages and stable entry links.
 - Mathematical notation with visual KaTeX and MathML output.
 - Same-lesson language switching and a native reading disclosure that works without JavaScript.
@@ -31,7 +31,7 @@ Public lessons and the symbol glossary can be read without an account. Practice 
 Maintainer: [GadDev](https://github.com/GadDev) · Last status review: 2026-10-16
 
 <!-- release-status:start -->
-Release status (generated from content/releases.json): 20 public bilingual lessons; 20 served practice banks. Mathematical author self-check: L01, L02, L03, L04, L05, L06, L07, L08, L19; explicit unreviewed release exceptions: 11 banks. Translation self-check: L01, L02, L03, L04, L05, L06, L07, L08, L19; explicit unreviewed translation exceptions: 11 lesson pairs. These records do not certify independent review or hosted class readiness.
+Release status (generated from content/releases.json): 36 public bilingual lessons; 36 served practice banks. Mathematical author self-check: L01, L02, L03, L04, L05, L06, L07, L08, L19, L21, L22, L23, L24, L25, L26, L27, L28, L29, L30, L31, L32, L33, L34, L35, L36; explicit unreviewed release exceptions: 11 banks. Translation self-check: L01, L02, L03, L04, L05, L06, L07, L08, L19, L21, L22, L23, L24, L25, L26, L27, L28, L29, L30, L31, L32, L33, L34, L35, L36; explicit unreviewed translation exceptions: 11 lesson pairs. These records do not certify independent review or hosted class readiness.
 <!-- release-status:end -->
 
 Sign-in is disabled until configured. Hosted authentication, database/deployment acceptance and class-pilot privacy decisions remain pending. See the [content release contracts](docs/CONTENT_RELEASES.md); local implementation is not proof of a complete hosted learning journey.

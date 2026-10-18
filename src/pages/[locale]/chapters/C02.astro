@@ -4,6 +4,8 @@ import SignalGeometry from '../../../components/SignalGeometry.astro';
 import { locales } from '../../../lib/i18n';
 import { droitesCopy } from '../../../lib/droites';
 import katex from 'katex';
+import { getCollection } from 'astro:content';
+import { droitesGroups } from '../../../lib/droites-lessons';
 import '../../../styles/chapter-overview.css';
 
 export function getStaticPaths() {
@@ -11,6 +13,14 @@ export function getStaticPaths() {
 }
 const { locale } = Astro.props;
 const text = droitesCopy[locale];
+const lessons = (await getCollection('lessons')).filter(
+  (entry) => entry.data.locale === locale,
+);
+const lessonData = (id: string) => {
+  const entry = lessons.find((entry) => entry.data.lessonId === id);
+  if (!entry) throw new Error(`Missing Chapter 2 lesson ${id}`);
+  return entry.data;
+};
 const formula = katex.renderToString('a(b+c)=ab+ac', {
   output: 'htmlAndMathml',
   throwOnError: true,
@@ -37,9 +47,7 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
           ))}
         </p>
         <p class="lede">{text.intro}</p>
-        <p class="status">
-          <span aria-hidden="true">◷</span> {text.status}
-        </p>
+        <p class="status">{text.status}</p>
         <p class="chapter-motto">{text.motto}</p>
       </div>
       <div class="hero-art">
@@ -60,12 +68,15 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
       <div class="featured-description">
         <p>{text.description}</p>
         <div class="lesson-meta">
-          <span>{text.pending}</span>
+          <span>
+            {lessonData('L21').minutes} min · 15{' '}
+            {locale === 'fr' ? 'exercices' : 'exercises'}
+          </span>
         </div>
       </div>
       <div class="featured-action">
-        <a class="primary-link" href="#parcours">
-          {text.outlineAction}
+        <a class="primary-link" href={`/${locale}/lessons/L21/`}>
+          {locale === 'fr' ? 'Lire la leçon' : 'Read the lesson'}
           <span aria-hidden="true"> →</span>
         </a>
       </div>
@@ -79,17 +90,26 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
         <h2 id="outline-title">{text.outline}</h2>
         <p>{text.outlineNote}</p>
       </div>
-      <ol class="planned-list" start="2">
-        {text.topics.map((topic, i) => (
-          <li>
-            <span class="planned-number" aria-hidden="true">
-              0{i + 2}
-            </span>
-            <span>{topic}</span>
-            <small class="planned-label">{text.pending}</small>
-          </li>
-        ))}
-      </ol>
+      {droitesGroups.map((group) => (
+        <section class="chapter-lesson-group">
+          <h3>{group.title[locale]}</h3>
+          <ol class="planned-list chapter-lessons">
+            {group.lessonIds.map((id) => (
+              <li class="available-topic">
+                <span class="planned-number" aria-hidden="true">
+                  {Number(id.slice(1)) - 20 < 10 ? '0' : ''}
+                  {Number(id.slice(1)) - 20}
+                </span>
+                <a href={`/${locale}/lessons/${id}/`}>{lessonData(id).title}</a>
+                <small class="planned-label">
+                  {lessonData(id).minutes} min · 15{' '}
+                  {locale === 'fr' ? 'exercices' : 'exercises'}
+                </small>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))}
     </section>
     <section class="chapter-objectives" aria-labelledby="objectives-title">
       <h2 id="objectives-title">{text.goals}</h2>
@@ -103,27 +123,18 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
       <div class="practice-copy">
         <h2 id="practice-title">{text.practice}</h2>
         <p>{text.practiceText}</p>
-        <button type="button" class="chapter-pending-action" disabled>
+        <a class="primary-link" href={`/${locale}/lessons/L21/practice/`}>
           {text.exercises}
-        </button>
+        </a>
       </div>
       <aside class="reading-notice" aria-labelledby="chapter-progress-title">
-        <p class="eyebrow">{text.preview}</p>
         <h2 id="chapter-progress-title" class="reading-notice-title">
           {text.progress}
         </h2>
         <p>{text.progressText}</p>
-        <dl class="chapter-empty-progress">
-          {text.metrics.map((label) => (
-            <div>
-              <dt>{label}</dt>
-              <dd>
-                <span aria-hidden="true">—</span>
-                <span class="visually-hidden">{text.unavailable}</span>
-              </dd>
-            </div>
-          ))}
-        </dl>
+        <a href={`/${locale}/progress/#chapter-C02`}>
+          {locale === 'fr' ? 'Voir ma progression' : 'View my progress'} →
+        </a>
       </aside>
     </section>
   </main>

@@ -52,7 +52,7 @@ test('truth-table keys are compared row by row', async () => {
 test('course map reports gaps and stale availability claims', async () => {
   const lessons = await course.loadCourse();
   const result = course.analyse(lessons, 96);
-  assert.equal(result.ids.length, 20);
+  assert.equal(result.ids.length, 36);
   assert.ok(result.uncovered.includes(2), 'title-adjacent page 2 is uncovered');
   assert.equal(course.ranges([3, 4, 5, 9]), '3-5, 9');
   assert.ok(

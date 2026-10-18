@@ -1,4 +1,4 @@
-/** Overview copy only. Sections are proposals, not published lesson IDs. */
+/** Public bilingual chapter overview copy. */
 export const droitesCopy = {
   fr: {
     title: 'Droites',
@@ -6,25 +6,17 @@ export const droitesCopy = {
     subtitle: ['Du papier à l’écran,', 'puis au machine learning.'],
     intro:
       'Calculer, tracer, puis prédire. Un parcours pour relier les équations aux images et aux données.',
-    status: 'Chapitre en préparation',
+    status: '16 leçons · 240 exercices',
     motto: 'Une équation. Des pixels. Des prédictions.',
-    start: 'Point de départ proposé',
+    start: 'Commencer ici',
     algebra: 'Calcul algébrique dans ℝ',
     formulaReading:
       'Se lit : « a multiplié par la somme de b et c égale ab plus ac ». Les parenthèses regroupent b et c.',
     rules: 'Les règles du jeu',
     description:
       'Consolider les opérations, développer et factoriser pour manipuler les équations d’une droite.',
-    pending: 'Contenu à préparer',
-    outlineAction: 'Voir le parcours',
-    outline: 'La suite du parcours',
-    outlineNote: 'Structure proposée à partir du cours source',
-    topics: [
-      'Repère cartésien et équations',
-      'La droite',
-      'Les droites à l’écran',
-      'La droite de régression',
-    ],
+    outline: 'Le parcours complet',
+    outlineNote: '16 leçons, des bases algébriques aux limites des modèles',
     goals: 'Ce que vous explorerez',
     objectives: [
       'Passer d’une équation à sa représentation dans un repère.',
@@ -33,14 +25,11 @@ export const droitesCopy = {
     ],
     practice: 'À vous de pratiquer',
     practiceText:
-      'Les exercices de ce chapitre restent à préparer. Ils suivront le même parcours : comprendre, essayer, puis revoir ses erreurs.',
-    exercises: 'Exercices à venir',
-    preview: 'Aperçu du chapitre',
+      'Chaque leçon propose 5 questions faciles, 5 moyennes et 5 difficiles, avec indices et corrections. Connectez-vous pour enregistrer vos tentatives et revoir vos erreurs.',
+    exercises: 'Commencer les exercices',
     progress: 'Votre progression',
     progressText:
-      'Le suivi commencera avec les premiers exercices publiés. Aucun résultat n’est encore affiché pour ce chapitre.',
-    metrics: ['Exercices tentés', 'Tentatives', 'Indices de maîtrise'],
-    unavailable: 'Non disponible',
+      'Retrouvez vos tentatives, réponses et indices de maîtrise dans votre espace personnel. La progression des deux chapitres est conservée après connexion.',
   },
   en: {
     title: 'Straight lines',
@@ -48,25 +37,17 @@ export const droitesCopy = {
     subtitle: ['From paper to pixels,', 'then to machine learning.'],
     intro:
       'Calculate, draw, then predict. A learning path connecting equations with images and data.',
-    status: 'Chapter in preparation',
+    status: '16 lessons · 240 exercises',
     motto: 'One equation. Pixels. Predictions.',
-    start: 'Proposed starting point',
+    start: 'Start here',
     algebra: 'Algebra in ℝ',
     formulaReading:
       'Read as: “a times the quantity b plus c equals ab plus ac”. The parentheses group b and c.',
     rules: 'The rules of the game',
     description:
       'Revisit operations, expansion and factorisation to work with the equations of a straight line.',
-    pending: 'Content to prepare',
-    outlineAction: 'Explore the outline',
-    outline: 'The rest of the path',
-    outlineNote: 'Proposed structure based on the source course',
-    topics: [
-      'Cartesian coordinates and equations',
-      'The straight line',
-      'Lines on screen',
-      'The regression line',
-    ],
+    outline: 'The complete path',
+    outlineNote: '16 lessons, from algebraic foundations to model limits',
     goals: 'What you will explore',
     objectives: [
       'Connect an equation with its representation in a coordinate system.',
@@ -75,13 +56,10 @@ export const droitesCopy = {
     ],
     practice: 'Your turn to practise',
     practiceText:
-      'Exercises for this chapter are still to be prepared. They will follow the same path: understand, try, then revisit mistakes.',
-    exercises: 'Exercises coming later',
-    preview: 'Chapter preview',
+      'Each lesson offers 5 easy, 5 medium and 5 hard questions, with hints and worked feedback. Sign in to save attempts and revisit mistakes.',
+    exercises: 'Start practising',
     progress: 'Your progress',
     progressText:
-      'Tracking will begin when the first exercises are published. No results are displayed for this chapter yet.',
-    metrics: ['Exercises attempted', 'Attempts', 'Mastery evidence'],
-    unavailable: 'Not available',
+      'Find attempts, answers and mastery evidence in your private space. Progress from both chapters is retained after sign-in.',
   },
 } as const;
