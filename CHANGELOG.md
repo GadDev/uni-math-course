@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.5.0](https://github.com/GadDev/uni-math-course/compare/v0.4.0...v0.5.0) (2026-10-18)
+
+
+### Features
+
+* **course:** activate Droites lessons with practice and saved progress ([#58](https://github.com/GadDev/uni-math-course/issues/58)) ([1414afe](https://github.com/GadDev/uni-math-course/commit/1414afef9431ae9705f36d7fb44cdd171856acf7))
+
 ## [0.4.0](https://github.com/GadDev/uni-math-course/compare/v0.3.0...v0.4.0) (2026-10-18)
 
 
