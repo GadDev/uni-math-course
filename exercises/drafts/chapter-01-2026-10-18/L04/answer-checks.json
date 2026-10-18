@@ -1,0 +1,150 @@
+[
+  {
+    "id": "L04-E03",
+    "kind": "table",
+    "formula": "!(A | (B & C))"
+  },
+  {
+    "kind": "equivalent",
+    "left": "! A | B",
+    "right": "B | ! A",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "! A | B",
+    "right": "B | A",
+    "expected": false
+  },
+  {
+    "kind": "equivalent",
+    "left": "! A | B",
+    "right": "B & ! A",
+    "expected": false
+  },
+  {
+    "kind": "equivalent",
+    "left": "A & (B & ! C)",
+    "right": "(A & B) & ! C",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "A & (B & ! C)",
+    "right": "(A | B) & ! C",
+    "expected": false
+  },
+  {
+    "kind": "equivalent",
+    "left": "A & (B & ! C)",
+    "right": "(A & B) & C",
+    "expected": false
+  },
+  {
+    "kind": "equivalent",
+    "left": "!!(A | ! B)",
+    "right": "A | ! B",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "!!(A | ! B)",
+    "right": "! A | B",
+    "expected": false
+  },
+  {
+    "kind": "equivalent",
+    "left": "!!(A | ! B)",
+    "right": "A & ! B",
+    "expected": false
+  },
+  {
+    "kind": "classify",
+    "formula": "(A | B) & !(A | B)",
+    "expected": "contradiction"
+  },
+  {
+    "kind": "classify",
+    "formula": "(A | B) | !(A | B)",
+    "expected": "tautology"
+  },
+  {
+    "kind": "classify",
+    "formula": "A | B",
+    "expected": "contingent"
+  },
+  {
+    "kind": "equivalent",
+    "left": "! A | (B & C)",
+    "right": "(! A | B) & (! A | C)",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "! A | (B & C)",
+    "right": "(! A & B) | (! A & C)",
+    "expected": false
+  },
+  {
+    "kind": "equivalent",
+    "left": "! A | (B & C)",
+    "right": "(! A | B) & C",
+    "expected": false
+  },
+  {
+    "kind": "equivalent",
+    "left": "(A | B) & (A | ! C)",
+    "right": "A | (B & ! C)",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "(A | B) & (A | ! C)",
+    "right": "A & (B | ! C)",
+    "expected": false
+  },
+  {
+    "kind": "equivalent",
+    "left": "(A | B) & (A | ! C)",
+    "right": "A | (B | ! C)",
+    "expected": false
+  },
+  {
+    "kind": "equivalent",
+    "left": "!((A | B) & ! C)",
+    "right": "(! A & ! B) | C",
+    "expected": true
+  },
+  {
+    "kind": "equivalent",
+    "left": "!((A | B) & ! C)",
+    "right": "(! A | ! B) | C",
+    "expected": false
+  },
+  {
+    "kind": "equivalent",
+    "left": "!((A | B) & ! C)",
+    "right": "(! A & ! B) & C",
+    "expected": false
+  },
+  {
+    "kind": "value",
+    "formula": "(A & B) | C",
+    "assignment": {
+      "A": false,
+      "B": false,
+      "C": true
+    },
+    "expected": true
+  },
+  {
+    "kind": "value",
+    "formula": "(A & B) | C",
+    "assignment": {
+      "A": true,
+      "B": false,
+      "C": true
+    },
+    "expected": true
+  }
+]

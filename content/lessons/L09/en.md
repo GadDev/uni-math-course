@@ -1,11 +1,11 @@
 ---
 lessonId: L09
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Sets and Russell’s paradox"
 summary: "See why “any collection” is too naive a notion of set, follow Russell’s argument, and name the kinds of sets the course allows."
-minutes: 10
+minutes: 14
 objectives: [L09-O01, L09-O02, L09-O03, L09-O04, L09-O05, L09-O06]
 prerequisites: [L01]
 sourcePages: [37, 38, 39, 40]
@@ -17,6 +17,12 @@ sourcePages: [37, 38, 39, 40]
 By the end of this lesson, you can say what an informal set is, explain why “any collection” is too naive, follow Russell’s argument, and name the kinds of sets the course allows.
 
 **Prerequisites:** L01 (assertions and truth values).
+
+## A concrete example before generalising
+
+In $S = \{2,4\}$, $2 \in S$ says that two is one of the listed objects. $\{2\} \subseteq S$ says that all objects of this small set belong to $S$. The two symbols ask different questions. Negation $\neg$ means NOT, as in L02.
+
+In the comprehension notation shown above, $X$ is an already known set and $P(a)$ is a test that keeps or rejects each element. L10 to L13 develop these tools. Russell’s argument is a deeper exploration: first remember why an arbitrary description cannot always create a set.
 
 ## Sets as collections
 
@@ -58,7 +64,7 @@ Comprehension draws its elements from a set that is already given, as in $\{a \i
 
 The six pilot exercises cover the informal notion of set, why it is naive, Russell’s collection, the contradiction, the accepted kinds of sets and why comprehension over a given set is safer.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 
 ## Takeaway
 

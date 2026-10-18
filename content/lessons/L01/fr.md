@@ -1,7 +1,7 @@
 ---
 lessonId: L01
 locale: fr
-version: 2
+version: 3
 status: pilot
 title: "Assertions : des énoncés à une seule valeur de vérité"
 summary: "Reconnaître une assertion, la distinguer des questions, des phrases vagues et des phrases auto-référentes, puis noter sa valeur de vérité 1 ou 0."
@@ -65,6 +65,10 @@ Aucune valeur unique ne peut lui être attribuée de façon cohérente. Cette ph
 
 Second piège : ignorer une valeur ne signifie pas qu’il n’y en a pas. Une assertion peut nous être inconnue tout en étant vraie ou fausse.
 
+## Petite pause : vrai, faux ou pas une assertion ?
+
+« Neuf est pair » est une assertion fausse ; « Ouvre ton cahier » est un ordre. Une phrase fausse reste donc une assertion ! Pour essayer seul, classez « Quinze est divisible par trois » avant de lire la correction : c’est une assertion vraie, car quinze vaut trois fois cinq.
+
 ## Pratique indépendante
 
 Les six exercices pilotes portent sur la reconnaissance des assertions, l’exclusion des questions, la fixation d’un contexte, la phrase menteuse, la notation et une affirmation nouvelle à vérifier.
@@ -73,6 +77,6 @@ La pratique interactive nécessite une connexion. Sa disponibilité dépend de l
 
 ## À retenir
 
-Une assertion est un énoncé qui a exactement une valeur de vérité une fois son contexte fixé. Fixez le contexte, nommez l’assertion par une lettre, puis décidez sa valeur : $1$ ou $0$.
+Dans le cadre classique du cours, une assertion est un énoncé déclaratif précis et non paradoxal qui a exactement une valeur de vérité une fois son sens et son contexte pertinent fixés. Fixez le contexte, nommez l’assertion par une lettre, puis décidez sa valeur : $1$ ou $0$.
 
 Texte et exemples originaux du projet. La couverture suit les pages 3 à 5 du PDF selon la carte du cours du dépôt ; aucun texte d’enseignant n’est reproduit.

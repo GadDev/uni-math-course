@@ -1,7 +1,7 @@
 ---
 lessonId: L01
 locale: en
-version: 2
+version: 3
 status: pilot
 title: "Assertions: statements with one truth value"
 summary: "Recognise an assertion, separate it from questions, vague sentences and self-reference, and write its truth value as 1 or 0."
@@ -65,6 +65,10 @@ No single value can be assigned consistently. So this sentence is not an asserti
 
 A second trap: not knowing a value does not mean there is no value. An assertion can be unknown to us and still be true or false.
 
+## Pause: true, false or not an assertion?
+
+“Nine is even” is a false assertion; “Open your notebook” is a command. A false sentence can still be an assertion! Try classifying “Fifteen is divisible by three” before reading the answer: it is a true assertion, because fifteen is three times five.
+
 ## Independent practice
 
 The six pilot exercises cover recognising assertions, excluding questions, fixing a context, the liar sentence, notation and a further statement to assess.
@@ -73,6 +77,6 @@ Interactive practice requires sign-in. Availability depends on this lesson’s s
 
 ## Takeaway
 
-An assertion is a statement with exactly one truth value once its context is fixed. Fix the context, write the assertion with a letter, and then decide its value: $1$ or $0$.
+In the course’s classical setting, an assertion is a precise, non-paradoxical declarative statement with exactly one truth value once its meaning and relevant context are fixed. Fix the context, write the assertion with a letter, and then decide its value: $1$ or $0$.
 
 Original project text and examples. Coverage follows PDF pages 3–5 in the repository’s course map; no professor-authored text is reproduced.

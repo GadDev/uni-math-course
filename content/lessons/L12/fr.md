@@ -1,7 +1,7 @@
 ---
 lessonId: L12
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Nier des assertions quantifiées"
 summary: "Nier ∀ et ∃ correctement, énoncer des négations en langage courant, et utiliser contre-exemples et témoins."
@@ -50,13 +50,19 @@ Ce travail guidé, dont la solution est visible, n’est pas une réponse indép
 
 ## Piège : nier seulement le prédicat
 
-$\neg \forall x\ P(x)$ n’est pas $\forall x\ \neg P(x)$. Sur le domaine $\{1, 2\}$ avec $P(x)$ : $x > 1$, la première est vraie car $P(1)$ échoue, tandis que la seconde est fausse car $P(2)$ est vrai. « Tous les oiseaux ne volent pas » ne veut pas dire « aucun oiseau ne vole ».
+$\neg \forall x\ P(x)$ n’est pas $\forall x\ \neg P(x)$. Sur le domaine $\{1, 2\}$ avec $P(x)$ : $x > 1$, la première est vraie car $P(1)$ échoue, tandis que la seconde est fausse car $P(2)$ est vrai. « Ce ne sont pas tous les oiseaux qui volent » ne veut pas dire « aucun oiseau ne vole ».
+
+## Nier toute la phrase, même sur un domaine vide
+
+$\neg$ signifie NON et porte ici sur toute l’assertion quantifiée. Le symbole $\equiv$ dit que les deux formulations ont la même vérité dans toute interprétation du domaine et du prédicat ; nous étendons ainsi la comparaison des formules de L04 aux assertions quantifiées.
+
+Si $X$ est vide, « tous les éléments vérifient P » est vrai car aucun contre-exemple n’existe ; « un élément vérifie P » est faux car aucun témoin n’existe. Leurs négations donnent respectivement faux et vrai : les deux lois continuent donc à fonctionner. Dans le premier exemple, dites explicitement « il existe au moins un livre indisponible » ; cela ne signifie pas un unique livre.
 
 ## Pratique indépendante
 
 Les six exercices pilotes portent sur les deux lois, des négations en langage courant et un contre-exemple, et la négation numérique sur $\mathbb{N}$.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 
 ## À retenir
 

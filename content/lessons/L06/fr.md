@@ -1,7 +1,7 @@
 ---
 lessonId: L06
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Réciproque, contraposée et langage de tous les jours"
 summary: "Écrire la réciproque et la contraposée d’une implication, savoir laquelle lui est équivalente, et éviter de lire « si » comme « seulement si » dans le langage courant."
@@ -41,7 +41,7 @@ $$
 | 1 | 0 | 0 | 0 | 1 |
 | 1 | 1 | 1 | 1 | 1 |
 
-Les colonnes de $A \Rightarrow B$ et de sa contraposée coïncident sur chaque ligne. La réciproque diffère aux lignes $01$ et $10$ : une implication et sa réciproque ne sont donc **pas** équivalentes. Cette explication est un travail original du projet.
+Les colonnes de $A \Rightarrow B$ et de sa contraposée coïncident sur chaque ligne. La réciproque diffère aux lignes $01$ et $10$ : les deux schémas ne sont donc **pas équivalents en général**. Certaines assertions particulières peuvent toutefois vérifier les deux sens. Cette explication est un travail original du projet.
 
 ## Exemple guidé : divisible par 4
 
@@ -60,6 +60,10 @@ Une responsable dit : « Si tu termines le rapport, tu as un jour de congé. » 
 Mais la responsable voulait peut-être exprimer l’autre sens de l’implication : un jour de congé **seulement** pour ceux qui ont terminé le rapport. C’est $B \Rightarrow A$, où $A$ est « tu termines le rapport » et $B$ est « tu as un jour de congé ». La phrase réellement prononcée, $A \Rightarrow B$, ne dit rien des personnes qui n’ont pas terminé.
 
 Pour dire ce que vous pensez, écrivez l’implication dans le sens voulu, puis examinez sa réciproque et sa contraposée.
+
+## Lire la comparaison
+
+Pour relire une table, revenez à L03 ; pour le symbole $\equiv$, revenez à L04. Sur la ligne $01$, l’implication de départ est vraie et sa réciproque fausse. Sur la ligne $10$, c’est l’inverse. Aucune des deux directions ne garantit donc l’autre à elle seule.
 
 ## Pratique indépendante
 

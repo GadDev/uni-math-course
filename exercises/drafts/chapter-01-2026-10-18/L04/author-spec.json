@@ -1,0 +1,72 @@
+[
+  {
+    "id": "L04-E22",
+    "target": "\\neg A \\lor B",
+    "formulas": [
+      "B \\lor \\neg A",
+      "B \\lor A",
+      "B \\land \\neg A"
+    ],
+    "law": "commutativity"
+  },
+  {
+    "id": "L04-E23",
+    "target": "A \\land (B \\land \\neg C)",
+    "formulas": [
+      "(A \\land B) \\land \\neg C",
+      "(A \\lor B) \\land \\neg C",
+      "(A \\land B) \\land C"
+    ],
+    "law": "associativity"
+  },
+  {
+    "id": "L04-E24",
+    "target": "\\neg\\neg(A \\lor \\neg B)",
+    "formulas": [
+      "A \\lor \\neg B",
+      "\\neg A \\lor B",
+      "A \\land \\neg B"
+    ],
+    "law": "double negation"
+  },
+  {
+    "id": "L04-E25",
+    "target": null,
+    "formulas": [
+      "(A \\lor B) \\land \\neg(A \\lor B)",
+      "(A \\lor B) \\lor \\neg(A \\lor B)",
+      "A \\lor B"
+    ],
+    "law": "non-contradiction"
+  },
+  {
+    "id": "L04-E26",
+    "target": "\\neg A \\lor (B \\land C)",
+    "formulas": [
+      "(\\neg A \\lor B) \\land (\\neg A \\lor C)",
+      "(\\neg A \\land B) \\lor (\\neg A \\land C)",
+      "(\\neg A \\lor B) \\land C"
+    ],
+    "law": "distributivity of OR over AND"
+  },
+  {
+    "id": "L04-E27",
+    "target": "(A \\lor B) \\land (A \\lor \\neg C)",
+    "formulas": [
+      "A \\lor (B \\land \\neg C)",
+      "A \\land (B \\lor \\neg C)",
+      "A \\lor (B \\lor \\neg C)"
+    ],
+    "law": "distributivity in reverse"
+  },
+  {
+    "id": "L04-E28",
+    "target": "\\neg((A \\lor B) \\land \\neg C)",
+    "formulas": [
+      "(\\neg A \\land \\neg B) \\lor C",
+      "(\\neg A \\lor \\neg B) \\lor C",
+      "(\\neg A \\land \\neg B) \\land C"
+    ],
+    "law": "De Morgan then double negation"
+  }
+]

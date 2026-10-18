@@ -1,11 +1,11 @@
 ---
 lessonId: L08
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Complétude fonctionnelle : toute table avec OU et NON"
 summary: "Transformer toute table de vérité en une formule qui n’utilise que ∨ et ¬, en décrivant chaque ligne vraie puis en éliminant ∧ avec de Morgan."
-minutes: 14
+minutes: 20
 objectives: [L08-O01, L08-O02, L08-O03, L08-O04, L08-O05, L08-O06]
 prerequisites: [L03, L04]
 sourcePages: [32, 33, 34, 35]
@@ -19,6 +19,12 @@ Dans cette leçon, le nombre de variables vérifie $n \geq 1$. Nous utilisons se
 À la fin de cette leçon, vous savez lire une table de vérité comme une fonction, décrire chaque ligne vraie par une conjonction, les combiner avec $\lor$, et éliminer $\land$ grâce à de Morgan, de sorte que la formule n’utilise que $\lor$ et $\neg$.
 
 **Prérequis :** L03 (tables de vérité) et L04 (lois booléennes, de Morgan).
+
+## Décoder l’énoncé du théorème
+
+Pensez à une machine : elle reçoit une ligne de zéros et de uns, puis renvoie un zéro ou un un. $f$ est le nom de cette règle. $\{0,1\}$ est l’ensemble des deux valeurs ; $\{0,1\}^n$ désigne tous les choix de $n$ entrées. La flèche $\to$ indique « entrées vers résultat ». Le théorème dit que toute règle de ce type peut être construite avec OU et NON.
+
+Commencez par deux entrées et quatre lignes. Une ligne vraie fournit une condition ; plusieurs lignes vraies fournissent plusieurs possibilités reliées par OU. Si toutes les lignes sont fausses, $\neg(x \lor \neg x)$ donne bien zéro pour les deux valeurs de $x$.
 
 ## Le problème
 
@@ -64,6 +70,10 @@ Utiliser $\lor$ seul sur une lettre $x$ ne donne que $x$, car $x \lor x \equiv x
 
 NON seul ne combine jamais deux entrées indépendantes : toute formule obtenue à partir d’une seule variable par des négations reste cette variable ou sa négation. Il ne peut donc pas exprimer $A \land B$. OU seul donne une disjonction de variables, qui ne peut pas exprimer $\neg A$.
 
+## Reprendre la table des pages 32 à 35
+
+Dans la table du PDF, la sortie vaut un exactement pour $010$ et $110$, dans l’ordre x, y, z. Chaque ligne donne une branche : $(\neg x \land y \land \neg z) \lor (x \land y \land \neg z)$. Dans les deux cas, y vaut un et z vaut zéro ; x est libre. Une formule plus courte est donc $y \land \neg z$, puis $\neg(\neg y \lor z)$ avec seulement OU et NON. Cette simplification et son explication sont originales.
+
 ## Pratique indépendante
 
 Les six exercices pilotes portent sur la lecture des lignes vraies, la conjonction d’une ligne, la jonction des lignes, l’élimination de $\land$, l’énoncé du théorème et la construction d’une table à trois variables.
@@ -74,4 +84,4 @@ La pratique interactive nécessite une connexion. Sa disponibilité dépend de l
 
 Décrivez chaque ligne vraie, reliez les descriptions par $\lor$, puis remplacez $\land$ avec de Morgan. Toute table de vérité est atteignable avec $\lor$ et $\neg$ seuls.
 
-Texte et exemples originaux du projet. La couverture suit les pages 32 à 35 du PDF selon la carte du cours du dépôt ; la table d’exemple de la source n’est pas reproduite.
+Texte et exemples originaux du projet. La couverture suit les pages 32 à 35 du PDF selon la carte du cours du dépôt ; les lignes vraies de l’exemple de la source sont expliquées avec une simplification originale.

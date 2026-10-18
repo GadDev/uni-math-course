@@ -1,11 +1,11 @@
 ---
 lessonId: L18
 locale: en
-version: 1
+version: 2
 status: extended
 title: "SQL as comprehension: EXISTS and NOT EXISTS"
 summary: "Read a SELECT query as a set defined by comprehension, match AND, OR, NOT with ∧, ∨, ¬, and match EXISTS and NOT EXISTS with ∃ and ¬∃."
-minutes: 14
+minutes: 18
 objectives: [L18-O01, L18-O02, L18-O03, L18-O04, L18-O05, L18-O06]
 prerequisites: [L16, L17]
 sourcePages: [82, 83, 84, 85, 86, 87, 88, 89]
@@ -17,6 +17,12 @@ sourcePages: [82, 83, 84, 85, 86, 87, 88, 89]
 By the end of this lesson, you can read a `SELECT` query as a set defined by comprehension, match `AND`, `OR`, `NOT` with $\land$, $\lor$, $\neg$, and match `EXISTS` and `NOT EXISTS` with $\exists$ and $\neg\exists$.
 
 **Prerequisites:** L16 (bounded quantifiers) and L17 (tables as sets of pairs).
+
+## Read the code before running it
+
+`SELECT` chooses output columns, `FROM` gives the table and `WHERE` filters its rows. `e` and `s` are short names for a row; the dot in `e.course` accesses its course field. The quotes in `'art'` denote text. In a subquery, `SELECT *` selects every column; `EXISTS` only checks whether at least one row remains.
+
+To trace the example subquery, first fix `s` to lia: an art row exists, so `NOT EXISTS` is false and lia is excluded. For max, no art row remains: max is kept. This filter resembles comprehension in L13: traverse a given set and keep the elements that pass the test. “Not enrolled in art” still allows enrolment in bio; it does not mean “enrolled in no course”.
 
 ## The toy database
 
@@ -71,10 +77,10 @@ A query’s result depends on the tables. The same query run on different rows g
 
 The six pilot exercises cover reading a query, the predicate, the connectives, `EXISTS`, a `NOT EXISTS` query and the replacement of $\forall$.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 
 ## Takeaway
 
-A `SELECT … WHERE` query is a set defined by comprehension. `EXISTS` is $\exists$, `NOT EXISTS` is $\neg\exists$, and $\forall$ is written with $\neg\exists\neg$.
+In this lesson’s simplified model without duplicates or missing values, read a `SELECT … WHERE` query as comprehension. `EXISTS` is $\exists$, `NOT EXISTS` is $\neg\exists$, and $\forall$ is written with $\neg\exists\neg$.
 
 Original project text and examples. Coverage follows PDF pages 82–89 in the repository’s course map; the example data and queries are original.

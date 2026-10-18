@@ -1,11 +1,11 @@
 ---
 lessonId: L15
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Opérations sur les ensembles, complémentaires relatifs et algèbre"
 summary: "Calculer intersections, unions et complémentaires relatifs à un ensemble nommé, et relier les lois de l’algèbre des ensembles aux lois booléennes."
-minutes: 14
+minutes: 24
 objectives: [L15-O01, L15-O02, L15-O03, L15-O04, L15-O05, L15-O06]
 prerequisites: [L04, L10]
 sourcePages: [59, 60, 61, 62, 63, 64, 65]
@@ -17,6 +17,26 @@ sourcePages: [59, 60, 61, 62, 63, 64, 65]
 À la fin de cette leçon, vous savez calculer $A \cap B$, $A \cup B$ et un complémentaire relatif à un ensemble nommé, appliquer les lois de l’algèbre des ensembles, et les relier aux lois booléennes.
 
 **Prérequis :** L04 (lois booléennes) et L10 (ensembles et inclusion).
+
+## Voir les opérations et retrouver les lois de Boole
+
+Dans les schémas, le rectangle est l’ensemble ambiant U et les cercles sont A et B. Les zones hachurées indiquent le résultat ; les descriptions donnent aussi ce résultat sans dépendre d’une couleur.
+
+![Intersection : seulement la zone commune aux cercles A et B dans U.](/diagrams/sets-intersection.svg)
+
+![Union : toutes les zones situées dans A ou dans B, y compris la zone commune.](/diagrams/sets-union.svg)
+
+![Complémentaire de A dans U : toute la zone du rectangle U située en dehors de A.](/diagrams/sets-complement.svg)
+
+| Condition sur un élément x de U | Connecteur | Opération |
+| --- | --- | --- |
+| dans A et dans B | ET | intersection |
+| dans A ou dans B, éventuellement les deux | OU inclusif | union |
+| pas dans A | NON | complémentaire dans U |
+
+Prenons $U = \{1,2,3,4\}$, $A = \{1,2\}$ et $B = \{2,3\}$. Les éléments hors de leur union forment $\{4\}$. Les complémentaires de A et B sont respectivement $\{3,4\}$ et $\{1,4\}$ ; leur intersection est encore $\{4\}$.
+
+Pour comprendre pourquoi cela fonctionne pour tout élément, fixez $x \in U$. Dire qu’il est hors de l’union signifie qu’il n’est ni dans A ni dans B : c’est de Morgan appliqué aux deux assertions d’appartenance. Le calcul fini illustre la loi ; cet argument pour un élément arbitraire explique la loi générale. Les mêmes lois permettent de développer une intersection avec une union ou de factoriser une union d’intersections, comme en L04.
 
 ## Trois opérations
 
@@ -59,7 +79,7 @@ Un complémentaire ne veut rien dire tant que l’on n’a pas nommé l’ensemb
 
 Les six exercices pilotes portent sur l’intersection, l’union, un complémentaire relatif, la loi de de Morgan pour les ensembles, le rôle de l’ensemble ambiant et le lien avec les connecteurs.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 
 ## À retenir
 

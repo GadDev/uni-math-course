@@ -1,0 +1,572 @@
+{
+  "lessonId": "L16",
+  "version": 3,
+  "status": "review-candidate",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L16-E01",
+      "objectiveId": "L16-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "bounded-forall-with-and"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $P$ un prédicat sur un univers contenant $X$, éventuellement vide. Que signifie $\\forall x \\in X\\ P(x)$ ?",
+        "en": "Let $P$ be a predicate on a universe containing $X$, possibly empty. What does $\\forall x \\in X\\ P(x)$ mean?"
+      },
+      "hint": {
+        "fr": "Un « pour tout » borné se développe avec une implication.",
+        "en": "A bounded “for all” expands with an implication."
+      },
+      "options": [
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\exists x\\ (x \\in X \\land P(x))$",
+            "en": "$\\exists x\\ (x \\in X \\land P(x))$"
+          },
+          "feedback": {
+            "fr": "C’est le développement de $\\exists x \\in X\\ P(x)$.",
+            "en": "This is the expansion of $\\exists x \\in X\\ P(x)$."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall x\\ (x \\in X \\Rightarrow P(x))$",
+            "en": "$\\forall x\\ (x \\in X \\Rightarrow P(x))$"
+          },
+          "feedback": {
+            "fr": "Exact : tout $x$ qui est dans $X$ vérifie $P$.",
+            "en": "Correct: every $x$ that lies in $X$ satisfies $P$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall x\\ (x \\in X \\land P(x))$",
+            "en": "$\\forall x\\ (x \\in X \\land P(x))$"
+          },
+          "feedback": {
+            "fr": "Cela dirait que tout objet est dans $X$ et vérifie $P$.",
+            "en": "This would say that every object is in $X$ and satisfies $P$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists x\\ (x \\in X \\Rightarrow P(x))$",
+            "en": "$\\exists x\\ (x \\in X \\Rightarrow P(x))$"
+          },
+          "feedback": {
+            "fr": "C’est un « il existe » avec une implication : le mauvais couple.",
+            "en": "This is an “exists” with an implication: the wrong pairing."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\forall x \\in X\\ P(x)$ abrège $\\forall x\\ (x \\in X \\Rightarrow P(x))$.",
+        "en": "$\\forall x \\in X\\ P(x)$ abbreviates $\\forall x\\ (x \\in X \\Rightarrow P(x))$."
+      },
+      "lessonId": "L16",
+      "version": 3,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E02",
+      "objectiveId": "L16-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "bounded-exists-with-implication"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $P$ un prédicat sur un univers contenant $X$, éventuellement vide. Que signifie $\\exists x \\in X\\ P(x)$ ?",
+        "en": "Let $P$ be a predicate on a universe containing $X$, possibly empty. What does $\\exists x \\in X\\ P(x)$ mean?"
+      },
+      "hint": {
+        "fr": "Un « il existe » borné se développe avec une conjonction.",
+        "en": "A bounded “exists” expands with a conjunction."
+      },
+      "options": [
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall x\\ (x \\in X \\land P(x))$",
+            "en": "$\\forall x\\ (x \\in X \\land P(x))$"
+          },
+          "feedback": {
+            "fr": "Cela dirait que tout objet est dans $X$ et vérifie $P$.",
+            "en": "This would say that every object is in $X$ and satisfies $P$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall x\\ (x \\in X \\Rightarrow P(x))$",
+            "en": "$\\forall x\\ (x \\in X \\Rightarrow P(x))$"
+          },
+          "feedback": {
+            "fr": "C’est le développement de $\\forall x \\in X\\ P(x)$.",
+            "en": "This is the expansion of $\\forall x \\in X\\ P(x)$."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists x\\ (x \\in X \\land P(x))$",
+            "en": "$\\exists x\\ (x \\in X \\land P(x))$"
+          },
+          "feedback": {
+            "fr": "Exact : un $x$ est dans $X$ et vérifie $P$.",
+            "en": "Correct: some $x$ is in $X$ and satisfies $P$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists x\\ (x \\in X \\Rightarrow P(x))$",
+            "en": "$\\exists x\\ (x \\in X \\Rightarrow P(x))$"
+          },
+          "feedback": {
+            "fr": "Cette formule est vraie dès qu’un objet est hors de $X$ : elle ne dit rien sur $X$.",
+            "en": "This formula is true as soon as one object lies outside $X$: it says nothing about $X$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\exists x \\in X\\ P(x)$ abrège $\\exists x\\ (x \\in X \\land P(x))$.",
+        "en": "$\\exists x \\in X\\ P(x)$ abbreviates $\\exists x\\ (x \\in X \\land P(x))$."
+      },
+      "lessonId": "L16",
+      "version": 3,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E03",
+      "objectiveId": "L16-O03",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "connective-pairing-reversed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle règle mnémotechnique associe correctement quantificateurs et connecteurs ?",
+        "en": "Which rule of thumb pairs quantifiers and connectives correctly?"
+      },
+      "hint": {
+        "fr": "Le « pour tout » borné est une règle conditionnelle.",
+        "en": "A bounded “for all” is a conditional rule."
+      },
+      "options": [
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall$ va avec $\\land$ et $\\exists$ va avec $\\Rightarrow$.",
+            "en": "$\\forall$ goes with $\\land$ and $\\exists$ goes with $\\Rightarrow$."
+          },
+          "feedback": {
+            "fr": "C’est l’inverse de la bonne règle.",
+            "en": "This is the reverse of the right rule."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall$ et $\\exists$ vont tous deux avec $\\Rightarrow$.",
+            "en": "$\\forall$ and $\\exists$ both go with $\\Rightarrow$."
+          },
+          "feedback": {
+            "fr": "$\\exists$ avec $\\Rightarrow$ est vraie dès qu’un objet est hors du domaine.",
+            "en": "$\\exists$ with $\\Rightarrow$ is true as soon as an object lies outside the domain."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall$ et $\\exists$ vont tous deux avec $\\land$.",
+            "en": "$\\forall$ and $\\exists$ both go with $\\land$."
+          },
+          "feedback": {
+            "fr": "$\\forall$ avec $\\land$ dirait que tout objet de l’univers est dans $X$.",
+            "en": "$\\forall$ with $\\land$ would say that every object of the universe is in $X$."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall$ va avec $\\Rightarrow$ et $\\exists$ va avec $\\land$.",
+            "en": "$\\forall$ goes with $\\Rightarrow$ and $\\exists$ goes with $\\land$."
+          },
+          "feedback": {
+            "fr": "Exact.",
+            "en": "Correct."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\forall$ va avec $\\Rightarrow$, $\\exists$ va avec $\\land$.",
+        "en": "$\\forall$ goes with $\\Rightarrow$, $\\exists$ goes with $\\land$."
+      },
+      "lessonId": "L16",
+      "version": 3,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E04",
+      "objectiveId": "L16-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "exists-with-implication-always-true"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans l’univers $U = \\{1, 2, 3, 4, 5\\}$, soit $X = \\{1, 2, 3\\}$ et $P(x)$ : $x > 10$. Quelle assertion est vraie ?",
+        "en": "In the universe $U = \\{1, 2, 3, 4, 5\\}$, let $X = \\{1, 2, 3\\}$ and $P(x)$ be $x > 10$. Which statement is true?"
+      },
+      "hint": {
+        "fr": "Une implication est vraie quand son antécédent est faux.",
+        "en": "An implication is true when its antecedent is false."
+      },
+      "options": [
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists x\\ (x \\in X \\Rightarrow P(x))$",
+            "en": "$\\exists x\\ (x \\in X \\Rightarrow P(x))$"
+          },
+          "feedback": {
+            "fr": "Exact : $x = 4$ n’est pas dans $X$, donc l’implication est vraie, quel que soit $P$.",
+            "en": "Correct: $x = 4$ is not in $X$, so the implication is true whatever $P$ is."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall x\\ (x \\in X \\Rightarrow P(x))$",
+            "en": "$\\forall x\\ (x \\in X \\Rightarrow P(x))$"
+          },
+          "feedback": {
+            "fr": "Fausse : $x = 1$ est dans $X$ et ne vérifie pas $P$.",
+            "en": "False: $x = 1$ is in $X$ and fails $P$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall x\\ (x \\in X \\land P(x))$",
+            "en": "$\\forall x\\ (x \\in X \\land P(x))$"
+          },
+          "feedback": {
+            "fr": "Fausse : $x = 4$ n’est pas dans $X$.",
+            "en": "False: $x = 4$ is not in $X$."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists x\\ (x \\in X \\land P(x))$",
+            "en": "$\\exists x\\ (x \\in X \\land P(x))$"
+          },
+          "feedback": {
+            "fr": "Fausse : aucun élément de $X$ ne dépasse $10$.",
+            "en": "False: no element of $X$ exceeds $10$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La seule assertion vraie utilise le mauvais connecteur, $\\exists x\\ (x \\in X \\Rightarrow P(x))$ : elle est vraie pour tout $P$ dès qu’un objet est hors de $X$ ; elle ne dit rien d’utile sur $X$.",
+        "en": "The only true statement uses the wrong connective: $\\exists x\\ (x \\in X \\Rightarrow P(x))$: it is true for any $P$ as soon as an object lies outside $X$; it says nothing useful about $X$."
+      },
+      "lessonId": "L16",
+      "version": 3,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E05",
+      "objectiveId": "L16-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "negation-keeps-quantifier"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $P$ un prédicat sur un univers contenant $X$, éventuellement vide. À quoi est équivalente $\\neg \\forall x \\in X\\ P(x)$ ?",
+        "en": "Let $P$ be a predicate on a universe containing $X$, possibly empty. What is $\\neg \\forall x \\in X\\ P(x)$ equivalent to?"
+      },
+      "hint": {
+        "fr": "La négation échange le quantificateur et conserve la borne $X$.",
+        "en": "Negation swaps the quantifier and keeps the bound $X$."
+      },
+      "options": [
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\neg \\exists x \\in X\\ \\neg P(x)$",
+            "en": "$\\neg \\exists x \\in X\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "C’est équivalent à $\\forall x \\in X\\ P(x)$, la formule d’origine.",
+            "en": "This is equivalent to $\\forall x \\in X\\ P(x)$, the original formula."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists x \\in X\\ \\neg P(x)$",
+            "en": "$\\exists x \\in X\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Exact : un élément de $X$ ne vérifie pas $P$.",
+            "en": "Correct: some element of $X$ fails $P$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall x \\in X\\ \\neg P(x)$",
+            "en": "$\\forall x \\in X\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Sur un domaine non vide, cette formule exige que tous les éléments échouent, au lieu d’au moins un. Sur un domaine vide, elle est vraie alors que la négation du « pour tout » est fausse. Échangez le quantificateur et niez le prédicat.",
+            "en": "On a nonempty domain, this formula requires every element to fail, rather than at least one. On an empty domain, it is true while the negation of “for all” is false. Swap the quantifier and negate the predicate."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists x \\in X\\ P(x)$",
+            "en": "$\\exists x \\in X\\ P(x)$"
+          },
+          "feedback": {
+            "fr": "Cela dit qu’un élément vérifie $P$ ; ce n’est pas la négation.",
+            "en": "This says that some element satisfies $P$; it is not the negation."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\neg \\forall x \\in X\\ P(x) \\equiv \\exists x \\in X\\ \\neg P(x)$.",
+        "en": "$\\neg \\forall x \\in X\\ P(x) \\equiv \\exists x \\in X\\ \\neg P(x)$."
+      },
+      "lessonId": "L16",
+      "version": 3,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L16-E06",
+      "objectiveId": "L16-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "vacuous-truth-misread"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $P$ un prédicat sur un univers contenant $X$, éventuellement vide. Que vaut $\\forall x \\in \\varnothing\\ P(x)$ ?",
+        "en": "Let $P$ be a predicate on a universe containing $X$, possibly empty. What is the value of $\\forall x \\in \\varnothing\\ P(x)$?"
+      },
+      "hint": {
+        "fr": "Développez : $\\forall x\\ (x \\in \\varnothing \\Rightarrow P(x))$.",
+        "en": "Expand it: $\\forall x\\ (x \\in \\varnothing \\Rightarrow P(x))$."
+      },
+      "options": [
+        {
+          "id": "c",
+          "label": {
+            "fr": "Indéfinie.",
+            "en": "Undefined."
+          },
+          "feedback": {
+            "fr": "Le développement donne une valeur bien définie.",
+            "en": "The expansion gives a well-defined value."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Vraie seulement si $P$ est vrai pour au moins un $x$.",
+            "en": "True only if $P$ holds for at least one $x$."
+          },
+          "feedback": {
+            "fr": "La valeur ne dépend pas de $P$.",
+            "en": "The value does not depend on $P$."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vraie, car $x \\in \\varnothing$ est toujours faux et l’implication est donc toujours vraie.",
+            "en": "True, because $x \\in \\varnothing$ is always false, so the implication is always true."
+          },
+          "feedback": {
+            "fr": "Exact : c’est une conséquence du développement.",
+            "en": "Correct: this follows from the expansion."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Fausse, car il n’y a aucun élément pour vérifier $P$.",
+            "en": "False, because there is no element to satisfy $P$."
+          },
+          "feedback": {
+            "fr": "Le « pour tout » n’affirme pas l’existence d’un élément : il échoue seulement s’il existe un contre-exemple. Ici, il n’y en a aucun.",
+            "en": "“For every” does not assert that an element exists: it fails only if there is a counterexample. Here there is none."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\forall x \\in \\varnothing\\ P(x)$ est vraie pour tout prédicat $P$.",
+        "en": "$\\forall x \\in \\varnothing\\ P(x)$ is true for every predicate $P$."
+      },
+      "lessonId": "L16",
+      "version": 3,
+      "prerequisites": [
+        "L11",
+        "L12"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          67,
+          68,
+          69,
+          70
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

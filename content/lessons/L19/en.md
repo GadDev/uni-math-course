@@ -1,11 +1,11 @@
 ---
 lessonId: L19
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Python all and any: sortedness, duplicates and maximum"
 summary: "Translate statements about a list into ∀ and ∃ and into Python’s all and any, and handle the edge cases of short lists."
-minutes: 14
+minutes: 20
 objectives: [L19-O01, L19-O02, L19-O03, L19-O04, L19-O05, L19-O06]
 prerequisites: [L16]
 sourcePages: [90, 91, 92, 93, 94]
@@ -17,6 +17,18 @@ sourcePages: [90, 91, 92, 93, 94]
 By the end of this lesson, you can translate “the list is sorted”, “the list has a duplicate” and “the list contains its maximum” into $\forall$ and $\exists$, write them with Python’s `all` and `any`, and state the edge cases.
 
 **Prerequisites:** L16 (bounded quantifiers).
+
+## Read the indices before the formula
+
+For `t = [1, 3, 2]`, here is where the values sit:
+
+| index i | 0 | 1 | 2 |
+| --- | --- | --- | --- |
+| t[i] | 1 | 3 | 2 |
+
+The first index is zero. `range(n-1)` produces the starts of adjacent pairs without including its stop bound. `for i in ...` traverses these starts; `all` requires every test to be true and `any` requires at least one. J contains all positions and K only those with a successor. For lists of zero or one element, K is empty: also interpret the exercise notation $\{0,\ldots,n-2\}$ as this domain of valid starts, never as negative indices to traverse.
+
+Revisit the three objectives separately: sortedness compares neighbours, duplicate detection compares two distinct positions and maximum search compares a candidate against all values. A maximum can occur more than once.
 
 ## A list and its indices
 
