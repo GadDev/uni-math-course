@@ -86,11 +86,9 @@ Hosted acceptance is separate and opt-in. Follow [hosted E2E setup](docs/HOSTED_
 - [Tech stack](docs/TECHSTACK.md)
 - [Content pilot review](docs/content/L05_REVIEW.md)
 - [Symbol glossary](docs/content/GLOSSARY_REVIEW.md)
-- [Reading foundation](docs/READING_FOUNDATION.md)
 - [Authentication and sessions](docs/AUTHENTICATION.md)
 - [Practice, grading and progress](docs/PRACTICE.md)
 - [Content release contracts](docs/CONTENT_RELEASES.md)
-- [Learning contract audit](docs/LEARNING_CONTRACT_AUDIT.md)
 - [Pilot readiness and acceptance evidence](docs/PILOT_ACCEPTANCE.md)
 
 ## Contribute and maintain
