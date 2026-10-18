@@ -2,6 +2,14 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.3.0](https://github.com/GadDev/uni-math-course/compare/v0.2.1...v0.3.0) (2026-10-16)
+
+
+### Features
+
+* add accessible chapter switching across the application ([#55](https://github.com/GadDev/uni-math-course/issues/55)) ([46ebe55](https://github.com/GadDev/uni-math-course/commit/46ebe55788476d3a1fd7ea6e7cb57ac155ac5229))
+* add bilingual Chapter 2 overview with green Decalage art ([#54](https://github.com/GadDev/uni-math-course/issues/54)) ([9f4ea80](https://github.com/GadDev/uni-math-course/commit/9f4ea808c26669209722f326a39d649d0215c7d1))
+
 ## [0.2.1](https://github.com/GadDev/uni-math-course/compare/v0.2.0...v0.2.1) (2026-10-16)
 
 
