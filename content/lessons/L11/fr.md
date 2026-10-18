@@ -1,11 +1,11 @@
 ---
 lessonId: L11
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Prédicats et quantificateurs"
 summary: "Lire un prédicat P(x) sur un ensemble, évaluer ∀ et ∃ sur un domaine, et voir pourquoi le domaine change la valeur de vérité."
-minutes: 14
+minutes: 18
 objectives: [L11-O01, L11-O02, L11-O03, L11-O04, L11-O05, L11-O06]
 prerequisites: [L01, L10]
 sourcePages: [44, 45, 46, 47, 48]
@@ -17,6 +17,16 @@ sourcePages: [44, 45, 46, 47, 48]
 À la fin de cette leçon, vous savez lire un prédicat $P(x)$ sur un ensemble $X$, évaluer $\forall x\ P(x)$ et $\exists x\ P(x)$, et expliquer comment le domaine change la valeur de vérité.
 
 **Prérequis :** L01 (assertions) et L10 (ensembles et appartenance).
+
+## Commencer par un domaine fini
+
+Soit $X = \{1,2,4\}$ et $P(x)$ : « x est pair ».
+
+| x | 1 | 2 | 4 |
+| --- | --- | --- | --- |
+| P(x) | faux | vrai | vrai |
+
+Le « pour tout » est faux à cause de un ; le « il existe » est vrai, par exemple grâce à deux. Un **témoin** est un élément qui réussit le test ; un **contre-exemple** est un élément qui fait échouer la règle générale. Dans l’exemple précédent, $[10,+\infty[$ signifie les réels supérieurs ou égaux à dix : le crochet près de dix l’inclut.
 
 ## Prédicats
 
@@ -56,7 +66,7 @@ L’exemple de l’âge à la page 48 de la source mêle des quantificateurs imb
 
 Les six exercices pilotes portent sur les prédicats, l’évaluation d’une valeur, $\forall$ sur un domaine fini, $\exists$ avec un témoin, l’effet du domaine et un prédicat sur des noms de lieux.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 
 ## À retenir
 

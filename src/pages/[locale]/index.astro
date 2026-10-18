@@ -12,6 +12,32 @@ export function getStaticPaths() {
 }
 const { locale } = Astro.props;
 const text = copy[locale];
+const programmeParts = [
+  {
+    title:
+      locale === 'fr'
+        ? '1. Logique propositionnelle classique'
+        : '1. Classical propositional logic',
+    pages: '3–35',
+    lessons: text.programme.slice(0, 8),
+  },
+  {
+    title:
+      locale === 'fr'
+        ? '2. Théorie naïve des ensembles'
+        : '2. Naive set theory',
+    pages: '37–65',
+    lessons: text.programme.slice(8, 15),
+  },
+  {
+    title:
+      locale === 'fr'
+        ? '3. Applications IT : du français au langage symbolique'
+        : '3. IT applications: from everyday language to symbols',
+    pages: '67–96',
+    lessons: text.programme.slice(15),
+  },
+];
 const releasedIds = new Set(
   (await getCollection('lessons'))
     .filter((entry) => entry.data.locale === locale)
@@ -74,25 +100,42 @@ const implication = katex.renderToString('A \\Rightarrow B', {
     </section>
     <section class="planned-section" aria-labelledby="planned-title">
       <h2 id="planned-title">{text.future}</h2>
-      <ul class="planned-list">
-        {text.programme.map((topic) => (
-          <li class={releasedIds.has(topic.id) ? 'available-topic' : undefined}>
-            <span class="planned-number" aria-hidden="true">
-              {topic.id.slice(1)}
-            </span>
-            {releasedIds.has(topic.id) ? (
-              <a href={'/' + locale + '/lessons/' + topic.id + '/'}>
-                {topic.title}
-              </a>
-            ) : (
-              <span>{topic.title}</span>
-            )}
-            <span class="planned-label">
-              {releasedIds.has(topic.id) ? text.public : text.planned}
-            </span>
-          </li>
-        ))}
-      </ul>
+      <p>
+        {locale === 'fr'
+          ? 'Le parcours suit les trois parties du PDF Logique et ensembles. Les leçons ajoutent des explications pas à pas, des schémas et des exemples ; les pages répétées du diaporama sont regroupées.'
+          : 'The learning path follows the three parts of the Logic and sets PDF. Lessons add step-by-step explanations, diagrams and examples; repeated slide builds are grouped together.'}
+      </p>
+      {programmeParts.map((part) => (
+        <section class="programme-part" aria-label={part.title}>
+          <h3>{part.title}</h3>
+          <p class="programme-source">
+            {locale === 'fr' ? 'Pages PDF' : 'PDF pages'} {part.pages}
+          </p>
+          <ul class="planned-list">
+            {part.lessons.map((topic) => (
+              <li
+                class={
+                  releasedIds.has(topic.id) ? 'available-topic' : undefined
+                }
+              >
+                <span class="planned-number" aria-hidden="true">
+                  {topic.id.slice(1)}
+                </span>
+                {releasedIds.has(topic.id) ? (
+                  <a href={'/' + locale + '/lessons/' + topic.id + '/'}>
+                    {topic.title}
+                  </a>
+                ) : (
+                  <span>{topic.title}</span>
+                )}
+                <span class="planned-label">
+                  {releasedIds.has(topic.id) ? text.public : text.planned}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))}
     </section>
     <section class="planned-section" aria-labelledby="glossary-title">
       <h2 id="glossary-title">{glossaryCopy[locale].title}</h2>

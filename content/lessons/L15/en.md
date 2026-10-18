@@ -1,11 +1,11 @@
 ---
 lessonId: L15
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Set operations, relative complements and algebra"
 summary: "Compute intersections, unions and complements relative to a named set, and connect the laws of set algebra to the Boolean laws."
-minutes: 14
+minutes: 24
 objectives: [L15-O01, L15-O02, L15-O03, L15-O04, L15-O05, L15-O06]
 prerequisites: [L04, L10]
 sourcePages: [59, 60, 61, 62, 63, 64, 65]
@@ -17,6 +17,26 @@ sourcePages: [59, 60, 61, 62, 63, 64, 65]
 By the end of this lesson, you can compute $A \cap B$, $A \cup B$ and a complement relative to a named set, apply the laws of set algebra, and connect them to the Boolean laws.
 
 **Prerequisites:** L04 (Boolean laws) and L10 (sets and inclusion).
+
+## See the operations and recover the Boolean laws
+
+In the diagrams, the rectangle is the ambient set U and the circles are A and B. Hatched regions indicate the result; the descriptions also state it without depending on a colour.
+
+![Intersection: only the shared region of circles A and B inside U.](/diagrams/sets-intersection.svg)
+
+![Union: every region inside A or B, including their shared region.](/diagrams/sets-union.svg)
+
+![Complement of A in U: every region of rectangle U outside A.](/diagrams/sets-complement.svg)
+
+| Condition on an element x of U | Connective | Operation |
+| --- | --- | --- |
+| in A and in B | AND | intersection |
+| in A or in B, possibly both | inclusive OR | union |
+| not in A | NOT | complement in U |
+
+Take $U = \{1,2,3,4\}$, $A = \{1,2\}$ and $B = \{2,3\}$. Elements outside their union form $\{4\}$. The complements of A and B are $\{3,4\}$ and $\{1,4\}$ respectively; their intersection is again $\{4\}$.
+
+To see why this works for every element, fix $x \in U$. Saying it is outside the union means it is in neither A nor B: this is De Morgan applied to the two membership assertions. The finite calculation illustrates the law; this argument for an arbitrary element explains the general law. The same laws let you expand an intersection with a union or factor a union of intersections, as in L04.
 
 ## Three operations
 
@@ -59,7 +79,7 @@ A complement means nothing until you name the set it is taken in. With $A = \{1,
 
 The six pilot exercises cover the intersection, the union, a relative complement, De Morgan’s law for sets, the role of the ambient set and the link with connectives.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 
 ## Takeaway
 

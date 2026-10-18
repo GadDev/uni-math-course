@@ -1,7 +1,7 @@
 ---
 lessonId: L16
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Quantificateurs bornés"
 summary: "Lire ∀x ∈ X et ∃x ∈ X comme des abréviations, retenir que ∀ va avec ⇒ et ∃ va avec ∧, et nier des assertions bornées."
@@ -61,11 +61,17 @@ $\forall x \in \varnothing\ P(x)$ est vraie pour tout $P$ : elle se développe e
 
 Écrire $\exists x\ (x \in X \Rightarrow P(x))$ pour « un élément de $X$ vérifie $P$ » est faux, de même que $\forall x\ (x \in X \land P(x))$ pour « tout élément de $X$ vérifie $P$ » : cette dernière dit que tout objet de l’univers est dans $X$.
 
+## Du domaine au tableau
+
+L’univers U est l’ensemble parcouru par les quantificateurs non bornés ; X est la partie sur laquelle porte notre affirmation. Pour développer la notation, le test P doit avoir un sens sur U (ou être prolongé à U). L05 explique le connecteur $\Rightarrow$ : il ne peut échouer que pour une condition vraie et une conclusion fausse.
+
+Dans l’exemple, un, deux et trois sont dans X et échouent au test ; quatre et cinq ne sont pas dans X et ne peuvent donc pas réfuter la règle sur X. Pour X vide, le « pour tout » est vrai sans contre-exemple et le « il existe » est faux sans témoin. Le moyen mnémotechnique concerne le développement des quantificateurs bornés, pas tous les usages de ces symboles.
+
 ## Pratique indépendante
 
 Les six exercices pilotes portent sur les deux développements, l’association quantificateur-connecteur, le piège du mauvais connecteur, la négation et l’ensemble vide.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 
 ## À retenir
 

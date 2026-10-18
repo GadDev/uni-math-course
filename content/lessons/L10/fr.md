@@ -1,11 +1,11 @@
 ---
 lessonId: L10
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Ensembles de nombres, énumération, appartenance et inclusion"
 summary: "Ordonner les ensembles de nombres, définir un ensemble par énumération, utiliser l’ensemble vide, et distinguer l’appartenance ∈ de l’inclusion ⊆."
-minutes: 12
+minutes: 18
 objectives: [L10-O01, L10-O02, L10-O03, L10-O04, L10-O05, L10-O06]
 prerequisites: [L09]
 sourcePages: [41, 42, 43, 57]
@@ -18,13 +18,21 @@ sourcePages: [41, 42, 43, 57]
 
 **Prérequis :** L09 (ce qu’est un ensemble).
 
+## Mettre des exemples derrière les lettres
+
+![Ensembles emboîtés : les naturels sont dans les entiers, les entiers dans les rationnels, les rationnels dans les réels ; zéro, moins trois, trois demis et racine de deux montrent les différences.](/diagrams/number-families.svg)
+
+Les naturels sont $0,1,2,\ldots$ ; les entiers ajoutent les négatifs comme $-3$. Un rationnel est une fraction de deux entiers dont le dénominateur n’est pas nul, comme $\frac{3}{2}$. Les réels comprennent aussi des nombres irrationnels comme $\sqrt{2}$, qui ne s’écrivent pas comme une telle fraction.
+
+Dans la définition symbolique de l’inclusion, $\forall$ se lit « pour tout » et $\Rightarrow$ « si… alors… » : pour chaque objet, s’il appartient à $B$, il appartient à $A$. $\exists$ se lit « il existe ». Vous pouvez utiliser la lecture en français avant de travailler ces symboles en L11 ; L05 explique l’implication. Si un objet de $B$ manque dans $A$, l’inclusion échoue.
+
 ## Les ensembles de nombres
 
 Les naturels $\mathbb{N}$, les entiers $\mathbb{Z}$, les rationnels $\mathbb{Q}$ et les réels $\mathbb{R}$ vérifient
 $$
 \mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}.
 $$
-Dans ce cours, $\mathbb{N} = \{0, 1, 2, \ldots\}$ contient zéro. Les langages de programmation représentent ces ensembles de façons différentes, et les ordinateurs ne représentent les réels qu’approximativement.
+Dans ce cours, $\mathbb{N} = \{0, 1, 2, \ldots\}$ contient zéro. Les langages de programmation représentent ces ensembles de façons différentes, et les nombres à virgule flottante courants approximent beaucoup de réels. Certains nombres sont représentés exactement, notamment de petits entiers ; des représentations rationnelles ou symboliques existent aussi.
 
 L’**ensemble vide** $\varnothing$ ne contient aucun élément.
 
@@ -33,6 +41,8 @@ L’**ensemble vide** $\varnothing$ ne contient aucun élément.
 Un ensemble peut être défini en listant ses éléments, comme $\{1, 2, 4\}$. Un ensemble est déterminé par ses éléments : $\{4, 1, 2\}$ est donc le même ensemble. Cette remarque est un appui préalable et n’est pas enseignée par la source.
 
 ## Appartenance et inclusion
+
+Appartenance et inclusion sont anticipées ici comme appui de lecture ; le rappel de la page 57 revient avec les ensembles de parties en L14.
 
 Pour des ensembles $A$ et $B$ :
 
@@ -63,7 +73,7 @@ Ce travail guidé, dont la solution est visible, n’est pas une réponse indép
 
 Les six exercices pilotes portent sur la chaîne des ensembles de nombres, l’énumération, l’ensemble vide, la distinction entre $\in$ et $\subseteq$, la définition de l’inclusion et la recherche d’un non-sous-ensemble.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 
 ## À retenir
 

@@ -1,7 +1,7 @@
 ---
 lessonId: L07
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "La biconditionnelle et l’équivalence sémantique"
 summary: "Définir le connecteur ⇔, le distinguer de la relation ≡, et utiliser le fait que A ≡ B est vrai exactement lorsque A ⇔ B est une tautologie."
@@ -63,6 +63,10 @@ Ce travail guidé, dont la solution est visible, n’est pas une réponse indép
 ## Piège : mélanger les deux niveaux
 
 $A \Leftrightarrow B$ peut valoir $0$ sur une ligne : pour $A = 1$ et $B = 0$, elle vaut $0$. En revanche, $A \equiv B$ n’est pas une valeur calculée sur une ligne. C’est un énoncé sur les tables entières de $A$ et de $B$. Lorsque $A \Leftrightarrow B$ vaut $0$ sur une ligne, cette ligne montre que $A \equiv B$ est faux.
+
+## Lire « si et seulement si »
+
+$A \Leftrightarrow B$ se lit « A si et seulement si B ». Pour un entier naturel fixé, « il est pair si et seulement s’il est divisible par deux » réunit deux garanties : être pair assure la divisibilité par deux, et cette divisibilité assure la parité. Pour les formules générales, distinguez toujours un accord sur une ligne et un accord sur toutes les lignes.
 
 ## Pratique indépendante
 

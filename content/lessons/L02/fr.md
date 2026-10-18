@@ -1,7 +1,7 @@
 ---
 lessonId: L02
 locale: fr
-version: 2
+version: 3
 status: pilot
 title: "Connecteurs logiques : et, ou, non"
 summary: "Lire les connecteurs ∧, ∨ et ¬ avec leur constante, les évaluer sur des valeurs données, appliquer la priorité de ¬, et distinguer le « ou » inclusif du « ou » exclusif."
@@ -17,6 +17,12 @@ sourcePages: [6, 7, 8, 9, 10, 11, 12]
 À la fin de cette leçon, vous savez lire $\land$, $\lor$, $\neg$ et $\top$, les évaluer sur des valeurs données, appliquer la priorité de $\neg$, et distinguer le « ou » inclusif du « ou » exclusif.
 
 **Prérequis :** la leçon L01, où une assertion a une seule valeur de vérité, notée $1$ ou $0$.
+
+## Des symboles à une situation concrète
+
+Fixons une personne et une séance de cinéma. Soit $A$ : « elle a un billet » et $B$ : « elle a une invitation ». $A \lor B$ dit qu’elle a au moins l’un des deux, éventuellement les deux. $A \land B$ exige les deux. $\neg A$ dit qu’elle n’a pas de billet ; cela ne dit rien de son invitation.
+
+Attention : le signe $+$ utilisé pour OU est une notation booléenne. Ici $1 \lor 1 = 1$ ; on ne fait pas l’addition ordinaire des entiers. Pour la suite, gardez les symboles $\lor$ et $\land$ pour éviter cette confusion.
 
 ## Notation et la constante $\top$
 

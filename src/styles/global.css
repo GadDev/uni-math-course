@@ -571,11 +571,32 @@ h3 {
   margin-top: 0;
 }
 .lesson-prose h1,
-.lesson-prose h2 {
+.lesson-prose h2,
+.lesson-prose h3 {
   scroll-margin-top: 1.5rem;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 .lesson-prose p {
   margin: 0.9rem 0;
+}
+.lesson-prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem auto;
+}
+.lesson-prose h3 {
+  margin: 1.8rem 0 0.7rem;
+  font-size: 1.2rem;
+  scroll-margin-top: 1.5rem;
+}
+.programme-part {
+  margin-top: 2rem;
+}
+.programme-source {
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 .lesson-prose li {
   margin: 0.65rem 0;
@@ -604,6 +625,8 @@ h3 {
   border: 1px solid var(--soft-line);
   padding: 0.85rem;
   text-align: center;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 .lesson-prose th {
   background: var(--ink);
@@ -617,6 +640,15 @@ h3 {
   overflow-x: auto;
   overflow-y: hidden;
   padding: 0.8rem 0;
+}
+.lesson-prose p > .katex,
+.lesson-prose li > .katex {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: middle;
+  padding-block: 0.15em;
 }
 .content-provenance {
   font-size: 0.78rem;
