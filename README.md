@@ -11,6 +11,8 @@ A **French/English mathematics learning pilot** for university students and adul
 
 **[Explore in French](https://uni-math-course.vercel.app/fr/)** · **[Explore in English](https://uni-math-course.vercel.app/en/)** · [Project roadmap](docs/ROADMAP.md)
 
+![Decorative mathematics illustration with coordinate axes, a plotted curve, intersecting circles and geometric planes in red, green and black](docs/assets/readme-math-geometry.webp)
+
 Public lessons and the symbol glossary can be read without an account. Practice and private progress require an invited account and a configured Supabase deployment.
 
 ## Features
@@ -37,6 +39,15 @@ Release status (generated from content/releases.json): 36 public bilingual lesso
 Sign-in is disabled until configured. Hosted authentication, database/deployment acceptance and class-pilot privacy decisions remain pending. See the [content release contracts](docs/CONTENT_RELEASES.md); local implementation is not proof of a complete hosted learning journey.
 
 ## Technology
+
+[![Astro 7](https://img.shields.io/badge/Astro-7-BC52EE?logo=astro&logoColor=white)](https://astro.build/)
+[![React 19](https://img.shields.io/badge/React-19-149ECA?logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript 6](https://img.shields.io/badge/TypeScript-6-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Supabase](https://img.shields.io/badge/Supabase-Auth_%26_Data-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Vercel](https://img.shields.io/badge/Vercel-Hosting-000000?logo=vercel&logoColor=white)](https://vercel.com/)
+[![KaTeX](https://img.shields.io/badge/KaTeX-0.19-247BA0)](https://katex.org/)
+[![Playwright](https://img.shields.io/badge/Playwright-E2E-2EAD33?logo=playwright&logoColor=white)](https://playwright.dev/)
 
 [Astro](https://astro.build/) and [React](https://react.dev/) with TypeScript power the lessons and practice. [KaTeX](https://katex.org/) renders notation; Supabase provides invited-user authentication and PostgreSQL persistence; Vercel hosts the application. See the [tech stack and decisions](docs/TECHSTACK.md) for scope and limitations.
 
