@@ -1,7 +1,7 @@
 ---
 lessonId: L02
 locale: en
-version: 2
+version: 3
 status: pilot
 title: "Logical connectives: and, or, not"
 summary: "Read the connectives ∧, ∨ and ¬ with their constants, evaluate them on given values, apply the precedence of ¬, and tell inclusive “or” from exclusive “or”."
@@ -17,6 +17,12 @@ sourcePages: [6, 7, 8, 9, 10, 11, 12]
 By the end of this lesson, you can read $\land$, $\lor$, $\neg$ and $\top$, evaluate them on given values, apply the precedence of $\neg$, and tell inclusive “or” from exclusive “or”.
 
 **Prerequisites:** L01, where an assertion has one truth value, written $1$ or $0$.
+
+## From symbols to a concrete situation
+
+Fix a person and a cinema screening. Let $A$ mean “they have a ticket” and $B$ mean “they have an invitation”. $A \lor B$ says they have at least one, possibly both. $A \land B$ requires both. $\neg A$ says they have no ticket; it says nothing about their invitation.
+
+Watch out: the $+$ sign used for OR is Boolean notation. Here $1 \lor 1 = 1$; this is not ordinary integer addition. For the next lessons, keep the symbols $\lor$ and $\land$ to avoid this confusion.
 
 ## Notation and the constant $\top$
 

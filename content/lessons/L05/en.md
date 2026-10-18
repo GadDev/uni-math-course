@@ -1,7 +1,7 @@
 ---
 lessonId: L05
 locale: en
-version: 2
+version: 3
 status: pilot
 title: "Implication: a promise with one failure case"
 summary: "Read A ⇒ B, distinguish necessary and sufficient conditions, and find a counterexample."
@@ -92,6 +92,10 @@ Negating each operand to write $\neg A \Rightarrow \neg B$ does not negate the w
 ## Watch the trap
 
 A false condition cannot provide a counterexample to $A \Rightarrow B$. You need **A true and B false**. Similarly, A implies B does not guarantee that B implies A.
+
+## A pause before the symbols
+
+For the card rule, first test these two cases: red with a stamp, then red without a stamp. The first respects the rule; the second refutes it. To check the negation formula, use De Morgan’s law explained in L04: negating OR requires both parts to be false. The calculation above therefore negates “not red OR stamped”, giving “red AND not stamped”.
 
 ## Independent practice
 

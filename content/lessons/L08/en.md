@@ -1,11 +1,11 @@
 ---
 lessonId: L08
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Functional completeness: every table from OR and NOT"
 summary: "Turn any truth table into a formula that uses only ∨ and ¬, by describing each true row and applying De Morgan to remove ∧."
-minutes: 14
+minutes: 20
 objectives: [L08-O01, L08-O02, L08-O03, L08-O04, L08-O05, L08-O06]
 prerequisites: [L03, L04]
 sourcePages: [32, 33, 34, 35]
@@ -19,6 +19,12 @@ In this lesson, the number of variables satisfies $n \geq 1$. We use only variab
 By the end of this lesson, you can read a truth table as a function, describe each true row by a conjunction, combine those with $\lor$, and remove $\land$ using De Morgan, so that the formula uses only $\lor$ and $\neg$.
 
 **Prerequisites:** L03 (truth tables) and L04 (Boolean laws, De Morgan).
+
+## Decoding the theorem
+
+Think of a machine: it receives a row of zeros and ones, then returns a zero or a one. $f$ names this rule. $\{0,1\}$ is the set of the two values; $\{0,1\}^n$ means all choices of $n$ inputs. The arrow $\to$ indicates “inputs to result”. The theorem says that any such rule can be built with OR and NOT.
+
+Start with two inputs and four rows. One true row supplies one condition; several true rows supply several possibilities joined by OR. If every row is false, $\neg(x \lor \neg x)$ indeed gives zero for both values of $x$.
 
 ## The problem
 
@@ -64,6 +70,10 @@ Using $\lor$ alone on a letter $x$ gives only $x$ again, because $x \lor x \equi
 
 NOT alone never combines two independent inputs: a formula built from one variable by negations remains that variable or its negation. It therefore cannot express $A \land B$. OR alone gives a disjunction of variables, which cannot express $\neg A$.
 
+## Returning to the table on pages 32 to 35
+
+In the PDF’s table, the output is one exactly for $010$ and $110$, in x, y, z order. Each row gives one branch: $(\neg x \land y \land \neg z) \lor (x \land y \land \neg z)$. In both cases, y is one and z is zero; x is unrestricted. A shorter formula is therefore $y \land \neg z$, then $\neg(\neg y \lor z)$ using only OR and NOT. This simplification and explanation are original.
+
 ## Independent practice
 
 The six pilot exercises cover reading the true rows, a conjunction for one row, joining rows, removing $\land$, the statement of the theorem and building a three-variable table.
@@ -74,4 +84,4 @@ Interactive practice requires sign-in. Availability depends on this lesson’s s
 
 Describe each true row, join the descriptions with $\lor$, and replace $\land$ using De Morgan. Every truth table is reachable with $\lor$ and $\neg$ alone.
 
-Original project text and examples. Coverage follows PDF pages 32–35 in the repository’s course map; the source’s worked table is not reproduced.
+Original project text and examples. Coverage follows PDF pages 32–35 in the repository’s course map; the true rows of the source example are explained with an original simplification.

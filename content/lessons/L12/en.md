@@ -1,7 +1,7 @@
 ---
 lessonId: L12
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Negating quantified statements"
 summary: "Negate ∀ and ∃ correctly, state negations in everyday language, and use counterexamples and witnesses."
@@ -52,11 +52,17 @@ This guided work, whose solution is visible, is not an independent response for 
 
 $\neg \forall x\ P(x)$ is not $\forall x\ \neg P(x)$. On the domain $\{1, 2\}$ with $P(x)$ being $x > 1$, the first is true because $P(1)$ fails, while the second is false because $P(2)$ holds. “Not every bird flies” does not mean “no bird flies”.
 
+## Negate the whole sentence, even on an empty domain
+
+$\neg$ means NOT and here applies to the whole quantified statement. The symbol $\equiv$ says that both formulations have the same truth in every interpretation of the domain and predicate; this extends the formula comparison from L04 to quantified statements.
+
+If $X$ is empty, “every element satisfies P” is true because no counterexample exists; “some element satisfies P” is false because no witness exists. Their negations are false and true respectively: both laws still work. In the first example, say explicitly “there exists at least one unavailable book”; this does not mean exactly one book.
+
 ## Independent practice
 
 The six pilot exercises cover the two laws, everyday negations and a counterexample, and the numerical negation on $\mathbb{N}$.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 
 ## Takeaway
 

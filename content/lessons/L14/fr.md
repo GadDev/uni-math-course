@@ -1,11 +1,11 @@
 ---
 lessonId: L14
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Ensembles des parties"
 summary: "Lister les parties d’un petit ensemble, utiliser la notation 𝒫(A) et 2^A, et ne pas confondre un élément avec une partie."
-minutes: 8
+minutes: 12
 objectives: [L14-O01, L14-O02, L14-O03, L14-O04, L14-O05, L14-O06]
 prerequisites: [L10]
 sourcePages: [58]
@@ -17,6 +17,19 @@ sourcePages: [58]
 À la fin de cette leçon, vous savez définir $\mathcal{P}(A)$, lister ses éléments pour un petit ensemble, et distinguer un élément de $A$ d’un élément de $\mathcal{P}(A)$.
 
 **Prérequis :** L10 (appartenance et inclusion).
+
+## Construire les parties sans en oublier
+
+Pour $A = \{a,b\}$, décidez séparément de garder ou non chaque élément.
+
+| Garder a ? | Garder b ? | Partie obtenue |
+| --- | --- | --- |
+| non | non | ensemble vide |
+| oui | non | a seul |
+| non | oui | b seul |
+| oui | oui | a et b |
+
+Deux choix par élément donnent quatre résultats. Pour zéro élément, on ne choisit rien : on obtient quand même une partie, l’ensemble vide. Un ensemble et son ensemble des parties peuvent partager un élément : avec $A = \{\varnothing\}$, l’ensemble vide appartient aux deux. La distinction est leur rôle, pas l’interdiction d’un élément commun.
 
 ## Définition
 
@@ -45,11 +58,15 @@ Ce travail guidé, dont la solution est visible, n’est pas une réponse indép
 
 Les éléments de $\mathcal{P}(\{1, 2\})$ sont des ensembles. Donc $\{1\} \in \mathcal{P}(\{1, 2\})$ est vrai, tandis que $1 \in \mathcal{P}(\{1, 2\})$ est faux : $1$ est un élément de $\{1, 2\}$, et non une partie. De plus, $\mathcal{P}(\varnothing) = \{\varnothing\}$ a un élément : il n’est donc pas vide.
 
+## Rappel à l’endroit de la page 57
+
+La source rappelle ici les deux relations : $a \in A$ signifie qu’un objet appartient à A ; $B \subseteq A$ signifie que chaque élément de B appartient à A. L10 les a anticipées pour faciliter la lecture. La nouveauté est maintenant de rassembler **toutes les parties** dans un seul ensemble : $B \in \mathcal{P}(A)$ exactement lorsque $B \subseteq A$.
+
 ## Pratique indépendante
 
 Les six exercices pilotes portent sur le comptage des parties, la reconnaissance d’une partie, l’ensemble vide comme partie, le nombre $2^n$, l’ensemble des parties de l’ensemble vide et la distinction entre élément et partie.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 
 ## À retenir
 

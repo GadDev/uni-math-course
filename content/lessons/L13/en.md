@@ -1,11 +1,11 @@
 ---
 lessonId: L13
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Set comprehension"
 summary: "Read and compute a set defined by comprehension, including intervals and the even numbers, and separate the domain from the filter."
-minutes: 12
+minutes: 16
 objectives: [L13-O01, L13-O02, L13-O03, L13-O04, L13-O05, L13-O06]
 prerequisites: [L10, L11]
 sourcePages: [52, 53, 54, 55, 56]
@@ -17,6 +17,14 @@ sourcePages: [52, 53, 54, 55, 56]
 By the end of this lesson, you can read $\{a \in X \mid P(a)\}$, compute it for a finite $X$, recognise intervals and the even numbers written this way, and separate the domain $X$ from the filter $P$.
 
 **Prerequisites:** L10 (sets and enumeration) and L11 (predicates).
+
+## Watch the filter work
+
+![Open interval from two to four: excluded endpoints, open circles; closed interval: included endpoints, filled dots.](/diagrams/interval-endpoints.svg)
+
+For $X = \{1,2,3,4\}$ and the test “greater than two”, one and two are rejected; three and four are kept. The result set contains only three and four. The symbol $\mid$ separates candidate objects from the test and reads “such that”.
+
+In an interval, $+\infty$ is not a real number that could be included: that end always has an open bracket. Compare $]2,4[$ (without two or four) and $[2,4]$ (with both endpoints).
 
 ## Definition
 
@@ -59,7 +67,7 @@ The result depends on both parts. $\{n \in \{1, 2, 3\} \mid n > 5\} = \varnothin
 
 The six pilot exercises cover a finite comprehension, two intervals, the even numbers, an empty result and a prime filter.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 
 ## Takeaway
 

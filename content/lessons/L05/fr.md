@@ -1,7 +1,7 @@
 ---
 lessonId: L05
 locale: fr
-version: 2
+version: 3
 status: pilot
 title: "L’implication : une promesse avec un seul échec"
 summary: "Lire A ⇒ B, distinguer les conditions nécessaires et suffisantes, et trouver un contre-exemple."
@@ -92,6 +92,10 @@ Nier chaque terme pour écrire $\neg A \Rightarrow \neg B$ n’est pas nier l’
 ## Attention au piège
 
 Une condition fausse ne suffit jamais à construire un contre-exemple à $A \Rightarrow B$. Il faut **A vraie et B fausse**. De même, A implique B ne garantit pas que B implique A.
+
+## Une pause avant les symboles
+
+Pour la règle des cartes, testez d’abord ces deux cas : rouge avec tampon, puis rouge sans tampon. Le premier respecte la règle ; le second la réfute. Pour vérifier la formule de négation, utilisez la loi de de Morgan expliquée en L04 : nier un OU exige que ses deux parties soient fausses. Le calcul ci-dessus nie donc « pas rouge OU tampon », ce qui donne « rouge ET pas de tampon ».
 
 ## Pratique indépendante
 

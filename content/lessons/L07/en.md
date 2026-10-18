@@ -1,7 +1,7 @@
 ---
 lessonId: L07
 locale: en
-version: 2
+version: 3
 status: extended
 title: "The biconditional and semantic equivalence"
 summary: "Define the connective ⇔, tell it apart from the relation ≡, and use the fact that A ≡ B holds exactly when A ⇔ B is a tautology."
@@ -63,6 +63,10 @@ This guided work, whose solution is visible, is not an independent response for 
 ## Trap: mixing the two levels
 
 $A \Leftrightarrow B$ can be $0$ on a row: for $A = 1$ and $B = 0$ it is $0$. By contrast, $A \equiv B$ is not a value computed on a row. It is a statement about the whole tables of $A$ and $B$. When $A \Leftrightarrow B$ equals $0$ on some row, that row shows that $A \equiv B$ fails.
+
+## Reading “if and only if”
+
+Read $A \Leftrightarrow B$ as “A if and only if B”. For a fixed natural number, “it is even if and only if it is divisible by two” combines two guarantees: being even ensures divisibility by two, and that divisibility ensures being even. For general formulas, always distinguish agreement on one row from agreement on every row.
 
 ## Independent practice
 

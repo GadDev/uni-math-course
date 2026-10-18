@@ -1,11 +1,11 @@
 ---
 lessonId: L10
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Number sets, enumeration, membership and inclusion"
 summary: "Order the number sets, list a set by enumeration, use the empty set, and tell membership ∈ from inclusion ⊆."
-minutes: 12
+minutes: 18
 objectives: [L10-O01, L10-O02, L10-O03, L10-O04, L10-O05, L10-O06]
 prerequisites: [L09]
 sourcePages: [41, 42, 43, 57]
@@ -18,13 +18,21 @@ By the end of this lesson, you can order the number sets $\mathbb{N}$, $\mathbb{
 
 **Prerequisites:** L09 (what a set is).
 
+## Putting examples behind the letters
+
+![Nested sets: naturals lie inside integers, integers inside rationals, rationals inside reals; zero, minus three, three halves and square root of two show the differences.](/diagrams/number-families.svg)
+
+The natural numbers are $0,1,2,\ldots$; integers add negative numbers such as $-3$. A rational number is a fraction of two integers with a nonzero denominator, such as $\frac{3}{2}$. The reals also include irrational numbers such as $\sqrt{2}$, which cannot be written as such a fraction.
+
+In the symbolic definition of inclusion, read $\forall$ as “for every” and $\Rightarrow$ as “if… then…”: for every object, if it belongs to $B$, it belongs to $A$. Read $\exists$ as “there exists”. You can use this English reading before working through these symbols in L11; L05 explains implication. If an object of $B$ is missing from $A$, inclusion fails.
+
 ## Number sets
 
 The natural numbers $\mathbb{N}$, the integers $\mathbb{Z}$, the rationals $\mathbb{Q}$ and the reals $\mathbb{R}$ satisfy
 $$
 \mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}.
 $$
-In this course, $\mathbb{N} = \{0, 1, 2, \ldots\}$ contains zero. Programming languages represent these sets differently, and computers represent real numbers only approximately.
+In this course, $\mathbb{N} = \{0, 1, 2, \ldots\}$ contains zero. Programming languages represent these sets differently, and common floating-point numbers approximate many real values. Some numbers, including small integers, are represented exactly; rational and symbolic representations also exist.
 
 The **empty set** $\varnothing$ has no element.
 
@@ -33,6 +41,8 @@ The **empty set** $\varnothing$ has no element.
 A set can be defined by listing its elements, such as $\{1, 2, 4\}$. A set is determined by its elements, so $\{4, 1, 2\}$ is the same set. This remark is prerequisite support rather than source-taught.
 
 ## Membership and inclusion
+
+Membership and inclusion are previewed here as reading support; the recall from page 57 returns with power sets in L14.
 
 For sets $A$ and $B$:
 
@@ -63,7 +73,7 @@ Writing $\{2\} \in A$ or $2 \subseteq A$ mixes the two relations. Ask which one 
 
 The six pilot exercises cover the number-set chain, enumeration, the empty set, telling $\in$ from $\subseteq$, the definition of inclusion and finding a non-subset.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 
 ## Takeaway
 

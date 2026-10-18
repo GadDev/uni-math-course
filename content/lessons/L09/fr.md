@@ -1,11 +1,11 @@
 ---
 lessonId: L09
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Ensembles naïfs et paradoxe de Russell"
 summary: "Comprendre pourquoi « toute collection » est une notion d’ensemble trop naïve, suivre l’argument de Russell, et nommer les types d’ensembles admis dans le cours."
-minutes: 10
+minutes: 14
 objectives: [L09-O01, L09-O02, L09-O03, L09-O04, L09-O05, L09-O06]
 prerequisites: [L01]
 sourcePages: [37, 38, 39, 40]
@@ -17,6 +17,12 @@ sourcePages: [37, 38, 39, 40]
 À la fin de cette leçon, vous savez dire ce qu’est un ensemble au sens informel, expliquer pourquoi « toute collection » est trop naïf, suivre l’argument de Russell et nommer les types d’ensembles admis dans le cours.
 
 **Prérequis :** L01 (assertions et valeurs de vérité).
+
+## Un exemple concret avant de généraliser
+
+Dans $S = \{2,4\}$, $2 \in S$ dit que deux est l’un des objets listés. $\{2\} \subseteq S$ dit que tous les objets de ce petit ensemble sont dans $S$. Les deux symboles ne posent pas la même question. La négation $\neg$ signifie NON, comme en L02.
+
+Dans la notation de compréhension présentée plus haut, $X$ est un ensemble déjà connu et $P(a)$ est un test qui garde ou rejette chaque élément. L10 à L13 développent ces outils. L’argument de Russell est un approfondissement : retenez d’abord pourquoi on ne fabrique pas un ensemble à partir de n’importe quelle description.
 
 ## Les ensembles comme collections
 
@@ -58,7 +64,7 @@ La compréhension puise ses éléments dans un ensemble déjà donné, comme dan
 
 Les six exercices pilotes portent sur la notion informelle d’ensemble, pourquoi elle est naïve, la collection de Russell, la contradiction, les types d’ensembles admis et pourquoi la compréhension sur un ensemble donné est plus sûre.
 
-La pratique interactive nécessite une connexion. Elle sera ajoutée une fois les comptes et la correction côté serveur intégrés.
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 
 ## À retenir
 

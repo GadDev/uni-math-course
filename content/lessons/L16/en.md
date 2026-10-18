@@ -1,7 +1,7 @@
 ---
 lessonId: L16
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Bounded quantifiers"
 summary: "Read ∀x ∈ X and ∃x ∈ X as shorthand, remember that ∀ goes with ⇒ and ∃ goes with ∧, and negate bounded statements."
@@ -61,11 +61,17 @@ $\forall x \in \varnothing\ P(x)$ is true for every $P$: it expands to $\forall 
 
 Writing $\exists x\ (x \in X \Rightarrow P(x))$ for “some element of $X$ satisfies $P$” is wrong, and so is $\forall x\ (x \in X \land P(x))$ for “every element of $X$ satisfies $P$”: the second one says that every object in the universe lies in $X$.
 
+## From the domain to a table
+
+The universe U is the set traversed by unbounded quantifiers; X is the part our claim concerns. To expand the notation, test P must make sense throughout U (or be extended to U). L05 explains $\Rightarrow$: it can fail only with a true condition and a false conclusion.
+
+In the example, one, two and three belong to X and fail the test; four and five lie outside X and therefore cannot refute the rule about X. For empty X, “for every” is true without a counterexample and “there exists” is false without a witness. The mnemonic concerns expanding bounded quantifiers, not every use of these symbols.
+
 ## Independent practice
 
 The six pilot exercises cover the two expansions, the pairing of quantifier and connective, the wrong-connective trap, negation and the empty set.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 
 ## Takeaway
 

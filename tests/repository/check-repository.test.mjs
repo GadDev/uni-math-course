@@ -30,3 +30,26 @@ test('preserve Markdown checks, duplicate anchors and generated-directory exclus
     await rm(root, { recursive: true, force: true });
   }
 });
+
+test('root-relative public assets resolve but missing assets and public traversal fail', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'uni-math-assets-'));
+  try {
+    await mkdir(join(root, 'public', 'diagrams'), { recursive: true });
+    await writeFile(join(root, 'public', 'diagrams', 'set.svg'), '<svg/>');
+    await writeFile(join(root, 'note.txt'), 'not a public asset');
+    await writeFile(
+      join(root, 'README.md'),
+      '# Test\n\n![A set](/diagrams/set.svg)\n',
+    );
+    assert.equal(await validateRepository(root, []), 1);
+    for (const target of ['/diagrams/missing.svg', '/../note.txt']) {
+      await writeFile(
+        join(root, 'README.md'),
+        `# Test\n\n![Missing](${target})\n`,
+      );
+      await assert.rejects(validateRepository(root, []));
+    }
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});

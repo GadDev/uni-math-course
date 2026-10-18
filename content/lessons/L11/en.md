@@ -1,11 +1,11 @@
 ---
 lessonId: L11
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Predicates and quantifiers"
 summary: "Read a predicate P(x) on a set, evaluate ∀ and ∃ over a domain, and see why the domain changes the truth value."
-minutes: 14
+minutes: 18
 objectives: [L11-O01, L11-O02, L11-O03, L11-O04, L11-O05, L11-O06]
 prerequisites: [L01, L10]
 sourcePages: [44, 45, 46, 47, 48]
@@ -17,6 +17,16 @@ sourcePages: [44, 45, 46, 47, 48]
 By the end of this lesson, you can read a predicate $P(x)$ on a set $X$, evaluate $\forall x\ P(x)$ and $\exists x\ P(x)$, and explain how the domain changes the truth value.
 
 **Prerequisites:** L01 (assertions) and L10 (sets and membership).
+
+## Start with a finite domain
+
+Let $X = \{1,2,4\}$ and let $P(x)$ mean “x is even”.
+
+| x | 1 | 2 | 4 |
+| --- | --- | --- | --- |
+| P(x) | false | true | true |
+
+The “for every” is false because of one; the “there exists” is true, for example because of two. A **witness** passes the test; a **counterexample** makes the general rule fail. In the earlier example, $[10,+\infty[$ means the reals greater than or equal to ten: the bracket beside ten includes it.
 
 ## Predicates
 
@@ -56,7 +66,7 @@ The source’s age example on page 48 mixes nested quantifiers with a comparison
 
 The six pilot exercises cover predicates, evaluating one value, $\forall$ on a finite domain, $\exists$ with a witness, the effect of the domain and a place-name predicate.
 
-Interactive practice requires sign-in. It will be added after accounts and server grading are integrated.
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 
 ## Takeaway
 
