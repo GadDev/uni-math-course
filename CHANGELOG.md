@@ -55,4 +55,4 @@ Application release notes are maintained by Release Please. The [pre-automation 
 
 ## [Unreleased]
 
-Changes after the bootstrap boundary are collected in the release PR. Hosted pilot acceptance is required before the first application release.
+Eligible changes are collected in the release PR. Hosted pilot acceptance is tracked separately and is not an application-release prerequisite.

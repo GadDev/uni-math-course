@@ -1,93 +1,116 @@
 # Releasing
 
-Status: Release Please activated; release PRs require CI and maintainer review; hosted pilot acceptance tracked separately · Owner: GadDev · Last reviewed: 2026-10-16
+Status: Release Please activated; release PRs require CI and maintainer review; hosted pilot acceptance tracked separately · Owner: GadDev · Last reviewed: 2026-10-18
 
-## One application, one release PR
+## Everyday workflow
 
-[Release Please](https://github.com/googleapis/release-please-action) is the application version and changelog authority. The root private package is not published to npm. Ordinary feature, fix, documentation and maintenance PRs do not edit CHANGELOG.md or add changeset files. Use focused PRs and Conventional Commit titles, then inspect the final squash message.
+1. Open a focused PR with a Conventional Commit title. Run `pnpm check`; inspect the preview for visible changes. Ordinary PRs do not edit CHANGELOG.md or add changeset files.
+2. For database-dependent changes only, apply and verify compatible migrations before merging dependent code. See the database section below.
+3. Squash-merge after current required checks pass on an up-to-date branch. Inspect the final squash message and preserve migration/compatibility details in its body.
+4. Successful main `docs` calls the [release workflow](../.github/workflows/release-please.yml), which maintains one release PR with the version, manifest and generated changelog.
+5. Leave that PR open while accumulating a useful batch. When a version milestone is useful, review its notes, compatibility and current checks, then squash-merge it. A release PR need not be merged after every product PR.
+6. After the release merge passes main CI, automation creates the `vX.Y.Z` tag and GitHub Release. Confirm the tag points to that merge; keep published tags unchanged.
 
-The [configuration](../release-please-config.json) uses the Node strategy and one root component. The [manifest](../.release-please-manifest.json) tracks the same version as package.json. The first proposed release is 0.1.0; no application release is claimed while the version is 0.0.0. Do not introduce Changesets or semantic-release alongside this workflow.
+No separate approval file or acceptance-evidence PR is required to release. Hosted pilot readiness stays in [PILOT_ACCEPTANCE.md](PILOT_ACCEPTANCE.md); leave unverified rows pending.
 
-1. Feature/fix PRs pass required checks and are squash-merged.
-2. The successful main `docs` job calls the [release workflow](../.github/workflows/release-please.yml).
-3. When enabled, Release Please creates or updates one release PR with the version, manifest and generated changelog.
-4. That PR runs ordinary CI. Review release wording, compatibility, migration actions and limitations; merge deliberately.
-5. After its checked main merge, automation creates the immutable `vX.Y.Z` tag and GitHub release.
-6. Deployment identity and health are verified separately. A tag, green CI or GitHub release is not proof of a successful production deployment.
+## Deployment, versions and content
 
-The stable `docs` gate includes application, release-policy, release-planning, immutable-bank, database and browser checks. The release workflow also verifies that its SHA is still main and has a successful `docs` check from GitHub Actions. Before tagging, it checks the exact merge SHA of every pending merged release PR as well; a successful newer main cannot substitute for those checks. Older queued runs fail with instructions to dispatch current main. Each main SHA has its own CI concurrency group so pending main validations cannot replace each other. Main runs and release mutations are not cancelled mid-run; obsolete PR checks can still be cancelled.
+| Operation | Authority | Takes effect |
+| --- | --- | --- |
+| Application deployment | Vercel production branch, environment and promotion settings | When Vercel assigns the deployment to the production domain |
+| Version milestone | [Release Please](https://github.com/googleapis/release-please-action) | After a checked release PR merge produces its tag and GitHub Release |
+| Course publication | [content/releases.json](../content/releases.json) and [content contracts](CONTENT_RELEASES.md) | When a deployment containing the selected content reaches learners |
 
-## Bootstrap and preserved history
+The recommended production path is checked `main`: Vercel builds main merges and holds promotion for the exact commit's successful `docs` check. Confirm the production branch, environment binding and [Deployment Checks](https://vercel.com/docs/deployment-checks) in the existing project before treating this as enforced. These hosting settings and current production routing remain unverified; this change does not configure them.
 
-The bootstrap boundary is commit `45a742978d68382c949016583243e82aa91ee4ee`, immediately before this automation change. [PRE_AUTOMATION.md](releases/PRE_AUTOMATION.md) preserves the manual changelog at that revision byte-for-byte. Those notes describe pre-release development, not fictional past application releases.
+Release automation neither deploys to Vercel nor changes Supabase. Product merges can reach learners before the release PR is merged. After deployment, confirm its commit and domain, open French/English pages and check the changed journey. For auth or persistence changes, verify sign-in and saved attempts with synthetic accounts. Green CI, a tag or a GitHub Release does not establish production health.
 
-The new CHANGELOG.md links to that archive. Only eligible commits after the boundary are generated into release notes; older notes are not replayed. A ci/docs-only setup merge does not itself create a release PR. The next eligible feat/fix commit starts the first proposal. Release tooling tests verify this boundary, archive integrity, initial version and subsequent bumps.
+Exercise versions remain immutable and independent of app versions. The content registry selects banks and binds mathematical/translation evidence. Automation does not refresh fingerprints, approve translations or regrade attempts. Retain archived banks for historical feedback.
 
-The initial-version setting applies only before a first release; there is no permanent release-as override to remove. After a release, the published tag and manifest establish the next baseline. Do not move bootstrap-sha to hide changes, rewrite historical tags or manually bump package.json in product PRs.
+## Checks and superseded runs
 
-## Release review and pilot readiness
+Keep the full gate named `docs`: it includes application, release-policy/planning, immutable-bank, database and browser checks. Each main SHA has its own CI concurrency group. Main validations and release mutations are not cancelled mid-run; obsolete PR checks may be cancelled.
 
-The first 0.1.0 follows the same path as later releases: required checks pass, the maintainer reviews the generated notes, then squash-merges the release PR. There is no separate approval file or acceptance-evidence PR required to release.
+Preflight compares the run's SHA with current main. A superseded revision reports a notice and successful skip before creating an App token or invoking Release Please. Current main handles pending work after its own `docs` succeeds. No manual action is needed for the skip itself.
 
-The release policy checks stable application SemVer, matching package/manifest versions and a private package. Hosted checks in [PILOT_ACCEPTANCE.md](PILOT_ACCEPTANCE.md) remain a separate readiness record. Leave pending rows pending until actually verified; creating a release does not claim class readiness or deployed health.
+A current revision still needs successful GitHub Actions `docs` on its exact SHA and the exact merge SHA of every pending merged release PR. Newer main checks cannot substitute for unchecked release merges. API errors and inconsistent package/manifest versions remain failures. Manual dispatch follows the same rules.
 
-The always-update setting refreshes the waiting release PR against main even when its notes are unchanged. After changes to the release process merge, wait for main CI and the bot update, then inspect the release PR's current checks and notes.
+## Retries and recovery
 
-## GitHub App setup and activation
-
-The workflow is dormant unless repository variable `RELEASE_PLEASE_ENABLED` equals `true`. It does not fall back to a personal token or the default GITHUB_TOKEN. Configure the following as repository settings; never place the key in Git, PRs, logs or chat:
-
-| Setting | Value |
+| Situation | Action |
 | --- | --- |
-| Repository variable RELEASE_PLEASE_CLIENT_ID | Client ID of the release GitHub App |
-| Actions secret RELEASE_PLEASE_PRIVATE_KEY | The App's PEM private key |
-| Repository variable RELEASE_PLEASE_ENABLED | true, only after credentials and installation are ready |
+| Superseded run | Let current main CI finish. If it fails, resolve that failure; the older run intentionally changes nothing. |
+| Failed application checks | Fix the failing check. A release retry cannot bypass it. |
+| Failed release job | Inspect the job and existing PR/tag/release/pending labels. Once current main has successful `docs`, use **Actions → Release Please → Run workflow → main**. Rerunning an old revision only skips it. |
+| Partially created release | Reconcile the existing tag/release and pending labels before dispatching current main. Do not delete or move published tags as routine recovery. |
+| Faulty automation | Set `RELEASE_PLEASE_ENABLED` to `false` while fixing it. This pauses release records, not Vercel deployments. |
+| Production regression | Roll back in Vercel to a compatible production deployment, verify the domain and affected journey, then prepare a checked fix. App rollback does not reverse migrations or restore data. |
 
-Create a GitHub App owned by the maintainer, disable webhooks if unused, and install it on **GadDev/uni-math-course only**. Grant repository Contents, Issues and Pull requests read/write; Metadata read is implicit. Grant no administration, workflow-editing or bypass permission. The token action requests only these three write permissions and defaults its token scope to the current repository. Installation tokens are short-lived and revoked after the job; the App private key remains an operator-managed secret that needs rotation.
+On Vercel Hobby, [Instant Rollback](https://vercel.com/docs/instant-rollback) targets the immediately previous production deployment and restores its build/configuration. New project environment-variable values are not applied to that build. Rollback disables automatic production-domain assignment: after the checked fix is ready, use **Undo Rollback** or promote the corrected deployment to restore it. Check database compatibility before selecting the rollback target.
 
-Using an App token allows release PR creation/updates to trigger ordinary CI automatically. The default GITHUB_TOKEN has event-trigger restrictions or approval requirements; do not weaken checks to accommodate missing runs. Verify both the initial bot PR and a later bot update. The existing ruleset also requires GitGuardian; confirm it reports for the bot PR rather than bypassing it.
+## Database changes
 
-After merging the implementation, enable the variable and manually run Release Please **on main** once to verify setup. The manual route requires successful docs on the exact main SHA, so wait for main CI to finish. There may be no release PR until an eligible product change exists. Repository/secret creation cannot be performed by this connector and remains an operator step.
+Hosted migration application is an operator step; [PRACTICE.md](PRACTICE.md#data-and-keys) describes the required schema. Repository CI uses disposable PostgreSQL only.
 
-## Contribution and release notes
+1. Compare deployed schema and available migration history with ordered files in `supabase/migrations/`. Identify unapplied changes; do not replay migrations blindly or invent missing history.
+2. Prefer additive, backward-compatible migrations. Apply and verify them while the existing application still works, before merging dependent code into the production branch.
+3. Record files, date, outcome and a compatible app rollback target without secrets or learner records. Establish recovery before destructive changes.
 
-Use a Conventional Commit PR title; work-in-progress commits need not follow the convention. Preserve migration and compatibility details in the final squash body and link relevant documentation. Generated notes primarily use commit summaries; inspect the actual release PR rather than assuming every paragraph in a product PR will appear.
+Never run the disposable database bootstrap/runner against hosted data. Unchanged migrations need no action in ordinary releases. Missing required schema, broken authorization or failed persistence should block the affected deployment; the broader class-readiness checklist is separate.
+
+## Contribution and version policy
+
+The private root package is not published to npm. [Configuration](../release-please-config.json) uses one Node component; the [manifest](../.release-please-manifest.json) must match package.json. Keep Release Please as the only version/changelog authority.
 
 | Type/change | Version policy |
 | --- | --- |
-| fix, including an incorrect answer or translation correction | Patch |
-| feat, including a new learner capability or lesson | Minor |
+| fix, including incorrect answers or translation corrections | Patch |
+| feat, including a new capability or lesson | Minor |
 | docs, ci, chore, refactor or test without product impact | No release by itself |
-| Dependency change | Classify by actual impact; use fix/feat or breaking markers when appropriate |
+| Dependencies | Classify by actual impact |
 | Breaking change before 1.0 | Minor, with ! or BREAKING CHANGE and migration guidance |
-| Breaking change after 1.0 | Major with migration guidance |
-| Stable agreed product contract and rollout readiness | Deliberately reviewed 1.0.0 |
+| Breaking change after 1.0 | Major, with migration guidance |
+| Stable agreed contract and rollout readiness | Deliberately reviewed 1.0.0 |
 
-The explicit pre-1.0 settings preserve feature-to-minor and fix-to-patch behaviour. A pilot is not automatically a SemVer prerelease. Additional channels, npm publication and release branches are not configured.
+Pre-1.0 settings preserve feature-to-minor and fix-to-patch behaviour. A pilot is not automatically a prerelease. Work-in-progress commits need not follow the convention; the final squash message does. Generated notes primarily use commit summaries. For already-merged summaries, use the [supported commit override mechanism](https://github.com/googleapis/release-please#how-can-i-fix-release-notes), regenerate and review rather than blindly editing bot-owned sections.
 
-Improve summaries before squash merging. For already-merged changes, use Release Please's [supported commit override mechanism](https://github.com/googleapis/release-please#how-can-i-fix-release-notes) on the source PR, then regenerate and review. Do not hand-edit bot-owned generated sections without accounting for regeneration. Never claim planned lessons, independent review or hosted readiness from automated checks.
+The always-update setting refreshes the waiting release PR against main even when notes are unchanged. After release-process changes merge, wait for main CI and the bot update before inspecting that PR again.
 
-## Content, migrations and production
+## Verification and observed evidence
 
-Application versions identify software/content snapshots. Exercise versions remain immutable and independent; [content/releases.json](../content/releases.json) selects served banks and binds review/translation evidence. Automation does not refresh fingerprints, approve translations or regrade attempts. An app patch can add a corrected bank while archived attempts retain their original grading context.
-
-Hosted migrations remain a deliberate operator step before deploying code that depends on them; see [PRACTICE.md](PRACTICE.md). Prefer compatible migration-first changes and preserve a compatible application rollback target. Do not run the disposable database bootstrap against hosted data. An application rollback does not reverse a migration or restore data.
-
-Production promotion still needs its own same-revision CI gate and smoke evidence. This workflow creates release records only; it neither deploys to Vercel nor changes Supabase. Whether production follows checked main merges or selected releases must be verified in hosting settings. Merging a release PR does not by itself prevent earlier product merges reaching learners.
-
-## Verification, retries and recovery
-
-Run `pnpm check` for the release version/private-package contract. Run the real release planner in isolation with:
+Run `pnpm check`, then the locked release planner:
 
 ```sh
 npm ci --prefix tools/release --ignore-scripts --no-audit --no-fund
 npm --prefix tools/release test
 ```
 
-The locked toolchain tests the same Release Please 17.6.0 library bundled in the pinned action. It uses an in-memory SCM without credentials: first 0.1.0, historical boundary, private manifest updates, fix/feat/breaking bumps, docs-only exclusion, stable branch and archived bytes. Native tests verify version consistency, private-package enforcement and a first release without any hosted approval file. Fixtures are not proof of real GitHub write/retry behaviour.
+Planner tests use Release Please 17.6.0, matching the pinned action's library, with an in-memory SCM. They cover bootstrap history, version bumps, private manifest updates, docs-only exclusion and reuse of one PR. Preflight tests execute the workflow shell with a fake read-only GitHub CLI and inspect token/mutation guards: superseded skips, failed/missing checks, API errors and checked current releases. Fixtures do not prove real GitHub retry behaviour or hosted acceptance.
 
-The [activation run](https://github.com/GadDev/uni-math-course/actions/runs/38903040272) created [release PR #42](https://github.com/GadDev/uni-math-course/pull/42), and ordinary checks executed. Still observe that later bot updates maintain one PR, merging a checked release produces a tag pointing to that merge, and rerunning the release workflow does not create another release or move a tag. These release-automation verifications remain pending until actually exercised. Do not create fake product fixes just to force a release.
+Observed on 2026-10-18:
 
-When a job fails, inspect its run and any existing PR/tag/release before retrying. Dispatch current main after its docs check succeeds. For a partially completed release, reconcile the existing tag/release and pending labels before retrying; do not delete or move an already published tag as routine recovery. If automation itself is faulty, set RELEASE_PLEASE_ENABLED to false while fixing it.
+- The [activation run](https://github.com/GadDev/uni-math-course/actions/runs/38903040272) created [PR #42](https://github.com/GadDev/uni-math-course/pull/42). Published releases now extend through [v0.5.0](https://github.com/GadDev/uni-math-course/releases/tag/v0.5.0).
+- [PR #60](https://github.com/GadDev/uni-math-course/pull/60) received successful `docs` and GitGuardian checks. Its [main run](https://github.com/GadDev/uni-math-course/actions/runs/39118152336) passed and created v0.5.0 at merge commit `c09bcbeb7aa3f1b4837b185f6f297c6c4d74c80b`.
+- A real post-release rerun proving no duplicate release or tag movement remains unverified. Observe separately; do not fabricate product fixes to force a release. Production routing and hosted acceptance remain separate.
 
-Sources: [Release Please Action](https://github.com/googleapis/release-please-action), [manifest configuration](https://github.com/googleapis/release-please/blob/v17.6.0/docs/manifest-releaser.md), [GitHub workflow triggering](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow), and [GitHub App token action](https://github.com/actions/create-github-app-token).
+## GitHub App setup and activation
+
+This is initial setup or credential recovery, not a per-release step. The workflow runs only when `RELEASE_PLEASE_ENABLED` equals `true`; it has no personal-token or default GITHUB_TOKEN fallback.
+
+| Setting | Value |
+| --- | --- |
+| Repository variable RELEASE_PLEASE_CLIENT_ID | Release App Client ID |
+| Actions secret RELEASE_PLEASE_PRIVATE_KEY | App PEM private key |
+| Repository variable RELEASE_PLEASE_ENABLED | true after credentials and installation are ready |
+
+Install the App on **GadDev/uni-math-course only**, with Contents, Issues and Pull requests read/write; Metadata read is implicit. Disable unused webhooks. Grant no administration, workflow-editing or bypass permission. The token action requests these three write permissions, defaults to the current repository and revokes its short-lived token after the job. Rotate the private key when necessary; never put it in Git, PRs, logs or chat.
+
+App tokens let bot-created/updated PRs run CI automatically. Default GITHUB_TOKEN events have restrictions or approval requirements; keep checks intact. Verify required `docs` and GitGuardian after bot updates. After setup/recovery, dispatch Release Please on checked current main once. No PR is expected until an eligible product change exists.
+
+## Bootstrap and preserved history
+
+The boundary is `45a742978d68382c949016583243e82aa91ee4ee`. [PRE_AUTOMATION.md](releases/PRE_AUTOMATION.md) preserves the original manual changelog byte-for-byte as pre-release history. Only eligible later commits enter generated notes; the archive is not replayed.
+
+The initial-version setting selected 0.1.0; tags and the manifest establish subsequent baselines. Do not move bootstrap-sha, rewrite historical tags or manually bump package.json in product PRs.
+
+Sources: [Release Please Action](https://github.com/googleapis/release-please-action), [manifest configuration](https://github.com/googleapis/release-please/blob/v17.6.0/docs/manifest-releaser.md), [GitHub workflow triggering](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/trigger-a-workflow), [App token action](https://github.com/actions/create-github-app-token), [Vercel Deployment Checks](https://vercel.com/docs/deployment-checks), and [Instant Rollback](https://vercel.com/docs/instant-rollback).
