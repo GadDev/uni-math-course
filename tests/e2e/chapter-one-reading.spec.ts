@@ -44,9 +44,29 @@ for (const locale of ['fr', 'en']) {
             )
             .toBeGreaterThan(0);
         }
+        const width = await page.evaluate(
+          () => document.documentElement.scrollWidth,
+        );
+        const overflowing =
+          width > 320
+            ? await page.locator('.reading-column').evaluate((column) =>
+                Array.from(
+                  column.querySelectorAll('h1, h2, h3, table, th, td, img'),
+                )
+                  .filter(
+                    (element) =>
+                      element.getBoundingClientRect().right > innerWidth,
+                  )
+                  .map((element) => ({
+                    tag: element.tagName,
+                    text: element.textContent?.trim().slice(0, 100),
+                    right: element.getBoundingClientRect().right,
+                  })),
+              )
+            : [];
         expect(
-          await page.evaluate(() => document.documentElement.scrollWidth),
-          `${locale}/${lesson} must fit the 320px viewport`,
+          width,
+          `${locale}/${lesson} overflow: ${JSON.stringify(overflowing)}`,
         ).toBeLessThanOrEqual(320);
       }
     } finally {

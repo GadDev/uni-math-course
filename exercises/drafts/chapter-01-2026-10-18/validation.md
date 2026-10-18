@@ -17,3 +17,5 @@ node scripts/check-immutable-exercises.mjs passed against origin/main after comm
 ## Integration update
 
 Merged main abac4cb4df7aa3fab55c69a42f38018bb85364cc, preserving its documentation removals and the Chapter 1 content/release records. Git merged README and roadmap changes without text conflicts. The previous CI run passed 177 browser tests but failed the French 320px reading test at a 354px document width. Lesson headings now allow language-aware hyphenation with wrapping for oversized words; the regression reports the exact locale and lesson when an overflow occurs. The integration pnpm check passed all 276 tests and the production build. Browser validation is rerun by CI on the updated branch.
+
+The CI rerun localized the remaining overflow to French L15 despite heading wrapping. Table cells now also allow wrapping and automatic hyphenation, preserving native table markup and all content. The narrow-screen regression reports overflowing headings/table cells/images if the document still exceeds its viewport. The table-layout follow-up pnpm check again passed all 276 tests and the production build; CI reruns the browser assertions.
