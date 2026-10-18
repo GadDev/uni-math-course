@@ -1,132 +1,67 @@
 # Roadmap
 
-Status: proposed delivery plan · Owner: GadDev · Last reviewed: 2026-10-16
+Owner: GadDev · Updated: 2026-10-18 · Application and content are delivered incrementally; class-pilot acceptance remains open.
 
-## Delivery goal and current state
+## Goal and current scope
 
-Deliver a small French/English learning journey with correct content, real sign-in, server grading, saved attempts, and private progress. Public reading, exercise banks, authentication, grading and private progress are implemented locally. See the registry-derived release status below. Local protocol/browser/SQL evidence does not establish hosted acceptance or a mathematically reviewed full course.
+Help university students and adults returning to mathematics learn through plain-language French/English lessons, worked examples, progressive exercises, constructive feedback and their own saved history. Learners should be able to read publicly, practise after sign-in, explain a mistake and return to their work later. Reading, attempt counts and mastery evidence are distinct; no single correct answer certifies understanding.
+
+The application now includes two chapters, **36 bilingual public lessons and 36 served practice banks**: logic and sets (L01–L20), then straight lines / *Droites* (L21–L36). The exact selected bank versions, exercise availability and review evidence are governed by `content/releases.json`, not this roadmap.
 
 <!-- release-status:start -->
 Release status (generated from content/releases.json): 36 public bilingual lessons; 36 served practice banks. Mathematical author self-check: L01, L02, L03, L04, L05, L06, L07, L08, L12, L13, L14, L15, L16, L19, L20, L21, L22, L23, L24, L25, L26, L27, L28, L29, L30, L31, L32, L33, L34, L35, L36; explicit unreviewed release exceptions: 5 banks. Translation self-check: L01, L02, L03, L04, L05, L06, L07, L08, L12, L13, L14, L15, L16, L19, L20, L21, L22, L23, L24, L25, L26, L27, L28, L29, L30, L31, L32, L33, L34, L35, L36; explicit unreviewed translation exceptions: 5 lesson pairs. These records do not certify independent review or hosted class readiness.
 <!-- release-status:end -->
 
-The [mission](MISSION.md) defines the outcome; the [constitution](CONSTITUTION.md) defines content and product constraints. The Astro/React, Vercel Hobby, Supabase Free and Radix Themes stack is approved in [TECHSTACK.md](TECHSTACK.md); the implementation exists and operational acceptance remains to be demonstrated.
+The implemented application uses Astro/React, Vercel and Supabase; see [tech stack](TECHSTACK.md). Local and CI checks cover the reading/practice journey. They are not evidence of independent mathematical review, translation approval, production account/data isolation or readiness for a real class. Keep [pilot acceptance](PILOT_ACCEPTANCE.md) open until each hosted or human checkpoint has actual evidence.
 
-Track revision-specific repository evidence and remaining hosted/human checks in [pilot acceptance evidence](PILOT_ACCEPTANCE.md). Completing one smoke test does not close unrelated acceptance criteria.
+## Milestones
 
-## M0 - Repository and product foundation
+| Milestone | Current status | Source of detail |
+| --- | --- | --- |
+| M0 — Repository and product foundation | Implemented: policies, CI and contribution/release workflow. GitHub settings must be verified separately from workflow files. | [Repository setup](REPOSITORY_SETUP.md) |
+| M1 — Original bilingual teaching slice | Implemented: L05 and subsequent versioned content; author self-check is not independent review. | [L05 review](content/L05_REVIEW.md), [content contracts](CONTENT_RELEASES.md) |
+| M2 — End-to-end application | Implemented locally: public reading, invited-account sign-in, server grading, idempotent attempts, private progress and FR/EN switching. Hosted provider and two-account acceptance remain open. | [Authentication](AUTHENTICATION.md), [practice](PRACTICE.md), [pilot acceptance](PILOT_ACCEPTANCE.md) |
+| M3 — Real class pilot | **Not accepted.** Public course content and the glossary exist, but deployment, privacy, accessibility, independent content review and operational readiness still need verification. | [Pilot acceptance](PILOT_ACCEPTANCE.md) |
 
-Scope: README, contribution/conduct/security policies, licensing, ownership, issue/PR forms, safe ignore/editor settings, documentation validation, and the four project documents.
+Chapter 2 is published as L21–L36 in five topic groups: algebra; coordinates and curves; lines and regions; screen graphics; and regression/models. Each lesson has 15 original exercises, grouped as five easy, five medium and five hard. The selected visual direction is **Décalage green**. See the [source-to-lesson map](../exercises/drafts/chapter-02/README.md), [author review evidence](content/CHAPTER_02_REVIEW.md) and [implemented design screenshots](design/implementation/chapter-02/README.md). The published lessons are not independent peer-reviewed course material.
 
-Acceptance:
+## Chapter 1 source-topic map
 
-- Documentation checks pass locally and on the latest PR revision.
-- Documentation links resolve and describe the current state honestly.
-- Project owner, source rights, and unresolved choices are explicit.
-- GitHub settings and missing evidence are recorded separately in [REPOSITORY_SETUP.md](REPOSITORY_SETUP.md), without claiming that files configure branch protection.
+These page locators are planning aids for the original *Logique et ensembles* source PDF (counting the title page as page 1), not republication permission or proof of line-by-line fidelity. Source coverage, prerequisites and optional enrichment should be distinguished in teaching content.
 
-Status: repository documentation and the expanded CI gate are implemented. The gate now checks the reading scaffold as well as documentation; GitHub settings and remaining evidence are tracked in REPOSITORY_SETUP.md.
+| Lesson | Source topic | PDF pages |
+| --- | --- | --- |
+| L01 | Assertions and truth values | 3–5 |
+| L02 | Connectives, constants, inclusive OR and precedence | 6–12 |
+| L03 | Truth tables | 13–14 |
+| L04 | Semantic equivalence, Boolean laws, tautologies and contradictions | 15–19 |
+| L05 | Implication, necessary/sufficient conditions and negation | 20–23 |
+| L06 | Converse, contrapositive and natural-language traps | 24–29 |
+| L07 | Biconditional versus semantic equivalence | 30–31 |
+| L08 | Functional completeness of OR and NOT | 32–35 |
+| L09 | Naive sets and Russell's paradox | 37–40 |
+| L10 | Number sets, enumeration, membership and inclusion | 41–43, 57 |
+| L11 | Predicates and quantifiers | 44–48 |
+| L12 | Negating quantified statements | 49–51 |
+| L13 | Set comprehension | 52–56 |
+| L14 | Power sets | 58 |
+| L15 | Set operations, relative complements and algebra | 59–65 |
+| L16 | Bounded quantifiers | 67–70 |
+| L17 | Cartesian products, relations, translation and quantifier order | 71–81 |
+| L18 | SQL comprehension, EXISTS and NOT EXISTS | 82–89 |
+| L19 | Python all/any, sortedness, duplicates and maximum | 90–94 |
+| L20 | Access-control statements, 'only' and negation | 95–96 |
 
-## M1 - Validate one teaching slice
+The fine-grained lesson IDs and versions live with content and the release registry. The source PDF and copied slide artwork are not distributed; see [content rights](../CONTENT_LICENSE.md).
 
-Author one original implication lesson in French and English, with a worked example, guided activity, and six independent exercises. Cover implication's truth table, necessary/sufficient conditions, its sole falsifying assignment, negation, natural-language translation, and a fresh counterexample.
+## Next decisions and acceptance
 
-Acceptance:
+1. **Verify the hosted application:** deployment identity/preview separation, production migrations, two synthetic accounts, account/session lifecycle, saved attempts, owner-only Data API access and recovery. The opt-in procedure is in [hosted tests](HOSTED_TESTS.md); a passing local fixture is not a hosted result.
+2. **Complete human learning review:** mathematics, French/English equivalence, accessible notation, keyboard/screen-reader journey, feedback quality and mobile layout, recording actual reviewers and exact exercise versions. Start with the original L01/L02/L03/L05 pilot and extend across chapters.
+3. **Resolve operating obligations:** source publication/adaptation rights; account-data retention, deletion and export; recovery and rollback; Vercel/Supabase free-plan suitability and pilot size. Avoid inventing approvals, provider limits or costs.
 
-- Each exercise has an ID/version, objective, difficulty, prerequisites, both languages, hints, correct answer, justification, feedback, grading contract, misconception tags, and source pages.
-- All options have feedback where applicable; mathematical and translation checks are recorded.
-- Clarify the urgent chapter order, sign-in availability, pilot size and free-plan constraints, and rights boundary.
-- Choose the smallest working architecture before adding application packages.
+For dates, accountable owners, evidence and what remains open, use [the acceptance checklist](PILOT_ACCEPTANCE.md)—not a duplicate checklist here. Application releases and lesson selection have separate controls; follow [releasing](RELEASING.md) and [content contracts](CONTENT_RELEASES.md).
 
-Deliverable: reviewed content/schema and confirmed implementation decisions, not a full course bank.
+## Deferred
 
-M1 implementation: the original L05 content pilot is available for review in [L05_REVIEW.md](content/L05_REVIEW.md), with six versioned contracts and mathematical/bilingual self-check evidence. Remaining class/account/operational decisions above are still open.
-
-## M2 - First complete application journey
-
-Scaffold the chosen single application. Implement one lesson, real sign-in, authenticated exercise delivery, server grading, idempotent attempt persistence, mistake review, and a private progress page.
-
-Acceptance:
-
-- Visitors can read; unauthenticated direct practice requests fail on the server.
-- Learners receive explanatory feedback and can find saved attempts after a later sign-in.
-- One learner cannot read or change another's records.
-- A caller cannot forge grades or duplicate an attempt by resubmitting the same submission ID.
-- Switching language preserves location and activity state.
-- Relevant unit/integration/browser tests and a production build pass.
-
-M2 feature 1: the public reading foundation is implemented; see the [public reading implementation review](design/implementation/signal-public-reading/README.md). M2 feature 2: email/password Supabase authentication/sessions for an invited group are implemented; see [AUTHENTICATION.md](AUTHENTICATION.md). M2 features 3 and 4: authenticated exercise delivery, server grading, idempotent attempt persistence, mistake review and a private progress page are implemented locally for the registry-selected releases; see [PRACTICE.md](PRACTICE.md). Local browser tests cover sign-in, answer/retry, reload, later sign-in, draft/language state, and protocol ownership. SQL tests cover real PostgreSQL grants/RLS and concurrent first-attempt insertion in CI. Hosted provider/deployment acceptance and live two-account isolation remain pending, so M2 is not complete. See [content release contracts](CONTENT_RELEASES.md).
-
-The source-wide public glossary is delivered as an early M3 reading feature; see [glossary review](content/GLOSSARY_REVIEW.md). This does not complete M2 practice or M3 class-pilot acceptance.
-
-A mock account or static progress card does not complete this milestone.
-
-## M3 - Four-lesson class pilot
-
-Release L01, L02, L03, and L05 with six independent exercises plus a guided example per lesson (24 independent items). Add the source-wide searchable symbol glossary, clear unreleased-course markers, review suggestions, and a usable mobile reading/practice flow.
-
-Before real classmate use, define data retention/deletion/export, inspect provider limits and notification routing, and verify deployment identity, recovery, and persistent-data restoration where applicable. Keep preview data separate from production learner data.
-
-Acceptance:
-
-| Area | Observable condition |
-| --- | --- |
-| Mathematics | All published answers checked; domains and known source discrepancies documented |
-| Languages | No missing required French/English content; shared answer/identity contract |
-| Access | Public reading works; private practice and data boundaries withstand direct requests |
-| Feedback | Wrong-answer explanations and deliberate hints work for every released activity |
-| Progress | Reading, attempt history, and mastery evidence are separate; retries/hints cannot manufacture independent evidence |
-| Privacy | Ownership and account-data operations verified; no learner data in public logs |
-| Accessibility | Full keyboard path, focus visibility, labelled/announced feedback, readable math |
-| Mobile | Review at 320, 375, 768 and 1280 px; no page-level overflow from activity tables |
-| Delivery | Reproducible installation/check/build; authorized checked deployment; smoke check and recovery evidence |
-
-Pilot evaluation: can classmates complete the journey without help, explain mistakes, answer fresh related items, and return to their saved work? Set numeric participation targets once pilot size is known.
-
-## Full course map
-
-PDF page references start at 1 and consolidate repeated slide builds. The generated release status above records the implemented scope and review exceptions. The delivery column describes roadmap grouping, not review completion or class readiness.
-
-| ID | Topic | PDF pages | Delivery |
-| --- | --- | --- | --- |
-| L01 | Assertions and truth values | 3-5 | MVP |
-| L02 | Connectives, constants, inclusive OR and precedence | 6-12 | MVP |
-| L03 | Truth tables | 13-14 | MVP |
-| L04 | Semantic equivalence, Boolean laws, tautologies and contradictions | 15-19 | Next: logic |
-| L05 | Implication, necessary/sufficient conditions and negation | 20-23 | MVP |
-| L06 | Converse, contrapositive and natural-language traps | 24-29 | Next: logic |
-| L07 | Biconditional versus semantic equivalence | 30-31 | Next: logic |
-| L08 | Functional completeness of OR and NOT | 32-35 | Next: logic |
-| L09 | Naive sets and Russell's paradox | 37-40 | Next: sets |
-| L10 | Number sets, enumeration, membership and inclusion | 41-43, 57 | Next: sets |
-| L11 | Predicates and quantifiers | 44-48 | Next: sets |
-| L12 | Negating quantified statements | 49-51 | Next: sets |
-| L13 | Set comprehension | 52-56 | Next: sets |
-| L14 | Power sets | 58 | Next: sets |
-| L15 | Set operations, relative complements and algebra | 59-65 | Next: sets |
-| L16 | Bounded quantifiers | 67-70 | Next: applications |
-| L17 | Cartesian products, relations, translation and quantifier order | 71-81 | Next: applications |
-| L18 | SQL comprehension, EXISTS and NOT EXISTS | 82-89 | Next: applications |
-| L19 | Python all/any, sortedness, duplicates and maximum | 90-94 | Next: applications |
-| L20 | Access-control statements, 'only' and negation | 95-96 | Next: applications |
-
-Supply arithmetic/inequality, indexing, and introductory SQL/Python support where needed; label these prerequisites. Other proofs, SQL NULL/duplicate behaviour, JavaScript comparisons, and spaced review are optional enrichment, not invented source chapters.
-
-## Later and deferred scope
-
-Consider spaced review, richer set/quantifier visualisations, digital mastery milestones, additional course PDFs, and data export refinements based on feedback. Physical prizes, formal exams, AI tutoring, automatic free-text proof grading, chat, leaderboards, separate admin applications, Nx, and real-time infrastructure are not MVP commitments.
-
-## Effort and dependencies
-
-| Work | Focused effort estimate |
-| --- | --- |
-| Foundation decisions and one reviewed bilingual content pilot | 6-10 hours |
-| First complete application journey | 18-28 hours |
-| Remaining pilot content, glossary, mobile/accessibility/privacy QA and rollout | 22-36 additional hours |
-| Total first pilot | 46-74 hours |
-
-Ranges assume a small class, one maintainer, usable auth accounts, and no unexpected hosting integration issues. They are planning estimates, not delivery promises. Account setup, source rights, unfamiliar framework/provider integration, and bilingual review can extend elapsed time. Estimate full-course authoring after pilot experience rather than extrapolating from slide count.
-
-## Current decisions awaiting confirmation
-
-The budget is confirmed as zero recurring software cost and the implementation stack is approved. Remaining decisions: urgent chapter sequence; pilot size; free-plan limitations and recovery acceptance; original-content/publication permission; whether goodies are digital or physical. The reading/authentication scaffold has application dependencies; no cloud project, learner accounts, or scheduled tasks have been activated by these feature PRs.
+AI tutoring, automatic grading of free-text proofs, examinations, leaderboards, chat, physical rewards, multi-repository orchestration, additional course PDFs and new paid infrastructure are not commitments for the small pilot. Revisit after real learner feedback, independent review and an explicit cost decision.
