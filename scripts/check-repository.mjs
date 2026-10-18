@@ -70,8 +70,8 @@ export async function validateRepository(
   for (const name of mandatory)
     if (!(await exists(resolve(directory, name)))?.isFile())
       errors.push(name + ': required file is missing');
-  const planning = ['CONSTITUTION', 'ROADMAP', 'TECHSTACK'].map(
-    (name) => resolve(directory, 'docs', name + '.md'),
+  const planning = ['CONSTITUTION', 'ROADMAP', 'TECHSTACK'].map((name) =>
+    resolve(directory, 'docs', name + '.md'),
   );
   if ((await Promise.all(planning.map(exists))).some(Boolean)) {
     for (const path of planning)
