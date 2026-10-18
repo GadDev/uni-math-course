@@ -18,7 +18,7 @@ Public lessons and the symbol glossary can be read without an account. Practice 
 ## Features
 
 - Public French/English programme pages and lessons.
-- Public [Chapter 2 overview](https://uni-math-course.vercel.app/fr/chapters/C02/) for straight lines, with the selected green Décalage artwork. The learning path contains 16 bilingual lessons (L21–L36), worked examples and 240 exercises with saved practice; see [chapter integration](docs/CHAPTERS.md).
+- Public [Chapter 2 overview](https://uni-math-course.vercel.app/fr/chapters/C02/) for straight lines, with the selected green Décalage artwork. The learning path contains 16 bilingual lessons (L21–L36), worked examples and 240 exercises with saved practice; see the [Chapter 2 review](docs/content/CHAPTER_02_REVIEW.md) and [implemented layouts](docs/design/implementation/chapter-02/README.md).
 - Public searchable French/English symbol glossary, with bilingual readings, source pages and stable entry links.
 - Mathematical notation with visual KaTeX and MathML output.
 - Same-lesson language switching and a native reading disclosure that works without JavaScript.
@@ -80,7 +80,6 @@ Hosted acceptance is separate and opt-in. Follow [hosted E2E setup](docs/HOSTED_
 
 ## Product and learning documentation
 
-- [Mission](docs/MISSION.md)
 - [Constitution](docs/CONSTITUTION.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Tech stack](docs/TECHSTACK.md)
