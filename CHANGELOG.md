@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.6.0](https://github.com/GadDev/uni-math-course/compare/v0.5.1...v0.6.0) (2026-10-18)
+
+
+### Features
+
+* **content:** align Chapter 1 with the PDF and explain Boolean algebra ([#63](https://github.com/GadDev/uni-math-course/issues/63)) ([bd10255](https://github.com/GadDev/uni-math-course/commit/bd102554491283050c5fca595ecf8a95a3cad81a))
+
 ## [0.5.1](https://github.com/GadDev/uni-math-course/compare/v0.5.0...v0.5.1) (2026-10-18)
 
 
