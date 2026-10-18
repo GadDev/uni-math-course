@@ -189,7 +189,26 @@ test('the archived manual changelog is byte-for-byte the bootstrap source', asyn
   );
 });
 
-test('release preflight rejects unchecked release SHAs and stale main', async () => {
+test('release credentials and mutations require successful preflight output', async () => {
+  const yaml = require('js-yaml');
+  const workflow = yaml.load(
+    await read('.github/workflows/release-please.yml'),
+  );
+  const steps = workflow.jobs.release.steps;
+  const preflight = steps.find((step) => step.id === 'preflight');
+  assert.ok(preflight.run.includes('require_docs'));
+  assert.notEqual(preflight['continue-on-error'], true);
+  const mutations = steps.filter(
+    (step) => step.id === 'app' || step.id === 'release',
+  );
+  assert.equal(mutations.length, 2);
+  for (const step of mutations) {
+    assert.equal(step.if, "steps.preflight.outputs.release == 'true'");
+    assert.ok(steps.indexOf(step) > steps.indexOf(preflight));
+  }
+});
+
+test('release preflight skips superseded revisions and fails closed on unchecked SHAs', async (t) => {
   const yaml = require('js-yaml');
   const workflow = yaml.load(
     await read('.github/workflows/release-please.yml'),
@@ -202,16 +221,23 @@ test('release preflight rejects unchecked release SHAs and stale main', async ()
     await writeFile(
       join(directory, 'gh'),
       `#!/usr/bin/env node
+import { appendFileSync } from 'node:fs';
 const args = process.argv.join(' ');
-if (args.includes('git/ref/heads/main')) console.log('a'.repeat(40));
+appendFileSync(process.env.PREFLIGHT_TRACE, args + '\\n');
+if (args.includes('git/ref/heads/main')) {
+  if (process.env.MAIN_LOOKUP_FAILURE === 'true') process.exit(2);
+  console.log('a'.repeat(40));
+}
 else if (args.includes('/pulls?')) console.log('b'.repeat(40));
-else if (args.includes('/commits/')) console.log(!(process.env.UNCHECKED_RELEASE === 'true' && args.includes('b'.repeat(40))));
+else if (args.includes('/commits/')) console.log(args.includes(process.env.UNCHECKED_SHA || 'not-a-sha') ? process.env.DOCS_RESULT : 'true');
 else process.exit(2);
 `,
       { mode: 0o755 },
     );
-    const run = (extra = {}) =>
-      spawnSync('bash', ['-c', script], {
+    const run = async (extra = {}) => {
+      for (const name of ['output', 'summary', 'trace'])
+        await writeFile(join(directory, name), '');
+      const result = spawnSync('bash', ['-c', script], {
         cwd: root,
         encoding: 'utf8',
         env: {
@@ -220,17 +246,81 @@ else process.exit(2);
           GITHUB_REPOSITORY: 'GadDev/uni-math-course',
           GITHUB_SHA: 'a'.repeat(40),
           GH_TOKEN: '',
+          GITHUB_OUTPUT: join(directory, 'output'),
+          GITHUB_STEP_SUMMARY: join(directory, 'summary'),
+          PREFLIGHT_TRACE: join(directory, 'trace'),
+          UNCHECKED_SHA: '',
+          DOCS_RESULT: 'false',
+          MAIN_LOOKUP_FAILURE: 'false',
           ...extra,
         },
       });
-    const unchecked = run({ UNCHECKED_RELEASE: 'true' });
-    assert.notEqual(unchecked.status, 0);
-    assert.match(unchecked.stdout, /successful docs check for exact SHA b/);
-    const stale = run({ GITHUB_SHA: 'c'.repeat(40) });
-    assert.notEqual(stale.status, 0);
-    assert.match(stale.stdout, /Stale run/);
-    const checked = run({ UNCHECKED_RELEASE: 'false' });
-    assert.equal(checked.status, 0, checked.stdout + checked.stderr);
+      return {
+        ...result,
+        output: await readFile(join(directory, 'output'), 'utf8'),
+        summary: await readFile(join(directory, 'summary'), 'utf8'),
+        calls: (await readFile(join(directory, 'trace'), 'utf8'))
+          .trim()
+          .split('\n'),
+      };
+    };
+    await t.test(
+      'superseded revision succeeds without release permission or further API calls',
+      async () => {
+        const stale = await run({ GITHUB_SHA: 'c'.repeat(40) });
+        assert.equal(stale.status, 0, stale.stdout + stale.stderr);
+        assert.equal(stale.output, 'release=false\n');
+        assert.match(stale.stdout, /::notice::Superseded revision/);
+        assert.match(stale.summary, /skipped release work/);
+        assert.equal(stale.calls.length, 1);
+        assert.match(stale.calls[0], /git\/ref\/heads\/main/);
+      },
+    );
+    for (const result of ['false', 'null']) {
+      await t.test(
+        'current main with unsuccessful or missing docs: ' + result,
+        async () => {
+          const unchecked = await run({
+            UNCHECKED_SHA: 'a'.repeat(40),
+            DOCS_RESULT: result,
+          });
+          assert.notEqual(unchecked.status, 0);
+          assert.match(
+            unchecked.stdout,
+            /successful docs check for exact SHA a/,
+          );
+          assert.equal(unchecked.output, '');
+        },
+      );
+    }
+    await t.test(
+      'unchecked pending release cannot borrow newer main checks',
+      async () => {
+        const unchecked = await run({ UNCHECKED_SHA: 'b'.repeat(40) });
+        assert.notEqual(unchecked.status, 0);
+        assert.match(unchecked.stdout, /successful docs check for exact SHA b/);
+        assert.equal(unchecked.output, '');
+      },
+    );
+    await t.test(
+      'API lookup failure remains an error rather than a superseded skip',
+      async () => {
+        const failed = await run({ MAIN_LOOKUP_FAILURE: 'true' });
+        assert.notEqual(failed.status, 0);
+        assert.equal(failed.output, '');
+        assert.doesNotMatch(failed.stdout, /Superseded revision/);
+      },
+    );
+    await t.test(
+      'checked current main and pending release authorize release work',
+      async () => {
+        const checked = await run();
+        assert.equal(checked.status, 0, checked.stdout + checked.stderr);
+        assert.equal(checked.output, 'release=true\n');
+        assert.match(checked.stdout, /Release policy checked/);
+        assert.equal(checked.calls.length, 4);
+      },
+    );
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
