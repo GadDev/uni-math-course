@@ -25,6 +25,7 @@ Public lessons and the symbol glossary can be read without an account. Practice 
 - Same-lesson language switching and a native reading disclosure that works without JavaScript.
 - Versioned exercise contracts and content/mathematical checks.
 - Configurable email/password Supabase sign-in for an invited group, verified server sessions and local logout.
+- Manual, reversible lesson completion with bilingual checkmarks and chapter counters, saved to the learner account. Apply the completion migration before use; see [setup and local review](docs/PRACTICE.md#manual-lesson-completion).
 - Authenticated practice, server grading, saved attempts and private progress. Unreviewed banks display a warning.
 
 ## Pilot status

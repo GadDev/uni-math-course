@@ -9,6 +9,7 @@ const encode = (value) =>
 export async function startAuthFixture(port = 54329) {
   const sessions = new Map();
   const attempts = [];
+  const completions = new Map();
   const knownUser = {
     id: randomUUID(),
     aud: 'authenticated',
@@ -200,6 +201,33 @@ export async function startAuthFixture(port = 54329) {
           };
           attempts.push(row);
           return json(200, { duplicate: false, attempt: row });
+        }
+        if (url.pathname === '/rest/v1/lesson_completions') {
+          if (!record) return failure(403);
+          const owner = record.user.id;
+          if (req.method === 'GET')
+            return json(
+              200,
+              [...(completions.get(owner) ?? [])].map((lesson_id) => ({
+                lesson_id,
+              })),
+            );
+          if (req.method === 'POST') {
+            if (data.user_id !== owner) return failure(403);
+            const lessons = completions.get(owner) ?? new Set();
+            lessons.add(data.lesson_id);
+            completions.set(owner, lessons);
+            return json(201, null);
+          }
+          if (req.method === 'DELETE') {
+            if (url.searchParams.get('user_id') !== 'eq.' + owner)
+              return failure(403);
+            completions
+              .get(owner)
+              ?.delete(url.searchParams.get('lesson_id')?.slice(3));
+            return json(200, null);
+          }
+          return failure(403);
         }
         if (url.pathname === '/rest/v1/attempts') {
           if (req.method !== 'GET') return failure(403);

@@ -59,3 +59,13 @@ Unit tests cover grading, strict response shapes, forged grades, duplicates, lea
 ## Local database checks
 
 With `psql` installed, point `TEST_DATABASE_URL` at an **empty disposable** PostgreSQL database and run `bash tests/database/run.sh`. The bootstrap creates test-only Supabase-like auth roles/schema; never run it against a hosted or existing database. CI provisions PostgreSQL 17 for this check. Hosted Supabase/Data API verification remains a separate rollout requirement.
+
+## Manual lesson completion
+
+Reading completion is an explicit, reversible learner choice, independent of exercise attempts and mastery. Signed-in learners use “Mark as completed” / “Marquer comme terminée” at the end of a lesson. Opening, scrolling or practising never marks it automatically. Undo removes only completion; answers and attempt history remain unchanged. One language-independent lesson ID is shared by French and English. The chapter overview and lesson outline display checkmarks, and each chapter counts only its own published lessons. Existing learners start without inferred completions.
+
+`GET /api/lesson-completions/` returns the verified learner ID and completed lesson IDs. `POST` requires the configured same origin, bounded JSON, `expectedLearnerId`, a published `lessonId` and boolean `completed`. An old account context is rejected with 409 before persistence. Explicit true/false writes are idempotent. Session changes clear the old completion UI; focus and restored history reload confirmed state. Failed or uncertain saves offer a reload and never claim success. Public anonymous reading makes no initial account/completion request. JavaScript is required for completion controls.
+
+Apply `supabase/migrations/20261019120000_lesson_completions.sql` to your development Supabase database before reviewing this feature locally, then use the existing authentication configuration and `pnpm dev`. The separate `lesson_completions` table uses the signed-in session with owner-only SELECT/INSERT/DELETE RLS; no service key is needed for completion. An account deletion cascades to its completion rows. Apply the same migration to the target database before deploying the feature; this PR does not change a hosted database. Without it, reading still works and completion reports unavailable. Completion does not reset on ordinary lesson edits.
+
+Local review: sign in, open L01, mark it completed, reload, switch language, check the Chapter 1 counter and checkmark, then undo. Repeat with L21 and Chapter 2 (separate total). Check another browser/device with the same account to confirm persistence. Hosted Supabase acceptance remains separate from protocol-fixture browser tests.

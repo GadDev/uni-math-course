@@ -1,4 +1,6 @@
 ---
+import LessonCompletion from '../../../components/LessonCompletion.astro';
+import { completionCopy } from '../../../lib/completion-copy';
 import Base from '../../../layouts/Base.astro';
 import SignalGeometry from '../../../components/SignalGeometry.astro';
 import { locales } from '../../../lib/i18n';
@@ -93,6 +95,10 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
         <h2 id="outline-title">{text.outline}</h2>
         <p>{text.outlineNote}</p>
       </div>
+      <LessonCompletion
+        locale={locale}
+        lessonIds={droitesGroups.flatMap((group) => group.lessonIds)}
+      />
       {droitesGroups.map((group) => (
         <section class="chapter-lesson-group">
           <h3>{group.title[locale]}</h3>
@@ -103,7 +109,16 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
                   {Number(id.slice(1)) - 20 < 10 ? '0' : ''}
                   {Number(id.slice(1)) - 20}
                 </span>
-                <a href={`/${locale}/lessons/${id}/`}>{lessonData(id).title}</a>
+                <a href={`/${locale}/lessons/${id}/`}>
+                  {lessonData(id).title}
+                  <span
+                    class="completion-badge"
+                    data-completion-badge={id}
+                    hidden
+                  >
+                    ✓ {completionCopy[locale].completed}
+                  </span>
+                </a>
                 <small class="planned-label">
                   {lessonData(id).minutes} min · 15{' '}
                   {locale === 'fr' ? 'exercices' : 'exercises'}
