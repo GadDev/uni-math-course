@@ -1,0 +1,1775 @@
+{
+  "lessonId": "L20",
+  "version": 4,
+  "status": "review-candidate",
+  "exerciseCount": 21,
+  "exercises": [
+    {
+      "id": "L20-E01",
+      "objectiveId": "L20-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "only-reversed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Les utilisateurs parcourent $U$, les demandes parcourent $R$ ; $M(u)$ signifie « u est responsable » et $V(u,r)$ « u peut approuver r ». Quelle formule traduit « Seuls les responsables peuvent approuver une demande » ?",
+        "en": "Users range over $U$, requests over $R$; $M(u)$ means “u is a manager” and $V(u,r)$ means “u can approve r”. Which formula translates “Only managers can approve a request”?"
+      },
+      "hint": {
+        "fr": "Quiconque peut approuver doit être responsable.",
+        "en": "Whoever can approve must be a manager."
+      },
+      "options": [
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall u\\ \\forall r\\ (V(u, r) \\land M(u))$",
+            "en": "$\\forall u\\ \\forall r\\ (V(u, r) \\land M(u))$"
+          },
+          "feedback": {
+            "fr": "Cela dit que tout le monde est responsable et approuve tout.",
+            "en": "This says that everyone is a manager and approves everything."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall u\\ \\forall r\\ (V(u, r) \\Rightarrow M(u))$",
+            "en": "$\\forall u\\ \\forall r\\ (V(u, r) \\Rightarrow M(u))$"
+          },
+          "feedback": {
+            "fr": "Exact : approuver implique être responsable.",
+            "en": "Correct: approving implies being a manager."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall u\\ \\forall r\\ (M(u) \\Rightarrow V(u, r))$",
+            "en": "$\\forall u\\ \\forall r\\ (M(u) \\Rightarrow V(u, r))$"
+          },
+          "feedback": {
+            "fr": "Cela dit que tout responsable peut tout approuver : « seuls » est lu à l’envers.",
+            "en": "This says that every manager can approve everything: “only” is read backwards."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists u\\ \\exists r\\ (V(u, r) \\land M(u))$",
+            "en": "$\\exists u\\ \\exists r\\ (V(u, r) \\land M(u))$"
+          },
+          "feedback": {
+            "fr": "Cela dit seulement qu’un responsable approuve quelque chose.",
+            "en": "This only says that some manager approves something."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "« Seuls les $M$ peuvent $V$ » s’écrit $V \\Rightarrow M$.",
+        "en": "“Only $M$ can $V$” is written $V \\Rightarrow M$."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E02",
+      "objectiveId": "L20-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "necessary-confused-with-sufficient"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "En supposant vraie la règle « Seuls les responsables peuvent approuver une demande », que garantit cette règle seule sur la condition « être responsable » ?",
+        "en": "Assuming the rule “Only managers can approve a request” is true, what does this rule alone guarantee about the condition “being a manager”?"
+      },
+      "hint": {
+        "fr": "Pour approuver, il faut être responsable ; cela ne suffit pas forcément.",
+        "en": "To approve, one must be a manager; that need not be enough."
+      },
+      "options": [
+        {
+          "id": "c",
+          "label": {
+            "fr": "Elle est nécessaire et suffisante dans tout système respectant cette règle.",
+            "en": "It is necessary and sufficient in every system respecting this rule."
+          },
+          "feedback": {
+            "fr": "Un responsable sans permission respecte pourtant la règle. La suffisance peut être vraie dans un système, mais ne découle pas de la règle seule.",
+            "en": "A manager without permission still respects the rule. Sufficiency can hold in a system but does not follow from the rule alone."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Elle n’est ni nécessaire ni suffisante dans tout système respectant cette règle.",
+            "en": "It is neither necessary nor sufficient in every system respecting this rule."
+          },
+          "feedback": {
+            "fr": "La nécessité est bien imposée : autoriser un non-responsable violerait la règle.",
+            "en": "Necessity is required: allowing a non-manager would violate the rule."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "Elle est nécessaire ; sa suffisance n’est pas garantie par cette règle.",
+            "en": "It is necessary; this rule does not guarantee sufficiency."
+          },
+          "feedback": {
+            "fr": "Exact : approuver exige d’être responsable. La règle permet aussi bien un système où tous les responsables peuvent approuver qu’un système où certains ne le peuvent pas.",
+            "en": "Correct: approving requires being a manager. The rule permits both a system where every manager can approve and one where some cannot."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Elle est suffisante ; sa nécessité n’est pas garantie par cette règle.",
+            "en": "It is sufficient; this rule does not guarantee necessity."
+          },
+          "feedback": {
+            "fr": "Ce sens est inversé : la règle impose que toute personne qui peut approuver soit responsable ; elle n’accorde pas automatiquement de permission.",
+            "en": "This reverses the direction: the rule requires anyone who can approve to be a manager; it does not automatically grant permission."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Exact : approuver exige d’être responsable. La règle permet aussi bien un système où tous les responsables peuvent approuver qu’un système où certains ne le peuvent pas.",
+        "en": "Correct: approving requires being a manager. The rule permits both a system where every manager can approve and one where some cannot."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E03",
+      "objectiveId": "L20-O03",
+      "difficulty": "application",
+      "misconceptions": [
+        "evaluation-ignores-counterexample"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Utilisateurs ana, ben, cleo ; seule ana est responsable ; demandes r1, r2 ; approbations (ana, r1), (ana, r2), (ben, r1). $M(u)$ : « $u$ est responsable » ; $V(u, r)$ : « $u$ peut approuver $r$ ». Quelle valeur a « Seuls les responsables peuvent approuver une demande » ?",
+        "en": "Users ana, ben, cleo; only ana is a manager; requests r1, r2; approvals (ana, r1), (ana, r2), (ben, r1). $M(u)$: “$u$ is a manager”; $V(u, r)$: “$u$ can approve $r$”. What is the value of “Only managers can approve a request”?"
+      },
+      "hint": {
+        "fr": "Cherchez quelqu’un qui approuve sans être responsable.",
+        "en": "Look for someone who approves without being a manager."
+      },
+      "options": [
+        {
+          "id": "c",
+          "label": {
+            "fr": "Vrai : tout responsable approuve quelque chose.",
+            "en": "True: every manager approves something."
+          },
+          "feedback": {
+            "fr": "C’est une autre propriété ; elle ne teste pas la règle.",
+            "en": "That is a different property; it does not test the rule."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Faux : cleo n’approuve rien.",
+            "en": "False: cleo approves nothing."
+          },
+          "feedback": {
+            "fr": "Ne rien approuver ne viole pas la règle.",
+            "en": "Approving nothing does not violate the rule."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vrai : ana est la seule responsable.",
+            "en": "True: ana is the only manager."
+          },
+          "feedback": {
+            "fr": "Cela ne regarde pas qui approuve : ben approuve r1.",
+            "en": "This ignores who approves: ben approves r1."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Faux : ben approuve r1 sans être responsable.",
+            "en": "False: ben approves r1 without being a manager."
+          },
+          "feedback": {
+            "fr": "Exact : $(\\text{ben}, \\text{r1})$ est un contre-exemple.",
+            "en": "Correct: $(\\text{ben}, \\text{r1})$ is a counterexample."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Un seul approbateur non responsable suffit pour réfuter la règle.",
+        "en": "A single non-manager approver is enough to refute the rule."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E04",
+      "objectiveId": "L20-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "forall-exists-order-in-translation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Les utilisateurs parcourent $U$, les demandes parcourent $R$ ; $M(u)$ signifie « u est responsable » et $V(u,r)$ « u peut approuver r ». Quelle formule traduit « Tout responsable peut approuver toutes les demandes » ?",
+        "en": "Users range over $U$, requests over $R$; $M(u)$ means “u is a manager” and $V(u,r)$ means “u can approve r”. Which formula translates “Every manager can approve all requests”?"
+      },
+      "hint": {
+        "fr": "Pour chaque responsable, toutes les demandes doivent être approuvables.",
+        "en": "For each manager, all requests must be approvable."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall u\\ (M(u) \\Rightarrow \\forall r\\ V(u, r))$",
+            "en": "$\\forall u\\ (M(u) \\Rightarrow \\forall r\\ V(u, r))$"
+          },
+          "feedback": {
+            "fr": "Exact : pour tout responsable, toute demande est approuvable par lui.",
+            "en": "Correct: for every manager, every request is approvable by them."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall u\\ \\forall r\\ (V(u, r) \\Rightarrow M(u))$",
+            "en": "$\\forall u\\ \\forall r\\ (V(u, r) \\Rightarrow M(u))$"
+          },
+          "feedback": {
+            "fr": "C’est la phrase avec « seuls », qui dit autre chose.",
+            "en": "This is the sentence with “only”, which says something else."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists u\\ (M(u) \\land \\forall r\\ V(u, r))$",
+            "en": "$\\exists u\\ (M(u) \\land \\forall r\\ V(u, r))$"
+          },
+          "feedback": {
+            "fr": "Cela dit qu’il existe un responsable qui approuve tout, pas que tous le peuvent.",
+            "en": "This says that some manager approves everything, not that all can."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall u\\ \\exists r\\ (M(u) \\land V(u, r))$",
+            "en": "$\\forall u\\ \\exists r\\ (M(u) \\land V(u, r))$"
+          },
+          "feedback": {
+            "fr": "Cela dit que tout le monde est responsable et approuve quelque chose.",
+            "en": "This says that everyone is a manager and approves something."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "« Tout $M$ peut tout $V$ » s’écrit $\\forall u\\ (M(u) \\Rightarrow \\forall r\\ V(u, r))$.",
+        "en": "“Every $M$ can $V$ everything” is written $\\forall u\\ (M(u) \\Rightarrow \\forall r\\ V(u, r))$."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E05",
+      "objectiveId": "L20-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "negation-with-implication-kept"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Les utilisateurs parcourent $U$, les demandes parcourent $R$ ; $M(u)$ signifie « u est responsable » et $V(u,r)$ « u peut approuver r ». Quelle est la négation de $\\forall u\\ (M(u) \\Rightarrow \\forall r\\ V(u, r))$ ?",
+        "en": "Users range over $U$, requests over $R$; $M(u)$ means “u is a manager” and $V(u,r)$ means “u can approve r”. What is the negation of $\\forall u\\ (M(u) \\Rightarrow \\forall r\\ V(u, r))$?"
+      },
+      "hint": {
+        "fr": "Niez le $\\forall$ extérieur, puis l’implication : $\\neg(A \\Rightarrow B) \\equiv A \\land \\neg B$.",
+        "en": "Negate the outer $\\forall$, then the implication: $\\neg(A \\Rightarrow B) \\equiv A \\land \\neg B$."
+      },
+      "options": [
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall u\\ (\\neg M(u) \\Rightarrow \\forall r\\ V(u, r))$",
+            "en": "$\\forall u\\ (\\neg M(u) \\Rightarrow \\forall r\\ V(u, r))$"
+          },
+          "feedback": {
+            "fr": "Cela change la condition sur $u$, sans nier la phrase.",
+            "en": "This changes the condition on $u$ without negating the sentence."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists u\\ (M(u) \\land \\exists r\\ \\neg V(u, r))$",
+            "en": "$\\exists u\\ (M(u) \\land \\exists r\\ \\neg V(u, r))$"
+          },
+          "feedback": {
+            "fr": "Exact : il existe un responsable et au moins une demande qu’il ne peut pas approuver.",
+            "en": "Correct: there is a manager and at least one request they cannot approve."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall u\\ (M(u) \\Rightarrow \\exists r\\ \\neg V(u, r))$",
+            "en": "$\\forall u\\ (M(u) \\Rightarrow \\exists r\\ \\neg V(u, r))$"
+          },
+          "feedback": {
+            "fr": "Le $\\forall$ extérieur n’a pas été échangé.",
+            "en": "The outer $\\forall$ was not swapped."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists u\\ (M(u) \\Rightarrow \\exists r\\ \\neg V(u, r))$",
+            "en": "$\\exists u\\ (M(u) \\Rightarrow \\exists r\\ \\neg V(u, r))$"
+          },
+          "feedback": {
+            "fr": "L’implication n’a pas été niée : elle est vraie dès qu’un utilisateur n’est pas responsable.",
+            "en": "The implication was not negated: it is true as soon as some user is not a manager."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\neg \\forall u\\ (M(u) \\Rightarrow B) \\equiv \\exists u\\ (M(u) \\land \\neg B)$, avec $\\neg \\forall r\\ V \\equiv \\exists r\\ \\neg V$.",
+        "en": "$\\neg \\forall u\\ (M(u) \\Rightarrow B) \\equiv \\exists u\\ (M(u) \\land \\neg B)$, with $\\neg \\forall r\\ V \\equiv \\exists r\\ \\neg V$."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E06",
+      "objectiveId": "L20-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "exists-forall-order-in-translation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Les utilisateurs parcourent $U$, les demandes parcourent $R$ ; $M(u)$ signifie « u est responsable » et $V(u,r)$ « u peut approuver r ». Quelle formule traduit « Il existe une demande que personne ne peut approuver » ?",
+        "en": "Users range over $U$, requests over $R$; $M(u)$ means “u is a manager” and $V(u,r)$ means “u can approve r”. Which formula translates “There is a request nobody can approve”?"
+      },
+      "hint": {
+        "fr": "Une demande, puis tous les utilisateurs : aucun ne peut l’approuver.",
+        "en": "One request, then all users: none can approve it."
+      },
+      "options": [
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists r\\ \\exists u\\ \\neg V(u, r)$",
+            "en": "$\\exists r\\ \\exists u\\ \\neg V(u, r)$"
+          },
+          "feedback": {
+            "fr": "Cela dit seulement qu’un utilisateur ne peut pas approuver une demande.",
+            "en": "This only says that some user cannot approve some request."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall u\\ \\exists r\\ \\neg V(u, r)$",
+            "en": "$\\forall u\\ \\exists r\\ \\neg V(u, r)$"
+          },
+          "feedback": {
+            "fr": "Cela dit que chaque utilisateur ne peut pas approuver une demande.",
+            "en": "This says that each user cannot approve some request."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists r\\ \\forall u\\ \\neg V(u, r)$",
+            "en": "$\\exists r\\ \\forall u\\ \\neg V(u, r)$"
+          },
+          "feedback": {
+            "fr": "Exact : il existe une demande qu’aucun utilisateur ne peut approuver.",
+            "en": "Correct: there is a request that no user can approve."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall r\\ \\exists u\\ \\neg V(u, r)$",
+            "en": "$\\forall r\\ \\exists u\\ \\neg V(u, r)$"
+          },
+          "feedback": {
+            "fr": "Cela dit que chaque demande a un utilisateur qui ne peut pas l’approuver.",
+            "en": "This says that each request has some user who cannot approve it."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Une demande, puis tout utilisateur : $\\exists r\\ \\forall u\\ \\neg V(u, r)$.",
+        "en": "One request, then every user: $\\exists r\\ \\forall u\\ \\neg V(u, r)$."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E07",
+      "objectiveId": "L20-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "only-reversed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $A(u)$ : « l'utilisateur est administrateur » et $P(u)$ : « il peut publier ». Que signifie « Seuls les administrateurs peuvent publier » ?",
+        "en": "Let $A(u)$ mean 'the user is an administrator' and $P(u)$ mean 'they can publish'. What does 'Only administrators can publish' mean?"
+      },
+      "hint": {
+        "fr": "La permission implique le rôle requis.",
+        "en": "Permission implies the required role."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall u\\ (P(u)\\Rightarrow A(u))$",
+            "en": "$\\forall u\\ (P(u)\\Rightarrow A(u))$"
+          },
+          "feedback": {
+            "fr": "Toute personne autorisée doit être administratrice.",
+            "en": "Anyone allowed to publish must be an administrator."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall u\\ (A(u)\\Rightarrow P(u))$",
+            "en": "$\\forall u\\ (A(u)\\Rightarrow P(u))$"
+          },
+          "feedback": {
+            "fr": "Le mot « seuls » énonce une condition nécessaire, pas suffisante.",
+            "en": "'Only' states a necessary condition, not a sufficient one."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists u\\ (P(u)\\land\\neg A(u))$",
+            "en": "$\\exists u\\ (P(u)\\land\\neg A(u))$"
+          },
+          "feedback": {
+            "fr": "Le mot « seuls » énonce une condition nécessaire, pas suffisante.",
+            "en": "'Only' states a necessary condition, not a sufficient one."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Toute personne autorisée doit être administratrice.",
+        "en": "Anyone allowed to publish must be an administrator."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E08",
+      "objectiveId": "L20-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "necessary-confused-with-sufficient"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans « seuls les membres peuvent voter », être membre est une condition :",
+        "en": "In 'only members may vote', membership is a condition that is:"
+      },
+      "hint": {
+        "fr": "Un votant doit être membre, mais un membre peut s'abstenir ou être bloqué.",
+        "en": "A voter must be a member, but a member may abstain or be blocked."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Suffisante seulement.",
+            "en": "Sufficient only."
+          },
+          "feedback": {
+            "fr": "Le droit de vote implique l'appartenance ; l'inverse n'est pas garanti.",
+            "en": "Voting rights imply membership; the converse is not guaranteed."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Nécessaire, pas nécessairement suffisante.",
+            "en": "Necessary, not necessarily sufficient."
+          },
+          "feedback": {
+            "fr": "« Seuls » signifie voter $\\Rightarrow$ être membre.",
+            "en": "'Only' means voting $\\Rightarrow$ membership."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Ni nécessaire ni suffisante.",
+            "en": "Neither necessary nor sufficient."
+          },
+          "feedback": {
+            "fr": "Le droit de vote implique l'appartenance ; l'inverse n'est pas garanti.",
+            "en": "Voting rights imply membership; the converse is not guaranteed."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "« Seuls » signifie voter $\\Rightarrow$ être membre.",
+        "en": "'Only' means voting $\\Rightarrow$ membership."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E09",
+      "objectiveId": "L20-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "evaluation-ignores-counterexample"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$U=\\{a,b\\}$, seul $a$ est responsable ; $b$ approuve `r1`. La règle « seuls les responsables approuvent » est :",
+        "en": "$U=\\{a,b\\}$, only $a$ is a manager; $b$ approves `r1`. The rule 'only managers approve' is:"
+      },
+      "hint": {
+        "fr": "Une seule approbation d'un non-responsable suffit à réfuter.",
+        "en": "One approval by a non-manager refutes the rule."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vraie car $a$ est responsable.",
+            "en": "True because $a$ is a manager."
+          },
+          "feedback": {
+            "fr": "Le comportement du responsable n'efface pas une violation par un non-responsable.",
+            "en": "The manager's behavior cannot erase a violation by a non-manager."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Vraie si $a$ approuve aussi.",
+            "en": "True if $a$ approves too."
+          },
+          "feedback": {
+            "fr": "Le comportement du responsable n'efface pas une violation par un non-responsable.",
+            "en": "The manager's behavior cannot erase a violation by a non-manager."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Fausse, avec le contre-exemple $(b,\\text{r1})$.",
+            "en": "False, with counterexample $(b,\\text{r1})$."
+          },
+          "feedback": {
+            "fr": "$V(b,\\text{r1})$ est vraie mais $M(b)$ fausse : l'implication échoue.",
+            "en": "$V(b,\\text{r1})$ is true but $M(b)$ false: implication fails."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$V(b,\\text{r1})$ est vraie mais $M(b)$ fausse : l'implication échoue.",
+        "en": "$V(b,\\text{r1})$ is true but $M(b)$ false: implication fails."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E10",
+      "objectiveId": "L20-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "forall-exists-order-in-translation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $M(u)$ : responsable et $V(u,r)$ : peut valider la demande, formulez « tout responsable peut valider toutes les demandes ».",
+        "en": "With $M(u)$: manager and $V(u,r)$: may validate a request, formalize 'every manager may validate every request'."
+      },
+      "hint": {
+        "fr": "Conditionnez l'exigence sur le rôle, puis parcourez les demandes.",
+        "en": "Condition the requirement on the role, then range over requests."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall u\\ (M(u)\\Rightarrow\\forall r\\ V(u,r))$",
+            "en": "$\\forall u\\ (M(u)\\Rightarrow\\forall r\\ V(u,r))$"
+          },
+          "feedback": {
+            "fr": "Chaque responsable doit pouvoir valider chaque demande, sans contrainte sur les non-responsables.",
+            "en": "Each manager must be able to validate every request, without a constraint on non-managers."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall u\\forall r\\ (V(u,r)\\Rightarrow M(u))$",
+            "en": "$\\forall u\\forall r\\ (V(u,r)\\Rightarrow M(u))$"
+          },
+          "feedback": {
+            "fr": "La première phrase impose une permission aux responsables ; la règle « seuls » est l'autre implication.",
+            "en": "The first sentence grants permissions to managers; 'only' is the other implication."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists u\\forall r\\ V(u,r)$",
+            "en": "$\\exists u\\forall r\\ V(u,r)$"
+          },
+          "feedback": {
+            "fr": "La première phrase impose une permission aux responsables ; la règle « seuls » est l'autre implication.",
+            "en": "The first sentence grants permissions to managers; 'only' is the other implication."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Chaque responsable doit pouvoir valider chaque demande, sans contrainte sur les non-responsables.",
+        "en": "Each manager must be able to validate every request, without a constraint on non-managers."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E11",
+      "objectiveId": "L20-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "negation-with-implication-kept"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Niez $\\forall u\\ (M(u)\\Rightarrow\\forall r\\ V(u,r))$.",
+        "en": "Negate $\\forall u\\ (M(u)\\Rightarrow\\forall r\\ V(u,r))$."
+      },
+      "hint": {
+        "fr": "L'échec est un responsable qui ne peut pas valider une demande.",
+        "en": "Failure is a manager who cannot validate one request."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall u\\ (M(u)\\land\\forall r\\ \\neg V(u,r))$",
+            "en": "$\\forall u\\ (M(u)\\land\\forall r\\ \\neg V(u,r))$"
+          },
+          "feedback": {
+            "fr": "La négation exige un responsable et une demande refusée, pas tous les refus ni un non-responsable.",
+            "en": "The negation requires a manager and one denied request, not all denials or a non-manager."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists u\\ (M(u)\\land\\exists r\\ \\neg V(u,r))$",
+            "en": "$\\exists u\\ (M(u)\\land\\exists r\\ \\neg V(u,r))$"
+          },
+          "feedback": {
+            "fr": "Nier l'implication produit $M(u)\\land\\neg\\forall r\\ V(u,r)$, puis un contre-exemple $r$.",
+            "en": "Negating implication gives $M(u)\\land\\neg\\forall r\\ V(u,r)$, then a counterexample $r$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists u\\ (\\neg M(u)\\land\\exists r\\ V(u,r))$",
+            "en": "$\\exists u\\ (\\neg M(u)\\land\\exists r\\ V(u,r))$"
+          },
+          "feedback": {
+            "fr": "La négation exige un responsable et une demande refusée, pas tous les refus ni un non-responsable.",
+            "en": "The negation requires a manager and one denied request, not all denials or a non-manager."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Nier l'implication produit $M(u)\\land\\neg\\forall r\\ V(u,r)$, puis un contre-exemple $r$.",
+        "en": "Negating implication gives $M(u)\\land\\neg\\forall r\\ V(u,r)$, then a counterexample $r$."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E12",
+      "objectiveId": "L20-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "exists-forall-order-in-translation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule dit « il existe une demande que personne ne peut approuver » ?",
+        "en": "Which formula says 'there is a request that nobody may approve'?"
+      },
+      "hint": {
+        "fr": "Choisissez une demande, puis excluez tous les utilisateurs.",
+        "en": "Choose a request, then exclude every user."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall r\\exists u\\ \\neg V(u,r)$",
+            "en": "$\\forall r\\exists u\\ \\neg V(u,r)$"
+          },
+          "feedback": {
+            "fr": "C'est la demande qui doit être un témoin commun à tous les refus.",
+            "en": "The request must be a shared witness for all denials."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists u\\forall r\\ \\neg V(u,r)$",
+            "en": "$\\exists u\\forall r\\ \\neg V(u,r)$"
+          },
+          "feedback": {
+            "fr": "C'est la demande qui doit être un témoin commun à tous les refus.",
+            "en": "The request must be a shared witness for all denials."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists r\\forall u\\ \\neg V(u,r)$",
+            "en": "$\\exists r\\forall u\\ \\neg V(u,r)$"
+          },
+          "feedback": {
+            "fr": "L'existentielle porte sur $r$ et l'universelle sur les utilisateurs $u$.",
+            "en": "The existential ranges over request $r$ and universal over users $u$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "L'existentielle porte sur $r$ et l'universelle sur les utilisateurs $u$.",
+        "en": "The existential ranges over request $r$ and universal over users $u$."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E13",
+      "objectiveId": "L20-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "only-reversed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $K(u)$ : possède une clé et $D(u)$ : peut ouvrir la porte. « Seuls les détenteurs de clé peuvent ouvrir » permet quelle situation ?",
+        "en": "Let $K(u)$ mean 'has a key' and $D(u)$ 'may open the door'. 'Only keyholders may open' allows which situation?"
+      },
+      "hint": {
+        "fr": "Posséder la clé n'est pas forcément suffisant.",
+        "en": "Holding a key need not be sufficient."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Un détenteur de clé ne peut pas ouvrir.",
+            "en": "A keyholder cannot open."
+          },
+          "feedback": {
+            "fr": "$D(u)\\Rightarrow K(u)$ reste vraie lorsqu'une personne a une clé mais pas l'autorisation.",
+            "en": "$D(u)\\Rightarrow K(u)$ holds when someone has a key but no permission."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Une personne sans clé peut ouvrir.",
+            "en": "A person without a key can open."
+          },
+          "feedback": {
+            "fr": "Toute ouverture exige la clé, mais rien n'impose une ouverture à chaque détenteur.",
+            "en": "Every opening requires a key, but no opening is promised to each keyholder."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Toute personne sans clé peut ouvrir.",
+            "en": "Every person without a key can open."
+          },
+          "feedback": {
+            "fr": "Toute ouverture exige la clé, mais rien n'impose une ouverture à chaque détenteur.",
+            "en": "Every opening requires a key, but no opening is promised to each keyholder."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$D(u)\\Rightarrow K(u)$ reste vraie lorsqu'une personne a une clé mais pas l'autorisation.",
+        "en": "$D(u)\\Rightarrow K(u)$ holds when someone has a key but no permission."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E14",
+      "objectiveId": "L20-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "necessary-confused-with-sufficient"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "On affirme « un code valide est nécessaire pour accéder ». Avec $A$ : accès et $C$ : code valide, quelle implication est justifiée ?",
+        "en": "We claim 'a valid code is necessary for access'. With $A$: access and $C$: valid code, which implication follows?"
+      },
+      "hint": {
+        "fr": "Si l'accès réussit, le code ne peut pas être invalide.",
+        "en": "If access succeeds, the code cannot be invalid."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$C\\Rightarrow A$",
+            "en": "$C\\Rightarrow A$"
+          },
+          "feedback": {
+            "fr": "Une condition nécessaire n'est pas automatiquement suffisante ni équivalente.",
+            "en": "A necessary condition is not automatically sufficient or equivalent."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A\\Rightarrow C$",
+            "en": "$A\\Rightarrow C$"
+          },
+          "feedback": {
+            "fr": "L'accès garantit le code valide ; un code valide peut être refusé pour une autre raison.",
+            "en": "Access guarantees a valid code; a valid code may still be rejected for another reason."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\Leftrightarrow C$",
+            "en": "$A\\Leftrightarrow C$"
+          },
+          "feedback": {
+            "fr": "Une condition nécessaire n'est pas automatiquement suffisante ni équivalente.",
+            "en": "A necessary condition is not automatically sufficient or equivalent."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "L'accès garantit le code valide ; un code valide peut être refusé pour une autre raison.",
+        "en": "Access guarantees a valid code; a valid code may still be rejected for another reason."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E15",
+      "objectiveId": "L20-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "evaluation-ignores-counterexample"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$U=\\{a,b\\}$, seul $a$ a le rôle $M$ ; demandes $R=\\{r1,r2\\}$ ; seuls couples autorisés $V=\\{(a,r1),(a,r2)\\}$. La règle $\\forall u\\forall r\\ (V(u,r)\\Rightarrow M(u))$ vaut :",
+        "en": "$U=\\{a,b\\}$, only $a$ has role $M$; requests $R=\\{r1,r2\\}$; the only allowed pairs are $V=\\{(a,r1),(a,r2)\\}$. The rule $\\forall u\\forall r\\ (V(u,r)\\Rightarrow M(u))$ is:"
+      },
+      "hint": {
+        "fr": "Tous les couples autorisés concernent-ils un responsable ?",
+        "en": "Does every allowed pair concern a manager?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Fausse à cause de $b$.",
+            "en": "False because of $b$."
+          },
+          "feedback": {
+            "fr": "Un non-responsable sans permission n'est pas une violation de l'implication.",
+            "en": "A non-manager without permission does not violate the implication."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Fausse car $a$ approuve deux demandes.",
+            "en": "False because $a$ approves two requests."
+          },
+          "feedback": {
+            "fr": "Un non-responsable sans permission n'est pas une violation de l'implication.",
+            "en": "A non-manager without permission does not violate the implication."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Vraie : aucune permission ne concerne $b$.",
+            "en": "True: no permission concerns $b$."
+          },
+          "feedback": {
+            "fr": "Pour $b$, la prémisse $V(b,r)$ est fausse ; pour $a$, la conclusion $M(a)$ est vraie.",
+            "en": "For $b$, premise $V(b,r)$ is false; for $a$, conclusion $M(a)$ is true."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Pour $b$, la prémisse $V(b,r)$ est fausse ; pour $a$, la conclusion $M(a)$ est vraie.",
+        "en": "For $b$, premise $V(b,r)$ is false; for $a$, conclusion $M(a)$ is true."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E16",
+      "objectiveId": "L20-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "forall-exists-order-in-translation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle phrase exprime $\\forall u\\ (M(u)\\Rightarrow\\exists r\\ V(u,r))$ avec demandes non vides ?",
+        "en": "Which sentence expresses $\\forall u\\ (M(u)\\Rightarrow\\exists r\\ V(u,r))$ with nonempty requests?"
+      },
+      "hint": {
+        "fr": "La demande peut dépendre du responsable.",
+        "en": "The request may depend on the manager."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Chaque responsable peut approuver au moins une demande.",
+            "en": "Every manager can approve at least one request."
+          },
+          "feedback": {
+            "fr": "Le $\\exists r$ est à l'intérieur de l'implication dépendant de $u$.",
+            "en": "The $\\exists r$ is inside the implication depending on $u$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Chaque demande peut être approuvée par tous les responsables.",
+            "en": "Every request can be approved by all managers."
+          },
+          "feedback": {
+            "fr": "La formule garantit au moins un témoin de demande pour chaque responsable, pas un témoin commun.",
+            "en": "The formula provides one request witness per manager, not a shared witness."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Un seul responsable peut tout approuver.",
+            "en": "A single manager can approve everything."
+          },
+          "feedback": {
+            "fr": "La formule garantit au moins un témoin de demande pour chaque responsable, pas un témoin commun.",
+            "en": "The formula provides one request witness per manager, not a shared witness."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le $\\exists r$ est à l'intérieur de l'implication dépendant de $u$.",
+        "en": "The $\\exists r$ is inside the implication depending on $u$."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E17",
+      "objectiveId": "L20-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "negation-with-implication-kept"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Niez « tous les utilisateurs autorisés peuvent approuver au moins une demande » pour $A(u)$ : autorisé.",
+        "en": "Negate 'every authorized user may approve at least one request' with $A(u)$: authorized."
+      },
+      "hint": {
+        "fr": "Trouvez un utilisateur autorisé qui ne peut approuver aucune demande.",
+        "en": "Find an authorized user who cannot approve any request."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists u\\ (\\neg A(u)\\land\\forall r\\ \\neg V(u,r))$",
+            "en": "$\\exists u\\ (\\neg A(u)\\land\\forall r\\ \\neg V(u,r))$"
+          },
+          "feedback": {
+            "fr": "La personne témoin doit satisfaire le rôle et échouer sur toutes les demandes.",
+            "en": "The witnessing user must have the role and fail on every request."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists u\\ (A(u)\\land\\forall r\\ \\neg V(u,r))$",
+            "en": "$\\exists u\\ (A(u)\\land\\forall r\\ \\neg V(u,r))$"
+          },
+          "feedback": {
+            "fr": "$\\neg\\forall u(A(u)\\Rightarrow\\exists r V(u,r))=\\exists u(A(u)\\land\\forall r\\neg V(u,r))$.",
+            "en": "$\\neg\\forall u(A(u)\\Rightarrow\\exists r V(u,r))=\\exists u(A(u)\\land\\forall r\\neg V(u,r))$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall u\\ (A(u)\\land\\exists r\\ \\neg V(u,r))$",
+            "en": "$\\forall u\\ (A(u)\\land\\exists r\\ \\neg V(u,r))$"
+          },
+          "feedback": {
+            "fr": "La personne témoin doit satisfaire le rôle et échouer sur toutes les demandes.",
+            "en": "The witnessing user must have the role and fail on every request."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$\\neg\\forall u(A(u)\\Rightarrow\\exists r V(u,r))=\\exists u(A(u)\\land\\forall r\\neg V(u,r))$.",
+        "en": "$\\neg\\forall u(A(u)\\Rightarrow\\exists r V(u,r))=\\exists u(A(u)\\land\\forall r\\neg V(u,r))$."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E18",
+      "objectiveId": "L20-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "exists-forall-order-in-translation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Niez $\\exists r\\in R\\ \\forall u\\in U\\ \\neg V(u,r)$.",
+        "en": "Negate $\\exists r\\in R\\ \\forall u\\in U\\ \\neg V(u,r)$."
+      },
+      "hint": {
+        "fr": "Toutes les demandes doivent avoir au moins un approbateur.",
+        "en": "Every request must have at least one approver."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists r\\in R\\ \\exists u\\in U\\ V(u,r)$",
+            "en": "$\\exists r\\in R\\ \\exists u\\in U\\ V(u,r)$"
+          },
+          "feedback": {
+            "fr": "La négation échange les deux quantificateurs et enlève la négation du prédicat.",
+            "en": "The negation swaps both quantifiers and removes predicate negation."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall r\\in R\\ \\forall u\\in U\\ V(u,r)$",
+            "en": "$\\forall r\\in R\\ \\forall u\\in U\\ V(u,r)$"
+          },
+          "feedback": {
+            "fr": "La négation échange les deux quantificateurs et enlève la négation du prédicat.",
+            "en": "The negation swaps both quantifiers and removes predicate negation."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall r\\in R\\ \\exists u\\in U\\ V(u,r)$",
+            "en": "$\\forall r\\in R\\ \\exists u\\in U\\ V(u,r)$"
+          },
+          "feedback": {
+            "fr": "Il ne doit exister aucune demande sans approbateur ; chacune en a au moins un.",
+            "en": "There must be no request without an approver; each has at least one."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Il ne doit exister aucune demande sans approbateur ; chacune en a au moins un.",
+        "en": "There must be no request without an approver; each has at least one."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E19",
+      "objectiveId": "L20-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "only-reversed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une politique exige simultanément « seuls les responsables approuvent » et « tous les responsables approuvent toutes les demandes ». Pour $M(u),V(u,r)$, quelle formule les combine ?",
+        "en": "A policy requires both 'only managers approve' and 'all managers approve every request'. For $M(u),V(u,r)$, which formula combines them?"
+      },
+      "hint": {
+        "fr": "Les deux directions doivent être imposées pour chaque utilisateur et demande.",
+        "en": "Both directions must hold for every user and request."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall u\\forall r\\ (V(u,r)\\Leftrightarrow M(u))$",
+            "en": "$\\forall u\\forall r\\ (V(u,r)\\Leftrightarrow M(u))$"
+          },
+          "feedback": {
+            "fr": "Pour chaque paire $(u,r)$, l'autorisation équivaut au rôle : nécessité et suffisance réunies.",
+            "en": "For each pair $(u,r)$, permission is equivalent to role: necessity and sufficiency together."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists u\\exists r\\ (V(u,r)\\Leftrightarrow M(u))$",
+            "en": "$\\exists u\\exists r\\ (V(u,r)\\Leftrightarrow M(u))$"
+          },
+          "feedback": {
+            "fr": "Une politique dans les deux sens est une biconditionnelle universelle, non une simple possibilité.",
+            "en": "A two-way policy is a universal biconditional, not a mere possibility."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall u\\forall r\\ (V(u,r)\\lor M(u))$",
+            "en": "$\\forall u\\forall r\\ (V(u,r)\\lor M(u))$"
+          },
+          "feedback": {
+            "fr": "Une politique dans les deux sens est une biconditionnelle universelle, non une simple possibilité.",
+            "en": "A two-way policy is a universal biconditional, not a mere possibility."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Pour chaque paire $(u,r)$, l'autorisation équivaut au rôle : nécessité et suffisance réunies.",
+        "en": "For each pair $(u,r)$, permission is equivalent to role: necessity and sufficiency together."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E20",
+      "objectiveId": "L20-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "evaluation-ignores-counterexample"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$U=\\{a,b\\}$, $R=\\{x,y\\}$, $M(a)$ vrai et $M(b)$ faux ; $V=\\{(a,x),(b,y)\\}$. Combien de couples réfutent « seuls les responsables approuvent » ?",
+        "en": "$U=\\{a,b\\}$, $R=\\{x,y\\}$, $M(a)$ true and $M(b)$ false; $V=\\{(a,x),(b,y)\\}$. How many pairs refute 'only managers approve'?"
+      },
+      "hint": {
+        "fr": "Un couple est fautif si l'approbation est vraie et le rôle faux.",
+        "en": "A pair violates the rule if permission is true and role false."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Seule la permission $(b,y)$ appartient à un non-responsable.",
+            "en": "Only permission $(b,y)$ belongs to a non-manager."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "$(a,x)$ respecte la règle, $(b,y)$ viole $V\\Rightarrow M$ ; les autres paires n'ont pas de permission.",
+            "en": "$(a,x)$ respects the rule, $(b,y)$ violates $V\\Rightarrow M$; other pairs lack permission."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Seule la permission $(b,y)$ appartient à un non-responsable.",
+            "en": "Only permission $(b,y)$ belongs to a non-manager."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$(a,x)$ respecte la règle, $(b,y)$ viole $V\\Rightarrow M$ ; les autres paires n'ont pas de permission.",
+        "en": "$(a,x)$ respects the rule, $(b,y)$ violates $V\\Rightarrow M$; other pairs lack permission."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L20-E21",
+      "objectiveId": "L20-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "negation-with-implication-kept"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "La politique $\\forall u\\forall r\\ (V(u,r)\\Rightarrow M(u))$ est violée. Quelle preuve minimale suffit ?",
+        "en": "The policy $\\forall u\\forall r\\ (V(u,r)\\Rightarrow M(u))$ is violated. What is a minimal proof?"
+      },
+      "hint": {
+        "fr": "Une implication échoue quand la prémisse est vraie et la conclusion fausse.",
+        "en": "An implication fails when the premise is true and the conclusion false."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Un responsable sans permission.",
+            "en": "A manager without permission."
+          },
+          "feedback": {
+            "fr": "L'absence de permission ne viole pas la règle « seuls ».",
+            "en": "Lack of permission does not violate an 'only' rule."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Une demande sans aucun approbateur.",
+            "en": "A request with no approver."
+          },
+          "feedback": {
+            "fr": "L'absence de permission ne viole pas la règle « seuls ».",
+            "en": "Lack of permission does not violate an 'only' rule."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Un couple $(u,r)$ autorisé avec $M(u)$ faux.",
+            "en": "One allowed pair $(u,r)$ with $M(u)$ false."
+          },
+          "feedback": {
+            "fr": "Le contre-exemple possède $V(u,r)=1$ et $M(u)=0$ ; cela suffit à réfuter l'universelle.",
+            "en": "A counterexample has $V(u,r)=1$ and $M(u)=0$; that suffices to refute universality."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le contre-exemple possède $V(u,r)=1$ et $M(u)=0$ ; cela suffit à réfuter l'universelle.",
+        "en": "A counterexample has $V(u,r)=1$ and $M(u)=0$; that suffices to refute universality."
+      },
+      "lessonId": "L20",
+      "version": 4,
+      "prerequisites": [
+        "L05",
+        "L16"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          95,
+          96
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

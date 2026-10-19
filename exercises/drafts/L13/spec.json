@@ -140,7 +140,10 @@
       "options": [
         "$A=B$",
         "$B\\subseteq A$",
-        "$A\\subseteq B$ mais $A\\ne B$"
+        [
+          "$A\\subseteq B$ mais $A\\ne B$",
+          "$A\\subseteq B$ but $A\\ne B$"
+        ]
       ],
       "correct": 2,
       "wrong": [
@@ -181,7 +184,7 @@
       "objective": 2,
       "prompt": [
         "Pour $X=\\{8,9,10,11,12\\}$, quel ensemble est obtenu en gardant les nombres composés ?",
-        "For $X=\\{8,9,10,11,12\\}$, which set contains its composite numbers?"
+        "For $X=\\{8,9,10,11,12\\}$, which set consists exactly of its composite numbers?"
       ],
       "hint": [
         "$11$ est premier, les autres valeurs ont des diviseurs non triviaux.",

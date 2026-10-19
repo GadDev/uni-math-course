@@ -207,17 +207,17 @@
     {
       "objective": 2,
       "prompt": [
-        "On affirme « un code valide est nécessaire pour accéder ». Quelle implication est justifiée ?",
-        "We claim 'a valid code is necessary for access'. Which implication follows?"
+        "On affirme « un code valide est nécessaire pour accéder ». Avec $A$ : accès et $C$ : code valide, quelle implication est justifiée ?",
+        "We claim 'a valid code is necessary for access'. With $A$: access and $C$: valid code, which implication follows?"
       ],
       "hint": [
         "Si l'accès réussit, le code ne peut pas être invalide.",
         "If access succeeds, the code cannot be invalid."
       ],
       "options": [
-        "$\\text{CodeValide}\\Rightarrow\\text{Accès}$",
-        "$\\text{Accès}\\Rightarrow\\text{CodeValide}$",
-        "$\\text{Accès}\\Leftrightarrow\\text{CodeValide}$"
+        "$C\\Rightarrow A$",
+        "$A\\Rightarrow C$",
+        "$A\\Leftrightarrow C$"
       ],
       "correct": 1,
       "wrong": [
