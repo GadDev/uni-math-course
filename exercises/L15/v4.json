@@ -1,0 +1,1884 @@
+{
+  "lessonId": "L15",
+  "version": 4,
+  "status": "review-candidate",
+  "exerciseCount": 21,
+  "exercises": [
+    {
+      "id": "L15-E01",
+      "objectiveId": "L15-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "intersection-as-union"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $A = \\{1, 3, 5, 7\\}$ et $B = \\{3, 4, 5, 6\\}$. Que vaut $A \\cap B$ ?",
+        "en": "Let $A = \\{1, 3, 5, 7\\}$ and $B = \\{3, 4, 5, 6\\}$. What is $A \\cap B$?"
+      },
+      "hint": {
+        "fr": "Gardez les éléments qui sont dans $A$ et dans $B$.",
+        "en": "Keep the elements that are in $A$ and in $B$."
+      },
+      "options": [
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\{3, 4, 5, 6\\}$",
+            "en": "$\\{3, 4, 5, 6\\}$"
+          },
+          "feedback": {
+            "fr": "C’est $B$ en entier : $4$ et $6$ ne sont pas dans $A$.",
+            "en": "This is all of $B$: $4$ and $6$ are not in $A$."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{3, 5\\}$",
+            "en": "$\\{3, 5\\}$"
+          },
+          "feedback": {
+            "fr": "Exact : $3$ et $5$ sont dans les deux ensembles.",
+            "en": "Correct: $3$ and $5$ are in both sets."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{1, 3, 4, 5, 6, 7\\}$",
+            "en": "$\\{1, 3, 4, 5, 6, 7\\}$"
+          },
+          "feedback": {
+            "fr": "C’est l’union $A \\cup B$.",
+            "en": "This is the union $A \\cup B$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{1, 7\\}$",
+            "en": "$\\{1, 7\\}$"
+          },
+          "feedback": {
+            "fr": "Ce sont les éléments de $A$ qui ne sont pas dans $B$.",
+            "en": "These are the elements of $A$ that are not in $B$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$A \\cap B = \\{3, 5\\}$.",
+        "en": "$A \\cap B = \\{3, 5\\}$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E02",
+      "objectiveId": "L15-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "union-as-intersection"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soient $A = \\{1, 3, 5, 7\\}$ et $B = \\{3, 4, 5, 6\\}$. Que vaut $A \\cup B$ ?",
+        "en": "Let $A = \\{1, 3, 5, 7\\}$ and $B = \\{3, 4, 5, 6\\}$. What is $A \\cup B$?"
+      },
+      "hint": {
+        "fr": "Gardez les éléments qui sont dans $A$ ou dans $B$, sans répétition.",
+        "en": "Keep the elements that are in $A$ or in $B$, without repetition."
+      },
+      "options": [
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{1, 7, 4, 6\\}$",
+            "en": "$\\{1, 7, 4, 6\\}$"
+          },
+          "feedback": {
+            "fr": "Ce sont les éléments présents dans un seul des deux ensembles : il manque $3$ et $5$.",
+            "en": "These are the elements in exactly one of the sets: $3$ and $5$ are missing."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\{1, 3, 5, 7\\}$",
+            "en": "$\\{1, 3, 5, 7\\}$"
+          },
+          "feedback": {
+            "fr": "C’est $A$ seul : il manque $4$ et $6$.",
+            "en": "This is $A$ alone: $4$ and $6$ are missing."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{1, 3, 4, 5, 6, 7\\}$",
+            "en": "$\\{1, 3, 4, 5, 6, 7\\}$"
+          },
+          "feedback": {
+            "fr": "Exact : tous les éléments présents dans au moins un des deux ensembles.",
+            "en": "Correct: every element present in at least one of the two sets."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{3, 5\\}$",
+            "en": "$\\{3, 5\\}$"
+          },
+          "feedback": {
+            "fr": "C’est l’intersection $A \\cap B$.",
+            "en": "This is the intersection $A \\cap B$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$A \\cup B = \\{1, 3, 4, 5, 6, 7\\}$.",
+        "en": "$A \\cup B = \\{1, 3, 4, 5, 6, 7\\}$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E03",
+      "objectiveId": "L15-O03",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "complement-taken-in-the-wrong-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $C = \\{1, 2, 3, 4, 5, 6, 7, 8\\}$ et $A = \\{1, 2, 3, 4\\}$. Que vaut $\\overline{A}^{\\,C}$ ?",
+        "en": "Let $C = \\{1, 2, 3, 4, 5, 6, 7, 8\\}$ and $A = \\{1, 2, 3, 4\\}$. What is $\\overline{A}^{\\,C}$?"
+      },
+      "hint": {
+        "fr": "Prenez les éléments de $C$ qui ne sont pas dans $A$.",
+        "en": "Take the elements of $C$ that are not in $A$."
+      },
+      "options": [
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{1, 2, 3, 4\\}$",
+            "en": "$\\{1, 2, 3, 4\\}$"
+          },
+          "feedback": {
+            "fr": "C’est $A$ lui-même, pas son complémentaire.",
+            "en": "This is $A$ itself, not its complement."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{9, 10, 11\\}$",
+            "en": "$\\{9, 10, 11\\}$"
+          },
+          "feedback": {
+            "fr": "Ces nombres ne sont pas dans $C$ : le complémentaire reste dans $C$.",
+            "en": "These numbers are not in $C$: the complement stays inside $C$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\varnothing$",
+            "en": "$\\varnothing$"
+          },
+          "feedback": {
+            "fr": "Il reste des éléments de $C$ hors de $A$.",
+            "en": "Some elements of $C$ remain outside $A$."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{5, 6, 7, 8\\}$",
+            "en": "$\\{5, 6, 7, 8\\}$"
+          },
+          "feedback": {
+            "fr": "Exact : ce sont les éléments de $C$ hors de $A$.",
+            "en": "Correct: these are the elements of $C$ outside $A$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\overline{A}^{\\,C} = \\{5, 6, 7, 8\\}$.",
+        "en": "$\\overline{A}^{\\,C} = \\{5, 6, 7, 8\\}$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E04",
+      "objectiveId": "L15-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "de-morgan-for-sets-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si $A, B \\subseteq C$, à quoi est égal $\\overline{A \\cup B}^{\\,C}$ ?",
+        "en": "If $A, B \\subseteq C$, what is $\\overline{A \\cup B}^{\\,C}$ equal to?"
+      },
+      "hint": {
+        "fr": "Une loi de de Morgan transforme l’union en intersection.",
+        "en": "A De Morgan law turns the union into an intersection."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\overline{A}^{\\,C} \\cap \\overline{B}^{\\,C}$",
+            "en": "$\\overline{A}^{\\,C} \\cap \\overline{B}^{\\,C}$"
+          },
+          "feedback": {
+            "fr": "Exact : hors de $A \\cup B$ signifie hors de $A$ et hors de $B$.",
+            "en": "Correct: outside $A \\cup B$ means outside $A$ and outside $B$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\overline{A}^{\\,C} \\cup \\overline{B}^{\\,C}$",
+            "en": "$\\overline{A}^{\\,C} \\cup \\overline{B}^{\\,C}$"
+          },
+          "feedback": {
+            "fr": "C’est $\\overline{A \\cap B}^{\\,C}$, la deuxième loi de de Morgan.",
+            "en": "This is $\\overline{A \\cap B}^{\\,C}$, the second De Morgan law."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\overline{A \\cap B}^{\\,C}$",
+            "en": "$\\overline{A \\cap B}^{\\,C}$"
+          },
+          "feedback": {
+            "fr": "Ce n’est pas égal en général : dans $C = \\{1, 2, 3\\}$ avec $A = \\{1\\}$ et $B = \\{2\\}$, les deux diffèrent.",
+            "en": "This is not equal in general: in $C = \\{1, 2, 3\\}$ with $A = \\{1\\}$ and $B = \\{2\\}$, the two differ."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\overline{A}^{\\,C}$",
+            "en": "$\\overline{A}^{\\,C}$"
+          },
+          "feedback": {
+            "fr": "Il manque la contribution de $B$.",
+            "en": "The contribution of $B$ is missing."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\overline{A \\cup B}^{\\,C} = \\overline{A}^{\\,C} \\cap \\overline{B}^{\\,C}$ lorsque $A, B \\subseteq C$.",
+        "en": "$\\overline{A \\cup B}^{\\,C} = \\overline{A}^{\\,C} \\cap \\overline{B}^{\\,C}$ when $A, B \\subseteq C$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E05",
+      "objectiveId": "L15-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "complement-without-ambient-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $A = \\{1, 2\\}$. Que peut-on dire de son complémentaire ?",
+        "en": "Let $A = \\{1, 2\\}$. What can be said about its complement?"
+      },
+      "hint": {
+        "fr": "Un complémentaire se prend toujours dans un ensemble précisé.",
+        "en": "A complement is always taken in a named set."
+      },
+      "options": [
+        {
+          "id": "d",
+          "label": {
+            "fr": "Il contient tous les nombres sauf $1$ et $2$.",
+            "en": "It contains all numbers except $1$ and $2$."
+          },
+          "feedback": {
+            "fr": "Cela suppose l’ensemble de tous les nombres, qu’on n’a pas nommé.",
+            "en": "This assumes the set of all numbers, which was not named."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "Il dépend de l’ensemble ambiant : $\\{3\\}$ dans $\\{1, 2, 3\\}$, $\\{3, 4\\}$ dans $\\{1, 2, 3, 4\\}$.",
+            "en": "It depends on the ambient set: $\\{3\\}$ in $\\{1, 2, 3\\}$, $\\{3, 4\\}$ in $\\{1, 2, 3, 4\\}$."
+          },
+          "feedback": {
+            "fr": "Exact : il faut nommer l’ensemble ambiant.",
+            "en": "Correct: the ambient set must be named."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Il vaut toujours $\\{3\\}$.",
+            "en": "It is always $\\{3\\}$."
+          },
+          "feedback": {
+            "fr": "Cela suppose un ensemble ambiant particulier.",
+            "en": "This assumes one particular ambient set."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Il est toujours vide.",
+            "en": "It is always empty."
+          },
+          "feedback": {
+            "fr": "Il ne l’est que si l’ensemble ambiant est égal à $A$.",
+            "en": "It is empty only if the ambient set equals $A$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le complémentaire de $A$ n’a de sens que relativement à un ensemble $C$ qui contient $A$.",
+        "en": "The complement of $A$ only makes sense relative to a set $C$ that contains $A$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E06",
+      "objectiveId": "L15-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "union-confused-with-and",
+        "complement-confused-with-minus-universe"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soient $A$, $B$, $C$ des ensembles et $x$ un objet. Que signifie $x \\in A \\cup B$ ?",
+        "en": "Let $A$, $B$, $C$ be sets and $x$ an object. What does $x \\in A \\cup B$ mean?"
+      },
+      "hint": {
+        "fr": "L’union correspond à un connecteur logique : lequel ?",
+        "en": "The union corresponds to a logical connective: which one?"
+      },
+      "options": [
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x \\notin A$",
+            "en": "$x \\notin A$"
+          },
+          "feedback": {
+            "fr": "Cela décrit le complémentaire de $A$, pas l’union.",
+            "en": "This describes the complement of $A$, not the union."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$x \\in C$",
+            "en": "$x \\in C$"
+          },
+          "feedback": {
+            "fr": "$C$ n’intervient pas dans la définition de l’union.",
+            "en": "$C$ plays no role in the definition of the union."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x \\in A$ ou $x \\in B$",
+            "en": "$x \\in A$ or $x \\in B$"
+          },
+          "feedback": {
+            "fr": "Exact : l’union correspond au « ou » inclusif.",
+            "en": "Correct: the union corresponds to inclusive “or”."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x \\in A$ et $x \\in B$",
+            "en": "$x \\in A$ and $x \\in B$"
+          },
+          "feedback": {
+            "fr": "C’est l’intersection $A \\cap B$.",
+            "en": "This is the intersection $A \\cap B$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$A \\cup B$ transpose le « ou » ; $A \\cap B$ le « et » ; le complémentaire le « non ».",
+        "en": "$A \\cup B$ transposes “or”; $A \\cap B$ “and”; the complement “not”."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E07",
+      "objectiveId": "L15-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "intersection-as-union"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soient $A=\\{1,2,5\\}$ et $B=\\{2,3,5\\}$. Que vaut $A\\cap B$ ?",
+        "en": "Let $A=\\{1,2,5\\}$ and $B=\\{2,3,5\\}$. What is $A\\cap B$?"
+      },
+      "hint": {
+        "fr": "Gardez les éléments présents dans les deux ensembles.",
+        "en": "Keep elements present in both sets."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{2,5\\}$",
+            "en": "$\\{2,5\\}$"
+          },
+          "feedback": {
+            "fr": "Les seuls membres communs sont $2$ et $5$.",
+            "en": "The only common members are $2$ and $5$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{1,2,3,5\\}$",
+            "en": "$\\{1,2,3,5\\}$"
+          },
+          "feedback": {
+            "fr": "L'intersection exige deux appartenances simultanées.",
+            "en": "Intersection requires membership in both sets."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{1,3\\}$",
+            "en": "$\\{1,3\\}$"
+          },
+          "feedback": {
+            "fr": "L'intersection exige deux appartenances simultanées.",
+            "en": "Intersection requires membership in both sets."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Les seuls membres communs sont $2$ et $5$.",
+        "en": "The only common members are $2$ and $5$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E08",
+      "objectiveId": "L15-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "union-as-intersection"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $A=\\{0,2\\}$ et $B=\\{1,2,3\\}$, que vaut $A\\cup B$ ?",
+        "en": "With $A=\\{0,2\\}$ and $B=\\{1,2,3\\}$, what is $A\\cup B$?"
+      },
+      "hint": {
+        "fr": "L'union accepte une appartenance à l'un ou l'autre.",
+        "en": "Union allows membership in either set."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{2\\}$",
+            "en": "$\\{2\\}$"
+          },
+          "feedback": {
+            "fr": "L'union garde tous les membres distincts des deux ensembles.",
+            "en": "Union keeps all distinct members from both sets."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{0,1,2,3\\}$",
+            "en": "$\\{0,1,2,3\\}$"
+          },
+          "feedback": {
+            "fr": "Les éléments réunis sont $0$, $1$, $2$ et $3$.",
+            "en": "The combined elements are $0$, $1$, $2$ and $3$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{0,1,3\\}$",
+            "en": "$\\{0,1,3\\}$"
+          },
+          "feedback": {
+            "fr": "L'union garde tous les membres distincts des deux ensembles.",
+            "en": "Union keeps all distinct members from both sets."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Les éléments réunis sont $0$, $1$, $2$ et $3$.",
+        "en": "The combined elements are $0$, $1$, $2$ and $3$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E09",
+      "objectiveId": "L15-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "complement-taken-in-the-wrong-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $C=\\{a,b,c,d\\}$, le complémentaire de $A=\\{a,c\\}$ est :",
+        "en": "In $C=\\{a,b,c,d\\}$, the complement of $A=\\{a,c\\}$ is:"
+      },
+      "hint": {
+        "fr": "Ne prenez que les objets de $C$ qui sont hors de $A$.",
+        "en": "Take objects in $C$ but outside $A$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{a,c\\}$",
+            "en": "$\\{a,c\\}$"
+          },
+          "feedback": {
+            "fr": "Un complémentaire relatif exclut les membres de $A$.",
+            "en": "A relative complement excludes elements of $A$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{a,b,c,d\\}$",
+            "en": "$\\{a,b,c,d\\}$"
+          },
+          "feedback": {
+            "fr": "Un complémentaire relatif exclut les membres de $A$.",
+            "en": "A relative complement excludes elements of $A$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{b,d\\}$",
+            "en": "$\\{b,d\\}$"
+          },
+          "feedback": {
+            "fr": "$C\\setminus A=\\{b,d\\}$.",
+            "en": "$C\\setminus A=\\{b,d\\}$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$C\\setminus A=\\{b,d\\}$.",
+        "en": "$C\\setminus A=\\{b,d\\}$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E10",
+      "objectiveId": "L15-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "de-morgan-for-sets-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle identité de de Morgan est correcte lorsque $A,B\\subseteq C$ ?",
+        "en": "Which De Morgan identity is correct when $A,B\\subseteq C$?"
+      },
+      "hint": {
+        "fr": "Nier une union donne l'intersection des négations.",
+        "en": "Negating a union gives an intersection of negations."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$C\\setminus(A\\cup B)=(C\\setminus A)\\cap(C\\setminus B)$",
+            "en": "$C\\setminus(A\\cup B)=(C\\setminus A)\\cap(C\\setminus B)$"
+          },
+          "feedback": {
+            "fr": "Un élément hors de l'union est hors de $A$ et hors de $B$.",
+            "en": "An element outside the union is outside both $A$ and $B$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$C\\setminus(A\\cup B)=(C\\setminus A)\\cup(C\\setminus B)$",
+            "en": "$C\\setminus(A\\cup B)=(C\\setminus A)\\cup(C\\setminus B)$"
+          },
+          "feedback": {
+            "fr": "L'opération extérieure bascule de $\\cup$ à $\\cap$.",
+            "en": "The outer operation switches from $\\cup$ to $\\cap$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$C\\setminus(A\\cup B)=A\\cap B$",
+            "en": "$C\\setminus(A\\cup B)=A\\cap B$"
+          },
+          "feedback": {
+            "fr": "L'opération extérieure bascule de $\\cup$ à $\\cap$.",
+            "en": "The outer operation switches from $\\cup$ to $\\cap$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Un élément hors de l'union est hors de $A$ et hors de $B$.",
+        "en": "An element outside the union is outside both $A$ and $B$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E11",
+      "objectiveId": "L15-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "complement-without-ambient-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi $C$ doit-il être indiqué pour un complémentaire relatif ?",
+        "en": "Why must $C$ be specified for a relative complement?"
+      },
+      "hint": {
+        "fr": "Le « dehors » dépend du domaine envisagé.",
+        "en": "What is 'outside' depends on the chosen domain."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "L'ensemble $A$ change de contenu.",
+            "en": "Set $A$ changes its contents."
+          },
+          "feedback": {
+            "fr": "Changer d'ensemble ambiant change ce qui est considéré hors de $A$.",
+            "en": "Changing the ambient set changes what counts as outside $A$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$C\\setminus A$ dépend des éléments disponibles dans $C$.",
+            "en": "$C\\setminus A$ depends on the elements available in $C$."
+          },
+          "feedback": {
+            "fr": "Par exemple, $\\{1,2,3\\}\\setminus\\{1\\}=\\{2,3\\}$, mais ajouter $4$ à l'ambiant ajoute $4$ au complément.",
+            "en": "For example, $\\{1,2,3\\}\\setminus\\{1\\}=\\{2,3\\}$, but adding $4$ to the ambient set adds $4$ to the complement."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Le complémentaire est toujours vide.",
+            "en": "The complement is always empty."
+          },
+          "feedback": {
+            "fr": "Changer d'ensemble ambiant change ce qui est considéré hors de $A$.",
+            "en": "Changing the ambient set changes what counts as outside $A$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Par exemple, $\\{1,2,3\\}\\setminus\\{1\\}=\\{2,3\\}$, mais ajouter $4$ à l'ambiant ajoute $4$ au complément.",
+        "en": "For example, $\\{1,2,3\\}\\setminus\\{1\\}=\\{2,3\\}$, but adding $4$ to the ambient set adds $4$ to the complement."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E12",
+      "objectiveId": "L15-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "union-confused-with-and",
+        "complement-confused-with-minus-universe"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que signifie $x\\in A\\cap B$ en logique ?",
+        "en": "What does $x\\in A\\cap B$ mean logically?"
+      },
+      "hint": {
+        "fr": "L'intersection est analogue au « et ».",
+        "en": "Intersection corresponds to AND."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x\\in A\\lor x\\in B$",
+            "en": "$x\\in A\\lor x\\in B$"
+          },
+          "feedback": {
+            "fr": "L'intersection exige les deux appartenances, non une seule.",
+            "en": "Intersection requires both memberships, not just one."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x\\notin A$",
+            "en": "$x\\notin A$"
+          },
+          "feedback": {
+            "fr": "L'intersection exige les deux appartenances, non une seule.",
+            "en": "Intersection requires both memberships, not just one."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x\\in A\\land x\\in B$",
+            "en": "$x\\in A\\land x\\in B$"
+          },
+          "feedback": {
+            "fr": "L'intersection encode une conjonction des prédicats d'appartenance.",
+            "en": "Intersection encodes conjunction of membership predicates."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "L'intersection encode une conjonction des prédicats d'appartenance.",
+        "en": "Intersection encodes conjunction of membership predicates."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E13",
+      "objectiveId": "L15-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "intersection-as-union"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si $A=\\{2,4,6\\}$ et $B=\\{1,3,5\\}$, que vaut $A\\cap B$ ?",
+        "en": "If $A=\\{2,4,6\\}$ and $B=\\{1,3,5\\}$, what is $A\\cap B$?"
+      },
+      "hint": {
+        "fr": "Les nombres de parités opposées ne se recouvrent pas ici.",
+        "en": "These opposite-parity values do not overlap."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\varnothing$",
+            "en": "$\\varnothing$"
+          },
+          "feedback": {
+            "fr": "L'intersection de ces ensembles disjoints est vide.",
+            "en": "The intersection of these disjoint sets is empty."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A$",
+            "en": "$A$"
+          },
+          "feedback": {
+            "fr": "Aucun nombre n'est listé dans les deux ensembles.",
+            "en": "No number appears in both sets."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$B$",
+            "en": "$B$"
+          },
+          "feedback": {
+            "fr": "Aucun nombre n'est listé dans les deux ensembles.",
+            "en": "No number appears in both sets."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "L'intersection de ces ensembles disjoints est vide.",
+        "en": "The intersection of these disjoint sets is empty."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E14",
+      "objectiveId": "L15-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "union-as-intersection"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$A=\\{1,2\\}$ et $B=\\{2,3\\}$. Combien d'éléments a $A\\cup B$ ?",
+        "en": "$A=\\{1,2\\}$ and $B=\\{2,3\\}$. How many elements does $A\\cup B$ have?"
+      },
+      "hint": {
+        "fr": "Ne comptez pas $2$ deux fois.",
+        "en": "Do not count $2$ twice."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "La réunion contient les trois éléments distincts $1,2,3$.",
+            "en": "The union contains the three distinct elements $1,2,3$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "$A\\cup B=\\{1,2,3\\}$, donc cardinal $3$.",
+            "en": "$A\\cup B=\\{1,2,3\\}$, hence size $3$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "La réunion contient les trois éléments distincts $1,2,3$.",
+            "en": "The union contains the three distinct elements $1,2,3$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$A\\cup B=\\{1,2,3\\}$, donc cardinal $3$.",
+        "en": "$A\\cup B=\\{1,2,3\\}$, hence size $3$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E15",
+      "objectiveId": "L15-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "complement-taken-in-the-wrong-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $C=\\{1,2,3,4,5\\}$, quel est $C\\setminus(A\\cup B)$ si $A=\\{1,3\\}$ et $B=\\{2,3\\}$ ?",
+        "en": "In $C=\\{1,2,3,4,5\\}$, what is $C\\setminus(A\\cup B)$ if $A=\\{1,3\\}$ and $B=\\{2,3\\}$?"
+      },
+      "hint": {
+        "fr": "Commencez par calculer l'union.",
+        "en": "First compute the union."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{1,2,3\\}$",
+            "en": "$\\{1,2,3\\}$"
+          },
+          "feedback": {
+            "fr": "L'union vaut $\\{1,2,3\\}$ ; retirez-la de $C$.",
+            "en": "The union is $\\{1,2,3\\}$; remove it from $C$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{3\\}$",
+            "en": "$\\{3\\}$"
+          },
+          "feedback": {
+            "fr": "L'union vaut $\\{1,2,3\\}$ ; retirez-la de $C$.",
+            "en": "The union is $\\{1,2,3\\}$; remove it from $C$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{4,5\\}$",
+            "en": "$\\{4,5\\}$"
+          },
+          "feedback": {
+            "fr": "Seuls $4$ et $5$ sont hors de $A\\cup B$ dans l'ambiant $C$.",
+            "en": "Only $4$ and $5$ lie outside $A\\cup B$ within $C$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Seuls $4$ et $5$ sont hors de $A\\cup B$ dans l'ambiant $C$.",
+        "en": "Only $4$ and $5$ lie outside $A\\cup B$ within $C$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E16",
+      "objectiveId": "L15-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "de-morgan-for-sets-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle distributivité traduit $x\\in A\\cap(B\\cup D)$ ?",
+        "en": "Which distributivity rewrites $x\\in A\\cap(B\\cup D)$?"
+      },
+      "hint": {
+        "fr": "Distribuez une conjonction sur une disjonction.",
+        "en": "Distribute AND over OR."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x\\in(A\\cap B)\\cup(A\\cap D)$",
+            "en": "$x\\in(A\\cap B)\\cup(A\\cap D)$"
+          },
+          "feedback": {
+            "fr": "$A\\cap(B\\cup D)=(A\\cap B)\\cup(A\\cap D)$.",
+            "en": "$A\\cap(B\\cup D)=(A\\cap B)\\cup(A\\cap D)$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x\\in(A\\cup B)\\cap D$",
+            "en": "$x\\in(A\\cup B)\\cap D$"
+          },
+          "feedback": {
+            "fr": "La condition $x\\in A$ doit accompagner chaque branche $B$ ou $D$.",
+            "en": "The condition $x\\in A$ must accompany both branches $B$ and $D$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x\\in(A\\cap B)\\cap D$",
+            "en": "$x\\in(A\\cap B)\\cap D$"
+          },
+          "feedback": {
+            "fr": "La condition $x\\in A$ doit accompagner chaque branche $B$ ou $D$.",
+            "en": "The condition $x\\in A$ must accompany both branches $B$ and $D$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$A\\cap(B\\cup D)=(A\\cap B)\\cup(A\\cap D)$.",
+        "en": "$A\\cap(B\\cup D)=(A\\cap B)\\cup(A\\cap D)$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E17",
+      "objectiveId": "L15-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "complement-without-ambient-set"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $A=\\{1\\}$ ; $C_1=\\{1,2\\}$ et $C_2=\\{1,2,3\\}$. Quelle affirmation est vraie ?",
+        "en": "Let $A=\\{1\\}$; $C_1=\\{1,2\\}$ and $C_2=\\{1,2,3\\}$. Which claim is true?"
+      },
+      "hint": {
+        "fr": "Calculez le complément de $A$ dans chaque ensemble ambiant.",
+        "en": "Compute the complement of $A$ in each ambient set."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Les deux complémentaires sont égaux.",
+            "en": "Both complements are equal."
+          },
+          "feedback": {
+            "fr": "L'ajout de $3$ à l'ambiant ajoute $3$, sans jamais réintroduire $1$.",
+            "en": "Adding $3$ to the ambient set adds $3$, without reintroducing $1$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$C_1\\setminus A=\\{2\\}$ et $C_2\\setminus A=\\{2,3\\}$.",
+            "en": "$C_1\\setminus A=\\{2\\}$ and $C_2\\setminus A=\\{2,3\\}$."
+          },
+          "feedback": {
+            "fr": "Les complémentaires relatifs dépendent de $C_1$ et $C_2$.",
+            "en": "Relative complements depend on $C_1$ and $C_2$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Le deuxième complément contient $1$.",
+            "en": "The second complement contains $1$."
+          },
+          "feedback": {
+            "fr": "L'ajout de $3$ à l'ambiant ajoute $3$, sans jamais réintroduire $1$.",
+            "en": "Adding $3$ to the ambient set adds $3$, without reintroducing $1$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Les complémentaires relatifs dépendent de $C_1$ et $C_2$.",
+        "en": "Relative complements depend on $C_1$ and $C_2$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E18",
+      "objectiveId": "L15-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "union-confused-with-and",
+        "complement-confused-with-minus-universe"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule logique décrit $x\\in C\\setminus A$ ?",
+        "en": "Which logical formula describes $x\\in C\\setminus A$?"
+      },
+      "hint": {
+        "fr": "L'appartenance à l'ambiant est nécessaire.",
+        "en": "Membership of the ambient set is required."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x\\in A\\lor x\\in C$",
+            "en": "$x\\in A\\lor x\\in C$"
+          },
+          "feedback": {
+            "fr": "Être hors de $A$ ne suffit pas : $x$ doit aussi appartenir à $C$.",
+            "en": "Being outside $A$ is insufficient: $x$ must also belong to $C$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x\\notin A$",
+            "en": "$x\\notin A$"
+          },
+          "feedback": {
+            "fr": "Être hors de $A$ ne suffit pas : $x$ doit aussi appartenir à $C$.",
+            "en": "Being outside $A$ is insufficient: $x$ must also belong to $C$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(x\\in C)\\land(x\\notin A)$",
+            "en": "$(x\\in C)\\land(x\\notin A)$"
+          },
+          "feedback": {
+            "fr": "La différence $C\\setminus A$ est l'ambiant avec les membres de $A$ retirés.",
+            "en": "The difference $C\\setminus A$ is the ambient set with the $A$ members removed."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La différence $C\\setminus A$ est l'ambiant avec les membres de $A$ retirés.",
+        "en": "The difference $C\\setminus A$ is the ambient set with the $A$ members removed."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E19",
+      "objectiveId": "L15-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "de-morgan-for-sets-misapplied"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $C$ avec $A,B\\subseteq C$, quelle identité vaut pour $C\\setminus(A\\cap B)$ ?",
+        "en": "In $C$ with $A,B\\subseteq C$, which identity holds for $C\\setminus(A\\cap B)$?"
+      },
+      "hint": {
+        "fr": "Nier « $A$ et $B$ » donne « non $A$ ou non $B$ ».",
+        "en": "Negating \"$A$ and $B$\" gives \"not $A$ or not $B$\"."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(C\\setminus A)\\cup(C\\setminus B)$",
+            "en": "$(C\\setminus A)\\cup(C\\setminus B)$"
+          },
+          "feedback": {
+            "fr": "Un élément hors de $A\\cap B$ manque au moins l'une des deux appartenances.",
+            "en": "An element outside $A\\cap B$ lacks at least one of the two memberships."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(C\\setminus A)\\cap(C\\setminus B)$",
+            "en": "$(C\\setminus A)\\cap(C\\setminus B)$"
+          },
+          "feedback": {
+            "fr": "La loi de de Morgan échange intersection et union.",
+            "en": "De Morgan switches intersection and union."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\cup B$",
+            "en": "$A\\cup B$"
+          },
+          "feedback": {
+            "fr": "La loi de de Morgan échange intersection et union.",
+            "en": "De Morgan switches intersection and union."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Un élément hors de $A\\cap B$ manque au moins l'une des deux appartenances.",
+        "en": "An element outside $A\\cap B$ lacks at least one of the two memberships."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E20",
+      "objectiveId": "L15-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "union-as-intersection"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si $A\\subseteq B$, que vaut nécessairement $A\\cup B$ ?",
+        "en": "If $A\\subseteq B$, what must $A\\cup B$ equal?"
+      },
+      "hint": {
+        "fr": "Tous les éléments de $A$ sont déjà présents dans $B$.",
+        "en": "All members of $A$ already appear in $B$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A$",
+            "en": "$A$"
+          },
+          "feedback": {
+            "fr": "Ajouter $A$ à $B$ n'ajoute aucun nouvel élément.",
+            "en": "Union with $A$ adds no new member to $B$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$B$",
+            "en": "$B$"
+          },
+          "feedback": {
+            "fr": "L'inclusion implique $A\\cup B=B$ même si $A=\\varnothing$.",
+            "en": "Inclusion implies $A\\cup B=B$ even if $A=\\varnothing$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\varnothing$",
+            "en": "$\\varnothing$"
+          },
+          "feedback": {
+            "fr": "Ajouter $A$ à $B$ n'ajoute aucun nouvel élément.",
+            "en": "Union with $A$ adds no new member to $B$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "L'inclusion implique $A\\cup B=B$ même si $A=\\varnothing$.",
+        "en": "Inclusion implies $A\\cup B=B$ even if $A=\\varnothing$."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L15-E21",
+      "objectiveId": "L15-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "union-confused-with-and",
+        "complement-confused-with-minus-universe"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$x$ appartient à $A$ mais ni à $B$ ni à $D$. À quel ensemble appartient-il assurément ?",
+        "en": "$x$ belongs to $A$ but neither $B$ nor $D$. Which set must contain it?"
+      },
+      "hint": {
+        "fr": "Combinez appartenance à $A$ et exclusion de $B\\cup D$.",
+        "en": "Combine membership in $A$ with exclusion from $B\\cup D$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A\\cap B$",
+            "en": "$A\\cap B$"
+          },
+          "feedback": {
+            "fr": "L'intersection avec $B$ exige une appartenance que l'énoncé exclut.",
+            "en": "Intersection with $B$ requires membership ruled out by the stem."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$B\\cup D$",
+            "en": "$B\\cup D$"
+          },
+          "feedback": {
+            "fr": "L'intersection avec $B$ exige une appartenance que l'énoncé exclut.",
+            "en": "Intersection with $B$ requires membership ruled out by the stem."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\setminus(B\\cup D)$",
+            "en": "$A\\setminus(B\\cup D)$"
+          },
+          "feedback": {
+            "fr": "$x\\in A$ et $x\\notin B\\cup D$, donc il est dans la différence.",
+            "en": "$x\\in A$ and $x\\notin B\\cup D$, so it is in the difference."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$x\\in A$ et $x\\notin B\\cup D$, donc il est dans la différence.",
+        "en": "$x\\in A$ and $x\\notin B\\cup D$, so it is in the difference."
+      },
+      "lessonId": "L15",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          59,
+          60,
+          61,
+          62,
+          63,
+          64,
+          65
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

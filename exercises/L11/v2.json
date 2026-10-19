@@ -1,0 +1,1842 @@
+{
+  "lessonId": "L11",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 21,
+  "exercises": [
+    {
+      "id": "L11-E01",
+      "objectiveId": "L11-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "assertion-confused-with-predicate"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Laquelle de ces expressions, sur $\\mathbb{R}$, est un prédicat qui n’est pas encore une assertion ?",
+        "en": "Which of these expressions, on $\\mathbb{R}$, is a predicate that is not yet an assertion?"
+      },
+      "hint": {
+        "fr": "Cherchez l’expression dont la valeur dépend de la valeur donnée à $x$.",
+        "en": "Look for the expression whose value depends on the value given to $x$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x > 2$",
+            "en": "$x > 2$"
+          },
+          "feedback": {
+            "fr": "Exact : sa valeur dépend de $x$.",
+            "en": "Correct: its value depends on $x$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3 > 2$",
+            "en": "$3 > 2$"
+          },
+          "feedback": {
+            "fr": "C’est une assertion vraie : aucune variable libre.",
+            "en": "This is a true assertion: no free variable."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2 > 3$",
+            "en": "$2 > 3$"
+          },
+          "feedback": {
+            "fr": "C’est une assertion fausse : aucune variable libre.",
+            "en": "This is a false assertion: no free variable."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall x\\ (x > 2)$",
+            "en": "$\\forall x\\ (x > 2)$"
+          },
+          "feedback": {
+            "fr": "C’est une assertion (fausse) : la variable est quantifiée.",
+            "en": "This is an assertion (false): the variable is quantified."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Un prédicat devient une assertion quand sa variable reçoit une valeur ou est quantifiée.",
+        "en": "A predicate becomes an assertion when its variable is given a value or quantified."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E02",
+      "objectiveId": "L11-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "predicate-value-guessed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $P(x)$ le prédicat « $x > 2$ » sur $\\mathbb{R}$. Quelle est la valeur de $P(1)$ ?",
+        "en": "Let $P(x)$ be the predicate “$x > 2$” on $\\mathbb{R}$. What is the value of $P(1)$?"
+      },
+      "hint": {
+        "fr": "Remplacez $x$ par $1$ et décidez si $1 > 2$.",
+        "en": "Replace $x$ by $1$ and decide whether $1 > 2$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vraie",
+            "en": "True"
+          },
+          "feedback": {
+            "fr": "$1 > 2$ est faux.",
+            "en": "$1 > 2$ is false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Fausse",
+            "en": "False"
+          },
+          "feedback": {
+            "fr": "Exact : $1 > 2$ est faux.",
+            "en": "Correct: $1 > 2$ is false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Indéfinie",
+            "en": "Undefined"
+          },
+          "feedback": {
+            "fr": "Une fois $x$ interprété par $1$, $P(1)$ est une assertion avec une valeur.",
+            "en": "Once $x$ is interpreted by $1$, $P(1)$ is an assertion with a value."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Cela dépend de $x$",
+            "en": "It depends on $x$"
+          },
+          "feedback": {
+            "fr": "$x$ est fixé à $1$ : plus rien n’est libre.",
+            "en": "$x$ is fixed to $1$: nothing is free any more."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$P(1)$ s’écrit $1 > 2$, qui est faux.",
+        "en": "$P(1)$ reads $1 > 2$, which is false."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E03",
+      "objectiveId": "L11-O03",
+      "difficulty": "application",
+      "misconceptions": [
+        "forall-with-one-true-case",
+        "universal-needs-all"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur le domaine $\\{1, 2, 3\\}$, soit $P(x)$ : $x < 3$. Quelle affirmation est correcte ?",
+        "en": "On the domain $\\{1, 2, 3\\}$, let $P(x)$ be $x < 3$. Which claim is correct?"
+      },
+      "hint": {
+        "fr": "Un « pour tout » exige que $P(a)$ soit vrai pour chaque $a$.",
+        "en": "A “for all” requires $P(a)$ to be true for every $a$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall x\\ P(x)$ est vraie.",
+            "en": "$\\forall x\\ P(x)$ is true."
+          },
+          "feedback": {
+            "fr": "$P(3)$ est fausse : un seul cas faux suffit à rendre $\\forall$ fausse.",
+            "en": "$P(3)$ is false: a single false case is enough to make $\\forall$ false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall x\\ P(x)$ est fausse, car $P(3)$ est fausse.",
+            "en": "$\\forall x\\ P(x)$ is false, because $P(3)$ is false."
+          },
+          "feedback": {
+            "fr": "Exact : $3$ est un contre-exemple.",
+            "en": "Correct: $3$ is a counterexample."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists x\\ P(x)$ est fausse.",
+            "en": "$\\exists x\\ P(x)$ is false."
+          },
+          "feedback": {
+            "fr": "$P(1)$ est vraie : $1$ est un témoin.",
+            "en": "$P(1)$ is true: $1$ is a witness."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall x\\ P(x)$ est vraie, car $P(1)$ est vraie.",
+            "en": "$\\forall x\\ P(x)$ is true, because $P(1)$ is true."
+          },
+          "feedback": {
+            "fr": "Un seul cas vrai ne suffit pas pour un « pour tout ».",
+            "en": "A single true case is not enough for a “for all”."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Sur $\\{1, 2, 3\\}$, $P(3)$ est fausse, donc $\\forall x\\ P(x)$ est fausse alors que $\\exists x\\ P(x)$ est vraie.",
+        "en": "On $\\{1, 2, 3\\}$, $P(3)$ is false, so $\\forall x\\ P(x)$ is false while $\\exists x\\ P(x)$ is true."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E04",
+      "objectiveId": "L11-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "witness-confused-with-all"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur le domaine $\\{1, 2, 3, 4\\}$, soit $P(x)$ : $x^2 = 4$. Quelle affirmation est correcte ?",
+        "en": "On the domain $\\{1, 2, 3, 4\\}$, let $P(x)$ be $x^2 = 4$. Which claim is correct?"
+      },
+      "hint": {
+        "fr": "Cherchez un élément du domaine qui satisfait $P$.",
+        "en": "Look for an element of the domain that satisfies $P$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists x\\ P(x)$ est fausse.",
+            "en": "$\\exists x\\ P(x)$ is false."
+          },
+          "feedback": {
+            "fr": "$P(2)$ est vraie : un témoin existe.",
+            "en": "$P(2)$ is true: a witness exists."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists x\\ P(x)$ est vraie, de témoin $x = 2$.",
+            "en": "$\\exists x\\ P(x)$ is true, with witness $x = 2$."
+          },
+          "feedback": {
+            "fr": "Exact : $2^2 = 4$.",
+            "en": "Correct: $2^2 = 4$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists x\\ P(x)$ est vraie, de témoin $x = 4$.",
+            "en": "$\\exists x\\ P(x)$ is true, with witness $x = 4$."
+          },
+          "feedback": {
+            "fr": "$4^2 = 16$, pas $4$ : $4$ n’est pas un témoin.",
+            "en": "$4^2 = 16$, not $4$: $4$ is not a witness."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\exists x\\ P(x)$ est fausse, car $P(1)$ est fausse.",
+            "en": "$\\exists x\\ P(x)$ is false, because $P(1)$ is false."
+          },
+          "feedback": {
+            "fr": "Un cas faux n’empêche pas qu’un autre cas soit vrai.",
+            "en": "One false case does not prevent another from being true."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Un seul témoin suffit pour un « il existe ».",
+        "en": "A single witness is enough for a “there exists”."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E05",
+      "objectiveId": "L11-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "domain-ignored"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $P(x)$ : $x > 2$. Quelle affirmation est vraie ?",
+        "en": "Let $P(x)$ be $x > 2$. Which claim is true?"
+      },
+      "hint": {
+        "fr": "Le domaine change la valeur de $\\forall$.",
+        "en": "The domain changes the value of $\\forall$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall x\\ P(x)$ est vraie sur $\\mathbb{R}$.",
+            "en": "$\\forall x\\ P(x)$ is true on $\\mathbb{R}$."
+          },
+          "feedback": {
+            "fr": "$P(1)$ est fausse, donc $\\forall x\\ P(x)$ est fausse sur $\\mathbb{R}$.",
+            "en": "$P(1)$ is false, so $\\forall x\\ P(x)$ is false on $\\mathbb{R}$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall x\\ P(x)$ est vraie sur $[10, +\\infty[$.",
+            "en": "$\\forall x\\ P(x)$ is true on $[10, +\\infty[$."
+          },
+          "feedback": {
+            "fr": "Exact : tout nombre à partir de $10$ dépasse $2$.",
+            "en": "Correct: every number from $10$ upward exceeds $2$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall x\\ P(x)$ est fausse sur $[10, +\\infty[$.",
+            "en": "$\\forall x\\ P(x)$ is false on $[10, +\\infty[$."
+          },
+          "feedback": {
+            "fr": "Aucun nombre de $[10, +\\infty[$ n’est $\\leq 2$.",
+            "en": "No number in $[10, +\\infty[$ is $\\leq 2$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\exists x\\ P(x)$ est fausse sur $\\mathbb{R}$.",
+            "en": "$\\exists x\\ P(x)$ is false on $\\mathbb{R}$."
+          },
+          "feedback": {
+            "fr": "$P(3)$ est vraie : $3$ est un témoin sur $\\mathbb{R}$.",
+            "en": "$P(3)$ is true: $3$ is a witness on $\\mathbb{R}$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le même prédicat donne $\\forall$ faux sur $\\mathbb{R}$ et vrai sur $[10, +\\infty[$.",
+        "en": "The same predicate gives $\\forall$ false on $\\mathbb{R}$ and true on $[10, +\\infty[$."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E06",
+      "objectiveId": "L11-O06",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "universal-from-one-example"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur le domaine $\\{\\text{Wiltz}, \\text{Esch-sur-Alzette}, \\text{Arlon}\\}$, soit $P(x)$ : « $x$ est une ville du Luxembourg ». Que valent $\\forall x\\ P(x)$ et $\\exists x\\ P(x)$ ?",
+        "en": "On the domain $\\{\\text{Wiltz}, \\text{Esch-sur-Alzette}, \\text{Arlon}\\}$, let $P(x)$ be “$x$ is a town in Luxembourg”. What are $\\forall x\\ P(x)$ and $\\exists x\\ P(x)$?"
+      },
+      "hint": {
+        "fr": "Arlon est en Belgique.",
+        "en": "Arlon is in Belgium."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall$ vraie, $\\exists$ vraie",
+            "en": "$\\forall$ true, $\\exists$ true"
+          },
+          "feedback": {
+            "fr": "Arlon est en Belgique : $\\forall$ est fausse.",
+            "en": "Arlon is in Belgium: $\\forall$ is false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall$ fausse, $\\exists$ vraie",
+            "en": "$\\forall$ false, $\\exists$ true"
+          },
+          "feedback": {
+            "fr": "Exact : Arlon est un contre-exemple, Wiltz un témoin.",
+            "en": "Correct: Arlon is a counterexample, Wiltz a witness."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall$ vraie, $\\exists$ fausse",
+            "en": "$\\forall$ true, $\\exists$ false"
+          },
+          "feedback": {
+            "fr": "Impossible ici : si $\\forall$ est vraie, $\\exists$ l’est aussi sur un domaine non vide.",
+            "en": "Impossible here: if $\\forall$ is true, $\\exists$ is true too on a nonempty domain."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\forall$ fausse, $\\exists$ fausse",
+            "en": "$\\forall$ false, $\\exists$ false"
+          },
+          "feedback": {
+            "fr": "Wiltz et Esch-sur-Alzette sont au Luxembourg : $\\exists$ est vraie.",
+            "en": "Wiltz and Esch-sur-Alzette are in Luxembourg: $\\exists$ is true."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Un contre-exemple (Arlon) réfute $\\forall$ ; un témoin (Wiltz) prouve $\\exists$.",
+        "en": "A counterexample (Arlon) refutes $\\forall$; a witness (Wiltz) proves $\\exists$."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E07",
+      "objectiveId": "L11-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "assertion-confused-with-predicate"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $X=\\{1,2,3\\}$, laquelle est un prédicat avant choix de $x$ ?",
+        "en": "Over $X=\\{1,2,3\\}$, which is a predicate before choosing $x$?"
+      },
+      "hint": {
+        "fr": "Le prédicat contient une variable non encore fixée.",
+        "en": "A predicate contains a variable not yet fixed."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x>1$",
+            "en": "$x>1$"
+          },
+          "feedback": {
+            "fr": "$x>1$ devient vrai ou faux selon la valeur choisie dans $X$.",
+            "en": "$x>1$ becomes true or false depending on the chosen value in $X$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2>1$",
+            "en": "$2>1$"
+          },
+          "feedback": {
+            "fr": "Les comparaisons de nombres donnés ont déjà une valeur de vérité.",
+            "en": "Comparisons of fixed numbers already have a truth value."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1=1$",
+            "en": "$1=1$"
+          },
+          "feedback": {
+            "fr": "Les comparaisons de nombres donnés ont déjà une valeur de vérité.",
+            "en": "Comparisons of fixed numbers already have a truth value."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$x>1$ devient vrai ou faux selon la valeur choisie dans $X$.",
+        "en": "$x>1$ becomes true or false depending on the chosen value in $X$."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E08",
+      "objectiveId": "L11-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "predicate-value-guessed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $P(t)$ : $t^2=9$ sur $\\mathbb Z$, que vaut $P(-3)$ ?",
+        "en": "For $P(t)$: $t^2=9$ over $\\mathbb Z$, what is $P(-3)$?"
+      },
+      "hint": {
+        "fr": "Remplacez $t$ par $-3$.",
+        "en": "Substitute $t$ with $-3$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vrai.",
+            "en": "True."
+          },
+          "feedback": {
+            "fr": "L'instance $P(-3)$ est vraie car $9=9$.",
+            "en": "The instance $P(-3)$ is true because $9=9$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Faux.",
+            "en": "False."
+          },
+          "feedback": {
+            "fr": "Le domaine est précisé et $(-3)^2=9$.",
+            "en": "The domain is given and $(-3)^2=9$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Sans domaine.",
+            "en": "Without a domain."
+          },
+          "feedback": {
+            "fr": "Le domaine est précisé et $(-3)^2=9$.",
+            "en": "The domain is given and $(-3)^2=9$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "L'instance $P(-3)$ est vraie car $9=9$.",
+        "en": "The instance $P(-3)$ is true because $9=9$."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E09",
+      "objectiveId": "L11-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "forall-with-one-true-case",
+        "universal-needs-all"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $X=\\{2,4,6\\}$, $P(x)$ signifie « $x$ est pair ». Quelle assertion est vraie ?",
+        "en": "Over $X=\\{2,4,6\\}$, $P(x)$ means \"$x$ is even\". Which statement is true?"
+      },
+      "hint": {
+        "fr": "Vérifiez chaque élément de $X$.",
+        "en": "Check every element of $X$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall x\\in X\\ P(x)$",
+            "en": "$\\forall x\\in X\\ P(x)$"
+          },
+          "feedback": {
+            "fr": "$2$, $4$ et $6$ vérifient $P$, donc la proposition universelle est vraie.",
+            "en": "$2$, $4$ and $6$ satisfy $P$, so the universal claim holds."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall x\\in X\\ \\neg P(x)$",
+            "en": "$\\forall x\\in X\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Tous les éléments de ce domaine sont pairs.",
+            "en": "Every element of this domain is even."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists x\\in X\\ \\neg P(x)$",
+            "en": "$\\exists x\\in X\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Tous les éléments de ce domaine sont pairs.",
+            "en": "Every element of this domain is even."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$2$, $4$ et $6$ vérifient $P$, donc la proposition universelle est vraie.",
+        "en": "$2$, $4$ and $6$ satisfy $P$, so the universal claim holds."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E10",
+      "objectiveId": "L11-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "witness-confused-with-all"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $X=\\{1,3,5\\}$, quelle valeur témoigne de $\\exists x\\in X\\ (x>4)$ ?",
+        "en": "Over $X=\\{1,3,5\\}$, which value witnesses $\\exists x\\in X\\ (x>4)$?"
+      },
+      "hint": {
+        "fr": "Le témoin appartient au domaine et satisfait la propriété.",
+        "en": "A witness must belong to the domain and satisfy the condition."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "$3$ ne dépasse pas $4$ et $6$ ne figure pas dans $X$.",
+            "en": "$3$ is not above $4$ and $6$ is outside $X$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "$5\\in X$ et $5>4$.",
+            "en": "$5\\in X$ and $5>4$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "$3$ ne dépasse pas $4$ et $6$ ne figure pas dans $X$.",
+            "en": "$3$ is not above $4$ and $6$ is outside $X$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$5\\in X$ et $5>4$.",
+        "en": "$5\\in X$ and $5>4$."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E11",
+      "objectiveId": "L11-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "domain-ignored"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur quel domaine $\\forall x\\ (x\\geq0)$ est-elle vraie ?",
+        "en": "Over which domain is $\\forall x\\ (x\\geq0)$ true?"
+      },
+      "hint": {
+        "fr": "Un seul nombre négatif rend une universelle fausse.",
+        "en": "One negative number falsifies a universal claim."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\mathbb Z$",
+            "en": "$\\mathbb Z$"
+          },
+          "feedback": {
+            "fr": "Les entiers et les réels contiennent des nombres négatifs.",
+            "en": "Integers and reals contain negative numbers."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\mathbb R$",
+            "en": "$\\mathbb R$"
+          },
+          "feedback": {
+            "fr": "Les entiers et les réels contiennent des nombres négatifs.",
+            "en": "Integers and reals contain negative numbers."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\mathbb N$",
+            "en": "$\\mathbb N$"
+          },
+          "feedback": {
+            "fr": "Dans ce cours, $\\mathbb N$ contient seulement $0,1,2,\\ldots$.",
+            "en": "In this course, $\\mathbb N$ contains only $0,1,2,\\ldots$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Dans ce cours, $\\mathbb N$ contient seulement $0,1,2,\\ldots$.",
+        "en": "In this course, $\\mathbb N$ contains only $0,1,2,\\ldots$."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E12",
+      "objectiveId": "L11-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "universal-from-one-example"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $X=\\{\\text{Paris},\\text{Luxembourg}\\}$, soit $P(v)$ : « $v$ est une capitale ». Quelle assertion est vraie ?",
+        "en": "Over $X=\\{\\text{Paris},\\text{Luxembourg}\\}$, let $P(v)$ mean \"$v$ is a capital\". Which claim is true?"
+      },
+      "hint": {
+        "fr": "Les deux villes sont des capitales.",
+        "en": "Both cities are capitals."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall v\\in X\\ P(v)$",
+            "en": "$\\forall v\\in X\\ P(v)$"
+          },
+          "feedback": {
+            "fr": "Paris est capitale de la France et Luxembourg du Luxembourg.",
+            "en": "Paris is France's capital and Luxembourg is Luxembourg's capital."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall v\\in X\\ \\neg P(v)$",
+            "en": "$\\forall v\\in X\\ \\neg P(v)$"
+          },
+          "feedback": {
+            "fr": "Les deux villes satisfont le prédicat, elles ne le réfutent pas.",
+            "en": "Both cities satisfy the predicate; they do not refute it."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg\\exists v\\in X\\ P(v)$",
+            "en": "$\\neg\\exists v\\in X\\ P(v)$"
+          },
+          "feedback": {
+            "fr": "Les deux villes satisfont le prédicat, elles ne le réfutent pas.",
+            "en": "Both cities satisfy the predicate; they do not refute it."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Paris est capitale de la France et Luxembourg du Luxembourg.",
+        "en": "Paris is France's capital and Luxembourg is Luxembourg's capital."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E13",
+      "objectiveId": "L11-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "assertion-confused-with-predicate"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$Q(a,b)$ : « $a+b$ est pair » sur $\\mathbb Z^2$. Quelle interprétation est correcte ?",
+        "en": "$Q(a,b)$: \"$a+b$ is even\" over $\\mathbb Z^2$. Which interpretation is correct?"
+      },
+      "hint": {
+        "fr": "Il faut donner des valeurs aux deux variables.",
+        "en": "Both variables need values."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$Q$ est toujours faux.",
+            "en": "$Q$ is always false."
+          },
+          "feedback": {
+            "fr": "$Q(1,1)$ est vraie, mais $Q(1,2)$ est fausse.",
+            "en": "$Q(1,1)$ is true but $Q(1,2)$ is false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$Q$ dépend du couple choisi.",
+            "en": "$Q$ depends on the chosen pair."
+          },
+          "feedback": {
+            "fr": "La valeur du prédicat binaire varie avec $(a,b)$.",
+            "en": "The binary predicate's value depends on $(a,b)$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$Q$ possède déjà une valeur unique sans couple.",
+            "en": "$Q$ already has one truth value without a pair."
+          },
+          "feedback": {
+            "fr": "$Q(1,1)$ est vraie, mais $Q(1,2)$ est fausse.",
+            "en": "$Q(1,1)$ is true but $Q(1,2)$ is false."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La valeur du prédicat binaire varie avec $(a,b)$.",
+        "en": "The binary predicate's value depends on $(a,b)$."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E14",
+      "objectiveId": "L11-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "predicate-value-guessed"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $P(x)$ : $x<0$ sur $X=\\{-2,0,2\\}$. Quelle paire de valeurs de $P$ est correcte ?",
+        "en": "Let $P(x)$ mean $x<0$ over $X=\\{-2,0,2\\}$. Which pair of values of $P$ is correct?"
+      },
+      "hint": {
+        "fr": "Zéro n'est pas strictement négatif.",
+        "en": "Zero is not strictly negative."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$P(-2)=1,\\ P(0)=0$",
+            "en": "$P(-2)=1,\\ P(0)=0$"
+          },
+          "feedback": {
+            "fr": "$-2<0$ est vrai et $0<0$ est faux.",
+            "en": "$-2<0$ is true and $0<0$ is false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$P(-2)=0,\\ P(0)=1$",
+            "en": "$P(-2)=0,\\ P(0)=1$"
+          },
+          "feedback": {
+            "fr": "Un strict inférieur exclut la valeur frontière $0$.",
+            "en": "A strict inequality excludes boundary value $0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$P(-2)=1,\\ P(0)=1$",
+            "en": "$P(-2)=1,\\ P(0)=1$"
+          },
+          "feedback": {
+            "fr": "Un strict inférieur exclut la valeur frontière $0$.",
+            "en": "A strict inequality excludes boundary value $0$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$-2<0$ est vrai et $0<0$ est faux.",
+        "en": "$-2<0$ is true and $0<0$ is false."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E15",
+      "objectiveId": "L11-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "forall-with-one-true-case",
+        "universal-needs-all"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $X=\\{0,1,2,3\\}$, que conclure de $\\forall x\\in X\\ (x<3)$ ?",
+        "en": "Over $X=\\{0,1,2,3\\}$, what follows about $\\forall x\\in X\\ (x<3)$?"
+      },
+      "hint": {
+        "fr": "Cherchez un seul contre-exemple.",
+        "en": "Look for one counterexample."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vraie avec témoin $0$.",
+            "en": "True with witness $0$."
+          },
+          "feedback": {
+            "fr": "Une universelle exige tous les éléments ; le fait qu'un élément passe ne suffit pas.",
+            "en": "A universal claim needs all elements; one passing element is insufficient."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Fausse à cause de $3$.",
+            "en": "False because of $3$."
+          },
+          "feedback": {
+            "fr": "$3\\in X$ et $3<3$ est faux.",
+            "en": "$3\\in X$ and $3<3$ is false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Vraie car $X$ est fini.",
+            "en": "True because $X$ is finite."
+          },
+          "feedback": {
+            "fr": "Une universelle exige tous les éléments ; le fait qu'un élément passe ne suffit pas.",
+            "en": "A universal claim needs all elements; one passing element is insufficient."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$3\\in X$ et $3<3$ est faux.",
+        "en": "$3\\in X$ and $3<3$ is false."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E16",
+      "objectiveId": "L11-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "witness-confused-with-all"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $X=\\{4,6,8\\}$, quel témoin prouve $\\exists x\\in X\\ (x/3=2)$ ?",
+        "en": "Over $X=\\{4,6,8\\}$, which witness proves $\\exists x\\in X\\ (x/3=2)$?"
+      },
+      "hint": {
+        "fr": "Résolvez l'équation $x/3=2$ dans le domaine.",
+        "en": "Solve $x/3=2$ within the domain."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "$4/3$ et $8/3$ ne valent pas $2$.",
+            "en": "$4/3$ and $8/3$ do not equal $2$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$8$",
+            "en": "$8$"
+          },
+          "feedback": {
+            "fr": "$4/3$ et $8/3$ ne valent pas $2$.",
+            "en": "$4/3$ and $8/3$ do not equal $2$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "$6/3=2$ et $6$ appartient à $X$.",
+            "en": "$6/3=2$ and $6$ belongs to $X$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$6/3=2$ et $6$ appartient à $X$.",
+        "en": "$6/3=2$ and $6$ belongs to $X$."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E17",
+      "objectiveId": "L11-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "domain-ignored"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Soit $P(x)$ : $x^2<4$. Quelle assertion est vraie sur $X=\\{-1,0,1\\}$ mais fausse sur $Y=\\{-2,-1,0,1,2\\}$ ?",
+        "en": "Let $P(x)$ mean $x^2<4$. Which assertion is true on $X=\\{-1,0,1\\}$ but false on $Y=\\{-2,-1,0,1,2\\}$?"
+      },
+      "hint": {
+        "fr": "Vérifiez les bornes $-2$ et $2$.",
+        "en": "Check the boundary values $-2$ and $2$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall x\\ P(x)$",
+            "en": "$\\forall x\\ P(x)$"
+          },
+          "feedback": {
+            "fr": "Tous les éléments de $X$ ont un carré inférieur à $4$, mais $P(2)$ est faux dans $Y$.",
+            "en": "Every member of $X$ squares below $4$, but $P(2)$ is false in $Y$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists x\\ P(x)$",
+            "en": "$\\exists x\\ P(x)$"
+          },
+          "feedback": {
+            "fr": "Le changement de domaine affecte l'universelle ; l'existentielle reste vraie dans les deux.",
+            "en": "The domain change affects the universal; the existential remains true in both."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists x\\ \\neg P(x)$",
+            "en": "$\\exists x\\ \\neg P(x)$"
+          },
+          "feedback": {
+            "fr": "Le changement de domaine affecte l'universelle ; l'existentielle reste vraie dans les deux.",
+            "en": "The domain change affects the universal; the existential remains true in both."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Tous les éléments de $X$ ont un carré inférieur à $4$, mais $P(2)$ est faux dans $Y$.",
+        "en": "Every member of $X$ squares below $4$, but $P(2)$ is false in $Y$."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E18",
+      "objectiveId": "L11-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "universal-from-one-example"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $X=\\{\\text{Riga},\\text{Vilnius},\\text{Bruxelles}\\}$, $P(v)$ signifie « $v$ est une capitale d'un pays de l'Union européenne ». Quel test réfuterait $\\forall v\\in X\\ P(v)$ ?",
+        "en": "Over $X=\\{\\text{Riga},\\text{Vilnius},\\text{Bruxelles}\\}$, $P(v)$ means \"$v$ is an EU country capital\". What would refute $\\forall v\\in X\\ P(v)$?"
+      },
+      "hint": {
+        "fr": "Il faudrait trouver dans $X$ une ville qui n'est pas capitale du pays visé.",
+        "en": "You would need a member of $X$ that is not a capital of its country."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vérifier les trois villes.",
+            "en": "Check all three cities."
+          },
+          "feedback": {
+            "fr": "Seul un membre du domaine peut servir de contre-exemple ; une vérification n'est pas un contre-exemple.",
+            "en": "Only a domain member can be a counterexample; checking is not itself a counterexample."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Trouver une ville de $X$ qui ne satisfait pas $P$.",
+            "en": "Find a city in $X$ that fails $P$."
+          },
+          "feedback": {
+            "fr": "Une assertion universelle est réfutée par un membre de son domaine qui échoue au prédicat.",
+            "en": "A universal assertion is refuted by a domain member that fails the predicate."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Trouver une ville hors de $X$ qui ne satisfait pas $P$.",
+            "en": "Find a city outside $X$ that fails $P$."
+          },
+          "feedback": {
+            "fr": "Seul un membre du domaine peut servir de contre-exemple ; une vérification n'est pas un contre-exemple.",
+            "en": "Only a domain member can be a counterexample; checking is not itself a counterexample."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Une assertion universelle est réfutée par un membre de son domaine qui échoue au prédicat.",
+        "en": "A universal assertion is refuted by a domain member that fails the predicate."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E19",
+      "objectiveId": "L11-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "forall-with-one-true-case",
+        "universal-needs-all"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans $X=\\{0,2,4\\}$, $P(x)$ : « $x$ est pair ». Quel changement minimal rendrait $\\forall x\\in X\\ P(x)$ faux ?",
+        "en": "In $X=\\{0,2,4\\}$, $P(x)$ means \"$x$ is even\". Which minimal change makes $\\forall x\\in X\\ P(x)$ false?"
+      },
+      "hint": {
+        "fr": "Ajouter un contre-exemple au domaine suffit.",
+        "en": "Adding one counterexample to the domain suffices."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Ajouter $6$ à $X$.",
+            "en": "Add $6$ to $X$."
+          },
+          "feedback": {
+            "fr": "Retirer ou ajouter un nombre pair laisse tous les membres pairs.",
+            "en": "Removing or adding an even number leaves every member even."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Retirer $2$ de $X$.",
+            "en": "Remove $2$ from $X$."
+          },
+          "feedback": {
+            "fr": "Retirer ou ajouter un nombre pair laisse tous les membres pairs.",
+            "en": "Removing or adding an even number leaves every member even."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Ajouter $3$ à $X$.",
+            "en": "Add $3$ to $X$."
+          },
+          "feedback": {
+            "fr": "$3$ est impair ; sa présence suffit à réfuter « tous pairs ».",
+            "en": "$3$ is odd; its presence refutes 'all even'."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$3$ est impair ; sa présence suffit à réfuter « tous pairs ».",
+        "en": "$3$ is odd; its presence refutes 'all even'."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E20",
+      "objectiveId": "L11-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "witness-confused-with-all"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $X=\\{-3,-1,1,3\\}$, combien de témoins satisfont $\\exists x\\in X\\ (x^2=9)$ ?",
+        "en": "Over $X=\\{-3,-1,1,3\\}$, how many witnesses satisfy $\\exists x\\in X\\ (x^2=9)$?"
+      },
+      "hint": {
+        "fr": "Une équation au carré peut avoir deux solutions opposées.",
+        "en": "A squared equation can have opposite solutions."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Seuls les deux nombres de valeur absolue $3$ conviennent.",
+            "en": "Only the two numbers with absolute value $3$ work."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "$x=-3$ et $x=3$ satisfont l'égalité, contrairement à $\\pm1$.",
+            "en": "$x=-3$ and $x=3$ satisfy the equality, unlike $\\pm1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Seuls les deux nombres de valeur absolue $3$ conviennent.",
+            "en": "Only the two numbers with absolute value $3$ work."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$x=-3$ et $x=3$ satisfont l'égalité, contrairement à $\\pm1$.",
+        "en": "$x=-3$ and $x=3$ satisfy the equality, unlike $\\pm1$."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L11-E21",
+      "objectiveId": "L11-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "domain-ignored"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un collègue conclut de $\\exists x\\in X\\ P(x)$ que $\\forall x\\in X\\ P(x)$. Quel modèle fini réfute ce raisonnement ?",
+        "en": "From $\\exists x\\in X\\ P(x)$, a colleague infers $\\forall x\\in X\\ P(x)$. Which finite model refutes that?"
+      },
+      "hint": {
+        "fr": "Cherchez un domaine ayant au moins un succès et au moins un échec.",
+        "en": "Find a domain with at least one success and one failure."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$X=\\{2,4\\},\\ P(x):x<5$",
+            "en": "$X=\\{2,4\\},\\ P(x):x<5$"
+          },
+          "feedback": {
+            "fr": "Il faut un témoin et un contre-exemple dans le même domaine.",
+            "en": "We need both a witness and a counterexample in the same domain."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$X=\\varnothing$",
+            "en": "$X=\\varnothing$"
+          },
+          "feedback": {
+            "fr": "Il faut un témoin et un contre-exemple dans le même domaine.",
+            "en": "We need both a witness and a counterexample in the same domain."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$X=\\{2,5\\},\\ P(x):x<5$",
+            "en": "$X=\\{2,5\\},\\ P(x):x<5$"
+          },
+          "feedback": {
+            "fr": "$2$ témoigne de $\\exists$, tandis que $5$ réfute $\\forall$.",
+            "en": "$2$ witnesses $\\exists$, while $5$ refutes $\\forall$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$2$ témoigne de $\\exists$, tandis que $5$ réfute $\\forall$.",
+        "en": "$2$ witnesses $\\exists$, while $5$ refutes $\\forall$."
+      },
+      "lessonId": "L11",
+      "version": 2,
+      "prerequisites": [
+        "L01",
+        "L10"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          44,
+          45,
+          46,
+          47,
+          48
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

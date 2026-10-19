@@ -580,8 +580,8 @@
       ],
       "type": "single-choice",
       "prompt": {
-        "fr": "On affirme « un code valide est nécessaire pour accéder ». Quelle implication est justifiée ?",
-        "en": "We claim 'a valid code is necessary for access'. Which implication follows?"
+        "fr": "On affirme « un code valide est nécessaire pour accéder ». Avec $A$ : accès et $C$ : code valide, quelle implication est justifiée ?",
+        "en": "We claim 'a valid code is necessary for access'. With $A$: access and $C$: valid code, which implication follows?"
       },
       "hint": {
         "fr": "Si l'accès réussit, le code ne peut pas être invalide.",
@@ -591,8 +591,8 @@
         {
           "id": "a",
           "label": {
-            "fr": "$\\text{CodeValide}\\Rightarrow\\text{Accès}$",
-            "en": "$\\text{CodeValide}\\Rightarrow\\text{Accès}$"
+            "fr": "$C\\Rightarrow A$",
+            "en": "$C\\Rightarrow A$"
           },
           "feedback": {
             "fr": "Une condition nécessaire n'est pas automatiquement suffisante ni équivalente.",
@@ -602,8 +602,8 @@
         {
           "id": "b",
           "label": {
-            "fr": "$\\text{Accès}\\Rightarrow\\text{CodeValide}$",
-            "en": "$\\text{Accès}\\Rightarrow\\text{CodeValide}$"
+            "fr": "$A\\Rightarrow C$",
+            "en": "$A\\Rightarrow C$"
           },
           "feedback": {
             "fr": "L'accès garantit le code valide ; un code valide peut être refusé pour une autre raison.",
@@ -613,8 +613,8 @@
         {
           "id": "c",
           "label": {
-            "fr": "$\\text{Accès}\\Leftrightarrow\\text{CodeValide}$",
-            "en": "$\\text{Accès}\\Leftrightarrow\\text{CodeValide}$"
+            "fr": "$A\\Leftrightarrow C$",
+            "en": "$A\\Leftrightarrow C$"
           },
           "feedback": {
             "fr": "Une condition nécessaire n'est pas automatiquement suffisante ni équivalente.",

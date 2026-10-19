@@ -1,0 +1,1867 @@
+{
+  "lessonId": "L07",
+  "version": 4,
+  "status": "review-candidate",
+  "exerciseCount": 21,
+  "exercises": [
+    {
+      "id": "L07-E01",
+      "objectiveId": "L07-O01",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "biconditional-as-single-implication"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule définit $A \\Leftrightarrow B$ ?",
+        "en": "Which formula defines $A \\Leftrightarrow B$?"
+      },
+      "hint": {
+        "fr": "Pensez à une implication dans chaque sens.",
+        "en": "Think of an implication in each direction."
+      },
+      "options": [
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(A \\Rightarrow B) \\lor (B \\Rightarrow A)$",
+            "en": "$(A \\Rightarrow B) \\lor (B \\Rightarrow A)$"
+          },
+          "feedback": {
+            "fr": "Cette disjonction est vraie pour toutes les lignes : elle ne peut pas définir $A \\Leftrightarrow B$.",
+            "en": "This disjunction is true on every row: it cannot define $A \\Leftrightarrow B$."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(A \\Rightarrow B) \\land (B \\Rightarrow A)$",
+            "en": "$(A \\Rightarrow B) \\land (B \\Rightarrow A)$"
+          },
+          "feedback": {
+            "fr": "Exact : les deux implications doivent être vraies.",
+            "en": "Correct: both implications must be true."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A \\Rightarrow B$",
+            "en": "$A \\Rightarrow B$"
+          },
+          "feedback": {
+            "fr": "Une seule implication ne suffit pas : $B \\Rightarrow A$ manque.",
+            "en": "One implication is not enough: $B \\Rightarrow A$ is missing."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A \\land B$",
+            "en": "$A \\land B$"
+          },
+          "feedback": {
+            "fr": "La conjonction est fausse pour $A = B = 0$, alors que $A \\Leftrightarrow B$ y est vraie.",
+            "en": "The conjunction is false for $A = B = 0$, whereas $A \\Leftrightarrow B$ is true there."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$A \\Leftrightarrow B$ est définie par $(A \\Rightarrow B) \\land (B \\Rightarrow A)$.",
+        "en": "$A \\Leftrightarrow B$ is defined by $(A \\Rightarrow B) \\land (B \\Rightarrow A)$."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E02",
+      "objectiveId": "L07-O02",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "biconditional-read-as-and"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Complétez la colonne de $A \\Leftrightarrow B$.",
+        "en": "Complete the column of $A \\Leftrightarrow B$."
+      },
+      "hint": {
+        "fr": "La biconditionnelle est vraie lorsque $A$ et $B$ ont la même valeur.",
+        "en": "The biconditional is true when $A$ and $B$ have the same value."
+      },
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "10": false,
+        "11": true,
+        "00": true,
+        "01": false
+      },
+      "feedback": {
+        "fr": "Vrai aux lignes 00 et 11, faux aux lignes 01 et 10.",
+        "en": "True in rows 00 and 11, false in rows 01 and 10."
+      },
+      "explanation": {
+        "fr": "Dans les lignes 00 et 11, les deux implications sont vraies ; dans les lignes 01 et 10, l’une d’elles est fausse.",
+        "en": "In rows 00 and 11, both implications are true; in rows 01 and 10, one of them is false."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E03",
+      "objectiveId": "L07-O03",
+      "difficulty": "foundation",
+      "misconceptions": [
+        "connective-confused-with-relation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle phrase décrit correctement $\\Leftrightarrow$ et $\\equiv$ ?",
+        "en": "Which sentence correctly describes $\\Leftrightarrow$ and $\\equiv$?"
+      },
+      "hint": {
+        "fr": "L’un fabrique une assertion ; l’autre compare deux tables.",
+        "en": "One builds an assertion; the other compares two tables."
+      },
+      "options": [
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\equiv$ est un connecteur ; $\\Leftrightarrow$ est une relation entre assertions.",
+            "en": "$\\equiv$ is a connective; $\\Leftrightarrow$ is a relation between assertions."
+          },
+          "feedback": {
+            "fr": "C’est l’inverse de la bonne description.",
+            "en": "This is the reverse of the correct description."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Les deux sont des connecteurs.",
+            "en": "Both are connectives."
+          },
+          "feedback": {
+            "fr": "$\\equiv$ ne fabrique pas d’assertion à l’intérieur d’une formule.",
+            "en": "$\\equiv$ does not build an assertion inside a formula."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Les deux sont des relations entre assertions.",
+            "en": "Both are relations between assertions."
+          },
+          "feedback": {
+            "fr": "$\\Leftrightarrow$ a sa propre table de vérité : c’est un connecteur.",
+            "en": "$\\Leftrightarrow$ has its own truth table: it is a connective."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\Leftrightarrow$ est un connecteur qui fabrique une assertion ; $\\equiv$ est une relation qui compare deux tables de vérité.",
+            "en": "$\\Leftrightarrow$ is a connective that builds an assertion; $\\equiv$ is a relation that compares two truth tables."
+          },
+          "feedback": {
+            "fr": "Exact : ce sont deux niveaux différents.",
+            "en": "Correct: they are two different levels."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$\\Leftrightarrow$ construit une assertion avec sa table ; $\\equiv$ compare les tables de deux assertions.",
+        "en": "$\\Leftrightarrow$ builds an assertion with its own table; $\\equiv$ compares the tables of two assertions."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E04",
+      "objectiveId": "L07-O04",
+      "difficulty": "application",
+      "misconceptions": [
+        "equivalence-needs-only-some-rows",
+        "tautology-confusion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour deux assertions $A$ et $B$, quelle condition est nécessaire et suffisante pour avoir $A \\equiv B$ ?",
+        "en": "For two propositions $A$ and $B$, which condition is necessary and sufficient for $A \\equiv B$ to hold?"
+      },
+      "hint": {
+        "fr": "Vérifiez les deux sens : la condition garantit-elle l’équivalence, et toute paire équivalente la satisfait-elle ?",
+        "en": "Check both directions: does the condition guarantee equivalence, and does every equivalent pair satisfy it?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Exactement lorsque $A \\Leftrightarrow B$ est une tautologie.",
+            "en": "Exactly when $A \\Leftrightarrow B$ is a tautology."
+          },
+          "feedback": {
+            "fr": "Exact : $A \\Leftrightarrow B$ doit valoir $1$ sur toutes les lignes.",
+            "en": "Correct: $A \\Leftrightarrow B$ must be $1$ on every row."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Lorsque $A \\Leftrightarrow B$ est vraie sur au moins une ligne.",
+            "en": "When $A \\Leftrightarrow B$ is true on at least one row."
+          },
+          "feedback": {
+            "fr": "$A \\land B$ et $A \\lor B$ s’accordent aux lignes 00 et 11 mais ne sont pas équivalentes.",
+            "en": "$A \\land B$ and $A \\lor B$ agree in rows 00 and 11 but are not equivalent."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Lorsque $A \\Leftrightarrow B$ est une contradiction.",
+            "en": "When $A \\Leftrightarrow B$ is a contradiction."
+          },
+          "feedback": {
+            "fr": "Une contradiction est fausse partout : $A$ et $B$ diffèrent alors sur chaque ligne.",
+            "en": "A contradiction is false everywhere: $A$ and $B$ then differ on every row."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Lorsque $A$ et $B$ sont toutes deux des tautologies.",
+            "en": "When $A$ and $B$ are both tautologies."
+          },
+          "feedback": {
+            "fr": "C’est suffisant, mais pas nécessaire : $A \\land B$ et $B \\land A$ sont équivalentes sans être des tautologies.",
+            "en": "This is sufficient but not necessary: $A \\land B$ and $B \\land A$ are equivalent without being tautologies."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$A \\equiv B$ est vrai exactement lorsque $A \\Leftrightarrow B$ ne prend jamais la valeur $0$.",
+        "en": "$A \\equiv B$ holds exactly when $A \\Leftrightarrow B$ never takes the value $0$."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E05",
+      "objectiveId": "L07-O05",
+      "difficulty": "application",
+      "misconceptions": [
+        "equivalence-checked-on-one-row"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Complétez la colonne de $\\neg (A \\land B) \\Leftrightarrow (\\neg A \\lor \\neg B)$. Que conclure sur l’équivalence ? Seules les cellules de la table sont notées ; la conclusion sur l’équivalence est une auto-vérification après correction.",
+        "en": "Complete the column of $\\neg (A \\land B) \\Leftrightarrow (\\neg A \\lor \\neg B)$. What does it say about equivalence? Only the table cells are graded; the conclusion about equivalence is self-review after grading."
+      },
+      "hint": {
+        "fr": "Calculez chaque membre de la biconditionnelle, puis comparez-les.",
+        "en": "Compute each side of the biconditional, then compare them."
+      },
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "10": true,
+        "11": true,
+        "00": true,
+        "01": true
+      },
+      "feedback": {
+        "fr": "La colonne vaut $1$ partout : la biconditionnelle est une tautologie, donc les deux membres sont équivalents (loi de de Morgan).",
+        "en": "The column is $1$ everywhere: the biconditional is a tautology, so the two sides are equivalent (De Morgan’s law)."
+      },
+      "explanation": {
+        "fr": "Les deux membres ont la même valeur sur chaque ligne ; la biconditionnelle vaut donc toujours $1$.",
+        "en": "Both sides have the same value on every row, so the biconditional is always $1$."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E06",
+      "objectiveId": "L07-O06",
+      "difficulty": "application",
+      "misconceptions": [
+        "connective-confused-with-relation",
+        "relation-evaluated-on-a-row"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle phrase confond le connecteur $\\Leftrightarrow$ et la relation $\\equiv$ ?",
+        "en": "Which sentence confuses the connective $\\Leftrightarrow$ with the relation $\\equiv$?"
+      },
+      "hint": {
+        "fr": "Une relation entre assertions n’est pas calculée ligne par ligne.",
+        "en": "A relation between assertions is not computed row by row."
+      },
+      "options": [
+        {
+          "id": "b",
+          "label": {
+            "fr": "« $A \\Leftrightarrow B$ vaut $0$ sur la ligne où $A = 1$ et $B = 0$. »",
+            "en": "“$A \\Leftrightarrow B$ has the value $0$ on the row where $A = 1$ and $B = 0$.”"
+          },
+          "feedback": {
+            "fr": "Cette phrase est correcte : $\\Leftrightarrow$ est un connecteur avec une valeur par ligne.",
+            "en": "This sentence is correct: $\\Leftrightarrow$ is a connective with a value per row."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "« Si $A \\Leftrightarrow B$ est une tautologie, alors $A \\equiv B$. »",
+            "en": "“If $A \\Leftrightarrow B$ is a tautology, then $A \\equiv B$.”"
+          },
+          "feedback": {
+            "fr": "Cette phrase est correcte : elle relie les deux niveaux.",
+            "en": "This sentence is correct: it links the two levels."
+          }
+        },
+        {
+          "id": "a",
+          "label": {
+            "fr": "« $A \\equiv B$ vaut $0$ sur la ligne où $A = 1$ et $B = 0$. »",
+            "en": "“$A \\equiv B$ has the value $0$ on the row where $A = 1$ and $B = 0$.”"
+          },
+          "feedback": {
+            "fr": "Exact (c’est la confusion) : $\\equiv$ compare des tables entières ; elle n’a pas de valeur sur une ligne.",
+            "en": "Correct (this is the confusion): $\\equiv$ compares whole tables; it has no value on a row."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "« $\\equiv$ compare deux tables de vérité. »",
+            "en": "“$\\equiv$ compares two truth tables.”"
+          },
+          "feedback": {
+            "fr": "Cette phrase est correcte.",
+            "en": "This sentence is correct."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Seule la première phrase attribue à $\\equiv$ une valeur sur une ligne, ce qui mélange les deux niveaux.",
+        "en": "Only the first sentence gives $\\equiv$ a value on a row, which mixes the two levels."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E07",
+      "objectiveId": "L07-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "biconditional-as-single-implication"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quand la formule $A\\Leftrightarrow B$ est-elle vraie pour une affectation donnée ?",
+        "en": "When is the formula $A\\Leftrightarrow B$ true under a given assignment?"
+      },
+      "hint": {
+        "fr": "La biconditionnelle compare deux valeurs sur la même ligne.",
+        "en": "A biconditional compares two values on the same row."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Quand $A=1$ seulement.",
+            "en": "Whenever $A=1$ alone."
+          },
+          "feedback": {
+            "fr": "Si $B=0$ alors la biconditionnelle est fausse.",
+            "en": "If $B=0$, the biconditional is false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Quand $A$ et $B$ sont identiques.",
+            "en": "When $A$ and $B$ have equal values."
+          },
+          "feedback": {
+            "fr": "Exact : sur $00$ et $11$.",
+            "en": "Correct: on $00$ and $11$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Quand $A$ et $B$ sont différentes.",
+            "en": "When $A$ and $B$ differ."
+          },
+          "feedback": {
+            "fr": "Les valeurs différentes rendent la biconditionnelle fausse.",
+            "en": "Different values make the biconditional false."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$A\\Leftrightarrow B$ vaut $1$ sur $00$ et $11$, et $0$ sur $01$ et $10$.",
+        "en": "$A\\Leftrightarrow B$ is $1$ on $00$ and $11$, and $0$ on $01$ and $10$."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E08",
+      "objectiveId": "L07-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "biconditional-read-as-and"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Complétez la colonne de $A\\Leftrightarrow\\neg B$ pour les quatre lignes $A,B$.",
+        "en": "Complete the column for $A\\Leftrightarrow\\neg B$ across the four rows $A,B$."
+      },
+      "hint": {
+        "fr": "Comparez $A$ avec la valeur de $\\neg B$, et non directement avec $B$.",
+        "en": "Compare $A$ with the value of $\\neg B$, not with $B$ directly."
+      },
+      "variables": [
+        "A",
+        "B"
+      ],
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "10": true,
+        "11": false,
+        "00": false,
+        "01": true
+      },
+      "feedback": {
+        "fr": "La formule est vraie lorsque $A$ diffère de $B$ : $01$ et $10$.",
+        "en": "The formula is true when $A$ differs from $B$: $01$ and $10$."
+      },
+      "explanation": {
+        "fr": "La formule est vraie lorsque $A$ diffère de $B$ : $01$ et $10$.",
+        "en": "The formula is true when $A$ differs from $B$: $01$ and $10$."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E09",
+      "objectiveId": "L07-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "connective-confused-with-relation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle différence entre $\\Leftrightarrow$ et $\\equiv$ est correcte ?",
+        "en": "Which distinction between $\\Leftrightarrow$ and $\\equiv$ is correct?"
+      },
+      "hint": {
+        "fr": "L'un fabrique une formule dont la valeur dépend de la ligne ; l'autre compare deux formules sur toutes les lignes.",
+        "en": "One builds a formula whose value depends on the row; the other compares two formulas over all rows."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Les deux symboles expriment seulement la conjonction.",
+            "en": "Both symbols mean conjunction only."
+          },
+          "feedback": {
+            "fr": "Une biconditionnelle est vraie aussi sur $00$ ; ce n'est pas une conjonction.",
+            "en": "A biconditional is also true on $00$; it is not conjunction."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\equiv$ s'évalue sur une seule ligne, $\\Leftrightarrow$ sur toutes.",
+            "en": "$\\equiv$ is evaluated on one row, $\\Leftrightarrow$ on all."
+          },
+          "feedback": {
+            "fr": "Le niveau des deux symboles est inversé.",
+            "en": "The scope of the two symbols is reversed."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\Leftrightarrow$ est un connecteur, $\\equiv$ compare des colonnes entières.",
+            "en": "$\\Leftrightarrow$ is a connective; $\\equiv$ compares complete columns."
+          },
+          "feedback": {
+            "fr": "Exact : formule d'un côté, relation sémantique de l'autre.",
+            "en": "Correct: a formula on one hand, a semantic relation on the other."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "$P\\Leftrightarrow Q$ est évaluée par affectation ; $P\\equiv Q$ exige l'accord sur toutes les affectations.",
+        "en": "$P\\Leftrightarrow Q$ is evaluated per assignment; $P\\equiv Q$ requires agreement on all assignments."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E10",
+      "objectiveId": "L07-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "equivalence-checked-on-one-row"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour des formules $P$ et $Q$ sur deux variables, quel test établit $P\\equiv Q$ ?",
+        "en": "For formulas $P$ and $Q$ over two variables, which test establishes $P\\equiv Q$?"
+      },
+      "hint": {
+        "fr": "Il faut couvrir les quatre affectations de deux variables.",
+        "en": "All four assignments of two variables must be covered."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Comparer les quatre lignes des deux colonnes.",
+            "en": "Compare all four rows of the two columns."
+          },
+          "feedback": {
+            "fr": "Exact : aucune ligne ne doit différer.",
+            "en": "Correct: no row may differ."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Comparer seulement la ligne $11$.",
+            "en": "Compare only row $11$."
+          },
+          "feedback": {
+            "fr": "Une ligne ne suffit pas à établir l'équivalence.",
+            "en": "One row does not establish equivalence."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Trouver au moins une ligne où les deux sont vraies.",
+            "en": "Find at least one row where both are true."
+          },
+          "feedback": {
+            "fr": "Une ligne vraie commune ne garantit pas les autres lignes.",
+            "en": "One shared true row does not guarantee the other rows."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "L'équivalence sémantique est l'égalité des fonctions de vérité sur tout le domaine.",
+        "en": "Semantic equivalence is equality of truth functions over the entire domain."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E11",
+      "objectiveId": "L07-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "equivalence-needs-only-some-rows"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Complétez la colonne de $(A\\Rightarrow B)\\Leftrightarrow(\\neg B\\Rightarrow\\neg A)$ pour vérifier la contraposée.",
+        "en": "Complete the column for $(A\\Rightarrow B)\\Leftrightarrow(\\neg B\\Rightarrow\\neg A)$ to check contraposition."
+      },
+      "hint": {
+        "fr": "Les deux implications échouent sur la même affectation.",
+        "en": "The two implications fail under the same assignment."
+      },
+      "variables": [
+        "A",
+        "B"
+      ],
+      "rows": [
+        {
+          "id": "00",
+          "A": false,
+          "B": false
+        },
+        {
+          "id": "01",
+          "A": false,
+          "B": true
+        },
+        {
+          "id": "10",
+          "A": true,
+          "B": false
+        },
+        {
+          "id": "11",
+          "A": true,
+          "B": true
+        }
+      ],
+      "answer": {
+        "10": true,
+        "11": true,
+        "00": true,
+        "01": true
+      },
+      "feedback": {
+        "fr": "Chaque ligne compare une implication à sa contraposée ; leurs valeurs coïncident toujours.",
+        "en": "Each row compares an implication with its contrapositive; their values always agree."
+      },
+      "explanation": {
+        "fr": "Chaque ligne compare une implication à sa contraposée ; leurs valeurs coïncident toujours.",
+        "en": "Each row compares an implication with its contrapositive; their values always agree."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E12",
+      "objectiveId": "L07-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "equivalence-as-connective"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un élève conclut de $A\\Leftrightarrow B=1$ sur la ligne $11$ que $A\\equiv B$. Pourquoi sa conclusion ne suit-elle pas ?",
+        "en": "A student concludes from $A\\Leftrightarrow B=1$ on row $11$ that $A\\equiv B$. Why does this not follow?"
+      },
+      "hint": {
+        "fr": "Distinguez l'accord ponctuel de l'accord de deux formules sur toutes les lignes.",
+        "en": "Distinguish row-level agreement from agreement of two formulas on all rows."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Parce que la biconditionnelle est fausse sur $11$.",
+            "en": "Because the biconditional is false on $11$."
+          },
+          "feedback": {
+            "fr": "Sur $11$, la biconditionnelle est justement vraie.",
+            "en": "On $11$, the biconditional is true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Parce qu'une seule ligne ne démontre pas l'équivalence des colonnes.",
+            "en": "Because one row does not prove equivalence of complete columns."
+          },
+          "feedback": {
+            "fr": "Exact : la relation $\\equiv$ exige toutes les affectations.",
+            "en": "Correct: the relation $\\equiv$ requires all assignments."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Parce que toute formule avec $\\Leftrightarrow$ est contradictoire.",
+            "en": "Because any formula with $\\Leftrightarrow$ is contradictory."
+          },
+          "feedback": {
+            "fr": "$A\\Leftrightarrow B$ est vraie sur deux des quatre lignes.",
+            "en": "$A\\Leftrightarrow B$ is true on two of the four rows."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "$A$ et $B$ diffèrent sur $01$ et $10$, même si la formule biconditionnelle est vraie sur $11$.",
+        "en": "$A$ and $B$ differ on $01$ and $10$, even though the biconditional is true on $11$."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E13",
+      "objectiveId": "L07-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "biconditional-as-single-implication"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle formule se comporte exactement comme $A\\Leftrightarrow B$ sur toutes les lignes ?",
+        "en": "Which formula behaves exactly like $A\\Leftrightarrow B$ on every row?"
+      },
+      "hint": {
+        "fr": "La biconditionnelle exige les deux sens de l'implication.",
+        "en": "The biconditional requires both directions of implication."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(A\\Rightarrow B)\\land(B\\Rightarrow A)$",
+            "en": "$(A\\Rightarrow B)\\land(B\\Rightarrow A)$"
+          },
+          "feedback": {
+            "fr": "Exact : les deux implications doivent être vraies.",
+            "en": "Correct: both implications must be true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A\\Rightarrow B$",
+            "en": "$A\\Rightarrow B$"
+          },
+          "feedback": {
+            "fr": "Sur $01$, l'implication est vraie mais la biconditionnelle fausse.",
+            "en": "At $01$, implication is true but the biconditional is false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\land B$",
+            "en": "$A\\land B$"
+          },
+          "feedback": {
+            "fr": "Sur $00$, la biconditionnelle est vraie, la conjonction fausse.",
+            "en": "At $00$, the biconditional is true while conjunction is false."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "$A\\Leftrightarrow B$ équivaut aux deux implications réciproques conjointes.",
+        "en": "$A\\Leftrightarrow B$ is equivalent to the conjunction of both reciprocal implications."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E14",
+      "objectiveId": "L07-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "biconditional-read-as-and"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Calculez la colonne de $(A\\Leftrightarrow B)\\land C$ sur les huit affectations $A,B,C$.",
+        "en": "Compute the column for $(A\\Leftrightarrow B)\\land C$ over all eight assignments $A,B,C$."
+      },
+      "hint": {
+        "fr": "L'égalité des valeurs de $A,B$ ne suffit pas : il faut aussi $C=1$.",
+        "en": "Equal values of $A,B$ are not enough: $C=1$ is also required."
+      },
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": false,
+        "101": false,
+        "110": false,
+        "111": true,
+        "000": false,
+        "001": true,
+        "010": false,
+        "011": false
+      },
+      "feedback": {
+        "fr": "Seules $001$ et $111$ ont $A=B$ et $C=1$.",
+        "en": "Only $001$ and $111$ have $A=B$ and $C=1$."
+      },
+      "explanation": {
+        "fr": "Seules $001$ et $111$ ont $A=B$ et $C=1$.",
+        "en": "Only $001$ and $111$ have $A=B$ and $C=1$."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E15",
+      "objectiveId": "L07-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "connective-confused-with-relation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "$P=A\\lor B$ et $Q=B\\lor A$. Quelle affirmation est correcte ?",
+        "en": "Let $P=A\\lor B$ and $Q=B\\lor A$. Which statement is correct?"
+      },
+      "hint": {
+        "fr": "L'ordre des deux termes d'un « ou » inclusif ne change pas sa valeur.",
+        "en": "The order of the two terms of inclusive OR does not change its value."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$P\\Leftrightarrow Q$ est faux sur $00$.",
+            "en": "$P\\Leftrightarrow Q$ is false on $00$."
+          },
+          "feedback": {
+            "fr": "Sur $00$, les deux côtés valent $0$ : la biconditionnelle est vraie.",
+            "en": "At $00$, both sides are $0$: the biconditional is true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$P\\equiv Q$ seulement sur $11$.",
+            "en": "$P\\equiv Q$ only on $11$."
+          },
+          "feedback": {
+            "fr": "La relation $\\equiv$ concerne toute la table et n'est pas limitée à une ligne.",
+            "en": "The relation $\\equiv$ concerns the whole table and is not row-limited."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$P\\equiv Q$, donc $P\\Leftrightarrow Q$ est une tautologie.",
+            "en": "$P\\equiv Q$, so $P\\Leftrightarrow Q$ is a tautology."
+          },
+          "feedback": {
+            "fr": "Exact : les deux formules ont partout les mêmes valeurs.",
+            "en": "Correct: the formulas agree everywhere."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La commutativité du « ou » donne des colonnes identiques, donc leur biconditionnelle vaut toujours $1$.",
+        "en": "Commutativity of OR gives identical columns, so their biconditional is always $1$."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E16",
+      "objectiveId": "L07-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "equivalence-needs-only-some-rows"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un élève compare $P=A\\land B$ et $Q=A\\lor B$. Sur quelles lignes les deux valeurs diffèrent-elles ?",
+        "en": "A student compares $P=A\\land B$ and $Q=A\\lor B$. On which rows do their truth values differ?"
+      },
+      "hint": {
+        "fr": "Vérifiez les affectations où exactement une proposition est vraie.",
+        "en": "Check assignments where exactly one statement is true."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Sur $00$ et $11$.",
+            "en": "On $00$ and $11$."
+          },
+          "feedback": {
+            "fr": "Les deux formules coïncident sur ces lignes.",
+            "en": "The formulas agree on those rows."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Sur $01$ et $10$.",
+            "en": "On $01$ and $10$."
+          },
+          "feedback": {
+            "fr": "Exact : le « ou » vaut $1$, le « et » $0$.",
+            "en": "Correct: OR is $1$, AND is $0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Sur les quatre lignes.",
+            "en": "On all four rows."
+          },
+          "feedback": {
+            "fr": "Sur $00$ et $11$, leurs valeurs sont identiques.",
+            "en": "At $00$ and $11$, their values are identical."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Deux désaccords ($01$, $10$) prouvent $P\\not\\equiv Q$.",
+        "en": "Two disagreements ($01$, $10$) prove $P\\not\\equiv Q$."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E17",
+      "objectiveId": "L07-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "distributivity-with-wrong-operator"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "Pour contrôler une loi, complétez $[A\\land(B\\lor C)]\\Leftrightarrow[(A\\land B)\\lor(A\\land C)]$ sur les huit lignes. Cette formule est-elle une tautologie ?",
+        "en": "To check a law, complete $[A\\land(B\\lor C)]\\Leftrightarrow[(A\\land B)\\lor(A\\land C)]$ over eight rows. Is this formula a tautology?"
+      },
+      "hint": {
+        "fr": "Les deux côtés imposent $A$ et au moins une de $B,C$.",
+        "en": "Both sides require $A$ and at least one of $B,C$."
+      },
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": true,
+        "101": true,
+        "110": true,
+        "111": true,
+        "000": true,
+        "001": true,
+        "010": true,
+        "011": true
+      },
+      "feedback": {
+        "fr": "La distributivité garantit l'égalité des deux côtés sur chaque affectation ; la biconditionnelle vaut partout $1$.",
+        "en": "Distributivity makes both sides equal on every assignment; the biconditional is $1$ everywhere."
+      },
+      "explanation": {
+        "fr": "La distributivité garantit l'égalité des deux côtés sur chaque affectation ; la biconditionnelle vaut partout $1$.",
+        "en": "Distributivity makes both sides equal on every assignment; the biconditional is $1$ everywhere."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E18",
+      "objectiveId": "L07-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "equivalence-checked-on-one-row"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un logiciel ne teste $A\\Leftrightarrow B$ que sur $00$ et $11$ ; le résultat vaut $1$ les deux fois. Quel diagnostic est valide concernant $A\\equiv B$ ?",
+        "en": "A program checks $A\\Leftrightarrow B$ only on $00$ and $11$; the result is $1$ both times. What is valid regarding $A\\equiv B$?"
+      },
+      "hint": {
+        "fr": "Une relation d'équivalence exige également les lignes mixtes.",
+        "en": "An equivalence relation also requires the mixed rows."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A\\equiv B$ est établi parce que deux cas suffisent.",
+            "en": "$A\\equiv B$ is established because two cases suffice."
+          },
+          "feedback": {
+            "fr": "Il reste $01$ et $10$, où les valeurs diffèrent.",
+            "en": "Rows $01$ and $10$ remain, where the values differ."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Les deux formules sont toujours vraies.",
+            "en": "Both formulas are always true."
+          },
+          "feedback": {
+            "fr": "Sur $00$, $A$ et $B$ sont toutes deux fausses.",
+            "en": "At $00$, $A$ and $B$ are both false."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\not\\equiv B$ : $01$ ou $10$ fournit un désaccord.",
+            "en": "$A\\not\\equiv B$: $01$ or $10$ gives a disagreement."
+          },
+          "feedback": {
+            "fr": "Exact : les deux lignes ignorées réfutent l'équivalence.",
+            "en": "Correct: the two ignored rows refute equivalence."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Les colonnes des variables atomiques $A$ et $B$ diffèrent sur les deux lignes mixtes ; on ne peut pas écrire $A\\equiv B$.",
+        "en": "The columns of atomic variables $A$ and $B$ differ on both mixed rows; $A\\equiv B$ is false."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E19",
+      "objectiveId": "L07-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "biconditional-as-single-implication"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une condition accepte un jeton si $A\\Leftrightarrow(B\\land C)$ est vraie. Quelle affectation la fait échouer ?",
+        "en": "A condition accepts a token if $A\\Leftrightarrow(B\\land C)$ is true. Which assignment makes it fail?"
+      },
+      "hint": {
+        "fr": "Une biconditionnelle échoue quand les deux côtés ont des valeurs différentes.",
+        "en": "A biconditional fails when its two sides have different values."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$A=0,B=0,C=1$",
+            "en": "$A=0,B=0,C=1$"
+          },
+          "feedback": {
+            "fr": "$B\\land C=0$ et $A=0$ : accord.",
+            "en": "$B\\land C=0$ and $A=0$: agreement."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$A=1,B=1,C=0$",
+            "en": "$A=1,B=1,C=0$"
+          },
+          "feedback": {
+            "fr": "Exact : $A=1$ mais $B\\land C=0$.",
+            "en": "Correct: $A=1$ but $B\\land C=0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A=1,B=1,C=1$",
+            "en": "$A=1,B=1,C=1$"
+          },
+          "feedback": {
+            "fr": "Les deux côtés valent $1$.",
+            "en": "Both sides are $1$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Avec $(1,1,0)$, $B\\land C=0$ et $1\\Leftrightarrow0=0$.",
+        "en": "With $(1,1,0)$, $B\\land C=0$ and $1\\Leftrightarrow0=0$."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E20",
+      "objectiveId": "L07-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "equivalence-as-connective"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour toutes les affectations booléennes, quelle relation entre $A\\Leftrightarrow B$ et $\\neg A\\Leftrightarrow\\neg B$ est correcte ?",
+        "en": "For all Boolean assignments, which relation between $A\\Leftrightarrow B$ and $\\neg A\\Leftrightarrow\\neg B$ is correct?"
+      },
+      "hint": {
+        "fr": "Nier les deux valeurs conserve-t-il le fait qu'elles sont identiques ?",
+        "en": "Does negating both values preserve whether they agree?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Les deux formules sont sémantiquement équivalentes.",
+            "en": "The two formulas are semantically equivalent."
+          },
+          "feedback": {
+            "fr": "Exact : toutes deux testent si les valeurs initiales sont égales.",
+            "en": "Correct: both test whether the original values are equal."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Elles ne coïncident que sur $11$.",
+            "en": "They agree only on $11$."
+          },
+          "feedback": {
+            "fr": "Elles coïncident également sur $00$, $01$ et $10$.",
+            "en": "They agree on $00$, $01$ and $10$ as well."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "La seconde est toujours la négation de la première.",
+            "en": "The second is always the negation of the first."
+          },
+          "feedback": {
+            "fr": "Sur $00$, les deux biconditionnelles sont vraies.",
+            "en": "At $00$, both biconditionals are true."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "L'égalité de $A,B$ équivaut à l'égalité de $\\neg A,\\neg B$ ; leurs tables sont identiques.",
+        "en": "Equality of $A,B$ is equivalent to equality of $\\neg A,\\neg B$; their truth tables match."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L07-E21",
+      "objectiveId": "L07-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "biconditional-as-single-implication"
+      ],
+      "type": "truth-table",
+      "prompt": {
+        "fr": "On compare une chaîne de règles avec son raccourci : $[(A\\Rightarrow B)\\land(B\\Rightarrow C)]\\Leftrightarrow(A\\Rightarrow C)$. Complétez les huit lignes pour déterminer si les deux contraintes sont équivalentes.",
+        "en": "Compare a chain of rules with its shortcut: $[(A\\Rightarrow B)\\land(B\\Rightarrow C)]\\Leftrightarrow(A\\Rightarrow C)$. Complete the eight rows to decide whether the two constraints are equivalent."
+      },
+      "hint": {
+        "fr": "Le raccourci peut être vrai même si une règle intermédiaire est fausse.",
+        "en": "The shortcut may be true even when an intermediate rule fails."
+      },
+      "variables": [
+        "A",
+        "B",
+        "C"
+      ],
+      "rows": [
+        {
+          "id": "000",
+          "A": false,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "001",
+          "A": false,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "010",
+          "A": false,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "011",
+          "A": false,
+          "B": true,
+          "C": true
+        },
+        {
+          "id": "100",
+          "A": true,
+          "B": false,
+          "C": false
+        },
+        {
+          "id": "101",
+          "A": true,
+          "B": false,
+          "C": true
+        },
+        {
+          "id": "110",
+          "A": true,
+          "B": true,
+          "C": false
+        },
+        {
+          "id": "111",
+          "A": true,
+          "B": true,
+          "C": true
+        }
+      ],
+      "answer": {
+        "100": true,
+        "101": false,
+        "110": true,
+        "111": true,
+        "000": true,
+        "001": true,
+        "010": false,
+        "011": true
+      },
+      "feedback": {
+        "fr": "Les côtés diffèrent sur $010$ et $101$. La chaîne implique le raccourci, mais celui-ci ne garantit pas chacune des étapes.",
+        "en": "The sides differ at $010$ and $101$. The chain implies the shortcut, but the shortcut does not guarantee both intermediate steps."
+      },
+      "explanation": {
+        "fr": "Les côtés diffèrent sur $010$ et $101$. La chaîne implique le raccourci, mais celui-ci ne garantit pas chacune des étapes.",
+        "en": "The sides differ at $010$ and $101$. The chain implies the shortcut, but the shortcut does not guarantee both intermediate steps."
+      },
+      "lessonId": "L07",
+      "version": 4,
+      "prerequisites": [
+        "L04",
+        "L05",
+        "L06"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Logique et ensembles, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          30,
+          31
+        ],
+        "referenceBasis": "repository-course-map; these are not copied PDF exercises"
+      },
+      "grading": {
+        "kind": "labelled-boolean-cells",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

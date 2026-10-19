@@ -198,8 +198,8 @@
     {
       "objective": 2,
       "prompt": [
-        "La requête `SELECT t.name FROM T t WHERE t.active = 1` correspond à quelle compréhension (modèle sans `NULL`) ?",
-        "The query `SELECT t.name FROM T t WHERE t.active = 1` corresponds to which comprehension (no-`NULL` model)?"
+        "La requête `SELECT DISTINCT t.name FROM T t WHERE t.active = 1` correspond à quelle compréhension (modèle sans `NULL`) ?",
+        "The query `SELECT DISTINCT t.name FROM T t WHERE t.active = 1` corresponds to which comprehension (no-`NULL` model)?"
       ],
       "hint": [
         "On projette le nom des lignes satisfaisant le prédicat.",
