@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.9.0](https://github.com/GadDev/uni-math-course/compare/v0.8.0...v0.9.0) (2026-10-19)
+
+
+### Features
+
+* **ui:** add persistent light and dark theme toggle ([#73](https://github.com/GadDev/uni-math-course/issues/73)) ([7e879e4](https://github.com/GadDev/uni-math-course/commit/7e879e4b13f0ec8176e4018f03aa7f768c4a65dd))
+
 ## [0.8.0](https://github.com/GadDev/uni-math-course/compare/v0.7.0...v0.8.0) (2026-10-19)
 
 
