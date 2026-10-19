@@ -9,7 +9,7 @@ test('public glossary searches both languages and glyphs, filters categories and
     .getByRole('link', { name: 'Glossaire' })
     .click();
   await expect(page).toHaveURL('/fr/glossary/');
-  await expect(page.locator('[data-entry]')).toHaveCount(64);
+  await expect(page.locator('[data-entry]')).toHaveCount(143);
   const search = page.getByLabel('Rechercher un symbole ou un mot');
   await search.fill('∧');
   await expect(page.locator('#E08')).toBeVisible();
@@ -23,7 +23,7 @@ test('public glossary searches both languages and glyphs, filters categories and
   await page.getByRole('button', { name: 'Effacer les filtres' }).focus();
   await page.keyboard.press('Enter');
   await expect(search).toBeFocused();
-  await expect(page.locator('[data-entry]:not([hidden])')).toHaveCount(64);
+  await expect(page.locator('[data-entry]:not([hidden])')).toHaveCount(143);
   await page.locator('#E13 summary').click();
   await expect(page.locator('#E13 [lang="en"]')).toBeVisible();
 });
@@ -53,10 +53,10 @@ test('without JavaScript all entries, translations and the source correction rem
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto('/en/glossary/');
-  await expect(page.locator('[data-entry]')).toHaveCount(64);
+  await expect(page.locator('[data-entry]')).toHaveCount(143);
   await expect(page.locator('.glossary-filters')).toBeHidden();
   await page
-    .getByText('Page 48: an example needing correction', { exact: true })
+    .getByText('Logic, page 48: an example needing correction', { exact: true })
     .click();
   await expect(
     page.getByText('The course marks “there exists a human'),
@@ -85,4 +85,35 @@ for (const locale of ['fr', 'en']) {
       await expect(page.locator('.katex-error')).toHaveCount(0);
     });
   }
+}
+
+for (const locale of ['fr', 'en']) {
+  test(`Droites terms preserve source, notation and location across languages (${locale})`, async ({
+    page,
+  }) => {
+    await page.goto(`/${locale}/glossary/?q=∑&category=sums#D034`);
+    await expect(page.locator('#D034')).toBeVisible();
+    await expect(page.locator('#D034 .glossary-provenance')).toContainText(
+      locale === 'fr' ? 'Droites et régression' : 'Lines and regression',
+    );
+    await expect(page.locator('#D034 .glossary-provenance')).toContainText(
+      '25, 26, 67, 70, 71, 72',
+    );
+    await expect(
+      page.locator('#D034 .katex-mathml math').first(),
+    ).toBeAttached();
+    const other = locale === 'fr' ? 'EN' : 'FR';
+    await page.getByRole('link', { name: other, exact: true }).click();
+    await expect(page.locator('#D034')).toBeInViewport();
+    expect(new URL(page.url()).searchParams.get('category')).toBe('sums');
+    expect(new URL(page.url()).searchParams.get('q')).toBe('∑');
+    const input = page.locator('#glossary-search');
+    await page.locator('#glossary-category').selectOption('regression');
+    await input.fill('résidu');
+    await expect(page.locator('#D074')).toBeVisible();
+    await input.fill('√');
+    await expect(page.locator('#D083')).toBeVisible();
+    await input.fill('no-match-xyz');
+    await expect(page.locator('[data-empty]')).toBeVisible();
+  });
 }

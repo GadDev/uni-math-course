@@ -10,6 +10,7 @@ export type GlossaryTranslation = {
 };
 export type GlossaryEntry = {
   id: string;
+  sourceId: string;
   category: string;
   notation: string;
   example: string;
@@ -27,6 +28,17 @@ export const normalizeSearch = (value: string) =>
 
 // Search the actual glyph as well as the TeX spelling and both translations.
 const glyphs: Record<string, string> = {
+  sum: '∑ Σ',
+  sqrt: '√',
+  Delta: 'Δ ∆',
+  approx: '≈',
+  neq: '≠',
+  notin: '∉',
+  mapsto: '↦',
+  rightleftarrows: '⇄',
+  longrightarrow: '→',
+  div: '÷',
+  square: '□',
   top: '⊤',
   neg: '¬',
   land: '∧',
@@ -59,6 +71,9 @@ export function searchText(entry: GlossaryEntry) {
     R: 'ℝ',
   };
   const symbols = text
+    .replace(/\\bar\s*\{?x\}?/g, 'x̄')
+    .replace(/\\bar\s*\{?y\}?/g, 'ȳ ȳ')
+    .replace(/\\hat\s*\{?y\}?/g, 'ŷ ŷ')
     .replace(
       /\\mathbb\s*\{?([NZQR])\}?/g,
       (_, name: string) => numberGlyphs[name] ?? name,
@@ -101,10 +116,13 @@ export const glossaryCopy = {
     conventions:
       'Dans ce cours, les naturels comprennent zéro. Les intervalles gardent la notation française dans les deux langues. Le rôle des lettres dépend du contexte : A peut être une assertion ou un ensemble.',
     sourceNote:
-      'Couverture issue des 96 pages du cours de Bruno Teheux. Explications et lectures originales du projet ; aucune diapositive redistribuée. Les pages sont comptées à partir de la couverture.',
-    discrepancyTitle: 'Page 48 : un exemple à corriger',
+      'Deux sources de Bruno Teheux : Logique (96 pages) et Droites (87 pages). Chaque entrée précise son document et ses pages, couverture comprise. Explications et lectures originales du projet ; aucune diapositive redistribuée.',
+    discrepancyTitle: 'Logique, page 48 : un exemple à corriger',
     discrepancy:
       'Le cours marque comme vrai « il existe un humain plus vieux que tous les humains ». Avec une relation strictement « plus vieux », c’est faux : la personne choisie fait elle-même partie des humains et ne peut pas être plus vieille qu’elle-même.',
+    droitesTitle: 'Droites, pages 66 et 81 : zéro et domaines',
+    droitesNote:
+      'Une somme de carrés est non négative : zéro est possible. Le coefficient de corrélation exige Sxx > 0 et Syy > 0 ; il est indéfini si tous les x ou tous les y sont identiques.',
     noScript:
       'Toutes les entrées restent lisibles sans JavaScript. Activez-le pour filtrer la liste.',
     policy:
@@ -136,10 +154,13 @@ export const glossaryCopy = {
     conventions:
       'In this course, natural numbers include zero. Intervals keep French notation in both languages. The role of a letter depends on context: A can be a statement or a set.',
     sourceNote:
-      'Coverage informed by all 96 pages of Bruno Teheux’s course. Original project explanations and readings; no slides redistributed. Page numbering starts with the cover.',
-    discrepancyTitle: 'Page 48: an example needing correction',
+      'Two sources by Bruno Teheux: Logic (96 pages) and Lines (87 pages). Each entry identifies its document and pages, counting the cover. Original project explanations and readings; no slides redistributed.',
+    discrepancyTitle: 'Logic, page 48: an example needing correction',
     discrepancy:
       'The course marks “there exists a human older than all humans” as true. With a strict “older than” relation, this is false: the chosen person is themselves among the humans and cannot be older than themselves.',
+    droitesTitle: 'Lines, pages 66 and 81: zero and domains',
+    droitesNote:
+      'A sum of squares is nonnegative: zero is possible. The correlation coefficient requires Sxx > 0 and Syy > 0; it is undefined if all x values or all y values are identical.',
     noScript:
       'Every entry remains readable without JavaScript. Enable it to filter the list.',
     policy:
