@@ -150,17 +150,17 @@
 }
 .pp-state-feedback .pp-option.is-wrong {
   border: 2px solid var(--accent);
-  background: #fde4e0;
+  background: var(--error-surface);
 }
 .pp-state-feedback .pp-option.is-wrong .pp-marker {
   color: var(--accent);
 }
 .pp-state-feedback .pp-option.is-right {
-  border: 2px solid #1d5a2c;
-  background: #e6f1e8;
+  border: 2px solid var(--success);
+  background: var(--success-surface);
 }
 .pp-state-feedback .pp-option.is-right .pp-marker {
-  color: #1d5a2c;
+  color: var(--success);
 }
 .pp-state-feedback .pp-answer {
   margin-top: 1.5rem;
@@ -197,7 +197,7 @@ section.pp-feedback {
   border-left: 8px solid var(--signal-red);
 }
 section.pp-feedback.is-right {
-  border-left-color: #1d5a2c;
+  border-left-color: var(--success);
 }
 section.pp-feedback .pp-feedback-title {
   margin: 0 0 1rem;
@@ -251,7 +251,7 @@ section.pp-feedback .pp-note {
     border-top: 8px solid var(--signal-red);
   }
   section.pp-feedback.is-right {
-    border-top-color: #1d5a2c;
+    border-top-color: var(--success);
   }
 }
 @media (max-width: 480px) {

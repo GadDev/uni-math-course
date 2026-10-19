@@ -3,6 +3,9 @@ import 'katex/dist/katex.min.css';
 import '../styles/global.css';
 import '../styles/profile-menu.css';
 import '../styles/chapters.css';
+import ThemeInit from '../components/ThemeInit.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import '../styles/theme-toggle.css';
 import ChapterSelector from '../components/ChapterSelector.astro';
 import { chapterForPath } from '../lib/chapters';
 import { copy, type Locale } from '../lib/i18n';
@@ -35,6 +38,7 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <ThemeInit />
     <title>{title} · Uni Math Course</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link
@@ -76,6 +80,7 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
         </a>
       </nav>
       <div class="header-actions">
+        <ThemeToggle locale={locale} />
         <nav aria-label={text.language} class="language-switch">
           <span lang={locale} aria-current="page">
             {locale.toUpperCase()}

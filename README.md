@@ -21,6 +21,7 @@ Public lessons and the symbol glossary can be read without an account. Practice 
 - Public [Chapter 2 overview](https://uni-math-course.vercel.app/fr/chapters/C02/) for straight lines, with the selected green Décalage artwork. The learning path contains 16 bilingual lessons (L21–L36), worked examples and 240 exercises with saved practice; see the [Chapter 2 review](docs/content/CHAPTER_02_REVIEW.md) and [implemented layouts](docs/design/implementation/chapter-02/README.md).
 - Public searchable French/English symbol glossary, with bilingual readings, source pages and stable entry links.
 - Mathematical notation with visual KaTeX and MathML output.
+- Light/dark header toggle that follows the system preference initially and remembers an explicit choice across pages and languages.
 - Same-lesson language switching and a native reading disclosure that works without JavaScript.
 - Versioned exercise contracts and content/mathematical checks.
 - Configurable email/password Supabase sign-in for an invited group, verified server sessions and local logout.

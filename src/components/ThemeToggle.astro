@@ -1,0 +1,42 @@
+---
+import type { Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<button
+  class="theme-toggle"
+  type="button"
+  data-theme-toggle
+  data-light-label={
+    locale === 'fr' ? 'Passer au thème clair' : 'Switch to light theme'
+  }
+  data-dark-label={
+    locale === 'fr' ? 'Passer au thème sombre' : 'Switch to dark theme'
+  }
+  aria-label={locale === 'fr' ? 'Thème sombre' : 'Dark theme'}
+  aria-pressed="false"
+  hidden
+>
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.7"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path
+      class="theme-moon"
+      d="M21 12.8A9 9 0 0 1 11.2 3 9 9 0 1 0 21 12.8Z"
+    ></path>
+    <g class="theme-sun">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"></path>
+    </g>
+  </svg>
+</button>

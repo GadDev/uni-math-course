@@ -12,7 +12,7 @@
   margin: 2rem 0;
   padding: 1rem;
   border-left: 3px solid var(--accent);
-  background: #fae8e2;
+  background: var(--error-surface);
 }
 
 /* Stat band */
@@ -130,13 +130,13 @@
   flex-shrink: 0;
   min-width: 9.5rem;
   padding: 0.45rem 0.8rem;
-  background: #e1e1dc;
+  background: var(--neutral-surface);
   font-weight: bold;
   text-align: center;
 }
 .progress-badge-bad {
-  background: #f8c9c4;
-  color: var(--signal-red);
+  background: var(--error-surface);
+  color: var(--accent);
 }
 
 /* Benchmark note */
