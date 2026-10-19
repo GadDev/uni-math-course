@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.10.0](https://github.com/GadDev/uni-math-course/compare/v0.9.0...v0.10.0) (2026-10-19)
+
+
+### Features
+
+* add manual lesson completion and chapter progress ([#75](https://github.com/GadDev/uni-math-course/issues/75)) ([4d7eba3](https://github.com/GadDev/uni-math-course/commit/4d7eba33fa631cc4bedd0fc4e6c893065d6c84f8))
+
 ## [0.9.0](https://github.com/GadDev/uni-math-course/compare/v0.8.0...v0.9.0) (2026-10-19)
 
 
