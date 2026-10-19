@@ -6,22 +6,22 @@
   z-index: 5;
 }
 .site-header[data-chapter='C02'] {
-  --chapter-accent: #18704f;
+  --chapter-accent: var(--green-accent);
 }
 .lesson-page[data-chapter='C02'] {
-  --signal-red: #18704f;
-  --accent: #18704f;
+  --signal-red: var(--green-accent);
+  --accent: var(--green-accent);
 }
 .lesson-page[data-chapter='C02'] .current-topic .outline-number {
-  background: #e3eee6;
-  color: #18704f;
+  background: var(--success-surface);
+  color: var(--green-accent);
 }
 /* Chapter identity must not recolour incorrect answers as success. */
 .lesson-page[data-chapter='C02'] .is-wrong,
 .lesson-page[data-chapter='C02'] .practice-error,
 .lesson-page[data-chapter='C02'] .practice-bad {
-  --signal-red: #ed3426;
-  --accent: #b92819;
+  --signal-red: var(--red-signal);
+  --accent: var(--red-accent);
 }
 .site-header .language-switch > span[aria-current] {
   color: var(--chapter-accent);
@@ -124,10 +124,10 @@
 .primary-nav .chapter-option[aria-current] {
   border-left: 3px solid var(--chapter-accent);
   padding-left: calc(0.625rem - 3px);
-  background: #f8e8e5;
+  background: var(--error-surface);
 }
 .primary-nav .chapter-option[data-chapter='C02'][aria-current] {
-  background: #e3eee6;
+  background: var(--success-surface);
 }
 .primary-nav .chapter-option[aria-current]::after {
   display: none;
@@ -137,10 +137,10 @@
 }
 .chapter-option-number {
   font: 400 1.625rem var(--display);
-  color: #b92819;
+  color: var(--red-accent);
 }
 .chapter-option[data-chapter='C02'] .chapter-option-number {
-  color: #18704f;
+  color: var(--green-accent);
 }
 .chapter-option strong {
   display: block;

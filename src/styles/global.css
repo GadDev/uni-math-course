@@ -6,20 +6,38 @@
   src: url('/fonts/anton-latin-400-normal.woff2') format('woff2');
 }
 :root {
-  --paper: #f4f4ef;
-  --ink: #111111;
-  --muted: #51514c;
-  --signal-red: #ed3426;
-  --accent: #b92819;
-  --line: #252522;
-  --soft-line: #c9c9c1;
-  --card: #fffefa;
-  --focus: #075cab;
+  color-scheme: light dark;
+  --paper: light-dark(#f4f4ef, #181b19);
+  --ink: light-dark(#111111, #f0f1e9);
+  --muted: light-dark(#51514c, #b7beb7);
+  --red-signal: light-dark(#ed3426, #ff806e);
+  --red-accent: light-dark(#b92819, #ff9a89);
+  --green-accent: light-dark(#18704f, #80d4aa);
+  --signal-red: var(--red-signal);
+  --accent: var(--red-accent);
+  --line: light-dark(#252522, #a1aba2);
+  --soft-line: light-dark(#c9c9c1, #505a52);
+  --card: light-dark(#fffefa, #222823);
+  --focus: light-dark(#075cab, #8bc7ff);
+  --on-strong: light-dark(#ffffff, #181b19);
+  --strong-hover: light-dark(#33332f, #d4dbd2);
+  --selection: light-dark(#f7b9a7, #753a30);
+  --error-surface: light-dark(#fae8e2, #412923);
+  --success: light-dark(#1d5a2c, #91d6a0);
+  --success-surface: light-dark(#e6f1e8, #253c2c);
+  --neutral-surface: light-dark(#e1e1dc, #364038);
+  --disabled-surface: light-dark(#acaca8, #505a52);
+  --disabled-ink: light-dark(#111111, #d0d6ce);
   --display: 'Anton', Impact, 'Arial Narrow', sans-serif;
-  color-scheme: light;
   font-family: Arial, Helvetica, system-ui, sans-serif;
   color: var(--ink);
   background: var(--paper);
+}
+:root[data-theme='light'] {
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
 }
 * {
   box-sizing: border-box;
@@ -61,14 +79,14 @@ h3 {
 }
 ::selection {
   color: var(--ink);
-  background: #f7b9a7;
+  background: var(--selection);
 }
 .skip-link {
   position: absolute;
   left: 1rem;
   top: -6rem;
   background: var(--ink);
-  color: white;
+  color: var(--on-strong);
   padding: 1rem;
   z-index: 10;
 }
@@ -165,7 +183,7 @@ h3 {
   gap: 1rem;
   min-height: 46px;
   background: var(--ink);
-  color: white;
+  color: var(--on-strong);
   text-decoration: none;
   padding: 0.8rem 1.2rem;
   font-size: 0.875rem;
@@ -177,7 +195,7 @@ h3 {
 }
 .header-sign-in:hover,
 .primary-link:hover {
-  background: #33332f;
+  background: var(--strong-hover);
 }
 .page {
   max-width: 1440px;
@@ -413,11 +431,11 @@ h3 {
   cursor: pointer;
   list-style-position: inside;
   background: var(--ink);
-  color: white;
+  color: var(--on-strong);
   border-radius: 0;
 }
 .reading-guide summary:hover {
-  background: #33332f;
+  background: var(--strong-hover);
 }
 .reading-guide-hide,
 .reading-guide[open] .reading-guide-show {
@@ -490,11 +508,11 @@ h3 {
 }
 .outline-topics .current-topic {
   background: var(--ink);
-  color: white;
+  color: var(--on-strong);
   border-bottom-color: var(--ink);
 }
 .current-topic .outline-number {
-  color: white;
+  color: var(--on-strong);
 }
 .section-nav {
   padding-top: 0.3rem;
@@ -585,6 +603,8 @@ h3 {
   max-width: 100%;
   height: auto;
   margin: 1.5rem auto;
+  /* External diagrams retain their authored colours and dark axis labels. */
+  background: #fffdf8;
 }
 .lesson-prose h3 {
   margin: 1.8rem 0 0.7rem;
@@ -630,10 +650,10 @@ h3 {
 }
 .lesson-prose th {
   background: var(--ink);
-  color: white;
+  color: var(--on-strong);
 }
 .lesson-prose[data-lesson-id='L05'] tbody tr:nth-child(3) {
-  background: #fae8e2;
+  background: var(--error-surface);
   font-weight: bold;
 }
 .lesson-prose .katex-display {
@@ -687,7 +707,7 @@ h3 {
   font: inherit;
   padding: 0.6rem 0.75rem;
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--card);
   color: inherit;
   max-width: 100%;
 }
@@ -712,7 +732,7 @@ h3 {
 .auth-message {
   padding: 1rem;
   border-left: 3px solid var(--accent);
-  background: #fae8e2;
+  background: var(--error-surface);
 }
 .account-identity {
   overflow-wrap: anywhere;
@@ -1137,10 +1157,10 @@ h3 {
 .practice-error {
   padding: 0.75rem 1rem;
   border-left: 3px solid var(--accent);
-  background: #fae8e2;
+  background: var(--error-surface);
 }
 .practice-ok {
-  color: #1d5a2c;
+  color: var(--success);
 }
 .practice-bad {
   color: var(--accent);

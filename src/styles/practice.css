@@ -151,7 +151,7 @@
   border-top-color: var(--ink);
 }
 .pp-step.is-right {
-  border-bottom-color: #1d5a2c;
+  border-bottom-color: var(--success);
 }
 .pp-step.is-wrong {
   border-bottom-color: var(--accent);
@@ -190,7 +190,7 @@
 .pp-instruction {
   margin: 0 0 1.3rem;
   font-size: 1.1rem;
-  color: #2a2a27;
+  color: var(--ink);
 }
 .pp-fieldset {
   margin: 0;
@@ -267,12 +267,12 @@
 .pp-option.is-wrong,
 .pp-answer-row.is-wrong {
   border-color: var(--accent);
-  background: #fce7e3;
+  background: var(--error-surface);
 }
 .pp-option.is-right,
 .pp-answer-row.is-right {
-  border-color: #1d5a2c;
-  background: #e6f1e8;
+  border-color: var(--success);
+  background: var(--success-surface);
 }
 .pp-state-feedback .pp-option,
 .pp-answer-row {
@@ -290,14 +290,14 @@
 .pp-tag {
   padding: 0.35rem 0.8rem;
   background: var(--accent);
-  color: white;
+  color: var(--on-strong);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .pp-answer-row.is-right .pp-tag {
-  background: #1d5a2c;
+  background: var(--success);
 }
 
 /* Actions: outlined hint, solid submit, divider, underlined link. */
@@ -354,16 +354,16 @@
 }
 .pp-button-solid {
   background: var(--ink);
-  color: white;
+  color: var(--on-strong);
 }
 .pp-button-outline {
   background: transparent;
   color: var(--ink);
 }
 .pp-button:disabled {
-  background: #acaca8;
-  border-color: #acaca8;
-  color: #f4f4ef;
+  background: var(--disabled-surface);
+  border-color: var(--disabled-surface);
+  color: var(--disabled-ink);
   cursor: not-allowed;
 }
 .pp-example {
@@ -393,7 +393,7 @@ section.pp-feedback {
   border-left: 8px solid var(--signal-red);
 }
 section.pp-feedback.is-right {
-  border-left-color: #1d5a2c;
+  border-left-color: var(--success);
 }
 .pp-feedback-title {
   margin: 0 0 1rem;
@@ -444,7 +444,7 @@ section.pp-feedback.is-right {
     border-top: 8px solid var(--signal-red);
   }
   section.pp-feedback.is-right {
-    border-top-color: #1d5a2c;
+    border-top-color: var(--success);
   }
   .pp-action-link {
     padding-left: 0;
