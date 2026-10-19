@@ -35,6 +35,9 @@ for (const locale of ['fr', 'en'] as const) {
     await identify(context);
     await page.goto(`/${locale}/lessons/L01/`);
     await expect(toggle(page)).toBeEnabled();
+    await expect(
+      page.locator('[data-completion] a[href="/' + locale + '/lessons/L02/"]'),
+    ).toBeVisible();
     // Reading alone, including reaching the end, never completes a lesson.
     await toggle(page).scrollIntoViewIfNeeded();
     await expect(page.locator('[data-completion-status]')).toContainText('0');
