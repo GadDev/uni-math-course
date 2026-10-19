@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.8.0](https://github.com/GadDev/uni-math-course/compare/v0.7.0...v0.8.0) (2026-10-19)
+
+
+### Features
+
+* **glossary:** add missing algebra, geometry and regression terms ([#71](https://github.com/GadDev/uni-math-course/issues/71)) ([28bca61](https://github.com/GadDev/uni-math-course/commit/28bca61fafaf0639e0c35fbfef45fe0c51d552d3))
+
 ## [0.7.0](https://github.com/GadDev/uni-math-course/compare/v0.6.0...v0.7.0) (2026-10-18)
 
 
