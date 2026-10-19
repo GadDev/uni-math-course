@@ -77,7 +77,7 @@ export function safeReturn(value: unknown, locale: AuthLocale): string {
   ).split('?');
   if (
     extra !== undefined ||
-    !/^\/(fr|en)\/(?:account\/|progress\/|(?:lessons\/L\d{2}\/(?:practice\/)?)?)(?:#[a-zA-Z0-9_-]+)?$/.test(
+    !/^\/(fr|en)\/(?:account\/|progress\/|chapters\/C02\/|(?:lessons\/L\d{2}\/(?:practice\/)?)?)(?:#[a-zA-Z0-9_-]+)?$/.test(
       path + fragment,
     )
   )
@@ -110,7 +110,7 @@ export function sameOriginPost(request: Request, config: AuthConfig): boolean {
 }
 
 export function authRoute(path: string): boolean {
-  return /^\/(?:auth\/(?:login|logout)|api\/(?:auth\/session|attempts|exercises\/L[0-9]{2})|(?:fr|en)\/(?:sign-in|account|progress|lessons\/L[0-9]{2}\/practice))\/?$/.test(
+  return /^\/(?:auth\/(?:login|logout)|api\/(?:auth\/session|attempts|lesson-completions|exercises\/L[0-9]{2})|(?:fr|en)\/(?:sign-in|account|progress|lessons\/L[0-9]{2}\/practice))\/?$/.test(
     path,
   );
 }

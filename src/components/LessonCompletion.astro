@@ -1,0 +1,51 @@
+---
+import type { Locale } from '../lib/i18n';
+import { completionCopy } from '../lib/completion-copy';
+import '../styles/completion.css';
+interface Props {
+  locale: Locale;
+  lessonId?: string;
+  lessonIds: readonly string[];
+  nextLesson?: { id: string; title: string };
+}
+const { locale, lessonId, lessonIds, nextLesson } = Astro.props;
+const text = completionCopy[locale];
+---
+
+<section
+  class="lesson-completion"
+  data-completion
+  data-lesson={lessonId}
+  data-lessons={JSON.stringify(lessonIds)}
+  aria-label={text.title}
+>
+  {lessonId && <h2>{text.title}</h2>}
+  {lessonId && <p>{text.explanation}</p>}
+  <p data-completion-status role="status" hidden></p>
+  <div class="completion-actions">
+    {lessonId && (
+      <button type="button" data-completion-toggle hidden>
+        {text.mark}
+      </button>
+    )}
+    <button type="button" data-completion-retry hidden>
+      {text.retry}
+    </button>
+    <a
+      data-completion-sign-in
+      href={`/${locale}/sign-in/?next=${encodeURIComponent(Astro.url.pathname)}`}
+    >
+      {text.signIn}
+    </a>
+    {nextLesson && (
+      <a href={`/${locale}/lessons/${nextLesson.id}/`}>
+        {locale === 'fr' ? 'Leçon suivante' : 'Next lesson'} :{' '}
+        {nextLesson.title} →
+      </a>
+    )}
+  </div>
+</section>
+<script>
+  import { initCompletion } from '../lib/lesson-completion';
+  initCompletion();
+</script>

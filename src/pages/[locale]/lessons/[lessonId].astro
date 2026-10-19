@@ -1,5 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
+import LessonCompletion from '../../../components/LessonCompletion.astro';
+import { completionCopy } from '../../../lib/completion-copy';
 import Base from '../../../layouts/Base.astro';
 import ReadingNotice from '../../../components/ReadingNotice.astro';
 import { copy } from '../../../lib/i18n';
@@ -114,6 +116,13 @@ const glossaryLink = glossaryLinks[lesson.data.lessonId];
               ) : (
                 topic.title
               )}
+              <span
+                class="completion-badge"
+                data-completion-badge={topic.id}
+                hidden
+              >
+                ✓ {completionCopy[locale].completed}
+              </span>
               {!releasedIds.has(topic.id) && <small>{text.planned}</small>}
             </span>
           </li>
@@ -198,6 +207,16 @@ const glossaryLink = glossaryLinks[lesson.data.lessonId];
       <p class="content-provenance">
         {lesson.data.status === 'pilot' ? text.review : text.reviewExtended}
       </p>
+      <LessonCompletion
+        locale={locale}
+        lessonId={lesson.data.lessonId}
+        lessonIds={outline.map((topic) => topic.id)}
+        nextLesson={
+          outline[
+            outline.findIndex((topic) => topic.id === lesson.data.lessonId) + 1
+          ]
+        }
+      />
       <ReadingNotice locale={locale} />
       <a class="back-link" href={chapterLink}>
         ← {text.next}

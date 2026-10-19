@@ -6,6 +6,7 @@ for migration in supabase/migrations/*.sql; do
   psql "$TEST_DATABASE_URL" -X -v ON_ERROR_STOP=1 -f "$migration"
 done
 psql "$TEST_DATABASE_URL" -X -v ON_ERROR_STOP=1 -f tests/database/contracts.sql
+psql "$TEST_DATABASE_URL" -X -v ON_ERROR_STOP=1 -f tests/database/completions.sql
 
 # Real overlapping transactions on distinct connections, same owner/exercise.
 submit() {

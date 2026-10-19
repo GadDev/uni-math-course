@@ -1,4 +1,6 @@
 ---
+import LessonCompletion from '../../components/LessonCompletion.astro';
+import { completionCopy } from '../../lib/completion-copy';
 import Base from '../../layouts/Base.astro';
 import ReadingNotice from '../../components/ReadingNotice.astro';
 import { copy, locales } from '../../lib/i18n';
@@ -105,6 +107,12 @@ const implication = katex.renderToString('A \\Rightarrow B', {
           ? 'Le parcours suit les trois parties du PDF Logique et ensembles. Les leçons ajoutent des explications pas à pas, des schémas et des exemples ; les pages répétées du diaporama sont regroupées.'
           : 'The learning path follows the three parts of the Logic and sets PDF. Lessons add step-by-step explanations, diagrams and examples; repeated slide builds are grouped together.'}
       </p>
+      <LessonCompletion
+        locale={locale}
+        lessonIds={text.programme
+          .map((topic) => topic.id)
+          .filter((id) => releasedIds.has(id))}
+      />
       {programmeParts.map((part) => (
         <section class="programme-part" aria-label={part.title}>
           <h3>{part.title}</h3>
@@ -124,6 +132,13 @@ const implication = katex.renderToString('A \\Rightarrow B', {
                 {releasedIds.has(topic.id) ? (
                   <a href={'/' + locale + '/lessons/' + topic.id + '/'}>
                     {topic.title}
+                    <span
+                      class="completion-badge"
+                      data-completion-badge={topic.id}
+                      hidden
+                    >
+                      ✓ {completionCopy[locale].completed}
+                    </span>
                   </a>
                 ) : (
                   <span>{topic.title}</span>
