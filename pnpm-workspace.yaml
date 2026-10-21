@@ -4,3 +4,5 @@ packages:
 # Markdown and React must emit the same KaTeX classes as the imported CSS.
 overrides:
   katex: '0.19.0'
+  # routing-utils pins 6.1.0; 6.3.0 fixes GHSA-9wv6-86v2-598j within v6.
+  '@vercel/routing-utils>path-to-regexp': '6.3.0'
