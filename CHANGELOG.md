@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.11.0](https://github.com/GadDev/uni-math-course/compare/v0.10.0...v0.11.0) (2026-10-21)
+
+
+### Features
+
+* **content:** prepare L03-L20 expanded practice banks ([#77](https://github.com/GadDev/uni-math-course/issues/77)) ([c9b4b89](https://github.com/GadDev/uni-math-course/commit/c9b4b89d555c76216236001f3a0e70e8a74944ae))
+
 ## [0.10.0](https://github.com/GadDev/uni-math-course/compare/v0.9.0...v0.10.0) (2026-10-19)
 
 
