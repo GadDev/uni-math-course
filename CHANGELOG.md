@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.11.1](https://github.com/GadDev/uni-math-course/compare/v0.11.0...v0.11.1) (2026-10-22)
+
+
+### Bug Fixes
+
+* **deps:** patch path-to-regexp in Vercel routing utilities ([#82](https://github.com/GadDev/uni-math-course/issues/82)) ([3750c6c](https://github.com/GadDev/uni-math-course/commit/3750c6cdf76158803392feadd0d849521bb8dbde))
+
 ## [0.11.0](https://github.com/GadDev/uni-math-course/compare/v0.10.0...v0.11.0) (2026-10-21)
 
 
