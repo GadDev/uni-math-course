@@ -31,7 +31,7 @@ For a range or "all lessons", work one lesson at a time, write each note to disk
 
 **Always** (they change, stale memory of them causes broken output):
 - `AGENTS.md`; skim `docs/CONSTITUTION.md` (read §1–§2 in full: correctness rules and known source defects).
-- `scripts/check-content.mjs` — the **source of truth** for a valid bank. If it disagrees with a reference file, the script wins; tell the user the reference is stale.
+- `scripts/check-content.ts` — the **source of truth** for a valid bank. If it disagrees with a reference file, the script wins; tell the user the reference is stale.
 - `docs/CONTENT_RELEASES.md` and `content/releases.json` — the publication contract and selected bank versions, mathematical/translation review evidence, fingerprints and practice withdrawals. Draft validation alone does not authorize publication.
 
 **Per mode**:
@@ -49,7 +49,7 @@ Source PDF: `docs/Logique_01 (1).pdf` (untracked; the filename has a space and "
 
 Use concise mathematical justifications and compare design candidates. Neither model agreement nor extra reasoning traces guarantee correctness. Details, scoring grid and recipes: `references/reasoning-protocols.md`.
 
-- **Mathematical self-check** — state the domain, definition, concise justification and edge cases. Use a second, different derivation or reproducible check for each key; two routes by the same author remain self-checks, not independent review. For propositional tables, run `scripts/logic-check.mjs` with a linked `table` entry for every truth-table item. Its coverage report distinguishes keys matched against supplied formulas, failed comparisons, unchecked tables and supplemental checks. Manually check that each formula expresses the prompt; single-choice semantics and translations remain outside its automatic verification.
+- **Mathematical self-check** — state the domain, definition, concise justification and edge cases. Use a second, different derivation or reproducible check for each key; two routes by the same author remain self-checks, not independent review. For propositional tables, run `scripts/logic-check.ts` with a linked `table` entry for every truth-table item. Its coverage report distinguishes keys matched against supplied formulas, failed comparisons, unchecked tables and supplemental checks. Manually check that each formula expresses the prompt; single-choice semantics and translations remain outside its automatic verification.
 - **Candidate comparison** — at each design decision branch into 2–3 candidates, score, prune with a stated reason, descend. Branch at: the misconception targeted, the stem, the distractor set, and (review) competing readings of an ambiguous source statement.
 
 Keep verification notes out of exercise JSON. Record concise justifications, domains, witnesses, reproducible checks, actual coverage and design decisions in `generation-notes.md` (generate) or the review note (review). Do not request private reasoning transcripts. In chat, show findings and decisions.
@@ -59,13 +59,13 @@ Keep verification notes out of exercise JSON. Record concise justifications, dom
 Read `references/bank-design.md` before designing the requested items. Use `easy`, `medium`, and `hard` for newly authored items; legacy published `foundation` and `application` values remain supported for history. For a request without a number, start with five new exercises per level (15 total), but a stated count takes precedence. Do not force untaught material to manufacture hard questions; flag difficulty concerns in the notes.
 
 1. **Map** each objective → source pages → prerequisite status (source-taught / prerequisite support / enrichment). Distribute the requested items across all six objectives, allowing repetitions and varied contexts.
-2. **Branch** on misconceptions: top three plausible errors per objective. List reusable tags with `node .claude/skills/math-course-studio/scripts/validate-draft.mjs --list-tags` before coining new ones.
+2. **Branch** on misconceptions: top three plausible errors per objective. List reusable tags with `node .claude/skills/math-course-studio/scripts/validate-draft.ts --list-tags` before coining new ones.
 3. **Branch** on stem and distractors; score; prune. Each distractor is a named plausible error with feedback that explains why it fails and how to repair the reasoning.
 4. **Verify** the survivor with two derivations. State the domain in the prompt.
 5. **Write** French and English together from one shared answer. `$...$` strings are identical in both languages; only prose differs.
 6. **Assemble** a bank with a positive `exerciseCount` matching the exercises array (at least six while lessons have six objectives), distinct `Lxx-E##` IDs and complete objective coverage. To add *new* exercises, use IDs not present in any published version (e.g. E07–E21 for 15 additions to a six-item bank). Write `v<N>.draft.json`, then validate. Choose an unused version above all existing bank versions; for a new lesson start at 1. Keep bank and item versions equal. Record the selected base version and proposed version in the notes.
 
-For large single-choice batches, you may author an inspectable `exercises/drafts/<Lxx>/spec.json` with `lessonId`, unused `version`, and `items` containing complete bilingual stems, hints, option labels/feedback, keys and misconception tags. Run `node scripts/assemble-exercise-draft.mjs exercises/drafts/<Lxx>/spec.json` to fill in shared metadata from the registry-selected bank. This **does not generate or verify answers**; verify each authored key separately. Commit both spec and resulting `v<N>.draft.json` so review is reproducible. The script is not a substitute for authoring truth-table tasks when a lesson objective requires them.
+For large single-choice batches, you may author an inspectable `exercises/drafts/<Lxx>/spec.json` with `lessonId`, unused `version`, and `items` containing complete bilingual stems, hints, option labels/feedback, keys and misconception tags. Run `node scripts/assemble-exercise-draft.ts exercises/drafts/<Lxx>/spec.json` to fill in shared metadata from the registry-selected bank. This **does not generate or verify answers**; verify each authored key separately. Commit both spec and resulting `v<N>.draft.json` so review is reproducible. The script is not a substitute for authoring truth-table tasks when a lesson objective requires them.
 
 The assembler also supports a concise authoring form for a *new* E07–E21 batch: `objective: 1..6` resolves the lesson objective, and the 15 item positions supply unused E07–E21 IDs and easy/medium/hard in groups of five. An option may be an identical mathematical/code label string or a `[fr, en]` pair; author a bilingual `wrong` repair message for the two incorrect options and a bilingual `explanation` for the correct option. Prefer full per-option feedback when the distractors fail for different reasons. Verify these positional defaults against every archived version before using them; they are convenience metadata, not license to reuse old IDs. The `wrong` message and answer key must be authored and checked, never guessed by the assembler.
 
@@ -94,7 +94,7 @@ Write findings with the template in `references/review-rubric.md`. Existing note
 Follow `references/course-review.md`. Start by running:
 
 ```sh
-node .claude/skills/math-course-studio/scripts/course-map.mjs
+node .claude/skills/math-course-studio/scripts/course-map.ts
 ```
 
 It prints the prerequisite table, source-page coverage (gaps and overlaps), duration total, fr/en frontmatter mismatches, and stale "planned / not yet available" claims. Those are mechanical facts; judging them (is a gap intentional? is the progression sound?) is your job.
@@ -104,10 +104,10 @@ It prints the prerequisite table, source-page coverage (gaps and overlaps), dura
 From the repository root, use paths relative to it. Replace `<Lxx>` and `<N>` with the target lesson and proposed version before running:
 
 ```sh
-node .claude/skills/math-course-studio/scripts/validate-draft.mjs exercises/drafts/<Lxx>/v<N>.draft.json
-node .claude/skills/math-course-studio/scripts/logic-check.mjs exercises/drafts/<Lxx>/v<N>.draft.json exercises/drafts/<Lxx>/answer-checks.json   # propositional items
-node scripts/check-repository.mjs     # always after writing any .md: draft notes are link-checked
-node scripts/check-content.mjs
+node .claude/skills/math-course-studio/scripts/validate-draft.ts exercises/drafts/<Lxx>/v<N>.draft.json
+node .claude/skills/math-course-studio/scripts/logic-check.ts exercises/drafts/<Lxx>/v<N>.draft.json exercises/drafts/<Lxx>/answer-checks.json   # propositional items
+node scripts/check-repository.ts     # always after writing any .md: draft notes are link-checked
+node scripts/check-content.ts
 ```
 
 The logic helper rejects empty manifests and exits nonzero for failed checks or omitted truth-table keys. Supplemental checks, even with exercise IDs, do not verify stored keys. For a bank with no truth tables, record that automatic key verification is not applicable; do not invent table checks or interpret supplemental success as mathematical approval.

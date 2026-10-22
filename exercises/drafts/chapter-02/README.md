@@ -63,7 +63,7 @@ These are explicit qualifications of the source, not a claim that its standard a
 
 ## Reproduction and release boundary
 
-From the repository root, regenerate one lesson with `node exercises/drafts/chapter-02/authoring/L21.mjs` (substitute the lesson ID). Run `node scripts/check-chapter-two-drafts.mjs`. With SymPy installed, run `python3 exercises/drafts/chapter-02/authoring/verify.py`. The verification-results file records the actual scopes. SymPy is a content-review tool, not an application dependency.
+From the repository root, regenerate one lesson with `node exercises/drafts/chapter-02/authoring/L21.ts` (substitute the lesson ID). Run `node scripts/check-chapter-two-drafts.ts`. With SymPy installed, run `python3 exercises/drafts/chapter-02/authoring/verify.py`. The verification-results file records the actual scopes. SymPy is a content-review tool, not an application dependency.
 
 The standard draft validator checks against active lesson paths; for these new IDs it runs after promotion has staged matching lesson files. This checkpoint uses the structural draft checker without inventing a registry exception. Promotion must copy the reviewed bank to a new immutable v1 archive, record actual bilingual/mathematical evidence and select it in the release registry. Existing archives and learner attempts remain unchanged.
 

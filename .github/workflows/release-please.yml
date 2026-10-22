@@ -55,7 +55,7 @@ jobs:
             test -n "$release_sha" || continue
             require_docs "$release_sha"
           done <<< "$pending"
-          node scripts/check-release.mjs
+          node scripts/check-release.ts
           echo "release=true" >> "$GITHUB_OUTPUT"
       - name: Create repository-scoped release token
         id: app

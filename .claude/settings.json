@@ -85,7 +85,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/confine-paths.mjs\"",
+            "command": "node \"$CLAUDE_PROJECT_DIR/.claude/hooks/confine-paths.ts\"",
             "timeout": 10,
             "onFailure": "block",
             "statusMessage": "Checking paths stay inside the project"

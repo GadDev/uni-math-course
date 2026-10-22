@@ -53,7 +53,7 @@ jobs:
       - name: Preserve published exercise versions
         env:
           CONTENT_BASE_REF: ${{ github.event.pull_request.base.sha || github.event.before || 'origin/main' }}
-        run: node scripts/check-immutable-exercises.mjs
+        run: node scripts/check-immutable-exercises.ts
       - name: Verify database ownership, grants and concurrent attempts
         env:
           TEST_DATABASE_URL: postgresql://postgres:disposable-test-password@localhost:5432/course_contracts

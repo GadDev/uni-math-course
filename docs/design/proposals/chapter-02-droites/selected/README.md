@@ -33,4 +33,4 @@ All eight language/viewport combinations pass loaded-font, green-accent, horizon
 
 This is the design-stage snapshot: at selection time only design files and decision notes changed. For current integration and release boundaries, see the [Chapter 2 author review](../../../../content/CHAPTER_02_REVIEW.md) and [content contracts](../../../../CONTENT_RELEASES.md).
 
-To reproduce, run `source/finalize.mjs` with Playwright, Sharp and an installed Chromium (`PLAYWRIGHT_CHROMIUM_EXECUTABLE`). `CODEX_PRIMARY_RUNTIME_NODE_MODULES` may locate the dependencies. Baseline layouts are included. The context studies embed the existing licensed Anton font; see [notices](source/THIRD_PARTY_NOTICES.txt).
+To reproduce, run `source/finalize.ts` with Playwright, Sharp and an installed Chromium (`PLAYWRIGHT_CHROMIUM_EXECUTABLE`). `CODEX_PRIMARY_RUNTIME_NODE_MODULES` may locate the dependencies. Baseline layouts are included. The context studies embed the existing licensed Anton font; see [notices](source/THIRD_PARTY_NOTICES.txt).

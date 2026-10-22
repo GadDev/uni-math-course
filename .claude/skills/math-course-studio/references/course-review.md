@@ -4,7 +4,7 @@ A lesson can be correct and the course still be wrong: gaps, forward references,
 
 ## Procedure
 
-1. **Run the map**: `node .claude/skills/math-course-studio/scripts/course-map.mjs`. Treat the output as facts to judge, not verdicts.
+1. **Run the map**: `node .claude/skills/math-course-studio/scripts/course-map.ts`. Treat the output as facts to judge, not verdicts.
 2. **Prerequisite graph** — for each lesson, are its prerequisites earlier, necessary and *sufficient*? A prerequisite that is never taught (or taught later) is a defect; so is an unstated one (a lesson uses an idea that no earlier lesson or prerequisite names). Free-text prerequisites (e.g. L01) refer to prior knowledge outside the course; check that it is realistic. The map only checks declared edges, so do the sufficiency check yourself: for each lesson, list the notations and results its text and bank use (∈, ∀, ⇒, ≡, ℕ, intervals, SQL/Python constructs…), find where each is first taught, and confirm that lesson is a declared prerequisite or an ancestor of one. Report missing edges per lesson (a per-lesson list is the most actionable form). Compare the declared prerequisites in the lesson frontmatter with the ones copied into the registry-selected `exercises/<Lxx>/v<N>.json`; they must agree.
 3. **Coverage** — list source pages not covered by any lesson (the title page and slide-build pages may be legitimately uncovered) and pages covered twice. For each gap decide: intentional, consolidated repeated build, or missing content. Read the PDF page before deciding (`Read` with `pages`).
 4. **Progression** — does difficulty rise gently? Are confusable concepts (⇒ vs ⇔, ∈ vs ⊆, converse vs contrapositive, ∀∃ vs ∃∀) taught close together and contrasted? Is each lesson's objective set consistent with its length (`minutes`)?
@@ -16,7 +16,7 @@ A lesson can be correct and the course still be wrong: gaps, forward references,
 6. **Stale claims** — the map flags lessons that call another lesson "planned" or "not available" when it exists. Confirm each, and propose the corrected sentence in both languages.
 7. **Status and release readiness** — read `content/releases.json` and `docs/CONTENT_RELEASES.md` for selected versions, separate mathematical/translation evidence and practice withdrawals. A bank status or lesson `pilot` flag does not authorize a release. Then assess `pilot` vs `extended`, and the Constitution's publication gates (verified answers, second check, translation review). Say which gates are evidenced and which are not. Read the milestone and pilot scope in `docs/ROADMAP.md` and check that the lessons it ships form a closed set: every prerequisite of a piloted lesson must itself be in the pilot (or the lesson must be self-contained). Also note where the roadmap's description of the course (planned / not published) no longer matches the repository.
 8. **Source defects across the course** — walk the Constitution's known list (p. 48, 19/25/31, 60–65, 71–89, 94) and check each affected lesson handles it (flagged, not silently fixed).
-9. **Bank spread** — across registry-selected banks (identify withdrawn practice separately; do not mix in archives): misconception tags used (`validate-draft.mjs --list-tags`), balance of `easy`/`medium`/`hard` (or historical `foundation`/`application`), item types, and lessons whose bank leans on a single pattern.
+9. **Bank spread** — across registry-selected banks (identify withdrawn practice separately; do not mix in archives): misconception tags used (`validate-draft.ts --list-tags`), balance of `easy`/`medium`/`hard` (or historical `foundation`/`application`), item types, and lessons whose bank leans on a single pattern.
 
 Use tree-of-thoughts for judgment calls: for each gap or ordering concern, write the competing explanations (intentional / defect / consolidated) with the evidence for each, then conclude, or report the ambiguity.
 
@@ -45,4 +45,4 @@ Compact tree-of-thoughts blocks for judgment calls.
 
 Keep the Findings table to the **15 most important** findings (all Blocking and Major first). Put the rest in a compact "Appendix: minor findings" list of one line each, so a maintainer can act on the table without wading through polish. Several findings from one root cause (e.g. one reordering) become a single row.
 
-Severity scale is in `review-rubric.md`. Write notes with plain-text paths (not Markdown links) so `check:docs` cannot trip on a broken link, and run `node scripts/check-repository.mjs` after writing it.
+Severity scale is in `review-rubric.md`. Write notes with plain-text paths (not Markdown links) so `check:docs` cannot trip on a broken link, and run `node scripts/check-repository.ts` after writing it.
