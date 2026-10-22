@@ -52,7 +52,7 @@ The examples have author mathematical/bilingual self-check only. Before use they
 
 ## 2. Choosing the item type
 
-- **truth-table** — for propositional lessons where completing every row *is* the objective (evaluating a formula, spotting equivalence). Not suitable when the objective is to *choose* or *explain*. Needs a formula whose rows you computed twice; use `scripts/logic-check.mjs`.
+- **truth-table** — for propositional lessons where completing every row *is* the objective (evaluating a formula, spotting equivalence). Not suitable when the objective is to *choose* or *explain*. Needs a formula whose rows you computed twice; use `scripts/logic-check.ts`.
 - **single-choice** — everything else. Make each option a plausible error; four options by default (three minimum).
 - **Neither fits** (e.g. "prove that…", "find a counterexample of your own", "which step is wrong?"): do not force it into a poor multiple choice. Write the nearest single-choice that tests recognition, and put the real item in `proposed-types.md`.
 - A **sets / relations / quantifier lesson** has no truth-table material unless an objective is genuinely propositional. Do not invent a table to fill the slot.

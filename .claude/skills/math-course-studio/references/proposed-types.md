@@ -1,6 +1,6 @@
 # Proposed exercise types — not checker-accepted
 
-`scripts/check-content.mjs` accepts only `single-choice` and `truth-table`. The types below are **proposals**. Put them in `exercises/drafts/<Lxx>/proposed-types.md`, never in a bank JSON, and head the file with:
+`scripts/check-content.ts` accepts only `single-choice` and `truth-table`. The types below are **proposals**. Put them in `exercises/drafts/<Lxx>/proposed-types.md`, never in a bank JSON, and head the file with:
 
 > **Proposed — not checker-accepted.** These types are not implemented in the application or the content checker. Adopting any of them needs a maintainer decision and checker/UI work.
 

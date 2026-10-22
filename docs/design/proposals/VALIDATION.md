@@ -8,14 +8,14 @@ Scope: selected raster concepts and format conversion. These are not browser scr
 - Actual RIFF/WEBP format, native dimensions, SHA-256 hashes and byte sizes recorded in [asset evidence](asset-evidence.json).
 - Lossless conversion checked by byte equality of decoded RGBA pixels between each selected PNG and WebP. No resizing, cropping, palette substitution or UI regeneration occurs in conversion.
 - Visual review of the selected concepts: course IDs, practice option values, feedback truth table, natural numbers including zero and French interval readings. Original sample-content derivations and limitations are in [content review](CONTENT_REVIEW.md).
-- Repository quality gate: `pnpm check`. Converter syntax: `node --check docs/design/proposals/source/prepare-signal.mjs`. No reading/interaction code changes in this PR; no new browser acceptance claim.
+- Repository quality gate: `pnpm check`. Converter syntax: `node --check docs/design/proposals/source/prepare-signal.ts`. No reading/interaction code changes in this PR; no new browser acceptance claim.
 
 ## Convert again from the selected originals
 
 The [manifest](source/signal-screens.json) maps each source PNG to its WebP. Source PNGs remain outside Git; the requested repository assets are WebP only. If the selected originals are available, use an isolated Node environment with sharp:
 
 ```sh
-node docs/design/proposals/source/prepare-signal.mjs /absolute/path/to/selected-originals
+node docs/design/proposals/source/prepare-signal.ts /absolute/path/to/selected-originals
 ```
 
 The converter can resolve sharp from the normal environment or `CODEX_PRIMARY_RUNTIME_NODE_MODULES`. It writes images and evidence, and rejects an unexpected image set. It does not recreate a layout from code. Image generation is nondeterministic; prompt summaries and selection notes do not guarantee regeneration of an identical concept.

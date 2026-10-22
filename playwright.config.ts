@@ -10,7 +10,7 @@ export default defineConfig({
     },
   },
   webServer: {
-    command: 'node tests/support/run-server.mjs',
+    command: 'node tests/support/run-server.ts',
     url: 'http://127.0.0.1:4321/fr/',
     reuseExistingServer: false,
     timeout: 120_000,

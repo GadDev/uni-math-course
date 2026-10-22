@@ -55,7 +55,9 @@ Sign-in is disabled until configured. Hosted authentication, database/deployment
 
 ## Run locally
 
-Requires **Node.js 24.19.0** and **pnpm 11.25.0** (pinned in `.node-version` and `package.json`). Install from the committed lockfile:
+Requires **Node.js 24.19.0** and **pnpm 11.25.0** (pinned in `.node-version` and `package.json`). The project scripts and tests are TypeScript ESM files run directly by Node 24’s built-in type stripping; no additional runner or compilation step is needed. `pnpm typecheck` checks the application and tooling, including `.claude` scripts.
+
+Install from the committed lockfile:
 
 ```sh
 git clone https://github.com/GadDev/uni-math-course.git

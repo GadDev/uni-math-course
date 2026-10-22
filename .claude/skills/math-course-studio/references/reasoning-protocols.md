@@ -18,7 +18,7 @@ A repeated computation is not a different check. A script can catch arithmetic s
 
 ### Bundled helper for propositional items
 
-`scripts/logic-check.mjs <bank.json> <checks.json>` enumerates finite Boolean assignments with its own parser (no `eval`). First run the draft/schema validator separately. `checks.json` must be a non-empty array of checks:
+`scripts/logic-check.ts <bank.json> <checks.json>` enumerates finite Boolean assignments with its own parser (no `eval`). First run the draft/schema validator separately. `checks.json` must be a non-empty array of checks:
 
 ```json
 [

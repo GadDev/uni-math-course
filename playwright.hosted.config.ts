@@ -29,7 +29,7 @@ export default defineConfig({
   ...(settings.localFixture
     ? {
         webServer: {
-          command: 'node tests/support/run-server.mjs',
+          command: 'node tests/support/run-server.ts',
           url: settings.origin + '/fr/',
           timeout: 120_000,
           reuseExistingServer: false,
