@@ -22,7 +22,7 @@ console.log(
 );
 
 const failures = [];
-if (!/^\d+\\.\d+\\.\d+$/.test(expected) || expected !== expectedDom) {
+if (!/^\d+\.\d+\.\d+$/.test(expected) || expected !== expectedDom) {
   failures.push('Pin react and react-dom to the same exact version in package.json.');
 }
 for (const [name, version] of Object.entries(installed)) {
