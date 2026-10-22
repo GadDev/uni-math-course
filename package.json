@@ -11,7 +11,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/check-react-versions.mjs && astro build",
+    "check:react": "node scripts/check-react-versions.mjs",
     "preview": "astro preview",
     "check:docs": "node scripts/check-repository.mjs && node scripts/sync-release-status.mjs",
     "check:content": "node scripts/check-content.mjs",
@@ -21,7 +22,7 @@
     "test": "node --test tests/claude/*.test.mjs tests/content/*.test.mjs tests/repository/*.test.mjs tests/auth/*.test.ts tests/attempts/*.test.ts",
     "check": "pnpm check:docs && pnpm check:release && pnpm check:content && pnpm typecheck && pnpm format:check && pnpm test && pnpm build",
     "test:e2e": "playwright test",
-    "build:test": "ASTRO_TEST_BUILD=1 astro build",
+    "build:test": "node scripts/check-react-versions.mjs && ASTRO_TEST_BUILD=1 astro build",
     "sync:release-status": "node scripts/sync-release-status.mjs --write",
     "check:release": "node scripts/check-release.mjs",
     "test:e2e:hosted": "playwright test --config playwright.hosted.config.ts"

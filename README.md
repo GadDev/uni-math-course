@@ -68,6 +68,12 @@ Open [http://localhost:4321/fr/](http://localhost:4321/fr/) or [http://localhost
 
 To test authentication, grading and saved progress, configure a separate development Supabase project using [`.env.example`](.env.example) and the [authentication setup guide](docs/AUTHENTICATION.md). Use synthetic accounts; do not commit credentials or learner data.
 
+## Vercel dependency installs
+
+This project pins Node 24.19.0 and pnpm 11.25.0. On Vercel, set the project environment variable `ENABLE_EXPERIMENTAL_COREPACK=1` (for all deployment environments) so the `packageManager` field controls the pnpm version. Keep the Install Command on its automatic/default setting; avoid a custom `pnpm install` override that may use an older pnpm.
+
+The production build runs `node scripts/check-react-versions.mjs` before Astro to verify the installed `react`, `react-dom` and the React peer resolved by `react-dom` all match exactly. If the check fails, inspect Vercel's install logs for the package-manager version and deployed Git commit, then redeploy **without build cache** after correcting the environment. Use `pnpm install --frozen-lockfile` locally and in CI.
+
 ## Verify changes
 
 ```sh
