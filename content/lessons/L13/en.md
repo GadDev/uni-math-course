@@ -1,7 +1,7 @@
 ---
 lessonId: L13
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Set comprehension"
 summary: "Read and compute a set defined by comprehension, including intervals and the even numbers, and separate the domain from the filter."
@@ -51,6 +51,8 @@ Here $\exists k \in \mathbb{N}$ reads “there exists $k$ in $\mathbb{N}$”. Ze
 
 ## Guided example: the primes up to 8
 
+A **prime number** is an integer at least $2$ with exactly two positive divisors: $1$ and itself. Thus $1$ is excluded, $2$ qualifies, and $4$ fails because $2$ is also a divisor.
+
 Let $X = \{1, 2, 3, 4, 5, 6, 7, 8\}$ and let $P(n)$ be “$n$ is prime”.
 
 1. Test each element of $X$ against $P$.
@@ -65,7 +67,7 @@ The result depends on both parts. $\{n \in \{1, 2, 3\} \mid n > 5\} = \varnothin
 
 ## Independent practice
 
-The six pilot exercises cover a finite comprehension, two intervals, the even numbers, an empty result and a prime filter.
+The selected exercises cover a finite comprehension, two intervals, the even numbers, an empty result and a prime filter.
 
 Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 

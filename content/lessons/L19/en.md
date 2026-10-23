@@ -1,7 +1,7 @@
 ---
 lessonId: L19
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Python all and any: sortedness, duplicates and maximum"
 summary: "Translate statements about a list into ∀ and ∃ and into Python’s all and any, and handle the edge cases of short lists."
@@ -26,7 +26,7 @@ For `t = [1, 3, 2]`, here is where the values sit:
 | --- | --- | --- | --- |
 | t[i] | 1 | 3 | 2 |
 
-The first index is zero. `range(n-1)` produces the starts of adjacent pairs without including its stop bound. `for i in ...` traverses these starts; `all` requires every test to be true and `any` requires at least one. J contains all positions and K only those with a successor. For lists of zero or one element, K is empty: also interpret the exercise notation $\{0,\ldots,n-2\}$ as this domain of valid starts, never as negative indices to traverse.
+The first index is zero and `n = len(t)` is the number of elements. `range(n-1)` produces the starts of adjacent pairs without including its stop bound. `for i in ...` traverses these starts; `all` requires every test to be true and `any` requires at least one. J contains all positions and K only those with a successor. For lists of zero or one element, K is empty: also interpret the exercise notation $\{0,\ldots,n-2\}$ as this domain of valid starts, never as negative indices to traverse.
 
 Revisit the three objectives separately: sortedness compares neighbours, duplicate detection compares two distinct positions and maximum search compares a candidate against all values. A maximum can occur more than once.
 
@@ -64,6 +64,8 @@ Take `t = [1, 3, 2]`, so $n = 3$ and the indices of comparison are $0$ and $1$.
 
 This guided work, whose solution is visible, is not an independent response for mastery evidence.
 
+**Reading a Python expression.** `len(t)` gives the number of elements; `range(n)` visits indices $0$ through $n-1$, excluding $n$. `True` and `False` are Boolean values. In `test for i in ... for j in ...`, fix one `i`, traverse its `j` values, then move to the next `i`. In `any(all(...))`, the inner `all` finishes testing one candidate before the outer `any` searches for another.
+
 ## Duplicates and maximum
 
 These are original translations; the course source only poses them as exercises.
@@ -82,13 +84,33 @@ any(all(t[j] <= t[i] for j in range(n)) for i in range(n))
 
 The first searches two distinct positions with equal values; the second searches a position whose value is at least every other value.
 
+### Trace the two levels
+
+With `t=[1,3,1]` and `n=3`, the distinct-index pairs are:
+
+| i | j | Comparison | Result |
+| --- | --- | --- | --- |
+| 0 | 1 | `1 == 3` | `False` |
+| 0 | 2 | `1 == 1` | `True`: duplicate witness |
+| 1 | 2 | `3 == 1` | `False` |
+
+`any` can stop at witness `(0,2)`; the table exposes every pair to explain the domain. To search for a maximum, here is candidate index `i=1`, whose value is `3`:
+
+| j | `t[j] <= t[1]` | Result |
+| --- | --- | --- |
+| 0 | `1 <= 3` | `True` |
+| 1 | `3 <= 3` | `True` |
+| 2 | `1 <= 3` | `True` |
+
+The inner `all` is `True`, so the outer `any` has witness `i=1`. **Your turn:** why does candidate `i=0` fail? Test `j=1` asks `3 <= 1`, which is false. A candidate must pass every comparison, not just one.
+
 ## Edge cases
 
 For an empty list, the range is empty. Then `all(...)` over an empty range is `True` and `any(...)` over an empty range is `False`. A list of length $0$ or $1$ is therefore sorted. The statement “contains its maximum” needs a finite, nonempty list of numbers: an empty list has no maximum, and the translation correctly gives false.
 
 ## Independent practice
 
-The six pilot exercises cover the `all` translation, the negation, the number of comparisons, duplicates, the maximum and the empty list.
+The selected exercises cover the `all` translation, the negation, the number of comparisons, duplicates, the maximum and the empty list.
 
 Interactive practice requires sign-in. Availability depends on this lesson’s selected version and release status.
 

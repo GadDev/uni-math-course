@@ -1,7 +1,7 @@
 ---
 lessonId: L28
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Cartesian equations and curves"
 summary: "Connect an equation to its point set and preserve its solutions."
@@ -43,7 +43,7 @@ A Cartesian equation describes all real points whose coordinates make it true. F
 
 ## A gallery of curves: connect each formula to its drawing
 
-The PDF’s four equations, pages 33–34, describe different shapes. Here a **parabola** is the curve of a squared relation; it can be rotated.
+The PDF’s four equations, pages 33–34, describe different shapes. The equations $y=x^2$ and $x=y^2$ in this gallery describe **parabolas**. Exchanging the coordinates changes their orientation; the presence of squares in an equation alone does not make it a parabola.
 
 - $y=2x+1$: a straight line. Increasing $x$ by $1$ increases $y$ by $2$.
 - $x^2+y^2=4$: a circle centred at $O$ with radius $2$, because distance to the origin is $\sqrt{x^2+y^2}=2$.

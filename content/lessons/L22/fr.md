@@ -1,7 +1,7 @@
 ---
 lessonId: L22
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Développer et factoriser"
 summary: "Changer la forme d’une expression sans changer sa valeur."
@@ -76,7 +76,7 @@ Déroulons la première : $(a+b)^2=(a+b)(a+b)=a^2+ab+ba+b^2$. Comme $ab=ba$, les
 
 ## Reconstruire les identités
 
-Les produits donnent $(a+b)^2=a^2+2ab+b^2$, $(a-b)^2=a^2-2ab+b^2$ et $(a-b)(a+b)=a^2-b^2$. Le terme croisé est présent deux fois dans le carré ; les termes croisés s’annulent dans le produit des conjugués. Pour éviter les erreurs de mémoire, écrivez le carré comme un produit avant de réduire.
+Avant de choisir une identité du tableau, écrivez le carré comme un produit. Cela permet de retrouver les deux termes croisés au lieu de mémoriser une formule isolée.
 
 ## Exemple guidé : factoriser en deux temps
 

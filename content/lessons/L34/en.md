@@ -1,7 +1,7 @@
 ---
 lessonId: L34
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Affine models and residuals"
 summary: "Measure a model’s vertical error and build a squared loss."
@@ -91,7 +91,7 @@ The page-70 notation abbreviates repeated calculations; $S_{yy}$ is supplemental
 
 ## Three useful sums
 
-Define $S_{xx}=\sum_i(x_i-\bar x)^2$, $S_{xy}=\sum_i(x_i-\bar x)(y_i-\bar y)$ and $S_{yy}=\sum_i(y_i-\bar y)^2$. For $(0,1),(2,3)$, means are $(1,2)$ and all three sums equal $2$. Squared sums are never negative, but the cross sum can be negative. These quantities prepare the calculation of the best-fitting line.
+The squared sums $S_{xx}$ and $S_{yy}$ are never negative, but the cross sum $S_{xy}$ can be negative. The table above will be reused for the regression line.
 
 <p class="source-next"><a href="/en/lessons/L35/#pdf-71">Next in the PDF: The formula →</a></p>
 

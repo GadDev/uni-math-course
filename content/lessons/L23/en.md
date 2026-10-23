@@ -1,7 +1,7 @@
 ---
 lessonId: L23
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Fractions, powers and roots"
 summary: "Preserve quotient domains and read powers and roots correctly."
@@ -70,7 +70,7 @@ The PDF continues with [Standard algebraic identities](../L22/#pdf-15), then [So
 
 ## Exponent laws
 
-For a nonzero real base and integer exponents, $a^ma^n=a^{m+n}$, $(a^m)^n=a^{mn}$, $a^0=1$ and $a^{-n}=1/a^n$. The nonzero domain avoids undefined reciprocals; we do not use $0^0$. A negative exponent denotes a reciprocal, not a necessarily negative result. Do not confuse adding exponents with multiplying them.
+The table’s conditions matter: the nonzero domain avoids undefined reciprocals; we do not use $0^0$. A negative exponent denotes a reciprocal, not a necessarily negative result. Do not confuse adding exponents with multiplying them.
 
 ## Guided example: roots and signs
 

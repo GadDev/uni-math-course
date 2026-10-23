@@ -1,7 +1,7 @@
 ---
 lessonId: L07
 locale: en
-version: 3
+version: 4
 status: extended
 title: "The biconditional and semantic equivalence"
 summary: "Define the connective ⇔, tell it apart from the relation ≡, and use the fact that A ≡ B holds exactly when A ⇔ B is a tautology."
@@ -70,7 +70,7 @@ Read $A \Leftrightarrow B$ as “A if and only if B”. For a fixed natural numb
 
 ## Independent practice
 
-The six pilot exercises cover the definition, the truth table of the biconditional, the two levels, the link with tautologies, a table test of an equivalence and a check of the two-level confusion.
+The selected exercises cover the definition, the truth table of the biconditional, the two levels, the link with tautologies, a table test of an equivalence and a check of the two-level confusion.
 
 Interactive practice requires sign-in. Availability depends on this lesson’s selected version and release status.
 

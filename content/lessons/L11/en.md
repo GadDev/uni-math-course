@@ -1,7 +1,7 @@
 ---
 lessonId: L11
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Predicates and quantifiers"
 summary: "Read a predicate P(x) on a set, evaluate ∀ and ∃ over a domain, and see why the domain changes the truth value."
@@ -26,7 +26,7 @@ Let $X = \{1,2,4\}$ and let $P(x)$ mean “x is even”.
 | --- | --- | --- | --- |
 | P(x) | false | true | true |
 
-The “for every” is false because of one; the “there exists” is true, for example because of two. A **witness** passes the test; a **counterexample** makes the general rule fail. In the earlier example, $[10,+\infty[$ means the reals greater than or equal to ten: the bracket beside ten includes it.
+The “for every” is false because of one; the “there exists” is true, for example because of two. A **witness** passes the test; a **counterexample** makes the general rule fail.
 
 ## Predicates
 
@@ -47,6 +47,8 @@ The symbol $\forall$ reads “for all” and $\exists$ reads “there exists”.
 
 Let $P(x)$ be $x > 2$.
 
+In the second case below, $[10,+\infty[$ means the reals greater than or equal to ten: the bracket beside ten includes it.
+
 1. On $\mathbb{R}$: $\exists x\ P(x)$ is true, with witness $3$. $\forall x\ P(x)$ is false, with counterexample $1$.
 2. On $[10, +\infty[$: $\forall x\ P(x)$ is true, because every number from $10$ upward exceeds $2$. $\exists x\ P(x)$ is also true.
 
@@ -64,7 +66,7 @@ The source’s age example on page 48 mixes nested quantifiers with a comparison
 
 ## Independent practice
 
-The six pilot exercises cover predicates, evaluating one value, $\forall$ on a finite domain, $\exists$ with a witness, the effect of the domain and a place-name predicate.
+The selected exercises cover predicates, evaluating one value, $\forall$ on a finite domain, $\exists$ with a witness, the effect of the domain and a place-name predicate.
 
 Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 

@@ -1,7 +1,7 @@
 ---
 lessonId: L08
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Functional completeness: every table from OR and NOT"
 summary: "Turn any truth table into a formula that uses only ∨ and ¬, by describing each true row and applying De Morgan to remove ∧."
@@ -29,6 +29,17 @@ Start with two inputs and four rows. One true row supplies one condition; severa
 ## The problem
 
 A function $f$ gives a value $0$ or $1$ for each assignment of $x$, $y$, $z$. The question is whether some assertion has exactly $f$ as its truth table. The answer is yes, and the construction below always works.
+
+For two inputs, exclusive OR gives us a first table to construct. Each true row has a description that equals $1$ on that row alone.
+
+| x | y | f(x,y) | Description of the true row |
+| --- | --- | --- | --- |
+| 0 | 0 | 0 | none |
+| 0 | 1 | 1 | $\neg x\land y$ |
+| 1 | 0 | 1 | $x\land\neg y$ |
+| 1 | 1 | 0 | none |
+
+Try row $11$ in each description: both give $0$. Labels and values, without colour coding, connect the table to the following construction.
 
 ## Step 1: one conjunction per true row
 
@@ -76,7 +87,7 @@ In the PDF’s table, the output is one exactly for $010$ and $110$, in x, y, z 
 
 ## Independent practice
 
-The six pilot exercises cover reading the true rows, a conjunction for one row, joining rows, removing $\land$, the statement of the theorem and building a three-variable table.
+The selected exercises cover reading the true rows, a conjunction for one row, joining rows, removing $\land$, the statement of the theorem and building a three-variable table.
 
 Interactive practice requires sign-in. Availability depends on this lesson’s selected version and release status.
 

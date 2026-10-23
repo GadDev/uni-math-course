@@ -1,7 +1,7 @@
 ---
 lessonId: L19
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Python all et any : tri, doublons et maximum"
 summary: "Traduire des énoncés sur une liste en ∀ et ∃ puis en all et any de Python, et traiter les cas limites des listes courtes."
@@ -26,7 +26,7 @@ Pour `t = [1, 3, 2]`, voici où se trouvent les valeurs :
 | --- | --- | --- | --- |
 | t[i] | 1 | 3 | 2 |
 
-Le premier indice est zéro. `range(n-1)` produit les départs des paires voisines, sans inclure sa borne d’arrêt. `for i in ...` fait parcourir ces départs ; `all` demande que chaque test soit vrai et `any` qu’au moins un le soit. J regroupe toutes les positions et K seulement celles qui ont une suivante. Pour les listes de zéro ou un élément, K est vide : interprétez aussi la notation $\{0,\ldots,n-2\}$ des exercices comme ce domaine de départs valide, jamais comme des indices négatifs à parcourir.
+Le premier indice est zéro et `n = len(t)` est le nombre d’éléments. `range(n-1)` produit les départs des paires voisines, sans inclure sa borne d’arrêt. `for i in ...` fait parcourir ces départs ; `all` demande que chaque test soit vrai et `any` qu’au moins un le soit. J regroupe toutes les positions et K seulement celles qui ont une suivante. Pour les listes de zéro ou un élément, K est vide : interprétez aussi la notation $\{0,\ldots,n-2\}$ des exercices comme ce domaine de départs valide, jamais comme des indices négatifs à parcourir.
 
 Relisez séparément les trois objectifs : trier compare des voisins, détecter un doublon compare deux positions distinctes et chercher un maximum compare un candidat à toutes les valeurs. Un maximum peut apparaître plusieurs fois.
 
@@ -64,6 +64,8 @@ Prenons `t = [1, 3, 2]`, donc $n = 3$ et les indices de comparaison sont $0$ et 
 
 Ce travail guidé, dont la solution est visible, n’est pas une réponse indépendante pour mesurer la maîtrise.
 
+**Lire une expression Python.** `len(t)` donne le nombre d’éléments ; `range(n)` parcourt les indices de $0$ à $n-1$, sans inclure $n$. `True` et `False` sont les valeurs booléennes. Dans `test for i in ... for j in ...`, fixer un `i`, parcourir ses `j`, puis passer au `i` suivant. Dans `any(all(...))`, le `all` intérieur termine le test d’un candidat avant que le `any` extérieur cherche un autre candidat.
+
 ## Doublons et maximum
 
 Ce sont des traductions originales ; la source du cours ne les pose que comme exercices.
@@ -82,13 +84,33 @@ any(all(t[j] <= t[i] for j in range(n)) for i in range(n))
 
 La première recherche deux positions distinctes de même valeur ; la seconde recherche une position dont la valeur domine toutes les autres.
 
+### Tracer les deux niveaux
+
+Avec `t=[1,3,1]` et `n=3`, les paires d’indices distincts sont :
+
+| i | j | Comparaison | Résultat |
+| --- | --- | --- | --- |
+| 0 | 1 | `1 == 3` | `False` |
+| 0 | 2 | `1 == 1` | `True` : témoin du doublon |
+| 1 | 2 | `3 == 1` | `False` |
+
+`any` peut s’arrêter dès le témoin `(0,2)` ; le tableau expose toutes les paires pour expliquer le domaine. Pour chercher un maximum, voici le candidat d’indice `i=1`, donc de valeur `3` :
+
+| j | `t[j] <= t[1]` | Résultat |
+| --- | --- | --- |
+| 0 | `1 <= 3` | `True` |
+| 1 | `3 <= 3` | `True` |
+| 2 | `1 <= 3` | `True` |
+
+Le `all` intérieur vaut `True`, donc le `any` extérieur possède le témoin `i=1`. **À vous :** pourquoi le candidat `i=0` échoue-t-il ? Le test `j=1` demande `3 <= 1`, faux. Un candidat doit réussir toutes les comparaisons, pas une seule.
+
 ## Cas limites
 
 Pour une liste vide, la plage est vide. Alors `all(...)` sur une plage vide vaut `True` et `any(...)` sur une plage vide vaut `False`. Une liste de longueur $0$ ou $1$ est donc triée. L’énoncé « contient son maximum » exige une liste finie et non vide de nombres : une liste vide n’a pas de maximum, et la traduction donne bien faux.
 
 ## Pratique indépendante
 
-Les six exercices pilotes portent sur la traduction avec `all`, la négation, le nombre de comparaisons, les doublons, le maximum et la liste vide.
+Les exercices sélectionnés portent sur la traduction avec `all`, la négation, le nombre de comparaisons, les doublons, le maximum et la liste vide.
 
 La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
 

@@ -1,7 +1,7 @@
 ---
 lessonId: L15
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Set operations, relative complements and algebra"
 summary: "Compute intersections, unions and complements relative to a named set, and connect the laws of set algebra to the Boolean laws."
@@ -77,7 +77,7 @@ A complement means nothing until you name the set it is taken in. With $A = \{1,
 
 ## Independent practice
 
-The six pilot exercises cover the intersection, the union, a relative complement, De Morgan’s law for sets, the role of the ambient set and the link with connectives.
+The selected exercises cover the intersection, the union, a relative complement, De Morgan’s law for sets, the role of the ambient set and the link with connectives.
 
 Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 

@@ -1,7 +1,7 @@
 ---
 lessonId: L06
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Réciproque, contraposée et langage de tous les jours"
 summary: "Écrire la réciproque et la contraposée d’une implication, savoir laquelle lui est équivalente, et éviter de lire « si » comme « seulement si » dans le langage courant."
@@ -67,7 +67,7 @@ Pour relire une table, revenez à L03 ; pour le symbole $\equiv$, revenez à L04
 
 ## Pratique indépendante
 
-Les six exercices pilotes portent sur la réciproque, la contraposée, les énoncés équivalents, une table de vérité pour la réciproque, une déduction valide à partir d’une règle et la lecture d’une phrase courante.
+Les exercices sélectionnés portent sur la réciproque, la contraposée, les énoncés équivalents, une table de vérité pour la réciproque, une déduction valide à partir d’une règle et la lecture d’une phrase courante.
 
 La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
 

@@ -1,7 +1,7 @@
 ---
 lessonId: L03
 locale: en
-version: 3
+version: 4
 status: pilot
 title: "Truth tables: computing a formula row by row"
 summary: "List every assignment, build a table column by column from its subformulas, evaluate a formula on one row and check a completed table."
@@ -75,7 +75,7 @@ When A is false, the final AND fails; when A is true, the result depends on B. I
 
 ## Independent practice
 
-The six pilot exercises cover counting rows, identifying atomic assertions, building and reading three-assertion tables, evaluating one row and checking a student’s table.
+The selected exercises cover counting rows, identifying atomic assertions, building and reading three-assertion tables, evaluating one row and checking a student’s table.
 
 Interactive practice requires sign-in. Availability depends on this lesson’s selected version and release status.
 

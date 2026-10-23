@@ -1,13 +1,13 @@
 ---
 lessonId: L20
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Access control and the trap of “only”"
 summary: "Translate access-control rules with ∀, ∃ and ⇒, avoid the reversal hidden in “only”, and negate nested statements."
 minutes: 18
 objectives: [L20-O01, L20-O02, L20-O03, L20-O04, L20-O05, L20-O06]
-prerequisites: [L05, L16]
+prerequisites: [L05, L16, L17]
 sourcePages: [95, 96]
 ---
 # Access control and the trap of “only”
@@ -16,7 +16,9 @@ sourcePages: [95, 96]
 
 By the end of this lesson, you can translate “only managers can approve a request” into a formula, explain that the rule imposes a necessary condition without guaranteeing sufficiency, and negate nested quantified statements.
 
-**Prerequisites:** L05 (implication) and L16 (bounded quantifiers).
+**Prerequisites:** L05 (implication), L16 (bounded quantifiers) and L17 (quantifier order).
+
+**Reading support:** [L17](../L17/) compares quantifier order. “For each user there is a request” allows a different request for each user; “there is a request for every user” requires the same request. For the nonempty sets in the model below, before reading the resolution, explain which condition is stronger. The second implies the first; the converse is not guaranteed.
 
 ## A small model
 
@@ -55,7 +57,7 @@ To negate the first translation, first negate “for every user”: seek a user.
 
 ## Independent practice
 
-The six pilot exercises cover the translation of “only”, necessary versus sufficient, an evaluation, and two translations with a negation.
+The selected exercises cover the translation of “only”, necessary versus sufficient, an evaluation, and two translations with a negation.
 
 Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 

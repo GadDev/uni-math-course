@@ -1,7 +1,7 @@
 ---
 lessonId: L12
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Nier des assertions quantifiées"
 summary: "Nier ∀ et ∃ correctement, énoncer des négations en langage courant, et utiliser contre-exemples et témoins."
@@ -60,7 +60,7 @@ Si $X$ est vide, « tous les éléments vérifient P » est vrai car aucun contr
 
 ## Pratique indépendante
 
-Les six exercices pilotes portent sur les deux lois, des négations en langage courant et un contre-exemple, et la négation numérique sur $\mathbb{N}$.
+Les exercices sélectionnés portent sur les deux lois, des négations en langage courant et un contre-exemple, et la négation numérique sur $\mathbb{N}$.
 
 La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 

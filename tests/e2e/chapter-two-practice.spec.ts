@@ -114,8 +114,10 @@ for (const locale of ['fr', 'en']) {
       const destination = `/${locale}/lessons/${id}/practice/?exercise=${exercise.id}&version=${version}`;
       await page.goto(destination);
       await expect(page.locator('.pp-step')).toHaveCount(15);
-      await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
-        '15',
+      // Teaching scope may reorder the sequence; the explicit ID must remain selected.
+      await expect(page.locator('.pp-options input').first()).toHaveAttribute(
+        'name',
+        exercise.id,
       );
       await page.locator(`input[value="${exercise.answer}"]`).check();
       const saved = page.waitForResponse(
@@ -179,8 +181,9 @@ for (const locale of ['fr', 'en']) {
     await page.locator('#password').fill('correct-horse-battery');
     await page.locator('.auth-form button').click();
     await expect(page).toHaveURL(target);
-    await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
-      '15',
+    await expect(page.locator('.pp-options input').first()).toHaveAttribute(
+      'name',
+      'L36-E15',
     );
   });
 }

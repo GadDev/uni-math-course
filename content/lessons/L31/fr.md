@@ -1,7 +1,7 @@
 ---
 lessonId: L31
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Demi-plans et triangles"
 summary: "Utiliser le signe d’une expression affine pour décrire et tester une région."
@@ -69,7 +69,7 @@ La région $x\ge0$, $y\ge0$, $x+y\le4$ est un triangle fermé. Un point appartie
 
 ## Exemple guidé : triangle général
 
-Pour trois sommets non alignés, chaque côté définit une droite. Pour chaque droite, garder le demi-plan fermé contenant le troisième sommet. Leur intersection est exactement le triangle rempli, bord compris. Avec $A=(0,0)$, $B=(4,0)$ et $C=(0,3)$, les contraintes sont $x\ge0$, $y\ge0$ et $3x+4y\le12$. Le point $(1,1)$ les satisfait toutes.
+Pour trois sommets non alignés, chaque côté définit une droite. Pour chaque droite, garder le demi-plan fermé contenant le troisième sommet. Leur intersection est exactement le triangle rempli, bord compris.
 
 ## Un test de même côté
 

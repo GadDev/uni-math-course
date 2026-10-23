@@ -1,7 +1,7 @@
 ---
 lessonId: L31
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Half-planes and triangles"
 summary: "Use the sign of an affine expression to describe and test a region."
@@ -69,7 +69,7 @@ The region $x\ge0$, $y\ge0$, $x+y\le4$ is a closed triangle. A point belongs onl
 
 ## Guided example: a general triangle
 
-For three noncollinear vertices, each side defines a line. For each line, keep the closed half-plane containing the third vertex. Their intersection is exactly the filled triangle, including its boundary. With $A=(0,0)$, $B=(4,0)$ and $C=(0,3)$, constraints are $x\ge0$, $y\ge0$ and $3x+4y\le12$. Point $(1,1)$ satisfies all three.
+For three noncollinear vertices, each side defines a line. For each line, keep the closed half-plane containing the third vertex. Their intersection is exactly the filled triangle, including its boundary.
 
 ## A same-side test
 

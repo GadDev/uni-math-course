@@ -1,7 +1,7 @@
 ---
 lessonId: L23
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Fractions, puissances et racines"
 summary: "Conserver le domaine des quotients et lire correctement puissances et racines."
@@ -70,7 +70,7 @@ La suite du PDF est [Identités remarquables](../L22/#pdf-15), puis [Résoudre u
 
 ## Lois des puissances
 
-Pour une base réelle non nulle et des exposants entiers, $a^ma^n=a^{m+n}$, $(a^m)^n=a^{mn}$, $a^0=1$ et $a^{-n}=1/a^n$. Le domaine non nul évite les inverses interdits ; on n’utilise pas $0^0$. Un exposant négatif désigne un inverse, pas un résultat forcément négatif. Ne confondez pas une somme d’exposants avec leur produit.
+Les conditions du tableau comptent : le domaine non nul évite les inverses interdits ; on n’utilise pas $0^0$. Un exposant négatif désigne un inverse, pas un résultat forcément négatif. Ne confondez pas une somme d’exposants avec leur produit.
 
 ## Exemple guidé : racine et signe
 

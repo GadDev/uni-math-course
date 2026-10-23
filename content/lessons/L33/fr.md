@@ -1,7 +1,7 @@
 ---
 lessonId: L33
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Rastérisation et idée de Bresenham"
 summary: "Échantillonner un segment et suivre un algorithme entier dans un octant explicite."
@@ -11,8 +11,6 @@ prerequisites: [L31, L32]
 sourcePages: [56, 57, 59, 60, 61, 62, 63]
 ---
 # Rastérisation et idée de Bresenham
-
-Les exercices emploient aussi la lettre majuscule $D=d$ pour cette même décision entière.
 
 ## Objectifs et prérequis
 
@@ -26,6 +24,8 @@ Les exercices emploient aussi la lettre majuscule $D=d$ pour cette même décisi
 Prérequis : L31, L32. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
 
 <span id="pdf-56" class="source-topic-marker"></span>
+
+Trois étapes : choisir l’axe de parcours, comparer au milieu, puis mettre à jour un entier. Faites une pause à chaque étape ; le code final réunit ces idées.
 
 ## Rastériser : choisir des pixels
 
@@ -63,6 +63,8 @@ Dans la notation écran du PDF, $v=v_1+m(u-u_1)$ se réécrit $u=u_1+(v-v_1)/m$ 
 
 <span id="pdf-60" class="source-topic-marker"></span>
 
+**Pause — axe.** Pour une pente $8/3$, faut-il parcourir les colonnes ou les lignes ? Les lignes : elles évitent les grands sauts verticaux.
+
 ## L’idée de Bresenham : E, NE et le milieu
 
 **PDF, page 60.** On utilise maintenant des axes cartésiens avec la verticale **vers le haut**. Le segment va de $(0,0)$ à $(u_2,v_2)$, où les coordonnées sont entières, $u_2>0$ et $0\le v_2\le u_2$. C’est un seul **octant**, une des huit zones de direction ; l’algorithme présenté ne couvre pas directement toutes les directions.
@@ -77,11 +79,15 @@ Depuis $(u,v)$, les candidats sont $E=(u+1,v)$ et $NE=(u+1,v+1)$. Leur milieu es
 
 <span id="pdf-61" class="source-topic-marker"></span>
 
+**Pause — milieu.** Si le milieu M est sur la droite, quel pixel choisir ? E, selon la convention du cours ; on conserve cette égalité dans le test entier.
+
 ## Adieu les arrondis : un test entier
 
 **PDF, page 61.** La droite a pour équation $v=(v_2/u_2)u$. Pour savoir si M est au-dessus ou sur la droite, tester $v+1/2\ge(v_2/u_2)(u+1)$. Multiplier par $2u_2>0$ conserve le sens de l’inégalité. Déplacer les termes donne $2v_2(u+1)-u_2(2v+1)\le0$.
 
 Nommons cette expression $d=2v_2(u+1)-u_2(2v+1)$. Alors E correspond à $d\le0$ et NE à $d>0$. **Piège fréquent :** remplacer le second test par une inégalité large change les pixels à mi-chemin. Ce choix est permis dans une autre variante, mais ne reproduit pas ce PDF.
+
+Les exercices emploient aussi la lettre majuscule $D=d$ pour cette même décision entière.
 
 <p class="source-next"><a href="/fr/lessons/L33/#pdf-62">Suite du PDF : Bresenham : tout par incréments →</a></p>
 

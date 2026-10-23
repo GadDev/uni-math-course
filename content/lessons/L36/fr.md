@@ -1,7 +1,7 @@
 ---
 lessonId: L36
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Corrélation et limites des modèles"
 summary: "Interpréter une corrélation, éviter les conclusions causales et situer l’apprentissage automatique."
@@ -48,7 +48,7 @@ Suivre maintenant [Le modèle](../L34/#pdf-66), puis les résidus, les moindres 
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/margarine.svg" alt="Nuage des dix couples historiques de margarine et divorces, avec les unités indiquées sur les axes." width="440" height="360" loading="lazy" />
-<figcaption>Deux séries qui évoluent ensemble ne démontrent pas une causalité.</figcaption>
+<figcaption>Deux séries qui évoluent ensemble ne démontrent pas une causalité. <a class="figure-full-size" href="/diagrams/droites/fr/margarine.svg" target="_blank" rel="noopener">Ouvrir la figure en taille réelle (nouvel onglet)</a></figcaption>
 </figure>
 
 <p class="source-next"><a href="/fr/lessons/L34/#pdf-66">Suite du PDF : Le modèle →</a></p>
@@ -98,22 +98,22 @@ Référence des données : [documentation officielle du jeu anscombe dans R](htt
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/anscombe-1.svg" alt="Nuage approximativement affine." width="440" height="360" loading="lazy" />
-<figcaption>Anscombe 1 — Nuage approximativement affine.</figcaption>
+<figcaption>Anscombe 1 — Nuage approximativement affine. <a class="figure-full-size" href="/diagrams/droites/fr/anscombe-1.svg" target="_blank" rel="noopener">Ouvrir la figure en taille réelle (nouvel onglet)</a></figcaption>
 </figure>
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/anscombe-2.svg" alt="Nuage avec une courbure nette." width="440" height="360" loading="lazy" />
-<figcaption>Anscombe 2 — Nuage avec une courbure nette.</figcaption>
+<figcaption>Anscombe 2 — Nuage avec une courbure nette. <a class="figure-full-size" href="/diagrams/droites/fr/anscombe-2.svg" target="_blank" rel="noopener">Ouvrir la figure en taille réelle (nouvel onglet)</a></figcaption>
 </figure>
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/anscombe-3.svg" alt="Nuage avec un point atypique." width="440" height="360" loading="lazy" />
-<figcaption>Anscombe 3 — Nuage avec un point atypique.</figcaption>
+<figcaption>Anscombe 3 — Nuage avec un point atypique. <a class="figure-full-size" href="/diagrams/droites/fr/anscombe-3.svg" target="_blank" rel="noopener">Ouvrir la figure en taille réelle (nouvel onglet)</a></figcaption>
 </figure>
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/anscombe-4.svg" alt="Nuage presque vertical et un point isolé." width="440" height="360" loading="lazy" />
-<figcaption>Anscombe 4 — Nuage presque vertical et un point isolé.</figcaption>
+<figcaption>Anscombe 4 — Nuage presque vertical et un point isolé. <a class="figure-full-size" href="/diagrams/droites/fr/anscombe-4.svg" target="_blank" rel="noopener">Ouvrir la figure en taille réelle (nouvel onglet)</a></figcaption>
 </figure>
 
 <p class="source-next"><a href="/fr/lessons/L36/#pdf-81">Suite du PDF : Limite 3 : valeurs aberrantes →</a></p>
@@ -128,7 +128,7 @@ Le point ajouté est signalé par une croix et les deux modèles ont des styles 
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/outlier.svg" alt="Six points sur y égale x et un point ajouté en 6,moins 2 ; deux droites montrent l’ajustement avant et après." width="440" height="360" loading="lazy" />
-<figcaption>Le même critère peut produire une droite très différente après un seul ajout.</figcaption>
+<figcaption>Le même critère peut produire une droite très différente après un seul ajout. <a class="figure-full-size" href="/diagrams/droites/fr/outlier.svg" target="_blank" rel="noopener">Ouvrir la figure en taille réelle (nouvel onglet)</a></figcaption>
 </figure>
 
 <p class="source-next"><a href="/fr/lessons/L36/#pdf-82">Suite du PDF : Limite 4 : extrapolation →</a></p>
@@ -151,11 +151,11 @@ La droite ajustée est $\widehat{\text{taille}}=6{,}45\cdot\text{âge}+75{,}9$. 
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/height-extrapolation.svg" alt="Tailles mesurées de 2 à 10 ans et droite prolongée jusqu’à 30 ans, où elle prédit 269,4 cm." width="440" height="360" loading="lazy" />
-<figcaption>La zone hachurée dépasse les âges observés.</figcaption>
+<figcaption>La zone hachurée dépasse les âges observés. <a class="figure-full-size" href="/diagrams/droites/fr/height-extrapolation.svg" target="_blank" rel="noopener">Ouvrir la figure en taille réelle (nouvel onglet)</a></figcaption>
 </figure>
 ## Association, causalité et domaine
 
-Les ventes de glaces et la fréquentation d’une piscine peuvent augmenter ensemble parce qu’il fait chaud. Cette association ne prouve pas que l’une cause l’autre. Une prédiction au-delà des entrées observées est une extrapolation et demande une justification supplémentaire. Même à l’intérieur de l’intervalle, la fiabilité dépend des données, des hypothèses et d’une validation ; elle n’est jamais garantie par la seule position de l’entrée. Une valeur atypique peut modifier fortement la droite et mérite une enquête, pas une suppression automatique.
+Avant de faire confiance au modèle, posez trois questions : quelle autre variable pourrait expliquer l’association ? La nouvelle entrée appartient-elle au domaine étudié ? A-t-on inspecté le nuage et les points atypiques ? Les quatre limites précédentes donnent les raisons de ces vérifications.
 
 <p class="source-next"><a href="/fr/lessons/L35/#pdf-84">Suite du PDF : Exercice : révision et note →</a></p>
 

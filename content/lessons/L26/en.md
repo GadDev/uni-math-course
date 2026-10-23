@@ -1,7 +1,7 @@
 ---
 lessonId: L26
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Sigma notation, sums and means"
 summary: "Read sigma notation, calculate a mean and understand centred deviations."
@@ -78,11 +78,11 @@ The PDF’s proof expands as follows: $\sum_{i=1}^n(x_i-\bar x)=\sum_{i=1}^n x_i
 
 ## Means and units
 
-The mean is $\bar x=(1/n)\sum_{i=1}^n x_i$. It has the same unit as the observations. For values $2,5,8$, it is $5$. Each observation contributes once; for equally sized groups, the simple average of their means gives the overall mean. In general, weight each mean by its group size. An empty sample has no mean defined by this formula.
+The mean has the same unit as the observations. An empty sample has no mean defined by this formula.
 
 ## Guided example: deviations from the mean
 
-For data $1,4,7$, the mean is $4$ and deviations are $-3,0,3$. Their sum is zero. More generally, $\sum_i(x_i-\bar x)=\sum_i x_i-n\bar x=0$. This does not mean every deviation is zero. Spread-out data can have deviations that cancel exactly.
+For data $1,4,7$, the mean is $4$ and deviations are $-3,0,3$. Their sum is zero. This does not mean every deviation is zero. Spread-out data can have deviations that cancel exactly.
 
 ## Sum of squares and square of the sum
 

@@ -13,6 +13,8 @@ type Localized = { fr: string; en: string };
 type Exercise = {
   id: string;
   version: number;
+  difficulty: string;
+  scope?: 'core' | 'extension';
   prompt: Localized;
   hint: Localized;
 } & (
@@ -54,7 +56,14 @@ const text = {
   fr: {
     kicker: 'Pratiquer',
     title: 'À vous de raisonner',
-    subtitle: 'Initiation · Exercice original · Version 1',
+    subtitle: 'Exercice original',
+    bankVersion: 'Version de la banque',
+    dataTable: 'Table de données de l’exercice',
+    core: 'Parcours principal',
+    extension: 'Approfondissement facultatif',
+    scopeNote:
+      'Les questions du parcours principal viennent en premier, puis les approfondissements facultatifs.',
+    supplement: 'Lire le complément facultatif',
     reviewKicker: 'Comprendre son erreur',
     reviewTitle: ['Revoir', 'Comprendre', 'Réessayer'],
     reviewSubtitle: 'Une erreur peut préciser une idée.',
@@ -120,7 +129,13 @@ const text = {
   en: {
     kicker: 'Practise',
     title: 'Your turn to reason',
-    subtitle: 'Introductory · Original exercise · Version 1',
+    subtitle: 'Original exercise',
+    bankVersion: 'Bank version',
+    dataTable: 'Exercise data table',
+    core: 'Core practice',
+    extension: 'Optional extension',
+    scopeNote: 'Core questions come first, followed by optional extensions.',
+    supplement: 'Read the optional supplement',
     reviewKicker: 'Understand your mistake',
     reviewTitle: ['Review', 'Understand', 'Retry'],
     reviewSubtitle: 'A mistake can sharpen an idea.',
@@ -184,6 +199,23 @@ const text = {
     expired: 'Your session has expired. Sign in again to continue.',
   },
 } as const;
+
+const difficultyLabels: Record<Locale, Record<string, string>> = {
+  fr: {
+    foundation: 'Initiation',
+    application: 'Application',
+    easy: 'Facile',
+    medium: 'Intermédiaire',
+    hard: 'Difficile',
+  },
+  en: {
+    foundation: 'Foundation',
+    application: 'Application',
+    easy: 'Easy',
+    medium: 'Medium',
+    hard: 'Hard',
+  },
+};
 
 const draftKey = (lessonId: string) => `um-practice:${lessonId}`;
 
@@ -628,7 +660,9 @@ export default function PracticeActivity({
       : t.reviewTitle;
   const kicker = reviewing ? t.reviewKicker : t.kicker;
   const subtitle = !result
-    ? t.subtitle
+    ? exercise
+      ? `${difficultyLabels[locale][exercise.difficulty] ?? exercise.difficulty} · ${t.bankVersion} ${exercise.version}`
+      : t.subtitle
     : result.correct
       ? t.doneSubtitle
       : t.reviewSubtitle;
@@ -705,6 +739,27 @@ export default function PracticeActivity({
 
       {phase === 'ready' && exercise && entry && (
         <div className="pp-body">
+          {exercises.some((item) => item.scope === 'extension') && (
+            <div className="pp-scope">
+              <p>{t.scopeNote}</p>
+              <p>
+                <strong>
+                  {exercise.scope === 'extension' ? t.extension : t.core}
+                </strong>
+                {exercise.scope === 'extension' && (
+                  <>
+                    {' '}
+                    ·{' '}
+                    <a
+                      href={`/${locale}/lessons/${lessonId}/#${lessonId === 'L36' ? 'supplement-correlation' : 'supplement-square'}`}
+                    >
+                      {t.supplement}
+                    </a>
+                  </>
+                )}
+              </p>
+            </div>
+          )}
           <nav className="pp-steps" aria-label={t.steps} hidden={!!result}>
             <ol>
               {exercises.map((item, index) => {
@@ -747,51 +802,60 @@ export default function PracticeActivity({
                 <h2 className="pp-exercise-title">{t.exerciseTitle}</h2>
               )}
               {exercise.type === 'single-choice' ? (
-                <fieldset
-                  className="pp-fieldset"
-                  disabled={!!result || awaitingSave}
-                >
-                  <legend className="pp-prompt">
-                    <Tex text={exercise.prompt[locale] ?? ''} />
-                  </legend>
-                  {!result && <p className="pp-instruction">{t.chooseOne}</p>}
-                  <div className="pp-options">
-                    {exercise.options.map((option, index) => (
-                      <label
-                        key={option.id}
-                        className={`pp-option${
-                          shownAnswers.choice === option.id ? ' is-chosen' : ''
-                        }${
-                          result && shownAnswers.choice === option.id
-                            ? result.correct
-                              ? ' is-right'
-                              : ' is-wrong'
-                            : ''
-                        }`}
-                      >
-                        <input
-                          type="radio"
-                          name={exercise.id}
-                          value={option.id}
-                          checked={shownAnswers.choice === option.id}
-                          onChange={() =>
-                            update(exercise.id, (value) => ({
-                              ...value,
-                              answers: { choice: option.id },
-                            }))
-                          }
-                        />
-                        <span className="pp-marker" aria-hidden="true">
-                          {marker(index)}
-                        </span>
-                        <span className="pp-rule" aria-hidden="true" />
-                        <span className="pp-label">
-                          <Tex text={option.label[locale] ?? ''} />
-                        </span>
-                      </label>
-                    ))}
+                <div>
+                  <div id="pp-prompt" className="pp-prompt">
+                    <Tex
+                      text={exercise.prompt[locale] ?? ''}
+                      tableLabel={t.dataTable}
+                    />
                   </div>
-                </fieldset>
+                  <fieldset
+                    className="pp-fieldset"
+                    aria-describedby="pp-prompt"
+                    disabled={!!result || awaitingSave}
+                  >
+                    <legend className="visually-hidden">{t.chooseOne}</legend>
+                    {!result && <p className="pp-instruction">{t.chooseOne}</p>}
+                    <div className="pp-options">
+                      {exercise.options.map((option, index) => (
+                        <label
+                          key={option.id}
+                          className={`pp-option${
+                            shownAnswers.choice === option.id
+                              ? ' is-chosen'
+                              : ''
+                          }${
+                            result && shownAnswers.choice === option.id
+                              ? result.correct
+                                ? ' is-right'
+                                : ' is-wrong'
+                              : ''
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name={exercise.id}
+                            value={option.id}
+                            checked={shownAnswers.choice === option.id}
+                            onChange={() =>
+                              update(exercise.id, (value) => ({
+                                ...value,
+                                answers: { choice: option.id },
+                              }))
+                            }
+                          />
+                          <span className="pp-marker" aria-hidden="true">
+                            {marker(index)}
+                          </span>
+                          <span className="pp-rule" aria-hidden="true" />
+                          <span className="pp-label">
+                            <Tex text={option.label[locale] ?? ''} />
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                  </fieldset>
+                </div>
               ) : (
                 <div className="practice-table-wrap">
                   <table className="practice-table">

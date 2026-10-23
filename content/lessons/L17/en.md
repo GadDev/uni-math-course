@@ -1,7 +1,7 @@
 ---
 lessonId: L17
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Products, relations and the order of quantifiers"
 summary: "Describe a small table as a set of ordered pairs, translate sentences into nested quantifiers, evaluate them, and see that the order of quantifiers matters."
@@ -74,7 +74,7 @@ Does every student have a course? No: cleo is a counterexample. Is one course ta
 
 ## Independent practice
 
-The six pilot exercises cover counting pairs, reading the predicate, two translations, an evaluation and the effect of the order of quantifiers.
+The selected exercises cover counting pairs, reading the predicate, two translations, an evaluation and the effect of the order of quantifiers.
 
 Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 

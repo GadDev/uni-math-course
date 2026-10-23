@@ -1,0 +1,1223 @@
+{
+  "lessonId": "L29",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L29-E01",
+      "objectiveId": "L29-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "slope-coefficient"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la pente de $y=4x-3$ ?",
+        "en": "What is the slope of $y=4x-3$ ?"
+      },
+      "hint": {
+        "fr": "Isolez l’ordonnée et lisez son coefficient horizontal.",
+        "en": "Isolate the vertical coordinate and read the horizontal coefficient."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Le coefficient de $x$ est $4$.",
+            "en": "The coefficient of $x$ is $4$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$-3$",
+            "en": "$-3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le coefficient de $x$ est $4$.",
+            "en": "This proposal does not fit. The coefficient of $x$ is $4$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$-4$",
+            "en": "$-4$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le coefficient de $x$ est $4$.",
+            "en": "This proposal does not fit. The coefficient of $x$ is $4$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le coefficient de $x$ est $4$.",
+        "en": "The coefficient of $x$ is $4$."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E02",
+      "objectiveId": "L29-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "intercept-axis"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est l’ordonnée à l’origine de $y=-2x+7$ ?",
+        "en": "What is the vertical intercept of $y=-2x+7$ ?"
+      },
+      "hint": {
+        "fr": "Évaluez à l’abscisse zéro.",
+        "en": "Evaluate at horizontal coordinate zero."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$-2$",
+            "en": "$-2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. À $x=0$, on obtient $y=7$.",
+            "en": "This proposal does not fit. At $x=0$, we obtain $y=7$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$-7$",
+            "en": "$-7$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. À $x=0$, on obtient $y=7$.",
+            "en": "This proposal does not fit. At $x=0$, we obtain $y=7$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$7$",
+            "en": "$7$"
+          },
+          "feedback": {
+            "fr": "À $x=0$, on obtient $y=7$.",
+            "en": "At $x=0$, we obtain $y=7$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "À $x=0$, on obtient $y=7$.",
+        "en": "At $x=0$, we obtain $y=7$."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E03",
+      "objectiveId": "L29-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "affine-evaluation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $y=3x+2$, calculer $y$ à $x=4$.",
+        "en": "For $y=3x+2$, calculate $y$ at $x=4$."
+      },
+      "hint": {
+        "fr": "Substituez puis respectez les priorités.",
+        "en": "Substitute, then respect operation order."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$9$",
+            "en": "$9$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Calculer $3\\cdot4+2$.",
+            "en": "This proposal does not fit. Calculate $3\\cdot4+2$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$14$",
+            "en": "$14$"
+          },
+          "feedback": {
+            "fr": "Calculer $3\\cdot4+2$.",
+            "en": "Calculate $3\\cdot4+2$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$20$",
+            "en": "$20$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Calculer $3\\cdot4+2$.",
+            "en": "This proposal does not fit. Calculate $3\\cdot4+2$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Calculer $3\\cdot4+2$.",
+        "en": "Calculate $3\\cdot4+2$."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E04",
+      "objectiveId": "L29-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "rate-of-change"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une pente vaut $-3$. Si $x$ augmente de $2$, quelle est la variation de $y$ ?",
+        "en": "Slope is $-3$. If $x$ increases by $2$, what is the change in $y$ ?"
+      },
+      "hint": {
+        "fr": "La variation verticale est pente fois variation horizontale.",
+        "en": "Vertical change is slope times horizontal change."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$-6$",
+            "en": "$-6$"
+          },
+          "feedback": {
+            "fr": "La variation vaut $m\\Delta x=-3\\cdot2$.",
+            "en": "The change is $m\\Delta x=-3\\cdot2$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La variation vaut $m\\Delta x=-3\\cdot2$.",
+            "en": "This proposal does not fit. The change is $m\\Delta x=-3\\cdot2$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$-1$",
+            "en": "$-1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La variation vaut $m\\Delta x=-3\\cdot2$.",
+            "en": "This proposal does not fit. The change is $m\\Delta x=-3\\cdot2$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La variation vaut $m\\Delta x=-3\\cdot2$.",
+        "en": "The change is $m\\Delta x=-3\\cdot2$."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E05",
+      "objectiveId": "L29-O06",
+      "difficulty": "easy",
+      "misconceptions": [
+        "vertical-line"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la pente de $y=5$ ?",
+        "en": "What is the slope of $y=5$ ?"
+      },
+      "hint": {
+        "fr": "Comparez deux valeurs de y lorsque x change : quel est l’écart vertical ?",
+        "en": "Compare two y values as x changes: what is the vertical difference?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’ordonnée ne varie pas quand l’abscisse change.",
+            "en": "This proposal does not fit. The vertical coordinate does not change when the horizontal coordinate changes."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’ordonnée ne varie pas quand l’abscisse change.",
+            "en": "This proposal does not fit. The vertical coordinate does not change when the horizontal coordinate changes."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "L’ordonnée ne varie pas quand l’abscisse change.",
+            "en": "The vertical coordinate does not change when the horizontal coordinate changes."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "L’ordonnée ne varie pas quand l’abscisse change.",
+        "en": "The vertical coordinate does not change when the horizontal coordinate changes."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E06",
+      "objectiveId": "L29-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "slope-coefficient"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la pente de $2x+4y=12$ ?",
+        "en": "What is the slope of $2x+4y=12$ ?"
+      },
+      "hint": {
+        "fr": "Isolez l’ordonnée et lisez son coefficient horizontal.",
+        "en": "Isolate the vertical coordinate and read the horizontal coefficient."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Isoler donne $y=-(1/2)x+3$.",
+            "en": "This proposal does not fit. Isolating gives $y=-(1/2)x+3$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\frac{-1}{2}$",
+            "en": "$\\frac{-1}{2}$"
+          },
+          "feedback": {
+            "fr": "Isoler donne $y=-(1/2)x+3$.",
+            "en": "Isolating gives $y=-(1/2)x+3$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Isoler donne $y=-(1/2)x+3$.",
+            "en": "This proposal does not fit. Isolating gives $y=-(1/2)x+3$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Isoler donne $y=-(1/2)x+3$.",
+        "en": "Isolating gives $y=-(1/2)x+3$."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E07",
+      "objectiveId": "L29-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "intercept-axis"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel point est l’intersection de $y=2x-6$ avec l’axe vertical ?",
+        "en": "Which point is the intersection of $y=2x-6$ with the vertical axis ?"
+      },
+      "hint": {
+        "fr": "Évaluez à l’abscisse zéro.",
+        "en": "Evaluate at horizontal coordinate zero."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(0,-6)$",
+            "en": "$(0,-6)$"
+          },
+          "feedback": {
+            "fr": "L’axe vertical impose $x=0$.",
+            "en": "The vertical axis requires $x=0$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(3,0)$",
+            "en": "$(3,0)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’axe vertical impose $x=0$.",
+            "en": "This proposal does not fit. The vertical axis requires $x=0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(-6,0)$",
+            "en": "$(-6,0)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’axe vertical impose $x=0$.",
+            "en": "This proposal does not fit. The vertical axis requires $x=0$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "L’axe vertical impose $x=0$.",
+        "en": "The vertical axis requires $x=0$."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E08",
+      "objectiveId": "L29-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "affine-evaluation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le coût $C(q)=4q+9$ est en euros. Quel est le coût de $6$ objets ?",
+        "en": "Cost $C(q)=4q+9$ is in euros. What is the cost of $6$ items ?"
+      },
+      "hint": {
+        "fr": "Substituez puis respectez les priorités.",
+        "en": "Substitute, then respect operation order."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$78$",
+            "en": "$78$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le coût variable $24$ s’ajoute au coût fixe $9$.",
+            "en": "This proposal does not fit. Variable cost $24$ is added to fixed cost $9$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$24$",
+            "en": "$24$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le coût variable $24$ s’ajoute au coût fixe $9$.",
+            "en": "This proposal does not fit. Variable cost $24$ is added to fixed cost $9$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$33$",
+            "en": "$33$"
+          },
+          "feedback": {
+            "fr": "Le coût variable $24$ s’ajoute au coût fixe $9$.",
+            "en": "Variable cost $24$ is added to fixed cost $9$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le coût variable $24$ s’ajoute au coût fixe $9$.",
+        "en": "Variable cost $24$ is added to fixed cost $9$."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E09",
+      "objectiveId": "L29-O05",
+      "difficulty": "medium",
+      "misconceptions": [
+        "parallel-lines"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle droite est parallèle et distincte de $y=2x+1$ ?",
+        "en": "Which line is distinct and parallel to $y=2x+1$ ?"
+      },
+      "hint": {
+        "fr": "Comparez d’abord les pentes, puis les constantes.",
+        "en": "Compare slopes first, then constants."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$y=2x+1$",
+            "en": "$y=2x+1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Il faut la même pente et une constante différente.",
+            "en": "This proposal does not fit. The slope must agree and the constant must differ."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$y=2x-4$",
+            "en": "$y=2x-4$"
+          },
+          "feedback": {
+            "fr": "Il faut la même pente et une constante différente.",
+            "en": "The slope must agree and the constant must differ."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$y=-2x+1$",
+            "en": "$y=-2x+1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Il faut la même pente et une constante différente.",
+            "en": "This proposal does not fit. The slope must agree and the constant must differ."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Il faut la même pente et une constante différente.",
+        "en": "The slope must agree and the constant must differ."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E10",
+      "objectiveId": "L29-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "rate-of-change"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une droite a pente $3/2$. Quelle variation de $x$ produit une variation de $y$ égale à $6$ ?",
+        "en": "A line has slope $3/2$. What change in $x$ produces a change in $y$ of $6$ ?"
+      },
+      "hint": {
+        "fr": "La variation verticale est pente fois variation horizontale.",
+        "en": "Vertical change is slope times horizontal change."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Résoudre $(3/2)\\Delta x=6$.",
+            "en": "Solve $(3/2)\\Delta x=6$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$9$",
+            "en": "$9$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Résoudre $(3/2)\\Delta x=6$.",
+            "en": "This proposal does not fit. Solve $(3/2)\\Delta x=6$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Résoudre $(3/2)\\Delta x=6$.",
+            "en": "This proposal does not fit. Solve $(3/2)\\Delta x=6$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Résoudre $(3/2)\\Delta x=6$.",
+        "en": "Solve $(3/2)\\Delta x=6$."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E11",
+      "objectiveId": "L29-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "vertical-line"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi $x=2$ n’a-t-elle pas de pente réelle finie ?",
+        "en": "Why does $x=2$ have no finite real slope ?"
+      },
+      "hint": {
+        "fr": "Une droite verticale ne possède pas de pente réelle finie.",
+        "en": "A vertical line has no finite real slope."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Son ordonnée à l’origine vaut zéro.",
+            "en": "Its vertical intercept is zero."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le quotient $\\Delta y/\\Delta x$ demanderait une division par zéro.",
+            "en": "This proposal does not fit. The quotient $\\Delta y/\\Delta x$ would require division by zero."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Toute droite a une pente nulle.",
+            "en": "Every line has zero slope."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le quotient $\\Delta y/\\Delta x$ demanderait une division par zéro.",
+            "en": "This proposal does not fit. The quotient $\\Delta y/\\Delta x$ would require division by zero."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Deux points distincts ont un écart horizontal nul.",
+            "en": "Two distinct points have zero horizontal difference."
+          },
+          "feedback": {
+            "fr": "Le quotient $\\Delta y/\\Delta x$ demanderait une division par zéro.",
+            "en": "The quotient $\\Delta y/\\Delta x$ would require division by zero."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le quotient $\\Delta y/\\Delta x$ demanderait une division par zéro.",
+        "en": "The quotient $\\Delta y/\\Delta x$ would require division by zero."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E12",
+      "objectiveId": "L29-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "parallel-lines"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Deux fonctions affines prennent les mêmes valeurs en deux abscisses distinctes. Que conclure ?",
+        "en": "Two affine functions have equal values at two distinct horizontal coordinates. What follows ?"
+      },
+      "hint": {
+        "fr": "Comparez d’abord les pentes, puis les constantes.",
+        "en": "Compare slopes first, then constants."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Elles peuvent différer ailleurs.",
+            "en": "They may differ elsewhere."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La différence est affine et possède deux zéros distincts ; sa pente et sa constante sont nulles.",
+            "en": "This proposal does not fit. Their difference is affine with two distinct zeros; its slope and constant are zero."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Elles sont identiques partout.",
+            "en": "They are identical everywhere."
+          },
+          "feedback": {
+            "fr": "La différence est affine et possède deux zéros distincts ; sa pente et sa constante sont nulles.",
+            "en": "Their difference is affine with two distinct zeros; its slope and constant are zero."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Elles sont seulement parallèles et distinctes.",
+            "en": "They are merely distinct and parallel."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La différence est affine et possède deux zéros distincts ; sa pente et sa constante sont nulles.",
+            "en": "This proposal does not fit. Their difference is affine with two distinct zeros; its slope and constant are zero."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La différence est affine et possède deux zéros distincts ; sa pente et sa constante sont nulles.",
+        "en": "Their difference is affine with two distinct zeros; its slope and constant are zero."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E13",
+      "objectiveId": "L29-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "rate-of-change"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une mesure est modélisée par $y=mx+p$. Si l’unité de $x$ devient $z=100x$, quelle est la pente exprimée en fonction de $z$ ?",
+        "en": "A measurement is modelled by $y=mx+p$. If the unit of $x$ becomes $z=100x$, what is the slope as a function of $z$ ?"
+      },
+      "hint": {
+        "fr": "La variation verticale est pente fois variation horizontale.",
+        "en": "Vertical change is slope times horizontal change."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$m/100$",
+            "en": "$m/100$"
+          },
+          "feedback": {
+            "fr": "Substituer $x=z/100$ donne $y=(m/100)z+p$.",
+            "en": "Substituting $x=z/100$ gives $y=(m/100)z+p$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$100m$",
+            "en": "$100m$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Substituer $x=z/100$ donne $y=(m/100)z+p$.",
+            "en": "This proposal does not fit. Substituting $x=z/100$ gives $y=(m/100)z+p$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$m$",
+            "en": "$m$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Substituer $x=z/100$ donne $y=(m/100)z+p$.",
+            "en": "This proposal does not fit. Substituting $x=z/100$ gives $y=(m/100)z+p$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Substituer $x=z/100$ donne $y=(m/100)z+p$.",
+        "en": "Substituting $x=z/100$ gives $y=(m/100)z+p$."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E14",
+      "objectiveId": "L29-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "intercept-axis"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Remplacer $y=mx+p$ par $y=mx+p+4$ modifie quoi ?",
+        "en": "Replacing $y=mx+p$ with $y=mx+p+4$ changes what ?"
+      },
+      "hint": {
+        "fr": "Évaluez à l’abscisse zéro.",
+        "en": "Evaluate at horizontal coordinate zero."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "La pente augmente de $4$.",
+            "en": "Slope increases by $4$."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La différence des ordonnées vaut constamment $4$.",
+            "en": "This proposal does not fit. The difference of vertical coordinates is constantly $4$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Chaque abscisse augmente de $4$.",
+            "en": "Every horizontal coordinate increases by $4$."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La différence des ordonnées vaut constamment $4$.",
+            "en": "This proposal does not fit. The difference of vertical coordinates is constantly $4$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "L’ordonnée à l’origine augmente de $4$, la pente reste la même.",
+            "en": "The vertical intercept increases by $4$ and slope stays the same."
+          },
+          "feedback": {
+            "fr": "La différence des ordonnées vaut constamment $4$.",
+            "en": "The difference of vertical coordinates is constantly $4$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La différence des ordonnées vaut constamment $4$.",
+        "en": "The difference of vertical coordinates is constantly $4$."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L29-E15",
+      "objectiveId": "L29-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "vertical-line"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour quels réels $a,b,c$ l’équation $ax+by=c$ décrit-elle une verticale ?",
+        "en": "For which reals $a,b,c$ does equation $ax+by=c$ describe a vertical line ?"
+      },
+      "hint": {
+        "fr": "Une droite verticale ne possède pas de pente réelle finie.",
+        "en": "A vertical line has no finite real slope."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$a=b=0$",
+            "en": "$a=b=0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Avec $a\\ne0$ et $b=0$, l’équation devient $x=c/a$.",
+            "en": "This proposal does not fit. With $a\\ne0$ and $b=0$, the equation becomes $x=c/a$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$a\\ne0,\\ b=0$",
+            "en": "$a\\ne0,\\ b=0$"
+          },
+          "feedback": {
+            "fr": "Avec $a\\ne0$ et $b=0$, l’équation devient $x=c/a$.",
+            "en": "With $a\\ne0$ and $b=0$, the equation becomes $x=c/a$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$a=0,\\ b\\ne0$",
+            "en": "$a=0,\\ b\\ne0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Avec $a\\ne0$ et $b=0$, l’équation devient $x=c/a$.",
+            "en": "This proposal does not fit. With $a\\ne0$ and $b=0$, the equation becomes $x=c/a$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Avec $a\\ne0$ et $b=0$, l’équation devient $x=c/a$.",
+        "en": "With $a\\ne0$ and $b=0$, the equation becomes $x=c/a$."
+      },
+      "lessonId": "L29",
+      "version": 2,
+      "prerequisites": [
+        "L28"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          37,
+          38,
+          39
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

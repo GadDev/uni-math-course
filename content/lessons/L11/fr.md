@@ -1,7 +1,7 @@
 ---
 lessonId: L11
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Prédicats et quantificateurs"
 summary: "Lire un prédicat P(x) sur un ensemble, évaluer ∀ et ∃ sur un domaine, et voir pourquoi le domaine change la valeur de vérité."
@@ -26,7 +26,7 @@ Soit $X = \{1,2,4\}$ et $P(x)$ : « x est pair ».
 | --- | --- | --- | --- |
 | P(x) | faux | vrai | vrai |
 
-Le « pour tout » est faux à cause de un ; le « il existe » est vrai, par exemple grâce à deux. Un **témoin** est un élément qui réussit le test ; un **contre-exemple** est un élément qui fait échouer la règle générale. Dans l’exemple précédent, $[10,+\infty[$ signifie les réels supérieurs ou égaux à dix : le crochet près de dix l’inclut.
+Le « pour tout » est faux à cause de un ; le « il existe » est vrai, par exemple grâce à deux. Un **témoin** est un élément qui réussit le test ; un **contre-exemple** est un élément qui fait échouer la règle générale.
 
 ## Prédicats
 
@@ -47,6 +47,8 @@ Le symbole $\forall$ se lit « pour tout » et $\exists$ se lit « il existe ».
 
 Soit $P(x)$ : $x > 2$.
 
+Dans le second cas ci-dessous, $[10,+\infty[$ signifie les réels supérieurs ou égaux à dix : le crochet près de dix l’inclut.
+
 1. Sur $\mathbb{R}$ : $\exists x\ P(x)$ est vraie, avec le témoin $3$. $\forall x\ P(x)$ est fausse, avec le contre-exemple $1$.
 2. Sur $[10, +\infty[$ : $\forall x\ P(x)$ est vraie, car tout nombre à partir de $10$ dépasse $2$. $\exists x\ P(x)$ est aussi vraie.
 
@@ -64,7 +66,7 @@ L’exemple de l’âge à la page 48 de la source mêle des quantificateurs imb
 
 ## Pratique indépendante
 
-Les six exercices pilotes portent sur les prédicats, l’évaluation d’une valeur, $\forall$ sur un domaine fini, $\exists$ avec un témoin, l’effet du domaine et un prédicat sur des noms de lieux.
+Les exercices sélectionnés portent sur les prédicats, l’évaluation d’une valeur, $\forall$ sur un domaine fini, $\exists$ avec un témoin, l’effet du domaine et un prédicat sur des noms de lieux.
 
 La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 

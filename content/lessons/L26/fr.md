@@ -1,7 +1,7 @@
 ---
 lessonId: L26
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "La notation sigma, les sommes et les moyennes"
 summary: "Lire la notation sigma, calculer une moyenne et comprendre les écarts centrés."
@@ -78,11 +78,11 @@ La preuve du PDF se déroule ainsi : $\sum_{i=1}^n(x_i-\bar x)=\sum_{i=1}^n x_i-
 
 ## Moyenne et unités
 
-La moyenne est $\bar x=(1/n)\sum_{i=1}^n x_i$. Elle possède la même unité que les observations. Pour les valeurs $2,5,8$, elle vaut $5$. Chaque donnée contribue une fois ; pour des groupes de même effectif, la moyenne simple de leurs moyennes donne la moyenne globale. En général, il faut pondérer chaque moyenne par l’effectif de son groupe. Un échantillon vide n’a pas de moyenne définie par cette formule.
+La moyenne possède la même unité que les observations. Un échantillon vide n’a pas de moyenne définie par cette formule.
 
 ## Exemple guidé : les écarts à la moyenne
 
-Pour les données $1,4,7$, la moyenne vaut $4$ et les écarts valent $-3,0,3$. Leur somme est nulle. Plus généralement, $\sum_i(x_i-\bar x)=\sum_i x_i-n\bar x=0$. Cette propriété ne signifie pas que chaque écart est nul. Des données dispersées peuvent avoir des écarts qui se compensent exactement.
+Pour les données $1,4,7$, la moyenne vaut $4$ et les écarts valent $-3,0,3$. Leur somme est nulle. Cette propriété ne signifie pas que chaque écart est nul. Des données dispersées peuvent avoir des écarts qui se compensent exactement.
 
 ## Somme des carrés et carré de la somme
 

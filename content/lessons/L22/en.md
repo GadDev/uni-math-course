@@ -1,7 +1,7 @@
 ---
 lessonId: L22
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Expanding and factorising"
 summary: "Change the form of an expression without changing its value."
@@ -76,7 +76,7 @@ Expand the first: $(a+b)^2=(a+b)(a+b)=a^2+ab+ba+b^2$. Since $ab=ba$, the two pie
 
 ## Reconstruct the identities
 
-The products give $(a+b)^2=a^2+2ab+b^2$, $(a-b)^2=a^2-2ab+b^2$ and $(a-b)(a+b)=a^2-b^2$. The cross term occurs twice in the square; cross terms cancel in the conjugate product. To avoid memory errors, write the square as a product before collecting terms.
+Before choosing an identity from the table, write the square as a product. This recovers the two cross terms instead of relying on an isolated memorised formula.
 
 ## Guided example: factorise in two stages
 

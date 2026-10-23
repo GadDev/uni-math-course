@@ -1,7 +1,7 @@
 ---
 lessonId: L05
 locale: en
-version: 3
+version: 4
 status: pilot
 title: "Implication: a promise with one failure case"
 summary: "Read A ⇒ B, distinguish necessary and sufficient conditions, and find a counterexample."
@@ -99,9 +99,9 @@ For the card rule, first test these two cases: red with a stamp, then red withou
 
 ## Independent practice
 
-The six pilot exercises cover the false case, the truth table, necessary/sufficient conditions, negation, a natural-language rule and a numerical counterexample.
+The selected exercises cover the false case, the truth table, necessary/sufficient conditions, negation, a natural-language rule and a numerical counterexample.
 
-Interactive practice is available with an account when sign-in is configured. Use the “Practise” button after the lesson to answer the six exercises, receive feedback, and find your attempts in your private progress.
+Interactive practice is available with an account when sign-in is configured. Use the “Practise” button after the lesson to answer The selected exercises, receive feedback, and find your attempts in your private progress.
 
 ## Takeaway
 

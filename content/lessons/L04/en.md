@@ -1,7 +1,7 @@
 ---
 lessonId: L04
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Semantic equivalence and Boolean laws"
 summary: "Check that two formulas have the same truth table, apply the Boolean laws, recognise tautologies and contradictions, and refute an equivalence with one row."
@@ -28,24 +28,16 @@ $\equiv$ is a claim about two formulas, not an operator inside a formula. The st
 
 Do not confuse it with $\Leftrightarrow$, the biconditional connective studied in L07. The formula $A \Leftrightarrow B$ is an assertion built from $A$ and $B$; the statement $A \equiv B$ compares two formulas.
 
-## Guided example: checking a distributive law
+## First example: two negations
 
-Check that $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$. Compute both sides on all eight assignments.
+Before comparing eight rows, try one variable. NOT flips the value; a second negation restores it.
 
-| A | B | C | A ∨ (B ∧ C) | (A ∨ B) ∧ (A ∨ C) |
-| --- | --- | --- | --- | --- |
-| 0 | 0 | 0 | 0 | 0 |
-| 0 | 0 | 1 | 0 | 0 |
-| 0 | 1 | 0 | 0 | 0 |
-| 0 | 1 | 1 | 1 | 1 |
-| 1 | 0 | 0 | 1 | 1 |
-| 1 | 0 | 1 | 1 | 1 |
-| 1 | 1 | 0 | 1 | 1 |
-| 1 | 1 | 1 | 1 | 1 |
+| A | ¬A | ¬¬A |
+| --- | --- | --- |
+| 0 | 1 | 0 |
+| 1 | 0 | 1 |
 
-The two columns agree on every row, so the equivalence holds. This check uses truth tables; deriving the law from the others is a different method, not required here.
-
-This guided work, whose solution is visible, is not an independent response for mastery evidence.
+The first and last columns match on every row: $\neg\neg A\equiv A$. Check each step before reading the following laws.
 
 ## Boolean algebra: rewrite while keeping the meaning
 
@@ -66,6 +58,10 @@ $A \lor (B \lor C) \equiv (A \lor B) \lor C$ and $A \land (B \land C) \equiv (A 
 With OR throughout, both versions need at least one true part; with AND throughout, they need all three parts true. Parentheses change the order of calculation, not the result.
 
 This does not let you move parentheses freely in a mixed formula. With $A = 0$, $B = 1$, $C = 1$, $A \land (B \lor C)$ is $0$, but $(A \land B) \lor C$ is $1$.
+
+### Pause: two laws, two checks
+
+With $A=1$ and $B=0$, compare $A\lor B$ and $B\lor A$: both are $1$. Then, with $A=0$, $B=1$, $C=1$, compare $A\land(B\lor C)$ and $(A\land B)\lor C$: $0$ versus $1$. Commutativity allows a swap; associativity does not allow mixing connectives. One row can refute a law, but cannot prove it.
 
 ### Distributivity: expand and factor
 
@@ -129,6 +125,25 @@ Start with $\neg(\neg A \lor B)$. De Morgan gives $\neg\neg A \land \neg B$. Dou
 
 Answers: $A \land B$ (commutativity); $C \land (A \lor B)$ (distributivity in reverse); $\neg A \land B$ (De Morgan then double negation). These are guided attempts with visible solutions; the following exercises let you try again with different formulas.
 
+## Guided example: checking a distributive law
+
+Check that $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$. Compute both sides on all eight assignments.
+
+| A | B | C | A ∨ (B ∧ C) | (A ∨ B) ∧ (A ∨ C) |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 0 |
+| 0 | 1 | 0 | 0 | 0 |
+| 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 |
+| 1 | 0 | 1 | 1 | 1 |
+| 1 | 1 | 0 | 1 | 1 |
+| 1 | 1 | 1 | 1 | 1 |
+
+The two columns agree on every row, so the equivalence holds. This check uses truth tables; deriving the law from the others is a different method, not required here.
+
+This guided work, whose solution is visible, is not an independent response for mastery evidence.
+
 ## Tautologies and contradictions
 
 A **tautology** is an assertion that is true under every assignment. A **contradiction** is false under every assignment. The constant $\top$ is a tautology, and $\neg\top$ is a contradiction.
@@ -150,7 +165,7 @@ If $A = 0$, the left side is zero and both conjunctions on the right are zero. I
 
 ## Independent practice
 
-The fourteen exercises in this lesson cover the definition of equivalence, the De Morgan law, a truth-table check, recognising a tautology, the excluded-middle and non-contradiction laws, and refuting an equivalence with one row. Eight new exercises also practise commutativity, associativity, double negation, both distributive laws and factoring.
+The selected exercises practise equivalence, complete tables, Boolean laws, tautologies, contradictions and counterexamples. The current count and version are shown in practice.
 
 Interactive practice requires sign-in. Availability depends on this lesson’s selected version and release status.
 
