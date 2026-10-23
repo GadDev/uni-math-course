@@ -2,6 +2,18 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.12.0](https://github.com/GadDev/uni-math-course/compare/v0.11.1...v0.12.0) (2026-10-23)
+
+
+### Features
+
+* **content:** align Droites with the revised 92-page PDF ([#88](https://github.com/GadDev/uni-math-course/issues/88)) ([43edb72](https://github.com/GadDev/uni-math-course/commit/43edb72e3bc39961c8f80b955329d1d398c67d79))
+
+
+### Bug Fixes
+
+* **practice:** remove redundant exercise and submission round trips ([#89](https://github.com/GadDev/uni-math-course/issues/89)) ([5ba78da](https://github.com/GadDev/uni-math-course/commit/5ba78da1277aa91661eaeaece51d7a1fcfd7c525))
+
 ## [0.11.1](https://github.com/GadDev/uni-math-course/compare/v0.11.0...v0.11.1) (2026-10-22)
 
 
