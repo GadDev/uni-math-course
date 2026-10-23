@@ -6,6 +6,10 @@ Anscombe data: R datasets/anscombe, https://stat.ethz.ch/R-manual/R-devel/librar
 """
 from pathlib import Path
 import re
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("--only", nargs="*", help="Regenerate only named figures")
+args = parser.parse_args()
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -68,6 +72,9 @@ def line(ax,m,p,style='-',label=None,color=GREEN):
     ax.plot(xx,m*xx+p,style,color=color,label=label,zorder=2)
 
 def save(fig,locale,name):
+    if args.only is not None and name not in args.only:
+        plt.close(fig)
+        return
     path=ROOT/f'public/diagrams/droites/{locale}/{name}.svg'
     path.parent.mkdir(parents=True,exist_ok=True)
     fig.savefig(path,format='svg',metadata={'Date':None,'Creator':'Uni Math Course original teaching diagram'})
@@ -265,6 +272,30 @@ for locale in ('fr','en'):
     ax.plot(np.arange(10),X,'o',color=GREEN)
     line(ax,-.445,7.32);ax.axvline(9,color=INK,ls=':',lw=1)
     dot(ax,7.32/.445,0,'t ≈ 16.45',offset=(-55,18));done(fig,'extrapolation')
+
+    fig,ax=frame((0,32),(60,290),equal=False)
+    ages=np.array([2,4,6,8,10]);heights=np.array([87,103,116,128,139])
+    ax.set_xlabel('Âge (ans)' if fr else 'Age (years)')
+    ax.set_ylabel('Taille (cm)' if fr else 'Height (cm)',rotation=90,labelpad=6)
+    ax.scatter(ages,heights,color=GREEN,s=38,zorder=5)
+    ax.plot([2,10],[6.45*2+75.9,6.45*10+75.9],color=GREEN)
+    ax.plot([10,30],[6.45*10+75.9,6.45*30+75.9],'--',color=OTHER)
+    ax.axvspan(10,32,facecolor=OTHER,alpha=.08,hatch='//')
+    dot(ax,30,269.4,'269,4 cm' if fr else '269.4 cm',offset=(-80,8),marker='x',color=OTHER)
+    done(fig,'height-extrapolation')
+
+    fig,ax=frame((0,11),(0,32),equal=False)
+    hours=np.array([1,2,3,4,5]);scores=np.array([8,9,12,14,17])
+    ax.set_xlabel('Révision (heures)' if fr else 'Study (hours)')
+    ax.set_ylabel('Note / 20' if fr else 'Score / 20',rotation=90,labelpad=6)
+    ax.scatter(hours,scores,color=GREEN,s=38,zorder=5)
+    ax.plot([1,5],[7.4,16.6],color=GREEN)
+    ax.plot([5,10],[16.6,28.1],'--',color=OTHER)
+    ax.axhline(20,color=INK,ls=':',lw=1.4)
+    ax.text(.3,21,'Maximum : 20' if fr else 'Maximum: 20',fontsize=11)
+    dot(ax,3.5,13.15,'13,15' if fr else '13.15',offset=(10,-19),marker='D')
+    dot(ax,10,28.1,'28,1' if fr else '28.1',offset=(-40,7),marker='x',color=OTHER)
+    done(fig,'study-score')
 
 if __name__=='__main__':
     referenced=set()

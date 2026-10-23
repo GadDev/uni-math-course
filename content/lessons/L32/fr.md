@@ -1,14 +1,14 @@
 ---
 lessonId: L32
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Du repère aux pixels"
 summary: "Construire et inverser une transformation vers un écran dont l’axe vertical descend."
 minutes: 25
 objectives: [L32-O01, L32-O02, L32-O03, L32-O04, L32-O05, L32-O06]
 prerequisites: [L25, L27, L29]
-sourcePages: [53, 54, 55]
+sourcePages: [52, 53, 54, 55]
 ---
 # Du repère aux pixels
 
@@ -23,13 +23,13 @@ sourcePages: [53, 54, 55]
 
 Prérequis : L25, L27, L29. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
 
-<span id="pdf-53" class="source-topic-marker"></span>
+<span id="pdf-52" class="source-topic-marker"></span>
 
 ## L’écran est une grille de pixels
 
 Un **pixel** est une case d’une image. Dans la convention du PDF, les colonnes $u$ vont vers la droite et les lignes $v$ vers le bas ; la première colonne et la première ligne portent le numéro zéro.
 
-**Exemple du PDF, page 53.** Le pixel $(5,2)$ est dans la sixième colonne et la troisième ligne. L’ordre reste horizontal puis vertical, mais la verticale descend. Dans une image $8\times6$, les colonnes vont de $0$ à $7$ et les lignes de $0$ à $5$ : le pixel $(8,6)$ n’existe pas dans cette image.
+**Exemple du PDF, page 52.** Le pixel $(5,2)$ est dans la sixième colonne et la troisième ligne. L’ordre reste horizontal puis vertical, mais la verticale descend. Dans une image $8\times6$, les colonnes vont de $0$ à $7$ et les lignes de $0$ à $5$ : le pixel $(8,6)$ n’existe pas dans cette image.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/pixels.svg" alt="Grille de huit colonnes et six lignes, origine en haut à gauche, case 5,2 marquée par une croix." width="440" height="360" loading="lazy" />
@@ -46,7 +46,7 @@ Dans le plan mathématique, $y$ augmente vers le haut. Sur l’écran considér�
 
 ## Du repère mathématique au repère écran : centrer
 
-**PDF, page 54.** Dans une fenêtre de $800\times600$ pixels, choisir l’origine au centre donne $(u_0,v_0)=(400,300)$. Avec une unité pour un pixel, $u=400+x$ et $v=300-y$. Le moins est nécessaire : un point plus haut doit avoir un numéro de ligne plus petit.
+**PDF, pages 53–54.** Dans une fenêtre de $800\times600$ pixels, choisir l’origine au centre donne $(u_0,v_0)=(400,300)$. Avec une unité pour un pixel, $u=400+x$ et $v=300-y$. Le moins est nécessaire : un point plus haut doit avoir un numéro de ligne plus petit.
 
 **Exemple supplémentaire.** $(x,y)=(20,10)$ devient $(u,v)=(420,290)$. L’origine mathématique $(0,0)$ devient $(400,300)$ ; elle ne devient pas le coin supérieur gauche.
 

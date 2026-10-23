@@ -13,14 +13,14 @@ const bank: typeof Glossary = JSON.parse(
 
 test('glossary has stable, unique bilingual entries, valid pages and renderable math', () => {
   assert.equal(bank.version, 2);
-  assert.equal(bank.entries.length, 143);
-  assert.equal(new Set(bank.entries.map((e) => e.id)).size, 143);
+  assert.equal(bank.entries.length, 145);
+  assert.equal(new Set(bank.entries.map((e) => e.id)).size, 145);
   const sources = new Map(bank.sources.map((source) => [source.id, source]));
   assert.equal(sources.size, bank.sources.length);
   assert.equal(sources.get('logic')!.pageCount, 96);
-  assert.equal(sources.get('droites')!.pageCount, 87);
+  assert.equal(sources.get('droites')!.pageCount, 92);
   assert.equal(bank.entries.filter((e) => e.sourceId === 'logic').length, 64);
-  assert.equal(bank.entries.filter((e) => e.sourceId === 'droites').length, 79);
+  assert.equal(bank.entries.filter((e) => e.sourceId === 'droites').length, 81);
   const categories = new Set(bank.categories.map((c) => c.id));
   for (const category of bank.categories) {
     for (const locale of ['fr', 'en'] as const)
@@ -90,5 +90,5 @@ test('Droites entries distinguish powers, indices, means, predictions and correl
   assert.match(entry('D080').en.confusion, /neither the final residual/);
   assert.match(entry('D083').en.confusion, /If Sxx or Syy is zero/);
   assert.match(entry('D075').en.confusion, /nonnegative/);
-  assert.deepEqual(entry('D034').sourcePages, [25, 26, 67, 70, 71, 72]);
+  assert.deepEqual(entry('D034').sourcePages, [25, 26, 69, 70]);
 });

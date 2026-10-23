@@ -142,8 +142,13 @@ const math = (value: string, displayMode = false) =>
                   </h3>
                   <p>{current.meaning}</p>
                   <p class="glossary-provenance">
-                    {source.shortTitle[locale]} · {text.pages}:{' '}
-                    {entry.sourcePages.join(', ')} ·{' '}
+                    {source.shortTitle[locale]} ·{' '}
+                    {entry.sourceContext === 'supplement'
+                      ? locale === 'fr'
+                        ? 'Complément · pages liées'
+                        : 'Supplement · related pages'
+                      : text.pages}
+                    : {entry.sourcePages.join(', ')} ·{' '}
                     {entry.exampleOrigin === 'teaching-example'
                       ? text.teaching
                       : text.sourceExample}

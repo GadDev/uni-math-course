@@ -47,7 +47,7 @@ check('L32 source transform',(400+50*2,300-50*1),(500,250))
 check('L32 extra transform',(400+50*(-3),300-50*(-2)),(250,400))
 check('L33 source gentle raster',[int(s.floor(Q(2,5)*t+Q(1,2))) for t in range(6)],[0,0,1,1,2,2])
 check('L33 source steep raster',[int(s.floor(Q(3,8)*t+Q(1,2))) for t in range(9)],[0,0,1,1,2,2,2,3,3])
-check('L35 source completing square',s.expand((x+3)**2-8),x*x+6*x+1)
+check('L35 supplemental completing square',s.expand((x+3)**2-8),x*x+6*x+1)
 check('L35 extra completing square',s.expand((x-2)**2+3),x*x-4*x+7)
 check('L35 positive-leading-coefficient square',s.expand(a*(m-b/a)**2+c-b*b/a),a*m*m-2*b*m+c)
 
@@ -64,7 +64,30 @@ check('L35 mean-point passage',slope*xb+intercept,yb)
 check('L35 source prediction rounded',round(float(2*slope+intercept),2),3.72)
 points=[(s.Integer(t),s.Integer(u)) for t,u in [(0,0),(1,1),(2,2),(3,3),(4,4),(5,5),(6,-2)]]
 check('L36 extra outlier model',fit(points)[-2:],(s.Rational(1,7),s.Rational(10,7)))
-check('L36 extrapolation at 2017',-s.Rational('.445')*17+s.Rational('7.32'),-s.Rational('.245'))
+ages=[s.Integer(i) for i in [2,4,6,8,10]]
+heights=[s.Integer(i) for i in [87,103,116,128,139]]
+check('L36 revised height fit',fit(list(zip(ages,heights)))[-2:],(s.Rational('6.45'),s.Rational('75.9')))
+check('L36 revised height extrapolation',s.Rational('6.45')*30+s.Rational('75.9'),s.Rational('269.4'))
+students=[(s.Integer(x),s.Integer(y)) for x,y in [(1,8),(2,9),(3,12),(4,14),(5,17)]]
+check('L35 revised student table',fit(students),(3,12,10,23,s.Rational('2.3'),s.Rational('5.1')))
+check('L35 revised student interpolation',s.Rational('2.3')*s.Rational('3.5')+s.Rational('5.1'),s.Rational('13.15'))
+check('L35 revised student extrapolation',s.Rational('2.3')*10+s.Rational('5.1'),s.Rational('28.1'))
+# Execute the published restricted-octant code, including every tie, in both languages.
+for lang in ('fr','en'):
+    text=Path(f'content/lessons/L33/{lang}.md').read_text()
+    namespace={}
+    for code in re.findall(r'```python\n(.*?)\n```',text,re.S):exec(code,namespace)
+    raster=namespace['raster']
+    for u2 in range(1,41):
+        for v2 in range(u2+1):
+            expected=[(u,int(s.ceiling(Q(v2*u,u2)-Q(1,2)))) for u in range(u2+1)]
+            assert raster(u2,v2)==expected,(lang,u2,v2)
+    check(f'L33 {lang} tie chooses E',raster(2,1),[(0,0),(1,0),(2,1)])
+    for endpoint in [(0,0),(2,3),(2,-1),(-1,0),(2.5,1)]:
+        try:raster(*endpoint)
+        except ValueError:pass
+        else:raise AssertionError('Expected octant/domain rejection')
+
 
 # Run all published Python snippets in reading order, in both languages.
 for lang in ('fr','en'):
@@ -83,5 +106,5 @@ us=[u1,u2,u3];vs=[v1,v2,v3];ub=sum(us)/3;vb=sum(vs)/3
 loss=sum((v-m*u-p)**2 for u,v in zip(us,vs))
 centered=sum(((v-vb)-m*(u-ub))**2 for u,v in zip(us,vs))+3*(vb-m*ub-p)**2
 check('L35 3-symbol loss decomposition',s.expand(loss-centered),0)
-print(f'{len(checks)} named exact arithmetic/symbolic checks passed; both published Python examples executed.')
+print(f'{len(checks)} named exact arithmetic/symbolic checks passed; published Python snippets executed; 860 raster segments per language checked including ties.')
 print('The three-observation symbolic identity is a supplemental check; the general n proof is author-reviewed prose.')

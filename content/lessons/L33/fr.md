@@ -1,16 +1,18 @@
 ---
 lessonId: L33
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Rastérisation et idée de Bresenham"
 summary: "Échantillonner un segment et suivre un algorithme entier dans un octant explicite."
-minutes: 35
+minutes: 45
 objectives: [L33-O01, L33-O02, L33-O03, L33-O04, L33-O05, L33-O06]
 prerequisites: [L31, L32]
-sourcePages: [56, 57, 58, 59]
+sourcePages: [56, 57, 59, 60, 61, 62, 63]
 ---
 # Rastérisation et idée de Bresenham
+
+Les exercices emploient aussi la lettre majuscule $D=d$ pour cette même décision entière.
 
 ## Objectifs et prérequis
 
@@ -25,58 +27,73 @@ Prérequis : L31, L32. Les domaines et restrictions précisés ci-dessous font p
 
 <span id="pdf-56" class="source-topic-marker"></span>
 
-## Rastériser : quels pixels allumer ?
+## Rastériser : choisir des pixels
 
-Une droite mathématique contient une infinité de points ; une grille n’offre que des cases. **Rastériser** signifie choisir les pixels qui représentent le segment. Pour un segment de gauche à droite de pente modérée, le PDF parcourt les colonnes et arrondit la hauteur.
+Une droite contient une infinité de points ; une image ne propose que des cases. **Rastériser**, c’est choisir les pixels qui représentent un segment. Pour une pente modérée et un parcours de gauche à droite, calculer une hauteur par colonne puis arrondir au pixel le plus proche.
 
-**Exemple du PDF, pages 56–57, pente $m=0{,}4$.** Entre $(0,0)$ et $(5,2)$, les hauteurs exactes aux colonnes $0,1,2,3,4,5$ valent $0;0{,}4;0{,}8;1{,}2;1{,}6;2$. L’arrondi au plus proche sélectionne $0,0,1,1,2,2$. Le trait continu et les centres des pixels ne coïncident pas toujours : c’est une approximation assumée.
+**PDF, pages 56–57.** Pour le segment de $(0,0)$ à $(5,2)$, la pente vaut $m=2/5=0{,}4$. Aux colonnes $0,1,2,3,4,5$, les hauteurs idéales sont $0;0{,}4;0{,}8;1{,}2;1{,}6;2$. Les hauteurs arrondies sont $0,0,1,1,2,2$. Il n’y a pas d’égalité à mi-chemin dans cet exemple.
 
-<figure class="teaching-figure">
-<img src="/diagrams/droites/fr/raster-gentle.svg" alt="Segment de pente 0,4 et pixels choisis aux hauteurs 0,0,1,1,2,2." width="440" height="360" loading="lazy" />
-<figcaption>Un pixel est choisi par colonne pour cette pente modérée.</figcaption>
-</figure>
-
-## Une droite continue, des pixels discrets
-
-Rastériser consiste à choisir des pixels pour représenter un segment continu. Si $|m|\le1$, parcourir les colonnes entières et arrondir la hauteur au pixel le plus proche est naturel. Pour les exemples d’arrondi de cette leçon, une égalité à mi-chemin est arrondie vers l’entier supérieur. Ce choix explicite peut différer de celui d’un langage de programmation.
-
-## Exemple guidé : pente forte
-
-De $(0,0)$ à $(2,6)$, la pente vaut $3$. Un pixel par colonne produit seulement les hauteurs $0,3,6$, laissant des sauts. Parcourir les lignes donne plutôt $x=y/3$ pour chaque ordonnée entière de $0$ à $6$. Pour un segment vertical, fixer l’abscisse et parcourir les lignes évite toute division par un écart horizontal nul.
-
-<p class="source-next"><a href="/fr/lessons/L33/#pdf-58">Suite du PDF : Corriger les trous →</a></p>
-
-<span id="pdf-58" class="source-topic-marker"></span>
-
-## Corriger les trous : parcourir le bon axe
-
-**Exemple du PDF, pages 57–58, pente $m=8/3$.** Entre $(0,0)$ et $(3,8)$, un pixel par colonne laisse de grands sauts verticaux. Parcourir chaque ligne donne $x=(3/8)y$. Pour $y=0,1,2,3,4,5,6,7,8$, les abscisses arrondies sont $0,0,1,1,2,2,2,3,3$ avec la convention d’arrondi de la leçon.
-
-La règle pratique est de parcourir l’axe du plus grand déplacement : colonnes si $|\Delta x|\ge|\Delta y|$, lignes sinon. Cela ne dispense pas de traiter la direction et les segments verticaux. Le dessin utilise ici une verticale vers le haut pour comparer les méthodes ; sur écran, il faut appliquer la convention descendante de la leçon précédente.
+**Convention supplémentaire pour les exemples d’arrondi :** à mi-chemin, choisir l’entier supérieur. Ce choix n’est pas celui de toutes les fonctions `round` ; ce n’est pas non plus la règle d’égalité de Bresenham ci-dessous.
 
 <figure class="teaching-figure">
-<img src="/diagrams/droites/fr/raster-holes.svg" alt="Segment de 0,0 à 3,8 avec seulement quatre pixels, laissant des trous." width="440" height="360" loading="lazy" />
-<figcaption>Parcours par colonnes : trop peu de pixels.</figcaption>
+<img src="/diagrams/droites/fr/raster-gentle.svg" alt="Segment de pente 0,4, six pixels aux hauteurs 0,0,1,1,2,2." width="440" height="360" loading="lazy" />
+<figcaption>Une case par colonne.</figcaption>
 </figure>
-
-<figure class="teaching-figure">
-<img src="/diagrams/droites/fr/raster-fixed.svg" alt="Même segment avec un pixel par ligne pour éviter les grands sauts." width="440" height="360" loading="lazy" />
-<figcaption>Parcours par lignes : le segment est mieux représenté.</figcaption>
-</figure>
-
-<p class="source-next"><a href="/fr/lessons/L33/#pdf-59">Suite du PDF : L’idée de Bresenham →</a></p>
+<p class="source-next"><a href="/fr/lessons/L33/#pdf-59">Suite du PDF : Corriger les trous →</a></p>
 
 <span id="pdf-59" class="source-topic-marker"></span>
 
-## L’idée de Bresenham : choisir entre E et NE
+## Corriger les trous : parcourir le bon axe
 
-**PDF, page 59 — explication développée.** Un **octant** est l’une des huit zones de direction autour d’un point. On étudie seulement les segments qui vont vers la droite et montent sans être plus raides que la diagonale : $\Delta x>0$ et $0\le\Delta y\le\Delta x$. L’axe vertical pointe vers le haut.
+**PDF, pages 57 et 59.** De $(0,0)$ à $(3,8)$, la pente vaut $m=8/3$. Un pixel par colonne ne donne que quatre pixels : le segment présente de grands sauts verticaux. Parcourir les lignes donne $x=(3/8)y$. Pour $y=0,1,2,3,4,5,6,7,8$, les abscisses arrondies sont $0,0,1,1,2,2,2,3,3$ selon la convention précédente.
 
-Depuis le pixel courant, deux cases sont candidates : E, à droite ; NE, à droite et en haut. Le milieu entre leurs centres permet de choisir la plus proche de la droite. Si la droite passe au-dessus ou sur ce milieu, choisir NE ; sinon E. Une égalité choisit NE dans ce cours.
+Dans la notation écran du PDF, $v=v_1+m(u-u_1)$ se réécrit $u=u_1+(v-v_1)/m$ lorsque $m\ne0$. On parcourt les lignes si $|m|>1$. Pour une verticale, fixer la colonne et parcourir les lignes sans calculer une pente infinie. La page 58 est une illustration de jeu vidéo, pas une étape algébrique supplémentaire.
 
-Le test entier ci-dessous évite de recalculer et d’arrondir une hauteur à chaque pas. **Exemple supplémentaire détaillé**, $\Delta x=5$ et $\Delta y=2$ :
+**À vérifier.** De $(4,1)$ à $(4,5)$, quelles cases choisir ? Garder la colonne $4$ et les lignes $1,2,3,4,5$, extrémités incluses.
 
-| Pixel courant | Décision D avant le pas | Choix | Pixel suivant |
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/raster-holes.svg" alt="Quatre pixels laissent de grands sauts." width="440" height="360" loading="lazy" />
+<figcaption>Quatre pixels laissent de grands sauts.</figcaption>
+</figure>
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/raster-fixed.svg" alt="Un pixel par ligne représente mieux la pente forte." width="440" height="360" loading="lazy" />
+<figcaption>Un pixel par ligne représente mieux la pente forte.</figcaption>
+</figure>
+<p class="source-next"><a href="/fr/lessons/L33/#pdf-60">Suite du PDF : L’idée de Bresenham →</a></p>
+
+<span id="pdf-60" class="source-topic-marker"></span>
+
+## L’idée de Bresenham : E, NE et le milieu
+
+**PDF, page 60.** On utilise maintenant des axes cartésiens avec la verticale **vers le haut**. Le segment va de $(0,0)$ à $(u_2,v_2)$, où les coordonnées sont entières, $u_2>0$ et $0\le v_2\le u_2$. C’est un seul **octant**, une des huit zones de direction ; l’algorithme présenté ne couvre pas directement toutes les directions.
+
+Depuis $(u,v)$, les candidats sont $E=(u+1,v)$ et $NE=(u+1,v+1)$. Leur milieu est $M=(u+1,v+1/2)$. Si le milieu est au-dessus de la droite ou sur elle, choisir E ; si la droite passe au-dessus du milieu, choisir NE. Les deux pixels sont aussi proches en cas d’égalité : **la convention de la page 62 choisit E**.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/bresenham.svg" alt="Pixel courant, candidats E et NE, milieu M et droite au-dessus du milieu." width="440" height="360" loading="lazy" />
+<figcaption>Comparer au milieu avant de choisir.</figcaption>
+</figure>
+<p class="source-next"><a href="/fr/lessons/L33/#pdf-61">Suite du PDF : Adieu les arrondis ! →</a></p>
+
+<span id="pdf-61" class="source-topic-marker"></span>
+
+## Adieu les arrondis : un test entier
+
+**PDF, page 61.** La droite a pour équation $v=(v_2/u_2)u$. Pour savoir si M est au-dessus ou sur la droite, tester $v+1/2\ge(v_2/u_2)(u+1)$. Multiplier par $2u_2>0$ conserve le sens de l’inégalité. Déplacer les termes donne $2v_2(u+1)-u_2(2v+1)\le0$.
+
+Nommons cette expression $d=2v_2(u+1)-u_2(2v+1)$. Alors E correspond à $d\le0$ et NE à $d>0$. **Piège fréquent :** remplacer le second test par une inégalité large change les pixels à mi-chemin. Ce choix est permis dans une autre variante, mais ne reproduit pas ce PDF.
+
+<p class="source-next"><a href="/fr/lessons/L33/#pdf-62">Suite du PDF : Bresenham : tout par incréments →</a></p>
+
+<span id="pdf-62" class="source-topic-marker"></span>
+
+## Bresenham : mettre à jour plutôt que recalculer
+
+**PDF, page 62.** Au départ, $u=v=0$ donne $d=2v_2-u_2$. Après E, seule la colonne augmente : ajouter $2v_2$ à d. Après NE, colonne et ligne augmentent : ajouter $2v_2-2u_2$.
+
+**Exemple supplémentaire,** $u_2=5$ et $v_2=2$ :
+
+| Pixel courant | d avant le pas | Choix | Pixel suivant |
 | --- | --- | --- | --- |
 | $(0,0)$ | $-1$ | E | $(1,0)$ |
 | $(1,0)$ | $3$ | NE | $(2,1)$ |
@@ -84,26 +101,39 @@ Le test entier ci-dessous évite de recalculer et d’arrondir une hauteur à ch
 | $(3,1)$ | $1$ | NE | $(4,2)$ |
 | $(4,2)$ | $-5$ | E | $(5,2)$ |
 
-Lire d’abord ce tableau et le dessin ; la formule qui suit explique comment produire la colonne D avec seulement des additions.
+**À vérifier :** pour $u_2=2$, $v_2=1$, la décision initiale vaut $0$. Choisir E donne $(1,0)$, puis NE donne $(2,1)$. L’ancienne variante du chapitre choisissait $(1,1)$ ; la distance est la même, mais le choix discret diffère.
 
-<figure class="teaching-figure">
-<img src="/diagrams/droites/fr/bresenham.svg" alt="Pixel courant, candidats E et NE et milieu M entre leurs centres ; la droite passe au-dessus du milieu." width="440" height="360" loading="lazy" />
-<figcaption>Comparer la droite au milieu permet de choisir entre deux pixels.</figcaption>
-</figure>
+<p class="source-next"><a href="/fr/lessons/L33/#pdf-63">Suite du PDF : Adieu les multiplications →</a></p>
 
-## Un octant volontairement limité
+<span id="pdf-63" class="source-topic-marker"></span>
 
-Pour comprendre Bresenham, revenons à un axe vertical vers le haut. Le segment va de $(0,0)$ à $(\Delta x,\Delta y)$, avec des entiers $\Delta x>0$ et $0\le\Delta y\le\Delta x$. Depuis $(x,y)$, les candidats sont $E=(x+1,y)$ et $NE=(x+1,y+1)$. Le milieu est $(x+1,y+1/2)$. Posons $D=2\Delta y(x+1)-2\Delta x y-\Delta x$. Si $D\ge0$, choisir NE ; sinon choisir E. Ici une égalité choisit NE.
+## Adieu les multiplications dans la boucle
 
-## Exemple guidé : additions entières
+**PDF, page 63 — transcription exécutable du pseudocode.** Cette fonction supplémentaire renvoie les pixels au lieu de les allumer. Elle exige des entiers dans l’octant annoncé.
 
-Au départ, $D=2\Delta y-\Delta x$. Après E, ajouter $2\Delta y$ ; après NE, ajouter $2\Delta y-2\Delta x$. Pour $\Delta x=5$ et $\Delta y=2$, les décisions successives avant chaque pas sont $-1,3,-3,1,-5$. Les pixels sont $(0,0),(1,0),(2,1),(3,1),(4,2),(5,2)$. Après initialisation, seules des additions et comparaisons entières sont nécessaires.
+```python
+def raster(u2, v2):
+    if not isinstance(u2, int) or not isinstance(v2, int):
+        raise ValueError("integer endpoints required")
+    if not (u2 > 0 and 0 <= v2 <= u2):
+        raise ValueError("requires u2 > 0 and 0 <= v2 <= u2")
+    twice_u = 2 * u2
+    twice_v = 2 * v2
+    d = twice_v - u2
+    v = 0
+    pixels = []
+    for u in range(u2 + 1):
+        pixels.append((u, v))
+        if d > 0:
+            v = v + 1
+            d = d - twice_u
+        d = d + twice_v
+    return pixels
+```
 
-## Direction et cas particuliers
+Les deux doubles sont calculés avant la boucle ; chaque pas utilise des additions et une comparaison d’entiers. Les deux extrémités sont incluses. Pour un segment réduit à un point, afficher ce point directement. Pour une pente négative ou forte, un parcours inversé ou un écran à verticale descendante, adapter le repère ou utiliser une version générale : ne pas appliquer cette fonction aveuglément.
 
-Inclure les deux extrémités donne $\Delta x+1$ pixels dans cet octant. Une boucle croissante ne traite pas automatiquement un segment donné de droite à gauche : réordonner les extrémités ou adapter le pas. Les pentes fortes, négatives et l’axe écran descendant exigent des transformations ou une version générale. Le segment réduit à un point s’affiche directement. L’algorithme limité présenté ici ne prétend pas couvrir tous les octants.
-
-<p class="source-next"><a href="/fr/lessons/L31/#pdf-60">Suite du PDF : Remplir un triangle →</a></p>
+<p class="source-next"><a href="/fr/lessons/L36/#pdf-65">Suite du PDF : Une découverte troublante →</a></p>
 
 ## Pratique et bilan
 

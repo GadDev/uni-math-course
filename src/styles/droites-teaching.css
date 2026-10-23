@@ -94,3 +94,12 @@
     overflow-x: auto;
   }
 }
+
+/* Keep numbers and mathematical cells intact; the table itself scrolls. */
+@media (max-width: 600px) {
+  .lesson-page[data-chapter='C02'] .lesson-prose th,
+  .lesson-page[data-chapter='C02'] .lesson-prose td {
+    white-space: nowrap;
+    overflow-wrap: normal;
+  }
+}
