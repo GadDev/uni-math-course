@@ -1,14 +1,14 @@
 ---
 lessonId: L31
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Half-planes and triangles"
 summary: "Use the sign of an affine expression to describe and test a region."
 minutes: 27
 objectives: [L31-O01, L31-O02, L31-O03, L31-O04, L31-O05, L31-O06]
 prerequisites: [L24, L28, L30]
-sourcePages: [50, 51, 60]
+sourcePages: [50]
 ---
 # Half-planes and triangles
 
@@ -27,11 +27,11 @@ Prerequisites: L24, L28, L30. Domains and restrictions stated below are part of 
 
 ## The two half-planes: testing which side contains a point
 
-A line splits the plane into two regions. **PDF example, pages 50–51:** boundary $y=2x+1$. For $(0,3)$, compare $3$ with $2\cdot0+1=1$: $3>1$, so the point is above. For $(2,0)$, $0<2\cdot2+1=5$: the point is below.
+A line splits the plane into two regions. **PDF example, page 50:** boundary $y=2x+1$. For $(0,3)$, compare $3$ with $2\cdot0+1=1$: $3>1$, so the point is above. For $(2,0)$, $0<2\cdot2+1=5$: the point is below.
 
 Difference $f(x,y)=y-2x-1$ is respectively $2$ and $-5$. Its sign distinguishes the sides. A strict inequality excludes the boundary, drawn dashed; a non-strict inequality includes it, drawn solid. For a vertical line, speak of left and right instead.
 
-In the PDF path, continue with [pixels](../L32/#pdf-53); the [filled triangle](#pdf-60) comes after rasterisation.
+In the PDF path, continue with [pixels](../L32/#pdf-52). The triangle below is a project supplement, absent from the revised PDF.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/halfplanes.svg" alt="Dashed line y equals 2x plus 1 separates a hatched upper region from an unhatched lower region." width="440" height="360" loading="lazy" />
@@ -46,13 +46,13 @@ For $f(x,y)=ax+by-c$ with $(a,b)\ne(0,0)$, the boundary is $f=0$. The two open h
 
 For $x+2y\le6$, the origin gives $0\le6$: retain the side containing the origin and the boundary. Point $(4,2)$ gives $8>6$ and is excluded. A boundary point cannot choose the side because its value is zero for both non-strict inequalities.
 
-<p class="source-next"><a href="/en/lessons/L32/#pdf-53">Next in the PDF : The screen is a pixel grid →</a></p>
+<p class="source-next"><a href="/en/lessons/L32/#pdf-52">Next in the PDF: The screen is a pixel grid →</a></p>
 
-<span id="pdf-60" class="source-topic-marker"></span>
+<span id="supplement-triangle" class="source-topic-marker"></span>
 
 ## Filling a triangle: combining three tests
 
-**PDF application, page 60 — additional detailed calculation.** A nondegenerate triangle is the intersection of three half-planes: for each side, keep the one containing the opposite vertex. This turns a drawing into three algebraic tests.
+**Project supplement, outside the revised PDF.** A nondegenerate triangle is the intersection of three half-planes: for each side, keep the one containing the opposite vertex. This turns a drawing into three algebraic tests.
 
 Take $A=(0,0)$, $B=(4,0)$ and $C=(0,3)$. The horizontal and vertical sides give $y\ge0$ and $x\ge0$. The third side satisfies $3x+4y=12$, passing through $B$ and $C$. The origin gives $0\le12$: keep $3x+4y\le12$.
 
@@ -74,8 +74,6 @@ For three noncollinear vertices, each side defines a line. For each line, keep t
 ## A same-side test
 
 If $R$ is a reference point off the line, $P$ lies on the same side or boundary when $f(P)f(R)\ge0$. For the same strict side, use $>0$. Multiplying a boundary equation by a negative number preserves the line but reverses signs. Three collinear vertices do not define a triangle with nonempty interior; the test must detect this case before filling.
-
-<p class="source-next"><a href="/en/lessons/L36/#pdf-62">Next in the PDF : A puzzling discovery →</a></p>
 
 ## Practice and recap
 

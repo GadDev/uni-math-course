@@ -1,14 +1,14 @@
 ---
 lessonId: L34
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Affine models and residuals"
 summary: "Measure a model’s vertical error and build a squared loss."
 minutes: 30
 objectives: [L34-O01, L34-O02, L34-O03, L34-O04, L34-O05, L34-O06]
 prerequisites: [L26, L29]
-sourcePages: [63, 64, 65, 66, 67]
+sourcePages: [66, 67, 68, 69, 70]
 ---
 # Affine models and residuals
 
@@ -23,11 +23,11 @@ sourcePages: [63, 64, 65, 66, 67]
 
 Prerequisites: L26, L29. Domains and restrictions stated below are part of every rule.
 
-<span id="pdf-63" class="source-topic-marker"></span>
+<span id="pdf-66" class="source-topic-marker"></span>
 
 ## The model: why compare several lines?
 
-**PDF situation, pages 62–64.** The ten margarine/divorce observations form a scatterplot; no line passes through all of them. The [starting data table](../L36/#pdf-62) opens this part in the PDF path. Seek an approximate relationship $y\approx mx+p$, rather than an equality for every observation.
+**PDF situation, pages 65–67.** The ten margarine/divorce observations form a scatterplot; no line passes through all of them. The [starting data table](../L36/#pdf-65) opens this part in the PDF path. Seek an approximate relationship $y\approx mx+p$, rather than an equality for every observation.
 
 A line can pass near one point and far from others. To compare models fairly, apply the **same criterion** to every observation. The green line is fitted to all ten points; the dashed line is another candidate. The drawing poses the question, then residuals let us measure the answer.
 
@@ -42,9 +42,9 @@ A line can pass near one point and far from others. To compare models fairly, ap
 
 At each input $x_i$, the model predicts $\hat y_i=mx_i+p$. Observation $y_i$ may differ. The residual is $e_i=y_i-\hat y_i$. A positive residual means the observed point is above the line, so the model underestimates that observation. We fit vertical errors, not perpendicular distances from the line.
 
-<p class="source-next"><a href="/en/lessons/L34/#pdf-65">Next in the PDF : Measuring error →</a></p>
+<p class="source-next"><a href="/en/lessons/L34/#pdf-68">Next in the PDF: Measuring error →</a></p>
 
-<span id="pdf-65" class="source-topic-marker"></span>
+<span id="pdf-68" class="source-topic-marker"></span>
 
 ## Measuring error: observation, prediction and residual
 
@@ -52,7 +52,7 @@ The hat in $\hat y_i$, read “y hat subscript i”, marks the **prediction** fo
 
 **Additional detailed example.** With $x_i=2$, $y_i=6$, $m=2$ and $p=1$, the model predicts $\hat y_i=2\cdot2+1=5$. Residual $e_i=6-5=1$: the observed point is one unit above the line. With observation $y_i=4$, the same model would give $e_i=-1$. The drawing’s segments are vertical because input $x_i$ stays fixed.
 
-**Criteria discussed in the PDF, pages 65–66.** Adding signed residuals can conceal errors: $-2+2=0$. Adding absolute values is another possible criterion: $|-2|+|2|=4$. Least squares chooses $(-2)^2+2^2=8$; errors no longer cancel and large errors weigh more. This is a choice of criterion, rather than the only way to measure error.
+**The residual is defined on page 68; the criterion comparison below is supplemental.** Adding signed residuals can conceal errors: $-2+2=0$. Adding absolute values is another possible criterion: $|-2|+|2|=4$. Least squares chooses $(-2)^2+2^2=8$; errors no longer cancel and large errors weigh more. This is a choice of criterion, rather than the only way to measure error.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/residuals.svg" alt="Three observations and line y equals x plus 1; vertical segments labelled e1, e2 and e3." width="440" height="360" loading="lazy" />
@@ -71,15 +71,15 @@ Least-squares loss is $S(m,p)=\sum_{i=1}^n(y_i-mx_i-p)^2$, with $n\ge1$. It is n
 
 Residuals $-2,2$ sum to zero but have loss $8$. Residuals $1,1$ sum to $2$ but have loss $2$. Choosing only the smallest signed sum would wrongly favour the first model; very large negative residuals could even make that criterion arbitrarily negative.
 
-<p class="source-next"><a href="/en/lessons/L34/#pdf-67">Next in the PDF : The least-squares method →</a></p>
+<p class="source-next"><a href="/en/lessons/L34/#pdf-69">Next in the PDF: The least-squares method →</a></p>
 
-<span id="pdf-67" class="source-topic-marker"></span>
+<span id="pdf-69" class="source-topic-marker"></span>
 
 ## Least squares and the three centred sums
 
-**PDF definition, page 67.** Choose parameters $m,p$ to make $S(m,p)=\sum_{i=1}^n e_i^2$ as small as possible. The name means “smallest sum of squares”, rather than choosing the smallest points.
+**PDF definition, pages 69–70.** Choose parameters $m,p$ to make $S(m,p)=\sum_{i=1}^n e_i^2$ as small as possible. The name means “smallest sum of squares”, rather than choosing the smallest points.
 
-The page-67 notation abbreviates repeated calculations:
+The page-70 notation abbreviates repeated calculations; $S_{yy}$ is supplemental support for the proof and correlation:
 
 | Notation | Calculation | Reading |
 | --- | --- | --- |
@@ -93,7 +93,7 @@ The page-67 notation abbreviates repeated calculations:
 
 Define $S_{xx}=\sum_i(x_i-\bar x)^2$, $S_{xy}=\sum_i(x_i-\bar x)(y_i-\bar y)$ and $S_{yy}=\sum_i(y_i-\bar y)^2$. For $(0,1),(2,3)$, means are $(1,2)$ and all three sums equal $2$. Squared sums are never negative, but the cross sum can be negative. These quantities prepare the calculation of the best-fitting line.
 
-<p class="source-next"><a href="/en/lessons/L35/#pdf-68">Next in the PDF : The formula →</a></p>
+<p class="source-next"><a href="/en/lessons/L35/#pdf-71">Next in the PDF: The formula →</a></p>
 
 ## Practice and recap
 

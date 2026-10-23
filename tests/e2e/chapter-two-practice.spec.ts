@@ -102,10 +102,16 @@ for (const locale of ['fr', 'en']) {
       browser,
     }) => {
       const session = await identify(context);
-      const bank = JSON.parse(readFileSync(`exercises/${id}/v1.json`, 'utf8'));
+      const releases = JSON.parse(
+        readFileSync('content/releases.json', 'utf8'),
+      );
+      const version = releases.lessons[id].version;
+      const bank = JSON.parse(
+        readFileSync(`exercises/${id}/v${version}.json`, 'utf8'),
+      );
       // A hard item exercises E15 routing as well as the larger 15-item bank.
       const exercise = bank.exercises[14];
-      const destination = `/${locale}/lessons/${id}/practice/?exercise=${exercise.id}&version=1`;
+      const destination = `/${locale}/lessons/${id}/practice/?exercise=${exercise.id}&version=${version}`;
       await page.goto(destination);
       await expect(page.locator('.pp-step')).toHaveCount(15);
       await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(
@@ -164,7 +170,9 @@ for (const locale of ['fr', 'en']) {
   test(`Chapter 2 login retains the selected question (${locale})`, async ({
     page,
   }) => {
-    const target = `/${locale}/lessons/L36/practice/?exercise=L36-E15&version=1`;
+    const version = JSON.parse(readFileSync('content/releases.json', 'utf8'))
+      .lessons.L36.version;
+    const target = `/${locale}/lessons/L36/practice/?exercise=L36-E15&version=${version}`;
     await page.goto(target);
     await expect(page.locator('input[name="next"]')).toHaveValue(target);
     await page.locator('#email').fill('learner@example.invalid');

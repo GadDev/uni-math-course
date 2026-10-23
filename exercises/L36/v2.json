@@ -1,0 +1,1313 @@
+{
+  "lessonId": "L36",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L36-E01",
+      "objectiveId": "L36-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "pearson-domain"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $S_{xy}=2$, $S_{xx}=4$, $S_{yy}=4$, calculer $r$.",
+        "en": "With $S_{xy}=2$, $S_{xx}=4$, $S_{yy}=4$, calculate $r$."
+      },
+      "hint": {
+        "fr": "Vérifiez les deux variations avant de diviser.",
+        "en": "Check both variations before dividing."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\frac{1}{2}$",
+            "en": "$\\frac{1}{2}$"
+          },
+          "feedback": {
+            "fr": "Le dénominateur vaut $\\sqrt{16}=4$.",
+            "en": "The denominator is $\\sqrt{16}=4$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le dénominateur vaut $\\sqrt{16}=4$.",
+            "en": "This proposal does not fit. The denominator is $\\sqrt{16}=4$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\frac{1}{4}$",
+            "en": "$\\frac{1}{4}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le dénominateur vaut $\\sqrt{16}=4$.",
+            "en": "This proposal does not fit. The denominator is $\\sqrt{16}=4$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le dénominateur vaut $\\sqrt{16}=4$.",
+        "en": "The denominator is $\\sqrt{16}=4$."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E02",
+      "objectiveId": "L36-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "correlation-strength"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une corrélation $r=-0.9$ indique quel sens d’association linéaire ?",
+        "en": "What direction of linear association does correlation $r=-0.9$ indicate ?"
+      },
+      "hint": {
+        "fr": "Le signe décrit le sens, la valeur absolue l’association linéaire.",
+        "en": "Sign describes direction; absolute value describes linear association."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Croissant.",
+            "en": "Increasing."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le signe négatif correspond à une pente négative.",
+            "en": "This proposal does not fit. The negative sign corresponds to a negative slope."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Aucun sens car le signe est négatif.",
+            "en": "No direction because the sign is negative."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le signe négatif correspond à une pente négative.",
+            "en": "This proposal does not fit. The negative sign corresponds to a negative slope."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Décroissant.",
+            "en": "Decreasing."
+          },
+          "feedback": {
+            "fr": "Le signe négatif correspond à une pente négative.",
+            "en": "The negative sign corresponds to a negative slope."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le signe négatif correspond à une pente négative.",
+        "en": "The negative sign corresponds to a negative slope."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E03",
+      "objectiveId": "L36-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "correlation-causation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une forte corrélation suffit-elle à prouver une causalité ?",
+        "en": "Is strong correlation enough to prove causality ?"
+      },
+      "hint": {
+        "fr": "Cherchez une cause commune ou une autre explication.",
+        "en": "Look for a common cause or another explanation."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui, si elle est positive.",
+            "en": "Yes, if it is positive."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une relation observée ne fixe pas le mécanisme causal.",
+            "en": "This proposal does not fit. An observed relationship does not establish the causal mechanism."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non, une cause commune peut expliquer l’association.",
+            "en": "No, a common cause may explain the association."
+          },
+          "feedback": {
+            "fr": "Une relation observée ne fixe pas le mécanisme causal.",
+            "en": "An observed relationship does not establish the causal mechanism."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Oui, toujours.",
+            "en": "Yes, always."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une relation observée ne fixe pas le mécanisme causal.",
+            "en": "This proposal does not fit. An observed relationship does not establish the causal mechanism."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Une relation observée ne fixe pas le mécanisme causal.",
+        "en": "An observed relationship does not establish the causal mechanism."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E04",
+      "objectiveId": "L36-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "extrapolation-outlier"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Les entrées observées vont de $10$ à $20$. Quelle prédiction est une extrapolation ?",
+        "en": "Observed inputs range from $10$ to $20$. Which prediction is extrapolation ?"
+      },
+      "hint": {
+        "fr": "Comparez l’entrée à l’intervalle observé et inspectez le nuage.",
+        "en": "Compare the input with the observed range and inspect the scatterplot."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x=25$",
+            "en": "$x=25$"
+          },
+          "feedback": {
+            "fr": "La première entrée est hors de l’intervalle observé.",
+            "en": "The first input lies outside the observed interval."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x=15$",
+            "en": "$x=15$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La première entrée est hors de l’intervalle observé.",
+            "en": "This proposal does not fit. The first input lies outside the observed interval."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x=12$",
+            "en": "$x=12$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La première entrée est hors de l’intervalle observé.",
+            "en": "This proposal does not fit. The first input lies outside the observed interval."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La première entrée est hors de l’intervalle observé.",
+        "en": "The first input lies outside the observed interval."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E05",
+      "objectiveId": "L36-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "training-inference"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Utiliser des paramètres déjà fixés pour prédire une sortie correspond à quoi ?",
+        "en": "Using already fixed parameters to predict an output is what ?"
+      },
+      "hint": {
+        "fr": "Demandez si les paramètres sont ajustés ou seulement utilisés.",
+        "en": "Ask whether parameters are being fitted or merely used."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "L’entraînement.",
+            "en": "Training."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’ajustement est terminé ; les paramètres sont maintenant utilisés.",
+            "en": "This proposal does not fit. Fitting is complete; the parameters are now being used."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Une preuve de causalité.",
+            "en": "A proof of causality."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’ajustement est terminé ; les paramètres sont maintenant utilisés.",
+            "en": "This proposal does not fit. Fitting is complete; the parameters are now being used."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "L’inférence.",
+            "en": "Inference."
+          },
+          "feedback": {
+            "fr": "L’ajustement est terminé ; les paramètres sont maintenant utilisés.",
+            "en": "Fitting is complete; the parameters are now being used."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "L’ajustement est terminé ; les paramètres sont maintenant utilisés.",
+        "en": "Fitting is complete; the parameters are now being used."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E06",
+      "objectiveId": "L36-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "pearson-domain"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $S_{xy}=-6$, $S_{xx}=4$, $S_{yy}=9$, calculer $r$.",
+        "en": "With $S_{xy}=-6$, $S_{xx}=4$, $S_{yy}=9$, calculate $r$."
+      },
+      "hint": {
+        "fr": "Vérifiez les deux variations avant de diviser.",
+        "en": "Check both variations before dividing."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$-6$",
+            "en": "$-6$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le dénominateur est $6$.",
+            "en": "This proposal does not fit. The denominator is $6$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$-1$",
+            "en": "$-1$"
+          },
+          "feedback": {
+            "fr": "Le dénominateur est $6$.",
+            "en": "The denominator is $6$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le dénominateur est $6$.",
+            "en": "This proposal does not fit. The denominator is $6$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le dénominateur est $6$.",
+        "en": "The denominator is $6$."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E07",
+      "objectiveId": "L36-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "correlation-strength"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle valeur indique l’association linéaire la plus forte en valeur absolue ?",
+        "en": "Which value indicates the strongest linear association in absolute value ?"
+      },
+      "hint": {
+        "fr": "Le signe décrit le sens, la valeur absolue l’association linéaire.",
+        "en": "Sign describes direction; absolute value describes linear association."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$-0.95$",
+            "en": "$-0.95$"
+          },
+          "feedback": {
+            "fr": "Comparer les valeurs absolues, pas seulement les signes.",
+            "en": "Compare absolute values, not only signs."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0.7$",
+            "en": "$0.7$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Comparer les valeurs absolues, pas seulement les signes.",
+            "en": "This proposal does not fit. Compare absolute values, not only signs."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$0.1$",
+            "en": "$0.1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Comparer les valeurs absolues, pas seulement les signes.",
+            "en": "This proposal does not fit. Compare absolute values, not only signs."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Comparer les valeurs absolues, pas seulement les signes.",
+        "en": "Compare absolute values, not only signs."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E08",
+      "objectiveId": "L36-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "extrapolation-outlier"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une valeur atypique apparaît dans les données. Quelle première réaction est justifiée ?",
+        "en": "An outlier appears in the data. What first response is justified ?"
+      },
+      "hint": {
+        "fr": "Comparez l’entrée à l’intervalle observé et inspectez le nuage.",
+        "en": "Compare the input with the observed range and inspect the scatterplot."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "La supprimer automatiquement.",
+            "en": "Delete it automatically."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Elle peut être une erreur ou une observation réelle importante.",
+            "en": "This proposal does not fit. It may be an error or an important genuine observation."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Conclure que tout le modèle est exact.",
+            "en": "Conclude that the entire model is exact."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Elle peut être une erreur ou une observation réelle importante.",
+            "en": "This proposal does not fit. It may be an error or an important genuine observation."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Vérifier sa provenance et son effet sur l’ajustement.",
+            "en": "Investigate its origin and effect on the fit."
+          },
+          "feedback": {
+            "fr": "Elle peut être une erreur ou une observation réelle importante.",
+            "en": "It may be an error or an important genuine observation."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Elle peut être une erreur ou une observation réelle importante.",
+        "en": "It may be an error or an important genuine observation."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E09",
+      "objectiveId": "L36-O05",
+      "difficulty": "medium",
+      "misconceptions": [
+        "training-inference"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi utiliser des données de validation distinctes des données d’entraînement ?",
+        "en": "Why use validation data distinct from training data ?"
+      },
+      "hint": {
+        "fr": "Demandez si les paramètres sont ajustés ou seulement utilisés.",
+        "en": "Ask whether parameters are being fitted or merely used."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Pour rendre toute erreur nulle.",
+            "en": "To make every error zero."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La performance sur les données déjà ajustées peut être trop optimiste.",
+            "en": "This proposal does not fit. Performance on already fitted data may be overly optimistic."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Pour évaluer les prédictions sur des observations non utilisées pour l’ajustement.",
+            "en": "To assess predictions on observations not used for fitting."
+          },
+          "feedback": {
+            "fr": "La performance sur les données déjà ajustées peut être trop optimiste.",
+            "en": "Performance on already fitted data may be overly optimistic."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Pour garantir une causalité.",
+            "en": "To guarantee causality."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La performance sur les données déjà ajustées peut être trop optimiste.",
+            "en": "This proposal does not fit. Performance on already fitted data may be overly optimistic."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La performance sur les données déjà ajustées peut être trop optimiste.",
+        "en": "Performance on already fitted data may be overly optimistic."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E10",
+      "objectiveId": "L36-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "pearson-domain"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Toutes les sorties sont identiques et les entrées varient. Que vaut la corrélation de Pearson définie par la formule du cours ?",
+        "en": "All outputs are identical and inputs vary. What is Pearson correlation under the course formula ?"
+      },
+      "hint": {
+        "fr": "Vérifiez les deux variations avant de diviser.",
+        "en": "Check both variations before dividing."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Elle est indéfinie car $S_{yy}=0$.",
+            "en": "It is undefined because $S_{yy}=0$."
+          },
+          "feedback": {
+            "fr": "Le dénominateur s’annule ; zéro sur zéro n’est pas un nombre défini.",
+            "en": "The denominator vanishes; zero over zero is not a defined number."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le dénominateur s’annule ; zéro sur zéro n’est pas un nombre défini.",
+            "en": "This proposal does not fit. The denominator vanishes; zero over zero is not a defined number."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le dénominateur s’annule ; zéro sur zéro n’est pas un nombre défini.",
+            "en": "This proposal does not fit. The denominator vanishes; zero over zero is not a defined number."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le dénominateur s’annule ; zéro sur zéro n’est pas un nombre défini.",
+        "en": "The denominator vanishes; zero over zero is not a defined number."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E11",
+      "objectiveId": "L36-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "summary-statistics"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Les points $(-1,1),(0,0),(1,1)$ ont $r=0$. Que montrent-ils ?",
+        "en": "Points $(-1,1),(0,0),(1,1)$ have $r=0$. What do they show ?"
+      },
+      "hint": {
+        "fr": "Une statistique ne remplace pas le dessin et la validation.",
+        "en": "A statistic does not replace plotting and validation."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Il n’existe aucune relation entre les variables.",
+            "en": "There is no relationship between the variables."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Ils suivent $y=x^2$, mais les produits centrés se compensent.",
+            "en": "This proposal does not fit. They follow $y=x^2$, but centred products cancel."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Toutes les sorties sont égales.",
+            "en": "All outputs are equal."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Ils suivent $y=x^2$, mais les produits centrés se compensent.",
+            "en": "This proposal does not fit. They follow $y=x^2$, but centred products cancel."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Une relation non linéaire exacte peut avoir une corrélation nulle.",
+            "en": "An exact nonlinear relationship can have zero correlation."
+          },
+          "feedback": {
+            "fr": "Ils suivent $y=x^2$, mais les produits centrés se compensent.",
+            "en": "They follow $y=x^2$, but centred products cancel."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Ils suivent $y=x^2$, mais les produits centrés se compensent.",
+        "en": "They follow $y=x^2$, but centred products cancel."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E12",
+      "objectiveId": "L36-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "extrapolation-outlier"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une entrée est dans l’intervalle observé. Quelle affirmation est correcte ?",
+        "en": "An input is inside the observed range. Which statement is correct ?"
+      },
+      "hint": {
+        "fr": "Comparez l’entrée à l’intervalle observé et inspectez le nuage.",
+        "en": "Compare the input with the observed range and inspect the scatterplot."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Toute donnée de validation devient inutile.",
+            "en": "All validation data become unnecessary."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Être dans l’intervalle ne vérifie ni les hypothèses ni le bruit du modèle.",
+            "en": "This proposal does not fit. Being inside the range verifies neither model assumptions nor noise."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "La prédiction exige encore une évaluation de fiabilité.",
+            "en": "The prediction still requires a reliability assessment."
+          },
+          "feedback": {
+            "fr": "Être dans l’intervalle ne vérifie ni les hypothèses ni le bruit du modèle.",
+            "en": "Being inside the range verifies neither model assumptions nor noise."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "La prédiction est nécessairement exacte.",
+            "en": "The prediction must be exact."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Être dans l’intervalle ne vérifie ni les hypothèses ni le bruit du modèle.",
+            "en": "This proposal does not fit. Being inside the range verifies neither model assumptions nor noise."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Être dans l’intervalle ne vérifie ni les hypothèses ni le bruit du modèle.",
+        "en": "Being inside the range verifies neither model assumptions nor noise."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E13",
+      "objectiveId": "L36-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "summary-statistics"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Deux jeux de données ont les mêmes résumés numériques et la même droite ajustée. Que faut-il encore comparer ?",
+        "en": "Two datasets share numerical summaries and the same fitted line. What must still be compared ?"
+      },
+      "hint": {
+        "fr": "Une statistique ne remplace pas le dessin et la validation.",
+        "en": "A statistic does not replace plotting and validation."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Leurs nuages de points et résidus.",
+            "en": "Their scatterplots and residuals."
+          },
+          "feedback": {
+            "fr": "Les résumés ne déterminent pas la géométrie de toutes les observations.",
+            "en": "Summaries do not determine the geometry of every observation."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Rien, leurs formes sont nécessairement identiques.",
+            "en": "Nothing; their shapes must be identical."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les résumés ne déterminent pas la géométrie de toutes les observations.",
+            "en": "This proposal does not fit. Summaries do not determine the geometry of every observation."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Seulement le nombre de chiffres affichés.",
+            "en": "Only the number of displayed digits."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les résumés ne déterminent pas la géométrie de toutes les observations.",
+            "en": "This proposal does not fit. Summaries do not determine the geometry of every observation."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Les résumés ne déterminent pas la géométrie de toutes les observations.",
+        "en": "Summaries do not determine the geometry of every observation."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E14",
+      "objectiveId": "L36-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "correlation-strength"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sous $S_{xx}>0$ et $S_{yy}>0$, que signifie $|r|=1$ ?",
+        "en": "Under $S_{xx}>0$ and $S_{yy}>0$, what does $|r|=1$ mean ?"
+      },
+      "hint": {
+        "fr": "Le signe décrit le sens, la valeur absolue l’association linéaire.",
+        "en": "Sign describes direction; absolute value describes linear association."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Une variable est nécessairement constante.",
+            "en": "One variable must be constant."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La perte minimale $S_{yy}(1-r^2)$ s’annule.",
+            "en": "This proposal does not fit. Minimum loss $S_{yy}(1-r^2)$ vanishes."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "La droite prouve une causalité.",
+            "en": "The line proves causality."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La perte minimale $S_{yy}(1-r^2)$ s’annule.",
+            "en": "This proposal does not fit. Minimum loss $S_{yy}(1-r^2)$ vanishes."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Toutes les observations sont exactement sur une droite affine non horizontale.",
+            "en": "All observations lie exactly on a nonhorizontal affine line."
+          },
+          "feedback": {
+            "fr": "La perte minimale $S_{yy}(1-r^2)$ s’annule.",
+            "en": "Minimum loss $S_{yy}(1-r^2)$ vanishes."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La perte minimale $S_{yy}(1-r^2)$ s’annule.",
+        "en": "Minimum loss $S_{yy}(1-r^2)$ vanishes."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L36-E15",
+      "objectiveId": "L36-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "training-inference"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une équipe ajuste les paramètres sur ses données de validation puis annonce leur erreur comme une évaluation indépendante. Quel est le défaut ?",
+        "en": "A team fits parameters on its validation data and then reports their error as an independent evaluation. What is the flaw ?"
+      },
+      "hint": {
+        "fr": "Demandez si les paramètres sont ajustés ou seulement utilisés.",
+        "en": "Ask whether parameters are being fitted or merely used."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Une perte quadratique ne peut pas être calculée sur ces données.",
+            "en": "Squared loss cannot be calculated on these data."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. On peut calculer l’erreur, mais son rôle change après utilisation pour entraîner le modèle.",
+            "en": "This proposal does not fit. The error can be calculated, but its role changes after use in model training."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Ces données ont servi à l’ajustement ; elles ne sont plus réservées à une évaluation indépendante.",
+            "en": "These data were used for fitting; they are no longer held out for independent evaluation."
+          },
+          "feedback": {
+            "fr": "On peut calculer l’erreur, mais son rôle change après utilisation pour entraîner le modèle.",
+            "en": "The error can be calculated, but its role changes after use in model training."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "L’inférence doit toujours réajuster les paramètres.",
+            "en": "Inference must always refit parameters."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. On peut calculer l’erreur, mais son rôle change après utilisation pour entraîner le modèle.",
+            "en": "This proposal does not fit. The error can be calculated, but its role changes after use in model training."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "On peut calculer l’erreur, mais son rôle change après utilisation pour entraîner le modèle.",
+        "en": "The error can be calculated, but its role changes after use in model training."
+      },
+      "lessonId": "L36",
+      "version": 2,
+      "prerequisites": [
+        "L34",
+        "L35"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          65,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          92
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

@@ -1,14 +1,14 @@
 ---
 lessonId: L34
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Modèles affines et résidus"
 summary: "Mesurer l’erreur verticale d’un modèle et construire une perte quadratique."
 minutes: 30
 objectives: [L34-O01, L34-O02, L34-O03, L34-O04, L34-O05, L34-O06]
 prerequisites: [L26, L29]
-sourcePages: [63, 64, 65, 66, 67]
+sourcePages: [66, 67, 68, 69, 70]
 ---
 # Modèles affines et résidus
 
@@ -23,11 +23,11 @@ sourcePages: [63, 64, 65, 66, 67]
 
 Prérequis : L26, L29. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
 
-<span id="pdf-63" class="source-topic-marker"></span>
+<span id="pdf-66" class="source-topic-marker"></span>
 
 ## Le modèle : pourquoi comparer plusieurs droites ?
 
-**Situation du PDF, pages 62–64.** Les dix observations de consommation de margarine et de divorces forment un nuage de points ; aucune droite ne passe par tous. Le [tableau de départ](../L36/#pdf-62) ouvre cette partie dans le parcours du PDF. On cherche une relation approximative $y\approx mx+p$, pas une égalité vraie pour chaque observation.
+**Situation du PDF, pages 65–67.** Les dix observations de consommation de margarine et de divorces forment un nuage de points ; aucune droite ne passe par tous. Le [tableau de départ](../L36/#pdf-65) ouvre cette partie dans le parcours du PDF. On cherche une relation approximative $y\approx mx+p$, pas une égalité vraie pour chaque observation.
 
 Une droite peut passer près d’un point et loin des autres. Pour comparer honnêtement deux modèles, il faut appliquer le **même critère** à toutes les observations. La droite verte du dessin est un ajustement aux dix points ; la droite pointillée est une autre candidate. Le dessin aide à poser la question, puis les résidus permettent de mesurer la réponse.
 
@@ -42,9 +42,9 @@ Une droite peut passer près d’un point et loin des autres. Pour comparer honn
 
 À chaque entrée $x_i$, le modèle prédit $\hat y_i=mx_i+p$. L’observation $y_i$ peut différer. Le résidu est $e_i=y_i-\hat y_i$. Un résidu positif signifie que le point observé est au-dessus de la droite, et donc que le modèle sous-estime cette observation. Nous ajustons les erreurs verticales, pas les distances perpendiculaires à la droite.
 
-<p class="source-next"><a href="/fr/lessons/L34/#pdf-65">Suite du PDF : Mesurer l’erreur →</a></p>
+<p class="source-next"><a href="/fr/lessons/L34/#pdf-68">Suite du PDF : Mesurer l’erreur →</a></p>
 
-<span id="pdf-65" class="source-topic-marker"></span>
+<span id="pdf-68" class="source-topic-marker"></span>
 
 ## Mesurer l’erreur : observation, prédiction et résidu
 
@@ -52,7 +52,7 @@ Le petit chapeau de $\hat y_i$ se lit « y chapeau indice i » : c’est la vale
 
 **Exemple supplémentaire détaillé.** Avec $x_i=2$, $y_i=6$, $m=2$ et $p=1$, le modèle prédit $\hat y_i=2\cdot2+1=5$. Le résidu vaut $e_i=6-5=1$ : le point observé est une unité au-dessus de la droite. Avec l’observation $y_i=4$, le même modèle donnerait $e_i=-1$. Sur le dessin, les segments sont verticaux, car l’entrée $x_i$ reste fixée.
 
-**Les choix discutés dans le PDF, pages 65–66.** Additionner les résidus signés peut masquer les erreurs : $-2+2=0$. Additionner leurs valeurs absolues est un autre critère possible : $|-2|+|2|=4$. Les moindres carrés choisissent $(-2)^2+2^2=8$ ; les erreurs ne se compensent plus et les grandes erreurs pèsent davantage. Il s’agit d’un choix de critère, pas de la seule manière de mesurer une erreur.
+**Le résidu est défini page 68 ; la comparaison des critères ci-dessous est un complément.** Additionner les résidus signés peut masquer les erreurs : $-2+2=0$. Additionner leurs valeurs absolues est un autre critère possible : $|-2|+|2|=4$. Les moindres carrés choisissent $(-2)^2+2^2=8$ ; les erreurs ne se compensent plus et les grandes erreurs pèsent davantage. Il s’agit d’un choix de critère, pas de la seule manière de mesurer une erreur.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/residuals.svg" alt="Trois observations et la droite y égale x plus 1 ; segments verticaux marqués e1, e2 et e3." width="440" height="360" loading="lazy" />
@@ -71,15 +71,15 @@ La perte des moindres carrés est $S(m,p)=\sum_{i=1}^n(y_i-mx_i-p)^2$, avec $n\g
 
 Les résidus $-2,2$ ont une somme nulle mais une perte $8$. Les résidus $1,1$ ont une somme $2$ mais une perte $2$. Choisir seulement la plus petite somme signée favoriserait à tort le premier modèle ; des résidus négatifs très grands pourraient même rendre ce critère arbitrairement négatif.
 
-<p class="source-next"><a href="/fr/lessons/L34/#pdf-67">Suite du PDF : La méthode des moindres carrés →</a></p>
+<p class="source-next"><a href="/fr/lessons/L34/#pdf-69">Suite du PDF : La méthode des moindres carrés →</a></p>
 
-<span id="pdf-67" class="source-topic-marker"></span>
+<span id="pdf-69" class="source-topic-marker"></span>
 
 ## Les moindres carrés et les trois sommes centrées
 
-**Définition du PDF, page 67.** Choisir les paramètres $m,p$ pour rendre $S(m,p)=\sum_{i=1}^n e_i^2$ aussi petit que possible. Le nom signifie « plus petite somme des carrés », pas « choisir les plus petits points ».
+**Définition du PDF, pages 69–70.** Choisir les paramètres $m,p$ pour rendre $S(m,p)=\sum_{i=1}^n e_i^2$ aussi petit que possible. Le nom signifie « plus petite somme des carrés », pas « choisir les plus petits points ».
 
-Les notations de la page 67 condensent des calculs répétés :
+Les notations de la page 70 condensent des calculs répétés ; $S_{yy}$ est un complément pour la preuve et la corrélation :
 
 | Notation | Calcul | Lecture |
 | --- | --- | --- |
@@ -93,7 +93,7 @@ Les notations de la page 67 condensent des calculs répétés :
 
 Définir $S_{xx}=\sum_i(x_i-\bar x)^2$, $S_{xy}=\sum_i(x_i-\bar x)(y_i-\bar y)$ et $S_{yy}=\sum_i(y_i-\bar y)^2$. Pour $(0,1),(2,3)$, les moyennes sont $(1,2)$ et ces trois sommes valent toutes $2$. Les sommes de carrés ne sont jamais négatives, mais la somme croisée peut être négative. Ces quantités prépareront le calcul de la meilleure droite.
 
-<p class="source-next"><a href="/fr/lessons/L35/#pdf-68">Suite du PDF : La formule →</a></p>
+<p class="source-next"><a href="/fr/lessons/L35/#pdf-71">Suite du PDF : La formule →</a></p>
 
 ## Pratique et bilan
 
