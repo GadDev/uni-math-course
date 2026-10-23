@@ -1,7 +1,7 @@
 ---
 lessonId: L10
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Number sets, enumeration, membership and inclusion"
 summary: "Order the number sets, list a set by enumeration, use the empty set, and tell membership ∈ from inclusion ⊆."
@@ -67,11 +67,13 @@ This guided work, whose solution is visible, is not an independent response for 
 
 ## Trap: element or part?
 
-Writing $\{2\} \in A$ or $2 \subseteq A$ mixes the two relations. Ask which one you mean: “is an element of” uses $\in$, “is a part of” uses $\subseteq$.
+For $A=\{1,2,3\}$, $2\in A$ and $\{2\}\subseteq A$ are true, but $\{2\}\in A$ is false: A does not contain that singleton. This does not forbid a set from being an element. If $B=\{\{2\}\}$, then $\{2\}\in B$ is true.
+
+Ask what is being compared: $\in$ tests an object among the elements; $\subseteq$ compares two sets. Under this course’s numerical convention, $2\subseteq A$ is not an appropriate inclusion test: $2$ is a number, not the set $\{2\}$.
 
 ## Independent practice
 
-The six pilot exercises cover the number-set chain, enumeration, the empty set, telling $\in$ from $\subseteq$, the definition of inclusion and finding a non-subset.
+The selected exercises cover the number-set chain, enumeration, the empty set, telling $\in$ from $\subseteq$, the definition of inclusion and finding a non-subset.
 
 Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 

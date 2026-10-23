@@ -1,7 +1,7 @@
 ---
 lessonId: L33
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Rasterisation and Bresenham’s idea"
 summary: "Sample a segment and trace an integer algorithm in an explicit octant."
@@ -11,8 +11,6 @@ prerequisites: [L31, L32]
 sourcePages: [56, 57, 59, 60, 61, 62, 63]
 ---
 # Rasterisation and Bresenham’s idea
-
-The exercises also use uppercase $D=d$ for this same integer decision.
 
 ## Objectives and prerequisites
 
@@ -26,6 +24,8 @@ The exercises also use uppercase $D=d$ for this same integer decision.
 Prerequisites: L31, L32. Domains and restrictions stated below are part of every rule.
 
 <span id="pdf-56" class="source-topic-marker"></span>
+
+Three stages: choose the traversal axis, compare against the midpoint, then update an integer. Pause after each stage; the final code combines these ideas.
 
 ## Rasterising: selecting pixels
 
@@ -63,6 +63,8 @@ In the PDF’s screen notation, $v=v_1+m(u-u_1)$ becomes $u=u_1+(v-v_1)/m$ when 
 
 <span id="pdf-60" class="source-topic-marker"></span>
 
+**Pause — axis.** For slope $8/3$, should we traverse columns or rows? Rows: they avoid large vertical gaps.
+
 ## Bresenham’s idea: E, NE and the midpoint
 
 **PDF, page 60.** We now use Cartesian axes with the vertical axis pointing **upwards**. The segment runs from $(0,0)$ to $(u_2,v_2)$, with integer coordinates, $u_2>0$ and $0\le v_2\le u_2$. This is one **octant**, one of eight direction regions; this algorithm does not directly cover every direction.
@@ -77,11 +79,15 @@ From $(u,v)$, candidates are $E=(u+1,v)$ and $NE=(u+1,v+1)$. Their midpoint is $
 
 <span id="pdf-61" class="source-topic-marker"></span>
 
+**Pause — midpoint.** If midpoint M lies on the line, which pixel is selected? E, under the course convention; retain this equality in the integer test.
+
 ## No more rounding: an integer test
 
 **PDF, page 61.** The line has equation $v=(v_2/u_2)u$. To check whether M is above or on it, test $v+1/2\ge(v_2/u_2)(u+1)$. Multiplying by $2u_2>0$ preserves the inequality direction. Rearranging gives $2v_2(u+1)-u_2(2v+1)\le0$.
 
 Name this expression $d=2v_2(u+1)-u_2(2v+1)$. Then E corresponds to $d\le0$ and NE to $d>0$. **Common trap:** making the second inequality inclusive changes halfway pixels. That is allowed in another variant, but does not reproduce this PDF.
+
+The exercises also use uppercase $D=d$ for this same integer decision.
 
 <p class="source-next"><a href="/en/lessons/L33/#pdf-62">Next in the PDF: Bresenham: incremental updates →</a></p>
 

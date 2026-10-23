@@ -1,7 +1,7 @@
 ---
 lessonId: L36
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Correlation and model limits"
 summary: "Interpret correlation, avoid causal conclusions and locate machine learning in the workflow."
@@ -48,7 +48,7 @@ Continue with [The model](../L34/#pdf-66), then residuals, least squares and its
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/margarine.svg" alt="Scatterplot of the ten historical margarine and divorce pairs, with units on the axes." width="440" height="360" loading="lazy" />
-<figcaption>Two series moving together do not establish causality.</figcaption>
+<figcaption>Two series moving together do not establish causality. <a class="figure-full-size" href="/diagrams/droites/en/margarine.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
 </figure>
 
 <p class="source-next"><a href="/en/lessons/L34/#pdf-66">Next in the PDF: The model →</a></p>
@@ -98,22 +98,22 @@ Data reference: [official documentation for R’s anscombe dataset](https://stat
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/anscombe-1.svg" alt="Approximately affine cloud." width="440" height="360" loading="lazy" />
-<figcaption>Anscombe 1 — Approximately affine cloud.</figcaption>
+<figcaption>Anscombe 1 — Approximately affine cloud. <a class="figure-full-size" href="/diagrams/droites/en/anscombe-1.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
 </figure>
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/anscombe-2.svg" alt="Cloud with clear curvature." width="440" height="360" loading="lazy" />
-<figcaption>Anscombe 2 — Cloud with clear curvature.</figcaption>
+<figcaption>Anscombe 2 — Cloud with clear curvature. <a class="figure-full-size" href="/diagrams/droites/en/anscombe-2.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
 </figure>
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/anscombe-3.svg" alt="Cloud with one atypical point." width="440" height="360" loading="lazy" />
-<figcaption>Anscombe 3 — Cloud with one atypical point.</figcaption>
+<figcaption>Anscombe 3 — Cloud with one atypical point. <a class="figure-full-size" href="/diagrams/droites/en/anscombe-3.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
 </figure>
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/anscombe-4.svg" alt="Almost vertical cloud and one isolated point." width="440" height="360" loading="lazy" />
-<figcaption>Anscombe 4 — Almost vertical cloud and one isolated point.</figcaption>
+<figcaption>Anscombe 4 — Almost vertical cloud and one isolated point. <a class="figure-full-size" href="/diagrams/droites/en/anscombe-4.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
 </figure>
 
 <p class="source-next"><a href="/en/lessons/L36/#pdf-81">Next in the PDF: Limit 3: outliers →</a></p>
@@ -128,7 +128,7 @@ The added point is marked with a cross and the two models use different line sty
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/outlier.svg" alt="Six points on y equals x and an added point at 6,minus 2; two lines show the fit before and after." width="440" height="360" loading="lazy" />
-<figcaption>The same criterion can give a very different line after adding one point.</figcaption>
+<figcaption>The same criterion can give a very different line after adding one point. <a class="figure-full-size" href="/diagrams/droites/en/outlier.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
 </figure>
 
 <p class="source-next"><a href="/en/lessons/L36/#pdf-82">Next in the PDF: Limit 4: extrapolation →</a></p>
@@ -151,11 +151,11 @@ The fitted line is $\widehat{\text{taille}}=6{,}45\cdot\text{âge}+75{,}9$. In t
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/height-extrapolation.svg" alt="Heights observed from age 2 to 10 and line extended to age 30, predicting 269.4 cm." width="440" height="360" loading="lazy" />
-<figcaption>The hatched region lies beyond observed ages.</figcaption>
+<figcaption>The hatched region lies beyond observed ages. <a class="figure-full-size" href="/diagrams/droites/en/height-extrapolation.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
 </figure>
 ## Association, causality and domain
 
-Ice-cream sales and pool attendance may rise together because the weather is hot. This association does not prove that one causes the other. Prediction beyond observed inputs is extrapolation and needs additional justification. Even inside the range, reliability depends on data, assumptions and validation; input location alone never guarantees it. An outlier may strongly change the line and warrants investigation, not automatic deletion.
+Before trusting the model, ask three questions: what other variable could explain the association? Is the new input within the studied domain? Have the cloud and atypical points been inspected? The four limits above explain why these checks matter.
 
 <p class="source-next"><a href="/en/lessons/L35/#pdf-84">Next in the PDF: Exercise: study hours and exam score →</a></p>
 

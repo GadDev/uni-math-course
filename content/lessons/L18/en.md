@@ -1,7 +1,7 @@
 ---
 lessonId: L18
 locale: en
-version: 2
+version: 3
 status: extended
 title: "SQL as comprehension: EXISTS and NOT EXISTS"
 summary: "Read a SELECT query as a set defined by comprehension, match AND, OR, NOT with ∧, ∨, ¬, and match EXISTS and NOT EXISTS with ∃ and ¬∃."
@@ -21,8 +21,6 @@ By the end of this lesson, you can read a `SELECT` query as a set defined by com
 ## Read the code before running it
 
 `SELECT` chooses output columns, `FROM` gives the table and `WHERE` filters its rows. `e` and `s` are short names for a row; the dot in `e.course` accesses its course field. The quotes in `'art'` denote text. In a subquery, `SELECT *` selects every column; `EXISTS` only checks whether at least one row remains.
-
-To trace the example subquery, first fix `s` to lia: an art row exists, so `NOT EXISTS` is false and lia is excluded. For max, no art row remains: max is kept. This filter resembles comprehension in L13: traverse a given set and keep the elements that pass the test. “Not enrolled in art” still allows enrolment in bio; it does not mean “enrolled in no course”.
 
 ## The toy database
 
@@ -55,6 +53,8 @@ WHERE NOT EXISTS (SELECT * FROM Enrolled e
                   WHERE e.student = s.id AND e.course = 'art');
 ```
 
+To trace the example subquery, first fix `s` to lia: an art row exists, so `NOT EXISTS` is false and lia is excluded. For max, no art row remains: max is kept. This filter resembles comprehension in L13: traverse a given set and keep the elements that pass the test. “Not enrolled in art” still allows enrolment in bio; it does not mean “enrolled in no course”.
+
 1. For each student `s`, the subquery looks for an enrolment of `s` in art.
 2. `NOT EXISTS` keeps the students for whom there is none.
 3. Only lia is enrolled in art, so the result is $\{x \in E \mid \neg I(x, \text{art})\} = \{\text{max}, \text{noa}\}$.
@@ -69,13 +69,36 @@ $$
 $$
 To express “every …”, write `NOT EXISTS` of a counterexample.
 
+### Worked example: every student has a course
+
+First search for a student **without** an enrolment. `s` ranges over `Student`; for that `s`, `e` ranges over `Enrolled`. The inner test searches for an enrolment of the same student; its negation identifies a counterexample. The outer `NOT EXISTS` says there are none.
+
+```sql
+SELECT NOT EXISTS (
+  SELECT * FROM Student s
+  WHERE NOT EXISTS (
+    SELECT * FROM Enrolled e WHERE e.student = s.id
+  )
+) AS every_student_has_course;
+```
+
+`AS every_student_has_course` names the result’s single Boolean column.
+
+| s.id | Does an enrolment exist? | Counterexample: no enrolment? |
+| --- | --- | --- |
+| lia | yes, art | no |
+| max | yes, bio | no |
+| noa | yes, bio | no |
+
+No counterexample exists: the query produces one row whose Boolean value is `TRUE`. If noa’s enrolment is removed while noa remains in `Student`, the third row becomes a counterexample and the result is `FALSE`. If `Student` is empty, no student contradicts the rule: the result is `TRUE`. This vacuity does not create a student; it checks a universal claim over an empty domain. The model still excludes duplicates and missing values.
+
 ## Trap: reading the query, not the data
 
 A query’s result depends on the tables. The same query run on different rows gives a different set, so always evaluate against the data you were given.
 
 ## Independent practice
 
-The six pilot exercises cover reading a query, the predicate, the connectives, `EXISTS`, a `NOT EXISTS` query and the replacement of $\forall$.
+The selected exercises cover reading a query, the predicate, the connectives, `EXISTS`, a `NOT EXISTS` query and the replacement of $\forall$.
 
 Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 

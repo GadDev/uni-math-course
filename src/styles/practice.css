@@ -486,3 +486,34 @@ section.pp-feedback.is-right {
     padding: 0.7rem 1.2rem;
   }
 }
+
+/* Authored data tables remain readable without relying on the display face. */
+.exercise-data-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+  margin-block: 1rem;
+  font: 1rem/1.5 var(--font-body, sans-serif);
+}
+.exercise-data-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.exercise-data-table th,
+.exercise-data-table td {
+  border: 1px solid currentColor;
+  padding: 0.4rem 0.7rem;
+  text-align: center;
+}
+.pp-scope {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+.pp-scope p {
+  margin-block: 0.4rem;
+}
+
+.pp code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 0.85em;
+}

@@ -1,8 +1,8 @@
 # Lesson clarity and visual teaching review — 23 October 2026
 
-Review record for [issue #87](https://github.com/GadDev/uni-math-course/issues/87). It records 17 findings and five proposed implementation workstreams; this document does not implement them.
+Review record for [issue #87](https://github.com/GadDev/uni-math-course/issues/87). It records 17 findings and five proposed implementation workstreams; the original review checkpoint is retained below, followed by the implementation record for PR #91.
 
-**Baseline:** [main at `5ba78da1277aa91661eaeaece51d7a1fcfd7c525`](https://github.com/GadDev/uni-math-course/commit/5ba78da1277aa91661eaeaece51d7a1fcfd7c525). #86 is closed and its alignment PR #88 is merged, so the final Droites review uses the revised content. This record completes the review and recommendations; implementation remains separate. No lesson, bank, release evidence or repository source file was changed.
+**Original review baseline (before implementation):** [main at `5ba78da1277aa91661eaeaece51d7a1fcfd7c525`](https://github.com/GadDev/uni-math-course/commit/5ba78da1277aa91661eaeaece51d7a1fcfd7c525). #86 is closed and its alignment PR #88 is merged, so the final Droites review uses the revised content. This record completes the review and recommendations; implementation remains separate. No lesson, bank, release evidence or repository source file was changed.
 
 ## Scope and evidence
 
@@ -82,7 +82,7 @@ F06 terminology check: the [official MSE/RMSE documentation](https://scikit-lear
 | [L35](https://github.com/GadDev/uni-math-course/blob/5ba78da1277aa91661eaeaece51d7a1fcfd7c525/content/lessons/L35/en.md) | Reviewed — No change needed on core exposition — worked calculation tables and hidden study-score solution are strong. | F08, F09, F10; [L35 bank v2](https://github.com/GadDev/uni-math-course/blob/5ba78da1277aa91661eaeaece51d7a1fcfd7c525/exercises/L35/v2.json) |
 | [L36](https://github.com/GadDev/uni-math-course/blob/5ba78da1277aa91661eaeaece51d7a1fcfd7c525/content/lessons/L36/en.md) | Reviewed — F17 only on core exposition — causality, outliers, Anscombe and extrapolation limits are clear. | F08, F09; [L36 bank v2](https://github.com/GadDev/uni-math-course/blob/5ba78da1277aa91661eaeaece51d7a1fcfd7c525/exercises/L36/v2.json) |
 
-## Focused implementation proposals — not performed
+## Original implementation proposals — review checkpoint
 
 1. **P1: restore instructional information in practice** (F01). Support the existing truth tables and code formatting with safe, accessible rendering. Regression checks: four data rows and meaningful headers for L03-E05/L08-E01 in FR/EN; code formatting for L19; preserve KaTeX and ensure content is escaped. This is a shared UI fix and need not change grading or immutable banks.
 2. **P1: correct misleading mathematical explanations** (F02–F04), with F05/F06 alongside as small terminology/feedback corrections. Check counterexamples and expansions in both languages. Changes to existing exercise content must use a new version through repository review/release rules; preserve historical attempts and record refreshed mathematical/translation evidence explicitly.
@@ -97,3 +97,84 @@ Each proposal can become a focused issue/PR referencing this record. They are **
 This is an editorial/code review with local rendering checks, not an independent mathematical peer review, a complete exercise-bank audit, a new PDF/source alignment audit, learner usability study, exhaustive accessibility assessment or hosted class-acceptance result. Existing `unreviewed-exception` release states for **L09/L10/L11/L17/L18** remain unchanged; this record does not certify or silently refresh their mathematical/translation release evidence. Recommendations are concrete, but improvements in learning have not yet been measured.
 
 The requested review coverage and prioritized recommendations are recorded. The issue is left open for the owner to track disposition of the proposed follow-ups; implementation is not a prerequisite for accepting this review record.
+
+
+## Implementation record — PR #91
+
+All 17 findings are addressed in this PR. The review and proposals above describe the original baseline; the changes below supersede their “not performed” status. These are implemented corrections, not claims of measured learning improvement.
+
+| Finding | Implemented resolution |
+| --- | --- |
+| F01 | Safe, deliberately limited exercise text renderer: semantic truth tables with captions/headers, literal inline code, emphasis and untrusted KaTeX. Prompt tables sit outside fieldset legends; prose/HTML stays escaped. |
+| F02 | New L22 bank corrects the expansion/explanation and each distractor; L04’s positional explanation is replaced by its formula. |
+| F03 | L01 limits the claim to paradoxical self-reference, including summaries, and contrasts a true self-referential sentence. |
+| F04 | L28 names the two specific parabolas and excludes “has squares” as a sufficient definition. |
+| F05 | New L15 feedback explains the actual union distractor. |
+| F06 | French L34 names S/n “erreur quadratique moyenne”; the correct formula is retained without adding RMSE to the required scope. |
+| F07 | Removed stale counts from all 18 affected pairs; practice derives its count from the selected payload. |
+| F08 | Practice displays actual bank version and localized difficulty instead of fixed introductory/version-1 labels. |
+| F09 | L35/L36 have a stable core-first public projection and explicit per-item core/optional labels with supplement links. Extensions remain reachable by ID/deep link and drafts; grading and evidence rules are unchanged. |
+| F10 | Corrected the named hints and audited all 240 selected Chapter 2 prompt/hint pairs; repaired the additional clear mismatches in new bank versions. |
+| F11 | L04 begins with a two-row double-negation table, pauses after two laws, and moves the eight-row proof after the law explanations. |
+| F12 | Added XOR row/description and bounded-quantifier tables, put braces into the power-set table in both languages, and scoped the mnemonic at first use. |
+| F13 | Moved L09/L11 notation, L18 trace and L33 D=d beside their actual examples; L33 has three stages with checkpoints. |
+| F14 | L10 contrasts false membership for a numeric set with true membership for a nested set, keeping inclusion’s two-set convention explicit. |
+| F15 | L13 defines primes with 1/2/4 checks; L20 declares/links L17 and provides a quantifier-order comparison under stated nonempty domains. |
+| F16 | L18 works a nested NOT EXISTS query with missing-enrolment/empty-domain cases; L19 decodes and traces nested duplicate and maximum generators. |
+| F17 | Shortened the six named repeated lesson blocks, uses “subset” in L14 EN, and adds keyboard-accessible full-size SVG links for dense L35/L36 figures. Existing diagrams, scales, alt text and mathematical/source caveats remain. |
+
+### Mathematical and bilingual release decision
+
+This is AI-assisted author self-check evidence for the scoped corrections, not independent peer review. Each edited French passage was compared with its English counterpart; all 36 pairs retain equal mathematical-expression sequences (normalising localized text labels) and matching heading depths. Prime/domain examples, bounded truth values, XOR clauses and the L22 polynomial expansion were checked directly. The exact added SQL was executed against the toy rows, missing-enrolment rows and empty Student table in SQLite as a check of the duplicate-free, no-missing-value teaching model; this does not assert hosted PostgreSQL acceptance. The Python duplicate/maximum traces were executed on empty, singleton, duplicate and unsorted lists.
+
+All new banks retain the previous item IDs, prompts, option IDs/labels, answers, grading contracts, prerequisites, provenance and eligibility flags. Only hint/explanation/distractor feedback wording and version fields change. Cross-version regression checks compare every item and every selectable grade. Previous bank files remain byte-for-byte unchanged, and saved history continues to resolve exact archived versions. New versions do not turn previously seen IDs into fresh mastery evidence.
+
+New bank selections: **L04 v5 → v6**, **L15 v4 → v5**, **L21 v1 → v2**, **L22 v1 → v2**, **L23 v1 → v2**, **L26 v1 → v2**, **L28 v1 → v2**, **L29 v1 → v2**, **L30 v1 → v2**, **L31 v2 → v3**, **L32 v2 → v3**, **L33 v2 → v3**, **L34 v2 → v3**, **L35 v2 → v3**, **L36 v2 → v3**.
+
+Renewed reading/selected-bank fingerprints and bilingual source fingerprints for L01, L03, L04, L05, L06, L07, L08, L09, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20, L21, L22, L23, L26, L28, L29, L30, L31, L32, L33, L34, L35, L36. Reading frontmatter versions advance together where reading bytes changed; they remain distinct from bank versions.
+
+Existing mathematical/translation exception states for **L09/L10/L11/L17/L18 remain unchanged**. Their changed reading is scoped here, while their previously selected banks are unchanged; this does not extend or upgrade the release exceptions. Unchanged grading/content relies on the prior recorded evidence below, in addition to this scoped correction record.
+
+| Pair | Previous mathematical evidence | Previous translation evidence |
+| --- | --- | --- |
+| L01 | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L03 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L04 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L05 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L06 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L07 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L08 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L09 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L10 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L11 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L12 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L13 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L14 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L15 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L16 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L17 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L18 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L19 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L20 | [EXERCISE_EXPANSION_L03_L20_2026-10-19.md](../../docs/content/EXERCISE_EXPANSION_L03_L20_2026-10-19.md) | [CHAPTER_01_REVIEW.md](../../docs/content/CHAPTER_01_REVIEW.md) |
+| L21 | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) |
+| L22 | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) |
+| L23 | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) |
+| L26 | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) |
+| L28 | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) |
+| L29 | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) |
+| L30 | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) | [CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md](../../docs/content/CHAPTER_02_SOURCE_ALIGNMENT_REVIEW.md) |
+| L31 | [CHAPTER_02_REVISED_PDF_REVIEW.md](../../docs/content/CHAPTER_02_REVISED_PDF_REVIEW.md) | [CHAPTER_02_REVISED_PDF_REVIEW.md](../../docs/content/CHAPTER_02_REVISED_PDF_REVIEW.md) |
+| L32 | [CHAPTER_02_REVISED_PDF_REVIEW.md](../../docs/content/CHAPTER_02_REVISED_PDF_REVIEW.md) | [CHAPTER_02_REVISED_PDF_REVIEW.md](../../docs/content/CHAPTER_02_REVISED_PDF_REVIEW.md) |
+| L33 | [CHAPTER_02_REVISED_PDF_REVIEW.md](../../docs/content/CHAPTER_02_REVISED_PDF_REVIEW.md) | [CHAPTER_02_REVISED_PDF_REVIEW.md](../../docs/content/CHAPTER_02_REVISED_PDF_REVIEW.md) |
+| L34 | [CHAPTER_02_REVISED_PDF_REVIEW.md](../../docs/content/CHAPTER_02_REVISED_PDF_REVIEW.md) | [CHAPTER_02_REVISED_PDF_REVIEW.md](../../docs/content/CHAPTER_02_REVISED_PDF_REVIEW.md) |
+| L35 | [CHAPTER_02_REVISED_PDF_REVIEW.md](../../docs/content/CHAPTER_02_REVISED_PDF_REVIEW.md) | [CHAPTER_02_REVISED_PDF_REVIEW.md](../../docs/content/CHAPTER_02_REVISED_PDF_REVIEW.md) |
+| L36 | [CHAPTER_02_REVISED_PDF_REVIEW.md](../../docs/content/CHAPTER_02_REVISED_PDF_REVIEW.md) | [CHAPTER_02_REVISED_PDF_REVIEW.md](../../docs/content/CHAPTER_02_REVISED_PDF_REVIEW.md) |
+
+### Implementation validation
+
+- `pnpm check` passed: documentation/internal links, release policy, all 36 bilingual content contracts, type checking, formatting, 288 unit/repository/content tests and the production build. After final test/SQL wording edits, type/content/docs/format checks and the production build passed again.
+- `pnpm test:e2e` passed: **220 browser tests**, including both languages, 320px layouts, core-first sequencing, extension deep links and draft restoration, keyboard figure links, safe text rendering, session changes, deduplication and archived progress behavior. The first run exposed positional assumptions in four old tests and ambiguous disclosure selectors in two new tests; these assertions were corrected and the entire suite rerun successfully.
+- Before/after local rendering under the same build/auth-fixture conditions: L08-E01 changed from **0 semantic tables to 1 table with four data rows** in each language; L19-E01’s four code options changed from literal backticks to four `code` elements. Screenshots of L08 in both languages were inspected. This demonstrates restored structure, not a measured learning-outcome or latency claim.
+- Separate checks executed the added SQL true/counterexample/empty-domain cases and Python duplicate/maximum traces; compared mathematical-expression sequences and heading depths in all 36 pairs; verified every new bank’s grading contract and all option grades against its immutable predecessor. `git diff --check` passed, with no previously published bank modified.
+
+Hosted deployment configuration, assistive-technology testing and learning-outcome measurements remain outside these local checks.

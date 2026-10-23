@@ -1,7 +1,7 @@
 ---
 lessonId: L28
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Équations cartésiennes et courbes"
 summary: "Relier une équation à son ensemble de points et préserver ses solutions."
@@ -43,7 +43,7 @@ Une équation cartésienne décrit tous les points réels dont les coordonnées 
 
 ## Une galerie de courbes : relier chaque formule au dessin
 
-Les quatre équations du PDF, pages 33–34, décrivent des formes différentes. Une **parabole** est ici la courbe d’une relation au carré ; elle peut être tournée.
+Les quatre équations du PDF, pages 33–34, décrivent des formes différentes. Les équations $y=x^2$ et $x=y^2$ de cette galerie décrivent des **paraboles**. Échanger les coordonnées change leur orientation ; la présence de carrés dans une équation ne suffit pas à en faire une parabole.
 
 - $y=2x+1$ : une droite. Quand $x$ augmente de $1$, $y$ augmente de $2$.
 - $x^2+y^2=4$ : un cercle de centre $O$ et de rayon $2$, car la distance à l’origine vaut $\sqrt{x^2+y^2}=2$.

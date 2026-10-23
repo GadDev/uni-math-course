@@ -1,7 +1,7 @@
 ---
 lessonId: L17
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Produits, relations et ordre des quantificateurs"
 summary: "Décrire une petite table comme un ensemble de couples ordonnés, traduire des phrases en quantificateurs imbriqués, les évaluer, et voir que l’ordre des quantificateurs compte."
@@ -74,7 +74,7 @@ Tout étudiant a-t-il un cours ? Non : cleo est un contre-exemple. Un cours est-
 
 ## Pratique indépendante
 
-Les six exercices pilotes portent sur le comptage des couples, la lecture du prédicat, deux traductions, une évaluation et l’effet de l’ordre des quantificateurs.
+Les exercices sélectionnés portent sur le comptage des couples, la lecture du prédicat, deux traductions, une évaluation et l’effet de l’ordre des quantificateurs.
 
 La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 

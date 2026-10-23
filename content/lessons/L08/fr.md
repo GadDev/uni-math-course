@@ -1,7 +1,7 @@
 ---
 lessonId: L08
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Complétude fonctionnelle : toute table avec OU et NON"
 summary: "Transformer toute table de vérité en une formule qui n’utilise que ∨ et ¬, en décrivant chaque ligne vraie puis en éliminant ∧ avec de Morgan."
@@ -29,6 +29,17 @@ Commencez par deux entrées et quatre lignes. Une ligne vraie fournit une condit
 ## Le problème
 
 Une fonction $f$ donne une valeur $0$ ou $1$ pour chaque affectation de $x$, $y$, $z$. La question est de savoir si une assertion a exactement $f$ pour table de vérité. La réponse est oui, et la construction ci-dessous fonctionne toujours.
+
+Pour deux entrées, le OU exclusif fournit un premier tableau à construire. Chaque ligne vraie possède une description qui ne vaut $1$ que sur cette ligne.
+
+| x | y | f(x,y) | Description de la ligne vraie |
+| --- | --- | --- | --- |
+| 0 | 0 | 0 | aucune |
+| 0 | 1 | 1 | $\neg x\land y$ |
+| 1 | 0 | 1 | $x\land\neg y$ |
+| 1 | 1 | 0 | aucune |
+
+Essayez la ligne $11$ dans chacune des deux descriptions : elles valent toutes deux $0$. Les étiquettes et les valeurs, sans code couleur, relient le tableau à la construction suivante.
 
 ## Étape 1 : une conjonction par ligne vraie
 
@@ -76,7 +87,7 @@ Dans la table du PDF, la sortie vaut un exactement pour $010$ et $110$, dans l�
 
 ## Pratique indépendante
 
-Les six exercices pilotes portent sur la lecture des lignes vraies, la conjonction d’une ligne, la jonction des lignes, l’élimination de $\land$, l’énoncé du théorème et la construction d’une table à trois variables.
+Les exercices sélectionnés portent sur la lecture des lignes vraies, la conjonction d’une ligne, la jonction des lignes, l’élimination de $\land$, l’énoncé du théorème et la construction d’une table à trois variables.
 
 La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
 

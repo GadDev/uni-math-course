@@ -1,10 +1,10 @@
 ---
 lessonId: L01
 locale: en
-version: 3
+version: 4
 status: pilot
 title: "Assertions: statements with one truth value"
-summary: "Recognise an assertion, separate it from questions, vague sentences and self-reference, and write its truth value as 1 or 0."
+summary: "Recognise an assertion, separate it from questions, vague sentences and paradoxical self-reference, and write its truth value as 1 or 0."
 minutes: 10
 objectives: [L01-O01, L01-O02, L01-O03, L01-O04, L01-O05, L01-O06]
 prerequisites: [reading simple French or English statements]
@@ -33,7 +33,9 @@ Three common kinds of sentence are not assertions.
 
 - **Questions and commands:** “What time is it?” and “Close the window.” are neither true nor false.
 - **Vague sentences:** “It is hot.” depends on an unstated threshold, place and time. Different listeners may give different answers.
-- **Self-referential sentences:** “This sentence is false.” is discussed in the trap below.
+- **Paradoxical self-reference:** “This sentence is false.” is discussed in the trap below.
+
+A sentence about itself need not be paradoxical: “This sentence is written in English.” is a true assertion. The liar sentence’s contradiction is what prevents a consistent value.
 
 Opinions such as “This lesson is beautiful.” are also not assertions in this course, because their truth value depends on taste.
 

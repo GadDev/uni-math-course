@@ -1,7 +1,7 @@
 ---
 lessonId: L05
 locale: fr
-version: 3
+version: 4
 status: pilot
 title: "L’implication : une promesse avec un seul échec"
 summary: "Lire A ⇒ B, distinguer les conditions nécessaires et suffisantes, et trouver un contre-exemple."
@@ -99,9 +99,9 @@ Pour la règle des cartes, testez d’abord ces deux cas : rouge avec tampon, pu
 
 ## Pratique indépendante
 
-Les six exercices du pilote couvrent le cas faux, la table de vérité, les conditions nécessaires/suffisantes, la négation, une règle en langage courant et un contre-exemple numérique.
+Les exercices sélectionnés du pilote couvrent le cas faux, la table de vérité, les conditions nécessaires/suffisantes, la négation, une règle en langage courant et un contre-exemple numérique.
 
-La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Utilisez le bouton « S’exercer » après la leçon pour répondre aux six exercices, recevoir une correction et retrouver vos tentatives dans votre progression privée.
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Utilisez le bouton « S’exercer » après la leçon pour répondre aux exercices, recevoir une correction et retrouver vos tentatives dans votre progression privée.
 
 ## À retenir
 

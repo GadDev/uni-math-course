@@ -1,7 +1,7 @@
 ---
 lessonId: L35
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Calculating the regression line"
 summary: "Apply the formula, organise sums and interpret a prediction; optional proof."
@@ -70,7 +70,7 @@ At $x=2$ pounds of margarine per person per year, displayed coefficients give $\
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/regression-four.svg" alt="Line fitted to four selected years, the six other observations as crosses and mean point as a diamond." width="440" height="360" loading="lazy" />
-<figcaption>Four points for calculation; six others for visual comparison.</figcaption>
+<figcaption>Four points for calculation; six others for visual comparison. <a class="figure-full-size" href="/diagrams/droites/en/regression-four.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
 </figure>
 
 ## Guided example: three original observations
@@ -120,7 +120,7 @@ At $x=10$, obtain $\hat y=2{,}3\cdot10+5{,}1=28{,}1$. A score above 20 is imposs
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/study-score.svg" alt="Five observed scores, fitted line over 1 to 5 hours, dashed extension to 10 hours above the maximum score of 20." width="440" height="360" loading="lazy" />
-<figcaption>The line exceeds the score ceiling when extended too far.</figcaption>
+<figcaption>The line exceeds the score ceiling when extended too far. <a class="figure-full-size" href="/diagrams/droites/en/study-score.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
 </figure>
 <details>
 <summary>Go further: proof and Python (optional)</summary>
@@ -140,7 +140,7 @@ The general recipe is $x^2+bx=(x+b/2)^2-b^2/4$. **Additional example:** $x^2-4x+
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/complete-square.svg" alt="Parabola y equals x squared plus 6x plus 1, with minimum at minus 3,minus 8." width="440" height="360" loading="lazy" />
-<figcaption>The square is zero at the vertex and nonnegative elsewhere.</figcaption>
+<figcaption>The square is zero at the vertex and nonnegative elsewhere. <a class="figure-full-size" href="/diagrams/droites/en/complete-square.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
 </figure>
 
 ## Additional example: another minimum

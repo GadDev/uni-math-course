@@ -1,7 +1,7 @@
 ---
 lessonId: L06
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Converse, contrapositive and everyday language"
 summary: "Write the converse and contrapositive of an implication, know which one is equivalent to it, and avoid reading “if” as “only if” in everyday language."
@@ -67,7 +67,7 @@ For reading a table, revisit L03; for the symbol $\equiv$, revisit L04. On row $
 
 ## Independent practice
 
-The six pilot exercises cover the converse, the contrapositive, which statements are equivalent, a truth table for the converse, a valid deduction from a rule and the reading of an everyday sentence.
+The selected exercises cover the converse, the contrapositive, which statements are equivalent, a truth table for the converse, a valid deduction from a rule and the reading of an everyday sentence.
 
 Interactive practice requires sign-in. Availability depends on this lesson’s selected version and release status.
 

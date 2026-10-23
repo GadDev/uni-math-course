@@ -1,0 +1,1268 @@
+{
+  "lessonId": "L28",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L28-E01",
+      "objectiveId": "L28-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "curve-membership"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel point appartient à $y=3x-1$ ?",
+        "en": "Which point lies on $y=3x-1$ ?"
+      },
+      "hint": {
+        "fr": "Remplacez les deux variables par les coordonnées.",
+        "en": "Substitute both coordinates."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(1,2)$",
+            "en": "$(1,2)$"
+          },
+          "feedback": {
+            "fr": "Pour $x=1$, on obtient $y=2$ ; les autres substitutions échouent.",
+            "en": "For $x=1$, we get $y=2$; the other substitutions fail."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(1,3)$",
+            "en": "$(1,3)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Pour $x=1$, on obtient $y=2$ ; les autres substitutions échouent.",
+            "en": "This proposal does not fit. For $x=1$, we get $y=2$; the other substitutions fail."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(2,1)$",
+            "en": "$(2,1)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Pour $x=1$, on obtient $y=2$ ; les autres substitutions échouent.",
+            "en": "This proposal does not fit. For $x=1$, we get $y=2$; the other substitutions fail."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Pour $x=1$, on obtient $y=2$ ; les autres substitutions échouent.",
+        "en": "For $x=1$, we get $y=2$; the other substitutions fail."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E02",
+      "objectiveId": "L28-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "linear-equation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle équation décrit une droite verticale ?",
+        "en": "Which equation describes a vertical line ?"
+      },
+      "hint": {
+        "fr": "Une équation de droite est linéaire avec un coefficient non nul.",
+        "en": "A line equation is linear with at least one nonzero coefficient."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$y=2$",
+            "en": "$y=2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une abscisse fixe et une ordonnée libre donnent une droite verticale.",
+            "en": "This proposal does not fit. A fixed horizontal coordinate and free vertical coordinate give a vertical line."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$y=x^2$",
+            "en": "$y=x^2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une abscisse fixe et une ordonnée libre donnent une droite verticale.",
+            "en": "This proposal does not fit. A fixed horizontal coordinate and free vertical coordinate give a vertical line."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x=2$",
+            "en": "$x=2$"
+          },
+          "feedback": {
+            "fr": "Une abscisse fixe et une ordonnée libre donnent une droite verticale.",
+            "en": "A fixed horizontal coordinate and free vertical coordinate give a vertical line."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Une abscisse fixe et une ordonnée libre donnent une droite verticale.",
+        "en": "A fixed horizontal coordinate and free vertical coordinate give a vertical line."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E03",
+      "objectiveId": "L28-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "circle-radius-square"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans un repère orthonormé, quel est le rayon de $x^2+y^2=16$ ?",
+        "en": "In an orthonormal system, what is the radius of $x^2+y^2=16$ ?"
+      },
+      "hint": {
+        "fr": "Comparez avec un carré de distance au centre.",
+        "en": "Compare with squared distance from the centre."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$8$",
+            "en": "$8$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le carré du rayon vaut $16$.",
+            "en": "This proposal does not fit. The squared radius is $16$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Le carré du rayon vaut $16$.",
+            "en": "The squared radius is $16$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$16$",
+            "en": "$16$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le carré du rayon vaut $16$.",
+            "en": "This proposal does not fit. The squared radius is $16$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le carré du rayon vaut $16$.",
+        "en": "The squared radius is $16$."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E04",
+      "objectiveId": "L28-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "parabola-orientation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $y=x^2$, quelle ordonnée correspond à $x=-3$ ?",
+        "en": "For $y=x^2$, what vertical coordinate corresponds to $x=-3$ ?"
+      },
+      "hint": {
+        "fr": "Une coordonnée dépend du carré de l’autre.",
+        "en": "One coordinate depends on the square of the other."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$9$",
+            "en": "$9$"
+          },
+          "feedback": {
+            "fr": "Le carré de $-3$ vaut $9$.",
+            "en": "The square of $-3$ is $9$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$-9$",
+            "en": "$-9$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le carré de $-3$ vaut $9$.",
+            "en": "This proposal does not fit. The square of $-3$ is $9$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le carré de $-3$ vaut $9$.",
+            "en": "This proposal does not fit. The square of $-3$ is $9$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le carré de $-3$ vaut $9$.",
+        "en": "The square of $-3$ is $9$."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E05",
+      "objectiveId": "L28-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "equation-equivalence"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle équation est équivalente à $2x+2y=8$ ?",
+        "en": "Which equation is equivalent to $2x+2y=8$ ?"
+      },
+      "hint": {
+        "fr": "Une opération doit être réversible sur tout le domaine.",
+        "en": "An operation must be reversible throughout the domain."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x+y=8$",
+            "en": "$x+y=8$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Diviser les deux membres par $2$ conserve toutes les solutions.",
+            "en": "This proposal does not fit. Dividing both sides by $2$ preserves every solution."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x-y=4$",
+            "en": "$x-y=4$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Diviser les deux membres par $2$ conserve toutes les solutions.",
+            "en": "This proposal does not fit. Dividing both sides by $2$ preserves every solution."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x+y=4$",
+            "en": "$x+y=4$"
+          },
+          "feedback": {
+            "fr": "Diviser les deux membres par $2$ conserve toutes les solutions.",
+            "en": "Dividing both sides by $2$ preserves every solution."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Diviser les deux membres par $2$ conserve toutes les solutions.",
+        "en": "Dividing both sides by $2$ preserves every solution."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E06",
+      "objectiveId": "L28-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "curve-membership"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le point $(2,-1)$ satisfait-il $x^2+y^2=5$ ?",
+        "en": "Does point $(2,-1)$ satisfy $x^2+y^2=5$ ?"
+      },
+      "hint": {
+        "fr": "Remplacez les deux variables par les coordonnées.",
+        "en": "Substitute both coordinates."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui, car $2+1=3$.",
+            "en": "Yes, because $2+1=3$."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le carré de l’ordonnée négative est positif.",
+            "en": "This proposal does not fit. The square of the negative vertical coordinate is positive."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Oui, car $4+1=5$.",
+            "en": "Yes, because $4+1=5$."
+          },
+          "feedback": {
+            "fr": "Le carré de l’ordonnée négative est positif.",
+            "en": "The square of the negative vertical coordinate is positive."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Non, car $4-1=3$.",
+            "en": "No, because $4-1=3$."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le carré de l’ordonnée négative est positif.",
+            "en": "This proposal does not fit. The square of the negative vertical coordinate is positive."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le carré de l’ordonnée négative est positif.",
+        "en": "The square of the negative vertical coordinate is positive."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E07",
+      "objectiveId": "L28-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "circle-radius-square"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel est le centre de $(x-3)^2+(y+2)^2=4$ ?",
+        "en": "What is the centre of $(x-3)^2+(y+2)^2=4$ ?"
+      },
+      "hint": {
+        "fr": "Comparez avec un carré de distance au centre.",
+        "en": "Compare with squared distance from the centre."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(3,-2)$",
+            "en": "$(3,-2)$"
+          },
+          "feedback": {
+            "fr": "Les deux différences au centre sont $x-3$ et $y-(-2)$.",
+            "en": "Differences from the centre are $x-3$ and $y-(-2)$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(-3,2)$",
+            "en": "$(-3,2)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les deux différences au centre sont $x-3$ et $y-(-2)$.",
+            "en": "This proposal does not fit. Differences from the centre are $x-3$ and $y-(-2)$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(3,2)$",
+            "en": "$(3,2)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les deux différences au centre sont $x-3$ et $y-(-2)$.",
+            "en": "This proposal does not fit. Differences from the centre are $x-3$ and $y-(-2)$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Les deux différences au centre sont $x-3$ et $y-(-2)$.",
+        "en": "Differences from the centre are $x-3$ and $y-(-2)$."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E08",
+      "objectiveId": "L28-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "parabola-orientation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur $x=y^2$, quels points ont $x=4$ ?",
+        "en": "On $x=y^2$, which points have $x=4$ ?"
+      },
+      "hint": {
+        "fr": "Une coordonnée dépend du carré de l’autre.",
+        "en": "One coordinate depends on the square of the other."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(4,2)$ seulement",
+            "en": "$(4,2)$ only"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Résoudre $y^2=4$ donne deux ordonnées.",
+            "en": "This proposal does not fit. Solving $y^2=4$ gives two vertical coordinates."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(2,4)$ et $(-2,4)$",
+            "en": "$(2,4)$ and $(-2,4)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Résoudre $y^2=4$ donne deux ordonnées.",
+            "en": "This proposal does not fit. Solving $y^2=4$ gives two vertical coordinates."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(4,2)$ et $(4,-2)$",
+            "en": "$(4,2)$ and $(4,-2)$"
+          },
+          "feedback": {
+            "fr": "Résoudre $y^2=4$ donne deux ordonnées.",
+            "en": "Solving $y^2=4$ gives two vertical coordinates."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Résoudre $y^2=4$ donne deux ordonnées.",
+        "en": "Solving $y^2=4$ gives two vertical coordinates."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E09",
+      "objectiveId": "L28-O05",
+      "difficulty": "medium",
+      "misconceptions": [
+        "equation-equivalence"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle opération garantit une équation équivalente sur tous les points réels ?",
+        "en": "Which operation guarantees an equivalent equation over all real points ?"
+      },
+      "hint": {
+        "fr": "Une opération doit être réversible sur tout le domaine.",
+        "en": "An operation must be reversible throughout the domain."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Élever les deux membres au carré.",
+            "en": "Square both sides."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une constante non nulle permet une opération inverse partout.",
+            "en": "This proposal does not fit. A nonzero constant permits an inverse operation everywhere."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Multiplier les deux membres par $-3$.",
+            "en": "Multiply both sides by $-3$."
+          },
+          "feedback": {
+            "fr": "Une constante non nulle permet une opération inverse partout.",
+            "en": "A nonzero constant permits an inverse operation everywhere."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Multiplier les deux membres par $x$.",
+            "en": "Multiply both sides by $x$."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une constante non nulle permet une opération inverse partout.",
+            "en": "This proposal does not fit. A nonzero constant permits an inverse operation everywhere."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Une constante non nulle permet une opération inverse partout.",
+        "en": "A nonzero constant permits an inverse operation everywhere."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E10",
+      "objectiveId": "L28-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "extraneous-component"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel point satisfait $xy=x^2$ mais pas $y=x$ ?",
+        "en": "Which point satisfies $xy=x^2$ but not $y=x$ ?"
+      },
+      "hint": {
+        "fr": "Testez notamment les zéros du facteur utilisé.",
+        "en": "In particular, test zeros of the factor used."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(0,2)$",
+            "en": "$(0,2)$"
+          },
+          "feedback": {
+            "fr": "Pour $(0,2)$, les produits sont nuls, mais les coordonnées diffèrent.",
+            "en": "For $(0,2)$, products vanish but coordinates differ."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(2,2)$",
+            "en": "$(2,2)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Pour $(0,2)$, les produits sont nuls, mais les coordonnées diffèrent.",
+            "en": "This proposal does not fit. For $(0,2)$, products vanish but coordinates differ."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(1,0)$",
+            "en": "$(1,0)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Pour $(0,2)$, les produits sont nuls, mais les coordonnées diffèrent.",
+            "en": "This proposal does not fit. For $(0,2)$, products vanish but coordinates differ."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Pour $(0,2)$, les produits sont nuls, mais les coordonnées diffèrent.",
+        "en": "For $(0,2)$, products vanish but coordinates differ."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E11",
+      "objectiveId": "L28-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "extraneous-component"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur les réels, que décrit $y^2=x^2$ ?",
+        "en": "Over the reals, what does $y^2=x^2$ describe ?"
+      },
+      "hint": {
+        "fr": "Factorisez la différence des deux carrés ; un produit est nul si au moins un facteur est nul.",
+        "en": "Factor the difference of squares; a product is zero when at least one factor is zero."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Seulement la droite $y=x$.",
+            "en": "Only line $y=x$."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La factorisation $(y-x)(y+x)=0$ impose au moins un facteur nul.",
+            "en": "This proposal does not fit. Factorisation $(y-x)(y+x)=0$ requires at least one zero factor."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Seulement l’origine.",
+            "en": "Only the origin."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La factorisation $(y-x)(y+x)=0$ impose au moins un facteur nul.",
+            "en": "This proposal does not fit. Factorisation $(y-x)(y+x)=0$ requires at least one zero factor."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "L’union des droites $y=x$ et $y=-x$.",
+            "en": "The union of lines $y=x$ and $y=-x$."
+          },
+          "feedback": {
+            "fr": "La factorisation $(y-x)(y+x)=0$ impose au moins un facteur nul.",
+            "en": "Factorisation $(y-x)(y+x)=0$ requires at least one zero factor."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La factorisation $(y-x)(y+x)=0$ impose au moins un facteur nul.",
+        "en": "Factorisation $(y-x)(y+x)=0$ requires at least one zero factor."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E12",
+      "objectiveId": "L28-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "linear-equation"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que décrit $0x+0y=1$ ?",
+        "en": "What does $0x+0y=1$ describe ?"
+      },
+      "hint": {
+        "fr": "Une équation de droite est linéaire avec un coefficient non nul.",
+        "en": "A line equation is linear with at least one nonzero coefficient."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Tout le plan.",
+            "en": "The whole plane."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le membre gauche vaut toujours zéro et ne peut valoir un.",
+            "en": "This proposal does not fit. The left side is always zero and cannot equal one."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Aucun point réel.",
+            "en": "No real point."
+          },
+          "feedback": {
+            "fr": "Le membre gauche vaut toujours zéro et ne peut valoir un.",
+            "en": "The left side is always zero and cannot equal one."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Une droite verticale.",
+            "en": "A vertical line."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le membre gauche vaut toujours zéro et ne peut valoir un.",
+            "en": "This proposal does not fit. The left side is always zero and cannot equal one."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le membre gauche vaut toujours zéro et ne peut valoir un.",
+        "en": "The left side is always zero and cannot equal one."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E13",
+      "objectiveId": "L28-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "circle-radius-square"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dans un repère orthonormé, que décrit $x^2+y^2=0$ ?",
+        "en": "In an orthonormal system, what does $x^2+y^2=0$ describe ?"
+      },
+      "hint": {
+        "fr": "Comparez avec un carré de distance au centre.",
+        "en": "Compare with squared distance from the centre."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Le seul point $(0,0)$.",
+            "en": "The single point $(0,0)$."
+          },
+          "feedback": {
+            "fr": "Les deux carrés doivent être nuls ; l’origine convient.",
+            "en": "Both squares must vanish; the origin works."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Un cercle de rayon $1$.",
+            "en": "A circle of radius $1$."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les deux carrés doivent être nuls ; l’origine convient.",
+            "en": "This proposal does not fit. Both squares must vanish; the origin works."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Aucun point.",
+            "en": "No point."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les deux carrés doivent être nuls ; l’origine convient.",
+            "en": "This proposal does not fit. Both squares must vanish; the origin works."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Les deux carrés doivent être nuls ; l’origine convient.",
+        "en": "Both squares must vanish; the origin works."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E14",
+      "objectiveId": "L28-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "equation-equivalence"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour quels points réels le passage de $x(y-1)=0$ à $y=1$ perd-il des solutions ?",
+        "en": "For which real points does passing from $x(y-1)=0$ to $y=1$ lose solutions ?"
+      },
+      "hint": {
+        "fr": "Une opération doit être réversible sur tout le domaine.",
+        "en": "An operation must be reversible throughout the domain."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$y=1,\\ x\\ne0$",
+            "en": "$y=1,\\ x\\ne0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les points avec $x=0$ satisfont le produit ; seuls ceux avec $y\\ne1$ sont perdus.",
+            "en": "This proposal does not fit. Points with $x=0$ satisfy the product; only those with $y\\ne1$ are lost."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x=1,\\ y=1$",
+            "en": "$x=1,\\ y=1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les points avec $x=0$ satisfont le produit ; seuls ceux avec $y\\ne1$ sont perdus.",
+            "en": "This proposal does not fit. Points with $x=0$ satisfy the product; only those with $y\\ne1$ are lost."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x=0,\\ y\\ne1$",
+            "en": "$x=0,\\ y\\ne1$"
+          },
+          "feedback": {
+            "fr": "Les points avec $x=0$ satisfont le produit ; seuls ceux avec $y\\ne1$ sont perdus.",
+            "en": "Points with $x=0$ satisfy the product; only those with $y\\ne1$ are lost."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Les points avec $x=0$ satisfont le produit ; seuls ceux avec $y\\ne1$ sont perdus.",
+        "en": "Points with $x=0$ satisfy the product; only those with $y\\ne1$ are lost."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L28-E15",
+      "objectiveId": "L28-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "extraneous-component"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle condition complète $y^2=x$ pour obtenir exactement $y=\\sqrt{x}$ ?",
+        "en": "Which condition completes $y^2=x$ to obtain exactly $y=\\sqrt{x}$ ?"
+      },
+      "hint": {
+        "fr": "La racine carrée désigne-t-elle une valeur positive ou nulle, ou les deux signes ?",
+        "en": "Does the square root select a nonnegative value, or both signs?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x>0$",
+            "en": "$x>0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le carré impose déjà $x\\ge0$ ; la racine désigne la valeur non négative de $y$.",
+            "en": "This proposal does not fit. The square already forces $x\\ge0$; the root denotes the nonnegative value of $y$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$y\\ge0$",
+            "en": "$y\\ge0$"
+          },
+          "feedback": {
+            "fr": "Le carré impose déjà $x\\ge0$ ; la racine désigne la valeur non négative de $y$.",
+            "en": "The square already forces $x\\ge0$; the root denotes the nonnegative value of $y$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$y\\le0$",
+            "en": "$y\\le0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le carré impose déjà $x\\ge0$ ; la racine désigne la valeur non négative de $y$.",
+            "en": "This proposal does not fit. The square already forces $x\\ge0$; the root denotes the nonnegative value of $y$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le carré impose déjà $x\\ge0$ ; la racine désigne la valeur non négative de $y$.",
+        "en": "The square already forces $x\\ge0$; the root denotes the nonnegative value of $y$."
+      },
+      "lessonId": "L28",
+      "version": 2,
+      "prerequisites": [
+        "L24",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

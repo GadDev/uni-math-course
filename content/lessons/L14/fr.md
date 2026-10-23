@@ -1,7 +1,7 @@
 ---
 lessonId: L14
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Ensembles des parties"
 summary: "Lister les parties d’un petit ensemble, utiliser la notation 𝒫(A) et 2^A, et ne pas confondre un élément avec une partie."
@@ -24,10 +24,12 @@ Pour $A = \{a,b\}$, décidez séparément de garder ou non chaque élément.
 
 | Garder a ? | Garder b ? | Partie obtenue |
 | --- | --- | --- |
-| non | non | ensemble vide |
-| oui | non | a seul |
-| non | oui | b seul |
-| oui | oui | a et b |
+| non | non | $\varnothing$ |
+| oui | non | $\{a\}$ |
+| non | oui | $\{b\}$ |
+| oui | oui | $\{a,b\}$ |
+
+Chaque résultat est un ensemble : $\{a\}\subseteq A$, donc $\{a\}\in\mathcal{P}(A)$. Les accolades rendent visible le passage d’un élément à un sous-ensemble.
 
 Deux choix par élément donnent quatre résultats. Pour zéro élément, on ne choisit rien : on obtient quand même une partie, l’ensemble vide. Un ensemble et son ensemble des parties peuvent partager un élément : avec $A = \{\varnothing\}$, l’ensemble vide appartient aux deux. La distinction est leur rôle, pas l’interdiction d’un élément commun.
 
@@ -64,7 +66,7 @@ La source rappelle ici les deux relations : $a \in A$ signifie qu’un objet app
 
 ## Pratique indépendante
 
-Les six exercices pilotes portent sur le comptage des parties, la reconnaissance d’une partie, l’ensemble vide comme partie, le nombre $2^n$, l’ensemble des parties de l’ensemble vide et la distinction entre élément et partie.
+Les exercices sélectionnés portent sur le comptage des parties, la reconnaissance d’une partie, l’ensemble vide comme partie, le nombre $2^n$, l’ensemble des parties de l’ensemble vide et la distinction entre élément et partie.
 
 La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 

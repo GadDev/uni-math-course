@@ -1,7 +1,7 @@
 ---
 lessonId: L10
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Ensembles de nombres, énumération, appartenance et inclusion"
 summary: "Ordonner les ensembles de nombres, définir un ensemble par énumération, utiliser l’ensemble vide, et distinguer l’appartenance ∈ de l’inclusion ⊆."
@@ -67,11 +67,13 @@ Ce travail guidé, dont la solution est visible, n’est pas une réponse indép
 
 ## Piège : élément ou partie ?
 
-Écrire $\{2\} \in A$ ou $2 \subseteq A$ mélange les deux relations. Demandez-vous laquelle vous voulez dire : « est un élément de » s’écrit $\in$, « est une partie de » s’écrit $\subseteq$.
+Pour $A=\{1,2,3\}$, $2\in A$ et $\{2\}\subseteq A$ sont vrais, mais $\{2\}\in A$ est faux : A ne contient pas ce singleton. Ce n’est pas une interdiction d’avoir un ensemble comme élément. Si $B=\{\{2\}\}$, alors $\{2\}\in B$ est vrai.
+
+Demandez-vous ce qui est comparé : $\in$ teste un objet parmi les éléments, $\subseteq$ compare deux ensembles. Dans la convention numérique de ce cours, $2\subseteq A$ n’est pas un test d’inclusion approprié : $2$ est un nombre, pas l’ensemble $\{2\}$.
 
 ## Pratique indépendante
 
-Les six exercices pilotes portent sur la chaîne des ensembles de nombres, l’énumération, l’ensemble vide, la distinction entre $\in$ et $\subseteq$, la définition de l’inclusion et la recherche d’un non-sous-ensemble.
+Les exercices sélectionnés portent sur la chaîne des ensembles de nombres, l’énumération, l’ensemble vide, la distinction entre $\in$ et $\subseteq$, la définition de l’inclusion et la recherche d’un non-sous-ensemble.
 
 La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 

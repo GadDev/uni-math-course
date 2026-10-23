@@ -1,7 +1,7 @@
 ---
 lessonId: L13
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Ensembles définis par compréhension"
 summary: "Lire et calculer un ensemble défini par compréhension, y compris les intervalles et les nombres pairs, et séparer le domaine du filtre."
@@ -51,6 +51,8 @@ Ici $\exists k \in \mathbb{N}$ se lit « il existe $k$ dans $\mathbb{N}$ ». Zé
 
 ## Exemple guidé : les nombres premiers jusqu’à 8
 
+Un **nombre premier** est un entier supérieur ou égal à $2$ qui possède exactement deux diviseurs positifs : $1$ et lui-même. Ainsi $1$ est exclu, $2$ convient, et $4$ échoue car $2$ est aussi un diviseur.
+
 Soit $X = \{1, 2, 3, 4, 5, 6, 7, 8\}$ et $P(n)$ : « $n$ est premier ».
 
 1. Testez chaque élément de $X$ avec $P$.
@@ -65,7 +67,7 @@ Le résultat dépend des deux parties. $\{n \in \{1, 2, 3\} \mid n > 5\} = \varn
 
 ## Pratique indépendante
 
-Les six exercices pilotes portent sur une compréhension finie, deux intervalles, les nombres pairs, un résultat vide et un filtre sur les nombres premiers.
+Les exercices sélectionnés portent sur une compréhension finie, deux intervalles, les nombres pairs, un résultat vide et un filtre sur les nombres premiers.
 
 La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 

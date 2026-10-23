@@ -1,7 +1,7 @@
 ---
 lessonId: L34
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Modèles affines et résidus"
 summary: "Mesurer l’erreur verticale d’un modèle et construire une perte quadratique."
@@ -65,7 +65,7 @@ Pour les données $(0,1),(1,2),(2,2)$ et le modèle $\hat y=x+1$, les prédictio
 
 ## Une perte qui ne se compense pas
 
-La perte des moindres carrés est $S(m,p)=\sum_{i=1}^n(y_i-mx_i-p)^2$, avec $n\ge1$. Elle est positive ou nulle, et vaut zéro exactement si toutes les prédictions sont exactes sur les données. La moyenne quadratique des erreurs est $\mathrm{MSE}=S/n$. Pour un même jeu de données, minimiser l’une ou l’autre donne les mêmes paramètres. Les carrés amplifient les grands résidus.
+La perte des moindres carrés est $S(m,p)=\sum_{i=1}^n(y_i-mx_i-p)^2$, avec $n\ge1$. Elle est positive ou nulle, et vaut zéro exactement si toutes les prédictions sont exactes sur les données. L’erreur quadratique moyenne est $\mathrm{MSE}=S/n$. Pour un même jeu de données, minimiser l’une ou l’autre donne les mêmes paramètres. Les carrés amplifient les grands résidus.
 
 ## Exemple guidé : une somme trompeuse
 
@@ -91,7 +91,7 @@ Les notations de la page 70 condensent des calculs répétés ; $S_{yy}$ est un 
 
 ## Trois sommes utiles
 
-Définir $S_{xx}=\sum_i(x_i-\bar x)^2$, $S_{xy}=\sum_i(x_i-\bar x)(y_i-\bar y)$ et $S_{yy}=\sum_i(y_i-\bar y)^2$. Pour $(0,1),(2,3)$, les moyennes sont $(1,2)$ et ces trois sommes valent toutes $2$. Les sommes de carrés ne sont jamais négatives, mais la somme croisée peut être négative. Ces quantités prépareront le calcul de la meilleure droite.
+Les sommes de carrés $S_{xx}$ et $S_{yy}$ ne sont jamais négatives, mais la somme croisée $S_{xy}$ peut être négative. Le tableau ci-dessus sera réutilisé pour la droite de régression.
 
 <p class="source-next"><a href="/fr/lessons/L35/#pdf-71">Suite du PDF : La formule →</a></p>
 

@@ -1,10 +1,10 @@
 ---
 lessonId: L01
 locale: fr
-version: 3
+version: 4
 status: pilot
 title: "Assertions : des énoncés à une seule valeur de vérité"
-summary: "Reconnaître une assertion, la distinguer des questions, des phrases vagues et des phrases auto-référentes, puis noter sa valeur de vérité 1 ou 0."
+summary: "Reconnaître une assertion, la distinguer des questions, des phrases vagues et des phrases auto-référentes paradoxales, puis noter sa valeur de vérité 1 ou 0."
 minutes: 10
 objectives: [L01-O01, L01-O02, L01-O03, L01-O04, L01-O05, L01-O06]
 prerequisites: [lecture d’énoncés simples en français ou en anglais]
@@ -33,7 +33,9 @@ Trois types de phrases courants ne sont pas des assertions.
 
 - **Questions et ordres :** « Quelle heure est-il ? » et « Ferme la fenêtre. » ne sont ni vrais ni faux.
 - **Phrases vagues :** « Il fait chaud. » dépend d’un seuil, d’un lieu et d’un moment non précisés. Deux personnes peuvent répondre différemment.
-- **Phrases auto-référentes :** « Cette phrase est fausse. » est étudiée dans le piège ci-dessous.
+- **Auto-référence paradoxale :** « Cette phrase est fausse. » est étudiée dans le piège ci-dessous.
+
+Une phrase qui parle d’elle-même n’est pas toujours paradoxale : « Cette phrase est écrite en français. » est une assertion vraie. C’est la contradiction de la phrase menteuse qui empêche une valeur cohérente.
 
 Les avis comme « Cette leçon est magnifique. » ne sont pas non plus des assertions dans ce cours, car leur valeur de vérité dépend du goût.
 

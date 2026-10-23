@@ -1,0 +1,1223 @@
+{
+  "lessonId": "L26",
+  "version": 2,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L26-E01",
+      "objectiveId": "L26-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "summation-index"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Calculer $\\sum_{i=1}^3i$.",
+        "en": "Calculate $\\sum_{i=1}^3i$."
+      },
+      "hint": {
+        "fr": "Remplacez l’indice par chaque valeur autorisée.",
+        "en": "Replace the index with each permitted value."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "Additionner $1+2+3$.",
+            "en": "Add $1+2+3$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Additionner $1+2+3$.",
+            "en": "This proposal does not fit. Add $1+2+3$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$9$",
+            "en": "$9$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Additionner $1+2+3$.",
+            "en": "This proposal does not fit. Add $1+2+3$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Additionner $1+2+3$.",
+        "en": "Add $1+2+3$."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E02",
+      "objectiveId": "L26-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "off-by-one-in-range"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Combien de termes contient $\\sum_{i=2}^5 a_i$ ?",
+        "en": "How many terms does $\\sum_{i=2}^5 a_i$ contain ?"
+      },
+      "hint": {
+        "fr": "Les deux bornes sont incluses.",
+        "en": "Both endpoints are included."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les indices sont $2,3,4,5$.",
+            "en": "This proposal does not fit. The indices are $2,3,4,5$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les indices sont $2,3,4,5$.",
+            "en": "This proposal does not fit. The indices are $2,3,4,5$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Les indices sont $2,3,4,5$.",
+            "en": "The indices are $2,3,4,5$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Les indices sont $2,3,4,5$.",
+        "en": "The indices are $2,3,4,5$."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E03",
+      "objectiveId": "L26-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "sum-linearity"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Calculer $\\sum_{i=1}^4 3$.",
+        "en": "Calculate $\\sum_{i=1}^4 3$."
+      },
+      "hint": {
+        "fr": "Séparez sommes et constantes, sans inventer de distributivité du carré.",
+        "en": "Separate sums and constants without distributing a square incorrectly."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le nombre $3$ apparaît quatre fois.",
+            "en": "This proposal does not fit. The number $3$ occurs four times."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$12$",
+            "en": "$12$"
+          },
+          "feedback": {
+            "fr": "Le nombre $3$ apparaît quatre fois.",
+            "en": "The number $3$ occurs four times."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$7$",
+            "en": "$7$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le nombre $3$ apparaît quatre fois.",
+            "en": "This proposal does not fit. The number $3$ occurs four times."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le nombre $3$ apparaît quatre fois.",
+        "en": "The number $3$ occurs four times."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E04",
+      "objectiveId": "L26-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "weighted-mean"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la moyenne de $2,4,9$ ?",
+        "en": "What is the mean of $2,4,9$ ?"
+      },
+      "hint": {
+        "fr": "Divisez par le nombre de données, pas par le nombre de groupes.",
+        "en": "Divide by the data count, not the group count."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "La somme $15$ est divisée par trois données.",
+            "en": "The sum $15$ is divided by three observations."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$15$",
+            "en": "$15$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La somme $15$ est divisée par trois données.",
+            "en": "This proposal does not fit. The sum $15$ is divided by three observations."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\frac{15}{2}$",
+            "en": "$\\frac{15}{2}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La somme $15$ est divisée par trois données.",
+            "en": "This proposal does not fit. The sum $15$ is divided by three observations."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La somme $15$ est divisée par trois données.",
+        "en": "The sum $15$ is divided by three observations."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E05",
+      "objectiveId": "L26-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "centred-deviations"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "La moyenne vaut $7$. Quel est l’écart centré d’une observation $5$ ?",
+        "en": "The mean is $7$. What is the centred deviation of an observation $5$ ?"
+      },
+      "hint": {
+        "fr": "Retirez la même moyenne à chaque donnée.",
+        "en": "Subtract the same mean from every observation."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Écart signifie observation moins moyenne : $5-7$.",
+            "en": "This proposal does not fit. Deviation means observation minus mean: $5-7$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$12$",
+            "en": "$12$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Écart signifie observation moins moyenne : $5-7$.",
+            "en": "This proposal does not fit. Deviation means observation minus mean: $5-7$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$-2$",
+            "en": "$-2$"
+          },
+          "feedback": {
+            "fr": "Écart signifie observation moins moyenne : $5-7$.",
+            "en": "Deviation means observation minus mean: $5-7$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Écart signifie observation moins moyenne : $5-7$.",
+        "en": "Deviation means observation minus mean: $5-7$."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E06",
+      "objectiveId": "L26-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "summation-index"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Calculer $\\sum_{i=2}^4(2i+1)$.",
+        "en": "Calculate $\\sum_{i=2}^4(2i+1)$."
+      },
+      "hint": {
+        "fr": "Remplacez l’indice par chaque valeur autorisée.",
+        "en": "Replace the index with each permitted value."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$24$",
+            "en": "$24$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les termes sont $5,7,9$.",
+            "en": "This proposal does not fit. The terms are $5,7,9$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$21$",
+            "en": "$21$"
+          },
+          "feedback": {
+            "fr": "Les termes sont $5,7,9$.",
+            "en": "The terms are $5,7,9$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$15$",
+            "en": "$15$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les termes sont $5,7,9$.",
+            "en": "This proposal does not fit. The terms are $5,7,9$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Les termes sont $5,7,9$.",
+        "en": "The terms are $5,7,9$."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E07",
+      "objectiveId": "L26-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "sum-linearity"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour quatre réels $x_i$ de somme $10$, calculer $\\sum_{i=1}^4(3x_i-2)$.",
+        "en": "For four reals $x_i$ summing to $10$, calculate $\\sum_{i=1}^4(3x_i-2)$."
+      },
+      "hint": {
+        "fr": "Séparez sommes et constantes, sans inventer de distributivité du carré.",
+        "en": "Separate sums and constants without distributing a square incorrectly."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$22$",
+            "en": "$22$"
+          },
+          "feedback": {
+            "fr": "La constante est répétée quatre fois : $3\\cdot10-4\\cdot2=22$.",
+            "en": "The constant repeats four times: $3\\cdot10-4\\cdot2=22$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$28$",
+            "en": "$28$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La constante est répétée quatre fois : $3\\cdot10-4\\cdot2=22$.",
+            "en": "This proposal does not fit. The constant repeats four times: $3\\cdot10-4\\cdot2=22$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$30$",
+            "en": "$30$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La constante est répétée quatre fois : $3\\cdot10-4\\cdot2=22$.",
+            "en": "This proposal does not fit. The constant repeats four times: $3\\cdot10-4\\cdot2=22$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La constante est répétée quatre fois : $3\\cdot10-4\\cdot2=22$.",
+        "en": "The constant repeats four times: $3\\cdot10-4\\cdot2=22$."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E08",
+      "objectiveId": "L26-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "weighted-mean"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Trois données réelles ont une moyenne $6$. Une quatrième vaut $10$. Quelle est la nouvelle moyenne ?",
+        "en": "Three real observations have mean $6$. A fourth is $10$. What is the new mean ?"
+      },
+      "hint": {
+        "fr": "Divisez par le nombre de données, pas par le nombre de groupes.",
+        "en": "Divide by the data count, not the group count."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$8$",
+            "en": "$8$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La somme devient $3\\cdot6+10=28$, pour quatre observations.",
+            "en": "This proposal does not fit. The sum becomes $3\\cdot6+10=28$, for four observations."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\frac{16}{3}$",
+            "en": "$\\frac{16}{3}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La somme devient $3\\cdot6+10=28$, pour quatre observations.",
+            "en": "This proposal does not fit. The sum becomes $3\\cdot6+10=28$, for four observations."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$7$",
+            "en": "$7$"
+          },
+          "feedback": {
+            "fr": "La somme devient $3\\cdot6+10=28$, pour quatre observations.",
+            "en": "The sum becomes $3\\cdot6+10=28$, for four observations."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La somme devient $3\\cdot6+10=28$, pour quatre observations.",
+        "en": "The sum becomes $3\\cdot6+10=28$, for four observations."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E09",
+      "objectiveId": "L26-O05",
+      "difficulty": "medium",
+      "misconceptions": [
+        "centred-deviations"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour les données $1,3,8$, quelle est la somme des écarts à leur moyenne exacte ?",
+        "en": "For data $1,3,8$, what is the sum of deviations from their exact mean ?"
+      },
+      "hint": {
+        "fr": "Retirez la même moyenne à chaque donnée.",
+        "en": "Subtract the same mean from every observation."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$12$",
+            "en": "$12$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La moyenne est $4$ ; les écarts $-3,-1,4$ se compensent.",
+            "en": "This proposal does not fit. The mean is $4$; deviations $-3,-1,4$ cancel."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "La moyenne est $4$ ; les écarts $-3,-1,4$ se compensent.",
+            "en": "The mean is $4$; deviations $-3,-1,4$ cancel."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La moyenne est $4$ ; les écarts $-3,-1,4$ se compensent.",
+            "en": "This proposal does not fit. The mean is $4$; deviations $-3,-1,4$ cancel."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La moyenne est $4$ ; les écarts $-3,-1,4$ se compensent.",
+        "en": "The mean is $4$; deviations $-3,-1,4$ cancel."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E10",
+      "objectiveId": "L26-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "sum-linearity"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Deux réels valent $2$ et $5$. Quelle est leur somme des carrés ?",
+        "en": "Two reals are $2$ and $5$. What is their sum of squares ?"
+      },
+      "hint": {
+        "fr": "Séparez sommes et constantes, sans inventer de distributivité du carré.",
+        "en": "Separate sums and constants without distributing a square incorrectly."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$29$",
+            "en": "$29$"
+          },
+          "feedback": {
+            "fr": "On additionne $2^2+5^2$, sans terme croisé.",
+            "en": "Add $2^2+5^2$, with no cross term."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$49$",
+            "en": "$49$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. On additionne $2^2+5^2$, sans terme croisé.",
+            "en": "This proposal does not fit. Add $2^2+5^2$, with no cross term."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$14$",
+            "en": "$14$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. On additionne $2^2+5^2$, sans terme croisé.",
+            "en": "This proposal does not fit. Add $2^2+5^2$, with no cross term."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "On additionne $2^2+5^2$, sans terme croisé.",
+        "en": "Add $2^2+5^2$, with no cross term."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E11",
+      "objectiveId": "L26-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "squared-sum-confusion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $x_1=1$ et $x_2=-1$, quelle comparaison est correcte ?",
+        "en": "For $x_1=1$ and $x_2=-1$, which comparison is correct ?"
+      },
+      "hint": {
+        "fr": "Des contributions positives et négatives peuvent se compenser.",
+        "en": "Positive and negative contributions can cancel."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(x_1+x_2)^2=x_1^2+x_2^2=0$",
+            "en": "$(x_1+x_2)^2=x_1^2+x_2^2=0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La somme s’annule, mais chaque carré vaut $1$.",
+            "en": "This proposal does not fit. The sum vanishes, but each square is $1$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(x_1+x_2)^2=4$",
+            "en": "$(x_1+x_2)^2=4$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La somme s’annule, mais chaque carré vaut $1$.",
+            "en": "This proposal does not fit. The sum vanishes, but each square is $1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(x_1+x_2)^2=0<2=x_1^2+x_2^2$",
+            "en": "$(x_1+x_2)^2=0<2=x_1^2+x_2^2$"
+          },
+          "feedback": {
+            "fr": "La somme s’annule, mais chaque carré vaut $1$.",
+            "en": "The sum vanishes, but each square is $1$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La somme s’annule, mais chaque carré vaut $1$.",
+        "en": "The sum vanishes, but each square is $1$."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E12",
+      "objectiveId": "L26-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "weighted-mean"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un groupe de deux personnes a une moyenne $10$, un groupe de huit une moyenne $20$. Quelle est la moyenne globale ?",
+        "en": "A group of two people has mean $10$; a group of eight has mean $20$. What is the overall mean ?"
+      },
+      "hint": {
+        "fr": "Divisez par le nombre de données, pas par le nombre de groupes.",
+        "en": "Divide by the data count, not the group count."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$30$",
+            "en": "$30$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Pondérer par les effectifs : $(2\\cdot10+8\\cdot20)/10=18$.",
+            "en": "This proposal does not fit. Weight by counts: $(2\\cdot10+8\\cdot20)/10=18$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$18$",
+            "en": "$18$"
+          },
+          "feedback": {
+            "fr": "Pondérer par les effectifs : $(2\\cdot10+8\\cdot20)/10=18$.",
+            "en": "Weight by counts: $(2\\cdot10+8\\cdot20)/10=18$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$15$",
+            "en": "$15$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Pondérer par les effectifs : $(2\\cdot10+8\\cdot20)/10=18$.",
+            "en": "This proposal does not fit. Weight by counts: $(2\\cdot10+8\\cdot20)/10=18$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Pondérer par les effectifs : $(2\\cdot10+8\\cdot20)/10=18$.",
+        "en": "Weight by counts: $(2\\cdot10+8\\cdot20)/10=18$."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E13",
+      "objectiveId": "L26-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "centred-deviations"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $n\\ge1$ données réelles, $\\sum_i(x_i-c)=0$. Que vaut $c$ ?",
+        "en": "For $n\\ge1$ real observations, $\\sum_i(x_i-c)=0$. What is $c$ ?"
+      },
+      "hint": {
+        "fr": "Retirez la même moyenne à chaque donnée.",
+        "en": "Subtract the same mean from every observation."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\bar x$",
+            "en": "$\\bar x$"
+          },
+          "feedback": {
+            "fr": "Développer donne $n\\bar x-nc=0$, puis diviser par $n>0$.",
+            "en": "Expanding gives $n\\bar x-nc=0$, then divide by $n>0$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Développer donne $n\\bar x-nc=0$, puis diviser par $n>0$.",
+            "en": "This proposal does not fit. Expanding gives $n\\bar x-nc=0$, then divide by $n>0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$n\\bar x$",
+            "en": "$n\\bar x$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Développer donne $n\\bar x-nc=0$, puis diviser par $n>0$.",
+            "en": "This proposal does not fit. Expanding gives $n\\bar x-nc=0$, then divide by $n>0$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Développer donne $n\\bar x-nc=0$, puis diviser par $n>0$.",
+        "en": "Expanding gives $n\\bar x-nc=0$, then divide by $n>0$."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E14",
+      "objectiveId": "L26-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "off-by-one-in-range"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour un entier $n\\ge1$, combien de fois la constante $c$ figure-t-elle dans $\\sum_{i=0}^n c$ ?",
+        "en": "For an integer $n\\ge1$, how many times does constant $c$ occur in $\\sum_{i=0}^n c$ ?"
+      },
+      "hint": {
+        "fr": "Les deux bornes sont incluses.",
+        "en": "Both endpoints are included."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$n$",
+            "en": "$n$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les indices vont de zéro à $n$, bornes incluses.",
+            "en": "This proposal does not fit. Indices run from zero to $n$, both endpoints included."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$n-1$",
+            "en": "$n-1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les indices vont de zéro à $n$, bornes incluses.",
+            "en": "This proposal does not fit. Indices run from zero to $n$, both endpoints included."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$n+1$",
+            "en": "$n+1$"
+          },
+          "feedback": {
+            "fr": "Les indices vont de zéro à $n$, bornes incluses.",
+            "en": "Indices run from zero to $n$, both endpoints included."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Les indices vont de zéro à $n$, bornes incluses.",
+        "en": "Indices run from zero to $n$, both endpoints included."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L26-E15",
+      "objectiveId": "L26-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "squared-sum-confusion"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une liste réelle non vide est remplacée par $z_i=2x_i+3$. Quelle est sa nouvelle moyenne ?",
+        "en": "A nonempty real list is replaced by $z_i=2x_i+3$. What is its new mean ?"
+      },
+      "hint": {
+        "fr": "Développez la somme des z_i : combien de fois la constante 3 apparaît-elle avant la division par n ?",
+        "en": "Expand the sum of z_i: how many times does constant 3 occur before division by n?"
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$2(\\bar x+3)$",
+            "en": "$2(\\bar x+3)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La linéarité donne $(2\\sum_i x_i+3n)/n=2\\bar x+3$.",
+            "en": "This proposal does not fit. Linearity gives $(2\\sum_i x_i+3n)/n=2\\bar x+3$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2\\bar x+3$",
+            "en": "$2\\bar x+3$"
+          },
+          "feedback": {
+            "fr": "La linéarité donne $(2\\sum_i x_i+3n)/n=2\\bar x+3$.",
+            "en": "Linearity gives $(2\\sum_i x_i+3n)/n=2\\bar x+3$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2\\bar x+3n$",
+            "en": "$2\\bar x+3n$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La linéarité donne $(2\\sum_i x_i+3n)/n=2\\bar x+3$.",
+            "en": "This proposal does not fit. Linearity gives $(2\\sum_i x_i+3n)/n=2\\bar x+3$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La linéarité donne $(2\\sum_i x_i+3n)/n=2\\bar x+3$.",
+        "en": "Linearity gives $(2\\sum_i x_i+3n)/n=2\\bar x+3$."
+      },
+      "lessonId": "L26",
+      "version": 2,
+      "prerequisites": [
+        "L21",
+        "L23"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          25,
+          26
+        ],
+        "referenceBasis": "Source-taught concepts; original project questions and worked solutions, not copied slide exercises."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

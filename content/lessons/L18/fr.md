@@ -1,7 +1,7 @@
 ---
 lessonId: L18
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "SQL comme compréhension : EXISTS et NOT EXISTS"
 summary: "Lire une requête SELECT comme un ensemble défini par compréhension, associer AND, OR, NOT à ∧, ∨, ¬, et associer EXISTS et NOT EXISTS à ∃ et ¬∃."
@@ -21,8 +21,6 @@ sourcePages: [82, 83, 84, 85, 86, 87, 88, 89]
 ## Lire le code avant de l’exécuter
 
 `SELECT` choisit les colonnes affichées, `FROM` donne la table et `WHERE` filtre ses lignes. `e` et `s` sont des noms courts pour une ligne ; le point dans `e.course` donne accès à son champ course. Les guillemets de `'art'` désignent du texte. Dans une sous-requête, `SELECT *` sélectionne toutes les colonnes ; `EXISTS` vérifie seulement s’il reste au moins une ligne.
-
-Pour analyser la sous-requête de l’exemple, fixez d’abord `s` à lia : une ligne en art existe, donc `NOT EXISTS` est faux et lia est écartée. Pour max, aucune ligne en art ne reste : max est gardé. Ce filtre ressemble à la compréhension de L13 : parcourir un ensemble donné et garder les éléments qui passent le test. « Pas inscrit en art » permet pourtant d’être inscrit en bio ; ce n’est pas « inscrit à aucun cours ».
 
 ## La base de données jouet
 
@@ -55,6 +53,8 @@ WHERE NOT EXISTS (SELECT * FROM Enrolled e
                   WHERE e.student = s.id AND e.course = 'art');
 ```
 
+Pour analyser la sous-requête de l’exemple, fixez d’abord `s` à lia : une ligne en art existe, donc `NOT EXISTS` est faux et lia est écartée. Pour max, aucune ligne en art ne reste : max est gardé. Ce filtre ressemble à la compréhension de L13 : parcourir un ensemble donné et garder les éléments qui passent le test. « Pas inscrit en art » permet pourtant d’être inscrit en bio ; ce n’est pas « inscrit à aucun cours ».
+
 1. Pour chaque étudiant `s`, la sous-requête cherche une inscription de `s` en art.
 2. `NOT EXISTS` garde les étudiants pour lesquels il n’y en a pas.
 3. Seule lia est inscrite en art : le résultat est $\{x \in E \mid \neg I(x, \text{art})\} = \{\text{max}, \text{noa}\}$.
@@ -69,13 +69,36 @@ $$
 $$
 Pour exprimer « tous… », écrivez `NOT EXISTS` d’un contre-exemple.
 
+### Exemple résolu : chaque étudiant a un cours
+
+Cherchons d’abord un étudiant **sans** inscription. `s` parcourt `Student` ; pour ce `s`, `e` parcourt `Enrolled`. Le test intérieur cherche une inscription du même étudiant ; sa négation repère un contre-exemple. Le `NOT EXISTS` extérieur dit qu’il n’y en a aucun.
+
+```sql
+SELECT NOT EXISTS (
+  SELECT * FROM Student s
+  WHERE NOT EXISTS (
+    SELECT * FROM Enrolled e WHERE e.student = s.id
+  )
+) AS every_student_has_course;
+```
+
+`AS every_student_has_course` nomme l’unique colonne booléenne du résultat.
+
+| s.id | Une inscription existe ? | Contre-exemple : aucune inscription ? |
+| --- | --- | --- |
+| lia | oui, art | non |
+| max | oui, bio | non |
+| noa | oui, bio | non |
+
+Il n’existe aucun contre-exemple : la requête produit une ligne dont le booléen vaut `TRUE`. Si on retire l’inscription de noa tout en gardant noa dans `Student`, la troisième ligne devient un contre-exemple et le résultat vaut `FALSE`. Si `Student` est vide, aucun étudiant ne contredit la règle : le résultat vaut `TRUE`. Cette vacuité ne crée pas un étudiant ; elle vérifie une affirmation universelle sur un domaine vide. On conserve le modèle sans doublons ni valeurs manquantes.
+
 ## Piège : lire la requête, pas les données
 
 Le résultat d’une requête dépend des tables. La même requête sur d’autres lignes donne un autre ensemble : évaluez donc toujours sur les données fournies.
 
 ## Pratique indépendante
 
-Les six exercices pilotes portent sur la lecture d’une requête, le prédicat, les connecteurs, `EXISTS`, une requête `NOT EXISTS` et le remplacement de $\forall$.
+Les exercices sélectionnés portent sur la lecture d’une requête, le prédicat, les connecteurs, `EXISTS`, une requête `NOT EXISTS` et le remplacement de $\forall$.
 
 La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 

@@ -1,0 +1,1268 @@
+{
+  "lessonId": "L32",
+  "version": 3,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L32-E01",
+      "objectiveId": "L32-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "screen-y-down"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sur l’écran décrit, augmenter $v$ déplace un point dans quel sens ?",
+        "en": "On the described screen, increasing $v$ moves a point in which direction ?"
+      },
+      "hint": {
+        "fr": "L’ordonnée écran augmente vers le bas.",
+        "en": "Screen vertical coordinate increases downward."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Vers le bas.",
+            "en": "Downward."
+          },
+          "feedback": {
+            "fr": "L’origine écran est en haut à gauche et l’axe vertical descend.",
+            "en": "The screen origin is at the top left and its vertical axis points down."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Vers le haut.",
+            "en": "Upward."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’origine écran est en haut à gauche et l’axe vertical descend.",
+            "en": "This proposal does not fit. The screen origin is at the top left and its vertical axis points down."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Vers la gauche.",
+            "en": "Leftward."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’origine écran est en haut à gauche et l’axe vertical descend.",
+            "en": "This proposal does not fit. The screen origin is at the top left and its vertical axis points down."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "L’origine écran est en haut à gauche et l’axe vertical descend.",
+        "en": "The screen origin is at the top left and its vertical axis points down."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E02",
+      "objectiveId": "L32-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "screen-transform"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $u=100+20x$, calculer $u$ pour $x=3$.",
+        "en": "With $u=100+20x$, calculate $u$ for $x=3$."
+      },
+      "hint": {
+        "fr": "Appliquez chaque formule à la coordonnée correspondante.",
+        "en": "Apply each formula to its corresponding coordinate."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$120$",
+            "en": "$120$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Ajouter la translation après la mise à l’échelle.",
+            "en": "This proposal does not fit. Add translation after scaling."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$60$",
+            "en": "$60$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Ajouter la translation après la mise à l’échelle.",
+            "en": "This proposal does not fit. Add translation after scaling."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$160$",
+            "en": "$160$"
+          },
+          "feedback": {
+            "fr": "Ajouter la translation après la mise à l’échelle.",
+            "en": "Add translation after scaling."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Ajouter la translation après la mise à l’échelle.",
+        "en": "Add translation after scaling."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E03",
+      "objectiveId": "L32-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "screen-transform"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $v=200-30y$, calculer $v$ pour $y=2$.",
+        "en": "With $v=200-30y$, calculate $v$ for $y=2$."
+      },
+      "hint": {
+        "fr": "Appliquez chaque formule à la coordonnée correspondante.",
+        "en": "Apply each formula to its corresponding coordinate."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$60$",
+            "en": "$60$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une ordonnée positive diminue la coordonnée écran.",
+            "en": "This proposal does not fit. A positive mathematical vertical coordinate decreases the screen coordinate."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$140$",
+            "en": "$140$"
+          },
+          "feedback": {
+            "fr": "Une ordonnée positive diminue la coordonnée écran.",
+            "en": "A positive mathematical vertical coordinate decreases the screen coordinate."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$260$",
+            "en": "$260$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une ordonnée positive diminue la coordonnée écran.",
+            "en": "This proposal does not fit. A positive mathematical vertical coordinate decreases the screen coordinate."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Une ordonnée positive diminue la coordonnée écran.",
+        "en": "A positive mathematical vertical coordinate decreases the screen coordinate."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E04",
+      "objectiveId": "L32-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "inverse-transform"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $u=100+20x$, quelle abscisse correspond à $u=180$ ?",
+        "en": "With $u=100+20x$, which horizontal coordinate corresponds to $u=180$ ?"
+      },
+      "hint": {
+        "fr": "Retirez la translation avant de diviser par l’échelle.",
+        "en": "Remove translation before dividing by scale."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Calculer $(180-100)/20$.",
+            "en": "Calculate $(180-100)/20$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$9$",
+            "en": "$9$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Calculer $(180-100)/20$.",
+            "en": "This proposal does not fit. Calculate $(180-100)/20$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$80$",
+            "en": "$80$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Calculer $(180-100)/20$.",
+            "en": "This proposal does not fit. Calculate $(180-100)/20$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Calculer $(180-100)/20$.",
+        "en": "Calculate $(180-100)/20$."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E05",
+      "objectiveId": "L32-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "screen-y-down"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Où l’origine mathématique est-elle envoyée par $u=300+40x$, $v=200-40y$ ?",
+        "en": "Where is the mathematical origin sent by $u=300+40x$, $v=200-40y$ ?"
+      },
+      "hint": {
+        "fr": "L’origine mathématique a x=0 et y=0 : remplacez-les dans les deux formules.",
+        "en": "The mathematical origin has x=0 and y=0: substitute these in both formulas."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(0,0)$",
+            "en": "$(0,0)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Substituer les deux coordonnées nulles.",
+            "en": "This proposal does not fit. Substitute both zero coordinates."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(40,-40)$",
+            "en": "$(40,-40)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Substituer les deux coordonnées nulles.",
+            "en": "This proposal does not fit. Substitute both zero coordinates."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(300,200)$",
+            "en": "$(300,200)$"
+          },
+          "feedback": {
+            "fr": "Substituer les deux coordonnées nulles.",
+            "en": "Substitute both zero coordinates."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Substituer les deux coordonnées nulles.",
+        "en": "Substitute both zero coordinates."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E06",
+      "objectiveId": "L32-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "screen-transform"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $u=300+40x$, $v=200-40y$, transformer $(-2,3)$.",
+        "en": "With $u=300+40x$, $v=200-40y$, transform $(-2,3)$."
+      },
+      "hint": {
+        "fr": "Appliquez chaque formule à la coordonnée correspondante.",
+        "en": "Apply each formula to its corresponding coordinate."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(220,320)$",
+            "en": "$(220,320)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Calculer séparément $300-80$ et $200-120$.",
+            "en": "This proposal does not fit. Calculate $300-80$ and $200-120$ separately."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(220,80)$",
+            "en": "$(220,80)$"
+          },
+          "feedback": {
+            "fr": "Calculer séparément $300-80$ et $200-120$.",
+            "en": "Calculate $300-80$ and $200-120$ separately."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(380,320)$",
+            "en": "$(380,320)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Calculer séparément $300-80$ et $200-120$.",
+            "en": "This proposal does not fit. Calculate $300-80$ and $200-120$ separately."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Calculer séparément $300-80$ et $200-120$.",
+        "en": "Calculate $300-80$ and $200-120$ separately."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E07",
+      "objectiveId": "L32-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "inverse-transform"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $u=300+40x$, $v=200-40y$, inverser $(380,240)$.",
+        "en": "With $u=300+40x$, $v=200-40y$, invert $(380,240)$."
+      },
+      "hint": {
+        "fr": "Retirez la translation avant de diviser par l’échelle.",
+        "en": "Remove translation before dividing by scale."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(2,-1)$",
+            "en": "$(2,-1)$"
+          },
+          "feedback": {
+            "fr": "Retirer les origines et tenir compte du signe vertical.",
+            "en": "Remove the origins and account for the vertical sign."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(2,1)$",
+            "en": "$(2,1)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Retirer les origines et tenir compte du signe vertical.",
+            "en": "This proposal does not fit. Remove the origins and account for the vertical sign."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(9,6)$",
+            "en": "$(9,6)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Retirer les origines et tenir compte du signe vertical.",
+            "en": "This proposal does not fit. Remove the origins and account for the vertical sign."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Retirer les origines et tenir compte du signe vertical.",
+        "en": "Remove the origins and account for the vertical sign."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E08",
+      "objectiveId": "L32-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "screen-slope"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $s_x=20$ et $s_y=40$, quelle pente écran correspond à une pente mathématique $3$ ?",
+        "en": "With $s_x=20$ and $s_y=40$, what screen slope corresponds to mathematical slope $3$ ?"
+      },
+      "hint": {
+        "fr": "Les translations disparaissent dans les différences.",
+        "en": "Translations disappear in differences."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Utiliser $-(s_y/s_x)m$.",
+            "en": "This proposal does not fit. Use $-(s_y/s_x)m$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\frac{-3}{2}$",
+            "en": "$\\frac{-3}{2}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Utiliser $-(s_y/s_x)m$.",
+            "en": "This proposal does not fit. Use $-(s_y/s_x)m$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$-6$",
+            "en": "$-6$"
+          },
+          "feedback": {
+            "fr": "Utiliser $-(s_y/s_x)m$.",
+            "en": "Use $-(s_y/s_x)m$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Utiliser $-(s_y/s_x)m$.",
+        "en": "Use $-(s_y/s_x)m$."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E09",
+      "objectiveId": "L32-O05",
+      "difficulty": "medium",
+      "misconceptions": [
+        "viewport-scale"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "On veut envoyer $x=-5$ sur $u=0$ et $x=5$ sur $u=400$. Quelle échelle positive en pixels par unité faut-il ?",
+        "en": "We want to send $x=-5$ to $u=0$ and $x=5$ to $u=400$. What positive scale in pixels per unit is required ?"
+      },
+      "hint": {
+        "fr": "Utilisez la largeur disponible et l’intervalle demandé.",
+        "en": "Use available width and the requested interval."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$400$",
+            "en": "$400$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une largeur de $400$ couvre $10$ unités.",
+            "en": "This proposal does not fit. A width of $400$ covers $10$ units."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$40$",
+            "en": "$40$"
+          },
+          "feedback": {
+            "fr": "Une largeur de $400$ couvre $10$ unités.",
+            "en": "A width of $400$ covers $10$ units."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$80$",
+            "en": "$80$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Une largeur de $400$ couvre $10$ unités.",
+            "en": "This proposal does not fit. A width of $400$ covers $10$ units."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Une largeur de $400$ couvre $10$ unités.",
+        "en": "A width of $400$ covers $10$ units."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E10",
+      "objectiveId": "L32-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "pixel-rounding"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour une image de largeur $640$, quel indice horizontal entier est valide ?",
+        "en": "For an image of width $640$, which integer horizontal index is valid ?"
+      },
+      "hint": {
+        "fr": "Séparez coordonnées continues, arrondi et limites de l’image.",
+        "en": "Separate continuous coordinates, rounding and image bounds."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$639$",
+            "en": "$639$"
+          },
+          "feedback": {
+            "fr": "Les indices vont de zéro à largeur moins un.",
+            "en": "Indices run from zero to width minus one."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$640$",
+            "en": "$640$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les indices vont de zéro à largeur moins un.",
+            "en": "This proposal does not fit. Indices run from zero to width minus one."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$-1$",
+            "en": "$-1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les indices vont de zéro à largeur moins un.",
+            "en": "This proposal does not fit. Indices run from zero to width minus one."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Les indices vont de zéro à largeur moins un.",
+        "en": "Indices run from zero to width minus one."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E11",
+      "objectiveId": "L32-O04",
+      "difficulty": "hard",
+      "misconceptions": [
+        "screen-slope"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Sous $u=300+40x$, $v=200-40y$, quelle équation écran correspond à $y=2x+1$ ?",
+        "en": "Under $u=300+40x$, $v=200-40y$, which screen equation corresponds to $y=2x+1$ ?"
+      },
+      "hint": {
+        "fr": "Les translations disparaissent dans les différences.",
+        "en": "Translations disappear in differences."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$v=160+2u$",
+            "en": "$v=160+2u$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Substituer $x=(u-300)/40$, puis développer.",
+            "en": "This proposal does not fit. Substitute $x=(u-300)/40$, then expand."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$v=200-2u$",
+            "en": "$v=200-2u$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Substituer $x=(u-300)/40$, puis développer.",
+            "en": "This proposal does not fit. Substitute $x=(u-300)/40$, then expand."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$v=760-2u$",
+            "en": "$v=760-2u$"
+          },
+          "feedback": {
+            "fr": "Substituer $x=(u-300)/40$, puis développer.",
+            "en": "Substitute $x=(u-300)/40$, then expand."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Substituer $x=(u-300)/40$, puis développer.",
+        "en": "Substitute $x=(u-300)/40$, then expand."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E12",
+      "objectiveId": "L32-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "pixel-rounding"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Après arrondi au pixel le plus proche, peut-on retrouver exactement tout point réel initial ?",
+        "en": "After rounding to the nearest pixel, can every original real point be recovered exactly ?"
+      },
+      "hint": {
+        "fr": "Séparez coordonnées continues, arrondi et limites de l’image.",
+        "en": "Separate continuous coordinates, rounding and image bounds."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui, si l’échelle est positive.",
+            "en": "Yes, if the scale is positive."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’arrondi fusionne des coordonnées continues distinctes.",
+            "en": "This proposal does not fit. Rounding merges distinct continuous coordinates."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non, plusieurs points peuvent partager le même pixel.",
+            "en": "No, several points may share the same pixel."
+          },
+          "feedback": {
+            "fr": "L’arrondi fusionne des coordonnées continues distinctes.",
+            "en": "Rounding merges distinct continuous coordinates."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Oui, l’arrondi est une bijection.",
+            "en": "Yes, rounding is a bijection."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’arrondi fusionne des coordonnées continues distinctes.",
+            "en": "This proposal does not fit. Rounding merges distinct continuous coordinates."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "L’arrondi fusionne des coordonnées continues distinctes.",
+        "en": "Rounding merges distinct continuous coordinates."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E13",
+      "objectiveId": "L32-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "viewport-scale"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour préserver les distances à un facteur commun près, quelle condition sur les échelles positives faut-il ?",
+        "en": "To preserve distances up to a common factor, what condition on positive scales is required ?"
+      },
+      "hint": {
+        "fr": "Comparez l’effet des deux échelles sur des déplacements unitaires horizontaux et verticaux.",
+        "en": "Compare the effect of the two scales on horizontal and vertical unit displacements."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$s_x=s_y$",
+            "en": "$s_x=s_y$"
+          },
+          "feedback": {
+            "fr": "Un segment horizontal et un segment vertical de même longueur doivent garder la même longueur écran.",
+            "en": "Equal-length horizontal and vertical segments must retain equal screen lengths."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$s_x=2s_y$",
+            "en": "$s_x=2s_y$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Un segment horizontal et un segment vertical de même longueur doivent garder la même longueur écran.",
+            "en": "This proposal does not fit. Equal-length horizontal and vertical segments must retain equal screen lengths."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$s_x+s_y=1$",
+            "en": "$s_x+s_y=1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Un segment horizontal et un segment vertical de même longueur doivent garder la même longueur écran.",
+            "en": "This proposal does not fit. Equal-length horizontal and vertical segments must retain equal screen lengths."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Un segment horizontal et un segment vertical de même longueur doivent garder la même longueur écran.",
+        "en": "Equal-length horizontal and vertical segments must retain equal screen lengths."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E14",
+      "objectiveId": "L32-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "pixel-rounding"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "L’échelle vaut $50$ pixels par unité. Quelle erreur maximale par coordonnée mathématique entraîne l’arrondi au pixel le plus proche ?",
+        "en": "Scale is $50$ pixels per unit. What maximum error per mathematical coordinate results from rounding to nearest pixel ?"
+      },
+      "hint": {
+        "fr": "Séparez coordonnées continues, arrondi et limites de l’image.",
+        "en": "Separate continuous coordinates, rounding and image bounds."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\frac{1}{50}$",
+            "en": "$\\frac{1}{50}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Un demi-pixel correspond à $(1/2)/50=1/100$ unité.",
+            "en": "This proposal does not fit. Half a pixel corresponds to $(1/2)/50=1/100$ unit."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\frac{1}{2}$",
+            "en": "$\\frac{1}{2}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Un demi-pixel correspond à $(1/2)/50=1/100$ unité.",
+            "en": "This proposal does not fit. Half a pixel corresponds to $(1/2)/50=1/100$ unit."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\frac{1}{100}$",
+            "en": "$\\frac{1}{100}$"
+          },
+          "feedback": {
+            "fr": "Un demi-pixel correspond à $(1/2)/50=1/100$ unité.",
+            "en": "Half a pixel corresponds to $(1/2)/50=1/100$ unit."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Un demi-pixel correspond à $(1/2)/50=1/100$ unité.",
+        "en": "Half a pixel corresponds to $(1/2)/50=1/100$ unit."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L32-E15",
+      "objectiveId": "L32-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "inverse-transform"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pourquoi les échelles nulles empêchent-elles l’inversion de la transformation continue ?",
+        "en": "Why do zero scales prevent inversion of the continuous transformation ?"
+      },
+      "hint": {
+        "fr": "Retirez la translation avant de diviser par l’échelle.",
+        "en": "Remove translation before dividing by scale."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "L’écran change nécessairement de taille.",
+            "en": "The screen must then change size."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Si $s_x=0$, toutes les abscisses donnent la même coordonnée écran.",
+            "en": "This proposal does not fit. If $s_x=0$, every horizontal coordinate gives the same screen coordinate."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Une coordonnée entière du plan est alors perdue.",
+            "en": "An entire coordinate of the plane is then lost."
+          },
+          "feedback": {
+            "fr": "Si $s_x=0$, toutes les abscisses donnent la même coordonnée écran.",
+            "en": "If $s_x=0$, every horizontal coordinate gives the same screen coordinate."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "La translation devient nécessairement nulle.",
+            "en": "Translation must then be zero."
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Si $s_x=0$, toutes les abscisses donnent la même coordonnée écran.",
+            "en": "This proposal does not fit. If $s_x=0$, every horizontal coordinate gives the same screen coordinate."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Si $s_x=0$, toutes les abscisses donnent la même coordonnée écran.",
+        "en": "If $s_x=0$, every horizontal coordinate gives the same screen coordinate."
+      },
+      "lessonId": "L32",
+      "version": 3,
+      "prerequisites": [
+        "L25",
+        "L27",
+        "L29"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Bruno Teheux, Mathématiques Générales — Droites, BINFO-FCE 2026–2027",
+        "coveragePages": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "referenceBasis": "Revised 92-page PDF (20 October 2026); original project questions. Triangle filling, regression proof, Python and Pearson correlation are explicitly labelled project supplements in the reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

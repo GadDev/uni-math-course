@@ -1,13 +1,13 @@
 ---
 lessonId: L20
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Contrôle d’accès et piège du « seuls »"
 summary: "Traduire des règles de contrôle d’accès avec ∀, ∃ et ⇒, éviter l’inversion cachée dans « seuls », et nier des assertions imbriquées."
 minutes: 18
 objectives: [L20-O01, L20-O02, L20-O03, L20-O04, L20-O05, L20-O06]
-prerequisites: [L05, L16]
+prerequisites: [L05, L16, L17]
 sourcePages: [95, 96]
 ---
 # Contrôle d’accès et piège du « seuls »
@@ -16,7 +16,9 @@ sourcePages: [95, 96]
 
 À la fin de cette leçon, vous savez traduire « seuls les responsables peuvent approuver une demande » en formule, expliquer que la règle impose une condition nécessaire sans garantir qu’elle soit suffisante, et nier des assertions quantifiées imbriquées.
 
-**Prérequis :** L05 (implication) et L16 (quantificateurs bornés).
+**Prérequis :** L05 (implication), L16 (quantificateurs bornés) et L17 (ordre des quantificateurs).
+
+**Appui de lecture :** [L17](../L17/) compare l’ordre des quantificateurs. « Pour chaque utilisateur, il existe une demande » permet une demande différente par utilisateur ; « il existe une demande pour tous » exige la même demande. Pour les ensembles non vides du modèle ci-dessous, avant de lire la correction, expliquez laquelle des deux contraintes est la plus forte. La seconde implique la première ; la réciproque n’est pas garantie.
 
 ## Un petit modèle
 
@@ -55,7 +57,7 @@ Pour nier la première traduction, niez d’abord le « pour tout utilisateur »
 
 ## Pratique indépendante
 
-Les six exercices pilotes portent sur la traduction de « seuls », nécessaire contre suffisant, une évaluation, et deux traductions avec une négation.
+Les exercices sélectionnés portent sur la traduction de « seuls », nécessaire contre suffisant, une évaluation, et deux traductions avec une négation.
 
 La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 

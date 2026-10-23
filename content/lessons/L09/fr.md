@@ -1,7 +1,7 @@
 ---
 lessonId: L09
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Ensembles naïfs et paradoxe de Russell"
 summary: "Comprendre pourquoi « toute collection » est une notion d’ensemble trop naïve, suivre l’argument de Russell, et nommer les types d’ensembles admis dans le cours."
@@ -21,8 +21,6 @@ sourcePages: [37, 38, 39, 40]
 ## Un exemple concret avant de généraliser
 
 Dans $S = \{2,4\}$, $2 \in S$ dit que deux est l’un des objets listés. $\{2\} \subseteq S$ dit que tous les objets de ce petit ensemble sont dans $S$. Les deux symboles ne posent pas la même question. La négation $\neg$ signifie NON, comme en L02.
-
-Dans la notation de compréhension présentée plus haut, $X$ est un ensemble déjà connu et $P(a)$ est un test qui garde ou rejette chaque élément. L10 à L13 développent ces outils. L’argument de Russell est un approfondissement : retenez d’abord pourquoi on ne fabrique pas un ensemble à partir de n’importe quelle description.
 
 ## Les ensembles comme collections
 
@@ -60,9 +58,11 @@ Pour éviter les paradoxes, le cours n’accepte que certaines collections comme
 
 La compréhension puise ses éléments dans un ensemble déjà donné, comme dans $\{a \in X \mid P(a)\}$ (L13). La collection $E$ ne puise dans aucun ensemble donné : elle n’est donc pas acceptée. C’est la restriction de travail du cours ; les axiomes complets de la théorie des ensembles dépassent ce cours.
 
+Dans la notation de compréhension de cette section, $X$ est un ensemble déjà connu et $P(a)$ est un test qui garde ou rejette chaque élément. L10 à L13 développent ces outils. L’argument de Russell est un approfondissement : retenez d’abord pourquoi on ne fabrique pas un ensemble à partir de n’importe quelle description.
+
 ## Pratique indépendante
 
-Les six exercices pilotes portent sur la notion informelle d’ensemble, pourquoi elle est naïve, la collection de Russell, la contradiction, les types d’ensembles admis et pourquoi la compréhension sur un ensemble donné est plus sûre.
+Les exercices sélectionnés portent sur la notion informelle d’ensemble, pourquoi elle est naïve, la collection de Russell, la contradiction, les types d’ensembles admis et pourquoi la compréhension sur un ensemble donné est plus sûre.
 
 La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 

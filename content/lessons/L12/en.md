@@ -1,7 +1,7 @@
 ---
 lessonId: L12
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Negating quantified statements"
 summary: "Negate ∀ and ∃ correctly, state negations in everyday language, and use counterexamples and witnesses."
@@ -60,7 +60,7 @@ If $X$ is empty, “every element satisfies P” is true because no counterexamp
 
 ## Independent practice
 
-The six pilot exercises cover the two laws, everyday negations and a counterexample, and the numerical negation on $\mathbb{N}$.
+The selected exercises cover the two laws, everyday negations and a counterexample, and the numerical negation on $\mathbb{N}$.
 
 Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 

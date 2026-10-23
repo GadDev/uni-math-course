@@ -1,7 +1,7 @@
 ---
 lessonId: L09
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Sets and Russell’s paradox"
 summary: "See why “any collection” is too naive a notion of set, follow Russell’s argument, and name the kinds of sets the course allows."
@@ -21,8 +21,6 @@ By the end of this lesson, you can say what an informal set is, explain why “a
 ## A concrete example before generalising
 
 In $S = \{2,4\}$, $2 \in S$ says that two is one of the listed objects. $\{2\} \subseteq S$ says that all objects of this small set belong to $S$. The two symbols ask different questions. Negation $\neg$ means NOT, as in L02.
-
-In the comprehension notation shown above, $X$ is an already known set and $P(a)$ is a test that keeps or rejects each element. L10 to L13 develop these tools. Russell’s argument is a deeper exploration: first remember why an arbitrary description cannot always create a set.
 
 ## Sets as collections
 
@@ -60,9 +58,11 @@ To avoid paradoxes, the course accepts only certain collections as sets:
 
 Comprehension draws its elements from a set that is already given, as in $\{a \in X \mid P(a)\}$ (L13). The collection $E$ draws from no given set, so it is not accepted. This is the course’s working restriction; the full axioms of set theory are beyond this course.
 
+In the comprehension notation in this section, $X$ is an already known set and $P(a)$ is a test that keeps or rejects each element. L10 to L13 develop these tools. Russell’s argument is a deeper exploration: first remember why an arbitrary description cannot always create a set.
+
 ## Independent practice
 
-The six pilot exercises cover the informal notion of set, why it is naive, Russell’s collection, the contradiction, the accepted kinds of sets and why comprehension over a given set is safer.
+The selected exercises cover the informal notion of set, why it is naive, Russell’s collection, the contradiction, the accepted kinds of sets and why comprehension over a given set is safer.
 
 Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 

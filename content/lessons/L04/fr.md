@@ -1,7 +1,7 @@
 ---
 lessonId: L04
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Équivalence sémantique et lois booléennes"
 summary: "Vérifier que deux formules ont la même table de vérité, appliquer les lois booléennes, reconnaître les tautologies et les contradictions, et réfuter une équivalence par une seule ligne."
@@ -28,24 +28,16 @@ $\equiv$ est une affirmation sur deux formules, et non un opérateur à l’int�
 
 Ne le confondez pas avec $\Leftrightarrow$, la biconditionnelle étudiée dans la leçon L07. La formule $A \Leftrightarrow B$ est une assertion construite à partir de $A$ et $B$ ; l’énoncé $A \equiv B$ compare deux formules.
 
-## Exemple guidé : vérifier une loi de distributivité
+## Premier exemple : deux négations
 
-Vérifions que $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$. Calculez les deux membres sur les huit affectations.
+Avant de comparer huit lignes, essayez une seule variable. NOT inverse la valeur ; une seconde négation la rétablit.
 
-| A | B | C | A ∨ (B ∧ C) | (A ∨ B) ∧ (A ∨ C) |
-| --- | --- | --- | --- | --- |
-| 0 | 0 | 0 | 0 | 0 |
-| 0 | 0 | 1 | 0 | 0 |
-| 0 | 1 | 0 | 0 | 0 |
-| 0 | 1 | 1 | 1 | 1 |
-| 1 | 0 | 0 | 1 | 1 |
-| 1 | 0 | 1 | 1 | 1 |
-| 1 | 1 | 0 | 1 | 1 |
-| 1 | 1 | 1 | 1 | 1 |
+| A | ¬A | ¬¬A |
+| --- | --- | --- |
+| 0 | 1 | 0 |
+| 1 | 0 | 1 |
 
-Les deux colonnes coïncident sur chaque ligne : l’équivalence est donc vraie. Cette vérification utilise des tables de vérité ; dériver la loi à partir des autres est une méthode différente, qui n’est pas demandée ici.
-
-Ce travail guidé, dont la solution est visible, n’est pas une réponse indépendante pour mesurer la maîtrise.
+Les première et dernière colonnes coïncident sur toutes les lignes : $\neg\neg A\equiv A$. Vérifiez chaque étape avant de lire les lois suivantes.
 
 ## Algèbre de Boole : réécrire sans changer le sens
 
@@ -66,6 +58,10 @@ $A \lor (B \lor C) \equiv (A \lor B) \lor C$ et $A \land (B \land C) \equiv (A \
 Avec seulement des OU, les deux écritures demandent au moins une partie vraie ; avec seulement des ET, elles demandent les trois parties vraies. Les parenthèses changent l’ordre du calcul, pas le résultat.
 
 Cette règle ne permet pas de déplacer librement des parenthèses dans une formule mixte. Avec $A = 0$, $B = 1$, $C = 1$, $A \land (B \lor C)$ vaut $0$, mais $(A \land B) \lor C$ vaut $1$.
+
+### Pause : deux lois, deux vérifications
+
+Avec $A=1$ et $B=0$, comparez $A\lor B$ et $B\lor A$ : les deux valent $1$. Puis, avec $A=0$, $B=1$, $C=1$, comparez $A\land(B\lor C)$ et $(A\land B)\lor C$ : $0$ contre $1$. La commutativité permet un échange ; l’associativité ne permet pas de mélanger les connecteurs. Une ligne suffit pour réfuter, mais pas pour prouver une loi.
 
 ### Distributivité : développer et factoriser
 
@@ -129,6 +125,25 @@ Partons de $\neg(\neg A \lor B)$. De Morgan donne $\neg\neg A \land \neg B$. La 
 
 Corrections : $A \land B$ (commutativité) ; $C \land (A \lor B)$ (distributivité en sens inverse) ; $\neg A \land B$ (de Morgan puis double négation). Ce sont des essais guidés avec solutions visibles ; les exercices suivants permettent de réessayer avec d’autres formules.
 
+## Exemple guidé : vérifier une loi de distributivité
+
+Vérifions que $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$. Calculez les deux membres sur les huit affectations.
+
+| A | B | C | A ∨ (B ∧ C) | (A ∨ B) ∧ (A ∨ C) |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 0 |
+| 0 | 1 | 0 | 0 | 0 |
+| 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 |
+| 1 | 0 | 1 | 1 | 1 |
+| 1 | 1 | 0 | 1 | 1 |
+| 1 | 1 | 1 | 1 | 1 |
+
+Les deux colonnes coïncident sur chaque ligne : l’équivalence est donc vraie. Cette vérification utilise des tables de vérité ; dériver la loi à partir des autres est une méthode différente, qui n’est pas demandée ici.
+
+Ce travail guidé, dont la solution est visible, n’est pas une réponse indépendante pour mesurer la maîtrise.
+
 ## Tautologies et contradictions
 
 Une **tautologie** est une assertion vraie pour toute affectation. Une **contradiction** est fausse pour toute affectation. La constante $\top$ est une tautologie, et $\neg\top$ est une contradiction.
@@ -150,7 +165,7 @@ Si $A = 0$, le membre de gauche vaut zéro et les deux conjonctions du membre de
 
 ## Pratique indépendante
 
-Les quatorze exercices de cette leçon portent sur la définition de l’équivalence, la loi de de Morgan, la vérification par table de vérité, la reconnaissance d’une tautologie, les lois du tiers exclu et de la non-contradiction, et la réfutation d’une équivalence par une seule ligne. Huit nouveaux exercices travaillent aussi la commutativité, l’associativité, la double négation, les deux distributivités et la factorisation.
+Les exercices sélectionnés travaillent l’équivalence, les tables complètes, les lois de Boole, les tautologies, les contradictions et les contre-exemples. Le nombre et la version actuels sont indiqués dans la pratique.
 
 La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
 

@@ -1,7 +1,7 @@
 ---
 lessonId: L35
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Calculer la droite de régression"
 summary: "Appliquer la formule, organiser les sommes et interpréter une prédiction ; preuve facultative."
@@ -70,7 +70,7 @@ Pour $x=2$ livres de margarine par personne et par an, les coefficients affiché
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/regression-four.svg" alt="Droite ajustée aux quatre années sélectionnées, six autres observations en croix et point moyen en losange." width="440" height="360" loading="lazy" />
-<figcaption>Quatre points pour le calcul ; six autres pour comparer visuellement.</figcaption>
+<figcaption>Quatre points pour le calcul ; six autres pour comparer visuellement. <a class="figure-full-size" href="/diagrams/droites/fr/regression-four.svg" target="_blank" rel="noopener">Ouvrir la figure en taille réelle (nouvel onglet)</a></figcaption>
 </figure>
 
 ## Exemple guidé : trois observations originales
@@ -120,7 +120,7 @@ Pour $x=10$, obtenir $\hat y=2{,}3\cdot10+5{,}1=28{,}1$. Une note supérieure à
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/study-score.svg" alt="Cinq notes observées, droite ajustée dans la plage 1 à 5 heures, prolongement pointillé jusqu’à 10 heures au-dessus du maximum 20." width="440" height="360" loading="lazy" />
-<figcaption>La droite dépasse le plafond des notes lorsqu’on la prolonge trop loin.</figcaption>
+<figcaption>La droite dépasse le plafond des notes lorsqu’on la prolonge trop loin. <a class="figure-full-size" href="/diagrams/droites/fr/study-score.svg" target="_blank" rel="noopener">Ouvrir la figure en taille réelle (nouvel onglet)</a></figcaption>
 </figure>
 <details>
 <summary>Aller plus loin : preuve et Python (facultatif)</summary>
@@ -140,7 +140,7 @@ La recette générale est $x^2+bx=(x+b/2)^2-b^2/4$. **Exemple supplémentaire :*
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/complete-square.svg" alt="Parabole y égale x carré plus 6x plus 1, minimum en moins 3,moins 8." width="440" height="360" loading="lazy" />
-<figcaption>Le carré est nul au sommet et non négatif ailleurs.</figcaption>
+<figcaption>Le carré est nul au sommet et non négatif ailleurs. <a class="figure-full-size" href="/diagrams/droites/fr/complete-square.svg" target="_blank" rel="noopener">Ouvrir la figure en taille réelle (nouvel onglet)</a></figcaption>
 </figure>
 
 ## Exemple supplémentaire : un autre minimum

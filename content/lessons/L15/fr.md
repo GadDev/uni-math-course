@@ -1,7 +1,7 @@
 ---
 lessonId: L15
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Opérations sur les ensembles, complémentaires relatifs et algèbre"
 summary: "Calculer intersections, unions et complémentaires relatifs à un ensemble nommé, et relier les lois de l’algèbre des ensembles aux lois booléennes."
@@ -77,7 +77,7 @@ Un complémentaire ne veut rien dire tant que l’on n’a pas nommé l’ensemb
 
 ## Pratique indépendante
 
-Les six exercices pilotes portent sur l’intersection, l’union, un complémentaire relatif, la loi de de Morgan pour les ensembles, le rôle de l’ensemble ambiant et le lien avec les connecteurs.
+Les exercices sélectionnés portent sur l’intersection, l’union, un complémentaire relatif, la loi de de Morgan pour les ensembles, le rôle de l’ensemble ambiant et le lien avec les connecteurs.
 
 La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 
