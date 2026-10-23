@@ -70,7 +70,10 @@ export function startSessionLifecycle() {
   notice.hidden = true;
   notice.textContent = unavailable;
   document.querySelector('.page')?.prepend(notice);
-  let knownLearner = privatePage()?.dataset.sessionPrivate;
+  const practiceLearner = document.querySelector<HTMLElement>(
+    '[data-practice-learner]',
+  )?.dataset.practiceLearner;
+  let knownLearner = privatePage()?.dataset.sessionPrivate ?? practiceLearner;
   let returned = false;
   let refresh: Promise<void> | undefined;
   let generation = 0;
@@ -172,8 +175,12 @@ export function startSessionLifecycle() {
   window.addEventListener('pageshow', (event) => {
     if (event.persisted) checkOnReturn();
   });
-  // Public anonymous reading stays free of account requests on initial navigation.
-  if (
+  // The on-demand practice document already verified this identity. Reuse it
+  // for initial header UI; return events and every mutation still revalidate.
+  if (practiceLearner) {
+    for (const listener of listeners)
+      listener({ status: 'authenticated', learner: practiceLearner });
+  } else if (
     privatePage() ||
     /(?:^|; )um-session=1/.test(document.cookie) ||
     document.querySelector('.practice-page')

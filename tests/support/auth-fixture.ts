@@ -23,7 +23,10 @@ const secret = 'only-for-local-protocol-tests';
 const encode = (value: unknown) =>
   Buffer.from(JSON.stringify(value)).toString('base64url');
 
-export async function startAuthFixture(port = 54329) {
+export async function startAuthFixture(
+  port = 54329,
+  beforeRequest?: (path: string) => Promise<void>,
+) {
   const sessions = new Map<string, SessionRecord>();
   const attempts: AttemptDbRow[] = [];
   const completions = new Map<string, Set<string>>();
@@ -117,6 +120,7 @@ export async function startAuthFixture(port = 54329) {
   };
   const server = createServer(async (req, res) => {
     const url = new URL(req.url ?? '/', 'http://127.0.0.1:' + port);
+    await beforeRequest?.(url.pathname);
     const json = (status: number, data: unknown) => {
       res.writeHead(status, {
         'Content-Type': 'application/json',

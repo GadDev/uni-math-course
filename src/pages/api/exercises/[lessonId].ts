@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
-import { exerciseBank, RELEASED_LESSONS } from '../../../lib/exercises/bank';
-import { publicExercise } from '../../../lib/exercises/grading';
+import { RELEASED_LESSONS } from '../../../lib/released-lessons';
+import { publicExercises } from '../../../lib/exercises/public-bank';
 export const prerender = false;
 const json = (status: number, value: unknown) =>
   new Response(JSON.stringify(value), {
@@ -19,8 +19,6 @@ export const GET: APIRoute = async ({ locals, params }) => {
   const lessonId = params.lessonId ?? '';
   if (!RELEASED_LESSONS.includes(lessonId))
     return json(404, { error: 'unknown_lesson' });
-  const exercises = [...exerciseBank.values()]
-    .filter((exercise) => exercise.lessonId === lessonId)
-    .map(publicExercise);
+  const exercises = publicExercises(lessonId);
   return json(200, { learner: user.id, lessonId, exercises });
 };

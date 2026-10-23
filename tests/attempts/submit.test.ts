@@ -33,14 +33,12 @@ function memoryStore() {
       );
     },
     async insert(attempt: NewAttempt) {
-      if (
-        rows.some(
-          (row) =>
-            row.userId === attempt.userId &&
-            row.submissionId === attempt.submissionId,
-        )
-      )
-        return 'duplicate';
+      const existing = rows.find(
+        (row) =>
+          row.userId === attempt.userId &&
+          row.submissionId === attempt.submissionId,
+      );
+      if (existing) return { attempt: existing, duplicate: true };
       const row = {
         ...attempt,
         independentEvidence:
@@ -55,7 +53,7 @@ function memoryStore() {
         createdAt: new Date().toISOString(),
       };
       rows.push(row);
-      return row;
+      return { attempt: row, duplicate: false };
     },
   };
   return { store, rows };
@@ -262,4 +260,33 @@ test('duplicate table submissions return the saved cells and hint flag', async (
     false,
   );
   assert.equal(rows.length, 1);
+});
+
+test('unique-constraint races read the winner once and preserve reuse protection', async () => {
+  const { store, rows } = memoryStore();
+  const payload = body();
+  await run(store, 'u', payload);
+  let lookups = 0;
+  const racing: AttemptStore = {
+    insert: async () => 'duplicate',
+    findBySubmission: async () => {
+      lookups++;
+      return rows[0]!;
+    },
+  };
+  assert.equal((await run(racing, 'u', payload)).status, 200);
+  assert.equal(lookups, 1);
+  assert.equal(
+    (
+      await run(racing, 'u', {
+        ...payload,
+        exerciseId: 'L05-E03',
+        response: { optionId: '00' },
+      })
+    ).status,
+    409,
+  );
+  assert.equal(lookups, 2);
+  racing.findBySubmission = async () => null;
+  assert.equal((await run(racing, 'u', payload)).status, 409);
 });

@@ -32,8 +32,11 @@ export interface AttemptStore {
     userId: string,
     submissionId: string,
   ): Promise<AttemptRow | null>;
-  /** Atomically determines first-attempt evidence and inserts; duplicates return 'duplicate'. */
-  insert(attempt: NewAttempt): Promise<AttemptRow | 'duplicate'>;
+  /** Atomically records or replays a row. 'duplicate' denotes a unique-constraint race
+   * whose winning row must be read separately. */
+  insert(
+    attempt: NewAttempt,
+  ): Promise<{ attempt: AttemptRow; duplicate: boolean } | 'duplicate'>;
 }
 
 export type SubmitResult = { status: number; body: unknown };
@@ -94,18 +97,21 @@ export async function submitAttempt(input: {
   if (!exercise) return bad('unknown_exercise', 404);
   if (version !== exercise.version) return bad('version_mismatch', 409);
 
-  const existing = await store.findBySubmission(userId, submissionId);
-  if (existing) {
+  const replay = (existing: AttemptRow) => {
     if (
       existing.exerciseId !== exercise.id ||
       existing.exerciseVersion !== exercise.version
     )
       return bad('submission_id_reused', 409);
     return result(existing, grade(exercise, existing.response), true);
-  }
-
+  };
   const parsed = parseResponse(exercise, response);
-  if (!parsed) return bad('invalid_response');
+  if (!parsed) {
+    // Preserve recovery of an already recorded ID even if a later payload is
+    // malformed. Ordinary valid submissions need no preliminary database read.
+    const existing = await store.findBySubmission(userId, submissionId);
+    return existing ? replay(existing) : bad('invalid_response');
+  }
   const graded = grade(exercise, parsed);
   const unaided = hintUsed !== true;
   const saved = await store.insert({
@@ -120,17 +126,12 @@ export async function submitAttempt(input: {
     locale,
   });
   if (saved === 'duplicate') {
-    // A concurrent identical submission won the race: return its stored row.
+    // Different exercises use different transaction locks. A simultaneous reuse
+    // of an ID can still hit the unique constraint; only that race needs a read.
     const winner = await store.findBySubmission(userId, submissionId);
-    if (
-      winner &&
-      (winner.exerciseId !== exercise.id ||
-        winner.exerciseVersion !== exercise.version)
-    )
-      return bad('submission_id_reused', 409);
-    return winner
-      ? result(winner, grade(exercise, winner.response), true)
-      : bad('storage_conflict', 409);
+    return winner ? replay(winner) : bad('storage_conflict', 409);
   }
-  return result(saved, graded, false);
+  return saved.duplicate
+    ? replay(saved.attempt)
+    : result(saved.attempt, graded, false);
 }
