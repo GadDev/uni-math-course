@@ -88,6 +88,7 @@ Hosted acceptance is separate and opt-in. Follow [hosted E2E setup](docs/HOSTED_
 - [Roadmap](docs/ROADMAP.md)
 - [Tech stack](docs/TECHSTACK.md)
 - [Content pilot review](docs/content/L05_REVIEW.md)
+- [Lesson clarity review and implementation proposals](docs/content/LESSON_CLARITY_REVIEW_2026-10-23.md)
 - [Symbol glossary](docs/content/GLOSSARY_REVIEW.md)
 - [Authentication and sessions](docs/AUTHENTICATION.md)
 - [Practice, grading and progress](docs/PRACTICE.md)
