@@ -48,9 +48,14 @@ test('the PDF path preserves source order across existing lesson boundaries in b
     const identity = droitesSourceTopics.findIndex((t) => t.page === 15);
     assert.equal(droitesSourceTopics[identity - 1]!.lessonId, 'L23');
     assert.equal(droitesSourceTopics[identity]!.lessonId, 'L22');
-    const triangle = droitesSourceTopics.findIndex((t) => t.page === 60);
-    assert.equal(droitesSourceTopics[triangle - 1]!.page, 59);
-    assert.equal(droitesSourceTopics[triangle + 1]!.page, 62);
+    const bresenham = droitesSourceTopics.findIndex((t) => t.page === 60);
+    assert.equal(droitesSourceTopics[bresenham - 1]!.page, 59);
+    assert.deepEqual(
+      droitesSourceTopics.slice(bresenham, bresenham + 4).map((t) => t.page),
+      [60, 61, 62, 63],
+    );
+    assert.equal(droitesSourceTopics.at(-2)!.page, 84);
+    assert.equal(droitesSourceTopics.at(-1)!.page, 92);
   }
 });
 
@@ -80,5 +85,38 @@ test('teaching figures have paired local SVGs, descriptions and matching mathema
       }
     }
     assert.deepEqual(figureNames[0], figureNames[1], `L${i} visual parity`);
+  }
+});
+
+test('revised tie rule is versioned while historical grading remains available', () => {
+  const releases = JSON.parse(readFileSync('content/releases.json', 'utf8'));
+  const current = JSON.parse(
+    readFileSync(`exercises/L33/v${releases.lessons.L33.version}.json`, 'utf8'),
+  );
+  const previous = JSON.parse(readFileSync('exercises/L33/v1.json', 'utf8'));
+  const item = (bank: typeof current) =>
+    bank.exercises.find((e: { id: string }) => e.id === 'L33-E11');
+  assert.equal(item(current).answer, 'a');
+  assert.equal(item(previous).answer, 'c');
+  for (const id of ['L31', 'L32', 'L34', 'L35', 'L36']) {
+    const oldBank = JSON.parse(readFileSync(`exercises/${id}/v1.json`, 'utf8'));
+    const newBank = JSON.parse(readFileSync(`exercises/${id}/v2.json`, 'utf8'));
+    const grading = (bank: typeof current) =>
+      bank.exercises.map(
+        ({
+          version: _v,
+          provenance: _p,
+          ...exercise
+        }: {
+          version: number;
+          provenance: unknown;
+          [key: string]: unknown;
+        }) => exercise,
+      );
+    assert.deepEqual(
+      grading(newBank),
+      grading(oldBank),
+      `${id} metadata-only bank revision`,
+    );
   }
 });

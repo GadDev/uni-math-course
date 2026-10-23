@@ -7,7 +7,7 @@ for (const locale of ['fr', 'en']) {
     await page.goto(`/${locale}/chapters/C02/`);
     const path = page.locator('.source-path');
     await expect(path.locator('details')).toHaveCount(5);
-    await expect(path.locator('li')).toHaveCount(48);
+    await expect(path.locator('li')).toHaveCount(46);
     await path.locator('a[href$="L23/#pdf-14"]').click();
     await expect(page.locator('#pdf-14')).toBeInViewport();
     const next = page.locator('.source-next a[href$="L22/#pdf-15"]');
@@ -49,6 +49,9 @@ for (const locale of ['fr', 'en']) {
         'L36',
       ]) {
         await page.goto(`/${locale}/lessons/${id}/`);
+        for (const disclosure of await page.locator('article details').all()) {
+          await disclosure.locator('summary').click();
+        }
         const figures = page.locator('.teaching-figure img');
         expect(await figures.count()).toBeGreaterThan(0);
         for (const figure of await figures.all()) {
@@ -108,3 +111,36 @@ test('PDF reading links, diagrams and examples work without JavaScript', async (
     await context.close();
   }
 });
+
+for (const locale of ['fr', 'en']) {
+  test(`revised source reaches the score exercise after limits without JavaScript (${locale})`, async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({
+      javaScriptEnabled: false,
+      viewport: { width: 320, height: 900 },
+    });
+    const page = await context.newPage();
+    try {
+      await page.goto(`http://127.0.0.1:4321/${locale}/lessons/L36/#pdf-82`);
+      await expect(page.locator('#pdf-82')).toBeInViewport();
+      await expect(
+        page.locator('img[src$="height-extrapolation.svg"]'),
+      ).toBeVisible();
+      await page.locator('.source-next a[href$="L35/#pdf-84"]').click();
+      await expect(page.locator('#pdf-84')).toBeInViewport();
+      const solution = page.locator('article details').first();
+      await expect(solution).not.toHaveAttribute('open');
+      await solution.locator('summary').click();
+      await expect(solution).toContainText('28');
+      await expect(solution.locator('.katex')).not.toHaveCount(0);
+      await expect(
+        page.locator('article > details').nth(1),
+      ).not.toHaveAttribute('open');
+      await page.locator('.source-next a[href$="L36/#pdf-92"]').click();
+      await expect(page.locator('#pdf-92')).toBeInViewport();
+    } finally {
+      await context.close();
+    }
+  });
+}

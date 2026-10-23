@@ -17,6 +17,7 @@ export type GlossaryEntry = {
   format?: string;
   exampleOrigin: string;
   sourcePages: number[];
+  sourceContext?: 'supplement';
   fr: GlossaryTranslation;
   en: GlossaryTranslation;
 };
