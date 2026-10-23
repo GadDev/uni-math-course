@@ -9,7 +9,7 @@ test('public glossary searches both languages and glyphs, filters categories and
     .getByRole('link', { name: 'Glossaire' })
     .click();
   await expect(page).toHaveURL('/fr/glossary/');
-  await expect(page.locator('[data-entry]')).toHaveCount(143);
+  await expect(page.locator('[data-entry]')).toHaveCount(145);
   const search = page.getByLabel('Rechercher un symbole ou un mot');
   await search.fill('∧');
   await expect(page.locator('#E08')).toBeVisible();
@@ -23,7 +23,7 @@ test('public glossary searches both languages and glyphs, filters categories and
   await page.getByRole('button', { name: 'Effacer les filtres' }).focus();
   await page.keyboard.press('Enter');
   await expect(search).toBeFocused();
-  await expect(page.locator('[data-entry]:not([hidden])')).toHaveCount(143);
+  await expect(page.locator('[data-entry]:not([hidden])')).toHaveCount(145);
   await page.locator('#E13 summary').click();
   await expect(page.locator('#E13 [lang="en"]')).toBeVisible();
 });
@@ -53,7 +53,7 @@ test('without JavaScript all entries, translations and the source correction rem
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto('/en/glossary/');
-  await expect(page.locator('[data-entry]')).toHaveCount(143);
+  await expect(page.locator('[data-entry]')).toHaveCount(145);
   await expect(page.locator('.glossary-filters')).toBeHidden();
   await page
     .getByText('Logic, page 48: an example needing correction', { exact: true })
@@ -97,7 +97,7 @@ for (const locale of ['fr', 'en']) {
       locale === 'fr' ? 'Droites et régression' : 'Lines and regression',
     );
     await expect(page.locator('#D034 .glossary-provenance')).toContainText(
-      '25, 26, 67, 70, 71, 72',
+      '25, 26, 69, 70',
     );
     await expect(
       page.locator('#D034 .katex-mathml math').first(),
