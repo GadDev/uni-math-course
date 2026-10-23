@@ -41,7 +41,7 @@ Local logout ends this browser's session, not every device. Previously issued ac
 
 ## Returning tabs and browser history
 
-The shared browser session lifecycle checks `/api/auth/session/` on visible-tab focus/visibility changes and persisted `pageshow` restoration. A short event coalescing window and a shared in-flight promise prevent duplicate header/activity checks. Initial public anonymous reading still makes no account request.
+The shared browser session lifecycle checks `/api/auth/session/` on visible-tab focus/visibility changes and persisted `pageshow` restoration. A short event coalescing window and a shared in-flight promise prevent duplicate header/activity checks. Initial public anonymous reading still makes no account request. The on-demand practice page uses its freshly server-verified learner ID for initial header state and answer-free exercise hydration, avoiding an immediate redundant session check. This marker is UI state, never authorization; focus, visibility and persisted-pageshow events still revalidate, and every API mutation independently verifies identity and learner context.
 
 A verified `200` updates the header. If identity is unchanged, practice drafts and pending submission snapshots remain untouched. A confirmed `401` clears practice drafts and removes old private UI; an account change does the same before a protected account/progress page is re-rendered. Practice offers the existing current-account loading action instead of submitting or silently transferring old answers. Requests from a discarded activity cannot restore old feedback after the change.
 

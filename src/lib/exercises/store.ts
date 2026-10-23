@@ -81,7 +81,10 @@ export function createAttemptStore(
           `Attempt insert failed: ${error ? describe(error) : 'no row returned'}`,
         );
       const result = data as { duplicate: boolean; attempt: AttemptDbRow };
-      return result.duplicate ? 'duplicate' : toAttemptRow(result.attempt);
+      return {
+        duplicate: result.duplicate,
+        attempt: toAttemptRow(result.attempt),
+      };
     },
   };
 }

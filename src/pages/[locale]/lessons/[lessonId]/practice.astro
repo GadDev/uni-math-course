@@ -11,9 +11,10 @@ import {
 } from '../../../../lib/practice-navigation';
 import { localeOf } from '../../../../lib/auth/policy';
 import { isReviewed, RELEASED_LESSONS } from '../../../../lib/released-lessons';
+import { publicExercises } from '../../../../lib/exercises/public-bank';
 import '../../../../styles/practice.css';
 import '../../../../styles/practice-feedback.css';
-// On demand: practice needs a signed-in learner. The page imports no answers.
+// On demand: only answer-free projections cross into the React island.
 export const prerender = false;
 const lessonId = Astro.params.lessonId ?? '';
 if (
@@ -82,6 +83,7 @@ const lessonNumber = lessonId.slice(1);
     tabindex="-1"
     class="lesson-page practice-page"
     data-chapter={chapter.id}
+    data-practice-learner={user.id}
   >
     <aside class="course-outline">
       <p class="eyebrow">
@@ -118,6 +120,7 @@ const lessonNumber = lessonId.slice(1);
       </div>
       <PracticeActivity
         client:load
+        initialData={{ learner: user.id, exercises: publicExercises(lessonId) }}
         lessonId={lessonId}
         requestedTarget={target}
         locale={locale}

@@ -250,11 +250,18 @@ test('an old submission response cannot restore private feedback after an accoun
   await expect(page.locator('input:checked')).toHaveCount(0);
 });
 
-test('a delayed exercise load cannot reveal the old learner after a session check detects a switch', async ({
+test('a delayed explicit exercise reload cannot reveal the old learner after a session check detects a switch', async ({
   page,
   context,
 }) => {
   await identify(context);
+  await page.goto('/en/lessons/L05/practice/');
+  await expect(page.locator('.pp-options')).toBeVisible();
+  await identify(context);
+  await revisit(page);
+  await expect(page.getByRole('alert')).toContainText(
+    'The account has changed',
+  );
   let release!: () => void;
   let loaded!: () => void;
   const gate = new Promise<void>((resolve) => {
@@ -273,7 +280,7 @@ test('a delayed exercise load cannot reveal the old learner after a session chec
     },
     { times: 1 },
   );
-  await page.goto('/en/lessons/L05/practice/');
+  await page.getByRole('button', { name: 'Load current account' }).click();
   try {
     await delivered;
     await expect(page.locator('.profile-menu')).toBeVisible();

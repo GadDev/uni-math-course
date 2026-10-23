@@ -1,5 +1,6 @@
 import { test, expect, type BrowserContext } from '@playwright/test';
 import { randomUUID } from 'node:crypto';
+import { rewritePracticePayload } from '../support/practice-payload.ts';
 import {
   selectedL05Version,
   selectedL05Exercises as bank,
@@ -175,19 +176,18 @@ test('active exercise is restored by ID when exercise order changes', async ({
   await page.goto('/en/lessons/L05/practice/');
   await page.locator('.pp-step').nth(3).click();
   await page.locator(`input[value="${bank[3].answer}"]`).check();
-  await page.route('**/api/exercises/L05/', async (route) => {
-    const response = await route.fetch();
-    const payload = await response.json();
-    const selected = payload.exercises.find(
-      (exercise: { id: string }) => exercise.id === 'L05-E04',
-    );
-    payload.exercises = [
-      selected,
-      ...payload.exercises.filter(
-        (exercise: { id: string }) => exercise.id !== selected.id,
-      ),
-    ];
-    await route.fulfill({ response, json: payload });
+  await page.route('**/en/lessons/L05/practice/', async (route) => {
+    await rewritePracticePayload(route, (payload) => {
+      const selected = payload.exercises.find(
+        (exercise: { id: string }) => exercise.id === 'L05-E04',
+      );
+      payload.exercises = [
+        selected!,
+        ...payload.exercises.filter(
+          (exercise: { id: string }) => exercise.id !== selected!.id,
+        ),
+      ];
+    });
   });
   await page.reload();
   await expect(page.locator('.pp-step[aria-current="step"]')).toContainText(

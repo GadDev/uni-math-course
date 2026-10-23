@@ -309,6 +309,7 @@ const marker = (index: number) => String(index + 1);
 
 export default function PracticeActivity({
   lessonId,
+  initialData,
   requestedTarget,
   locale,
   lessonNumber,
@@ -317,6 +318,7 @@ export default function PracticeActivity({
   extended,
 }: {
   lessonId: string;
+  initialData: { learner: string; exercises: Exercise[] };
   requestedTarget: PracticeTarget | null;
   locale: Locale;
   lessonNumber: string;
@@ -339,7 +341,7 @@ export default function PracticeActivity({
   const contextGeneration = useRef(0);
   const observedLearner = useRef<string | null | undefined>(undefined);
 
-  async function load(reloadExerciseId?: string) {
+  async function load(reloadExerciseId?: string, initial?: typeof initialData) {
     const generation = ++contextGeneration.current;
     observedLearner.current = undefined;
     setPhase('loading');
@@ -350,17 +352,19 @@ export default function PracticeActivity({
     setCurrent(0);
     graded.current = false;
     try {
-      const response = await fetch(`/api/exercises/${lessonId}/`, {
-        credentials: 'same-origin',
-        headers: { Accept: 'application/json' },
-      });
-      if (generation !== contextGeneration.current) return;
-      if (response.status === 401) return setPhase('signin');
-      if (!response.ok) return setPhase('unavailable');
-      const data = (await response.json()) as {
-        learner: string;
-        exercises: Exercise[];
-      };
+      let data = initial;
+      if (!data) {
+        const response = await fetch(`/api/exercises/${lessonId}/`, {
+          credentials: 'same-origin',
+          cache: 'no-store',
+          headers: { Accept: 'application/json' },
+          signal: AbortSignal.timeout(15000),
+        });
+        if (generation !== contextGeneration.current) return;
+        if (response.status === 401) return setPhase('signin');
+        if (!response.ok) return setPhase('unavailable');
+        data = (await response.json()) as typeof initialData;
+      }
       if (generation !== contextGeneration.current) return;
       if (
         observedLearner.current !== undefined &&
@@ -422,7 +426,7 @@ export default function PracticeActivity({
   }
 
   useEffect(() => {
-    void load();
+    void load(undefined, initialData);
   }, []);
 
   useEffect(

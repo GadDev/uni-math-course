@@ -1,3 +1,4 @@
+import { rewritePracticePayload } from '../support/practice-payload.ts';
 import { test, expect, type BrowserContext, type Page } from '@playwright/test';
 import { selectedL05Version } from './released-bank.ts';
 
@@ -176,13 +177,12 @@ for (const locale of ['fr', 'en'] as const) {
   }) => {
     await identify(context);
     await page.route(
-      '**/api/exercises/L05/',
+      `**/${locale}/lessons/L05/practice/`,
       async (route) => {
-        const response = await route.fetch();
-        const payload = await response.json();
-        // A stale client version is rejected by the real grading endpoint.
-        payload.exercises[3].version = 99;
-        await route.fulfill({ response, json: payload });
+        await rewritePracticePayload(route, (payload) => {
+          // A stale client version is rejected by the real grading endpoint.
+          payload.exercises[3]!.version = 99;
+        });
       },
       { times: 1 },
     );
