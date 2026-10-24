@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.12.1](https://github.com/GadDev/uni-math-course/compare/v0.12.0...v0.12.1) (2026-10-23)
+
+
+### Bug Fixes
+
+* **content:** resolve all 17 lesson clarity findings ([#91](https://github.com/GadDev/uni-math-course/issues/91)) ([fd2d4fb](https://github.com/GadDev/uni-math-course/commit/fd2d4fb6304748235c897e6b15eb84479b36b7bb)), closes [#87](https://github.com/GadDev/uni-math-course/issues/87)
+
 ## [0.12.0](https://github.com/GadDev/uni-math-course/compare/v0.11.1...v0.12.0) (2026-10-23)
 
 
