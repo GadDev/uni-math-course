@@ -8,7 +8,7 @@
 - **Ember orange** `#F47B44` (light), `#FFA76C` (dark) is used for decorative geometry and large markers.
 - Deep orange `#923B1D` (light) / pale orange `#FFD2B2` (dark) is used for small labels and links rather than using the brighter accent as foreground text.
 - Keep the Signal typography, page and header shell, **black main call-to-action**, original numbered section treatment and Chapter 2's mobile artwork behaviour: decorative art is hidden below 700px.
-- The artwork is a source-controlled, original **SVG geometric signal grid** with quarter-circle, rectangle and triangle motifs. It uses existing CSS design tokens; no rasterized formulas, copied source-PDF images, dependencies or external fonts.
+- The artwork is a source-controlled, original **SVG geometric signal grid** added as `SignalGeometry variant="ember"`, alongside the unchanged `logic` and `decalage` variants. with quarter-circle, rectangle and triangle motifs. It uses existing CSS design tokens; no rasterized formulas, copied source-PDF images, dependencies or external fonts.
 - Keep the existing native keyboard-accessible chapter selector. Chapter 4 appears as **In preparation** in both locales, with no implied released lessons.
 
 ## Content and release boundary

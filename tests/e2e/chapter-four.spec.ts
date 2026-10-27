@@ -19,7 +19,7 @@ for (const locale of ['fr', 'en']) {
       await expect(math).toBeAttached();
       const primary = page.locator('.featured-action .primary-link');
       await expect(primary).toHaveAttribute('href', '#parcours');
-      const artwork = page.locator('.hero-art svg[data-variant="information"]');
+      const artwork = page.locator('.hero-art svg[data-variant="ember"]');
       await expect(artwork).toHaveAttribute('aria-hidden', 'true');
       await expect(page.locator('astro-island')).toHaveCount(0);
       await page.evaluate(() => document.fonts.ready);

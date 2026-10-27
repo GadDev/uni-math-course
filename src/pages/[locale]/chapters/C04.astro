@@ -1,6 +1,6 @@
 ---
 import Base from '../../../layouts/Base.astro';
-import InformationGeometry from '../../../components/InformationGeometry.astro';
+import SignalGeometry from '../../../components/SignalGeometry.astro';
 import { informationCopy } from '../../../lib/information';
 import { locales } from '../../../lib/i18n';
 import katex from 'katex';
@@ -45,7 +45,7 @@ const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
         <p class="chapter-motto">{text.motto}</p>
       </div>
       <div class="hero-art">
-        <InformationGeometry />
+        <SignalGeometry variant="ember" />
       </div>
     </section>
 
