@@ -1,16 +1,8 @@
 // Markdown validation adapted from the GadDev repository playbook (MIT; copyright 2026 GadDev).
-import { execFileSync } from 'node:child_process';
 import { readdir, readFile, stat, realpath } from 'node:fs/promises';
 import { resolve, dirname, relative, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-// Temporary draft-only CI formatting diagnostic; must be reverted.
-if (process.env.CI) {
-  const name = 'src/components/SignalGeometry.astro';
-  const result = execFileSync('pnpm', ['exec', 'prettier', name], { encoding: 'utf8' });
-  process.stdout.write('EMBER_FORMAT_BEGIN\\n' + result + '\\nEMBER_FORMAT_END\\n');
-}
-
 const ignored = new Set([
   '.git',
   'node_modules',
