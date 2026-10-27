@@ -35,7 +35,7 @@ export const printableChapters: readonly PrintableChapter[] = [
       {
         id: 'chapter-01-exercises',
         type: 'exercises',
-        path: 'pdfs/exercises/chapter-01-exercises.pdf',
+        path: 'pdfs/exercices/chapter-01-exercises.pdf',
         pages: 83,
         sha256:
           '7212c87b5bb45783a0bb88186d7123b75c46949fee352526e5a7a25913159ecd',
@@ -43,7 +43,7 @@ export const printableChapters: readonly PrintableChapter[] = [
       {
         id: 'chapter-01-solutions',
         type: 'solutions',
-        path: 'pdfs/exercises/chapter-01-solutions.pdf',
+        path: 'pdfs/exercices/chapter-01-solutions.pdf',
         pages: 23,
         sha256:
           '2bb310d4f8dfdc6dc659fb6f6386747958ec39b257c4059cd9fa1010d93c9be4',
@@ -64,7 +64,7 @@ export const printableChapters: readonly PrintableChapter[] = [
       {
         id: 'chapter-02-exercises',
         type: 'exercises',
-        path: 'pdfs/exercises/chapter-02-exercises.pdf',
+        path: 'pdfs/exercices/chapter-02-exercises.pdf',
         pages: 146,
         sha256:
           '7c936ee21b2ed47053b9f5962338746aadb4a2c9d0174d05c8a771727d16c203',
@@ -72,7 +72,7 @@ export const printableChapters: readonly PrintableChapter[] = [
       {
         id: 'chapter-02-solutions',
         type: 'solutions',
-        path: 'pdfs/exercises/chapter-02-solutions.pdf',
+        path: 'pdfs/exercices/chapter-02-solutions.pdf',
         pages: 81,
         sha256:
           '3108f51b5976721ab15d4ca07e2c6827d285bfbd5e61faa209269319aba95b0d',
@@ -113,7 +113,7 @@ export const printableCopy = {
     notice:
       'Contenus de pratique originaux, non officiels, basés sur la progression des chapitres. Ils ne sont ni publiés ni approuvés par l’Université du Luxembourg.',
     unavailable:
-      'Les fichiers PDF doivent encore être ajoutés à cette branche. Les téléchargements s’activeront dès leur inclusion et la reconstruction du site.',
+      'Certains documents sont momentanément indisponibles. Merci de réessayer plus tard.',
     back: 'Retour au programme',
   },
   en: {
@@ -147,7 +147,7 @@ export const printableCopy = {
     notice:
       'Original, unofficial practice materials following the chapter progression. They are not published or endorsed by the University of Luxembourg.',
     unavailable:
-      'The PDF files still need to be added to this branch. Download links will activate once the files are committed and the site rebuilt.',
+      'Some documents are temporarily unavailable. Please try again later.',
     back: 'Back to the programme',
   },
 } as const;
