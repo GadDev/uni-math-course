@@ -20,6 +20,16 @@ export const chapters = [
     status: 'reading',
     lessonIds: droitesLessonIds,
   },
+  {
+    id: 'C04',
+    number: '04',
+    path: 'chapters/C04/',
+    title: { fr: 'Théorie de l’information', en: 'Information theory' },
+    shortTitle: { fr: 'Information', en: 'Information' },
+    status: 'preparing',
+    // No public lessons yet. Add stable Lxx IDs only after release review.
+    lessonIds: [],
+  },
 ] as const;
 
 export type ChapterId = (typeof chapters)[number]['id'];

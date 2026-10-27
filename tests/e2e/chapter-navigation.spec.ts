@@ -32,9 +32,7 @@ for (const locale of ['fr', 'en']) {
     await expect(picker).not.toHaveAttribute('open');
     await picker.locator('summary').focus();
     await page.keyboard.press('Enter');
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('Tab');
-    await page.keyboard.press('Tab');
+    for (const _ of [0, 1, 2, 3]) await page.keyboard.press('Tab');
     await expect(picker).not.toHaveAttribute('open');
     await page.locator('.primary-nav > a').first().click();
     await expect(page).toHaveURL(`/${locale}/glossary/`);
@@ -49,7 +47,7 @@ for (const locale of ['fr', 'en']) {
       page,
     }) => {
       await page.setViewportSize({ width, height: 1000 });
-      for (const path of ['', 'chapters/C02/', 'glossary/']) {
+      for (const path of ['', 'chapters/C02/', 'chapters/C04/', 'glossary/']) {
         await page.goto(`/${locale}/${path}`);
         await page.evaluate(() => document.fonts.ready);
         const header = await page.locator('.site-header').boundingBox();
@@ -79,7 +77,7 @@ for (const locale of ['fr', 'en']) {
         expect(
           await page.evaluate(() => document.documentElement.scrollWidth),
         ).toBeLessThanOrEqual(width);
-        await expect(page.locator('.chapter-option')).toHaveCount(2);
+        await expect(page.locator('.chapter-option')).toHaveCount(3);
         for (const link of await page.locator('.chapter-option').all())
           expect((await link.boundingBox())!.height).toBeGreaterThanOrEqual(44);
       }

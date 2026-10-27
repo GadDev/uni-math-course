@@ -12,6 +12,10 @@ test('chapter routes preserve existing identities and keep shared resources neut
   for (const path of ['', 'lessons/L01/', 'lessons/L20/practice/'])
     assert.equal(chapterForPath(path)?.id, 'C01');
   assert.equal(chapterForPath('chapters/C02/')?.id, 'C02');
+  assert.equal(chapterHref('fr', chapters[2]), '/fr/chapters/C04/');
+  assert.equal(chapterForPath('chapters/C04/')?.id, 'C04');
+  assert.equal(chapters[2].status, 'preparing');
+  assert.deepEqual(chapters[2].lessonIds, []);
   for (const path of ['lessons/L21/', 'lessons/L36/practice/'])
     assert.equal(chapterForPath(path)?.id, 'C02');
   for (const path of [
