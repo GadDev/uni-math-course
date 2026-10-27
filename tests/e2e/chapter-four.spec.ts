@@ -2,9 +2,7 @@ import { test, expect } from '@playwright/test';
 
 for (const locale of ['fr', 'en']) {
   for (const width of [320, 375, 960, 1440]) {
-    test(`C04 Ember Signal overview (${locale}, ${width}px)`, async ({
-      page,
-    }) => {
+    test(`C04 Ember Signal (${locale}, ${width}px)`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
       const response = await page.goto(`/${locale}/chapters/C04/`);
       expect(response?.status()).toBe(200);
@@ -15,7 +13,7 @@ for (const locale of ['fr', 'en']) {
       );
       await expect(page.locator('.planned-list li')).toHaveCount(6);
       await expect(page.locator('.planned-list a')).toHaveCount(0);
-      const selected = page.locator('.chapter-picker [aria-current="location"]');
+      const selected = page.locator('.chapter-option[aria-current]');
       await expect(selected).toHaveAttribute('data-chapter', 'C04');
       const math = page.locator('.feature-formula .katex-mathml math');
       await expect(math).toBeAttached();
@@ -32,7 +30,8 @@ for (const locale of ['fr', 'en']) {
       if (width <= 375) await expect(page.locator('.hero-art')).toBeHidden();
       else await expect(page.locator('.hero-art')).toBeVisible();
       await primary.click();
-      await expect(page).toHaveURL(new RegExp(`/${locale}/chapters/C04/#parcours$`));
+      const anchorUrl = `/${locale}/chapters/C04/#parcours`;
+      await expect(page).toHaveURL(anchorUrl);
       const other = locale === 'fr' ? 'en' : 'fr';
       await page.locator('[data-language-link]').click();
       await expect(page).toHaveURL(`/${other}/chapters/C04/`);
@@ -40,9 +39,7 @@ for (const locale of ['fr', 'en']) {
   }
 }
 
-test('C04 works without JS and has no unpublished lesson links', async ({
-  browser,
-}) => {
+test('C04 works without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   try {
     const page = await context.newPage();
