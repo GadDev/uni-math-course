@@ -13,14 +13,20 @@ const fr = locale === 'fr';
   class="secant-explorer"
   data-secant-explorer
   data-locale={locale}
-  aria-label={fr ? 'Laboratoire sécante et tangente' : 'Secant and tangent laboratory'}
+  aria-label={
+    fr ? 'Laboratoire sécante et tangente' : 'Secant and tangent laboratory'
+  }
 >
   <div class="secant-plot">
     <svg
       data-plot
       viewBox="0 0 580 410"
       role="group"
-      aria-label={fr ? 'Graphe de la parabole et points P et Q' : 'Parabola with points P and Q'}
+      aria-label={
+        fr
+          ? 'Graphe de la parabole et points P et Q'
+          : 'Parabola with points P and Q'
+      }
     >
       <defs>
         <clipPath id="secant-plot-clip">
@@ -61,7 +67,9 @@ const fr = locale === 'fr';
         />
       </g>
       <circle data-p r="6" fill="var(--ink)" />
-      <text x="152" y="307" fill="var(--ink)" font-size="16">P</text>
+      <text x="152" y="307" fill="var(--ink)" font-size="16">
+        P
+      </text>
       <circle
         data-q
         r="14"
@@ -79,8 +87,12 @@ const fr = locale === 'fr';
       <text x="48" y="32" fill="var(--blue-accent)" font-size="15">
         f(x)=x²/2
       </text>
-      <text x="547" y="345" fill="var(--ink)" font-size="14">x</text>
-      <text x="148" y="24" fill="var(--ink)" font-size="14">y</text>
+      <text x="547" y="345" fill="var(--ink)" font-size="14">
+        x
+      </text>
+      <text x="148" y="24" fill="var(--ink)" font-size="14">
+        y
+      </text>
     </svg>
   </div>
   <div class="secant-controls">
@@ -118,9 +130,15 @@ const fr = locale === 'fr';
     <p class="secant-formula" data-formula></p>
     <p data-explanation></p>
     <div class="secant-actions">
-      <button type="button" data-preset="1">h = 1</button>
-      <button type="button" data-preset="0.1">h = 0.1</button>
-      <button type="button" data-preset="0">h → 0</button>
+      <button type="button" data-preset="1">
+        h = 1
+      </button>
+      <button type="button" data-preset="0.1">
+        h = 0.1
+      </button>
+      <button type="button" data-preset="0">
+        h → 0
+      </button>
       <button type="button" data-preset="2">
         {fr ? 'Réinitialiser' : 'Reset'}
       </button>
@@ -306,7 +324,7 @@ const fr = locale === 'fr';
         h === 0 ? '→ 1' : format(1 + h / 2);
       q<HTMLElement>('[data-formula]').textContent =
         h === 0
-          ? "f′(1) = lim (h → 0) [f(1+h) − f(1)] / h = 1"
+          ? 'f′(1) = lim (h → 0) [f(1+h) − f(1)] / h = 1'
           : `[f(1+h) − f(1)] / h = ${format(1 + h / 2)}`;
       q<HTMLElement>('[data-explanation]').textContent =
         h === 0
@@ -321,13 +339,13 @@ const fr = locale === 'fr';
           `h = ${format(h)}, ${fr ? 'pente' : 'slope'} = ${format(1 + h / 2)}`;
     };
     slider.addEventListener('input', () => update(Number(slider.value), true));
-    explorer.querySelectorAll<HTMLButtonElement>('[data-preset]').forEach(
-      (button) => {
+    explorer
+      .querySelectorAll<HTMLButtonElement>('[data-preset]')
+      .forEach((button) => {
         button.addEventListener('click', () =>
           update(Number(button.dataset.preset), true),
         );
-      },
-    );
+      });
     let dragging = false;
     const drag = (event: PointerEvent) => {
       const matrix = svg.getScreenCTM();

@@ -38,32 +38,3 @@ if (
 ) {
   console.log('Release policy checked for ' + (await checkRelease()));
 }
-
-/* Temporary formatting probe for PR #108: remove in the next commit. */
-if (process.env.CI) {
-  const prettier = await import('prettier');
-  const filesToFormat = [
-    'src/components/SecantExplorer.astro',
-    'src/lib/chapters.ts',
-    'src/lib/functions.ts',
-    'src/lib/functions-lessons.ts',
-    'src/pages/[locale]/chapters/C03.astro',
-    'src/pages/[locale]/lessons/[lessonId].astro',
-    'tests/content/chapter-three.test.ts',
-    'tests/e2e/chapter-three.spec.ts',
-  ];
-  for (const file of filesToFormat) {
-    const options = (await prettier.resolveConfig(file)) ?? {};
-    const formatted = await prettier.format(await readFile(file, 'utf8'), {
-      ...options,
-      filepath: file,
-    });
-    console.log(
-      'FMTFILE|' +
-        encodeURIComponent(file) +
-        '|' +
-        Buffer.from(formatted).toString('base64') +
-        '|DONE',
-    );
-  }
-}

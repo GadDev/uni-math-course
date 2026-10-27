@@ -7,7 +7,10 @@ import LessonCompletion from '../../../components/LessonCompletion.astro';
 import { completionCopy } from '../../../lib/completion-copy';
 import { locales } from '../../../lib/i18n';
 import { functionsCopy } from '../../../lib/functions';
-import { functionsGroups, functionsLessonIds } from '../../../lib/functions-lessons';
+import {
+  functionsGroups,
+  functionsLessonIds,
+} from '../../../lib/functions-lessons';
 import SecantExplorer from '../../../components/SecantExplorer.astro';
 import '../../../styles/chapter-overview.css';
 
@@ -45,7 +48,9 @@ const formula = katex.renderToString('f:A\\to\\mathbb R,\\;x\\mapsto f(x)', {
           <span class="signal-stop">.</span>
         </h1>
         <p class="chapter-subtitle">
-          {text.subtitle.map((line) => <span>{line}</span>)}
+          {text.subtitle.map((line) => (
+            <span>{line}</span>
+          ))}
         </p>
         <p class="lede">{text.intro}</p>
         <p class="status">{text.status}</p>
@@ -56,7 +61,9 @@ const formula = katex.renderToString('f:A\\to\\mathbb R,\\;x\\mapsto f(x)', {
       </div>
     </section>
     <section class="lesson-feature" aria-labelledby="functions-title">
-      <div class="lesson-index" aria-hidden="true">01</div>
+      <div class="lesson-index" aria-hidden="true">
+        01
+      </div>
       <div class="featured-identity">
         <p class="eyebrow">{text.start}</p>
         <h2 id="functions-title">{text.feature}</h2>
@@ -120,14 +127,12 @@ const formula = katex.renderToString('f:A\\to\\mathbb R,\\;x\\mapsto f(x)', {
     <section class="chapter-objectives" aria-labelledby="functions-goals">
       <h2 id="functions-goals">{text.goals}</h2>
       <ol>
-        {text.objectives.map((objective) => <li>{objective}</li>)}
+        {text.objectives.map((objective) => (
+          <li>{objective}</li>
+        ))}
       </ol>
     </section>
-    <section
-      class="planned-section"
-      id="secant"
-      aria-labelledby="secant-title"
-    >
+    <section class="planned-section" id="secant" aria-labelledby="secant-title">
       <p class="eyebrow">
         {locale === 'fr' ? 'OUTIL INTERACTIF' : 'INTERACTIVE LAB'}
       </p>
@@ -135,24 +140,15 @@ const formula = katex.renderToString('f:A\\to\\mathbb R,\\;x\\mapsto f(x)', {
       <p>{text.toolText}</p>
       <SecantExplorer locale={locale} />
     </section>
-    <section
-      class="practice-status"
-      aria-labelledby="chapter-practice"
-    >
+    <section class="practice-status" aria-labelledby="chapter-practice">
       <div class="practice-copy">
         <h2 id="chapter-practice">{text.practice}</h2>
         <p>{text.practiceText}</p>
-        <a
-          class="primary-link"
-          href={`/${locale}/lessons/L37/practice/`}
-        >
+        <a class="primary-link" href={`/${locale}/lessons/L37/practice/`}>
           {text.practiceLink}
         </a>
       </div>
-      <aside
-        class="reading-notice"
-        aria-labelledby="chapter-progress"
-      >
+      <aside class="reading-notice" aria-labelledby="chapter-progress">
         <h2 id="chapter-progress" class="reading-notice-title">
           {text.progress}
         </h2>

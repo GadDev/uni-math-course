@@ -29,13 +29,17 @@ for (const id of ids) {
       15,
     );
     assert.equal(
-      new Set(bank.exercises.map((item: { objectiveId: string }) => item.objectiveId)).size,
+      new Set(
+        bank.exercises.map((item: { objectiveId: string }) => item.objectiveId),
+      ).size,
       6,
     );
     for (const item of bank.exercises) {
       assert.equal(item.type, 'single-choice');
       assert.ok(
-        item.options.some((option: { id: string }) => option.id === item.answer),
+        item.options.some(
+          (option: { id: string }) => option.id === item.answer,
+        ),
       );
       assert.deepEqual(
         item.options.map(
@@ -70,10 +74,7 @@ test('L38 secant series reproduces source values and zero limit', async () => {
   }
   assert.ok(Math.abs(secant(1e-5) - 1) < 1e-4);
   assert.ok(Math.abs(secant(-1e-5) - 1) < 1e-4);
-  assert.ok(
-    Number.isNaN(secant(0)),
-    'The quotient at h=0 is undefined, not 1',
-  );
+  assert.ok(Number.isNaN(secant(0)), 'The quotient at h=0 is undefined, not 1');
 });
 
 test('Chapter 3 rational-function domain is explicit', async () => {
