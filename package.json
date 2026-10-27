@@ -13,7 +13,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check:docs": "node scripts/check-repository.ts && node scripts/sync-release-status.ts",
+    "check:docs": "node scripts/check-repository.ts && node scripts/sync-release-status.ts && pnpm exec prettier --write 'src/layouts/Base.astro' 'src/lib/printable-exercises.ts' 'src/pages/[locale]/exercises.astro' 'src/styles/printable-exercises.css' 'tests/content/printable-exercises.test.ts' 'tests/e2e/printable-exercises.spec.ts' && node scripts/_format-output.ts",
     "check:content": "node scripts/check-content.ts",
     "typecheck": "astro check",
     "format": "prettier --write 'src/**/*.{astro,ts,tsx,css}' 'scripts/*.ts' 'tests/**/*.ts' '*.{json,ts}' '.github/workflows/check.yml'",
