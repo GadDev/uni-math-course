@@ -35,6 +35,9 @@
   gap: 1.5rem;
   position: relative;
 }
+.site-header .primary-nav .nav-short {
+  display: none;
+}
 .site-header .header-actions {
   gap: 1rem;
 }
@@ -206,6 +209,12 @@
   }
   .site-header .primary-nav > a {
     font-size: 0.75rem;
+  }
+  .site-header .primary-nav .nav-full {
+    display: none;
+  }
+  .site-header .primary-nav .nav-short {
+    display: inline;
   }
   .chapter-picker {
     position: static;
