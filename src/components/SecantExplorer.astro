@@ -1,0 +1,164 @@
+---
+import type { Locale } from '../lib/i18n';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const fr = locale === 'fr';
+---
+
+<section class="secant-explorer" data-secant-explorer data-locale={locale} aria-label={fr ? 'Laboratoire sécante et tangente' : 'Secant and tangent laboratory'}>
+  <div class="secant-plot">
+    <svg data-plot viewBox="0 0 580 410" role="group" aria-label={fr ? 'Graphe de la parabole et points P et Q' : 'Parabola with points P and Q'}>
+      <defs><clipPath id="secant-plot-clip"><rect x="40" y="35" width="500" height="325" /></clipPath></defs>
+      <path d="M40 331.5H548M140 360V20" stroke="var(--ink)" stroke-width="1.7" fill="none" />
+      <g clip-path="url(#secant-plot-clip)">
+        <path data-curve stroke="var(--blue-accent)" fill="none" stroke-width="3.5" />
+        <line data-tangent stroke="var(--blue-accent)" stroke-width="2.4" stroke-dasharray="9 7" />
+        <line data-secant stroke="var(--ink)" stroke-width="2.8" />
+        <line data-rise stroke="var(--blue-accent)" stroke-width="1.3" stroke-dasharray="4 5" />
+        <line data-run stroke="var(--blue-accent)" stroke-width="1.3" stroke-dasharray="4 5" />
+      </g>
+      <circle data-p r="6" fill="var(--ink)" />
+      <text x="152" y="307" fill="var(--ink)" font-size="16">P</text>
+      <circle data-q r="14" class="secant-handle" tabindex="0" role="slider"
+        aria-label={fr ? "Déplacer Q pour modifier h" : "Move Q to adjust h"}
+        aria-valuemin="-2" aria-valuemax="2.5" aria-valuenow="2"
+        fill="var(--blue-accent)" stroke="var(--ink)" stroke-width="2" />
+      <text x="48" y="32" fill="var(--blue-accent)" font-size="15">f(x)=x²/2</text>
+      <text x="547" y="345" fill="var(--ink)" font-size="14">x</text>
+      <text x="148" y="24" fill="var(--ink)" font-size="14">y</text>
+    </svg>
+  </div>
+  <div class="secant-controls">
+    <label for="secant-h">{fr ? 'Écart horizontal h' : 'Horizontal gap h'}</label>
+    <input id="secant-h" data-h type="range" min="-2" max="2.5" step="0.01" value="2" />
+    <div class="secant-ends"><span>-2</span><span>0</span><span>+2.5</span></div>
+    <dl>
+      <div><dt>h</dt><dd data-h-value>2</dd></div>
+      <div><dt>{fr ? 'Pente de la sécante' : 'Secant slope'}</dt><dd data-slope>2</dd></div>
+      <div><dt>{fr ? 'Pente de la tangente' : 'Tangent slope'}</dt><dd>1</dd></div>
+    </dl>
+    <p class="secant-formula" data-formula></p>
+    <p data-explanation></p>
+    <div class="secant-actions">
+      <button type="button" data-preset="1">h = 1</button>
+      <button type="button" data-preset="0.1">h = 0.1</button>
+      <button type="button" data-preset="0">h → 0</button>
+      <button type="button" data-preset="2">{fr ? 'Réinitialiser' : 'Reset'}</button>
+    </div>
+    <span class="visually-hidden" data-announcement aria-live="polite" aria-atomic="true"></span>
+  </div>
+</section>
+
+<style>
+  .secant-explorer {display:grid;grid-template-columns:minmax(0,1.5fr) minmax(240px,1fr);border:1px solid var(--line);background:var(--card);margin:1.5rem 0 3rem}
+  .secant-plot {padding:1rem;border-right:1px solid var(--soft-line)}
+  .secant-plot svg {width:100%;height:auto;display:block;touch-action:none}
+  .secant-handle {cursor:ew-resize;touch-action:none}
+  .secant-handle:focus-visible {outline:3px solid var(--focus);outline-offset:3px}
+  .secant-controls {padding:1.5rem;min-width:0}
+  .secant-controls label{font-size:.9rem;font-weight:700}
+  .secant-controls input[type=range]{width:100%;height:44px;accent-color:var(--blue-accent);cursor:pointer}
+  .secant-ends {display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted)}
+  .secant-controls dl {margin:1.3rem 0 .6rem}
+  .secant-controls dl div{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;border-bottom:1px solid var(--soft-line);padding:.75rem 0}
+  .secant-controls dt{font-size:.8rem}
+  .secant-controls dd{margin:0;color:var(--blue-accent);font-weight:700;font-size:1.2rem;font-variant-numeric:tabular-nums}
+  .secant-controls p{font-size:.82rem;line-height:1.6}
+  .secant-formula{font-family:Georgia,serif;overflow-wrap:anywhere}
+  .secant-actions{display:flex;flex-wrap:wrap;gap:.4rem}
+  .secant-actions button{background:var(--paper);color:var(--ink);border:1px solid var(--line);min-height:44px;padding:.5rem .7rem;cursor:pointer}
+  .secant-actions button:hover{border-color:var(--blue-accent)}
+  @media(max-width:700px){.secant-explorer{display:block}.secant-plot{border-right:0;border-bottom:1px solid var(--soft-line);padding:.25rem}.secant-controls{padding:1rem}}
+</style>
+
+<script>
+  const explorer = document.querySelector<HTMLElement>('[data-secant-explorer]');
+  if (explorer) {
+    const fr = explorer.dataset.locale === 'fr';
+    const q = <T extends Element>(selector: string) =>
+      explorer.querySelector<T>(selector)!;
+    const svg = q<SVGSVGElement>('[data-plot]');
+    const slider = q<HTMLInputElement>('[data-h]');
+    const handle = q<SVGCircleElement>('[data-q]');
+    const plot = q<SVGPathElement>('[data-curve]');
+    const f = (x: number) => (x * x) / 2;
+    const X = (x: number) => 40 + (x + 1) * 100;
+    const Y = (y: number) => 331.5 - y * 37;
+    const line = (selector: string, slope: number) => {
+      const node = q<SVGLineElement>(selector);
+      node.setAttribute('x1', String(X(-1)));
+      node.setAttribute('x2', String(X(4)));
+      node.setAttribute('y1', String(Y(0.5 + slope * (-2))));
+      node.setAttribute('y2', String(Y(0.5 + slope * 3)));
+    };
+    plot.setAttribute('d', Array.from({ length: 160 }, (_, i) => {
+      const x = -1 + (5 * i) / 159;
+      return `${i === 0 ? 'M' : 'L'}${X(x).toFixed(2)},${Y(f(x)).toFixed(2)}`;
+    }).join(' '));
+    q<SVGCircleElement>('[data-p]').setAttribute('cx', String(X(1)));
+    q<SVGCircleElement>('[data-p]').setAttribute('cy', String(Y(0.5)));
+    const format = (n: number) => n.toLocaleString(fr ? 'fr-FR' : 'en-US', {maximumFractionDigits:3});
+    const update = (raw: number, announce = false) => {
+      let h = Number.isFinite(raw) ? Math.max(-2, Math.min(2.5, Math.round(raw * 100) / 100)) : 2;
+      if (Math.abs(h) < 0.005) h = 0;
+      const xq = 1 + h;
+      const yq = f(xq);
+      slider.value = String(h);
+      handle.setAttribute('cx', String(X(xq)));
+      handle.setAttribute('cy', String(Y(yq)));
+      handle.setAttribute('aria-valuenow', String(h));
+      handle.setAttribute('aria-valuetext', `h = ${format(h)}`);
+      line('[data-secant]', h === 0 ? 1 : 1 + h / 2);
+      q<SVGLineElement>('[data-secant]').style.display = h === 0 ? 'none' : '';
+      line('[data-tangent]', 1);
+      const run = q<SVGLineElement>('[data-run]');
+      const rise = q<SVGLineElement>('[data-rise]');
+      for (const node of [run, rise]) node.style.display = h === 0 ? 'none' : '';
+      run.setAttribute('x1', String(X(1)));run.setAttribute('x2', String(X(xq)));
+      run.setAttribute('y1', String(Y(.5)));run.setAttribute('y2', String(Y(.5)));
+      rise.setAttribute('x1', String(X(xq)));rise.setAttribute('x2', String(X(xq)));
+      rise.setAttribute('y1', String(Y(.5)));rise.setAttribute('y2', String(Y(yq)));
+      q<HTMLElement>('[data-h-value]').textContent = format(h);
+      q<HTMLElement>('[data-slope]').textContent = h === 0 ? '→ 1' : format(1 + h / 2);
+      q<HTMLElement>('[data-formula]').textContent = h === 0
+        ? "f′(1) = lim (h → 0) [f(1+h) − f(1)] / h = 1"
+        : `[f(1+h) − f(1)] / h = ${format(1+h/2)}`;
+      q<HTMLElement>('[data-explanation]').textContent = h === 0
+        ? (fr ? 'À h = 0, le quotient est indéfini : la pente 1 est une limite.' : 'At h = 0, the quotient is undefined: slope 1 is its limit.')
+        : (fr ? 'La pente de la sécante est 1 + h/2. Rapprochez Q de P.' : 'The secant slope is 1 + h/2. Bring Q closer to P.');
+      if (announce) q<HTMLElement>('[data-announcement]').textContent =
+        `h = ${format(h)}, ${fr ? 'pente' : 'slope'} = ${format(1+h/2)}`;
+    };
+    slider.addEventListener('input', () => update(Number(slider.value), true));
+    explorer.querySelectorAll<HTMLButtonElement>('[data-preset]').forEach(button => {
+      button.addEventListener('click', () => update(Number(button.dataset.preset), true));
+    });
+    let dragging = false;
+    const drag = (event: PointerEvent) => {
+      const matrix = svg.getScreenCTM();
+      if (!matrix) return;
+      const point = svg.createSVGPoint();
+      point.x = event.clientX;point.y = event.clientY;
+      const pointX = point.matrixTransform(matrix.inverse()).x;
+      update((pointX - 40) / 100 - 2, false);
+    };
+    handle.addEventListener('pointerdown', event => {
+      event.preventDefault();
+      dragging = true;
+      handle.setPointerCapture(event.pointerId);
+      drag(event);
+    });
+    handle.addEventListener('pointermove', event => { if (dragging) drag(event); });
+    handle.addEventListener('pointerup', () => { dragging = false; });
+    handle.addEventListener('pointercancel', () => { dragging = false; });
+    handle.addEventListener('lostpointercapture', () => { dragging = false; });
+    handle.addEventListener('keydown', event => {
+      const delta = event.key === 'ArrowLeft' || event.key === 'ArrowDown' ? -0.01 :
+        event.key === 'ArrowRight' || event.key === 'ArrowUp' ? 0.01 : 0;
+      if (!delta) return;
+      event.preventDefault();
+      update(Number(slider.value)+delta, true);
+    });
+    update(2);
+  }
+</script>
