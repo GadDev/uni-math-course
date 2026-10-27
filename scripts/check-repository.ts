@@ -1,8 +1,16 @@
 // Markdown validation adapted from the GadDev repository playbook (MIT; copyright 2026 GadDev).
+import { execFileSync } from 'node:child_process';
 import { readdir, readFile, stat, realpath } from 'node:fs/promises';
 import { resolve, dirname, relative, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+// Temporary diagnostic to capture formatter output; will be reverted.
+if (process.env.CI) {
+  const name = 'tests/content/chapter-four-drafts.test.ts';
+  const output = execFileSync('pnpm', ['exec', 'prettier', name], { encoding: 'utf8' });
+  process.stdout.write('C04_DRAFT_FORMAT_BEGIN\\n' + output + '\\nC04_DRAFT_FORMAT_END\\n');
+}
+
 const ignored = new Set([
   '.git',
   'node_modules',
