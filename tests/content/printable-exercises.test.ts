@@ -3,7 +3,10 @@ import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import test from 'node:test';
-import { printableChapters, printableCopy } from '../../src/lib/printable-exercises.ts';
+import {
+  printableChapters,
+  printableCopy,
+} from '../../src/lib/printable-exercises.ts';
 
 test('printable exercise catalog describes two complete chapter pairs', () => {
   assert.equal(printableChapters.length, 2);
@@ -35,8 +38,8 @@ test('printable exercise catalog describes two complete chapter pairs', () => {
       paths.add(document.path);
       documentIds.add(document.id);
 
-      // The GitHub connector cannot attach local binary files. When supplied
-      // separately, exact checksums prevent stale or substituted PDFs shipping.
+      // Verify exact bytes whenever PDFs are present, so wrong or stale
+      // uploads cannot silently be published.
       const absolutePath = join(process.cwd(), 'public', document.path);
       if (existsSync(absolutePath)) {
         const bytes = readFileSync(absolutePath);
