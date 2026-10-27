@@ -1,7 +1,7 @@
 ---
 interface Props {
   compact?: boolean;
-  variant?: 'logic' | 'decalage';
+  variant?: 'logic' | 'decalage' | 'functions';
 }
 const { compact = false, variant = 'logic' } = Astro.props;
 ---
@@ -37,6 +37,49 @@ const { compact = false, variant = 'logic' } = Astro.props;
         stroke="var(--ink)"
         stroke-width="1.5"
         stroke-dasharray="6 7"
+      />
+    </g>
+  ) : variant === 'functions' ? (
+    <g>
+      <!-- Same 560-square Signal grammar as logic and Décalage; curve and secant
+           evoke functions without reproducing a course slide. -->
+      <rect width="560" height="560" fill="var(--paper)" />
+      <path d="M0 0H140V280H0Z" fill="var(--ink)" />
+      <path d="M140 0H420V140H140Z" fill="var(--blue-accent)" />
+      <path d="M420 0A140 140 0 0 1 560 140H420Z" fill="var(--ink)" />
+      <path d="M140 140L280 280H140Z" fill="var(--blue-accent)" />
+      <path d="M280 140H420V280H280Z" fill="var(--ink)" />
+      <path d="M420 140A140 140 0 0 0 560 280V140Z" fill="var(--blue-accent)" />
+      <path d="M0 280H140V420H280V560H140V420H0Z" fill="var(--blue-accent)" />
+      <path d="M280 280H420V420H560V560H420V420H280Z" fill="var(--ink)" />
+      <path d="M420 280L560 420H420Z" fill="var(--blue-accent)" />
+      <path d="M0 560A140 140 0 0 1 140 420V560Z" fill="var(--ink)" />
+      <path
+        d="M0 140H560M280 0V560"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="1.25"
+      />
+      <path
+        d="M0 280A280 280 0 0 1 280 0M280 560A280 280 0 0 1 560 280"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="1.5"
+        stroke-dasharray="6 7"
+      />
+      <path
+        d="M300 460C334 425 354 414 380 404C414 391 454 368 482 304"
+        fill="none"
+        stroke="var(--paper)"
+        stroke-width="3"
+      />
+      <circle cx="380" cy="404" r="6" fill="var(--paper)" />
+      <path
+        d="M315 461L501 323"
+        fill="none"
+        stroke="var(--paper)"
+        stroke-width="2"
+        stroke-dasharray="8 8"
       />
     </g>
   ) : (

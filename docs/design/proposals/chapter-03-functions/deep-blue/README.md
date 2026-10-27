@@ -13,6 +13,16 @@ Design references: [Chapter 02 implementation](../../../implementation/chapter-0
 
 These are **real editable HTML/CSS studies**, responsive at desktop and mobile widths, not images of an implemented production route. To view the fully interactive explorer **with the repository's actual Anton font**, start a local HTTP server **from the repository root**, for example `python3 -m http.server 8000`, then navigate to `http://localhost:8000/docs/design/proposals/chapter-03-functions/deep-blue/chapter-03-fr.html` or `chapter-03-en.html`. The CSS uses the same font asset as the application, with system-font fallback if the study is served from its folder. Open the browser responsive inspector at 1440, 375, or 320 px. JavaScript modules typically will not run through GitHub's blob viewer or when opened directly via `file://`.
 
+## Production artwork variant (additive, not yet used by a live chapter)
+
+The shared [`src/components/SignalGeometry.astro`](../../../../../src/components/SignalGeometry.astro) now accepts `variant="functions"` alongside the existing, unchanged `logic` and `decalage` variants:
+
+```astro
+<SignalGeometry variant="functions" />
+```
+
+This renders the same editable geometry as [the standalone Chapter 03 SVG](chapter-03-deep-blue-art.svg), using the design-system colour token `--blue-accent`. The token has **light and dark** values (`#1455C0` and `#8BBAFF`). The shared component still defaults to the existing Chapter 1 artwork, and no public page references the new variant yet. The [preview](chapter-03-deep-blue-art.svg) is the fixed light-mode export.
+
 ## Artwork — same Signal family, new chapter identity
 
 - [Editable, original SVG hero](chapter-03-deep-blue-art.svg) (560 × 560): quarter-circles, triangles, offset rectangles, hard black slabs, fine black rules and sparse dashed geometry.
