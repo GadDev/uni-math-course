@@ -38,18 +38,20 @@ test('printable exercise catalog describes two complete chapter pairs', () => {
       paths.add(document.path);
       documentIds.add(document.id);
 
-      // Verify exact bytes whenever PDFs are present, so wrong or stale
-      // uploads cannot silently be published.
+      // All four public PDFs must be present and match the reviewed bytes.
+      // Missing or substituted assets are release-blocking failures.
       const absolutePath = join(process.cwd(), 'public', document.path);
-      if (existsSync(absolutePath)) {
-        const bytes = readFileSync(absolutePath);
-        assert.equal(bytes.subarray(0, 5).toString(), '%PDF-');
-        assert.equal(
-          createHash('sha256').update(bytes).digest('hex'),
-          document.sha256,
-          'Uploaded PDF does not match the approved workbook: ' + document.path,
-        );
-      }
+      assert.ok(
+        existsSync(absolutePath),
+        'Published PDF is missing: ' + document.path,
+      );
+      const bytes = readFileSync(absolutePath);
+      assert.equal(bytes.subarray(0, 5).toString(), '%PDF-');
+      assert.equal(
+        createHash('sha256').update(bytes).digest('hex'),
+        document.sha256,
+        'Uploaded PDF does not match the approved workbook: ' + document.path,
+      );
     }
   }
 
