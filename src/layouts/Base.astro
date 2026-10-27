@@ -73,7 +73,9 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
           aria-label={glossaryCopy[locale].nav}
         >
           <span class="nav-full">{glossaryCopy[locale].nav}</span>
-          <span class="nav-short" aria-hidden="true">Glos.</span>
+          <span class="nav-short" aria-hidden="true">
+            Glos.
+          </span>
         </a>
         <a
           href={'/' + locale + '/numbers/'}
@@ -83,7 +85,9 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
           <span class="nav-full">
             {locale === 'fr' ? 'Nombres' : 'Numbers'}
           </span>
-          <span class="nav-short" aria-hidden="true">N°</span>
+          <span class="nav-short" aria-hidden="true">
+            N°
+          </span>
         </a>
         <a
           href={'/' + locale + '/exercises/'}
@@ -91,7 +95,9 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
           aria-label={printableCopy[locale].nav}
         >
           <span class="nav-full">{printableCopy[locale].nav}</span>
-          <span class="nav-short" aria-hidden="true">Exo.</span>
+          <span class="nav-short" aria-hidden="true">
+            Exo.
+          </span>
         </a>
       </nav>
       <div class="header-actions">
