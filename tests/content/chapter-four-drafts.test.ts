@@ -90,8 +90,8 @@ test('Encoding answers are exact concatenations', () => {
 });
 
 test('Prefix claims and decoding examples are consistent', () => {
-  const expected = [false, false, true, true, true, true, false, false, false, true];
-  const prefix = [false, false, false, true, true, false, false, false, false, true];
+  const expected = [true, true, true, true, false, true, false, false, false, true];
+  const prefix = [false, false, true, true, false, true, false, false, false, true];
   const items = bankOf('T03').items;
   for (let i = 0; i < 10; i++) {
     const sample = items[i * 10]!;
@@ -100,15 +100,15 @@ test('Prefix claims and decoding examples are consistent', () => {
     assert.equal(isPrefix(sample.codebook!), prefix[i]);
   }
   const collisions = [
-    ['z', 'yx'],
+    null,
+    null,
+    null,
+    null,
+    ['y', 'xx'],
+    null,
     ['x', 'zy'],
-    null,
-    null,
-    null,
-    null,
+    ['z', 'yx'],
     ['y', 'xx'],
-    ['y', 'xx'],
-    ['x', 'yz'],
     null,
   ] as const;
   for (let i = 0; i < 10; i++) {
