@@ -30,7 +30,9 @@ const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
         <p class="eyebrow">{text.eyebrow}</p>
         <h1 class="signal-title">
           <span>{text.titleLines[0]}</span>
-          <span>{text.titleLines[1]}<span class="signal-stop">.</span></span>
+          <span>
+            {text.titleLines[1]}<span class="signal-stop">.</span>
+          </span>
         </h1>
         <p class="chapter-subtitle">
           {text.subtitle.map((line) => (
@@ -47,7 +49,9 @@ const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
     </section>
 
     <section class="lesson-feature" aria-labelledby="information-basics-title">
-      <div class="lesson-index" aria-hidden="true">01</div>
+      <div class="lesson-index" aria-hidden="true">
+        01
+      </div>
       <div class="featured-identity">
         <p class="eyebrow">{text.start}</p>
         <h2 id="information-basics-title">{text.basics}</h2>
