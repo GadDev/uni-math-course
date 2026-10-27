@@ -11,7 +11,7 @@ Design references: [Chapter 02 implementation](../../../implementation/chapter-0
 | Français | [Open French study](chapter-03-fr.html) | [Open French study](chapter-03-fr.html) |
 | English | [Open English study](chapter-03-en.html) | [Open English study](chapter-03-en.html) |
 
-These are **real editable HTML/CSS studies**, responsive at desktop and mobile widths, not images of an implemented production route. To view the fully interactive explorer locally, use a local HTTP server from this folder, for example `python3 -m http.server 8000`, then navigate to `http://localhost:8000/chapter-03-fr.html` or `chapter-03-en.html`. Open the browser responsive inspector at 1440, 375, or 320 px. JavaScript modules typically will not run through GitHub's blob viewer or when opened directly via `file://`.
+These are **real editable HTML/CSS studies**, responsive at desktop and mobile widths, not images of an implemented production route. To view the fully interactive explorer **with the repository's actual Anton font**, start a local HTTP server **from the repository root**, for example `python3 -m http.server 8000`, then navigate to `http://localhost:8000/docs/design/proposals/chapter-03-functions/deep-blue/chapter-03-fr.html` or `chapter-03-en.html`. The CSS uses the same font asset as the application, with system-font fallback if the study is served from its folder. Open the browser responsive inspector at 1440, 375, or 320 px. JavaScript modules typically will not run through GitHub's blob viewer or when opened directly via `file://`.
 
 ## Artwork — same Signal family, new chapter identity
 
