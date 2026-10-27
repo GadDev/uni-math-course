@@ -84,7 +84,7 @@ test('Chapter 3 rational-function domain is explicit', async () => {
       'utf8',
     ),
   );
-  assert.match(bank.exercises[3].prompt.fr, /x\\(x-2\\)/);
+  assert.match(bank.exercises[3].prompt.fr, /x\(x-2\)/);
   assert.equal(
     bank.exercises[3].options.find(
       (option: { id: string }) => option.id === bank.exercises[3].answer,
