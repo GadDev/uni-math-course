@@ -1,0 +1,2107 @@
+{
+  "draft": true,
+  "chapterId": "C04",
+  "topicId": "T06",
+  "origin": "original-project-work",
+  "sourcePages": [
+    17,
+    18,
+    19,
+    20
+  ],
+  "assessment": "manually-reviewed-readable-drill-not-server-graded",
+  "answerStatus": "machine-generated-author-self-check-pending",
+  "itemCount": 100,
+  "items": [
+    {
+      "id": "C04-T06-E001",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Vérifier que la distribution (1/2, 1/2) est valide.",
+        "en": "Check that distribution (1/2, 1/2) is valid."
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+        "en": "Answer: yes. Yes: all probabilities are positive and sum to 1."
+      },
+      "answer": "yes",
+      "distributionDenominators": [
+        2,
+        2
+      ],
+      "theme": "distribution-validation"
+    },
+    {
+      "id": "C04-T06-E002",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/2, 1/2), trouver l'information I(s1) du premier symbole.",
+        "en": "For (1/2, 1/2), find the self-information I(s1) of the first symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 1. I(s1)=-log2(1/2)=1 bits.",
+        "en": "Answer: 1. I(s1)=-log2(1/2)=1 bits."
+      },
+      "answer": "1",
+      "distributionDenominators": [
+        2,
+        2
+      ],
+      "theme": "surprisal-first"
+    },
+    {
+      "id": "C04-T06-E003",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/2, 1/2), trouver l'information du dernier symbole.",
+        "en": "For (1/2, 1/2), find the information carried by the last symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 1. I=-log2(1/2)=1 bits.",
+        "en": "Answer: 1. I=-log2(1/2)=1 bits."
+      },
+      "answer": "1",
+      "distributionDenominators": [
+        2,
+        2
+      ],
+      "theme": "surprisal-last"
+    },
+    {
+      "id": "C04-T06-E004",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer exactement H(S) pour la distribution (1/2, 1/2).",
+        "en": "Calculate H(S) exactly for distribution (1/2, 1/2)."
+      },
+      "solution": {
+        "fr": "Réponse : 1. H(S)=∑p_i×I(s_i)=2/2=1 bits/symbole.",
+        "en": "Answer: 1. H(S)=∑p_i×I(s_i)=2/2=1 bits/symbol."
+      },
+      "answer": "1",
+      "distributionDenominators": [
+        2,
+        2
+      ],
+      "theme": "entropy-calculation"
+    },
+    {
+      "id": "C04-T06-E005",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour (1/2, 1/2), quelle est l'information maximale d'un symbole (le plus rare) ?",
+        "en": "For (1/2, 1/2), what is the highest single-symbol information (rarest symbol)?"
+      },
+      "solution": {
+        "fr": "Réponse : 1. Le plus petit p vaut 1/2, donc Imax=1 bits.",
+        "en": "Answer: 1. The smallest probability is 1/2, so Imax=1 bits."
+      },
+      "answer": "1",
+      "distributionDenominators": [
+        2,
+        2
+      ],
+      "theme": "max-surprisal"
+    },
+    {
+      "id": "C04-T06-E006",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/2, 1/2), lequel du premier ou du dernier symbole surprend le plus (ou égalité) ?",
+        "en": "With (1/2, 1/2), is the first or the last symbol more surprising (or tied)?"
+      },
+      "solution": {
+        "fr": "Réponse : equal. Les probabilités sont égales : surprise identique.",
+        "en": "Answer: equal. Equal probabilities imply equal surprise."
+      },
+      "answer": "equal",
+      "distributionDenominators": [
+        2,
+        2
+      ],
+      "theme": "compare-surprisal"
+    },
+    {
+      "id": "C04-T06-E007",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/2, 1/2), quelle est la plus grande probabilité d'un symbole ?",
+        "en": "For (1/2, 1/2), what is the greatest symbol probability?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/2. La probabilité maximale est 1/2.",
+        "en": "Answer: 1/2. The maximum probability is 1/2."
+      },
+      "answer": "1/2",
+      "distributionDenominators": [
+        2,
+        2
+      ],
+      "theme": "most-likely"
+    },
+    {
+      "id": "C04-T06-E008",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec (1/2, 1/2), calculer p(s1)+p(s2).",
+        "en": "For (1/2, 1/2), compute p(s1)+p(s2)."
+      },
+      "solution": {
+        "fr": "Réponse : 1. La somme est 1/2+1/2=1.",
+        "en": "Answer: 1. The sum is 1/2+1/2=1."
+      },
+      "answer": "1",
+      "distributionDenominators": [
+        2,
+        2
+      ],
+      "theme": "probability-sum"
+    },
+    {
+      "id": "C04-T06-E009",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Une source suit (1/2, 1/2). Quelle est l'information moyenne attendue par symbole ?",
+        "en": "A source follows (1/2, 1/2). What is the expected average information per symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : 1. Par définition, c'est l'entropie H(S)=1 bits/symbole.",
+        "en": "Answer: 1. By definition, this is entropy H(S)=1 bits/symbol."
+      },
+      "answer": "1",
+      "distributionDenominators": [
+        2,
+        2
+      ],
+      "theme": "mean-information"
+    },
+    {
+      "id": "C04-T06-E010",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Pour (1/2, 1/2), l'entropie H(S) est-elle égale à l'information du premier symbole ?",
+        "en": "For (1/2, 1/2), is entropy H(S) equal to the self-information of the first symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : no. Non : H(S)=1, I(s1)=1.",
+        "en": "Answer: no.  No: H(S)=1, I(s1)=1."
+      },
+      "answer": "no",
+      "distributionDenominators": [
+        2,
+        2
+      ],
+      "theme": "entropy-vs-surprisal"
+    },
+    {
+      "id": "C04-T06-E011",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Vérifier que la distribution (1/2, 1/4, 1/4) est valide.",
+        "en": "Check that distribution (1/2, 1/4, 1/4) is valid."
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+        "en": "Answer: yes. Yes: all probabilities are positive and sum to 1."
+      },
+      "answer": "yes",
+      "distributionDenominators": [
+        2,
+        4,
+        4
+      ],
+      "theme": "distribution-validation"
+    },
+    {
+      "id": "C04-T06-E012",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/4), trouver l'information I(s1) du premier symbole.",
+        "en": "For (1/2, 1/4, 1/4), find the self-information I(s1) of the first symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 1. I(s1)=-log2(1/2)=1 bits.",
+        "en": "Answer: 1. I(s1)=-log2(1/2)=1 bits."
+      },
+      "answer": "1",
+      "distributionDenominators": [
+        2,
+        4,
+        4
+      ],
+      "theme": "surprisal-first"
+    },
+    {
+      "id": "C04-T06-E013",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/4), trouver l'information du dernier symbole.",
+        "en": "For (1/2, 1/4, 1/4), find the information carried by the last symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 2. I=-log2(1/4)=2 bits.",
+        "en": "Answer: 2. I=-log2(1/4)=2 bits."
+      },
+      "answer": "2",
+      "distributionDenominators": [
+        2,
+        4,
+        4
+      ],
+      "theme": "surprisal-last"
+    },
+    {
+      "id": "C04-T06-E014",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer exactement H(S) pour la distribution (1/2, 1/4, 1/4).",
+        "en": "Calculate H(S) exactly for distribution (1/2, 1/4, 1/4)."
+      },
+      "solution": {
+        "fr": "Réponse : 3/2. H(S)=∑p_i×I(s_i)=6/4=3/2 bits/symbole.",
+        "en": "Answer: 3/2. H(S)=∑p_i×I(s_i)=6/4=3/2 bits/symbol."
+      },
+      "answer": "3/2",
+      "distributionDenominators": [
+        2,
+        4,
+        4
+      ],
+      "theme": "entropy-calculation"
+    },
+    {
+      "id": "C04-T06-E015",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour (1/2, 1/4, 1/4), quelle est l'information maximale d'un symbole (le plus rare) ?",
+        "en": "For (1/2, 1/4, 1/4), what is the highest single-symbol information (rarest symbol)?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. Le plus petit p vaut 1/4, donc Imax=2 bits.",
+        "en": "Answer: 2. The smallest probability is 1/4, so Imax=2 bits."
+      },
+      "answer": "2",
+      "distributionDenominators": [
+        2,
+        4,
+        4
+      ],
+      "theme": "max-surprisal"
+    },
+    {
+      "id": "C04-T06-E016",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/4), lequel du premier ou du dernier symbole surprend le plus (ou égalité) ?",
+        "en": "With (1/2, 1/4, 1/4), is the first or the last symbol more surprising (or tied)?"
+      },
+      "solution": {
+        "fr": "Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+        "en": "Answer: first. The first has lower probability and is more surprising."
+      },
+      "answer": "first",
+      "distributionDenominators": [
+        2,
+        4,
+        4
+      ],
+      "theme": "compare-surprisal"
+    },
+    {
+      "id": "C04-T06-E017",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/4), quelle est la plus grande probabilité d'un symbole ?",
+        "en": "For (1/2, 1/4, 1/4), what is the greatest symbol probability?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/2. La probabilité maximale est 1/2.",
+        "en": "Answer: 1/2. The maximum probability is 1/2."
+      },
+      "answer": "1/2",
+      "distributionDenominators": [
+        2,
+        4,
+        4
+      ],
+      "theme": "most-likely"
+    },
+    {
+      "id": "C04-T06-E018",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/4), calculer p(s1)+p(s2).",
+        "en": "For (1/2, 1/4, 1/4), compute p(s1)+p(s2)."
+      },
+      "solution": {
+        "fr": "Réponse : 3/4. La somme est 1/2+1/4=3/4.",
+        "en": "Answer: 3/4. The sum is 1/2+1/4=3/4."
+      },
+      "answer": "3/4",
+      "distributionDenominators": [
+        2,
+        4,
+        4
+      ],
+      "theme": "probability-sum"
+    },
+    {
+      "id": "C04-T06-E019",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Une source suit (1/2, 1/4, 1/4). Quelle est l'information moyenne attendue par symbole ?",
+        "en": "A source follows (1/2, 1/4, 1/4). What is the expected average information per symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : 3/2. Par définition, c'est l'entropie H(S)=3/2 bits/symbole.",
+        "en": "Answer: 3/2. By definition, this is entropy H(S)=3/2 bits/symbol."
+      },
+      "answer": "3/2",
+      "distributionDenominators": [
+        2,
+        4,
+        4
+      ],
+      "theme": "mean-information"
+    },
+    {
+      "id": "C04-T06-E020",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Pour (1/2, 1/4, 1/4), l'entropie H(S) est-elle égale à l'information du premier symbole ?",
+        "en": "For (1/2, 1/4, 1/4), is entropy H(S) equal to the self-information of the first symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : no. Non : H(S)=3/2, I(s1)=1.",
+        "en": "Answer: no.  No: H(S)=3/2, I(s1)=1."
+      },
+      "answer": "no",
+      "distributionDenominators": [
+        2,
+        4,
+        4
+      ],
+      "theme": "entropy-vs-surprisal"
+    },
+    {
+      "id": "C04-T06-E021",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Vérifier que la distribution (1/4, 1/4, 1/4, 1/4) est valide.",
+        "en": "Check that distribution (1/4, 1/4, 1/4, 1/4) is valid."
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+        "en": "Answer: yes. Yes: all probabilities are positive and sum to 1."
+      },
+      "answer": "yes",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "theme": "distribution-validation"
+    },
+    {
+      "id": "C04-T06-E022",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/4, 1/4), trouver l'information I(s1) du premier symbole.",
+        "en": "For (1/4, 1/4, 1/4, 1/4), find the self-information I(s1) of the first symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 2. I(s1)=-log2(1/4)=2 bits.",
+        "en": "Answer: 2. I(s1)=-log2(1/4)=2 bits."
+      },
+      "answer": "2",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "theme": "surprisal-first"
+    },
+    {
+      "id": "C04-T06-E023",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/4, 1/4), trouver l'information du dernier symbole.",
+        "en": "For (1/4, 1/4, 1/4, 1/4), find the information carried by the last symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 2. I=-log2(1/4)=2 bits.",
+        "en": "Answer: 2. I=-log2(1/4)=2 bits."
+      },
+      "answer": "2",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "theme": "surprisal-last"
+    },
+    {
+      "id": "C04-T06-E024",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer exactement H(S) pour la distribution (1/4, 1/4, 1/4, 1/4).",
+        "en": "Calculate H(S) exactly for distribution (1/4, 1/4, 1/4, 1/4)."
+      },
+      "solution": {
+        "fr": "Réponse : 2. H(S)=∑p_i×I(s_i)=8/4=2 bits/symbole.",
+        "en": "Answer: 2. H(S)=∑p_i×I(s_i)=8/4=2 bits/symbol."
+      },
+      "answer": "2",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "theme": "entropy-calculation"
+    },
+    {
+      "id": "C04-T06-E025",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour (1/4, 1/4, 1/4, 1/4), quelle est l'information maximale d'un symbole (le plus rare) ?",
+        "en": "For (1/4, 1/4, 1/4, 1/4), what is the highest single-symbol information (rarest symbol)?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. Le plus petit p vaut 1/4, donc Imax=2 bits.",
+        "en": "Answer: 2. The smallest probability is 1/4, so Imax=2 bits."
+      },
+      "answer": "2",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "theme": "max-surprisal"
+    },
+    {
+      "id": "C04-T06-E026",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/4, 1/4), lequel du premier ou du dernier symbole surprend le plus (ou égalité) ?",
+        "en": "With (1/4, 1/4, 1/4, 1/4), is the first or the last symbol more surprising (or tied)?"
+      },
+      "solution": {
+        "fr": "Réponse : equal. Les probabilités sont égales : surprise identique.",
+        "en": "Answer: equal. Equal probabilities imply equal surprise."
+      },
+      "answer": "equal",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "theme": "compare-surprisal"
+    },
+    {
+      "id": "C04-T06-E027",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/4, 1/4), quelle est la plus grande probabilité d'un symbole ?",
+        "en": "For (1/4, 1/4, 1/4, 1/4), what is the greatest symbol probability?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/4. La probabilité maximale est 1/4.",
+        "en": "Answer: 1/4. The maximum probability is 1/4."
+      },
+      "answer": "1/4",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "theme": "most-likely"
+    },
+    {
+      "id": "C04-T06-E028",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/4, 1/4), calculer p(s1)+p(s2).",
+        "en": "For (1/4, 1/4, 1/4, 1/4), compute p(s1)+p(s2)."
+      },
+      "solution": {
+        "fr": "Réponse : 1/2. La somme est 1/4+1/4=1/2.",
+        "en": "Answer: 1/2. The sum is 1/4+1/4=1/2."
+      },
+      "answer": "1/2",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "theme": "probability-sum"
+    },
+    {
+      "id": "C04-T06-E029",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Une source suit (1/4, 1/4, 1/4, 1/4). Quelle est l'information moyenne attendue par symbole ?",
+        "en": "A source follows (1/4, 1/4, 1/4, 1/4). What is the expected average information per symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. Par définition, c'est l'entropie H(S)=2 bits/symbole.",
+        "en": "Answer: 2. By definition, this is entropy H(S)=2 bits/symbol."
+      },
+      "answer": "2",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "theme": "mean-information"
+    },
+    {
+      "id": "C04-T06-E030",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Pour (1/4, 1/4, 1/4, 1/4), l'entropie H(S) est-elle égale à l'information du premier symbole ?",
+        "en": "For (1/4, 1/4, 1/4, 1/4), is entropy H(S) equal to the self-information of the first symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : no. Non : H(S)=2, I(s1)=2.",
+        "en": "Answer: no.  No: H(S)=2, I(s1)=2."
+      },
+      "answer": "no",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "theme": "entropy-vs-surprisal"
+    },
+    {
+      "id": "C04-T06-E031",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Vérifier que la distribution (1/2, 1/4, 1/8, 1/8) est valide.",
+        "en": "Check that distribution (1/2, 1/4, 1/8, 1/8) is valid."
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+        "en": "Answer: yes. Yes: all probabilities are positive and sum to 1."
+      },
+      "answer": "yes",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        8
+      ],
+      "theme": "distribution-validation"
+    },
+    {
+      "id": "C04-T06-E032",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/8, 1/8), trouver l'information I(s1) du premier symbole.",
+        "en": "For (1/2, 1/4, 1/8, 1/8), find the self-information I(s1) of the first symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 1. I(s1)=-log2(1/2)=1 bits.",
+        "en": "Answer: 1. I(s1)=-log2(1/2)=1 bits."
+      },
+      "answer": "1",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        8
+      ],
+      "theme": "surprisal-first"
+    },
+    {
+      "id": "C04-T06-E033",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/8, 1/8), trouver l'information du dernier symbole.",
+        "en": "For (1/2, 1/4, 1/8, 1/8), find the information carried by the last symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 3. I=-log2(1/8)=3 bits.",
+        "en": "Answer: 3. I=-log2(1/8)=3 bits."
+      },
+      "answer": "3",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        8
+      ],
+      "theme": "surprisal-last"
+    },
+    {
+      "id": "C04-T06-E034",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer exactement H(S) pour la distribution (1/2, 1/4, 1/8, 1/8).",
+        "en": "Calculate H(S) exactly for distribution (1/2, 1/4, 1/8, 1/8)."
+      },
+      "solution": {
+        "fr": "Réponse : 7/4. H(S)=∑p_i×I(s_i)=14/8=7/4 bits/symbole.",
+        "en": "Answer: 7/4. H(S)=∑p_i×I(s_i)=14/8=7/4 bits/symbol."
+      },
+      "answer": "7/4",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        8
+      ],
+      "theme": "entropy-calculation"
+    },
+    {
+      "id": "C04-T06-E035",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour (1/2, 1/4, 1/8, 1/8), quelle est l'information maximale d'un symbole (le plus rare) ?",
+        "en": "For (1/2, 1/4, 1/8, 1/8), what is the highest single-symbol information (rarest symbol)?"
+      },
+      "solution": {
+        "fr": "Réponse : 3. Le plus petit p vaut 1/8, donc Imax=3 bits.",
+        "en": "Answer: 3. The smallest probability is 1/8, so Imax=3 bits."
+      },
+      "answer": "3",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        8
+      ],
+      "theme": "max-surprisal"
+    },
+    {
+      "id": "C04-T06-E036",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/8, 1/8), lequel du premier ou du dernier symbole surprend le plus (ou égalité) ?",
+        "en": "With (1/2, 1/4, 1/8, 1/8), is the first or the last symbol more surprising (or tied)?"
+      },
+      "solution": {
+        "fr": "Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+        "en": "Answer: first. The first has lower probability and is more surprising."
+      },
+      "answer": "first",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        8
+      ],
+      "theme": "compare-surprisal"
+    },
+    {
+      "id": "C04-T06-E037",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/8, 1/8), quelle est la plus grande probabilité d'un symbole ?",
+        "en": "For (1/2, 1/4, 1/8, 1/8), what is the greatest symbol probability?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/2. La probabilité maximale est 1/2.",
+        "en": "Answer: 1/2. The maximum probability is 1/2."
+      },
+      "answer": "1/2",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        8
+      ],
+      "theme": "most-likely"
+    },
+    {
+      "id": "C04-T06-E038",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/8, 1/8), calculer p(s1)+p(s2).",
+        "en": "For (1/2, 1/4, 1/8, 1/8), compute p(s1)+p(s2)."
+      },
+      "solution": {
+        "fr": "Réponse : 3/4. La somme est 1/2+1/4=3/4.",
+        "en": "Answer: 3/4. The sum is 1/2+1/4=3/4."
+      },
+      "answer": "3/4",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        8
+      ],
+      "theme": "probability-sum"
+    },
+    {
+      "id": "C04-T06-E039",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Une source suit (1/2, 1/4, 1/8, 1/8). Quelle est l'information moyenne attendue par symbole ?",
+        "en": "A source follows (1/2, 1/4, 1/8, 1/8). What is the expected average information per symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : 7/4. Par définition, c'est l'entropie H(S)=7/4 bits/symbole.",
+        "en": "Answer: 7/4. By definition, this is entropy H(S)=7/4 bits/symbol."
+      },
+      "answer": "7/4",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        8
+      ],
+      "theme": "mean-information"
+    },
+    {
+      "id": "C04-T06-E040",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Pour (1/2, 1/4, 1/8, 1/8), l'entropie H(S) est-elle égale à l'information du premier symbole ?",
+        "en": "For (1/2, 1/4, 1/8, 1/8), is entropy H(S) equal to the self-information of the first symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : no. Non : H(S)=7/4, I(s1)=1.",
+        "en": "Answer: no.  No: H(S)=7/4, I(s1)=1."
+      },
+      "answer": "no",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        8
+      ],
+      "theme": "entropy-vs-surprisal"
+    },
+    {
+      "id": "C04-T06-E041",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Vérifier que la distribution (1/2, 1/8, 1/8, 1/8, 1/8) est valide.",
+        "en": "Check that distribution (1/2, 1/8, 1/8, 1/8, 1/8) is valid."
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+        "en": "Answer: yes. Yes: all probabilities are positive and sum to 1."
+      },
+      "answer": "yes",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "distribution-validation"
+    },
+    {
+      "id": "C04-T06-E042",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/2, 1/8, 1/8, 1/8, 1/8), trouver l'information I(s1) du premier symbole.",
+        "en": "For (1/2, 1/8, 1/8, 1/8, 1/8), find the self-information I(s1) of the first symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 1. I(s1)=-log2(1/2)=1 bits.",
+        "en": "Answer: 1. I(s1)=-log2(1/2)=1 bits."
+      },
+      "answer": "1",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "surprisal-first"
+    },
+    {
+      "id": "C04-T06-E043",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/2, 1/8, 1/8, 1/8, 1/8), trouver l'information du dernier symbole.",
+        "en": "For (1/2, 1/8, 1/8, 1/8, 1/8), find the information carried by the last symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 3. I=-log2(1/8)=3 bits.",
+        "en": "Answer: 3. I=-log2(1/8)=3 bits."
+      },
+      "answer": "3",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "surprisal-last"
+    },
+    {
+      "id": "C04-T06-E044",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer exactement H(S) pour la distribution (1/2, 1/8, 1/8, 1/8, 1/8).",
+        "en": "Calculate H(S) exactly for distribution (1/2, 1/8, 1/8, 1/8, 1/8)."
+      },
+      "solution": {
+        "fr": "Réponse : 2. H(S)=∑p_i×I(s_i)=16/8=2 bits/symbole.",
+        "en": "Answer: 2. H(S)=∑p_i×I(s_i)=16/8=2 bits/symbol."
+      },
+      "answer": "2",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "entropy-calculation"
+    },
+    {
+      "id": "C04-T06-E045",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour (1/2, 1/8, 1/8, 1/8, 1/8), quelle est l'information maximale d'un symbole (le plus rare) ?",
+        "en": "For (1/2, 1/8, 1/8, 1/8, 1/8), what is the highest single-symbol information (rarest symbol)?"
+      },
+      "solution": {
+        "fr": "Réponse : 3. Le plus petit p vaut 1/8, donc Imax=3 bits.",
+        "en": "Answer: 3. The smallest probability is 1/8, so Imax=3 bits."
+      },
+      "answer": "3",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "max-surprisal"
+    },
+    {
+      "id": "C04-T06-E046",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/2, 1/8, 1/8, 1/8, 1/8), lequel du premier ou du dernier symbole surprend le plus (ou égalité) ?",
+        "en": "With (1/2, 1/8, 1/8, 1/8, 1/8), is the first or the last symbol more surprising (or tied)?"
+      },
+      "solution": {
+        "fr": "Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+        "en": "Answer: first. The first has lower probability and is more surprising."
+      },
+      "answer": "first",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "compare-surprisal"
+    },
+    {
+      "id": "C04-T06-E047",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/2, 1/8, 1/8, 1/8, 1/8), quelle est la plus grande probabilité d'un symbole ?",
+        "en": "For (1/2, 1/8, 1/8, 1/8, 1/8), what is the greatest symbol probability?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/2. La probabilité maximale est 1/2.",
+        "en": "Answer: 1/2. The maximum probability is 1/2."
+      },
+      "answer": "1/2",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "most-likely"
+    },
+    {
+      "id": "C04-T06-E048",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec (1/2, 1/8, 1/8, 1/8, 1/8), calculer p(s1)+p(s2).",
+        "en": "For (1/2, 1/8, 1/8, 1/8, 1/8), compute p(s1)+p(s2)."
+      },
+      "solution": {
+        "fr": "Réponse : 5/8. La somme est 1/2+1/8=5/8.",
+        "en": "Answer: 5/8. The sum is 1/2+1/8=5/8."
+      },
+      "answer": "5/8",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "probability-sum"
+    },
+    {
+      "id": "C04-T06-E049",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Une source suit (1/2, 1/8, 1/8, 1/8, 1/8). Quelle est l'information moyenne attendue par symbole ?",
+        "en": "A source follows (1/2, 1/8, 1/8, 1/8, 1/8). What is the expected average information per symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. Par définition, c'est l'entropie H(S)=2 bits/symbole.",
+        "en": "Answer: 2. By definition, this is entropy H(S)=2 bits/symbol."
+      },
+      "answer": "2",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "mean-information"
+    },
+    {
+      "id": "C04-T06-E050",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Pour (1/2, 1/8, 1/8, 1/8, 1/8), l'entropie H(S) est-elle égale à l'information du premier symbole ?",
+        "en": "For (1/2, 1/8, 1/8, 1/8, 1/8), is entropy H(S) equal to the self-information of the first symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : no. Non : H(S)=2, I(s1)=1.",
+        "en": "Answer: no.  No: H(S)=2, I(s1)=1."
+      },
+      "answer": "no",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "entropy-vs-surprisal"
+    },
+    {
+      "id": "C04-T06-E051",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Vérifier que la distribution (1/4, 1/4, 1/4, 1/8, 1/8) est valide.",
+        "en": "Check that distribution (1/4, 1/4, 1/4, 1/8, 1/8) is valid."
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+        "en": "Answer: yes. Yes: all probabilities are positive and sum to 1."
+      },
+      "answer": "yes",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        8,
+        8
+      ],
+      "theme": "distribution-validation"
+    },
+    {
+      "id": "C04-T06-E052",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/4, 1/8, 1/8), trouver l'information I(s1) du premier symbole.",
+        "en": "For (1/4, 1/4, 1/4, 1/8, 1/8), find the self-information I(s1) of the first symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 2. I(s1)=-log2(1/4)=2 bits.",
+        "en": "Answer: 2. I(s1)=-log2(1/4)=2 bits."
+      },
+      "answer": "2",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        8,
+        8
+      ],
+      "theme": "surprisal-first"
+    },
+    {
+      "id": "C04-T06-E053",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/4, 1/8, 1/8), trouver l'information du dernier symbole.",
+        "en": "For (1/4, 1/4, 1/4, 1/8, 1/8), find the information carried by the last symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 3. I=-log2(1/8)=3 bits.",
+        "en": "Answer: 3. I=-log2(1/8)=3 bits."
+      },
+      "answer": "3",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        8,
+        8
+      ],
+      "theme": "surprisal-last"
+    },
+    {
+      "id": "C04-T06-E054",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer exactement H(S) pour la distribution (1/4, 1/4, 1/4, 1/8, 1/8).",
+        "en": "Calculate H(S) exactly for distribution (1/4, 1/4, 1/4, 1/8, 1/8)."
+      },
+      "solution": {
+        "fr": "Réponse : 9/4. H(S)=∑p_i×I(s_i)=18/8=9/4 bits/symbole.",
+        "en": "Answer: 9/4. H(S)=∑p_i×I(s_i)=18/8=9/4 bits/symbol."
+      },
+      "answer": "9/4",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        8,
+        8
+      ],
+      "theme": "entropy-calculation"
+    },
+    {
+      "id": "C04-T06-E055",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour (1/4, 1/4, 1/4, 1/8, 1/8), quelle est l'information maximale d'un symbole (le plus rare) ?",
+        "en": "For (1/4, 1/4, 1/4, 1/8, 1/8), what is the highest single-symbol information (rarest symbol)?"
+      },
+      "solution": {
+        "fr": "Réponse : 3. Le plus petit p vaut 1/8, donc Imax=3 bits.",
+        "en": "Answer: 3. The smallest probability is 1/8, so Imax=3 bits."
+      },
+      "answer": "3",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        8,
+        8
+      ],
+      "theme": "max-surprisal"
+    },
+    {
+      "id": "C04-T06-E056",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/4, 1/8, 1/8), lequel du premier ou du dernier symbole surprend le plus (ou égalité) ?",
+        "en": "With (1/4, 1/4, 1/4, 1/8, 1/8), is the first or the last symbol more surprising (or tied)?"
+      },
+      "solution": {
+        "fr": "Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+        "en": "Answer: first. The first has lower probability and is more surprising."
+      },
+      "answer": "first",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        8,
+        8
+      ],
+      "theme": "compare-surprisal"
+    },
+    {
+      "id": "C04-T06-E057",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/4, 1/8, 1/8), quelle est la plus grande probabilité d'un symbole ?",
+        "en": "For (1/4, 1/4, 1/4, 1/8, 1/8), what is the greatest symbol probability?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/4. La probabilité maximale est 1/4.",
+        "en": "Answer: 1/4. The maximum probability is 1/4."
+      },
+      "answer": "1/4",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        8,
+        8
+      ],
+      "theme": "most-likely"
+    },
+    {
+      "id": "C04-T06-E058",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/4, 1/8, 1/8), calculer p(s1)+p(s2).",
+        "en": "For (1/4, 1/4, 1/4, 1/8, 1/8), compute p(s1)+p(s2)."
+      },
+      "solution": {
+        "fr": "Réponse : 1/2. La somme est 1/4+1/4=1/2.",
+        "en": "Answer: 1/2. The sum is 1/4+1/4=1/2."
+      },
+      "answer": "1/2",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        8,
+        8
+      ],
+      "theme": "probability-sum"
+    },
+    {
+      "id": "C04-T06-E059",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Une source suit (1/4, 1/4, 1/4, 1/8, 1/8). Quelle est l'information moyenne attendue par symbole ?",
+        "en": "A source follows (1/4, 1/4, 1/4, 1/8, 1/8). What is the expected average information per symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : 9/4. Par définition, c'est l'entropie H(S)=9/4 bits/symbole.",
+        "en": "Answer: 9/4. By definition, this is entropy H(S)=9/4 bits/symbol."
+      },
+      "answer": "9/4",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        8,
+        8
+      ],
+      "theme": "mean-information"
+    },
+    {
+      "id": "C04-T06-E060",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Pour (1/4, 1/4, 1/4, 1/8, 1/8), l'entropie H(S) est-elle égale à l'information du premier symbole ?",
+        "en": "For (1/4, 1/4, 1/4, 1/8, 1/8), is entropy H(S) equal to the self-information of the first symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : no. Non : H(S)=9/4, I(s1)=2.",
+        "en": "Answer: no.  No: H(S)=9/4, I(s1)=2."
+      },
+      "answer": "no",
+      "distributionDenominators": [
+        4,
+        4,
+        4,
+        8,
+        8
+      ],
+      "theme": "entropy-vs-surprisal"
+    },
+    {
+      "id": "C04-T06-E061",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Vérifier que la distribution (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8) est valide.",
+        "en": "Check that distribution (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8) is valid."
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+        "en": "Answer: yes. Yes: all probabilities are positive and sum to 1."
+      },
+      "answer": "yes",
+      "distributionDenominators": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "distribution-validation"
+    },
+    {
+      "id": "C04-T06-E062",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), trouver l'information I(s1) du premier symbole.",
+        "en": "For (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), find the self-information I(s1) of the first symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 3. I(s1)=-log2(1/8)=3 bits.",
+        "en": "Answer: 3. I(s1)=-log2(1/8)=3 bits."
+      },
+      "answer": "3",
+      "distributionDenominators": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "surprisal-first"
+    },
+    {
+      "id": "C04-T06-E063",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), trouver l'information du dernier symbole.",
+        "en": "For (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), find the information carried by the last symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 3. I=-log2(1/8)=3 bits.",
+        "en": "Answer: 3. I=-log2(1/8)=3 bits."
+      },
+      "answer": "3",
+      "distributionDenominators": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "surprisal-last"
+    },
+    {
+      "id": "C04-T06-E064",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer exactement H(S) pour la distribution (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8).",
+        "en": "Calculate H(S) exactly for distribution (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8)."
+      },
+      "solution": {
+        "fr": "Réponse : 3. H(S)=∑p_i×I(s_i)=24/8=3 bits/symbole.",
+        "en": "Answer: 3. H(S)=∑p_i×I(s_i)=24/8=3 bits/symbol."
+      },
+      "answer": "3",
+      "distributionDenominators": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "entropy-calculation"
+    },
+    {
+      "id": "C04-T06-E065",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), quelle est l'information maximale d'un symbole (le plus rare) ?",
+        "en": "For (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), what is the highest single-symbol information (rarest symbol)?"
+      },
+      "solution": {
+        "fr": "Réponse : 3. Le plus petit p vaut 1/8, donc Imax=3 bits.",
+        "en": "Answer: 3. The smallest probability is 1/8, so Imax=3 bits."
+      },
+      "answer": "3",
+      "distributionDenominators": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "max-surprisal"
+    },
+    {
+      "id": "C04-T06-E066",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), lequel du premier ou du dernier symbole surprend le plus (ou égalité) ?",
+        "en": "With (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), is the first or the last symbol more surprising (or tied)?"
+      },
+      "solution": {
+        "fr": "Réponse : equal. Les probabilités sont égales : surprise identique.",
+        "en": "Answer: equal. Equal probabilities imply equal surprise."
+      },
+      "answer": "equal",
+      "distributionDenominators": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "compare-surprisal"
+    },
+    {
+      "id": "C04-T06-E067",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), quelle est la plus grande probabilité d'un symbole ?",
+        "en": "For (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), what is the greatest symbol probability?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/8. La probabilité maximale est 1/8.",
+        "en": "Answer: 1/8. The maximum probability is 1/8."
+      },
+      "answer": "1/8",
+      "distributionDenominators": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "most-likely"
+    },
+    {
+      "id": "C04-T06-E068",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), calculer p(s1)+p(s2).",
+        "en": "For (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), compute p(s1)+p(s2)."
+      },
+      "solution": {
+        "fr": "Réponse : 1/4. La somme est 1/8+1/8=1/4.",
+        "en": "Answer: 1/4. The sum is 1/8+1/8=1/4."
+      },
+      "answer": "1/4",
+      "distributionDenominators": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "probability-sum"
+    },
+    {
+      "id": "C04-T06-E069",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Une source suit (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8). Quelle est l'information moyenne attendue par symbole ?",
+        "en": "A source follows (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8). What is the expected average information per symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : 3. Par définition, c'est l'entropie H(S)=3 bits/symbole.",
+        "en": "Answer: 3. By definition, this is entropy H(S)=3 bits/symbol."
+      },
+      "answer": "3",
+      "distributionDenominators": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "mean-information"
+    },
+    {
+      "id": "C04-T06-E070",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Pour (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), l'entropie H(S) est-elle égale à l'information du premier symbole ?",
+        "en": "For (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), is entropy H(S) equal to the self-information of the first symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : no. Non : H(S)=3, I(s1)=3.",
+        "en": "Answer: no.  No: H(S)=3, I(s1)=3."
+      },
+      "answer": "no",
+      "distributionDenominators": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "entropy-vs-surprisal"
+    },
+    {
+      "id": "C04-T06-E071",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Vérifier que la distribution (1/2, 1/4, 1/8, 1/16, 1/16) est valide.",
+        "en": "Check that distribution (1/2, 1/4, 1/8, 1/16, 1/16) is valid."
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+        "en": "Answer: yes. Yes: all probabilities are positive and sum to 1."
+      },
+      "answer": "yes",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        16,
+        16
+      ],
+      "theme": "distribution-validation"
+    },
+    {
+      "id": "C04-T06-E072",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/8, 1/16, 1/16), trouver l'information I(s1) du premier symbole.",
+        "en": "For (1/2, 1/4, 1/8, 1/16, 1/16), find the self-information I(s1) of the first symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 1. I(s1)=-log2(1/2)=1 bits.",
+        "en": "Answer: 1. I(s1)=-log2(1/2)=1 bits."
+      },
+      "answer": "1",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        16,
+        16
+      ],
+      "theme": "surprisal-first"
+    },
+    {
+      "id": "C04-T06-E073",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/8, 1/16, 1/16), trouver l'information du dernier symbole.",
+        "en": "For (1/2, 1/4, 1/8, 1/16, 1/16), find the information carried by the last symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 4. I=-log2(1/16)=4 bits.",
+        "en": "Answer: 4. I=-log2(1/16)=4 bits."
+      },
+      "answer": "4",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        16,
+        16
+      ],
+      "theme": "surprisal-last"
+    },
+    {
+      "id": "C04-T06-E074",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer exactement H(S) pour la distribution (1/2, 1/4, 1/8, 1/16, 1/16).",
+        "en": "Calculate H(S) exactly for distribution (1/2, 1/4, 1/8, 1/16, 1/16)."
+      },
+      "solution": {
+        "fr": "Réponse : 15/8. H(S)=∑p_i×I(s_i)=30/16=15/8 bits/symbole.",
+        "en": "Answer: 15/8. H(S)=∑p_i×I(s_i)=30/16=15/8 bits/symbol."
+      },
+      "answer": "15/8",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        16,
+        16
+      ],
+      "theme": "entropy-calculation"
+    },
+    {
+      "id": "C04-T06-E075",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour (1/2, 1/4, 1/8, 1/16, 1/16), quelle est l'information maximale d'un symbole (le plus rare) ?",
+        "en": "For (1/2, 1/4, 1/8, 1/16, 1/16), what is the highest single-symbol information (rarest symbol)?"
+      },
+      "solution": {
+        "fr": "Réponse : 4. Le plus petit p vaut 1/16, donc Imax=4 bits.",
+        "en": "Answer: 4. The smallest probability is 1/16, so Imax=4 bits."
+      },
+      "answer": "4",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        16,
+        16
+      ],
+      "theme": "max-surprisal"
+    },
+    {
+      "id": "C04-T06-E076",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/8, 1/16, 1/16), lequel du premier ou du dernier symbole surprend le plus (ou égalité) ?",
+        "en": "With (1/2, 1/4, 1/8, 1/16, 1/16), is the first or the last symbol more surprising (or tied)?"
+      },
+      "solution": {
+        "fr": "Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+        "en": "Answer: first. The first has lower probability and is more surprising."
+      },
+      "answer": "first",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        16,
+        16
+      ],
+      "theme": "compare-surprisal"
+    },
+    {
+      "id": "C04-T06-E077",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/8, 1/16, 1/16), quelle est la plus grande probabilité d'un symbole ?",
+        "en": "For (1/2, 1/4, 1/8, 1/16, 1/16), what is the greatest symbol probability?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/2. La probabilité maximale est 1/2.",
+        "en": "Answer: 1/2. The maximum probability is 1/2."
+      },
+      "answer": "1/2",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        16,
+        16
+      ],
+      "theme": "most-likely"
+    },
+    {
+      "id": "C04-T06-E078",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/8, 1/16, 1/16), calculer p(s1)+p(s2).",
+        "en": "For (1/2, 1/4, 1/8, 1/16, 1/16), compute p(s1)+p(s2)."
+      },
+      "solution": {
+        "fr": "Réponse : 3/4. La somme est 1/2+1/4=3/4.",
+        "en": "Answer: 3/4. The sum is 1/2+1/4=3/4."
+      },
+      "answer": "3/4",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        16,
+        16
+      ],
+      "theme": "probability-sum"
+    },
+    {
+      "id": "C04-T06-E079",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Une source suit (1/2, 1/4, 1/8, 1/16, 1/16). Quelle est l'information moyenne attendue par symbole ?",
+        "en": "A source follows (1/2, 1/4, 1/8, 1/16, 1/16). What is the expected average information per symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : 15/8. Par définition, c'est l'entropie H(S)=15/8 bits/symbole.",
+        "en": "Answer: 15/8. By definition, this is entropy H(S)=15/8 bits/symbol."
+      },
+      "answer": "15/8",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        16,
+        16
+      ],
+      "theme": "mean-information"
+    },
+    {
+      "id": "C04-T06-E080",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Pour (1/2, 1/4, 1/8, 1/16, 1/16), l'entropie H(S) est-elle égale à l'information du premier symbole ?",
+        "en": "For (1/2, 1/4, 1/8, 1/16, 1/16), is entropy H(S) equal to the self-information of the first symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : no. Non : H(S)=15/8, I(s1)=1.",
+        "en": "Answer: no.  No: H(S)=15/8, I(s1)=1."
+      },
+      "answer": "no",
+      "distributionDenominators": [
+        2,
+        4,
+        8,
+        16,
+        16
+      ],
+      "theme": "entropy-vs-surprisal"
+    },
+    {
+      "id": "C04-T06-E081",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Vérifier que la distribution (1/4, 1/4, 1/8, 1/8, 1/8, 1/8) est valide.",
+        "en": "Check that distribution (1/4, 1/4, 1/8, 1/8, 1/8, 1/8) is valid."
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+        "en": "Answer: yes. Yes: all probabilities are positive and sum to 1."
+      },
+      "answer": "yes",
+      "distributionDenominators": [
+        4,
+        4,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "distribution-validation"
+    },
+    {
+      "id": "C04-T06-E082",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), trouver l'information I(s1) du premier symbole.",
+        "en": "For (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), find the self-information I(s1) of the first symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 2. I(s1)=-log2(1/4)=2 bits.",
+        "en": "Answer: 2. I(s1)=-log2(1/4)=2 bits."
+      },
+      "answer": "2",
+      "distributionDenominators": [
+        4,
+        4,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "surprisal-first"
+    },
+    {
+      "id": "C04-T06-E083",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), trouver l'information du dernier symbole.",
+        "en": "For (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), find the information carried by the last symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 3. I=-log2(1/8)=3 bits.",
+        "en": "Answer: 3. I=-log2(1/8)=3 bits."
+      },
+      "answer": "3",
+      "distributionDenominators": [
+        4,
+        4,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "surprisal-last"
+    },
+    {
+      "id": "C04-T06-E084",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer exactement H(S) pour la distribution (1/4, 1/4, 1/8, 1/8, 1/8, 1/8).",
+        "en": "Calculate H(S) exactly for distribution (1/4, 1/4, 1/8, 1/8, 1/8, 1/8)."
+      },
+      "solution": {
+        "fr": "Réponse : 5/2. H(S)=∑p_i×I(s_i)=20/8=5/2 bits/symbole.",
+        "en": "Answer: 5/2. H(S)=∑p_i×I(s_i)=20/8=5/2 bits/symbol."
+      },
+      "answer": "5/2",
+      "distributionDenominators": [
+        4,
+        4,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "entropy-calculation"
+    },
+    {
+      "id": "C04-T06-E085",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), quelle est l'information maximale d'un symbole (le plus rare) ?",
+        "en": "For (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), what is the highest single-symbol information (rarest symbol)?"
+      },
+      "solution": {
+        "fr": "Réponse : 3. Le plus petit p vaut 1/8, donc Imax=3 bits.",
+        "en": "Answer: 3. The smallest probability is 1/8, so Imax=3 bits."
+      },
+      "answer": "3",
+      "distributionDenominators": [
+        4,
+        4,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "max-surprisal"
+    },
+    {
+      "id": "C04-T06-E086",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), lequel du premier ou du dernier symbole surprend le plus (ou égalité) ?",
+        "en": "With (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), is the first or the last symbol more surprising (or tied)?"
+      },
+      "solution": {
+        "fr": "Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+        "en": "Answer: first. The first has lower probability and is more surprising."
+      },
+      "answer": "first",
+      "distributionDenominators": [
+        4,
+        4,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "compare-surprisal"
+    },
+    {
+      "id": "C04-T06-E087",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), quelle est la plus grande probabilité d'un symbole ?",
+        "en": "For (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), what is the greatest symbol probability?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/4. La probabilité maximale est 1/4.",
+        "en": "Answer: 1/4. The maximum probability is 1/4."
+      },
+      "answer": "1/4",
+      "distributionDenominators": [
+        4,
+        4,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "most-likely"
+    },
+    {
+      "id": "C04-T06-E088",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), calculer p(s1)+p(s2).",
+        "en": "For (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), compute p(s1)+p(s2)."
+      },
+      "solution": {
+        "fr": "Réponse : 1/2. La somme est 1/4+1/4=1/2.",
+        "en": "Answer: 1/2. The sum is 1/4+1/4=1/2."
+      },
+      "answer": "1/2",
+      "distributionDenominators": [
+        4,
+        4,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "probability-sum"
+    },
+    {
+      "id": "C04-T06-E089",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Une source suit (1/4, 1/4, 1/8, 1/8, 1/8, 1/8). Quelle est l'information moyenne attendue par symbole ?",
+        "en": "A source follows (1/4, 1/4, 1/8, 1/8, 1/8, 1/8). What is the expected average information per symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : 5/2. Par définition, c'est l'entropie H(S)=5/2 bits/symbole.",
+        "en": "Answer: 5/2. By definition, this is entropy H(S)=5/2 bits/symbol."
+      },
+      "answer": "5/2",
+      "distributionDenominators": [
+        4,
+        4,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "mean-information"
+    },
+    {
+      "id": "C04-T06-E090",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Pour (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), l'entropie H(S) est-elle égale à l'information du premier symbole ?",
+        "en": "For (1/4, 1/4, 1/8, 1/8, 1/8, 1/8), is entropy H(S) equal to the self-information of the first symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : no. Non : H(S)=5/2, I(s1)=2.",
+        "en": "Answer: no.  No: H(S)=5/2, I(s1)=2."
+      },
+      "answer": "no",
+      "distributionDenominators": [
+        4,
+        4,
+        8,
+        8,
+        8,
+        8
+      ],
+      "theme": "entropy-vs-surprisal"
+    },
+    {
+      "id": "C04-T06-E091",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Vérifier que la distribution (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16) est valide.",
+        "en": "Check that distribution (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16) is valid."
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+        "en": "Answer: yes. Yes: all probabilities are positive and sum to 1."
+      },
+      "answer": "yes",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        16,
+        16,
+        16,
+        16
+      ],
+      "theme": "distribution-validation"
+    },
+    {
+      "id": "C04-T06-E092",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), trouver l'information I(s1) du premier symbole.",
+        "en": "For (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), find the self-information I(s1) of the first symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 1. I(s1)=-log2(1/2)=1 bits.",
+        "en": "Answer: 1. I(s1)=-log2(1/2)=1 bits."
+      },
+      "answer": "1",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        16,
+        16,
+        16,
+        16
+      ],
+      "theme": "surprisal-first"
+    },
+    {
+      "id": "C04-T06-E093",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), trouver l'information du dernier symbole.",
+        "en": "For (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), find the information carried by the last symbol."
+      },
+      "solution": {
+        "fr": "Réponse : 4. I=-log2(1/16)=4 bits.",
+        "en": "Answer: 4. I=-log2(1/16)=4 bits."
+      },
+      "answer": "4",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        16,
+        16,
+        16,
+        16
+      ],
+      "theme": "surprisal-last"
+    },
+    {
+      "id": "C04-T06-E094",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer exactement H(S) pour la distribution (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16).",
+        "en": "Calculate H(S) exactly for distribution (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16)."
+      },
+      "solution": {
+        "fr": "Réponse : 9/4. H(S)=∑p_i×I(s_i)=36/16=9/4 bits/symbole.",
+        "en": "Answer: 9/4. H(S)=∑p_i×I(s_i)=36/16=9/4 bits/symbol."
+      },
+      "answer": "9/4",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        16,
+        16,
+        16,
+        16
+      ],
+      "theme": "entropy-calculation"
+    },
+    {
+      "id": "C04-T06-E095",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), quelle est l'information maximale d'un symbole (le plus rare) ?",
+        "en": "For (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), what is the highest single-symbol information (rarest symbol)?"
+      },
+      "solution": {
+        "fr": "Réponse : 4. Le plus petit p vaut 1/16, donc Imax=4 bits.",
+        "en": "Answer: 4. The smallest probability is 1/16, so Imax=4 bits."
+      },
+      "answer": "4",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        16,
+        16,
+        16,
+        16
+      ],
+      "theme": "max-surprisal"
+    },
+    {
+      "id": "C04-T06-E096",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), lequel du premier ou du dernier symbole surprend le plus (ou égalité) ?",
+        "en": "With (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), is the first or the last symbol more surprising (or tied)?"
+      },
+      "solution": {
+        "fr": "Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+        "en": "Answer: first. The first has lower probability and is more surprising."
+      },
+      "answer": "first",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        16,
+        16,
+        16,
+        16
+      ],
+      "theme": "compare-surprisal"
+    },
+    {
+      "id": "C04-T06-E097",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), quelle est la plus grande probabilité d'un symbole ?",
+        "en": "For (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), what is the greatest symbol probability?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/2. La probabilité maximale est 1/2.",
+        "en": "Answer: 1/2. The maximum probability is 1/2."
+      },
+      "answer": "1/2",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        16,
+        16,
+        16,
+        16
+      ],
+      "theme": "most-likely"
+    },
+    {
+      "id": "C04-T06-E098",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), calculer p(s1)+p(s2).",
+        "en": "For (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), compute p(s1)+p(s2)."
+      },
+      "solution": {
+        "fr": "Réponse : 5/8. La somme est 1/2+1/8=5/8.",
+        "en": "Answer: 5/8. The sum is 1/2+1/8=5/8."
+      },
+      "answer": "5/8",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        16,
+        16,
+        16,
+        16
+      ],
+      "theme": "probability-sum"
+    },
+    {
+      "id": "C04-T06-E099",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Une source suit (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16). Quelle est l'information moyenne attendue par symbole ?",
+        "en": "A source follows (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16). What is the expected average information per symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : 9/4. Par définition, c'est l'entropie H(S)=9/4 bits/symbole.",
+        "en": "Answer: 9/4. By definition, this is entropy H(S)=9/4 bits/symbol."
+      },
+      "answer": "9/4",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        16,
+        16,
+        16,
+        16
+      ],
+      "theme": "mean-information"
+    },
+    {
+      "id": "C04-T06-E100",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Pour (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), l'entropie H(S) est-elle égale à l'information du premier symbole ?",
+        "en": "For (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), is entropy H(S) equal to the self-information of the first symbol?"
+      },
+      "solution": {
+        "fr": "Réponse : no. Non : H(S)=9/4, I(s1)=1.",
+        "en": "Answer: no.  No: H(S)=9/4, I(s1)=1."
+      },
+      "answer": "no",
+      "distributionDenominators": [
+        2,
+        8,
+        8,
+        16,
+        16,
+        16,
+        16
+      ],
+      "theme": "entropy-vs-surprisal"
+    }
+  ]
+}

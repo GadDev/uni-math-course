@@ -1,0 +1,2017 @@
+{
+  "draft": true,
+  "chapterId": "C04",
+  "topicId": "T03",
+  "origin": "original-project-work",
+  "sourcePages": [
+    9,
+    10,
+    14,
+    15
+  ],
+  "assessment": "manually-reviewed-readable-drill-not-server-graded",
+  "answerStatus": "machine-generated-author-self-check-pending",
+  "itemCount": 100,
+  "items": [
+    {
+      "id": "C04-T03-E001",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→0, y→01, z→011 est-il préfixe ?",
+        "en": "Is code x→0, y→01, z→011 prefix-free?"
+      },
+      "solution": {
+        "fr": "Non. z ≠ yx, mais c(z)=10=c(yx)",
+        "en": "No. z differs from yx, but c(z)=10=c(yx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E002",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→0, y→01, z→011 est-il à décodage unique ?",
+        "en": "Is code x→0, y→01, z→011 uniquely decodable?"
+      },
+      "solution": {
+        "fr": "Non. z ≠ yx, mais c(z)=10=c(yx)",
+        "en": "No. z differs from yx, but c(z)=10=c(yx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E003",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Pour x→0, y→01, z→011, fournir un argument de décodage unique ou un contre-exemple.",
+        "en": "For x→0, y→01, z→011, give an argument for unique decoding or a counterexample."
+      },
+      "solution": {
+        "fr": "z ≠ yx, mais c(z)=10=c(yx)",
+        "en": "z differs from yx, but c(z)=10=c(yx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E004",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec x→0, y→01, z→011, encoder xyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→01, z→011, encode xyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 001011. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. z ≠ yx, mais c(z)=10=c(yx)",
+        "en": "The bits are 001011. No: one successful encoding does not establish injectivity for all words. z differs from yx, but c(z)=10=c(yx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E005",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→0, y→01, z→011, encoder zyx. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→01, z→011, encode zyx. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 011010. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. z ≠ yx, mais c(z)=10=c(yx)",
+        "en": "The bits are 011010. No: one successful encoding does not establish injectivity for all words. z differs from yx, but c(z)=10=c(yx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E006",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→0, y→01, z→011, encoder xxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→01, z→011, encode xxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0001. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. z ≠ yx, mais c(z)=10=c(yx)",
+        "en": "The bits are 0001. No: one successful encoding does not establish injectivity for all words. z differs from yx, but c(z)=10=c(yx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E007",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→0, y→01, z→011, encoder yyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→01, z→011, encode yyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0101011. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. z ≠ yx, mais c(z)=10=c(yx)",
+        "en": "The bits are 0101011. No: one successful encoding does not establish injectivity for all words. z differs from yx, but c(z)=10=c(yx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E008",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→0, y→01, z→011, encoder zzy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→01, z→011, encode zzy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 01101101. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. z ≠ yx, mais c(z)=10=c(yx)",
+        "en": "The bits are 01101101. No: one successful encoding does not establish injectivity for all words. z differs from yx, but c(z)=10=c(yx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E009",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→0, y→01, z→011, encoder xyxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→01, z→011, encode xyxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 001001. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. z ≠ yx, mais c(z)=10=c(yx)",
+        "en": "The bits are 001001. No: one successful encoding does not establish injectivity for all words. z differs from yx, but c(z)=10=c(yx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E010",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Dans x→0, y→01, z→011, tous les mots codes sont-ils différents ? Est-ce suffisant pour garantir le décodage unique ?",
+        "en": "In x→0, y→01, z→011, are the individual codewords distinct? Is this sufficient to guarantee unique decoding?"
+      },
+      "solution": {
+        "fr": "Les trois mots codes sont différents. Cela ne suffit jamais comme preuve générale; dans cet exemple : z ≠ yx, mais c(z)=10=c(yx)",
+        "en": "All three codewords are distinct. This alone is never a general proof; here: z differs from yx, but c(z)=10=c(yx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "distinct-not-enough"
+    },
+    {
+      "id": "C04-T03-E011",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→1, y→10, z→100 est-il préfixe ?",
+        "en": "Is code x→1, y→10, z→100 prefix-free?"
+      },
+      "solution": {
+        "fr": "Non. x ≠ zy, mais c(x)=001=c(zy)",
+        "en": "No. x differs from zy, but c(x)=001=c(zy)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E012",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→1, y→10, z→100 est-il à décodage unique ?",
+        "en": "Is code x→1, y→10, z→100 uniquely decodable?"
+      },
+      "solution": {
+        "fr": "Non. x ≠ zy, mais c(x)=001=c(zy)",
+        "en": "No. x differs from zy, but c(x)=001=c(zy)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E013",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Pour x→1, y→10, z→100, fournir un argument de décodage unique ou un contre-exemple.",
+        "en": "For x→1, y→10, z→100, give an argument for unique decoding or a counterexample."
+      },
+      "solution": {
+        "fr": "x ≠ zy, mais c(x)=001=c(zy)",
+        "en": "x differs from zy, but c(x)=001=c(zy)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E014",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec x→1, y→10, z→100, encoder xyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→1, y→10, z→100, encode xyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 110100. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. x ≠ zy, mais c(x)=001=c(zy)",
+        "en": "The bits are 110100. No: one successful encoding does not establish injectivity for all words. x differs from zy, but c(x)=001=c(zy)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E015",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→1, y→10, z→100, encoder zyx. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→1, y→10, z→100, encode zyx. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 100101. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. x ≠ zy, mais c(x)=001=c(zy)",
+        "en": "The bits are 100101. No: one successful encoding does not establish injectivity for all words. x differs from zy, but c(x)=001=c(zy)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E016",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→1, y→10, z→100, encoder xxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→1, y→10, z→100, encode xxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 1110. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. x ≠ zy, mais c(x)=001=c(zy)",
+        "en": "The bits are 1110. No: one successful encoding does not establish injectivity for all words. x differs from zy, but c(x)=001=c(zy)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E017",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→1, y→10, z→100, encoder yyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→1, y→10, z→100, encode yyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 1010100. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. x ≠ zy, mais c(x)=001=c(zy)",
+        "en": "The bits are 1010100. No: one successful encoding does not establish injectivity for all words. x differs from zy, but c(x)=001=c(zy)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E018",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→1, y→10, z→100, encoder zzy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→1, y→10, z→100, encode zzy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 10010010. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. x ≠ zy, mais c(x)=001=c(zy)",
+        "en": "The bits are 10010010. No: one successful encoding does not establish injectivity for all words. x differs from zy, but c(x)=001=c(zy)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E019",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→1, y→10, z→100, encoder xyxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→1, y→10, z→100, encode xyxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 110110. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. x ≠ zy, mais c(x)=001=c(zy)",
+        "en": "The bits are 110110. No: one successful encoding does not establish injectivity for all words. x differs from zy, but c(x)=001=c(zy)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E020",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Dans x→1, y→10, z→100, tous les mots codes sont-ils différents ? Est-ce suffisant pour garantir le décodage unique ?",
+        "en": "In x→1, y→10, z→100, are the individual codewords distinct? Is this sufficient to guarantee unique decoding?"
+      },
+      "solution": {
+        "fr": "Les trois mots codes sont différents. Cela ne suffit jamais comme preuve générale; dans cet exemple : x ≠ zy, mais c(x)=001=c(zy)",
+        "en": "All three codewords are distinct. This alone is never a general proof; here: x differs from zy, but c(x)=001=c(zy)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "distinct-not-enough"
+    },
+    {
+      "id": "C04-T03-E021",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→0, y→10, z→11 est-il préfixe ?",
+        "en": "Is code x→0, y→10, z→11 prefix-free?"
+      },
+      "solution": {
+        "fr": "Non. Chaque mot code commence par 0 et ne contient aucun autre 0; les 0 séparent les mots codes.",
+        "en": "No. Every codeword starts with 0 and has no further 0; each 0 marks the next boundary."
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E022",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→0, y→10, z→11 est-il à décodage unique ?",
+        "en": "Is code x→0, y→10, z→11 uniquely decodable?"
+      },
+      "solution": {
+        "fr": "Oui. Chaque mot code commence par 0 et ne contient aucun autre 0; les 0 séparent les mots codes.",
+        "en": "Yes. Every codeword starts with 0 and has no further 0; each 0 marks the next boundary."
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E023",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Pour x→0, y→10, z→11, fournir un argument de décodage unique ou un contre-exemple.",
+        "en": "For x→0, y→10, z→11, give an argument for unique decoding or a counterexample."
+      },
+      "solution": {
+        "fr": "Chaque mot code commence par 0 et ne contient aucun autre 0; les 0 séparent les mots codes.",
+        "en": "Every codeword starts with 0 and has no further 0; each 0 marks the next boundary."
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E024",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec x→0, y→10, z→11, encoder xyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→10, z→11, encode xyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 01011. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Chaque mot code commence par 0 et ne contient aucun autre 0; les 0 séparent les mots codes.",
+        "en": "The bits are 01011. No: one successful encoding does not establish injectivity for all words. Every codeword starts with 0 and has no further 0; each 0 marks the next boundary."
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E025",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→0, y→10, z→11, encoder zyx. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→10, z→11, encode zyx. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 11100. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Chaque mot code commence par 0 et ne contient aucun autre 0; les 0 séparent les mots codes.",
+        "en": "The bits are 11100. No: one successful encoding does not establish injectivity for all words. Every codeword starts with 0 and has no further 0; each 0 marks the next boundary."
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E026",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→0, y→10, z→11, encoder xxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→10, z→11, encode xxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0010. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Chaque mot code commence par 0 et ne contient aucun autre 0; les 0 séparent les mots codes.",
+        "en": "The bits are 0010. No: one successful encoding does not establish injectivity for all words. Every codeword starts with 0 and has no further 0; each 0 marks the next boundary."
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E027",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→0, y→10, z→11, encoder yyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→10, z→11, encode yyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 101011. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Chaque mot code commence par 0 et ne contient aucun autre 0; les 0 séparent les mots codes.",
+        "en": "The bits are 101011. No: one successful encoding does not establish injectivity for all words. Every codeword starts with 0 and has no further 0; each 0 marks the next boundary."
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E028",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→0, y→10, z→11, encoder zzy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→10, z→11, encode zzy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 111110. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Chaque mot code commence par 0 et ne contient aucun autre 0; les 0 séparent les mots codes.",
+        "en": "The bits are 111110. No: one successful encoding does not establish injectivity for all words. Every codeword starts with 0 and has no further 0; each 0 marks the next boundary."
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E029",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→0, y→10, z→11, encoder xyxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→10, z→11, encode xyxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 010010. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Chaque mot code commence par 0 et ne contient aucun autre 0; les 0 séparent les mots codes.",
+        "en": "The bits are 010010. No: one successful encoding does not establish injectivity for all words. Every codeword starts with 0 and has no further 0; each 0 marks the next boundary."
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E030",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Dans x→0, y→10, z→11, tous les mots codes sont-ils différents ? Est-ce suffisant pour garantir le décodage unique ?",
+        "en": "In x→0, y→10, z→11, are the individual codewords distinct? Is this sufficient to guarantee unique decoding?"
+      },
+      "solution": {
+        "fr": "Les trois mots codes sont différents. Cela ne suffit jamais comme preuve générale; dans cet exemple : Chaque mot code commence par 0 et ne contient aucun autre 0; les 0 séparent les mots codes.",
+        "en": "All three codewords are distinct. This alone is never a general proof; here: Every codeword starts with 0 and has no further 0; each 0 marks the next boundary."
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "distinct-not-enough"
+    },
+    {
+      "id": "C04-T03-E031",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→00, y→01, z→1 est-il préfixe ?",
+        "en": "Is code x→00, y→01, z→1 prefix-free?"
+      },
+      "solution": {
+        "fr": "Oui. Le code est préfixe, donc à décodage unique.",
+        "en": "Yes. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E032",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→00, y→01, z→1 est-il à décodage unique ?",
+        "en": "Is code x→00, y→01, z→1 uniquely decodable?"
+      },
+      "solution": {
+        "fr": "Oui. Le code est préfixe, donc à décodage unique.",
+        "en": "Yes. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E033",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Pour x→00, y→01, z→1, fournir un argument de décodage unique ou un contre-exemple.",
+        "en": "For x→00, y→01, z→1, give an argument for unique decoding or a counterexample."
+      },
+      "solution": {
+        "fr": "Le code est préfixe, donc à décodage unique.",
+        "en": "The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E034",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec x→00, y→01, z→1, encoder xyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→00, y→01, z→1, encode xyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 00011. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 00011. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E035",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→00, y→01, z→1, encoder zyx. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→00, y→01, z→1, encode zyx. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 10100. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 10100. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E036",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→00, y→01, z→1, encoder xxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→00, y→01, z→1, encode xxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 000001. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 000001. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E037",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→00, y→01, z→1, encoder yyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→00, y→01, z→1, encode yyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 01011. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 01011. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E038",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→00, y→01, z→1, encoder zzy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→00, y→01, z→1, encode zzy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 1101. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 1101. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E039",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→00, y→01, z→1, encoder xyxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→00, y→01, z→1, encode xyxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 00010001. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 00010001. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E040",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Dans x→00, y→01, z→1, tous les mots codes sont-ils différents ? Est-ce suffisant pour garantir le décodage unique ?",
+        "en": "In x→00, y→01, z→1, are the individual codewords distinct? Is this sufficient to guarantee unique decoding?"
+      },
+      "solution": {
+        "fr": "Les trois mots codes sont différents. Cela ne suffit jamais comme preuve générale; dans cet exemple : Le code est préfixe, donc à décodage unique.",
+        "en": "All three codewords are distinct. This alone is never a general proof; here: The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "distinct-not-enough"
+    },
+    {
+      "id": "C04-T03-E041",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→01, y→0, z→11 est-il préfixe ?",
+        "en": "Is code x→01, y→0, z→11 prefix-free?"
+      },
+      "solution": {
+        "fr": "Oui. Le code est préfixe, donc à décodage unique.",
+        "en": "Yes. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E042",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→01, y→0, z→11 est-il à décodage unique ?",
+        "en": "Is code x→01, y→0, z→11 uniquely decodable?"
+      },
+      "solution": {
+        "fr": "Oui. Le code est préfixe, donc à décodage unique.",
+        "en": "Yes. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E043",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Pour x→01, y→0, z→11, fournir un argument de décodage unique ou un contre-exemple.",
+        "en": "For x→01, y→0, z→11, give an argument for unique decoding or a counterexample."
+      },
+      "solution": {
+        "fr": "Le code est préfixe, donc à décodage unique.",
+        "en": "The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E044",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec x→01, y→0, z→11, encoder xyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→01, y→0, z→11, encode xyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 01011. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 01011. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E045",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→01, y→0, z→11, encoder zyx. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→01, y→0, z→11, encode zyx. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 11001. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 11001. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E046",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→01, y→0, z→11, encoder xxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→01, y→0, z→11, encode xxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 01010. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 01010. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E047",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→01, y→0, z→11, encoder yyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→01, y→0, z→11, encode yyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0011. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 0011. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E048",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→01, y→0, z→11, encoder zzy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→01, y→0, z→11, encode zzy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 11110. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 11110. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E049",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→01, y→0, z→11, encoder xyxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→01, y→0, z→11, encode xyxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 010010. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 010010. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E050",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Dans x→01, y→0, z→11, tous les mots codes sont-ils différents ? Est-ce suffisant pour garantir le décodage unique ?",
+        "en": "In x→01, y→0, z→11, are the individual codewords distinct? Is this sufficient to guarantee unique decoding?"
+      },
+      "solution": {
+        "fr": "Les trois mots codes sont différents. Cela ne suffit jamais comme preuve générale; dans cet exemple : Le code est préfixe, donc à décodage unique.",
+        "en": "All three codewords are distinct. This alone is never a general proof; here: The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "distinct-not-enough"
+    },
+    {
+      "id": "C04-T03-E051",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→10, y→0, z→11 est-il préfixe ?",
+        "en": "Is code x→10, y→0, z→11 prefix-free?"
+      },
+      "solution": {
+        "fr": "Non. Chaque mot code commence par 1 et ne contient aucun autre 1; les 1 séparent les mots codes.",
+        "en": "No. Every codeword starts with 1 and has no further 1; each 1 marks the next boundary."
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E052",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→10, y→0, z→11 est-il à décodage unique ?",
+        "en": "Is code x→10, y→0, z→11 uniquely decodable?"
+      },
+      "solution": {
+        "fr": "Oui. Chaque mot code commence par 1 et ne contient aucun autre 1; les 1 séparent les mots codes.",
+        "en": "Yes. Every codeword starts with 1 and has no further 1; each 1 marks the next boundary."
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E053",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Pour x→10, y→0, z→11, fournir un argument de décodage unique ou un contre-exemple.",
+        "en": "For x→10, y→0, z→11, give an argument for unique decoding or a counterexample."
+      },
+      "solution": {
+        "fr": "Chaque mot code commence par 1 et ne contient aucun autre 1; les 1 séparent les mots codes.",
+        "en": "Every codeword starts with 1 and has no further 1; each 1 marks the next boundary."
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E054",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec x→10, y→0, z→11, encoder xyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→10, y→0, z→11, encode xyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 10011. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Chaque mot code commence par 1 et ne contient aucun autre 1; les 1 séparent les mots codes.",
+        "en": "The bits are 10011. No: one successful encoding does not establish injectivity for all words. Every codeword starts with 1 and has no further 1; each 1 marks the next boundary."
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E055",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→10, y→0, z→11, encoder zyx. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→10, y→0, z→11, encode zyx. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 11010. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Chaque mot code commence par 1 et ne contient aucun autre 1; les 1 séparent les mots codes.",
+        "en": "The bits are 11010. No: one successful encoding does not establish injectivity for all words. Every codeword starts with 1 and has no further 1; each 1 marks the next boundary."
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E056",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→10, y→0, z→11, encoder xxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→10, y→0, z→11, encode xxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 10100. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Chaque mot code commence par 1 et ne contient aucun autre 1; les 1 séparent les mots codes.",
+        "en": "The bits are 10100. No: one successful encoding does not establish injectivity for all words. Every codeword starts with 1 and has no further 1; each 1 marks the next boundary."
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E057",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→10, y→0, z→11, encoder yyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→10, y→0, z→11, encode yyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0011. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Chaque mot code commence par 1 et ne contient aucun autre 1; les 1 séparent les mots codes.",
+        "en": "The bits are 0011. No: one successful encoding does not establish injectivity for all words. Every codeword starts with 1 and has no further 1; each 1 marks the next boundary."
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E058",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→10, y→0, z→11, encoder zzy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→10, y→0, z→11, encode zzy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 11110. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Chaque mot code commence par 1 et ne contient aucun autre 1; les 1 séparent les mots codes.",
+        "en": "The bits are 11110. No: one successful encoding does not establish injectivity for all words. Every codeword starts with 1 and has no further 1; each 1 marks the next boundary."
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E059",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→10, y→0, z→11, encoder xyxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→10, y→0, z→11, encode xyxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 100100. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Chaque mot code commence par 1 et ne contient aucun autre 1; les 1 séparent les mots codes.",
+        "en": "The bits are 100100. No: one successful encoding does not establish injectivity for all words. Every codeword starts with 1 and has no further 1; each 1 marks the next boundary."
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E060",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Dans x→10, y→0, z→11, tous les mots codes sont-ils différents ? Est-ce suffisant pour garantir le décodage unique ?",
+        "en": "In x→10, y→0, z→11, are the individual codewords distinct? Is this sufficient to guarantee unique decoding?"
+      },
+      "solution": {
+        "fr": "Les trois mots codes sont différents. Cela ne suffit jamais comme preuve générale; dans cet exemple : Chaque mot code commence par 1 et ne contient aucun autre 1; les 1 séparent les mots codes.",
+        "en": "All three codewords are distinct. This alone is never a general proof; here: Every codeword starts with 1 and has no further 1; each 1 marks the next boundary."
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": true,
+      "theme": "distinct-not-enough"
+    },
+    {
+      "id": "C04-T03-E061",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→001, y→01, z→0 est-il préfixe ?",
+        "en": "Is code x→001, y→01, z→0 prefix-free?"
+      },
+      "solution": {
+        "fr": "Non. y ≠ xx, mais c(y)=00=c(xx)",
+        "en": "No. y differs from xx, but c(y)=00=c(xx)"
+      },
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E062",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→001, y→01, z→0 est-il à décodage unique ?",
+        "en": "Is code x→001, y→01, z→0 uniquely decodable?"
+      },
+      "solution": {
+        "fr": "Non. y ≠ xx, mais c(y)=00=c(xx)",
+        "en": "No. y differs from xx, but c(y)=00=c(xx)"
+      },
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E063",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Pour x→001, y→01, z→0, fournir un argument de décodage unique ou un contre-exemple.",
+        "en": "For x→001, y→01, z→0, give an argument for unique decoding or a counterexample."
+      },
+      "solution": {
+        "fr": "y ≠ xx, mais c(y)=00=c(xx)",
+        "en": "y differs from xx, but c(y)=00=c(xx)"
+      },
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E064",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec x→001, y→01, z→0, encoder xyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→001, y→01, z→0, encode xyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 001010. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. y ≠ xx, mais c(y)=00=c(xx)",
+        "en": "The bits are 001010. No: one successful encoding does not establish injectivity for all words. y differs from xx, but c(y)=00=c(xx)"
+      },
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E065",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→001, y→01, z→0, encoder zyx. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→001, y→01, z→0, encode zyx. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 001001. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. y ≠ xx, mais c(y)=00=c(xx)",
+        "en": "The bits are 001001. No: one successful encoding does not establish injectivity for all words. y differs from xx, but c(y)=00=c(xx)"
+      },
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E066",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→001, y→01, z→0, encoder xxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→001, y→01, z→0, encode xxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 00100101. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. y ≠ xx, mais c(y)=00=c(xx)",
+        "en": "The bits are 00100101. No: one successful encoding does not establish injectivity for all words. y differs from xx, but c(y)=00=c(xx)"
+      },
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E067",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→001, y→01, z→0, encoder yyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→001, y→01, z→0, encode yyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 01010. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. y ≠ xx, mais c(y)=00=c(xx)",
+        "en": "The bits are 01010. No: one successful encoding does not establish injectivity for all words. y differs from xx, but c(y)=00=c(xx)"
+      },
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E068",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→001, y→01, z→0, encoder zzy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→001, y→01, z→0, encode zzy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0001. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. y ≠ xx, mais c(y)=00=c(xx)",
+        "en": "The bits are 0001. No: one successful encoding does not establish injectivity for all words. y differs from xx, but c(y)=00=c(xx)"
+      },
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E069",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→001, y→01, z→0, encoder xyxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→001, y→01, z→0, encode xyxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0010100101. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. y ≠ xx, mais c(y)=00=c(xx)",
+        "en": "The bits are 0010100101. No: one successful encoding does not establish injectivity for all words. y differs from xx, but c(y)=00=c(xx)"
+      },
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E070",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Dans x→001, y→01, z→0, tous les mots codes sont-ils différents ? Est-ce suffisant pour garantir le décodage unique ?",
+        "en": "In x→001, y→01, z→0, are the individual codewords distinct? Is this sufficient to guarantee unique decoding?"
+      },
+      "solution": {
+        "fr": "Les trois mots codes sont différents. Cela ne suffit jamais comme preuve générale; dans cet exemple : y ≠ xx, mais c(y)=00=c(xx)",
+        "en": "All three codewords are distinct. This alone is never a general proof; here: y differs from xx, but c(y)=00=c(xx)"
+      },
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "distinct-not-enough"
+    },
+    {
+      "id": "C04-T03-E071",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→0, y→1, z→10 est-il préfixe ?",
+        "en": "Is code x→0, y→1, z→10 prefix-free?"
+      },
+      "solution": {
+        "fr": "Non. y ≠ xx, mais c(y)=11=c(xx)",
+        "en": "No. y differs from xx, but c(y)=11=c(xx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E072",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→0, y→1, z→10 est-il à décodage unique ?",
+        "en": "Is code x→0, y→1, z→10 uniquely decodable?"
+      },
+      "solution": {
+        "fr": "Non. y ≠ xx, mais c(y)=11=c(xx)",
+        "en": "No. y differs from xx, but c(y)=11=c(xx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E073",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Pour x→0, y→1, z→10, fournir un argument de décodage unique ou un contre-exemple.",
+        "en": "For x→0, y→1, z→10, give an argument for unique decoding or a counterexample."
+      },
+      "solution": {
+        "fr": "y ≠ xx, mais c(y)=11=c(xx)",
+        "en": "y differs from xx, but c(y)=11=c(xx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E074",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec x→0, y→1, z→10, encoder xyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→1, z→10, encode xyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0110. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. y ≠ xx, mais c(y)=11=c(xx)",
+        "en": "The bits are 0110. No: one successful encoding does not establish injectivity for all words. y differs from xx, but c(y)=11=c(xx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E075",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→0, y→1, z→10, encoder zyx. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→1, z→10, encode zyx. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 1010. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. y ≠ xx, mais c(y)=11=c(xx)",
+        "en": "The bits are 1010. No: one successful encoding does not establish injectivity for all words. y differs from xx, but c(y)=11=c(xx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E076",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→0, y→1, z→10, encoder xxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→1, z→10, encode xxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 001. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. y ≠ xx, mais c(y)=11=c(xx)",
+        "en": "The bits are 001. No: one successful encoding does not establish injectivity for all words. y differs from xx, but c(y)=11=c(xx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E077",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→0, y→1, z→10, encoder yyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→1, z→10, encode yyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 1110. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. y ≠ xx, mais c(y)=11=c(xx)",
+        "en": "The bits are 1110. No: one successful encoding does not establish injectivity for all words. y differs from xx, but c(y)=11=c(xx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E078",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→0, y→1, z→10, encoder zzy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→1, z→10, encode zzy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 10101. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. y ≠ xx, mais c(y)=11=c(xx)",
+        "en": "The bits are 10101. No: one successful encoding does not establish injectivity for all words. y differs from xx, but c(y)=11=c(xx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E079",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→0, y→1, z→10, encoder xyxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→0, y→1, z→10, encode xyxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0101. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. y ≠ xx, mais c(y)=11=c(xx)",
+        "en": "The bits are 0101. No: one successful encoding does not establish injectivity for all words. y differs from xx, but c(y)=11=c(xx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E080",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Dans x→0, y→1, z→10, tous les mots codes sont-ils différents ? Est-ce suffisant pour garantir le décodage unique ?",
+        "en": "In x→0, y→1, z→10, are the individual codewords distinct? Is this sufficient to guarantee unique decoding?"
+      },
+      "solution": {
+        "fr": "Les trois mots codes sont différents. Cela ne suffit jamais comme preuve générale; dans cet exemple : y ≠ xx, mais c(y)=11=c(xx)",
+        "en": "All three codewords are distinct. This alone is never a general proof; here: y differs from xx, but c(y)=11=c(xx)"
+      },
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "distinct-not-enough"
+    },
+    {
+      "id": "C04-T03-E081",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→1, y→11, z→0 est-il préfixe ?",
+        "en": "Is code x→1, y→11, z→0 prefix-free?"
+      },
+      "solution": {
+        "fr": "Non. x ≠ yz, mais c(x)=01=c(yz)",
+        "en": "No. x differs from yz, but c(x)=01=c(yz)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E082",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→1, y→11, z→0 est-il à décodage unique ?",
+        "en": "Is code x→1, y→11, z→0 uniquely decodable?"
+      },
+      "solution": {
+        "fr": "Non. x ≠ yz, mais c(x)=01=c(yz)",
+        "en": "No. x differs from yz, but c(x)=01=c(yz)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E083",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Pour x→1, y→11, z→0, fournir un argument de décodage unique ou un contre-exemple.",
+        "en": "For x→1, y→11, z→0, give an argument for unique decoding or a counterexample."
+      },
+      "solution": {
+        "fr": "x ≠ yz, mais c(x)=01=c(yz)",
+        "en": "x differs from yz, but c(x)=01=c(yz)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E084",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec x→1, y→11, z→0, encoder xyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→1, y→11, z→0, encode xyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 1110. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. x ≠ yz, mais c(x)=01=c(yz)",
+        "en": "The bits are 1110. No: one successful encoding does not establish injectivity for all words. x differs from yz, but c(x)=01=c(yz)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E085",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→1, y→11, z→0, encoder zyx. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→1, y→11, z→0, encode zyx. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0111. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. x ≠ yz, mais c(x)=01=c(yz)",
+        "en": "The bits are 0111. No: one successful encoding does not establish injectivity for all words. x differs from yz, but c(x)=01=c(yz)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E086",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→1, y→11, z→0, encoder xxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→1, y→11, z→0, encode xxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 1111. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. x ≠ yz, mais c(x)=01=c(yz)",
+        "en": "The bits are 1111. No: one successful encoding does not establish injectivity for all words. x differs from yz, but c(x)=01=c(yz)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E087",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→1, y→11, z→0, encoder yyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→1, y→11, z→0, encode yyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 11110. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. x ≠ yz, mais c(x)=01=c(yz)",
+        "en": "The bits are 11110. No: one successful encoding does not establish injectivity for all words. x differs from yz, but c(x)=01=c(yz)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E088",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→1, y→11, z→0, encoder zzy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→1, y→11, z→0, encode zzy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0011. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. x ≠ yz, mais c(x)=01=c(yz)",
+        "en": "The bits are 0011. No: one successful encoding does not establish injectivity for all words. x differs from yz, but c(x)=01=c(yz)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E089",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→1, y→11, z→0, encoder xyxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→1, y→11, z→0, encode xyxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 111111. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. x ≠ yz, mais c(x)=01=c(yz)",
+        "en": "The bits are 111111. No: one successful encoding does not establish injectivity for all words. x differs from yz, but c(x)=01=c(yz)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E090",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Dans x→1, y→11, z→0, tous les mots codes sont-ils différents ? Est-ce suffisant pour garantir le décodage unique ?",
+        "en": "In x→1, y→11, z→0, are the individual codewords distinct? Is this sufficient to guarantee unique decoding?"
+      },
+      "solution": {
+        "fr": "Les trois mots codes sont différents. Cela ne suffit jamais comme preuve générale; dans cet exemple : x ≠ yz, mais c(x)=01=c(yz)",
+        "en": "All three codewords are distinct. This alone is never a general proof; here: x differs from yz, but c(x)=01=c(yz)"
+      },
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "prefixFree": false,
+      "uniquelyDecodable": false,
+      "theme": "distinct-not-enough"
+    },
+    {
+      "id": "C04-T03-E091",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→00, y→101, z→11 est-il préfixe ?",
+        "en": "Is code x→00, y→101, z→11 prefix-free?"
+      },
+      "solution": {
+        "fr": "Oui. Le code est préfixe, donc à décodage unique.",
+        "en": "Yes. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E092",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Le code x→00, y→101, z→11 est-il à décodage unique ?",
+        "en": "Is code x→00, y→101, z→11 uniquely decodable?"
+      },
+      "solution": {
+        "fr": "Oui. Le code est préfixe, donc à décodage unique.",
+        "en": "Yes. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E093",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Pour x→00, y→101, z→11, fournir un argument de décodage unique ou un contre-exemple.",
+        "en": "For x→00, y→101, z→11, give an argument for unique decoding or a counterexample."
+      },
+      "solution": {
+        "fr": "Le code est préfixe, donc à décodage unique.",
+        "en": "The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "decodability-proof"
+    },
+    {
+      "id": "C04-T03-E094",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec x→00, y→101, z→11, encoder xyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→00, y→101, z→11, encode xyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0010111. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 0010111. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E095",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→00, y→101, z→11, encoder zyx. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→00, y→101, z→11, encode zyx. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 1110100. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 1110100. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E096",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→00, y→101, z→11, encoder xxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→00, y→101, z→11, encode xxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0000101. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 0000101. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E097",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec x→00, y→101, z→11, encoder yyz. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→00, y→101, z→11, encode yyz. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 10110111. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 10110111. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E098",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→00, y→101, z→11, encoder zzy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→00, y→101, z→11, encode zzy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 1111101. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 1111101. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E099",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec x→00, y→101, z→11, encoder xyxy. Ceci prouve-t-il la décodabilité unique ?",
+        "en": "With x→00, y→101, z→11, encode xyxy. Does this prove unique decodability?"
+      },
+      "solution": {
+        "fr": "On obtient 0010100101. Non : un calcul réussi ne prouve pas l'injectivité pour tous les mots. Le code est préfixe, donc à décodage unique.",
+        "en": "The bits are 0010100101. No: one successful encoding does not establish injectivity for all words. The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "encode-and-check"
+    },
+    {
+      "id": "C04-T03-E100",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Dans x→00, y→101, z→11, tous les mots codes sont-ils différents ? Est-ce suffisant pour garantir le décodage unique ?",
+        "en": "In x→00, y→101, z→11, are the individual codewords distinct? Is this sufficient to guarantee unique decoding?"
+      },
+      "solution": {
+        "fr": "Les trois mots codes sont différents. Cela ne suffit jamais comme preuve générale; dans cet exemple : Le code est préfixe, donc à décodage unique.",
+        "en": "All three codewords are distinct. This alone is never a general proof; here: The code is prefix-free, hence uniquely decodable."
+      },
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "prefixFree": true,
+      "uniquelyDecodable": true,
+      "theme": "distinct-not-enough"
+    }
+  ]
+}

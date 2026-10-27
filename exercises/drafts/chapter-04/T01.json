@@ -1,0 +1,1418 @@
+{
+  "draft": true,
+  "chapterId": "C04",
+  "topicId": "T01",
+  "origin": "original-project-work",
+  "sourcePages": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "assessment": "manually-reviewed-readable-drill-not-server-graded",
+  "answerStatus": "machine-generated-author-self-check-pending",
+  "itemCount": 100,
+  "items": [
+    {
+      "id": "C04-T01-E001",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 2 ?",
+        "en": "How many binary words have length exactly 2?"
+      },
+      "solution": {
+        "fr": "Réponse : 4. Chaque position a 2 choix : 2^2=4.",
+        "en": "Answer: 4. Each position has 2 choices: 2^2=4."
+      },
+      "answer": "4",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E002",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien d'états au maximum représentent 2 bits de longueur fixe ?",
+        "en": "How many states can 2 fixed-length bits represent?"
+      },
+      "solution": {
+        "fr": "Réponse : 4. Il existe 2^2=4 mots distincts.",
+        "en": "Answer: 4. There are 2^2=4 distinct words."
+      },
+      "answer": "4",
+      "theme": "capacity"
+    },
+    {
+      "id": "C04-T01-E003",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 3 états ?",
+        "en": "What minimum fixed length encodes 3 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. 2^2=4 permet au moins 3 états et 2^1 est insuffisant.",
+        "en": "Answer: 2. 2^2=4 is sufficient and 2^1 is insufficient."
+      },
+      "answer": "2",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E004",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 5 états ?",
+        "en": "What minimum fixed length encodes 5 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 3. 2^2=4 est insuffisant; 2^3=8 suffit.",
+        "en": "Answer: 3. 2^2=4 is insufficient; 2^3=8 is enough."
+      },
+      "answer": "3",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E005",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Si 6 caractères ASCII occupent chacun un octet en UTF-8, combien de bits ?",
+        "en": "If 6 ASCII characters each occupy one byte in UTF-8, how many bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 48. 6×8=48 bits.",
+        "en": "Answer: 48. 6×8=48 bits."
+      },
+      "answer": "48",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E006",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Un message ASCII utilise 16 bits en UTF-8 : combien de caractères contient-il dans cette hypothèse ?",
+        "en": "An ASCII message uses 16 UTF-8 bits. Under this assumption, how many characters?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. 16/8=2 caractères.",
+        "en": "Answer: 2. 16/8=2 characters."
+      },
+      "answer": "2",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E007",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur au plus 2 (mot vide inclus) ?",
+        "en": "How many binary words have length at most 2 (including the empty word)?"
+      },
+      "solution": {
+        "fr": "Réponse : 7. 1+2+4+…+2^2=2^3-1=7.",
+        "en": "Answer: 7. 1+2+4+…+2^2=2^3-1=7."
+      },
+      "answer": "7",
+      "theme": "bounded-length"
+    },
+    {
+      "id": "C04-T01-E008",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 3 ?",
+        "en": "How many binary words have length exactly 3?"
+      },
+      "solution": {
+        "fr": "Réponse : 8. 2^3=8 mots.",
+        "en": "Answer: 8. 2^3=8 words."
+      },
+      "answer": "8",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E009",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Un message comporte 2 bits : combien de symboles de l'alphabet {0,1} contient-il ?",
+        "en": "A message has 2 bits. How many symbols of the alphabet {0,1} does it contain?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. Un bit est un symbole; il y en a 2.",
+        "en": "Answer: 2. One bit is one symbol; there are 2."
+      },
+      "answer": "2",
+      "theme": "symbols"
+    },
+    {
+      "id": "C04-T01-E010",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "On concatène deux mots binaires de longueurs 2 et 4. Quelle longueur obtient-on ?",
+        "en": "Concatenate binary words of lengths 2 and 4. What is the result length?"
+      },
+      "solution": {
+        "fr": "Réponse : 6. 2+4=6 bits.",
+        "en": "Answer: 6. 2+4=6 bits."
+      },
+      "answer": "6",
+      "theme": "concatenation"
+    },
+    {
+      "id": "C04-T01-E011",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 3 ?",
+        "en": "How many binary words have length exactly 3?"
+      },
+      "solution": {
+        "fr": "Réponse : 8. Chaque position a 2 choix : 2^3=8.",
+        "en": "Answer: 8. Each position has 2 choices: 2^3=8."
+      },
+      "answer": "8",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E012",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien d'états au maximum représentent 3 bits de longueur fixe ?",
+        "en": "How many states can 3 fixed-length bits represent?"
+      },
+      "solution": {
+        "fr": "Réponse : 8. Il existe 2^3=8 mots distincts.",
+        "en": "Answer: 8. There are 2^3=8 distinct words."
+      },
+      "answer": "8",
+      "theme": "capacity"
+    },
+    {
+      "id": "C04-T01-E013",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 7 états ?",
+        "en": "What minimum fixed length encodes 7 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 3. 2^3=8 permet au moins 7 états et 2^2 est insuffisant.",
+        "en": "Answer: 3. 2^3=8 is sufficient and 2^2 is insufficient."
+      },
+      "answer": "3",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E014",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 9 états ?",
+        "en": "What minimum fixed length encodes 9 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 4. 2^3=8 est insuffisant; 2^4=16 suffit.",
+        "en": "Answer: 4. 2^3=8 is insufficient; 2^4=16 is enough."
+      },
+      "answer": "4",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E015",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Si 9 caractères ASCII occupent chacun un octet en UTF-8, combien de bits ?",
+        "en": "If 9 ASCII characters each occupy one byte in UTF-8, how many bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 72. 9×8=72 bits.",
+        "en": "Answer: 72. 9×8=72 bits."
+      },
+      "answer": "72",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E016",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Un message ASCII utilise 24 bits en UTF-8 : combien de caractères contient-il dans cette hypothèse ?",
+        "en": "An ASCII message uses 24 UTF-8 bits. Under this assumption, how many characters?"
+      },
+      "solution": {
+        "fr": "Réponse : 3. 24/8=3 caractères.",
+        "en": "Answer: 3. 24/8=3 characters."
+      },
+      "answer": "3",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E017",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur au plus 3 (mot vide inclus) ?",
+        "en": "How many binary words have length at most 3 (including the empty word)?"
+      },
+      "solution": {
+        "fr": "Réponse : 15. 1+2+4+…+2^3=2^4-1=15.",
+        "en": "Answer: 15. 1+2+4+…+2^3=2^4-1=15."
+      },
+      "answer": "15",
+      "theme": "bounded-length"
+    },
+    {
+      "id": "C04-T01-E018",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 4 ?",
+        "en": "How many binary words have length exactly 4?"
+      },
+      "solution": {
+        "fr": "Réponse : 16. 2^4=16 mots.",
+        "en": "Answer: 16. 2^4=16 words."
+      },
+      "answer": "16",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E019",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Un message comporte 3 bits : combien de symboles de l'alphabet {0,1} contient-il ?",
+        "en": "A message has 3 bits. How many symbols of the alphabet {0,1} does it contain?"
+      },
+      "solution": {
+        "fr": "Réponse : 3. Un bit est un symbole; il y en a 3.",
+        "en": "Answer: 3. One bit is one symbol; there are 3."
+      },
+      "answer": "3",
+      "theme": "symbols"
+    },
+    {
+      "id": "C04-T01-E020",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "On concatène deux mots binaires de longueurs 3 et 5. Quelle longueur obtient-on ?",
+        "en": "Concatenate binary words of lengths 3 and 5. What is the result length?"
+      },
+      "solution": {
+        "fr": "Réponse : 8. 3+5=8 bits.",
+        "en": "Answer: 8. 3+5=8 bits."
+      },
+      "answer": "8",
+      "theme": "concatenation"
+    },
+    {
+      "id": "C04-T01-E021",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 4 ?",
+        "en": "How many binary words have length exactly 4?"
+      },
+      "solution": {
+        "fr": "Réponse : 16. Chaque position a 2 choix : 2^4=16.",
+        "en": "Answer: 16. Each position has 2 choices: 2^4=16."
+      },
+      "answer": "16",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E022",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien d'états au maximum représentent 4 bits de longueur fixe ?",
+        "en": "How many states can 4 fixed-length bits represent?"
+      },
+      "solution": {
+        "fr": "Réponse : 16. Il existe 2^4=16 mots distincts.",
+        "en": "Answer: 16. There are 2^4=16 distinct words."
+      },
+      "answer": "16",
+      "theme": "capacity"
+    },
+    {
+      "id": "C04-T01-E023",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 15 états ?",
+        "en": "What minimum fixed length encodes 15 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 4. 2^4=16 permet au moins 15 états et 2^3 est insuffisant.",
+        "en": "Answer: 4. 2^4=16 is sufficient and 2^3 is insufficient."
+      },
+      "answer": "4",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E024",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 17 états ?",
+        "en": "What minimum fixed length encodes 17 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 5. 2^4=16 est insuffisant; 2^5=32 suffit.",
+        "en": "Answer: 5. 2^4=16 is insufficient; 2^5=32 is enough."
+      },
+      "answer": "5",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E025",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Si 12 caractères ASCII occupent chacun un octet en UTF-8, combien de bits ?",
+        "en": "If 12 ASCII characters each occupy one byte in UTF-8, how many bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 96. 12×8=96 bits.",
+        "en": "Answer: 96. 12×8=96 bits."
+      },
+      "answer": "96",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E026",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Un message ASCII utilise 32 bits en UTF-8 : combien de caractères contient-il dans cette hypothèse ?",
+        "en": "An ASCII message uses 32 UTF-8 bits. Under this assumption, how many characters?"
+      },
+      "solution": {
+        "fr": "Réponse : 4. 32/8=4 caractères.",
+        "en": "Answer: 4. 32/8=4 characters."
+      },
+      "answer": "4",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E027",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur au plus 4 (mot vide inclus) ?",
+        "en": "How many binary words have length at most 4 (including the empty word)?"
+      },
+      "solution": {
+        "fr": "Réponse : 31. 1+2+4+…+2^4=2^5-1=31.",
+        "en": "Answer: 31. 1+2+4+…+2^4=2^5-1=31."
+      },
+      "answer": "31",
+      "theme": "bounded-length"
+    },
+    {
+      "id": "C04-T01-E028",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 5 ?",
+        "en": "How many binary words have length exactly 5?"
+      },
+      "solution": {
+        "fr": "Réponse : 32. 2^5=32 mots.",
+        "en": "Answer: 32. 2^5=32 words."
+      },
+      "answer": "32",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E029",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Un message comporte 4 bits : combien de symboles de l'alphabet {0,1} contient-il ?",
+        "en": "A message has 4 bits. How many symbols of the alphabet {0,1} does it contain?"
+      },
+      "solution": {
+        "fr": "Réponse : 4. Un bit est un symbole; il y en a 4.",
+        "en": "Answer: 4. One bit is one symbol; there are 4."
+      },
+      "answer": "4",
+      "theme": "symbols"
+    },
+    {
+      "id": "C04-T01-E030",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "On concatène deux mots binaires de longueurs 4 et 6. Quelle longueur obtient-on ?",
+        "en": "Concatenate binary words of lengths 4 and 6. What is the result length?"
+      },
+      "solution": {
+        "fr": "Réponse : 10. 4+6=10 bits.",
+        "en": "Answer: 10. 4+6=10 bits."
+      },
+      "answer": "10",
+      "theme": "concatenation"
+    },
+    {
+      "id": "C04-T01-E031",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 5 ?",
+        "en": "How many binary words have length exactly 5?"
+      },
+      "solution": {
+        "fr": "Réponse : 32. Chaque position a 2 choix : 2^5=32.",
+        "en": "Answer: 32. Each position has 2 choices: 2^5=32."
+      },
+      "answer": "32",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E032",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien d'états au maximum représentent 5 bits de longueur fixe ?",
+        "en": "How many states can 5 fixed-length bits represent?"
+      },
+      "solution": {
+        "fr": "Réponse : 32. Il existe 2^5=32 mots distincts.",
+        "en": "Answer: 32. There are 2^5=32 distinct words."
+      },
+      "answer": "32",
+      "theme": "capacity"
+    },
+    {
+      "id": "C04-T01-E033",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 31 états ?",
+        "en": "What minimum fixed length encodes 31 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 5. 2^5=32 permet au moins 31 états et 2^4 est insuffisant.",
+        "en": "Answer: 5. 2^5=32 is sufficient and 2^4 is insufficient."
+      },
+      "answer": "5",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E034",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 33 états ?",
+        "en": "What minimum fixed length encodes 33 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 6. 2^5=32 est insuffisant; 2^6=64 suffit.",
+        "en": "Answer: 6. 2^5=32 is insufficient; 2^6=64 is enough."
+      },
+      "answer": "6",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E035",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Si 15 caractères ASCII occupent chacun un octet en UTF-8, combien de bits ?",
+        "en": "If 15 ASCII characters each occupy one byte in UTF-8, how many bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 120. 15×8=120 bits.",
+        "en": "Answer: 120. 15×8=120 bits."
+      },
+      "answer": "120",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E036",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Un message ASCII utilise 40 bits en UTF-8 : combien de caractères contient-il dans cette hypothèse ?",
+        "en": "An ASCII message uses 40 UTF-8 bits. Under this assumption, how many characters?"
+      },
+      "solution": {
+        "fr": "Réponse : 5. 40/8=5 caractères.",
+        "en": "Answer: 5. 40/8=5 characters."
+      },
+      "answer": "5",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E037",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur au plus 5 (mot vide inclus) ?",
+        "en": "How many binary words have length at most 5 (including the empty word)?"
+      },
+      "solution": {
+        "fr": "Réponse : 63. 1+2+4+…+2^5=2^6-1=63.",
+        "en": "Answer: 63. 1+2+4+…+2^5=2^6-1=63."
+      },
+      "answer": "63",
+      "theme": "bounded-length"
+    },
+    {
+      "id": "C04-T01-E038",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 6 ?",
+        "en": "How many binary words have length exactly 6?"
+      },
+      "solution": {
+        "fr": "Réponse : 64. 2^6=64 mots.",
+        "en": "Answer: 64. 2^6=64 words."
+      },
+      "answer": "64",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E039",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Un message comporte 5 bits : combien de symboles de l'alphabet {0,1} contient-il ?",
+        "en": "A message has 5 bits. How many symbols of the alphabet {0,1} does it contain?"
+      },
+      "solution": {
+        "fr": "Réponse : 5. Un bit est un symbole; il y en a 5.",
+        "en": "Answer: 5. One bit is one symbol; there are 5."
+      },
+      "answer": "5",
+      "theme": "symbols"
+    },
+    {
+      "id": "C04-T01-E040",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "On concatène deux mots binaires de longueurs 5 et 7. Quelle longueur obtient-on ?",
+        "en": "Concatenate binary words of lengths 5 and 7. What is the result length?"
+      },
+      "solution": {
+        "fr": "Réponse : 12. 5+7=12 bits.",
+        "en": "Answer: 12. 5+7=12 bits."
+      },
+      "answer": "12",
+      "theme": "concatenation"
+    },
+    {
+      "id": "C04-T01-E041",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 6 ?",
+        "en": "How many binary words have length exactly 6?"
+      },
+      "solution": {
+        "fr": "Réponse : 64. Chaque position a 2 choix : 2^6=64.",
+        "en": "Answer: 64. Each position has 2 choices: 2^6=64."
+      },
+      "answer": "64",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E042",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien d'états au maximum représentent 6 bits de longueur fixe ?",
+        "en": "How many states can 6 fixed-length bits represent?"
+      },
+      "solution": {
+        "fr": "Réponse : 64. Il existe 2^6=64 mots distincts.",
+        "en": "Answer: 64. There are 2^6=64 distinct words."
+      },
+      "answer": "64",
+      "theme": "capacity"
+    },
+    {
+      "id": "C04-T01-E043",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 63 états ?",
+        "en": "What minimum fixed length encodes 63 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 6. 2^6=64 permet au moins 63 états et 2^5 est insuffisant.",
+        "en": "Answer: 6. 2^6=64 is sufficient and 2^5 is insufficient."
+      },
+      "answer": "6",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E044",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 65 états ?",
+        "en": "What minimum fixed length encodes 65 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 7. 2^6=64 est insuffisant; 2^7=128 suffit.",
+        "en": "Answer: 7. 2^6=64 is insufficient; 2^7=128 is enough."
+      },
+      "answer": "7",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E045",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Si 18 caractères ASCII occupent chacun un octet en UTF-8, combien de bits ?",
+        "en": "If 18 ASCII characters each occupy one byte in UTF-8, how many bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 144. 18×8=144 bits.",
+        "en": "Answer: 144. 18×8=144 bits."
+      },
+      "answer": "144",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E046",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Un message ASCII utilise 48 bits en UTF-8 : combien de caractères contient-il dans cette hypothèse ?",
+        "en": "An ASCII message uses 48 UTF-8 bits. Under this assumption, how many characters?"
+      },
+      "solution": {
+        "fr": "Réponse : 6. 48/8=6 caractères.",
+        "en": "Answer: 6. 48/8=6 characters."
+      },
+      "answer": "6",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E047",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur au plus 6 (mot vide inclus) ?",
+        "en": "How many binary words have length at most 6 (including the empty word)?"
+      },
+      "solution": {
+        "fr": "Réponse : 127. 1+2+4+…+2^6=2^7-1=127.",
+        "en": "Answer: 127. 1+2+4+…+2^6=2^7-1=127."
+      },
+      "answer": "127",
+      "theme": "bounded-length"
+    },
+    {
+      "id": "C04-T01-E048",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 7 ?",
+        "en": "How many binary words have length exactly 7?"
+      },
+      "solution": {
+        "fr": "Réponse : 128. 2^7=128 mots.",
+        "en": "Answer: 128. 2^7=128 words."
+      },
+      "answer": "128",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E049",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Un message comporte 6 bits : combien de symboles de l'alphabet {0,1} contient-il ?",
+        "en": "A message has 6 bits. How many symbols of the alphabet {0,1} does it contain?"
+      },
+      "solution": {
+        "fr": "Réponse : 6. Un bit est un symbole; il y en a 6.",
+        "en": "Answer: 6. One bit is one symbol; there are 6."
+      },
+      "answer": "6",
+      "theme": "symbols"
+    },
+    {
+      "id": "C04-T01-E050",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "On concatène deux mots binaires de longueurs 6 et 8. Quelle longueur obtient-on ?",
+        "en": "Concatenate binary words of lengths 6 and 8. What is the result length?"
+      },
+      "solution": {
+        "fr": "Réponse : 14. 6+8=14 bits.",
+        "en": "Answer: 14. 6+8=14 bits."
+      },
+      "answer": "14",
+      "theme": "concatenation"
+    },
+    {
+      "id": "C04-T01-E051",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 7 ?",
+        "en": "How many binary words have length exactly 7?"
+      },
+      "solution": {
+        "fr": "Réponse : 128. Chaque position a 2 choix : 2^7=128.",
+        "en": "Answer: 128. Each position has 2 choices: 2^7=128."
+      },
+      "answer": "128",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E052",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien d'états au maximum représentent 7 bits de longueur fixe ?",
+        "en": "How many states can 7 fixed-length bits represent?"
+      },
+      "solution": {
+        "fr": "Réponse : 128. Il existe 2^7=128 mots distincts.",
+        "en": "Answer: 128. There are 2^7=128 distinct words."
+      },
+      "answer": "128",
+      "theme": "capacity"
+    },
+    {
+      "id": "C04-T01-E053",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 127 états ?",
+        "en": "What minimum fixed length encodes 127 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 7. 2^7=128 permet au moins 127 états et 2^6 est insuffisant.",
+        "en": "Answer: 7. 2^7=128 is sufficient and 2^6 is insufficient."
+      },
+      "answer": "7",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E054",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 129 états ?",
+        "en": "What minimum fixed length encodes 129 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 8. 2^7=128 est insuffisant; 2^8=256 suffit.",
+        "en": "Answer: 8. 2^7=128 is insufficient; 2^8=256 is enough."
+      },
+      "answer": "8",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E055",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Si 21 caractères ASCII occupent chacun un octet en UTF-8, combien de bits ?",
+        "en": "If 21 ASCII characters each occupy one byte in UTF-8, how many bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 168. 21×8=168 bits.",
+        "en": "Answer: 168. 21×8=168 bits."
+      },
+      "answer": "168",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E056",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Un message ASCII utilise 56 bits en UTF-8 : combien de caractères contient-il dans cette hypothèse ?",
+        "en": "An ASCII message uses 56 UTF-8 bits. Under this assumption, how many characters?"
+      },
+      "solution": {
+        "fr": "Réponse : 7. 56/8=7 caractères.",
+        "en": "Answer: 7. 56/8=7 characters."
+      },
+      "answer": "7",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E057",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur au plus 7 (mot vide inclus) ?",
+        "en": "How many binary words have length at most 7 (including the empty word)?"
+      },
+      "solution": {
+        "fr": "Réponse : 255. 1+2+4+…+2^7=2^8-1=255.",
+        "en": "Answer: 255. 1+2+4+…+2^7=2^8-1=255."
+      },
+      "answer": "255",
+      "theme": "bounded-length"
+    },
+    {
+      "id": "C04-T01-E058",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 8 ?",
+        "en": "How many binary words have length exactly 8?"
+      },
+      "solution": {
+        "fr": "Réponse : 256. 2^8=256 mots.",
+        "en": "Answer: 256. 2^8=256 words."
+      },
+      "answer": "256",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E059",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Un message comporte 7 bits : combien de symboles de l'alphabet {0,1} contient-il ?",
+        "en": "A message has 7 bits. How many symbols of the alphabet {0,1} does it contain?"
+      },
+      "solution": {
+        "fr": "Réponse : 7. Un bit est un symbole; il y en a 7.",
+        "en": "Answer: 7. One bit is one symbol; there are 7."
+      },
+      "answer": "7",
+      "theme": "symbols"
+    },
+    {
+      "id": "C04-T01-E060",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "On concatène deux mots binaires de longueurs 7 et 9. Quelle longueur obtient-on ?",
+        "en": "Concatenate binary words of lengths 7 and 9. What is the result length?"
+      },
+      "solution": {
+        "fr": "Réponse : 16. 7+9=16 bits.",
+        "en": "Answer: 16. 7+9=16 bits."
+      },
+      "answer": "16",
+      "theme": "concatenation"
+    },
+    {
+      "id": "C04-T01-E061",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 8 ?",
+        "en": "How many binary words have length exactly 8?"
+      },
+      "solution": {
+        "fr": "Réponse : 256. Chaque position a 2 choix : 2^8=256.",
+        "en": "Answer: 256. Each position has 2 choices: 2^8=256."
+      },
+      "answer": "256",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E062",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien d'états au maximum représentent 8 bits de longueur fixe ?",
+        "en": "How many states can 8 fixed-length bits represent?"
+      },
+      "solution": {
+        "fr": "Réponse : 256. Il existe 2^8=256 mots distincts.",
+        "en": "Answer: 256. There are 2^8=256 distinct words."
+      },
+      "answer": "256",
+      "theme": "capacity"
+    },
+    {
+      "id": "C04-T01-E063",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 255 états ?",
+        "en": "What minimum fixed length encodes 255 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 8. 2^8=256 permet au moins 255 états et 2^7 est insuffisant.",
+        "en": "Answer: 8. 2^8=256 is sufficient and 2^7 is insufficient."
+      },
+      "answer": "8",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E064",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 257 états ?",
+        "en": "What minimum fixed length encodes 257 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 9. 2^8=256 est insuffisant; 2^9=512 suffit.",
+        "en": "Answer: 9. 2^8=256 is insufficient; 2^9=512 is enough."
+      },
+      "answer": "9",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E065",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Si 24 caractères ASCII occupent chacun un octet en UTF-8, combien de bits ?",
+        "en": "If 24 ASCII characters each occupy one byte in UTF-8, how many bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 192. 24×8=192 bits.",
+        "en": "Answer: 192. 24×8=192 bits."
+      },
+      "answer": "192",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E066",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Un message ASCII utilise 64 bits en UTF-8 : combien de caractères contient-il dans cette hypothèse ?",
+        "en": "An ASCII message uses 64 UTF-8 bits. Under this assumption, how many characters?"
+      },
+      "solution": {
+        "fr": "Réponse : 8. 64/8=8 caractères.",
+        "en": "Answer: 8. 64/8=8 characters."
+      },
+      "answer": "8",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E067",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur au plus 8 (mot vide inclus) ?",
+        "en": "How many binary words have length at most 8 (including the empty word)?"
+      },
+      "solution": {
+        "fr": "Réponse : 511. 1+2+4+…+2^8=2^9-1=511.",
+        "en": "Answer: 511. 1+2+4+…+2^8=2^9-1=511."
+      },
+      "answer": "511",
+      "theme": "bounded-length"
+    },
+    {
+      "id": "C04-T01-E068",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 9 ?",
+        "en": "How many binary words have length exactly 9?"
+      },
+      "solution": {
+        "fr": "Réponse : 512. 2^9=512 mots.",
+        "en": "Answer: 512. 2^9=512 words."
+      },
+      "answer": "512",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E069",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Un message comporte 8 bits : combien de symboles de l'alphabet {0,1} contient-il ?",
+        "en": "A message has 8 bits. How many symbols of the alphabet {0,1} does it contain?"
+      },
+      "solution": {
+        "fr": "Réponse : 8. Un bit est un symbole; il y en a 8.",
+        "en": "Answer: 8. One bit is one symbol; there are 8."
+      },
+      "answer": "8",
+      "theme": "symbols"
+    },
+    {
+      "id": "C04-T01-E070",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "On concatène deux mots binaires de longueurs 8 et 10. Quelle longueur obtient-on ?",
+        "en": "Concatenate binary words of lengths 8 and 10. What is the result length?"
+      },
+      "solution": {
+        "fr": "Réponse : 18. 8+10=18 bits.",
+        "en": "Answer: 18. 8+10=18 bits."
+      },
+      "answer": "18",
+      "theme": "concatenation"
+    },
+    {
+      "id": "C04-T01-E071",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 9 ?",
+        "en": "How many binary words have length exactly 9?"
+      },
+      "solution": {
+        "fr": "Réponse : 512. Chaque position a 2 choix : 2^9=512.",
+        "en": "Answer: 512. Each position has 2 choices: 2^9=512."
+      },
+      "answer": "512",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E072",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien d'états au maximum représentent 9 bits de longueur fixe ?",
+        "en": "How many states can 9 fixed-length bits represent?"
+      },
+      "solution": {
+        "fr": "Réponse : 512. Il existe 2^9=512 mots distincts.",
+        "en": "Answer: 512. There are 2^9=512 distinct words."
+      },
+      "answer": "512",
+      "theme": "capacity"
+    },
+    {
+      "id": "C04-T01-E073",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 511 états ?",
+        "en": "What minimum fixed length encodes 511 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 9. 2^9=512 permet au moins 511 états et 2^8 est insuffisant.",
+        "en": "Answer: 9. 2^9=512 is sufficient and 2^8 is insufficient."
+      },
+      "answer": "9",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E074",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 513 états ?",
+        "en": "What minimum fixed length encodes 513 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 10. 2^9=512 est insuffisant; 2^10=1024 suffit.",
+        "en": "Answer: 10. 2^9=512 is insufficient; 2^10=1024 is enough."
+      },
+      "answer": "10",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E075",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Si 27 caractères ASCII occupent chacun un octet en UTF-8, combien de bits ?",
+        "en": "If 27 ASCII characters each occupy one byte in UTF-8, how many bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 216. 27×8=216 bits.",
+        "en": "Answer: 216. 27×8=216 bits."
+      },
+      "answer": "216",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E076",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Un message ASCII utilise 72 bits en UTF-8 : combien de caractères contient-il dans cette hypothèse ?",
+        "en": "An ASCII message uses 72 UTF-8 bits. Under this assumption, how many characters?"
+      },
+      "solution": {
+        "fr": "Réponse : 9. 72/8=9 caractères.",
+        "en": "Answer: 9. 72/8=9 characters."
+      },
+      "answer": "9",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E077",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur au plus 9 (mot vide inclus) ?",
+        "en": "How many binary words have length at most 9 (including the empty word)?"
+      },
+      "solution": {
+        "fr": "Réponse : 1023. 1+2+4+…+2^9=2^10-1=1023.",
+        "en": "Answer: 1023. 1+2+4+…+2^9=2^10-1=1023."
+      },
+      "answer": "1023",
+      "theme": "bounded-length"
+    },
+    {
+      "id": "C04-T01-E078",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 10 ?",
+        "en": "How many binary words have length exactly 10?"
+      },
+      "solution": {
+        "fr": "Réponse : 1024. 2^10=1024 mots.",
+        "en": "Answer: 1024. 2^10=1024 words."
+      },
+      "answer": "1024",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E079",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Un message comporte 9 bits : combien de symboles de l'alphabet {0,1} contient-il ?",
+        "en": "A message has 9 bits. How many symbols of the alphabet {0,1} does it contain?"
+      },
+      "solution": {
+        "fr": "Réponse : 9. Un bit est un symbole; il y en a 9.",
+        "en": "Answer: 9. One bit is one symbol; there are 9."
+      },
+      "answer": "9",
+      "theme": "symbols"
+    },
+    {
+      "id": "C04-T01-E080",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "On concatène deux mots binaires de longueurs 9 et 11. Quelle longueur obtient-on ?",
+        "en": "Concatenate binary words of lengths 9 and 11. What is the result length?"
+      },
+      "solution": {
+        "fr": "Réponse : 20. 9+11=20 bits.",
+        "en": "Answer: 20. 9+11=20 bits."
+      },
+      "answer": "20",
+      "theme": "concatenation"
+    },
+    {
+      "id": "C04-T01-E081",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 10 ?",
+        "en": "How many binary words have length exactly 10?"
+      },
+      "solution": {
+        "fr": "Réponse : 1024. Chaque position a 2 choix : 2^10=1024.",
+        "en": "Answer: 1024. Each position has 2 choices: 2^10=1024."
+      },
+      "answer": "1024",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E082",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien d'états au maximum représentent 10 bits de longueur fixe ?",
+        "en": "How many states can 10 fixed-length bits represent?"
+      },
+      "solution": {
+        "fr": "Réponse : 1024. Il existe 2^10=1024 mots distincts.",
+        "en": "Answer: 1024. There are 2^10=1024 distinct words."
+      },
+      "answer": "1024",
+      "theme": "capacity"
+    },
+    {
+      "id": "C04-T01-E083",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 1023 états ?",
+        "en": "What minimum fixed length encodes 1023 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 10. 2^10=1024 permet au moins 1023 états et 2^9 est insuffisant.",
+        "en": "Answer: 10. 2^10=1024 is sufficient and 2^9 is insufficient."
+      },
+      "answer": "10",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E084",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 1025 états ?",
+        "en": "What minimum fixed length encodes 1025 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 11. 2^10=1024 est insuffisant; 2^11=2048 suffit.",
+        "en": "Answer: 11. 2^10=1024 is insufficient; 2^11=2048 is enough."
+      },
+      "answer": "11",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E085",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Si 30 caractères ASCII occupent chacun un octet en UTF-8, combien de bits ?",
+        "en": "If 30 ASCII characters each occupy one byte in UTF-8, how many bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 240. 30×8=240 bits.",
+        "en": "Answer: 240. 30×8=240 bits."
+      },
+      "answer": "240",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E086",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Un message ASCII utilise 80 bits en UTF-8 : combien de caractères contient-il dans cette hypothèse ?",
+        "en": "An ASCII message uses 80 UTF-8 bits. Under this assumption, how many characters?"
+      },
+      "solution": {
+        "fr": "Réponse : 10. 80/8=10 caractères.",
+        "en": "Answer: 10. 80/8=10 characters."
+      },
+      "answer": "10",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E087",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur au plus 10 (mot vide inclus) ?",
+        "en": "How many binary words have length at most 10 (including the empty word)?"
+      },
+      "solution": {
+        "fr": "Réponse : 2047. 1+2+4+…+2^10=2^11-1=2047.",
+        "en": "Answer: 2047. 1+2+4+…+2^10=2^11-1=2047."
+      },
+      "answer": "2047",
+      "theme": "bounded-length"
+    },
+    {
+      "id": "C04-T01-E088",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 11 ?",
+        "en": "How many binary words have length exactly 11?"
+      },
+      "solution": {
+        "fr": "Réponse : 2048. 2^11=2048 mots.",
+        "en": "Answer: 2048. 2^11=2048 words."
+      },
+      "answer": "2048",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E089",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Un message comporte 10 bits : combien de symboles de l'alphabet {0,1} contient-il ?",
+        "en": "A message has 10 bits. How many symbols of the alphabet {0,1} does it contain?"
+      },
+      "solution": {
+        "fr": "Réponse : 10. Un bit est un symbole; il y en a 10.",
+        "en": "Answer: 10. One bit is one symbol; there are 10."
+      },
+      "answer": "10",
+      "theme": "symbols"
+    },
+    {
+      "id": "C04-T01-E090",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "On concatène deux mots binaires de longueurs 10 et 12. Quelle longueur obtient-on ?",
+        "en": "Concatenate binary words of lengths 10 and 12. What is the result length?"
+      },
+      "solution": {
+        "fr": "Réponse : 22. 10+12=22 bits.",
+        "en": "Answer: 22. 10+12=22 bits."
+      },
+      "answer": "22",
+      "theme": "concatenation"
+    },
+    {
+      "id": "C04-T01-E091",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 11 ?",
+        "en": "How many binary words have length exactly 11?"
+      },
+      "solution": {
+        "fr": "Réponse : 2048. Chaque position a 2 choix : 2^11=2048.",
+        "en": "Answer: 2048. Each position has 2 choices: 2^11=2048."
+      },
+      "answer": "2048",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E092",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien d'états au maximum représentent 11 bits de longueur fixe ?",
+        "en": "How many states can 11 fixed-length bits represent?"
+      },
+      "solution": {
+        "fr": "Réponse : 2048. Il existe 2^11=2048 mots distincts.",
+        "en": "Answer: 2048. There are 2^11=2048 distinct words."
+      },
+      "answer": "2048",
+      "theme": "capacity"
+    },
+    {
+      "id": "C04-T01-E093",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 2047 états ?",
+        "en": "What minimum fixed length encodes 2047 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 11. 2^11=2048 permet au moins 2047 états et 2^10 est insuffisant.",
+        "en": "Answer: 11. 2^11=2048 is sufficient and 2^10 is insufficient."
+      },
+      "answer": "11",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E094",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Combien de bits de longueur fixe faut-il au minimum pour 2049 états ?",
+        "en": "What minimum fixed length encodes 2049 states?"
+      },
+      "solution": {
+        "fr": "Réponse : 12. 2^11=2048 est insuffisant; 2^12=4096 suffit.",
+        "en": "Answer: 12. 2^11=2048 is insufficient; 2^12=4096 is enough."
+      },
+      "answer": "12",
+      "theme": "minimum-bits"
+    },
+    {
+      "id": "C04-T01-E095",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Si 33 caractères ASCII occupent chacun un octet en UTF-8, combien de bits ?",
+        "en": "If 33 ASCII characters each occupy one byte in UTF-8, how many bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 264. 33×8=264 bits.",
+        "en": "Answer: 264. 33×8=264 bits."
+      },
+      "answer": "264",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E096",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Un message ASCII utilise 88 bits en UTF-8 : combien de caractères contient-il dans cette hypothèse ?",
+        "en": "An ASCII message uses 88 UTF-8 bits. Under this assumption, how many characters?"
+      },
+      "solution": {
+        "fr": "Réponse : 11. 88/8=11 caractères.",
+        "en": "Answer: 11. 88/8=11 characters."
+      },
+      "answer": "11",
+      "theme": "utf8"
+    },
+    {
+      "id": "C04-T01-E097",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur au plus 11 (mot vide inclus) ?",
+        "en": "How many binary words have length at most 11 (including the empty word)?"
+      },
+      "solution": {
+        "fr": "Réponse : 4095. 1+2+4+…+2^11=2^12-1=4095.",
+        "en": "Answer: 4095. 1+2+4+…+2^11=2^12-1=4095."
+      },
+      "answer": "4095",
+      "theme": "bounded-length"
+    },
+    {
+      "id": "C04-T01-E098",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Combien de mots binaires de longueur exactement 12 ?",
+        "en": "How many binary words have length exactly 12?"
+      },
+      "solution": {
+        "fr": "Réponse : 4096. 2^12=4096 mots.",
+        "en": "Answer: 4096. 2^12=4096 words."
+      },
+      "answer": "4096",
+      "theme": "counting"
+    },
+    {
+      "id": "C04-T01-E099",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Un message comporte 11 bits : combien de symboles de l'alphabet {0,1} contient-il ?",
+        "en": "A message has 11 bits. How many symbols of the alphabet {0,1} does it contain?"
+      },
+      "solution": {
+        "fr": "Réponse : 11. Un bit est un symbole; il y en a 11.",
+        "en": "Answer: 11. One bit is one symbol; there are 11."
+      },
+      "answer": "11",
+      "theme": "symbols"
+    },
+    {
+      "id": "C04-T01-E100",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "On concatène deux mots binaires de longueurs 11 et 13. Quelle longueur obtient-on ?",
+        "en": "Concatenate binary words of lengths 11 and 13. What is the result length?"
+      },
+      "solution": {
+        "fr": "Réponse : 24. 11+13=24 bits.",
+        "en": "Answer: 24. 11+13=24 bits."
+      },
+      "answer": "24",
+      "theme": "concatenation"
+    }
+  ]
+}
