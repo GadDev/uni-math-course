@@ -1,23 +1,8 @@
 // Markdown validation adapted from the GadDev repository playbook (MIT; copyright 2026 GadDev).
 import { readdir, readFile, stat, realpath } from 'node:fs/promises';
-import { execFileSync } from 'node:child_process';
 import { resolve, dirname, relative, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-// Temporary formatter diagnostic for Chapter 4; removed immediately after capture.
-if (process.env.CI) {
-  for (const target of [
-    'src/pages/[locale]/exercises.astro',
-    'tests/content/chapter-four-interactive.test.ts',
-    'tests/e2e/chapter-four-practice.spec.ts',
-  ]) {
-    const output = execFileSync('pnpm', ['exec', 'prettier', target], { encoding: 'utf8' });
-    console.log('C04_FORMAT_START:' + target);
-    process.stdout.write(output);
-    console.log('C04_FORMAT_END:' + target);
-  }
-}
-
 const ignored = new Set([
   '.git',
   'node_modules',

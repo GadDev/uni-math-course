@@ -22,8 +22,13 @@ const chapters = printableChapters.map((chapter) => ({
     available: existsSync(join(process.cwd(), 'public', document.path)),
   })),
 }));
-const totalCount = printableChapters.reduce((sum, chapter) => sum + chapter.count, 0);
-const countBreakdown = printableChapters.map((chapter) => chapter.count).join(' + ');
+const totalCount = printableChapters.reduce(
+  (sum, chapter) => sum + chapter.count,
+  0,
+);
+const countBreakdown = printableChapters
+  .map((chapter) => chapter.count)
+  .join(' + ');
 const missingFiles = chapters.some((chapter) =>
   chapter.documents.some((document) => !document.available),
 );

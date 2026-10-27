@@ -31,7 +31,8 @@ test('all seven Chapter 4 practice banks have 15 exercises, six objectives and n
       const publicItem = publicExercise(exercise);
       assert.equal('answer' in publicItem, false);
       assert.equal('explanation' in publicItem, false);
-      if (publicItem.type !== 'single-choice') throw new Error('Unexpected item');
+      if (publicItem.type !== 'single-choice')
+        throw new Error('Unexpected item');
       assert.equal('feedback' in publicItem.options[0]!, false);
     }
   }
@@ -60,13 +61,15 @@ test('Chapter 4 v2 choices agree with their bilingual worked exercise sources', 
       } else {
         const expected = String(original.answer);
         const expectedLabel =
-          ({
-            yes: 'Oui',
-            no: 'Non',
-            equal: 'Égalité',
-            first: 'Le premier',
-            last: 'Le dernier',
-          } as Record<string, string>)[expected] ?? expected;
+          (
+            {
+              yes: 'Oui',
+              no: 'Non',
+              equal: 'Égalité',
+              first: 'Le premier',
+              last: 'Le dernier',
+            } as Record<string, string>
+          )[expected] ?? expected;
         assert.equal(
           answerOption.label.fr.replaceAll(String.fromCharCode(36), ''),
           expectedLabel,

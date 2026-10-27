@@ -25,10 +25,9 @@ for (const locale of ['fr', 'en']) {
   test(`Chapter 4 practice requires a verified account (${locale})`, async ({
     request,
   }) => {
-    const response = await request.get(
-      `/${locale}/lessons/L49/practice/`,
-      { maxRedirects: 0 },
-    );
+    const response = await request.get(`/${locale}/lessons/L49/practice/`, {
+      maxRedirects: 0,
+    });
     expect(response.status()).toBe(303);
     expect(response.headers().location).toMatch(
       new RegExp(`^/${locale}/sign-in/\\?next=`),
@@ -43,15 +42,10 @@ for (const locale of ['fr', 'en']) {
     await page.setViewportSize({ width: 375, height: 900 });
     for (let n = 43; n <= 49; n++) {
       const id = `L${n}`;
-      const response = await page.goto(
-        `/${locale}/lessons/${id}/practice/`,
-      );
+      const response = await page.goto(`/${locale}/lessons/${id}/practice/`);
       expect(response?.status(), id).toBe(200);
       await expect(page.locator('.pp-step')).toHaveCount(15);
-      await expect(page.locator('main')).toHaveAttribute(
-        'data-chapter',
-        'C04',
-      );
+      await expect(page.locator('main')).toHaveAttribute('data-chapter', 'C04');
       await expect(page.locator('.practice-geometry svg')).toHaveAttribute(
         'data-variant',
         'ember',
