@@ -68,7 +68,10 @@ test('Chapter 4 v2 choices agree with their bilingual worked exercise sources', 
             last: 'Le dernier',
           } as Record<string, string>)[expected] ?? expected;
         assert.equal(
-          answerOption.label.fr.replaceAll('
+          answerOption.label.fr.replaceAll(String.fromCharCode(36), ''),
+          expectedLabel,
+          exercise.id,
+        );
       }
     }
   }
@@ -81,40 +84,6 @@ test('the original Huffman example combines weights and yields a prefix code', (
     new Set(bank.items.map((item: { id: string }) => item.id)).size,
     100,
   );
-  const fixture = bank.items[0];
-  assert.deepEqual(fixture.codebook, {
-    A: '0',
-    B: '10',
-    C: '110',
-    D: '111',
-  });
-  const codes = Object.values(fixture.codebook) as string[];
-  for (const x of codes) {
-    for (const y of codes) {
-      if (x !== y) assert.equal(y.startsWith(x), false);
-    }
-  }
-  const words = [8, 4, 2, 2];
-  const lengths = codes.map((word) => word.length);
-  assert.equal(
-    words.reduce((sum, count, i) => sum + count * lengths[i]!, 0),
-    28,
-  );
-  assert.equal(bank.items[7].answer, '7/4');
-});
-, ''),
-          expectedLabel,
-          exercise.id,
-        );
-      }
-    }
-  }
-});
-
-test('the original Huffman example combines weights and yields a prefix code', () => {
-  const bank = readJson('exercises/drafts/chapter-04/T07.json');
-  assert.equal(bank.items.length, 100);
-  assert.equal(new Set(bank.items.map((item: { id: string }) => item.id)).size, 100);
   const fixture = bank.items[0];
   assert.deepEqual(fixture.codebook, {
     A: '0',
