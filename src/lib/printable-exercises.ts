@@ -37,14 +37,16 @@ export const printableChapters: readonly PrintableChapter[] = [
         type: 'exercises',
         path: 'pdfs/exercises/chapter-01-exercises.pdf',
         pages: 83,
-        sha256: '7212c87b5bb45783a0bb88186d7123b75c46949fee352526e5a7a25913159ecd',
+        sha256:
+          '7212c87b5bb45783a0bb88186d7123b75c46949fee352526e5a7a25913159ecd',
       },
       {
         id: 'chapter-01-solutions',
         type: 'solutions',
         path: 'pdfs/exercises/chapter-01-solutions.pdf',
         pages: 23,
-        sha256: '2bb310d4f8dfdc6dc659fb6f6386747958ec39b257c4059cd9fa1010d93c9be4',
+        sha256:
+          '2bb310d4f8dfdc6dc659fb6f6386747958ec39b257c4059cd9fa1010d93c9be4',
       },
     ],
   },
@@ -64,14 +66,16 @@ export const printableChapters: readonly PrintableChapter[] = [
         type: 'exercises',
         path: 'pdfs/exercises/chapter-02-exercises.pdf',
         pages: 146,
-        sha256: '7c936ee21b2ed47053b9f5962338746aadb4a2c9d0174d05c8a771727d16c203',
+        sha256:
+          '7c936ee21b2ed47053b9f5962338746aadb4a2c9d0174d05c8a771727d16c203',
       },
       {
         id: 'chapter-02-solutions',
         type: 'solutions',
         path: 'pdfs/exercises/chapter-02-solutions.pdf',
         pages: 81,
-        sha256: '3108f51b5976721ab15d4ca07e2c6827d285bfbd5e61faa209269319aba95b0d',
+        sha256:
+          '3108f51b5976721ab15d4ca07e2c6827d285bfbd5e61faa209269319aba95b0d',
       },
     ],
   },
@@ -85,8 +89,10 @@ export const printableCopy = {
     title: 'Exercices à imprimer',
     description:
       '940 exercices pour s’entraîner à son rythme, avec un corrigé séparé pour chaque chapitre.',
-    intro: 'Téléchargez un cahier, écrivez vos calculs sur papier, puis vérifiez vos réponses. Pas de compte requis.',
-    languageNote: 'Les quatre documents sont rédigés en français, y compris sur la page anglaise.',
+    intro:
+      'Téléchargez un cahier, écrivez vos calculs sur papier, puis vérifiez vos réponses. Pas de compte requis.',
+    languageNote:
+      'Les quatre documents sont rédigés en français, y compris sur la page anglaise.',
     toc: 'Parcourir les cahiers',
     chapterLabel: 'Chapitre',
     lessonsLabel: 'Leçons',
@@ -104,8 +110,10 @@ export const printableCopy = {
       'Comparez les démarches, pas seulement les résultats.',
       'Réessayez les exercices ratés 48 heures plus tard.',
     ],
-    notice: 'Contenus de pratique originaux, non officiels, basés sur la progression des chapitres. Ils ne sont ni publiés ni approuvés par l’Université du Luxembourg.',
-    unavailable: 'Les fichiers PDF doivent encore être ajoutés à cette branche. Les téléchargements s’activeront dès leur inclusion et la reconstruction du site.',
+    notice:
+      'Contenus de pratique originaux, non officiels, basés sur la progression des chapitres. Ils ne sont ni publiés ni approuvés par l’Université du Luxembourg.',
+    unavailable:
+      'Les fichiers PDF doivent encore être ajoutés à cette branche. Les téléchargements s’activeront dès leur inclusion et la reconstruction du site.',
     back: 'Retour au programme',
   },
   en: {
@@ -115,8 +123,10 @@ export const printableCopy = {
     title: 'Printable exercises',
     description:
       '940 exercises to practise at your own pace, with a separate answer booklet for each chapter.',
-    intro: 'Download a workbook, work through the calculations on paper, then check your answers. No account required.',
-    languageNote: 'All four PDFs are in French, including when accessed from this English page.',
+    intro:
+      'Download a workbook, work through the calculations on paper, then check your answers. No account required.',
+    languageNote:
+      'All four PDFs are in French, including when accessed from this English page.',
     toc: 'Browse workbooks',
     chapterLabel: 'Chapter',
     lessonsLabel: 'Lessons',
@@ -134,8 +144,10 @@ export const printableCopy = {
       'Check the reasoning, not just the final answers.',
       'Retry missed exercises 48 hours later.',
     ],
-    notice: 'Original, unofficial practice materials following the chapter progression. They are not published or endorsed by the University of Luxembourg.',
-    unavailable: 'The PDF files still need to be added to this branch. Download links will activate once the files are committed and the site rebuilt.',
+    notice:
+      'Original, unofficial practice materials following the chapter progression. They are not published or endorsed by the University of Luxembourg.',
+    unavailable:
+      'The PDF files still need to be added to this branch. Download links will activate once the files are committed and the site rebuilt.',
     back: 'Back to the programme',
   },
 } as const;
