@@ -36,7 +36,7 @@ for (const locale of ['fr', 'en'] as const) {
     },
   );
 
-  for (const width of [320, 375, 768, 1280]) {
+  for (const width of [320, 375, 501, 650, 768, 1280]) {
     test(
       'printable library fits at ' + width + 'px (' + locale + ')',
       async ({ page }) => {
