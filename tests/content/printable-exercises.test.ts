@@ -8,15 +8,15 @@ import {
   printableCopy,
 } from '../../src/lib/printable-exercises.ts';
 
-test('printable exercise catalog describes two complete chapter pairs', () => {
-  assert.equal(printableChapters.length, 2);
+test('printable exercise catalog describes three complete chapter pairs', () => {
+  assert.equal(printableChapters.length, 3);
   assert.equal(
     printableChapters.reduce((sum, chapter) => sum + chapter.count, 0),
-    940,
+    1640,
   );
   assert.deepEqual(
     printableChapters.map((chapter) => chapter.lessons),
-    ['L01–L20', 'L21–L36'],
+    ['L01–L20', 'L21–L36', 'L43–L49'],
   );
   const documentIds = new Set<string>();
   const paths = new Set<string>();
@@ -53,7 +53,7 @@ test('printable exercise catalog describes two complete chapter pairs', () => {
     }
   }
 
-  assert.equal(paths.size, 4);
+  assert.equal(paths.size, 6);
   for (const locale of ['fr', 'en'] as const) {
     const text = printableCopy[locale];
     assert.ok(text.title && text.nav && text.description);
