@@ -24,12 +24,15 @@ test('all seven Chapter 4 practice banks have 15 exercises, six objectives and n
     assert.equal(new Set(bank.exercises.map((e) => e.objectiveId)).size, 6);
     assert.equal(new Set(bank.exercises.map((e) => e.answer)).size, 3);
     for (const exercise of bank.exercises) {
+      assert.equal(exercise.type, 'single-choice');
+      if (exercise.type !== 'single-choice') throw new Error('Unexpected item');
       const correct = exercise.options.find((o) => o.id === exercise.answer);
       assert.ok(correct, `${exercise.id}: answer option must exist`);
       const publicItem = publicExercise(exercise);
       assert.equal('answer' in publicItem, false);
       assert.equal('explanation' in publicItem, false);
-      assert.equal('feedback' in publicItem.options[0], false);
+      if (publicItem.type !== 'single-choice') throw new Error('Unexpected item');
+      assert.equal('feedback' in publicItem.options[0]!, false);
     }
   }
 });
