@@ -94,17 +94,17 @@ export const printableChapters: readonly PrintableChapter[] = [
         id: 'chapter-04-exercises',
         type: 'exercises',
         path: 'pdfs/exercises/chapter-04-exercises.pdf',
-        pages: 86,
+        pages: 79,
         sha256:
-          '8ce7e9a52525f61d294d5517e94e97a10a3a5ed3beb8c0f1ce8684b283fa6d69',
+          '4612f51117863b8159a3442d86b9beee0edc54fa5974f68254e0d97fc5e1a82c',
       },
       {
         id: 'chapter-04-solutions',
         type: 'solutions',
         path: 'pdfs/exercises/chapter-04-solutions.pdf',
-        pages: 105,
+        pages: 134,
         sha256:
-          '686ba995ed1356955595961bf571e2c138aa512801b6a00b37f1ad1ae1e8ba4c',
+          'bb88e3eacdcf1cd0d32b73fd7f4f1baa9100b144bc977514ac6fedaa643e29a1',
       },
     ],
   },
