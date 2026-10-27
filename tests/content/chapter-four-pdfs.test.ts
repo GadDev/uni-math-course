@@ -26,5 +26,5 @@ test('Chapter 4 printable PDFs are real files, registered by hash and cover all 
     assert.equal(pdf.slice(Number(xref[1]), Number(xref[1]) + 4), 'xref');
     return ids;
   });
-  assert.deepEqual([...contents[0]].sort(), [...contents[1]].sort());
+  assert.deepEqual([...contents[0]!].sort(), [...contents[1]!].sort());
 });
