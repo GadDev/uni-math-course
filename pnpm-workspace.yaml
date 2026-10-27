@@ -6,3 +6,6 @@ overrides:
   katex: '0.19.0'
   # routing-utils pins 6.1.0; 6.3.0 fixes GHSA-9wv6-86v2-598j within v6.
   '@vercel/routing-utils>path-to-regexp': '6.3.0'
+  # @vercel/cli-config@0.3.1 pins vulnerable 4.1.11 (GHSA-mrhx-c7xc-m3w5).
+  # Reuse Astro's already-locked patched Zod version.
+  '@vercel/cli-config>zod': '4.6.7'
