@@ -27,7 +27,10 @@ type DraftBank = {
 const bankOf = (topic: string): DraftBank =>
   JSON.parse(
     readFileSync(
-      new URL(`../../exercises/drafts/chapter-04/${topic}.json`, import.meta.url),
+      new URL(
+        `../../exercises/drafts/chapter-04/${topic}.json`,
+        import.meta.url,
+      ),
       'utf8',
     ),
   ) as DraftBank;
@@ -56,7 +59,10 @@ test('Chapter 4 draft bank metadata and bilingual answers', () => {
     assert.equal(new Set(bank.items.map((item) => item.id)).size, 100);
     for (let i = 0; i < 100; i++) {
       const exercise = bank.items[i]!;
-      assert.equal(exercise.id, `C04-${topic}-E${String(i + 1).padStart(3, '0')}`);
+      assert.equal(
+        exercise.id,
+        `C04-${topic}-E${String(i + 1).padStart(3, '0')}`,
+      );
       assert.ok(['easy', 'medium', 'hard'].includes(exercise.difficulty));
       for (const locale of ['fr', 'en'] as const) {
         assert.ok(exercise.prompt[locale].trim(), exercise.id);
@@ -65,7 +71,10 @@ test('Chapter 4 draft bank metadata and bilingual answers', () => {
     }
     for (const locale of ['fr', 'en'] as const) {
       const manuscript = readFileSync(
-        new URL(`../../docs/content/chapter-04/drafts/${topic}/${locale}.md`, import.meta.url),
+        new URL(
+          `../../docs/content/chapter-04/drafts/${topic}/${locale}.md`,
+          import.meta.url,
+        ),
         'utf8',
       );
       assert.ok(manuscript.startsWith('# '), `${topic} ${locale}`);
@@ -90,8 +99,30 @@ test('Encoding answers are exact concatenations', () => {
 });
 
 test('Prefix claims and decoding examples are consistent', () => {
-  const expected = [true, true, true, true, false, true, false, false, false, true];
-  const prefix = [false, false, true, true, false, true, false, false, false, true];
+  const expected = [
+    true,
+    true,
+    true,
+    true,
+    false,
+    true,
+    false,
+    false,
+    false,
+    true,
+  ];
+  const prefix = [
+    false,
+    false,
+    true,
+    true,
+    false,
+    true,
+    false,
+    false,
+    false,
+    true,
+  ];
   const items = bankOf('T03').items;
   for (let i = 0; i < 10; i++) {
     const sample = items[i * 10]!;
