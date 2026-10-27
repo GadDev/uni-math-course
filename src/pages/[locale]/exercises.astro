@@ -1,0 +1,175 @@
+---
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import Base from '../../layouts/Base.astro';
+import { copy, locales } from '../../lib/i18n';
+import {
+  printableChapters,
+  printableCopy,
+} from '../../lib/printable-exercises';
+import '../../styles/printable-exercises.css';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+
+const { locale } = Astro.props;
+const text = printableCopy[locale];
+const chapters = printableChapters.map((chapter) => ({
+  ...chapter,
+  documents: chapter.documents.map((document) => ({
+    ...document,
+    available: existsSync(join(process.cwd(), 'public', document.path)),
+  })),
+}));
+const missingFiles = chapters.some((chapter) =>
+  chapter.documents.some((document) => !document.available),
+);
+---
+
+<Base
+  locale={locale}
+  title={text.title}
+  description={text.description}
+  path="exercises/"
+>
+  <main id="main" tabindex="-1" class="printable-page">
+    <nav class="breadcrumb" aria-label={text.toc}>
+      <a href={'/' + locale + '/'}>{text.breadcrumb}</a>
+      <span aria-hidden="true"> / </span>
+      <span aria-current="page">{text.nav}</span>
+    </nav>
+
+    <header class="printable-heading">
+      <div>
+        <p class="eyebrow">{text.kicker}</p>
+        <h1>
+          {text.title}<span class="signal-stop">.</span>
+        </h1>
+        <p class="lede">{text.description}</p>
+        <p>{text.intro}</p>
+      </div>
+      <div class="printable-hero-art" aria-hidden="true">
+        <strong>940</strong>
+        <span>{text.exercisesLabel}</span>
+        <small>300 + 640</small>
+      </div>
+    </header>
+
+    <nav class="printable-toc" aria-label={text.toc}>
+      {chapters.map((chapter) => (
+        <a href={'#' + chapter.id}>
+          {text.chapterLabel} {chapter.number}
+        </a>
+      ))}
+      <a href="#how-to-use">{text.howTitle}</a>
+    </nav>
+
+    <p class="printable-language-note">{text.languageNote}</p>
+    {
+      missingFiles && (
+        <p class="printable-unavailable-note" role="status">
+          {text.unavailable}
+        </p>
+      )
+    }
+
+    {chapters.map((chapter) => (
+      <section
+        id={chapter.id}
+        class="printable-chapter"
+        aria-labelledby={chapter.id + '-title'}
+      >
+        <div class="printable-chapter-heading">
+          <span class="printable-chapter-number" aria-hidden="true">
+            {chapter.number}
+          </span>
+          <div>
+            <p class="eyebrow">
+              {text.chapterLabel} {chapter.number} · {text.lessonsLabel}{' '}
+              {chapter.lessons}
+            </p>
+            <h2 id={chapter.id + '-title'}>{chapter.title[locale]}</h2>
+            <p>{chapter.description[locale]}</p>
+          </div>
+          <span class="printable-chapter-count">
+            <strong>{chapter.count}</strong>
+            <span>{text.exercisesLabel}</span>
+          </span>
+        </div>
+        <h3 class="printable-documents-heading">{text.documentsTitle}</h3>
+        <div class="printable-documents">
+          {chapter.documents.map((document) => (
+            <article class="printable-document" data-document={document.id}>
+              <p class="eyebrow">
+                PDF · A4 · {document.pages} {text.pages}
+              </p>
+              <h4>
+                {document.type === 'exercises'
+                  ? text.exercises
+                  : text.solutions}
+              </h4>
+              {document.available ? (
+                <a
+                  class:list={[
+                    'printable-download',
+                    document.type === 'exercises'
+                      ? 'primary-link'
+                      : 'printable-secondary-link',
+                  ]}
+                  href={'/' + document.path}
+                  type="application/pdf"
+                  download
+                  aria-label={
+                    text.download +
+                    ': ' +
+                    (document.type === 'exercises'
+                      ? text.exercises
+                      : text.solutions) +
+                    ', ' +
+                    chapter.title[locale]
+                  }
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                    aria-hidden="true"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4" />
+                  </svg>
+                  {text.download}
+                </a>
+              ) : (
+                <span class="printable-pending">
+                  {text.pending}
+                </span>
+              )}
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <section
+      id="how-to-use"
+      class="printable-method"
+      aria-labelledby="printable-how-title"
+    >
+      <p class="eyebrow">{text.howKicker}</p>
+      <h2 id="printable-how-title">{text.howTitle}</h2>
+      <ol>
+        {text.steps.map((step) => (
+          <li>{step}</li>
+        ))}
+      </ol>
+      <p class="content-provenance">{text.notice}</p>
+    </section>
+    <a class="back-link" href={'/' + locale + '/'}>
+      ← {text.back}
+    </a>
+  </main>
+</Base>
