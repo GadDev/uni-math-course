@@ -21,14 +21,16 @@ for (const locale of ['fr', 'en'] as const) {
       const documents = page.locator('.printable-document');
       for (const document of await documents.all()) {
         const download = document.locator('a[download]');
-        if ((await download.count()) > 0) {
-          await expect(download).toHaveAttribute(
-            'href',
-            /^\/pdfs\/exercises\/.*\.pdf$/,
-          );
-        } else {
-          await expect(document.locator('.printable-pending')).toBeVisible();
-        }
+        await expect(download).toHaveCount(1);
+        await expect(download).toHaveAttribute(
+          'href',
+          /^\/pdfs\/exercices\/.*\.pdf$/,
+        );
+        const href = await download.getAttribute('href');
+        const response = await page.request.get(href!);
+        expect(response.ok()).toBe(true);
+        expect(response.headers()['content-type']).toContain('pdf');
+        expect((await response.body()).subarray(0, 5).toString()).toBe('%PDF-');
       }
       await expect(
         page.locator('.primary-nav > a[aria-current="page"]'),
