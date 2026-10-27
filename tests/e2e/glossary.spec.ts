@@ -67,7 +67,7 @@ test('without JavaScript all entries, translations and the source correction rem
 });
 
 for (const locale of ['fr', 'en']) {
-  for (const width of [320, 375, 768, 1280]) {
+  for (const width of [320, 375, 501, 650, 768, 1280]) {
     test(`glossary fits ${locale} at ${width}px with keyboard-accessible formula scrolling`, async ({
       page,
     }) => {
@@ -79,9 +79,19 @@ for (const locale of ['fr', 'en']) {
       ).toBeLessThanOrEqual(width);
       await page.locator('#E28 .glossary-formula').focus();
       await expect(page.locator('#E28 .glossary-formula')).toBeFocused();
-      await expect(
-        page.locator('.primary-nav [aria-current="page"]'),
-      ).toHaveText(locale === 'fr' ? 'Glossaire' : 'Glossary');
+      // The nav may render both full and abbreviated labels for responsive layouts.
+      // Assert what assistive technology sees, not their concatenated textContent.
+      const glossaryLink = page
+        .locator('.primary-nav')
+        .getByRole('link', {
+          name: locale === 'fr' ? 'Glossaire' : 'Glossary',
+          exact: true,
+        });
+      await expect(glossaryLink).toHaveAttribute('aria-current', 'page');
+      await expect(glossaryLink).toHaveAttribute(
+        'href',
+        `/${locale}/glossary/`,
+      );
       await expect(page.locator('.katex-error')).toHaveCount(0);
     });
   }
