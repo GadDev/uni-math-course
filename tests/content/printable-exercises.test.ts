@@ -30,7 +30,7 @@ test('printable exercise catalog describes two complete chapter pairs', () => {
     assert.ok(chapter.title.fr && chapter.title.en);
     assert.ok(chapter.description.fr && chapter.description.en);
     for (const document of chapter.documents) {
-      assert.match(document.path, /^pdfs\/exercises\/[a-z0-9-]+\.pdf$/);
+      assert.match(document.path, /^pdfs\/exercices\/[a-z0-9-]+\.pdf$/);
       assert.match(document.sha256, /^[0-9a-f]{64}$/);
       assert.ok(document.pages > 0);
       assert.ok(!paths.has(document.path), 'Duplicate PDF path');
