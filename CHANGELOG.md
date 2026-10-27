@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.13.1](https://github.com/GadDev/uni-math-course/compare/v0.13.0...v0.13.1) (2026-10-27)
+
+
+### Bug Fixes
+
+* **deps:** override vulnerable transitive Zod in Vercel CLI config ([#97](https://github.com/GadDev/uni-math-course/issues/97)) ([54b4f92](https://github.com/GadDev/uni-math-course/commit/54b4f92e431e705ddf05939082e6f3aff3663bee))
+
 ## [0.13.0](https://github.com/GadDev/uni-math-course/compare/v0.12.1...v0.13.0) (2026-10-27)
 
 
