@@ -1,7 +1,7 @@
 ---
 interface Props {
   compact?: boolean;
-  variant?: 'logic' | 'decalage' | 'functions';
+  variant?: 'logic' | 'decalage' | 'functions' | 'functions-mosaic';
 }
 const { compact = false, variant = 'logic' } = Astro.props;
 ---
@@ -37,6 +37,95 @@ const { compact = false, variant = 'logic' } = Astro.props;
         stroke="var(--ink)"
         stroke-width="1.5"
         stroke-dasharray="6 7"
+      />
+    </g>
+  ) : variant === 'functions-mosaic' ? (
+    <g>
+      <!-- PR #105 Ember modular grammar: original Chapter 03 blue Function
+           Mosaic with four-column grid, quarter-arcs and sampled values. -->
+      <rect width="560" height="560" fill="var(--paper)" />
+      <!-- Row 01: shape and output -->
+      <path d="M0 0H140V140H0Z" fill="var(--blue-accent)" />
+      <path d="M0 140A140 140 0 0 1 140 0H0Z" fill="var(--paper)" />
+      <path d="M140 0H280V140H140Z" fill="var(--ink)" />
+      <circle cx="350" cy="70" r="70" fill="var(--blue-accent)" />
+      <path d="M420 0H560V140H420Z" fill="var(--blue-accent)" />
+      <path d="M420 0A140 140 0 0 1 560 140H420Z" fill="var(--ink)" />
+      <!-- Row 02: change -->
+      <path d="M0 140H140V280H0Z" fill="var(--ink)" />
+      <path d="M0 140A140 140 0 0 1 140 280H0Z" fill="var(--blue-accent)" />
+      <path d="M140 140H280V280H140Z" fill="var(--blue-accent)" />
+      <path d="M140 280L280 140V280Z" fill="var(--paper)" />
+      <path d="M280 140H420V280H280Z" fill="var(--ink)" />
+      <path d="M280 280A140 140 0 0 1 420 140V280Z" fill="var(--blue-accent)" />
+      <circle cx="490" cy="210" r="70" fill="var(--blue-accent)" />
+      <!-- Row 03: values -->
+      <circle cx="70" cy="350" r="70" fill="var(--ink)" />
+      <path d="M140 280H280V420H140Z" fill="var(--blue-accent)" />
+      <path d="M140 280A140 140 0 0 1 280 420H140Z" fill="var(--paper)" />
+      <circle cx="350" cy="350" r="70" fill="var(--blue-accent)" />
+      <path d="M420 280H560V420H420Z" fill="var(--ink)" />
+      <path d="M420 420A140 140 0 0 1 560 280V420Z" fill="var(--paper)" />
+      <!-- Row 04: input and progression -->
+      <path d="M0 420H140V560H0Z" fill="var(--ink)" />
+      <path d="M0 560A140 140 0 0 1 140 420V560Z" fill="var(--blue-accent)" />
+      <circle cx="210" cy="490" r="70" fill="var(--blue-accent)" />
+      <path d="M280 420H420V560H280Z" fill="var(--ink)" />
+      <path d="M280 560L420 420H420V560Z" fill="var(--blue-accent)" />
+      <path d="M420 420H560V560H420Z" fill="var(--blue-accent)" />
+      <path d="M420 420A140 140 0 0 1 560 560H420Z" fill="var(--ink)" />
+      <!-- Grid and a dashed rising sequence of sampled values -->
+      <path
+        d="M0 140H560M0 280H560M0 420H560M140 0V560M280 0V560M420 0V560"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="1"
+      />
+      <path
+        d="M32 506L190 365L339 216L505 50"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="1.8"
+        stroke-dasharray="5 8"
+      />
+      <path
+        d="M190 365V420M339 216V280"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="1.4"
+        stroke-dasharray="5 6"
+      />
+      <circle
+        cx="32"
+        cy="506"
+        r="7"
+        fill="var(--paper)"
+        stroke="var(--ink)"
+        stroke-width="2"
+      />
+      <circle
+        cx="190"
+        cy="365"
+        r="7"
+        fill="var(--ink)"
+        stroke="var(--paper)"
+        stroke-width="2"
+      />
+      <circle
+        cx="339"
+        cy="216"
+        r="7"
+        fill="var(--paper)"
+        stroke="var(--ink)"
+        stroke-width="2"
+      />
+      <circle
+        cx="505"
+        cy="50"
+        r="7"
+        fill="var(--paper)"
+        stroke="var(--ink)"
+        stroke-width="2"
       />
     </g>
   ) : variant === 'functions' ? (

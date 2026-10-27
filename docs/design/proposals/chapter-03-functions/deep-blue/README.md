@@ -15,13 +15,26 @@ These are **real editable HTML/CSS studies**, responsive at desktop and mobile w
 
 ## Production artwork variant (additive, not yet used by a live chapter)
 
-The shared [`src/components/SignalGeometry.astro`](../../../../../src/components/SignalGeometry.astro) now accepts `variant="functions"` alongside the existing, unchanged `logic` and `decalage` variants:
+The shared [`src/components/SignalGeometry.astro`](../../../../../src/components/SignalGeometry.astro) accepts the prior `functions` study and the new **`functions-mosaic`** variant alongside the unchanged `logic` and `decalage` variants:
 
 ```astro
-<SignalGeometry variant="functions" />
+<SignalGeometry variant="functions-mosaic" />
 ```
 
-This renders the same editable **Slope Laboratory** artwork as [the standalone Chapter 03 SVG](chapter-03-deep-blue-art.svg), using the design-system colour token `--blue-accent`. The token has **light and dark** values (`#1455C0` and `#8BBAFF`). The shared component still defaults to the existing Chapter 1 artwork, and no public page references the new variant yet. The [preview](chapter-03-deep-blue-art.svg) is the fixed light-mode export.
+This renders the current **Function Mosaic** study as [the standalone Chapter 03 SVG](chapter-03-deep-blue-art.svg), using the design-system colour token `--blue-accent`. The token has **light and dark** values (`#1455C0` and `#8BBAFF`). The shared component still defaults to the existing Chapter 1 artwork, and no public page references the new variant yet. The [preview](chapter-03-deep-blue-art.svg) is the fixed light-mode export.
+
+## Function Mosaic — new alternate design from PR #105
+
+The user asked for a new direction derived from the [Chapter 4 Ember Signal SVG in PR #105](https://github.com/GadDev/uni-math-course/pull/105/files), **not** another ribbon/plot illustration. The current **preferred design study** is **Function Mosaic**:
+
+- The same **560×560 canvas, 4×4 grid and 140-pixel rhythm** as Ember Signal: circles, squares, triangles, quarter-circles, minimal black rules and a dotted construction path.
+- The **tile arrangement is new**: alternating negative quarter-circles, blue full discs, black fields, paired triangles and a rising diagonal group of points. The dotted diagonal visually suggests mapping values across a function; it is **decorative** and not a teaching graph or an actual data series.
+- The signature blue `#1455C0` (light) / `#8BBAFF` (dark), paper and ink retain Chapter 3's own identity; **no Ember orange geometry was copied or recoloured verbatim**.
+- Use `<SignalGeometry variant="functions-mosaic" />` to see this opt-in new variant. The old `functions` (Slope Laboratory) variant is still available for comparison, as are the unchanged `logic` and `decalage` branches.
+- [Current preview and edit-ready artwork](chapter-03-deep-blue-art.svg) is Function Mosaic. The previous composition is archived as [Slope Laboratory](chapter-03-slope-laboratory-art.svg) solely for design comparison; it has not been deleted.
+- The bilingual responsive HTML studies and two desktop SVG overview mockups use the **new** Function Mosaic illustration; the mobile studies continue to hide decorative hero art.
+
+No Chapter 3 route or lesson has been published. This design PR does not modify Chapter 4's PR #105.
 
 ## Artwork — a new composition, not a blue Décalage recolour
 
@@ -62,4 +75,4 @@ These **editable SVG layout compositions** are intentionally labelled design pre
 | French | [FR desktop SVG](mockup-fr-desktop.svg) | [FR mobile SVG](mockup-fr-mobile.svg) |
 | English | [EN desktop SVG](mockup-en-desktop.svg) | [EN mobile SVG](mockup-en-mobile.svg) |
 
-The HTML studies are responsive down to 320px. Desktop preview SVGs embed the revised **Slope Laboratory** artwork; mobile mockups omit the decorative hero, just like Chapter 2.
+The HTML studies are responsive down to 320px. Desktop preview SVGs embed the revised **Function Mosaic** artwork; mobile mockups omit the decorative hero, just like Chapter 2.

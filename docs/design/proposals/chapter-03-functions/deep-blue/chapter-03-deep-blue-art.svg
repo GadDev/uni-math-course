@@ -1,24 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" role="img" aria-labelledby="title desc"><title id="title">Chapter 3 — The slope laboratory</title><desc id="desc">An original deep-blue parabolic ribbon with a bold black secant joining two points, a thin dashed tangent, and minimal black construction markers.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" role="img" aria-labelledby="title desc">
+  <title id="title">Chapter 03 — Function Mosaic / Deep Blue</title>
+  <desc id="desc">A four-by-four modular Signal composition with blue and black circles, triangles, quarter-arcs and a rising dotted sequence. Inspired by the geometric grammar of the Ember Signal artwork in PR 105, with original tile placement.</desc>
 <rect width="560" height="560" fill="#F4F4EF" />
-<path d="M44 42H124V122H44Z" fill="#111111" />
-<path d="M44 143H124" stroke="#111111" stroke-width="3" />
-<path d="M44 154H84" stroke="#1455C0" stroke-width="8" />
-<path d="M478 42H518V140H478Z" fill="#1455C0" />
-<path d="M478 42H518" stroke="#111111" stroke-width="3" />
-<path d="M42 410H530M251 58V517" fill="none" stroke="#111111" stroke-width="2.4" />
-<path d="M522 401L532 410L522 419M242 68L251 56L260 68" fill="none" stroke="#111111" stroke-width="2.4" />
-<path d="M75 286Q295 596 515 131" fill="none" stroke="#1455C0" stroke-width="56" stroke-linecap="butt" />
-<path d="M75 286Q295 596 515 131" fill="none" stroke="#F4F4EF" stroke-width="3" stroke-linecap="round" />
-<path d="M172 497L525 249" fill="none" stroke="#111111" stroke-width="3" stroke-dasharray="11 9" />
-<path d="M278 444L497 212" fill="none" stroke="#111111" stroke-width="8" stroke-linecap="square" />
-<path d="M339 379H427V286" fill="none" stroke="#111111" stroke-width="2" stroke-dasharray="5 7" />
-<path d="M339 379V410M427 286V410" fill="none" stroke="#111111" stroke-width="1.7" stroke-dasharray="3 7" />
-<circle cx="339" cy="379" r="16" fill="#111111" />
-<circle cx="339" cy="379" r="7" fill="#F4F4EF" />
-<circle cx="427" cy="286" r="16" fill="#111111" />
-<circle cx="427" cy="286" r="7" fill="#F4F4EF" />
-<path d="M58 480H138V512H182" fill="none" stroke="#1455C0" stroke-width="11" />
-<path d="M58 506V526H142" fill="none" stroke="#111111" stroke-width="2" stroke-dasharray="5 6" />
-<path d="M455 560L560 455V560Z" fill="#111111" />
-<path d="M450 548H545" stroke="#1455C0" stroke-width="2" stroke-dasharray="6 7" />
+<!-- Row 01: shape and output -->
+<path d="M0 0H140V140H0Z" fill="#1455C0" />
+<path d="M0 140A140 140 0 0 1 140 0H0Z" fill="#F4F4EF" />
+<path d="M140 0H280V140H140Z" fill="#111111" />
+<circle cx="350" cy="70" r="70" fill="#1455C0" />
+<path d="M420 0H560V140H420Z" fill="#1455C0" />
+<path d="M420 0A140 140 0 0 1 560 140H420Z" fill="#111111" />
+<!-- Row 02: change -->
+<path d="M0 140H140V280H0Z" fill="#111111" />
+<path d="M0 140A140 140 0 0 1 140 280H0Z" fill="#1455C0" />
+<path d="M140 140H280V280H140Z" fill="#1455C0" />
+<path d="M140 280L280 140V280Z" fill="#F4F4EF" />
+<path d="M280 140H420V280H280Z" fill="#111111" />
+<path d="M280 280A140 140 0 0 1 420 140V280Z" fill="#1455C0" />
+<circle cx="490" cy="210" r="70" fill="#1455C0" />
+<!-- Row 03: values -->
+<circle cx="70" cy="350" r="70" fill="#111111" />
+<path d="M140 280H280V420H140Z" fill="#1455C0" />
+<path d="M140 280A140 140 0 0 1 280 420H140Z" fill="#F4F4EF" />
+<circle cx="350" cy="350" r="70" fill="#1455C0" />
+<path d="M420 280H560V420H420Z" fill="#111111" />
+<path d="M420 420A140 140 0 0 1 560 280V420Z" fill="#F4F4EF" />
+<!-- Row 04: input and progression -->
+<path d="M0 420H140V560H0Z" fill="#111111" />
+<path d="M0 560A140 140 0 0 1 140 420V560Z" fill="#1455C0" />
+<circle cx="210" cy="490" r="70" fill="#1455C0" />
+<path d="M280 420H420V560H280Z" fill="#111111" />
+<path d="M280 560L420 420H420V560Z" fill="#1455C0" />
+<path d="M420 420H560V560H420Z" fill="#1455C0" />
+<path d="M420 420A140 140 0 0 1 560 560H420Z" fill="#111111" />
+<!-- Grid and a dashed rising sequence of sampled values -->
+<path
+  d="M0 140H560M0 280H560M0 420H560M140 0V560M280 0V560M420 0V560"
+  fill="none"
+  stroke="#111111"
+  stroke-width="1"
+/>
+<path
+  d="M32 506L190 365L339 216L505 50"
+  fill="none"
+  stroke="#111111"
+  stroke-width="1.8"
+  stroke-dasharray="5 8"
+/>
+<path
+  d="M190 365V420M339 216V280"
+  fill="none"
+  stroke="#111111"
+  stroke-width="1.4"
+  stroke-dasharray="5 6"
+/>
+<circle cx="32" cy="506" r="7" fill="#F4F4EF" stroke="#111111" stroke-width="2" />
+<circle cx="190" cy="365" r="7" fill="#111111" stroke="#F4F4EF" stroke-width="2" />
+<circle cx="339" cy="216" r="7" fill="#F4F4EF" stroke="#111111" stroke-width="2" />
+<circle cx="505" cy="50" r="7" fill="#F4F4EF" stroke="#111111" stroke-width="2" />
 </svg>
