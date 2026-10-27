@@ -10,6 +10,7 @@ import ChapterSelector from '../components/ChapterSelector.astro';
 import { chapterForPath } from '../lib/chapters';
 import { copy, type Locale } from '../lib/i18n';
 import { glossaryCopy } from '../lib/glossary';
+import { printableCopy } from '../lib/printable-exercises';
 import { authCopy } from '../lib/auth/copy';
 import { progressCopy } from '../lib/progress-copy';
 interface Props {
@@ -69,14 +70,28 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
         <a
           href={'/' + locale + '/glossary/'}
           aria-current={path === 'glossary/' ? 'page' : undefined}
+          aria-label={glossaryCopy[locale].nav}
         >
-          {glossaryCopy[locale].nav}
+          <span class="nav-full">{glossaryCopy[locale].nav}</span>
+          <span class="nav-short" aria-hidden="true">Glos.</span>
         </a>
         <a
           href={'/' + locale + '/numbers/'}
           aria-current={path === 'numbers/' ? 'page' : undefined}
+          aria-label={locale === 'fr' ? 'Nombres' : 'Numbers'}
         >
-          {locale === 'fr' ? 'Nombres' : 'Numbers'}
+          <span class="nav-full">
+            {locale === 'fr' ? 'Nombres' : 'Numbers'}
+          </span>
+          <span class="nav-short" aria-hidden="true">N°</span>
+        </a>
+        <a
+          href={'/' + locale + '/exercises/'}
+          aria-current={path === 'exercises/' ? 'page' : undefined}
+          aria-label={printableCopy[locale].nav}
+        >
+          <span class="nav-full">{printableCopy[locale].nav}</span>
+          <span class="nav-short" aria-hidden="true">Exo.</span>
         </a>
       </nav>
       <div class="header-actions">
