@@ -55,11 +55,14 @@ const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
       </div>
       <div class="featured-description">
         <p>{text.description}</p>
-        <div class="lesson-meta"><span>{text.upcoming}</span></div>
+        <div class="lesson-meta">
+          <span>{text.upcoming}</span>
+        </div>
       </div>
       <div class="featured-action">
         <a class="primary-link" href="#parcours">
-          {text.explore} <span aria-hidden="true">→</span>
+          {text.explore}
+          <span aria-hidden="true">→</span>
         </a>
       </div>
     </section>
@@ -90,7 +93,9 @@ const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
 
     <section class="chapter-objectives" aria-labelledby="information-goals">
       <h2 id="information-goals">{text.goals}</h2>
-      <ol>{text.objectives.map((objective) => <li>{objective}</li>)}</ol>
+      <ol>
+        {text.objectives.map((objective) => <li>{objective}</li>)}
+      </ol>
     </section>
 
     <section class="practice-status" aria-labelledby="information-practice">

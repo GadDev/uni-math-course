@@ -18,7 +18,8 @@ export const informationCopy = {
       'Distinguer un alphabet, un symbole et un mot codé avant d’étudier les erreurs et la compression.',
     explore: 'Explorer le parcours',
     outline: 'Les étapes à venir',
-    outlineNote: 'Six étapes proposées à partir des 20 pages du document source. Aucun exercice interactif n’est encore publié.',
+    outlineNote:
+      'Six étapes proposées à partir des 20 pages du document source. Aucun exercice interactif n’est encore publié.',
     upcoming: 'En préparation',
     pages: 'Pages du PDF',
     lessons: [
@@ -60,7 +61,8 @@ export const informationCopy = {
       'Learn the difference between alphabets, symbols and codewords before studying errors and compression.',
     explore: 'Explore the learning path',
     outline: 'The upcoming learning path',
-    outlineNote: 'Six proposed steps grounded in the 20-page source document. No interactive exercises are published yet.',
+    outlineNote:
+      'Six proposed steps grounded in the 20-page source document. No interactive exercises are published yet.',
     upcoming: 'In preparation',
     pages: 'PDF pages',
     lessons: [
