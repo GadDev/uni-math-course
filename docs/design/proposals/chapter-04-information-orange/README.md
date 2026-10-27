@@ -1,6 +1,6 @@
 # Chapter 4 — Information Theory: orange design proposals
 
-**Status:** 4 **unselected static visual proposals**, not production code. Chapter ID **C04** and number 04 are intentional; Chapter 03 remains independent.
+**Status (2026-10-27):** **01 Ember Signal selected** by the course owner. Three alternatives remain here for visual comparison. This PR contains static concepts, not production code. Implementation is prepared in [draft PR #105](https://github.com/GadDev/uni-math-course/pull/105). Chapter ID **C04** and number 04 are intentional; Chapter 03 remains independent.
 
 References: [Chapter 2 production design](../../implementation/chapter-02/README.md) · [Signal design system](../DESIGN_SYSTEM.md) · [Signal design brief](../DESIGN_BRIEF.md).
 
@@ -33,10 +33,10 @@ References: [Chapter 2 production design](../../implementation/chapter-02/README
 
 ## Review and follow-up
 
-1. Compare all four desktop French thumbnails, then English desktops and French mobile compositions.
-2. Select a direction or specify elements to combine (for example, 01 layout with 02 signal ribbon).
-3. Implement the chosen variant in **a separate PR**, reusing Astro and the existing ChapterSelector, preserving locales and keyboard behaviour.
+1. **Selected:** 01 Ember Signal. The other concepts remain as historical design alternatives.
+2. **Approved constraints:** orange accents only, no redesign of the shared Signal shell.
+3. **Implementation in draft PR #105:** reuse Astro and the existing ChapterSelector, preserving locales and keyboard behaviour.
 4. Check real browser layouts at 320/375/960/1440px in both themes, contrast, zoom, assistive technology, KaTeX and mathematics provenance.
 5. Only publish bilingual lessons or server-graded banks after release/fingerprint/review gates. Do not edit immutable published exercise archives.
 
-**Owner approval needed before implementation. Nothing here is merged or deployed.**
+**Owner decision:** select 01 Ember Signal, use orange `#F47B44`, and preserve the existing Signal shell, black actions, numbered sections and mobile artwork treatment. The original geometric signal artwork and bilingual overview are implemented for review in [draft PR #105](https://github.com/GadDev/uni-math-course/pull/105). Nothing here is merged or deployed.
