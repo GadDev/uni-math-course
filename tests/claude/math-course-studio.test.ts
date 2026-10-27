@@ -60,7 +60,10 @@ test('course map reports gaps and stale availability claims', async () => {
   const lessons = await course.loadCourse();
   const result = course.analyse(lessons, 96);
   const registry = JSON.parse(
-    await readFile(new URL('../../content/releases.json', import.meta.url), 'utf8'),
+    await readFile(
+      new URL('../../content/releases.json', import.meta.url),
+      'utf8',
+    ),
   );
   assert.equal(result.ids.length, Object.keys(registry.lessons).length);
   assert.ok(result.covered.includes(2), 'source page 2 is covered');
