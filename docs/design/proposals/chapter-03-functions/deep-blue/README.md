@@ -39,3 +39,14 @@ The source `secant-math.mjs` is separated from DOM logic, with `secant-math.test
 This PR is a **design exploration and working tool prototype**, not live Chapter 3 registration. No modifications to existing Astro layout, released exercises, lesson registry, analytics, authentication, publication metadata or course PDFs. After design approval, integrate this into the real Astro/React application in a *separate* implementation PR, using existing lesson accessibility and design tokens.
 
 Test mathematically using `node --test secant-math.test.mjs`. Review both locales at **1440 / 375 / 320 px**, keyboard navigation, drag on touch/mouse, slider and preset behavior, h=0 handling, and dark-mode integration as a separate implementation gate. HTML studies assume the standalone light Signal palette; dark mode is not claimed validated. These previews are not an official University of Luxembourg resource.
+
+## Immediate vector previews
+
+These **editable SVG layout compositions** are intentionally labelled design previews, *not browser screenshots*. Open the HTML files above to test the real layout and interactive graph.
+
+| Locale | Desktop composition (1440px) | Mobile composition (375px) |
+| --- | --- | --- |
+| French | [FR desktop SVG](mockup-fr-desktop.svg) | [FR mobile SVG](mockup-fr-mobile.svg) |
+| English | [EN desktop SVG](mockup-en-desktop.svg) | [EN mobile SVG](mockup-en-mobile.svg) |
+
+The 375px studies are fluid down to 320px. The illustration is a direct inline reuse of the editable Deep Blue Signal shapes; the mobile mockup omits the decorative hero, just like Chapter 2.
