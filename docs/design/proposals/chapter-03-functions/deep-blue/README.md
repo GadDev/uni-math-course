@@ -21,15 +21,18 @@ The shared [`src/components/SignalGeometry.astro`](../../../../../src/components
 <SignalGeometry variant="functions" />
 ```
 
-This renders the same editable geometry as [the standalone Chapter 03 SVG](chapter-03-deep-blue-art.svg), using the design-system colour token `--blue-accent`. The token has **light and dark** values (`#1455C0` and `#8BBAFF`). The shared component still defaults to the existing Chapter 1 artwork, and no public page references the new variant yet. The [preview](chapter-03-deep-blue-art.svg) is the fixed light-mode export.
+This renders the same editable **Slope Laboratory** artwork as [the standalone Chapter 03 SVG](chapter-03-deep-blue-art.svg), using the design-system colour token `--blue-accent`. The token has **light and dark** values (`#1455C0` and `#8BBAFF`). The shared component still defaults to the existing Chapter 1 artwork, and no public page references the new variant yet. The [preview](chapter-03-deep-blue-art.svg) is the fixed light-mode export.
 
-## Artwork — same Signal family, new chapter identity
+## Artwork — a new composition, not a blue Décalage recolour
 
-- [Editable, original SVG hero](chapter-03-deep-blue-art.svg) (560 × 560): quarter-circles, triangles, offset rectangles, hard black slabs, fine black rules and sparse dashed geometry.
-- **Deep Blue** `#1455C0`, shared Signal paper `#F4F4EF`, ink `#111111`; no gradients, photorealism, 3D, invented UI or bitmap sources.
-- Anton-inspired oversized condensed editorial headings with system-font fallback, thin black dividers, numbered lesson tiles and black actions. The studies intentionally keep distinct palette semantics for a future production integration. Chapter 1 red and Chapter 2 green are not changed.
-- On mobile, the decorative hero artwork is omitted in the same spirit as Chapter 2; the information hierarchy and chapter identity remain visible.
-- The sample six-lesson plan corresponds to L37–L42; these entries are **not released lessons**, practice links or fabricated progress.
+**Changed following design review:** the earlier blue grid resembled Chapter 02's offset-tile Décalage too closely. It was replaced by **The Slope Laboratory**, a singular mathematical composition, while preserving the Signal rules for paper, ink, precise linework and one strong accent.
+
+- [Editable, original SVG hero](chapter-03-deep-blue-art.svg) (560 × 560) — a **dominant parabolic ribbon** rather than rectangular tiles/quarter-circle blocks.
+- The illustration specifically uses the lesson's graph `f(x)=x²/2`: a quadratic Bézier representing the curve, P and Q, a thick black secant, a fine dashed tangent and discreet projection lines. These are decorative visual references and **not substitutes for the labelled teaching graph**.
+- A single black square, small geometric corner wedge and edge marks maintain the Signal editorial family without borrowing Décalage's grid system.
+- **Deep Blue** `#1455C0` on the shared paper `#F4F4EF` and ink `#111111`. The component uses theme tokens for the dark-mode alternative `#8BBAFF`. No gradients, photorealism or 3D.
+- Preserve black actions, section numbers, restrained typography and compact mobile artwork treatment as in Chapter 02; mobile hides the decorative hero but keeps chapter identity.
+- The six-lesson plan corresponds to proposed L37–L42, which are **not released lessons**.
 
 ## Real interactive prototype — From secant to tangent
 
@@ -59,4 +62,4 @@ These **editable SVG layout compositions** are intentionally labelled design pre
 | French | [FR desktop SVG](mockup-fr-desktop.svg) | [FR mobile SVG](mockup-fr-mobile.svg) |
 | English | [EN desktop SVG](mockup-en-desktop.svg) | [EN mobile SVG](mockup-en-mobile.svg) |
 
-The 375px studies are fluid down to 320px. The illustration is a direct inline reuse of the editable Deep Blue Signal shapes; the mobile mockup omits the decorative hero, just like Chapter 2.
+The HTML studies are responsive down to 320px. Desktop preview SVGs embed the revised **Slope Laboratory** artwork; mobile mockups omit the decorative hero, just like Chapter 2.
