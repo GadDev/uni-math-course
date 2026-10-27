@@ -79,19 +79,13 @@ for (const locale of ['fr', 'en']) {
       ).toBeLessThanOrEqual(width);
       await page.locator('#E28 .glossary-formula').focus();
       await expect(page.locator('#E28 .glossary-formula')).toBeFocused();
-      // The nav may render both full and abbreviated labels for responsive layouts.
-      // Assert what assistive technology sees, not their concatenated textContent.
-      const glossaryLink = page
-        .locator('.primary-nav')
-        .getByRole('link', {
-          name: locale === 'fr' ? 'Glossaire' : 'Glossary',
-          exact: true,
-        });
-      await expect(glossaryLink).toHaveAttribute('aria-current', 'page');
-      await expect(glossaryLink).toHaveAttribute(
-        'href',
-        `/${locale}/glossary/`,
-      );
+      // Responsive labels change DOM text, not the accessible link name.
+      await expect(
+        page.locator('.primary-nav [aria-current="page"]'),
+      ).toHaveAccessibleName(locale === 'fr' ? 'Glossaire' : 'Glossary');
+      await expect(
+        page.locator('.primary-nav [aria-current="page"]'),
+      ).toHaveAttribute('href', `/${locale}/glossary/`);
       await expect(page.locator('.katex-error')).toHaveCount(0);
     });
   }
