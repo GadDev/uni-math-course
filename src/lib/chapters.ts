@@ -25,7 +25,10 @@ export const chapters = [
     id: 'C03',
     number: '03',
     path: 'chapters/C03/',
-    title: { fr: 'Fonctions d’une variable réelle', en: 'Functions of a real variable' },
+    title: {
+      fr: 'Fonctions d’une variable réelle',
+      en: 'Functions of a real variable',
+    },
     shortTitle: { fr: 'Fonctions', en: 'Functions' },
     status: 'reading',
     lessonIds: functionsLessonIds,
