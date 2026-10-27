@@ -1,8 +1,16 @@
 // Markdown validation adapted from the GadDev repository playbook (MIT; copyright 2026 GadDev).
+import { execFileSync } from 'node:child_process';
 import { readdir, readFile, stat, realpath } from 'node:fs/promises';
 import { resolve, dirname, relative, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+// Temporary diagnostic for the draft PR. Remove immediately after extracting Prettier output.
+if (process.env.CI) {
+  const filename = 'src/pages/[locale]/chapters/C04.astro';
+  const formatted = execFileSync('pnpm', ['exec', 'prettier', filename], { encoding: 'utf8' });
+  process.stdout.write('CHAPTER4_FORMAT_BEGIN\\n' + formatted + '\\nCHAPTER4_FORMAT_END\\n');
+}
+
 const ignored = new Set([
   '.git',
   'node_modules',
