@@ -1,0 +1,1238 @@
+{
+  "lessonId": "L37",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L37-E01",
+      "objectiveId": "L37-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "domain-polynomial"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel est le domaine de $f(x)=x^3+2x+3$ ?",
+        "en": "What is the domain of $f(x)=x^3+2x+3$?"
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. Un polynôme est défini pour tout réel.",
+        "en": "First identify the domain and rule to use. A polynomial is defined for every real input."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\mathbb R\\setminus\\{0\\}$",
+            "en": "$\\mathbb R\\setminus\\{0\\}$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Un polynôme est défini pour tout réel.",
+            "en": "This result does not follow the required rule. A polynomial is defined for every real input."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\mathbb R$",
+            "en": "$\\mathbb R$"
+          },
+          "feedback": {
+            "fr": "Un polynôme est défini pour tout réel.",
+            "en": "A polynomial is defined for every real input."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$[0,+\\infty[$",
+            "en": "$[0,+\\infty[$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Un polynôme est défini pour tout réel.",
+            "en": "This result does not follow the required rule. A polynomial is defined for every real input."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Un polynôme est défini pour tout réel.",
+        "en": "A polynomial is defined for every real input."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E02",
+      "objectiveId": "L37-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "substitution"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Calculez $f(0)$ pour $f(x)=x^3+2x+3$.",
+        "en": "Evaluate $f(0)$ for $f(x)=x^3+2x+3$."
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. Tous les termes contenant x disparaissent en zéro.",
+        "en": "First identify the domain and rule to use. All terms containing x vanish at zero."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Tous les termes contenant x disparaissent en zéro.",
+            "en": "All terms containing x vanish at zero."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Tous les termes contenant x disparaissent en zéro.",
+            "en": "This result does not follow the required rule. All terms containing x vanish at zero."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Tous les termes contenant x disparaissent en zéro.",
+            "en": "This result does not follow the required rule. All terms containing x vanish at zero."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Tous les termes contenant x disparaissent en zéro.",
+        "en": "All terms containing x vanish at zero."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E03",
+      "objectiveId": "L37-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "order-operations"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Calculez $f(2)$ pour $f(x)=x^3+2x+3$.",
+        "en": "Evaluate $f(2)$ for $f(x)=x^3+2x+3$."
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. On obtient $8+4+3=15$.",
+        "en": "First identify the domain and rule to use. We get $8+4+3=15$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$11$",
+            "en": "$11$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. On obtient $8+4+3=15$.",
+            "en": "This result does not follow the required rule. We get $8+4+3=15$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$13$",
+            "en": "$13$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. On obtient $8+4+3=15$.",
+            "en": "This result does not follow the required rule. We get $8+4+3=15$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$15$",
+            "en": "$15$"
+          },
+          "feedback": {
+            "fr": "On obtient $8+4+3=15$.",
+            "en": "We get $8+4+3=15$."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "On obtient $8+4+3=15$.",
+        "en": "We get $8+4+3=15$."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E04",
+      "objectiveId": "L37-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "zero-denominator"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel ensemble doit-on retirer du domaine de $r(x)=\\frac{x^2-2x+2}{x(x-2)}$ ?",
+        "en": "Which set must be excluded from the domain of $r(x)=\\frac{x^2-2x+2}{x(x-2)}$?"
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. Le dénominateur s’annule en zéro et en deux.",
+        "en": "First identify the domain and rule to use. The denominator vanishes at both zero and two."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{0\\}$",
+            "en": "$\\{0\\}$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Le dénominateur s’annule en zéro et en deux.",
+            "en": "This result does not follow the required rule. The denominator vanishes at both zero and two."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{0,2\\}$",
+            "en": "$\\{0,2\\}$"
+          },
+          "feedback": {
+            "fr": "Le dénominateur s’annule en zéro et en deux.",
+            "en": "The denominator vanishes at both zero and two."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{2\\}$",
+            "en": "$\\{2\\}$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Le dénominateur s’annule en zéro et en deux.",
+            "en": "This result does not follow the required rule. The denominator vanishes at both zero and two."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le dénominateur s’annule en zéro et en deux.",
+        "en": "The denominator vanishes at both zero and two."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E05",
+      "objectiveId": "L37-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "negative-input"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Calculez $f(-1)$ pour $f(x)=x^3+2x+3$.",
+        "en": "Evaluate $f(-1)$ for $f(x)=x^3+2x+3$."
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. Avec les parenthèses, $-1-2+3=0$.",
+        "en": "First identify the domain and rule to use. With parentheses, $-1-2+3=0$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Avec les parenthèses, $-1-2+3=0$.",
+            "en": "With parentheses, $-1-2+3=0$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Avec les parenthèses, $-1-2+3=0$.",
+            "en": "This result does not follow the required rule. With parentheses, $-1-2+3=0$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Avec les parenthèses, $-1-2+3=0$.",
+            "en": "This result does not follow the required rule. With parentheses, $-1-2+3=0$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Avec les parenthèses, $-1-2+3=0$.",
+        "en": "With parentheses, $-1-2+3=0$."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E06",
+      "objectiveId": "L37-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "coordinate-order"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel point appartient au graphe de $f(x)=x^3+2x+3$ ?",
+        "en": "Which point is on the graph of $f(x)=x^3+2x+3$?"
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. En $x=1$, l’ordonnée vaut 6.",
+        "en": "First identify the domain and rule to use. At x=1, the output is 6."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(6,1)$",
+            "en": "$(6,1)$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. En $x=1$, l’ordonnée vaut 6.",
+            "en": "This result does not follow the required rule. At x=1, the output is 6."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(1,3)$",
+            "en": "$(1,3)$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. En $x=1$, l’ordonnée vaut 6.",
+            "en": "This result does not follow the required rule. At x=1, the output is 6."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(1,6)$",
+            "en": "$(1,6)$"
+          },
+          "feedback": {
+            "fr": "En $x=1$, l’ordonnée vaut 6.",
+            "en": "At x=1, the output is 6."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "En $x=1$, l’ordonnée vaut 6.",
+        "en": "At x=1, the output is 6."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E07",
+      "objectiveId": "L37-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "signed-fraction"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Calculez $r(1)$ avec $r(x)=\\frac{x^2-2x+2}{x(x-2)}$.",
+        "en": "Evaluate $r(1)$ for $r(x)=\\frac{x^2-2x+2}{x(x-2)}$."
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. Numérateur 1, dénominateur -1 : quotient -1.",
+        "en": "First identify the domain and rule to use. Numerator 1, denominator -1: quotient -1."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Numérateur 1, dénominateur -1 : quotient -1.",
+            "en": "This result does not follow the required rule. Numerator 1, denominator -1: quotient -1."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$-1$",
+            "en": "$-1$"
+          },
+          "feedback": {
+            "fr": "Numérateur 1, dénominateur -1 : quotient -1.",
+            "en": "Numerator 1, denominator -1: quotient -1."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Numérateur 1, dénominateur -1 : quotient -1.",
+            "en": "This result does not follow the required rule. Numerator 1, denominator -1: quotient -1."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Numérateur 1, dénominateur -1 : quotient -1.",
+        "en": "Numerator 1, denominator -1: quotient -1."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E08",
+      "objectiveId": "L37-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "negative-cube"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Calculez $f(-2)$ pour $f(x)=x^3+2x+3$.",
+        "en": "Evaluate $f(-2)$ for $f(x)=x^3+2x+3$."
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. Calculez $-8-4+3=-9$.",
+        "en": "First identify the domain and rule to use. Compute $-8-4+3=-9$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$-9$",
+            "en": "$-9$"
+          },
+          "feedback": {
+            "fr": "Calculez $-8-4+3=-9$.",
+            "en": "Compute $-8-4+3=-9$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$-1$",
+            "en": "$-1$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Calculez $-8-4+3=-9$.",
+            "en": "This result does not follow the required rule. Compute $-8-4+3=-9$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$15$",
+            "en": "$15$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Calculez $-8-4+3=-9$.",
+            "en": "This result does not follow the required rule. Compute $-8-4+3=-9$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Calculez $-8-4+3=-9$.",
+        "en": "Compute $-8-4+3=-9$."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E09",
+      "objectiveId": "L37-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "square-before-sign"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $g(x)=\\frac{x^2}{2}$, quelle est la valeur de $g(-2)$ ?",
+        "en": "For $g(x)=\\frac{x^2}{2}$, what is $g(-2)$?"
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. Le carré de -2 vaut 4, puis on divise par 2.",
+        "en": "First identify the domain and rule to use. The square of -2 is 4, then divide by 2."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$-2$",
+            "en": "$-2$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Le carré de -2 vaut 4, puis on divise par 2.",
+            "en": "This result does not follow the required rule. The square of -2 is 4, then divide by 2."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Le carré de -2 vaut 4, puis on divise par 2.",
+            "en": "This result does not follow the required rule. The square of -2 is 4, then divide by 2."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Le carré de -2 vaut 4, puis on divise par 2.",
+            "en": "The square of -2 is 4, then divide by 2."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le carré de -2 vaut 4, puis on divise par 2.",
+        "en": "The square of -2 is 4, then divide by 2."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E10",
+      "objectiveId": "L37-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "graph-reading"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si un point $(3,7)$ est sur le graphe de $f$, que vaut $f(3)$ ?",
+        "en": "If $(3,7)$ lies on the graph of $f$, what is $f(3)$?"
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. La deuxième coordonnée est la valeur de la fonction.",
+        "en": "First identify the domain and rule to use. The second coordinate is the function output."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. La deuxième coordonnée est la valeur de la fonction.",
+            "en": "This result does not follow the required rule. The second coordinate is the function output."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$7$",
+            "en": "$7$"
+          },
+          "feedback": {
+            "fr": "La deuxième coordonnée est la valeur de la fonction.",
+            "en": "The second coordinate is the function output."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$21$",
+            "en": "$21$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. La deuxième coordonnée est la valeur de la fonction.",
+            "en": "This result does not follow the required rule. The second coordinate is the function output."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La deuxième coordonnée est la valeur de la fonction.",
+        "en": "The second coordinate is the function output."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E11",
+      "objectiveId": "L37-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "two-poles"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Trouvez le domaine de $g(x)=\\frac{1}{x^2-4}$.",
+        "en": "Find the domain of $g(x)=\\frac{1}{x^2-4}$."
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. Factorisez : $x^2-4=(x-2)(x+2)$.",
+        "en": "First identify the domain and rule to use. Factor: $x^2-4=(x-2)(x+2)$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\mathbb R\\setminus\\{-2,2\\}$",
+            "en": "$\\mathbb R\\setminus\\{-2,2\\}$"
+          },
+          "feedback": {
+            "fr": "Factorisez : $x^2-4=(x-2)(x+2)$.",
+            "en": "Factor: $x^2-4=(x-2)(x+2)$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\mathbb R\\setminus\\{2\\}$",
+            "en": "$\\mathbb R\\setminus\\{2\\}$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Factorisez : $x^2-4=(x-2)(x+2)$.",
+            "en": "This result does not follow the required rule. Factor: $x^2-4=(x-2)(x+2)$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\mathbb R$",
+            "en": "$\\mathbb R$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Factorisez : $x^2-4=(x-2)(x+2)$.",
+            "en": "This result does not follow the required rule. Factor: $x^2-4=(x-2)(x+2)$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Factorisez : $x^2-4=(x-2)(x+2)$.",
+        "en": "Factor: $x^2-4=(x-2)(x+2)$."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E12",
+      "objectiveId": "L37-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "two-roots"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelles sont les racines réelles de $g(x)=x^2-4$ ?",
+        "en": "What are the real zeros of $g(x)=x^2-4$?"
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. On résout $x^2=4$ et conserve les deux signes.",
+        "en": "First identify the domain and rule to use. Solve $x^2=4$ and retain both signs."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{2\\}$",
+            "en": "$\\{2\\}$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. On résout $x^2=4$ et conserve les deux signes.",
+            "en": "This result does not follow the required rule. Solve $x^2=4$ and retain both signs."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{-4,4\\}$",
+            "en": "$\\{-4,4\\}$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. On résout $x^2=4$ et conserve les deux signes.",
+            "en": "This result does not follow the required rule. Solve $x^2=4$ and retain both signs."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{-2,2\\}$",
+            "en": "$\\{-2,2\\}$"
+          },
+          "feedback": {
+            "fr": "On résout $x^2=4$ et conserve les deux signes.",
+            "en": "Solve $x^2=4$ and retain both signs."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "On résout $x^2=4$ et conserve les deux signes.",
+        "en": "Solve $x^2=4$ and retain both signs."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E13",
+      "objectiveId": "L37-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "lost-restriction"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel est le domaine de $g(x)=\\frac{x^2-1}{x-1}$ même si on simplifie ?",
+        "en": "What is the domain of $g(x)=\\frac{x^2-1}{x-1}$ even if we simplify?"
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. La restriction $x\\ne1$ demeure après simplification.",
+        "en": "First identify the domain and rule to use. The exclusion $x\\ne1$ remains after cancellation."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\mathbb R$",
+            "en": "$\\mathbb R$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. La restriction $x\\ne1$ demeure après simplification.",
+            "en": "This result does not follow the required rule. The exclusion $x\\ne1$ remains after cancellation."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\mathbb R\\setminus\\{1\\}$",
+            "en": "$\\mathbb R\\setminus\\{1\\}$"
+          },
+          "feedback": {
+            "fr": "La restriction $x\\ne1$ demeure après simplification.",
+            "en": "The exclusion $x\\ne1$ remains after cancellation."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\mathbb R\\setminus\\{-1\\}$",
+            "en": "$\\mathbb R\\setminus\\{-1\\}$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. La restriction $x\\ne1$ demeure après simplification.",
+            "en": "This result does not follow the required rule. The exclusion $x\\ne1$ remains after cancellation."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La restriction $x\\ne1$ demeure après simplification.",
+        "en": "The exclusion $x\\ne1$ remains after cancellation."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E14",
+      "objectiveId": "L37-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "ordered-pair"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Si $g(4)=9$, quel point appartient au graphe de $g$ ?",
+        "en": "If $g(4)=9$, which point lies on the graph of $g$?"
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. Le graphe comprend les couples $(x,g(x))$.",
+        "en": "First identify the domain and rule to use. The graph consists of pairs $(x,g(x))$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(4,9)$",
+            "en": "$(4,9)$"
+          },
+          "feedback": {
+            "fr": "Le graphe comprend les couples $(x,g(x))$.",
+            "en": "The graph consists of pairs $(x,g(x))$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(9,4)$",
+            "en": "$(9,4)$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Le graphe comprend les couples $(x,g(x))$.",
+            "en": "This result does not follow the required rule. The graph consists of pairs $(x,g(x))$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(4,4)$",
+            "en": "$(4,4)$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Le graphe comprend les couples $(x,g(x))$.",
+            "en": "This result does not follow the required rule. The graph consists of pairs $(x,g(x))$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le graphe comprend les couples $(x,g(x))$.",
+        "en": "The graph consists of pairs $(x,g(x))$."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L37-E15",
+      "objectiveId": "L37-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "rational-sign"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Calculez $r(-1)$ avec $r(x)=\\frac{x^2-2x+2}{x(x-2)}$.",
+        "en": "Evaluate $r(-1)$ for $r(x)=\\frac{x^2-2x+2}{x(x-2)}$."
+      },
+      "hint": {
+        "fr": "Identifiez d’abord le domaine et la règle à appliquer. Le numérateur vaut 5 et le dénominateur 3.",
+        "en": "First identify the domain and rule to use. The numerator is 5 and the denominator is 3."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$-\\frac53$",
+            "en": "$-\\frac53$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Le numérateur vaut 5 et le dénominateur 3.",
+            "en": "This result does not follow the required rule. The numerator is 5 and the denominator is 3."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\frac35$",
+            "en": "$\\frac35$"
+          },
+          "feedback": {
+            "fr": "Ce résultat ne respecte pas la règle attendue. Le numérateur vaut 5 et le dénominateur 3.",
+            "en": "This result does not follow the required rule. The numerator is 5 and the denominator is 3."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\frac53$",
+            "en": "$\\frac53$"
+          },
+          "feedback": {
+            "fr": "Le numérateur vaut 5 et le dénominateur 3.",
+            "en": "The numerator is 5 and the denominator is 3."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le numérateur vaut 5 et le dénominateur 3.",
+        "en": "The numerator is 5 and the denominator is 3."
+      },
+      "lessonId": "L37",
+      "version": 1,
+      "prerequisites": [
+        "L23",
+        "L27"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          2,
+          3,
+          4
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026. Original practice questions and feedback; worked rules and examples follow stated source topics; extensions are explained in the lesson."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}
