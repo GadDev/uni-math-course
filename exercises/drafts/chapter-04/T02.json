@@ -1,0 +1,2117 @@
+{
+  "draft": true,
+  "chapterId": "C04",
+  "topicId": "T02",
+  "origin": "original-project-work",
+  "sourcePages": [
+    5,
+    7,
+    8,
+    9
+  ],
+  "assessment": "worked-draft-not-server-graded",
+  "answerStatus": "machine-generated-author-self-check-pending",
+  "itemCount": 100,
+  "items": [
+    {
+      "id": "C04-T02-E001",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→0, y→01, z→011, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→01, z→011, encode source word xyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 01 | 011 → 001011, soit 6 bits.",
+        "en": "Concatenate: 0 | 01 | 011 → 001011, which is 6 bits."
+      },
+      "answer": "001011",
+      "bitLength": 6,
+      "sourceWord": "xyz",
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E002",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→0, y→01, z→011, coder le mot source zyx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→01, z→011, encode source word zyx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 011 | 01 | 0 → 011010, soit 6 bits.",
+        "en": "Concatenate: 011 | 01 | 0 → 011010, which is 6 bits."
+      },
+      "answer": "011010",
+      "bitLength": 6,
+      "sourceWord": "zyx",
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E003",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→0, y→01, z→011, coder le mot source xxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→01, z→011, encode source word xxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 0 | 01 → 0001, soit 4 bits.",
+        "en": "Concatenate: 0 | 0 | 01 → 0001, which is 4 bits."
+      },
+      "answer": "0001",
+      "bitLength": 4,
+      "sourceWord": "xxy",
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E004",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→0, y→01, z→011, coder le mot source yyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→01, z→011, encode source word yyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 01 | 01 | 011 → 0101011, soit 7 bits.",
+        "en": "Concatenate: 01 | 01 | 011 → 0101011, which is 7 bits."
+      },
+      "answer": "0101011",
+      "bitLength": 7,
+      "sourceWord": "yyz",
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E005",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→0, y→01, z→011, coder le mot source zzy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→01, z→011, encode source word zzy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 011 | 011 | 01 → 01101101, soit 8 bits.",
+        "en": "Concatenate: 011 | 011 | 01 → 01101101, which is 8 bits."
+      },
+      "answer": "01101101",
+      "bitLength": 8,
+      "sourceWord": "zzy",
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E006",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→0, y→01, z→011, coder le mot source xyxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→01, z→011, encode source word xyxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 01 | 0 | 01 → 001001, soit 6 bits.",
+        "en": "Concatenate: 0 | 01 | 0 | 01 → 001001, which is 6 bits."
+      },
+      "answer": "001001",
+      "bitLength": 6,
+      "sourceWord": "xyxy",
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E007",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→0, y→01, z→011, coder le mot source yxz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→01, z→011, encode source word yxz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 01 | 0 | 011 → 010011, soit 6 bits.",
+        "en": "Concatenate: 01 | 0 | 011 → 010011, which is 6 bits."
+      },
+      "answer": "010011",
+      "bitLength": 6,
+      "sourceWord": "yxz",
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E008",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→0, y→01, z→011, coder le mot source zxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→01, z→011, encode source word zxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 011 | 0 | 0 → 01100, soit 5 bits.",
+        "en": "Concatenate: 011 | 0 | 0 → 01100, which is 5 bits."
+      },
+      "answer": "01100",
+      "bitLength": 5,
+      "sourceWord": "zxx",
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E009",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→0, y→01, z→011, coder le mot source yyy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→01, z→011, encode source word yyy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 01 | 01 | 01 → 010101, soit 6 bits.",
+        "en": "Concatenate: 01 | 01 | 01 → 010101, which is 6 bits."
+      },
+      "answer": "010101",
+      "bitLength": 6,
+      "sourceWord": "yyy",
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E010",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→0, y→01, z→011, coder le mot source zzxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→01, z→011, encode source word zzxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 011 | 011 | 0 | 0 → 01101100, soit 8 bits.",
+        "en": "Concatenate: 011 | 011 | 0 | 0 → 01101100, which is 8 bits."
+      },
+      "answer": "01101100",
+      "bitLength": 8,
+      "sourceWord": "zzxx",
+      "codebook": {
+        "x": "0",
+        "y": "01",
+        "z": "011"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E011",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→1, y→10, z→100, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→10, z→100, encode source word xyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 1 | 10 | 100 → 110100, soit 6 bits.",
+        "en": "Concatenate: 1 | 10 | 100 → 110100, which is 6 bits."
+      },
+      "answer": "110100",
+      "bitLength": 6,
+      "sourceWord": "xyz",
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E012",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→1, y→10, z→100, coder le mot source zyx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→10, z→100, encode source word zyx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 100 | 10 | 1 → 100101, soit 6 bits.",
+        "en": "Concatenate: 100 | 10 | 1 → 100101, which is 6 bits."
+      },
+      "answer": "100101",
+      "bitLength": 6,
+      "sourceWord": "zyx",
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E013",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→1, y→10, z→100, coder le mot source xxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→10, z→100, encode source word xxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 1 | 1 | 10 → 1110, soit 4 bits.",
+        "en": "Concatenate: 1 | 1 | 10 → 1110, which is 4 bits."
+      },
+      "answer": "1110",
+      "bitLength": 4,
+      "sourceWord": "xxy",
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E014",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→1, y→10, z→100, coder le mot source yyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→10, z→100, encode source word yyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 10 | 10 | 100 → 1010100, soit 7 bits.",
+        "en": "Concatenate: 10 | 10 | 100 → 1010100, which is 7 bits."
+      },
+      "answer": "1010100",
+      "bitLength": 7,
+      "sourceWord": "yyz",
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E015",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→1, y→10, z→100, coder le mot source zzy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→10, z→100, encode source word zzy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 100 | 100 | 10 → 10010010, soit 8 bits.",
+        "en": "Concatenate: 100 | 100 | 10 → 10010010, which is 8 bits."
+      },
+      "answer": "10010010",
+      "bitLength": 8,
+      "sourceWord": "zzy",
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E016",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→1, y→10, z→100, coder le mot source xyxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→10, z→100, encode source word xyxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 1 | 10 | 1 | 10 → 110110, soit 6 bits.",
+        "en": "Concatenate: 1 | 10 | 1 | 10 → 110110, which is 6 bits."
+      },
+      "answer": "110110",
+      "bitLength": 6,
+      "sourceWord": "xyxy",
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E017",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→1, y→10, z→100, coder le mot source yxz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→10, z→100, encode source word yxz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 10 | 1 | 100 → 101100, soit 6 bits.",
+        "en": "Concatenate: 10 | 1 | 100 → 101100, which is 6 bits."
+      },
+      "answer": "101100",
+      "bitLength": 6,
+      "sourceWord": "yxz",
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E018",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→1, y→10, z→100, coder le mot source zxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→10, z→100, encode source word zxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 100 | 1 | 1 → 10011, soit 5 bits.",
+        "en": "Concatenate: 100 | 1 | 1 → 10011, which is 5 bits."
+      },
+      "answer": "10011",
+      "bitLength": 5,
+      "sourceWord": "zxx",
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E019",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→1, y→10, z→100, coder le mot source yyy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→10, z→100, encode source word yyy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 10 | 10 | 10 → 101010, soit 6 bits.",
+        "en": "Concatenate: 10 | 10 | 10 → 101010, which is 6 bits."
+      },
+      "answer": "101010",
+      "bitLength": 6,
+      "sourceWord": "yyy",
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E020",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→1, y→10, z→100, coder le mot source zzxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→10, z→100, encode source word zzxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 100 | 100 | 1 | 1 → 10010011, soit 8 bits.",
+        "en": "Concatenate: 100 | 100 | 1 | 1 → 10010011, which is 8 bits."
+      },
+      "answer": "10010011",
+      "bitLength": 8,
+      "sourceWord": "zzxx",
+      "codebook": {
+        "x": "1",
+        "y": "10",
+        "z": "100"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E021",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→0, y→10, z→11, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→10, z→11, encode source word xyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 10 | 11 → 01011, soit 5 bits.",
+        "en": "Concatenate: 0 | 10 | 11 → 01011, which is 5 bits."
+      },
+      "answer": "01011",
+      "bitLength": 5,
+      "sourceWord": "xyz",
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E022",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→0, y→10, z→11, coder le mot source zyx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→10, z→11, encode source word zyx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 10 | 0 → 11100, soit 5 bits.",
+        "en": "Concatenate: 11 | 10 | 0 → 11100, which is 5 bits."
+      },
+      "answer": "11100",
+      "bitLength": 5,
+      "sourceWord": "zyx",
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E023",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→0, y→10, z→11, coder le mot source xxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→10, z→11, encode source word xxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 0 | 10 → 0010, soit 4 bits.",
+        "en": "Concatenate: 0 | 0 | 10 → 0010, which is 4 bits."
+      },
+      "answer": "0010",
+      "bitLength": 4,
+      "sourceWord": "xxy",
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E024",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→0, y→10, z→11, coder le mot source yyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→10, z→11, encode source word yyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 10 | 10 | 11 → 101011, soit 6 bits.",
+        "en": "Concatenate: 10 | 10 | 11 → 101011, which is 6 bits."
+      },
+      "answer": "101011",
+      "bitLength": 6,
+      "sourceWord": "yyz",
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E025",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→0, y→10, z→11, coder le mot source zzy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→10, z→11, encode source word zzy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 11 | 10 → 111110, soit 6 bits.",
+        "en": "Concatenate: 11 | 11 | 10 → 111110, which is 6 bits."
+      },
+      "answer": "111110",
+      "bitLength": 6,
+      "sourceWord": "zzy",
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E026",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→0, y→10, z→11, coder le mot source xyxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→10, z→11, encode source word xyxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 10 | 0 | 10 → 010010, soit 6 bits.",
+        "en": "Concatenate: 0 | 10 | 0 | 10 → 010010, which is 6 bits."
+      },
+      "answer": "010010",
+      "bitLength": 6,
+      "sourceWord": "xyxy",
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E027",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→0, y→10, z→11, coder le mot source yxz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→10, z→11, encode source word yxz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 10 | 0 | 11 → 10011, soit 5 bits.",
+        "en": "Concatenate: 10 | 0 | 11 → 10011, which is 5 bits."
+      },
+      "answer": "10011",
+      "bitLength": 5,
+      "sourceWord": "yxz",
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E028",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→0, y→10, z→11, coder le mot source zxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→10, z→11, encode source word zxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 0 | 0 → 1100, soit 4 bits.",
+        "en": "Concatenate: 11 | 0 | 0 → 1100, which is 4 bits."
+      },
+      "answer": "1100",
+      "bitLength": 4,
+      "sourceWord": "zxx",
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E029",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→0, y→10, z→11, coder le mot source yyy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→10, z→11, encode source word yyy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 10 | 10 | 10 → 101010, soit 6 bits.",
+        "en": "Concatenate: 10 | 10 | 10 → 101010, which is 6 bits."
+      },
+      "answer": "101010",
+      "bitLength": 6,
+      "sourceWord": "yyy",
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E030",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→0, y→10, z→11, coder le mot source zzxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→10, z→11, encode source word zzxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 11 | 0 | 0 → 111100, soit 6 bits.",
+        "en": "Concatenate: 11 | 11 | 0 | 0 → 111100, which is 6 bits."
+      },
+      "answer": "111100",
+      "bitLength": 6,
+      "sourceWord": "zzxx",
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E031",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→00, y→01, z→1, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→01, z→1, encode source word xyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 00 | 01 | 1 → 00011, soit 5 bits.",
+        "en": "Concatenate: 00 | 01 | 1 → 00011, which is 5 bits."
+      },
+      "answer": "00011",
+      "bitLength": 5,
+      "sourceWord": "xyz",
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E032",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→00, y→01, z→1, coder le mot source zyx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→01, z→1, encode source word zyx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 1 | 01 | 00 → 10100, soit 5 bits.",
+        "en": "Concatenate: 1 | 01 | 00 → 10100, which is 5 bits."
+      },
+      "answer": "10100",
+      "bitLength": 5,
+      "sourceWord": "zyx",
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E033",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→00, y→01, z→1, coder le mot source xxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→01, z→1, encode source word xxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 00 | 00 | 01 → 000001, soit 6 bits.",
+        "en": "Concatenate: 00 | 00 | 01 → 000001, which is 6 bits."
+      },
+      "answer": "000001",
+      "bitLength": 6,
+      "sourceWord": "xxy",
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E034",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→00, y→01, z→1, coder le mot source yyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→01, z→1, encode source word yyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 01 | 01 | 1 → 01011, soit 5 bits.",
+        "en": "Concatenate: 01 | 01 | 1 → 01011, which is 5 bits."
+      },
+      "answer": "01011",
+      "bitLength": 5,
+      "sourceWord": "yyz",
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E035",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→00, y→01, z→1, coder le mot source zzy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→01, z→1, encode source word zzy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 1 | 1 | 01 → 1101, soit 4 bits.",
+        "en": "Concatenate: 1 | 1 | 01 → 1101, which is 4 bits."
+      },
+      "answer": "1101",
+      "bitLength": 4,
+      "sourceWord": "zzy",
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E036",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→00, y→01, z→1, coder le mot source xyxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→01, z→1, encode source word xyxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 00 | 01 | 00 | 01 → 00010001, soit 8 bits.",
+        "en": "Concatenate: 00 | 01 | 00 | 01 → 00010001, which is 8 bits."
+      },
+      "answer": "00010001",
+      "bitLength": 8,
+      "sourceWord": "xyxy",
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E037",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→00, y→01, z→1, coder le mot source yxz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→01, z→1, encode source word yxz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 01 | 00 | 1 → 01001, soit 5 bits.",
+        "en": "Concatenate: 01 | 00 | 1 → 01001, which is 5 bits."
+      },
+      "answer": "01001",
+      "bitLength": 5,
+      "sourceWord": "yxz",
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E038",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→00, y→01, z→1, coder le mot source zxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→01, z→1, encode source word zxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 1 | 00 | 00 → 10000, soit 5 bits.",
+        "en": "Concatenate: 1 | 00 | 00 → 10000, which is 5 bits."
+      },
+      "answer": "10000",
+      "bitLength": 5,
+      "sourceWord": "zxx",
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E039",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→00, y→01, z→1, coder le mot source yyy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→01, z→1, encode source word yyy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 01 | 01 | 01 → 010101, soit 6 bits.",
+        "en": "Concatenate: 01 | 01 | 01 → 010101, which is 6 bits."
+      },
+      "answer": "010101",
+      "bitLength": 6,
+      "sourceWord": "yyy",
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E040",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→00, y→01, z→1, coder le mot source zzxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→01, z→1, encode source word zzxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 1 | 1 | 00 | 00 → 110000, soit 6 bits.",
+        "en": "Concatenate: 1 | 1 | 00 | 00 → 110000, which is 6 bits."
+      },
+      "answer": "110000",
+      "bitLength": 6,
+      "sourceWord": "zzxx",
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E041",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→01, y→0, z→11, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→01, y→0, z→11, encode source word xyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 01 | 0 | 11 → 01011, soit 5 bits.",
+        "en": "Concatenate: 01 | 0 | 11 → 01011, which is 5 bits."
+      },
+      "answer": "01011",
+      "bitLength": 5,
+      "sourceWord": "xyz",
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E042",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→01, y→0, z→11, coder le mot source zyx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→01, y→0, z→11, encode source word zyx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 0 | 01 → 11001, soit 5 bits.",
+        "en": "Concatenate: 11 | 0 | 01 → 11001, which is 5 bits."
+      },
+      "answer": "11001",
+      "bitLength": 5,
+      "sourceWord": "zyx",
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E043",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→01, y→0, z→11, coder le mot source xxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→01, y→0, z→11, encode source word xxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 01 | 01 | 0 → 01010, soit 5 bits.",
+        "en": "Concatenate: 01 | 01 | 0 → 01010, which is 5 bits."
+      },
+      "answer": "01010",
+      "bitLength": 5,
+      "sourceWord": "xxy",
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E044",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→01, y→0, z→11, coder le mot source yyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→01, y→0, z→11, encode source word yyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 0 | 11 → 0011, soit 4 bits.",
+        "en": "Concatenate: 0 | 0 | 11 → 0011, which is 4 bits."
+      },
+      "answer": "0011",
+      "bitLength": 4,
+      "sourceWord": "yyz",
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E045",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→01, y→0, z→11, coder le mot source zzy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→01, y→0, z→11, encode source word zzy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 11 | 0 → 11110, soit 5 bits.",
+        "en": "Concatenate: 11 | 11 | 0 → 11110, which is 5 bits."
+      },
+      "answer": "11110",
+      "bitLength": 5,
+      "sourceWord": "zzy",
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E046",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→01, y→0, z→11, coder le mot source xyxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→01, y→0, z→11, encode source word xyxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 01 | 0 | 01 | 0 → 010010, soit 6 bits.",
+        "en": "Concatenate: 01 | 0 | 01 | 0 → 010010, which is 6 bits."
+      },
+      "answer": "010010",
+      "bitLength": 6,
+      "sourceWord": "xyxy",
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E047",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→01, y→0, z→11, coder le mot source yxz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→01, y→0, z→11, encode source word yxz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 01 | 11 → 00111, soit 5 bits.",
+        "en": "Concatenate: 0 | 01 | 11 → 00111, which is 5 bits."
+      },
+      "answer": "00111",
+      "bitLength": 5,
+      "sourceWord": "yxz",
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E048",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→01, y→0, z→11, coder le mot source zxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→01, y→0, z→11, encode source word zxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 01 | 01 → 110101, soit 6 bits.",
+        "en": "Concatenate: 11 | 01 | 01 → 110101, which is 6 bits."
+      },
+      "answer": "110101",
+      "bitLength": 6,
+      "sourceWord": "zxx",
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E049",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→01, y→0, z→11, coder le mot source yyy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→01, y→0, z→11, encode source word yyy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 0 | 0 → 000, soit 3 bits.",
+        "en": "Concatenate: 0 | 0 | 0 → 000, which is 3 bits."
+      },
+      "answer": "000",
+      "bitLength": 3,
+      "sourceWord": "yyy",
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E050",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→01, y→0, z→11, coder le mot source zzxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→01, y→0, z→11, encode source word zzxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 11 | 01 | 01 → 11110101, soit 8 bits.",
+        "en": "Concatenate: 11 | 11 | 01 | 01 → 11110101, which is 8 bits."
+      },
+      "answer": "11110101",
+      "bitLength": 8,
+      "sourceWord": "zzxx",
+      "codebook": {
+        "x": "01",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E051",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→10, y→0, z→11, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→10, y→0, z→11, encode source word xyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 10 | 0 | 11 → 10011, soit 5 bits.",
+        "en": "Concatenate: 10 | 0 | 11 → 10011, which is 5 bits."
+      },
+      "answer": "10011",
+      "bitLength": 5,
+      "sourceWord": "xyz",
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E052",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→10, y→0, z→11, coder le mot source zyx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→10, y→0, z→11, encode source word zyx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 0 | 10 → 11010, soit 5 bits.",
+        "en": "Concatenate: 11 | 0 | 10 → 11010, which is 5 bits."
+      },
+      "answer": "11010",
+      "bitLength": 5,
+      "sourceWord": "zyx",
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E053",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→10, y→0, z→11, coder le mot source xxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→10, y→0, z→11, encode source word xxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 10 | 10 | 0 → 10100, soit 5 bits.",
+        "en": "Concatenate: 10 | 10 | 0 → 10100, which is 5 bits."
+      },
+      "answer": "10100",
+      "bitLength": 5,
+      "sourceWord": "xxy",
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E054",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→10, y→0, z→11, coder le mot source yyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→10, y→0, z→11, encode source word yyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 0 | 11 → 0011, soit 4 bits.",
+        "en": "Concatenate: 0 | 0 | 11 → 0011, which is 4 bits."
+      },
+      "answer": "0011",
+      "bitLength": 4,
+      "sourceWord": "yyz",
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E055",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→10, y→0, z→11, coder le mot source zzy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→10, y→0, z→11, encode source word zzy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 11 | 0 → 11110, soit 5 bits.",
+        "en": "Concatenate: 11 | 11 | 0 → 11110, which is 5 bits."
+      },
+      "answer": "11110",
+      "bitLength": 5,
+      "sourceWord": "zzy",
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E056",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→10, y→0, z→11, coder le mot source xyxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→10, y→0, z→11, encode source word xyxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 10 | 0 | 10 | 0 → 100100, soit 6 bits.",
+        "en": "Concatenate: 10 | 0 | 10 | 0 → 100100, which is 6 bits."
+      },
+      "answer": "100100",
+      "bitLength": 6,
+      "sourceWord": "xyxy",
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E057",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→10, y→0, z→11, coder le mot source yxz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→10, y→0, z→11, encode source word yxz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 10 | 11 → 01011, soit 5 bits.",
+        "en": "Concatenate: 0 | 10 | 11 → 01011, which is 5 bits."
+      },
+      "answer": "01011",
+      "bitLength": 5,
+      "sourceWord": "yxz",
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E058",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→10, y→0, z→11, coder le mot source zxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→10, y→0, z→11, encode source word zxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 10 | 10 → 111010, soit 6 bits.",
+        "en": "Concatenate: 11 | 10 | 10 → 111010, which is 6 bits."
+      },
+      "answer": "111010",
+      "bitLength": 6,
+      "sourceWord": "zxx",
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E059",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→10, y→0, z→11, coder le mot source yyy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→10, y→0, z→11, encode source word yyy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 0 | 0 → 000, soit 3 bits.",
+        "en": "Concatenate: 0 | 0 | 0 → 000, which is 3 bits."
+      },
+      "answer": "000",
+      "bitLength": 3,
+      "sourceWord": "yyy",
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E060",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→10, y→0, z→11, coder le mot source zzxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→10, y→0, z→11, encode source word zzxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 11 | 10 | 10 → 11111010, soit 8 bits.",
+        "en": "Concatenate: 11 | 11 | 10 | 10 → 11111010, which is 8 bits."
+      },
+      "answer": "11111010",
+      "bitLength": 8,
+      "sourceWord": "zzxx",
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E061",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→001, y→01, z→0, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→001, y→01, z→0, encode source word xyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 001 | 01 | 0 → 001010, soit 6 bits.",
+        "en": "Concatenate: 001 | 01 | 0 → 001010, which is 6 bits."
+      },
+      "answer": "001010",
+      "bitLength": 6,
+      "sourceWord": "xyz",
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E062",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→001, y→01, z→0, coder le mot source zyx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→001, y→01, z→0, encode source word zyx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 01 | 001 → 001001, soit 6 bits.",
+        "en": "Concatenate: 0 | 01 | 001 → 001001, which is 6 bits."
+      },
+      "answer": "001001",
+      "bitLength": 6,
+      "sourceWord": "zyx",
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E063",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→001, y→01, z→0, coder le mot source xxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→001, y→01, z→0, encode source word xxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 001 | 001 | 01 → 00100101, soit 8 bits.",
+        "en": "Concatenate: 001 | 001 | 01 → 00100101, which is 8 bits."
+      },
+      "answer": "00100101",
+      "bitLength": 8,
+      "sourceWord": "xxy",
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E064",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→001, y→01, z→0, coder le mot source yyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→001, y→01, z→0, encode source word yyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 01 | 01 | 0 → 01010, soit 5 bits.",
+        "en": "Concatenate: 01 | 01 | 0 → 01010, which is 5 bits."
+      },
+      "answer": "01010",
+      "bitLength": 5,
+      "sourceWord": "yyz",
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E065",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→001, y→01, z→0, coder le mot source zzy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→001, y→01, z→0, encode source word zzy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 0 | 01 → 0001, soit 4 bits.",
+        "en": "Concatenate: 0 | 0 | 01 → 0001, which is 4 bits."
+      },
+      "answer": "0001",
+      "bitLength": 4,
+      "sourceWord": "zzy",
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E066",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→001, y→01, z→0, coder le mot source xyxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→001, y→01, z→0, encode source word xyxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 001 | 01 | 001 | 01 → 0010100101, soit 10 bits.",
+        "en": "Concatenate: 001 | 01 | 001 | 01 → 0010100101, which is 10 bits."
+      },
+      "answer": "0010100101",
+      "bitLength": 10,
+      "sourceWord": "xyxy",
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E067",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→001, y→01, z→0, coder le mot source yxz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→001, y→01, z→0, encode source word yxz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 01 | 001 | 0 → 010010, soit 6 bits.",
+        "en": "Concatenate: 01 | 001 | 0 → 010010, which is 6 bits."
+      },
+      "answer": "010010",
+      "bitLength": 6,
+      "sourceWord": "yxz",
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E068",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→001, y→01, z→0, coder le mot source zxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→001, y→01, z→0, encode source word zxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 001 | 001 → 0001001, soit 7 bits.",
+        "en": "Concatenate: 0 | 001 | 001 → 0001001, which is 7 bits."
+      },
+      "answer": "0001001",
+      "bitLength": 7,
+      "sourceWord": "zxx",
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E069",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→001, y→01, z→0, coder le mot source yyy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→001, y→01, z→0, encode source word yyy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 01 | 01 | 01 → 010101, soit 6 bits.",
+        "en": "Concatenate: 01 | 01 | 01 → 010101, which is 6 bits."
+      },
+      "answer": "010101",
+      "bitLength": 6,
+      "sourceWord": "yyy",
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E070",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→001, y→01, z→0, coder le mot source zzxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→001, y→01, z→0, encode source word zzxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 0 | 001 | 001 → 00001001, soit 8 bits.",
+        "en": "Concatenate: 0 | 0 | 001 | 001 → 00001001, which is 8 bits."
+      },
+      "answer": "00001001",
+      "bitLength": 8,
+      "sourceWord": "zzxx",
+      "codebook": {
+        "x": "001",
+        "y": "01",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E071",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→0, y→1, z→10, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→1, z→10, encode source word xyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 1 | 10 → 0110, soit 4 bits.",
+        "en": "Concatenate: 0 | 1 | 10 → 0110, which is 4 bits."
+      },
+      "answer": "0110",
+      "bitLength": 4,
+      "sourceWord": "xyz",
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E072",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→0, y→1, z→10, coder le mot source zyx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→1, z→10, encode source word zyx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 10 | 1 | 0 → 1010, soit 4 bits.",
+        "en": "Concatenate: 10 | 1 | 0 → 1010, which is 4 bits."
+      },
+      "answer": "1010",
+      "bitLength": 4,
+      "sourceWord": "zyx",
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E073",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→0, y→1, z→10, coder le mot source xxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→1, z→10, encode source word xxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 0 | 1 → 001, soit 3 bits.",
+        "en": "Concatenate: 0 | 0 | 1 → 001, which is 3 bits."
+      },
+      "answer": "001",
+      "bitLength": 3,
+      "sourceWord": "xxy",
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E074",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→0, y→1, z→10, coder le mot source yyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→1, z→10, encode source word yyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 1 | 1 | 10 → 1110, soit 4 bits.",
+        "en": "Concatenate: 1 | 1 | 10 → 1110, which is 4 bits."
+      },
+      "answer": "1110",
+      "bitLength": 4,
+      "sourceWord": "yyz",
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E075",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→0, y→1, z→10, coder le mot source zzy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→1, z→10, encode source word zzy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 10 | 10 | 1 → 10101, soit 5 bits.",
+        "en": "Concatenate: 10 | 10 | 1 → 10101, which is 5 bits."
+      },
+      "answer": "10101",
+      "bitLength": 5,
+      "sourceWord": "zzy",
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E076",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→0, y→1, z→10, coder le mot source xyxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→1, z→10, encode source word xyxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 1 | 0 | 1 → 0101, soit 4 bits.",
+        "en": "Concatenate: 0 | 1 | 0 | 1 → 0101, which is 4 bits."
+      },
+      "answer": "0101",
+      "bitLength": 4,
+      "sourceWord": "xyxy",
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E077",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→0, y→1, z→10, coder le mot source yxz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→1, z→10, encode source word yxz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 1 | 0 | 10 → 1010, soit 4 bits.",
+        "en": "Concatenate: 1 | 0 | 10 → 1010, which is 4 bits."
+      },
+      "answer": "1010",
+      "bitLength": 4,
+      "sourceWord": "yxz",
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E078",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→0, y→1, z→10, coder le mot source zxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→1, z→10, encode source word zxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 10 | 0 | 0 → 1000, soit 4 bits.",
+        "en": "Concatenate: 10 | 0 | 0 → 1000, which is 4 bits."
+      },
+      "answer": "1000",
+      "bitLength": 4,
+      "sourceWord": "zxx",
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E079",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→0, y→1, z→10, coder le mot source yyy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→1, z→10, encode source word yyy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 1 | 1 | 1 → 111, soit 3 bits.",
+        "en": "Concatenate: 1 | 1 | 1 → 111, which is 3 bits."
+      },
+      "answer": "111",
+      "bitLength": 3,
+      "sourceWord": "yyy",
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E080",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→0, y→1, z→10, coder le mot source zzxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→1, z→10, encode source word zzxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 10 | 10 | 0 | 0 → 101000, soit 6 bits.",
+        "en": "Concatenate: 10 | 10 | 0 | 0 → 101000, which is 6 bits."
+      },
+      "answer": "101000",
+      "bitLength": 6,
+      "sourceWord": "zzxx",
+      "codebook": {
+        "x": "0",
+        "y": "1",
+        "z": "10"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E081",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→1, y→11, z→0, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→11, z→0, encode source word xyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 1 | 11 | 0 → 1110, soit 4 bits.",
+        "en": "Concatenate: 1 | 11 | 0 → 1110, which is 4 bits."
+      },
+      "answer": "1110",
+      "bitLength": 4,
+      "sourceWord": "xyz",
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E082",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→1, y→11, z→0, coder le mot source zyx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→11, z→0, encode source word zyx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 11 | 1 → 0111, soit 4 bits.",
+        "en": "Concatenate: 0 | 11 | 1 → 0111, which is 4 bits."
+      },
+      "answer": "0111",
+      "bitLength": 4,
+      "sourceWord": "zyx",
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E083",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→1, y→11, z→0, coder le mot source xxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→11, z→0, encode source word xxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 1 | 1 | 11 → 1111, soit 4 bits.",
+        "en": "Concatenate: 1 | 1 | 11 → 1111, which is 4 bits."
+      },
+      "answer": "1111",
+      "bitLength": 4,
+      "sourceWord": "xxy",
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E084",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→1, y→11, z→0, coder le mot source yyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→11, z→0, encode source word yyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 11 | 0 → 11110, soit 5 bits.",
+        "en": "Concatenate: 11 | 11 | 0 → 11110, which is 5 bits."
+      },
+      "answer": "11110",
+      "bitLength": 5,
+      "sourceWord": "yyz",
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E085",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→1, y→11, z→0, coder le mot source zzy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→11, z→0, encode source word zzy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 0 | 11 → 0011, soit 4 bits.",
+        "en": "Concatenate: 0 | 0 | 11 → 0011, which is 4 bits."
+      },
+      "answer": "0011",
+      "bitLength": 4,
+      "sourceWord": "zzy",
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E086",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→1, y→11, z→0, coder le mot source xyxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→11, z→0, encode source word xyxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 1 | 11 | 1 | 11 → 111111, soit 6 bits.",
+        "en": "Concatenate: 1 | 11 | 1 | 11 → 111111, which is 6 bits."
+      },
+      "answer": "111111",
+      "bitLength": 6,
+      "sourceWord": "xyxy",
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E087",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→1, y→11, z→0, coder le mot source yxz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→11, z→0, encode source word yxz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 1 | 0 → 1110, soit 4 bits.",
+        "en": "Concatenate: 11 | 1 | 0 → 1110, which is 4 bits."
+      },
+      "answer": "1110",
+      "bitLength": 4,
+      "sourceWord": "yxz",
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E088",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→1, y→11, z→0, coder le mot source zxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→11, z→0, encode source word zxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 1 | 1 → 011, soit 3 bits.",
+        "en": "Concatenate: 0 | 1 | 1 → 011, which is 3 bits."
+      },
+      "answer": "011",
+      "bitLength": 3,
+      "sourceWord": "zxx",
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E089",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→1, y→11, z→0, coder le mot source yyy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→11, z→0, encode source word yyy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 11 | 11 → 111111, soit 6 bits.",
+        "en": "Concatenate: 11 | 11 | 11 → 111111, which is 6 bits."
+      },
+      "answer": "111111",
+      "bitLength": 6,
+      "sourceWord": "yyy",
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E090",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→1, y→11, z→0, coder le mot source zzxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→11, z→0, encode source word zzxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 0 | 0 | 1 | 1 → 0011, soit 4 bits.",
+        "en": "Concatenate: 0 | 0 | 1 | 1 → 0011, which is 4 bits."
+      },
+      "answer": "0011",
+      "bitLength": 4,
+      "sourceWord": "zzxx",
+      "codebook": {
+        "x": "1",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E091",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→00, y→101, z→11, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→101, z→11, encode source word xyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 00 | 101 | 11 → 0010111, soit 7 bits.",
+        "en": "Concatenate: 00 | 101 | 11 → 0010111, which is 7 bits."
+      },
+      "answer": "0010111",
+      "bitLength": 7,
+      "sourceWord": "xyz",
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E092",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→00, y→101, z→11, coder le mot source zyx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→101, z→11, encode source word zyx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 101 | 00 → 1110100, soit 7 bits.",
+        "en": "Concatenate: 11 | 101 | 00 → 1110100, which is 7 bits."
+      },
+      "answer": "1110100",
+      "bitLength": 7,
+      "sourceWord": "zyx",
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E093",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→00, y→101, z→11, coder le mot source xxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→101, z→11, encode source word xxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 00 | 00 | 101 → 0000101, soit 7 bits.",
+        "en": "Concatenate: 00 | 00 | 101 → 0000101, which is 7 bits."
+      },
+      "answer": "0000101",
+      "bitLength": 7,
+      "sourceWord": "xxy",
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E094",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec le code x→00, y→101, z→11, coder le mot source yyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→101, z→11, encode source word yyz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 101 | 101 | 11 → 10110111, soit 8 bits.",
+        "en": "Concatenate: 101 | 101 | 11 → 10110111, which is 8 bits."
+      },
+      "answer": "10110111",
+      "bitLength": 8,
+      "sourceWord": "yyz",
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E095",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→00, y→101, z→11, coder le mot source zzy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→101, z→11, encode source word zzy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 11 | 101 → 1111101, soit 7 bits.",
+        "en": "Concatenate: 11 | 11 | 101 → 1111101, which is 7 bits."
+      },
+      "answer": "1111101",
+      "bitLength": 7,
+      "sourceWord": "zzy",
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E096",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→00, y→101, z→11, coder le mot source xyxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→101, z→11, encode source word xyxy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 00 | 101 | 00 | 101 → 0010100101, soit 10 bits.",
+        "en": "Concatenate: 00 | 101 | 00 | 101 → 0010100101, which is 10 bits."
+      },
+      "answer": "0010100101",
+      "bitLength": 10,
+      "sourceWord": "xyxy",
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E097",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec le code x→00, y→101, z→11, coder le mot source yxz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→101, z→11, encode source word yxz with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 101 | 00 | 11 → 1010011, soit 7 bits.",
+        "en": "Concatenate: 101 | 00 | 11 → 1010011, which is 7 bits."
+      },
+      "answer": "1010011",
+      "bitLength": 7,
+      "sourceWord": "yxz",
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E098",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→00, y→101, z→11, coder le mot source zxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→101, z→11, encode source word zxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 00 | 00 → 110000, soit 6 bits.",
+        "en": "Concatenate: 11 | 00 | 00 → 110000, which is 6 bits."
+      },
+      "answer": "110000",
+      "bitLength": 6,
+      "sourceWord": "zxx",
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E099",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→00, y→101, z→11, coder le mot source yyy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→101, z→11, encode source word yyy with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 101 | 101 | 101 → 101101101, soit 9 bits.",
+        "en": "Concatenate: 101 | 101 | 101 → 101101101, which is 9 bits."
+      },
+      "answer": "101101101",
+      "bitLength": 9,
+      "sourceWord": "yyy",
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    },
+    {
+      "id": "C04-T02-E100",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Avec le code x→00, y→101, z→11, coder le mot source zzxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→101, z→11, encode source word zzxx with no separators and give the length."
+      },
+      "solution": {
+        "fr": "Concaténation : 11 | 11 | 00 | 00 → 11110000, soit 8 bits.",
+        "en": "Concatenate: 11 | 11 | 00 | 00 → 11110000, which is 8 bits."
+      },
+      "answer": "11110000",
+      "bitLength": 8,
+      "sourceWord": "zzxx",
+      "codebook": {
+        "x": "00",
+        "y": "101",
+        "z": "11"
+      },
+      "theme": "substitution-encoding"
+    }
+  ]
+}

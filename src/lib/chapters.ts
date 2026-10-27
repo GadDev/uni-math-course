@@ -26,9 +26,8 @@ export const chapters = [
     path: 'chapters/C04/',
     title: { fr: 'Théorie de l’information', en: 'Information theory' },
     shortTitle: { fr: 'Information', en: 'Information' },
-    status: 'preparing',
-    // No public lessons yet. Add stable Lxx IDs only after release review.
-    lessonIds: [],
+    status: 'reading',
+    lessonIds: ['L43', 'L44', 'L45', 'L46', 'L47', 'L48'],
   },
 ] as const;
 

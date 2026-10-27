@@ -67,7 +67,7 @@ const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
         </div>
       </div>
       <div class="featured-action">
-        <a class="primary-link" href="#parcours">
+        <a class="primary-link" href={`/${locale}/lessons/L43/`}>
           {text.explore}
           <span aria-hidden="true">→</span>
         </a>
@@ -85,11 +85,11 @@ const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
       </div>
       <ol class="planned-list chapter-lessons">
         {text.lessons.map((lesson, index) => (
-          <li>
+          <li class="available-topic">
             <span class="planned-number" aria-hidden="true">
               {String(index + 1).padStart(2, '0')}
             </span>
-            <span>{lesson.title}</span>
+            <a href={`/${locale}/lessons/${lesson.id}/`}>{lesson.title}</a>
             <small class="planned-label">
               {text.pages} {lesson.pages} · {text.upcoming}
             </small>

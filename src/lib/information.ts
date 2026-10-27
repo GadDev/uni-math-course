@@ -1,4 +1,4 @@
-/** Chapter 4 orientation only. No lesson IDs are released by this file. */
+/** Chapter 4 public bilingual reading routes; practice remains gated. */
 export const informationCopy = {
   fr: {
     title: 'Théorie de l’information',
@@ -7,7 +7,7 @@ export const informationCopy = {
     subtitle: ['Des bits aux messages,', 'puis à l’entropie.'],
     intro:
       'Comment coder un message, le décoder sans ambiguïté et mesurer la quantité d’information qu’il transporte ?',
-    status: 'Leçons et exercices en préparation',
+    status: 'Six leçons à lire · exercices interactifs à venir',
     motto: 'Un message. Un code. Une idée.',
     start: 'Le point de départ',
     basics: 'Des symboles aux bits',
@@ -17,18 +17,18 @@ export const informationCopy = {
     description:
       'Distinguer un alphabet, un symbole et un mot codé avant d’étudier les erreurs et la compression.',
     explore: 'Explorer le parcours',
-    outline: 'Les étapes à venir',
+    outline: 'Les leçons du chapitre',
     outlineNote:
-      'Six étapes proposées à partir des 20 pages du document source. Aucun exercice interactif n’est encore publié.',
-    upcoming: 'En préparation',
+      'Six leçons à lire en français ou en anglais, fondées sur les 20 pages du PDF. Les exercices interactifs restent en préparation.',
+    upcoming: 'Lecture disponible',
     pages: 'Pages du PDF',
     lessons: [
-      { title: 'Bits et messages', pages: '2–6' },
-      { title: 'Codage par substitution', pages: '7–9' },
-      { title: 'Décodage unique', pages: '9–10' },
-      { title: 'Probabilités des symboles', pages: '11–13' },
-      { title: 'Longueur moyenne', pages: '14–16' },
-      { title: 'Entropie de Shannon', pages: '17–20' },
+      { id: 'L43', title: 'Bits et messages', pages: '2–6' },
+      { id: 'L44', title: 'Codage par substitution', pages: '7–9' },
+      { id: 'L45', title: 'Décodage unique', pages: '9–10' },
+      { id: 'L46', title: 'Probabilités des symboles', pages: '11–13' },
+      { id: 'L47', title: 'Longueur moyenne', pages: '14–16' },
+      { id: 'L48', title: 'Entropie de Shannon', pages: '17–20' },
     ],
     goals: 'Ce que vous apprendrez',
     objectives: [
@@ -41,7 +41,7 @@ export const informationCopy = {
       'Les exercices interactifs, les cahiers A4 et les corrigés détaillés seront ajoutés après validation des leçons, des réponses et des traductions.',
     review: 'Une progression sans faux raccourcis',
     reviewText:
-      'Cette page présente le parcours prévu. Elle ne marque aucune leçon comme terminée et ne crée aucun résultat de maîtrise.',
+      'Les lectures sont disponibles ; les exercices interactifs et la maîtrise évaluée restent désactivés en attendant leur vérification.',
   },
   en: {
     title: 'Information theory',
@@ -50,7 +50,7 @@ export const informationCopy = {
     subtitle: ['From bits to messages,', 'then to entropy.'],
     intro:
       'How can we encode a message, decode it unambiguously and measure the information it carries?',
-    status: 'Lessons and exercises in preparation',
+    status: 'Six lessons available · interactive practice coming later',
     motto: 'One message. One code. One idea.',
     start: 'Start with the basics',
     basics: 'From symbols to bits',
@@ -60,18 +60,18 @@ export const informationCopy = {
     description:
       'Learn the difference between alphabets, symbols and codewords before studying errors and compression.',
     explore: 'Explore the learning path',
-    outline: 'The upcoming learning path',
+    outline: 'Chapter lessons',
     outlineNote:
-      'Six proposed steps grounded in the 20-page source document. No interactive exercises are published yet.',
-    upcoming: 'In preparation',
+      'Six readable French/English lessons based on the 20-page source PDF. Interactive exercises remain unavailable.',
+    upcoming: 'Read now',
     pages: 'PDF pages',
     lessons: [
-      { title: 'Bits and messages', pages: '2–6' },
-      { title: 'Substitution coding', pages: '7–9' },
-      { title: 'Unique decoding', pages: '9–10' },
-      { title: 'Symbol probabilities', pages: '11–13' },
-      { title: 'Average codeword length', pages: '14–16' },
-      { title: 'Shannon entropy', pages: '17–20' },
+      { id: 'L43', title: 'Bits and messages', pages: '2–6' },
+      { id: 'L44', title: 'Substitution coding', pages: '7–9' },
+      { id: 'L45', title: 'Unique decoding', pages: '9–10' },
+      { id: 'L46', title: 'Symbol probabilities', pages: '11–13' },
+      { id: 'L47', title: 'Average codeword length', pages: '14–16' },
+      { id: 'L48', title: 'Shannon entropy', pages: '17–20' },
     ],
     goals: 'What you will learn',
     objectives: [
@@ -84,6 +84,6 @@ export const informationCopy = {
       'Interactive exercises, A4 workbooks and fully worked solutions will follow only after lessons, answers and translations have been reviewed.',
     review: 'A learning path without shortcuts',
     reviewText:
-      'This page previews the planned route. It does not mark lessons complete or create any mastery results.',
+      'Reading lessons are available; interactive practice and assessed mastery remain disabled pending review.',
   },
 } as const;

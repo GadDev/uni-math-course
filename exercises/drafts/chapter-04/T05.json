@@ -1,0 +1,2419 @@
+{
+  "draft": true,
+  "chapterId": "C04",
+  "topicId": "T05",
+  "origin": "original-project-work",
+  "sourcePages": [
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "assessment": "worked-draft-not-server-graded",
+  "answerStatus": "machine-generated-author-self-check-pending",
+  "itemCount": 100,
+  "items": [
+    {
+      "id": "C04-T05-E001",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer L(c) pour x→0, y→10, z→11 et p(x)=1/2, p(y)=1/3, p(z)=1/6.",
+        "en": "Calculate L(c) for x→0, y→10, z→11 and p(x)=1/2, p(y)=1/3, p(z)=1/6."
+      },
+      "solution": {
+        "fr": "Réponse : 3/2. L(c)=(3+4+2)/6=3/2.",
+        "en": "Answer: 3/2. L(c)=(3+4+2)/6=3/2."
+      },
+      "answer": "3/2",
+      "probabilityCounts": {
+        "x": 3,
+        "y": 2,
+        "z": 1
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "weighted-average"
+    },
+    {
+      "id": "C04-T05-E002",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Sur un message contenant exactement 3 x, 2 y et 1 z, combien de bits produit x→0, y→10, z→11 ?",
+        "en": "For exactly 3 x, 2 y and 1 z, how many bits does x→0, y→10, z→11 produce?"
+      },
+      "solution": {
+        "fr": "Réponse : 9. 3×1+2×2+1×2=9.",
+        "en": "Answer: 9. 3×1+2×2+1×2=9."
+      },
+      "answer": "9",
+      "probabilityCounts": {
+        "x": 3,
+        "y": 2,
+        "z": 1
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "encoded-total"
+    },
+    {
+      "id": "C04-T05-E003",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=1/2, p(y)=1/3, p(z)=1/6 et x→0, y→10, z→11, quelle est la contribution de x à L(c) ?",
+        "en": "With p(x)=1/2, p(y)=1/3, p(z)=1/6 and x→0, y→10, z→11, what does x contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/2. p(x)|c(x)|=1/2.",
+        "en": "Answer: 1/2. p(x)|c(x)|=1/2."
+      },
+      "answer": "1/2",
+      "probabilityCounts": {
+        "x": 3,
+        "y": 2,
+        "z": 1
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "contribution-x"
+    },
+    {
+      "id": "C04-T05-E004",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=1/2, p(y)=1/3, p(z)=1/6 et x→0, y→10, z→11, quelle est la contribution de y à L(c) ?",
+        "en": "With p(x)=1/2, p(y)=1/3, p(z)=1/6 and x→0, y→10, z→11, what does y contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 2/3. p(y)|c(y)|=2/3.",
+        "en": "Answer: 2/3. p(y)|c(y)|=2/3."
+      },
+      "answer": "2/3",
+      "probabilityCounts": {
+        "x": 3,
+        "y": 2,
+        "z": 1
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "contribution-y"
+    },
+    {
+      "id": "C04-T05-E005",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec p(x)=1/2, p(y)=1/3, p(z)=1/6 et x→0, y→10, z→11, quelle est la contribution de z à L(c) ?",
+        "en": "With p(x)=1/2, p(y)=1/3, p(z)=1/6 and x→0, y→10, z→11, what does z contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/3. p(z)|c(z)|=1/3.",
+        "en": "Answer: 1/3. p(z)|c(z)|=1/3."
+      },
+      "answer": "1/3",
+      "probabilityCounts": {
+        "x": 3,
+        "y": 2,
+        "z": 1
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "contribution-z"
+    },
+    {
+      "id": "C04-T05-E006",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Quelle est la longueur de c(xxyz) pour x→0, y→10, z→11 ?",
+        "en": "What is the length of c(xxyz) using x→0, y→10, z→11?"
+      },
+      "solution": {
+        "fr": "Réponse : 6. 2×1+2+2=6 bits.",
+        "en": "Answer: 6. 2×1+2+2=6 bits."
+      },
+      "answer": "6",
+      "probabilityCounts": {
+        "x": 3,
+        "y": 2,
+        "z": 1
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "message-length"
+    },
+    {
+      "id": "C04-T05-E007",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour p(x)=1/2, p(y)=1/3, p(z)=1/6, quelle serait la longueur moyenne d'un code à trois mots de 2 bits chacun ?",
+        "en": "For p(x)=1/2, p(y)=1/3, p(z)=1/6, what is the average length if all three codewords have 2 bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. La somme des probabilités est 1, donc L=2×1=2.",
+        "en": "Answer: 2. Probabilities sum to 1, so L=2×1=2."
+      },
+      "answer": "2",
+      "probabilityCounts": {
+        "x": 3,
+        "y": 2,
+        "z": 1
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "fixed-length-average"
+    },
+    {
+      "id": "C04-T05-E008",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Comparer le code x→0, y→10, z→11 (L(c)=3/2) à un code à longueur fixe de 2 bits : donner 2-L(c), éventuellement négatif.",
+        "en": "Compare x→0, y→10, z→11 (L(c)=3/2) to a fixed 2-bit code: find 2-L(c), possibly negative."
+      },
+      "solution": {
+        "fr": "Réponse : 1/2. 2-L(c)=(2×6-9)/6=1/2.",
+        "en": "Answer: 1/2. 2-L(c)=(2×6-9)/6=1/2."
+      },
+      "answer": "1/2",
+      "probabilityCounts": {
+        "x": 3,
+        "y": 2,
+        "z": 1
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "compression-difference"
+    },
+    {
+      "id": "C04-T05-E009",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Donner les longueurs des mots codes (x,y,z) pour x→0, y→10, z→11.",
+        "en": "Give codeword lengths (x,y,z) for x→0, y→10, z→11."
+      },
+      "solution": {
+        "fr": "Réponse : 1,2,2. On compte les bits : (1,2,2).",
+        "en": "Answer: 1,2,2. Count the bits: (1,2,2)."
+      },
+      "answer": "1,2,2",
+      "probabilityCounts": {
+        "x": 3,
+        "y": 2,
+        "z": 1
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "lengths"
+    },
+    {
+      "id": "C04-T05-E010",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Le code x→0, y→10, z→11 est-il préfixe ? Ce fait permet-il le décodage unique ?",
+        "en": "Is x→0, y→10, z→11 prefix-free? Does this imply unique decoding?"
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : aucun mot code n'est le début d'un autre ; la propriété de préfixe implique le décodage unique.",
+        "en": "Answer: yes. Yes: no codeword starts another; prefix-free codes are uniquely decodable."
+      },
+      "answer": "yes",
+      "probabilityCounts": {
+        "x": 3,
+        "y": 2,
+        "z": 1
+      },
+      "codebook": {
+        "x": "0",
+        "y": "10",
+        "z": "11"
+      },
+      "theme": "prefix-validity"
+    },
+    {
+      "id": "C04-T05-E011",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer L(c) pour x→10, y→0, z→11 et p(x)=4/9, p(y)=1/3, p(z)=2/9.",
+        "en": "Calculate L(c) for x→10, y→0, z→11 and p(x)=4/9, p(y)=1/3, p(z)=2/9."
+      },
+      "solution": {
+        "fr": "Réponse : 5/3. L(c)=(8+3+4)/9=5/3.",
+        "en": "Answer: 5/3. L(c)=(8+3+4)/9=5/3."
+      },
+      "answer": "5/3",
+      "probabilityCounts": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "weighted-average"
+    },
+    {
+      "id": "C04-T05-E012",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Sur un message contenant exactement 4 x, 3 y et 2 z, combien de bits produit x→10, y→0, z→11 ?",
+        "en": "For exactly 4 x, 3 y and 2 z, how many bits does x→10, y→0, z→11 produce?"
+      },
+      "solution": {
+        "fr": "Réponse : 15. 4×2+3×1+2×2=15.",
+        "en": "Answer: 15. 4×2+3×1+2×2=15."
+      },
+      "answer": "15",
+      "probabilityCounts": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "encoded-total"
+    },
+    {
+      "id": "C04-T05-E013",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=4/9, p(y)=1/3, p(z)=2/9 et x→10, y→0, z→11, quelle est la contribution de x à L(c) ?",
+        "en": "With p(x)=4/9, p(y)=1/3, p(z)=2/9 and x→10, y→0, z→11, what does x contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 8/9. p(x)|c(x)|=8/9.",
+        "en": "Answer: 8/9. p(x)|c(x)|=8/9."
+      },
+      "answer": "8/9",
+      "probabilityCounts": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "contribution-x"
+    },
+    {
+      "id": "C04-T05-E014",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=4/9, p(y)=1/3, p(z)=2/9 et x→10, y→0, z→11, quelle est la contribution de y à L(c) ?",
+        "en": "With p(x)=4/9, p(y)=1/3, p(z)=2/9 and x→10, y→0, z→11, what does y contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/3. p(y)|c(y)|=1/3.",
+        "en": "Answer: 1/3. p(y)|c(y)|=1/3."
+      },
+      "answer": "1/3",
+      "probabilityCounts": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "contribution-y"
+    },
+    {
+      "id": "C04-T05-E015",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec p(x)=4/9, p(y)=1/3, p(z)=2/9 et x→10, y→0, z→11, quelle est la contribution de z à L(c) ?",
+        "en": "With p(x)=4/9, p(y)=1/3, p(z)=2/9 and x→10, y→0, z→11, what does z contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 4/9. p(z)|c(z)|=4/9.",
+        "en": "Answer: 4/9. p(z)|c(z)|=4/9."
+      },
+      "answer": "4/9",
+      "probabilityCounts": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "contribution-z"
+    },
+    {
+      "id": "C04-T05-E016",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Quelle est la longueur de c(xxyz) pour x→10, y→0, z→11 ?",
+        "en": "What is the length of c(xxyz) using x→10, y→0, z→11?"
+      },
+      "solution": {
+        "fr": "Réponse : 7. 2×2+1+2=7 bits.",
+        "en": "Answer: 7. 2×2+1+2=7 bits."
+      },
+      "answer": "7",
+      "probabilityCounts": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "message-length"
+    },
+    {
+      "id": "C04-T05-E017",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour p(x)=4/9, p(y)=1/3, p(z)=2/9, quelle serait la longueur moyenne d'un code à trois mots de 2 bits chacun ?",
+        "en": "For p(x)=4/9, p(y)=1/3, p(z)=2/9, what is the average length if all three codewords have 2 bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. La somme des probabilités est 1, donc L=2×1=2.",
+        "en": "Answer: 2. Probabilities sum to 1, so L=2×1=2."
+      },
+      "answer": "2",
+      "probabilityCounts": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "fixed-length-average"
+    },
+    {
+      "id": "C04-T05-E018",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Comparer le code x→10, y→0, z→11 (L(c)=5/3) à un code à longueur fixe de 2 bits : donner 2-L(c), éventuellement négatif.",
+        "en": "Compare x→10, y→0, z→11 (L(c)=5/3) to a fixed 2-bit code: find 2-L(c), possibly negative."
+      },
+      "solution": {
+        "fr": "Réponse : 1/3. 2-L(c)=(2×9-15)/9=1/3.",
+        "en": "Answer: 1/3. 2-L(c)=(2×9-15)/9=1/3."
+      },
+      "answer": "1/3",
+      "probabilityCounts": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "compression-difference"
+    },
+    {
+      "id": "C04-T05-E019",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Donner les longueurs des mots codes (x,y,z) pour x→10, y→0, z→11.",
+        "en": "Give codeword lengths (x,y,z) for x→10, y→0, z→11."
+      },
+      "solution": {
+        "fr": "Réponse : 2,1,2. On compte les bits : (2,1,2).",
+        "en": "Answer: 2,1,2. Count the bits: (2,1,2)."
+      },
+      "answer": "2,1,2",
+      "probabilityCounts": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "lengths"
+    },
+    {
+      "id": "C04-T05-E020",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Le code x→10, y→0, z→11 est-il préfixe ? Ce fait permet-il le décodage unique ?",
+        "en": "Is x→10, y→0, z→11 prefix-free? Does this imply unique decoding?"
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : aucun mot code n'est le début d'un autre ; la propriété de préfixe implique le décodage unique.",
+        "en": "Answer: yes. Yes: no codeword starts another; prefix-free codes are uniquely decodable."
+      },
+      "answer": "yes",
+      "probabilityCounts": {
+        "x": 4,
+        "y": 3,
+        "z": 2
+      },
+      "codebook": {
+        "x": "10",
+        "y": "0",
+        "z": "11"
+      },
+      "theme": "prefix-validity"
+    },
+    {
+      "id": "C04-T05-E021",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer L(c) pour x→10, y→11, z→0 et p(x)=5/12, p(y)=1/3, p(z)=1/4.",
+        "en": "Calculate L(c) for x→10, y→11, z→0 and p(x)=5/12, p(y)=1/3, p(z)=1/4."
+      },
+      "solution": {
+        "fr": "Réponse : 7/4. L(c)=(10+8+3)/12=7/4.",
+        "en": "Answer: 7/4. L(c)=(10+8+3)/12=7/4."
+      },
+      "answer": "7/4",
+      "probabilityCounts": {
+        "x": 5,
+        "y": 4,
+        "z": 3
+      },
+      "codebook": {
+        "x": "10",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "weighted-average"
+    },
+    {
+      "id": "C04-T05-E022",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Sur un message contenant exactement 5 x, 4 y et 3 z, combien de bits produit x→10, y→11, z→0 ?",
+        "en": "For exactly 5 x, 4 y and 3 z, how many bits does x→10, y→11, z→0 produce?"
+      },
+      "solution": {
+        "fr": "Réponse : 21. 5×2+4×2+3×1=21.",
+        "en": "Answer: 21. 5×2+4×2+3×1=21."
+      },
+      "answer": "21",
+      "probabilityCounts": {
+        "x": 5,
+        "y": 4,
+        "z": 3
+      },
+      "codebook": {
+        "x": "10",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "encoded-total"
+    },
+    {
+      "id": "C04-T05-E023",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=5/12, p(y)=1/3, p(z)=1/4 et x→10, y→11, z→0, quelle est la contribution de x à L(c) ?",
+        "en": "With p(x)=5/12, p(y)=1/3, p(z)=1/4 and x→10, y→11, z→0, what does x contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 5/6. p(x)|c(x)|=5/6.",
+        "en": "Answer: 5/6. p(x)|c(x)|=5/6."
+      },
+      "answer": "5/6",
+      "probabilityCounts": {
+        "x": 5,
+        "y": 4,
+        "z": 3
+      },
+      "codebook": {
+        "x": "10",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "contribution-x"
+    },
+    {
+      "id": "C04-T05-E024",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=5/12, p(y)=1/3, p(z)=1/4 et x→10, y→11, z→0, quelle est la contribution de y à L(c) ?",
+        "en": "With p(x)=5/12, p(y)=1/3, p(z)=1/4 and x→10, y→11, z→0, what does y contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 2/3. p(y)|c(y)|=2/3.",
+        "en": "Answer: 2/3. p(y)|c(y)|=2/3."
+      },
+      "answer": "2/3",
+      "probabilityCounts": {
+        "x": 5,
+        "y": 4,
+        "z": 3
+      },
+      "codebook": {
+        "x": "10",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "contribution-y"
+    },
+    {
+      "id": "C04-T05-E025",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec p(x)=5/12, p(y)=1/3, p(z)=1/4 et x→10, y→11, z→0, quelle est la contribution de z à L(c) ?",
+        "en": "With p(x)=5/12, p(y)=1/3, p(z)=1/4 and x→10, y→11, z→0, what does z contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/4. p(z)|c(z)|=1/4.",
+        "en": "Answer: 1/4. p(z)|c(z)|=1/4."
+      },
+      "answer": "1/4",
+      "probabilityCounts": {
+        "x": 5,
+        "y": 4,
+        "z": 3
+      },
+      "codebook": {
+        "x": "10",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "contribution-z"
+    },
+    {
+      "id": "C04-T05-E026",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Quelle est la longueur de c(xxyz) pour x→10, y→11, z→0 ?",
+        "en": "What is the length of c(xxyz) using x→10, y→11, z→0?"
+      },
+      "solution": {
+        "fr": "Réponse : 7. 2×2+2+1=7 bits.",
+        "en": "Answer: 7. 2×2+2+1=7 bits."
+      },
+      "answer": "7",
+      "probabilityCounts": {
+        "x": 5,
+        "y": 4,
+        "z": 3
+      },
+      "codebook": {
+        "x": "10",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "message-length"
+    },
+    {
+      "id": "C04-T05-E027",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour p(x)=5/12, p(y)=1/3, p(z)=1/4, quelle serait la longueur moyenne d'un code à trois mots de 2 bits chacun ?",
+        "en": "For p(x)=5/12, p(y)=1/3, p(z)=1/4, what is the average length if all three codewords have 2 bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. La somme des probabilités est 1, donc L=2×1=2.",
+        "en": "Answer: 2. Probabilities sum to 1, so L=2×1=2."
+      },
+      "answer": "2",
+      "probabilityCounts": {
+        "x": 5,
+        "y": 4,
+        "z": 3
+      },
+      "codebook": {
+        "x": "10",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "fixed-length-average"
+    },
+    {
+      "id": "C04-T05-E028",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Comparer le code x→10, y→11, z→0 (L(c)=7/4) à un code à longueur fixe de 2 bits : donner 2-L(c), éventuellement négatif.",
+        "en": "Compare x→10, y→11, z→0 (L(c)=7/4) to a fixed 2-bit code: find 2-L(c), possibly negative."
+      },
+      "solution": {
+        "fr": "Réponse : 1/4. 2-L(c)=(2×12-21)/12=1/4.",
+        "en": "Answer: 1/4. 2-L(c)=(2×12-21)/12=1/4."
+      },
+      "answer": "1/4",
+      "probabilityCounts": {
+        "x": 5,
+        "y": 4,
+        "z": 3
+      },
+      "codebook": {
+        "x": "10",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "compression-difference"
+    },
+    {
+      "id": "C04-T05-E029",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Donner les longueurs des mots codes (x,y,z) pour x→10, y→11, z→0.",
+        "en": "Give codeword lengths (x,y,z) for x→10, y→11, z→0."
+      },
+      "solution": {
+        "fr": "Réponse : 2,2,1. On compte les bits : (2,2,1).",
+        "en": "Answer: 2,2,1. Count the bits: (2,2,1)."
+      },
+      "answer": "2,2,1",
+      "probabilityCounts": {
+        "x": 5,
+        "y": 4,
+        "z": 3
+      },
+      "codebook": {
+        "x": "10",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "lengths"
+    },
+    {
+      "id": "C04-T05-E030",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Le code x→10, y→11, z→0 est-il préfixe ? Ce fait permet-il le décodage unique ?",
+        "en": "Is x→10, y→11, z→0 prefix-free? Does this imply unique decoding?"
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : aucun mot code n'est le début d'un autre ; la propriété de préfixe implique le décodage unique.",
+        "en": "Answer: yes. Yes: no codeword starts another; prefix-free codes are uniquely decodable."
+      },
+      "answer": "yes",
+      "probabilityCounts": {
+        "x": 5,
+        "y": 4,
+        "z": 3
+      },
+      "codebook": {
+        "x": "10",
+        "y": "11",
+        "z": "0"
+      },
+      "theme": "prefix-validity"
+    },
+    {
+      "id": "C04-T05-E031",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer L(c) pour x→00, y→01, z→1 et p(x)=2/5, p(y)=1/3, p(z)=4/15.",
+        "en": "Calculate L(c) for x→00, y→01, z→1 and p(x)=2/5, p(y)=1/3, p(z)=4/15."
+      },
+      "solution": {
+        "fr": "Réponse : 26/15. L(c)=(12+10+4)/15=26/15.",
+        "en": "Answer: 26/15. L(c)=(12+10+4)/15=26/15."
+      },
+      "answer": "26/15",
+      "probabilityCounts": {
+        "x": 6,
+        "y": 5,
+        "z": 4
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "weighted-average"
+    },
+    {
+      "id": "C04-T05-E032",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Sur un message contenant exactement 6 x, 5 y et 4 z, combien de bits produit x→00, y→01, z→1 ?",
+        "en": "For exactly 6 x, 5 y and 4 z, how many bits does x→00, y→01, z→1 produce?"
+      },
+      "solution": {
+        "fr": "Réponse : 26. 6×2+5×2+4×1=26.",
+        "en": "Answer: 26. 6×2+5×2+4×1=26."
+      },
+      "answer": "26",
+      "probabilityCounts": {
+        "x": 6,
+        "y": 5,
+        "z": 4
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "encoded-total"
+    },
+    {
+      "id": "C04-T05-E033",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=2/5, p(y)=1/3, p(z)=4/15 et x→00, y→01, z→1, quelle est la contribution de x à L(c) ?",
+        "en": "With p(x)=2/5, p(y)=1/3, p(z)=4/15 and x→00, y→01, z→1, what does x contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 4/5. p(x)|c(x)|=4/5.",
+        "en": "Answer: 4/5. p(x)|c(x)|=4/5."
+      },
+      "answer": "4/5",
+      "probabilityCounts": {
+        "x": 6,
+        "y": 5,
+        "z": 4
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "contribution-x"
+    },
+    {
+      "id": "C04-T05-E034",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=2/5, p(y)=1/3, p(z)=4/15 et x→00, y→01, z→1, quelle est la contribution de y à L(c) ?",
+        "en": "With p(x)=2/5, p(y)=1/3, p(z)=4/15 and x→00, y→01, z→1, what does y contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 2/3. p(y)|c(y)|=2/3.",
+        "en": "Answer: 2/3. p(y)|c(y)|=2/3."
+      },
+      "answer": "2/3",
+      "probabilityCounts": {
+        "x": 6,
+        "y": 5,
+        "z": 4
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "contribution-y"
+    },
+    {
+      "id": "C04-T05-E035",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec p(x)=2/5, p(y)=1/3, p(z)=4/15 et x→00, y→01, z→1, quelle est la contribution de z à L(c) ?",
+        "en": "With p(x)=2/5, p(y)=1/3, p(z)=4/15 and x→00, y→01, z→1, what does z contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 4/15. p(z)|c(z)|=4/15.",
+        "en": "Answer: 4/15. p(z)|c(z)|=4/15."
+      },
+      "answer": "4/15",
+      "probabilityCounts": {
+        "x": 6,
+        "y": 5,
+        "z": 4
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "contribution-z"
+    },
+    {
+      "id": "C04-T05-E036",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Quelle est la longueur de c(xxyz) pour x→00, y→01, z→1 ?",
+        "en": "What is the length of c(xxyz) using x→00, y→01, z→1?"
+      },
+      "solution": {
+        "fr": "Réponse : 7. 2×2+2+1=7 bits.",
+        "en": "Answer: 7. 2×2+2+1=7 bits."
+      },
+      "answer": "7",
+      "probabilityCounts": {
+        "x": 6,
+        "y": 5,
+        "z": 4
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "message-length"
+    },
+    {
+      "id": "C04-T05-E037",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour p(x)=2/5, p(y)=1/3, p(z)=4/15, quelle serait la longueur moyenne d'un code à trois mots de 2 bits chacun ?",
+        "en": "For p(x)=2/5, p(y)=1/3, p(z)=4/15, what is the average length if all three codewords have 2 bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. La somme des probabilités est 1, donc L=2×1=2.",
+        "en": "Answer: 2. Probabilities sum to 1, so L=2×1=2."
+      },
+      "answer": "2",
+      "probabilityCounts": {
+        "x": 6,
+        "y": 5,
+        "z": 4
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "fixed-length-average"
+    },
+    {
+      "id": "C04-T05-E038",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Comparer le code x→00, y→01, z→1 (L(c)=26/15) à un code à longueur fixe de 2 bits : donner 2-L(c), éventuellement négatif.",
+        "en": "Compare x→00, y→01, z→1 (L(c)=26/15) to a fixed 2-bit code: find 2-L(c), possibly negative."
+      },
+      "solution": {
+        "fr": "Réponse : 4/15. 2-L(c)=(2×15-26)/15=4/15.",
+        "en": "Answer: 4/15. 2-L(c)=(2×15-26)/15=4/15."
+      },
+      "answer": "4/15",
+      "probabilityCounts": {
+        "x": 6,
+        "y": 5,
+        "z": 4
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "compression-difference"
+    },
+    {
+      "id": "C04-T05-E039",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Donner les longueurs des mots codes (x,y,z) pour x→00, y→01, z→1.",
+        "en": "Give codeword lengths (x,y,z) for x→00, y→01, z→1."
+      },
+      "solution": {
+        "fr": "Réponse : 2,2,1. On compte les bits : (2,2,1).",
+        "en": "Answer: 2,2,1. Count the bits: (2,2,1)."
+      },
+      "answer": "2,2,1",
+      "probabilityCounts": {
+        "x": 6,
+        "y": 5,
+        "z": 4
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "lengths"
+    },
+    {
+      "id": "C04-T05-E040",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Le code x→00, y→01, z→1 est-il préfixe ? Ce fait permet-il le décodage unique ?",
+        "en": "Is x→00, y→01, z→1 prefix-free? Does this imply unique decoding?"
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : aucun mot code n'est le début d'un autre ; la propriété de préfixe implique le décodage unique.",
+        "en": "Answer: yes. Yes: no codeword starts another; prefix-free codes are uniquely decodable."
+      },
+      "answer": "yes",
+      "probabilityCounts": {
+        "x": 6,
+        "y": 5,
+        "z": 4
+      },
+      "codebook": {
+        "x": "00",
+        "y": "01",
+        "z": "1"
+      },
+      "theme": "prefix-validity"
+    },
+    {
+      "id": "C04-T05-E041",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer L(c) pour x→1, y→00, z→01 et p(x)=7/18, p(y)=1/3, p(z)=5/18.",
+        "en": "Calculate L(c) for x→1, y→00, z→01 and p(x)=7/18, p(y)=1/3, p(z)=5/18."
+      },
+      "solution": {
+        "fr": "Réponse : 29/18. L(c)=(7+12+10)/18=29/18.",
+        "en": "Answer: 29/18. L(c)=(7+12+10)/18=29/18."
+      },
+      "answer": "29/18",
+      "probabilityCounts": {
+        "x": 7,
+        "y": 6,
+        "z": 5
+      },
+      "codebook": {
+        "x": "1",
+        "y": "00",
+        "z": "01"
+      },
+      "theme": "weighted-average"
+    },
+    {
+      "id": "C04-T05-E042",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Sur un message contenant exactement 7 x, 6 y et 5 z, combien de bits produit x→1, y→00, z→01 ?",
+        "en": "For exactly 7 x, 6 y and 5 z, how many bits does x→1, y→00, z→01 produce?"
+      },
+      "solution": {
+        "fr": "Réponse : 29. 7×1+6×2+5×2=29.",
+        "en": "Answer: 29. 7×1+6×2+5×2=29."
+      },
+      "answer": "29",
+      "probabilityCounts": {
+        "x": 7,
+        "y": 6,
+        "z": 5
+      },
+      "codebook": {
+        "x": "1",
+        "y": "00",
+        "z": "01"
+      },
+      "theme": "encoded-total"
+    },
+    {
+      "id": "C04-T05-E043",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=7/18, p(y)=1/3, p(z)=5/18 et x→1, y→00, z→01, quelle est la contribution de x à L(c) ?",
+        "en": "With p(x)=7/18, p(y)=1/3, p(z)=5/18 and x→1, y→00, z→01, what does x contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 7/18. p(x)|c(x)|=7/18.",
+        "en": "Answer: 7/18. p(x)|c(x)|=7/18."
+      },
+      "answer": "7/18",
+      "probabilityCounts": {
+        "x": 7,
+        "y": 6,
+        "z": 5
+      },
+      "codebook": {
+        "x": "1",
+        "y": "00",
+        "z": "01"
+      },
+      "theme": "contribution-x"
+    },
+    {
+      "id": "C04-T05-E044",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=7/18, p(y)=1/3, p(z)=5/18 et x→1, y→00, z→01, quelle est la contribution de y à L(c) ?",
+        "en": "With p(x)=7/18, p(y)=1/3, p(z)=5/18 and x→1, y→00, z→01, what does y contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 2/3. p(y)|c(y)|=2/3.",
+        "en": "Answer: 2/3. p(y)|c(y)|=2/3."
+      },
+      "answer": "2/3",
+      "probabilityCounts": {
+        "x": 7,
+        "y": 6,
+        "z": 5
+      },
+      "codebook": {
+        "x": "1",
+        "y": "00",
+        "z": "01"
+      },
+      "theme": "contribution-y"
+    },
+    {
+      "id": "C04-T05-E045",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec p(x)=7/18, p(y)=1/3, p(z)=5/18 et x→1, y→00, z→01, quelle est la contribution de z à L(c) ?",
+        "en": "With p(x)=7/18, p(y)=1/3, p(z)=5/18 and x→1, y→00, z→01, what does z contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 5/9. p(z)|c(z)|=5/9.",
+        "en": "Answer: 5/9. p(z)|c(z)|=5/9."
+      },
+      "answer": "5/9",
+      "probabilityCounts": {
+        "x": 7,
+        "y": 6,
+        "z": 5
+      },
+      "codebook": {
+        "x": "1",
+        "y": "00",
+        "z": "01"
+      },
+      "theme": "contribution-z"
+    },
+    {
+      "id": "C04-T05-E046",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Quelle est la longueur de c(xxyz) pour x→1, y→00, z→01 ?",
+        "en": "What is the length of c(xxyz) using x→1, y→00, z→01?"
+      },
+      "solution": {
+        "fr": "Réponse : 6. 2×1+2+2=6 bits.",
+        "en": "Answer: 6. 2×1+2+2=6 bits."
+      },
+      "answer": "6",
+      "probabilityCounts": {
+        "x": 7,
+        "y": 6,
+        "z": 5
+      },
+      "codebook": {
+        "x": "1",
+        "y": "00",
+        "z": "01"
+      },
+      "theme": "message-length"
+    },
+    {
+      "id": "C04-T05-E047",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour p(x)=7/18, p(y)=1/3, p(z)=5/18, quelle serait la longueur moyenne d'un code à trois mots de 2 bits chacun ?",
+        "en": "For p(x)=7/18, p(y)=1/3, p(z)=5/18, what is the average length if all three codewords have 2 bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. La somme des probabilités est 1, donc L=2×1=2.",
+        "en": "Answer: 2. Probabilities sum to 1, so L=2×1=2."
+      },
+      "answer": "2",
+      "probabilityCounts": {
+        "x": 7,
+        "y": 6,
+        "z": 5
+      },
+      "codebook": {
+        "x": "1",
+        "y": "00",
+        "z": "01"
+      },
+      "theme": "fixed-length-average"
+    },
+    {
+      "id": "C04-T05-E048",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Comparer le code x→1, y→00, z→01 (L(c)=29/18) à un code à longueur fixe de 2 bits : donner 2-L(c), éventuellement négatif.",
+        "en": "Compare x→1, y→00, z→01 (L(c)=29/18) to a fixed 2-bit code: find 2-L(c), possibly negative."
+      },
+      "solution": {
+        "fr": "Réponse : 7/18. 2-L(c)=(2×18-29)/18=7/18.",
+        "en": "Answer: 7/18. 2-L(c)=(2×18-29)/18=7/18."
+      },
+      "answer": "7/18",
+      "probabilityCounts": {
+        "x": 7,
+        "y": 6,
+        "z": 5
+      },
+      "codebook": {
+        "x": "1",
+        "y": "00",
+        "z": "01"
+      },
+      "theme": "compression-difference"
+    },
+    {
+      "id": "C04-T05-E049",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Donner les longueurs des mots codes (x,y,z) pour x→1, y→00, z→01.",
+        "en": "Give codeword lengths (x,y,z) for x→1, y→00, z→01."
+      },
+      "solution": {
+        "fr": "Réponse : 1,2,2. On compte les bits : (1,2,2).",
+        "en": "Answer: 1,2,2. Count the bits: (1,2,2)."
+      },
+      "answer": "1,2,2",
+      "probabilityCounts": {
+        "x": 7,
+        "y": 6,
+        "z": 5
+      },
+      "codebook": {
+        "x": "1",
+        "y": "00",
+        "z": "01"
+      },
+      "theme": "lengths"
+    },
+    {
+      "id": "C04-T05-E050",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Le code x→1, y→00, z→01 est-il préfixe ? Ce fait permet-il le décodage unique ?",
+        "en": "Is x→1, y→00, z→01 prefix-free? Does this imply unique decoding?"
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : aucun mot code n'est le début d'un autre ; la propriété de préfixe implique le décodage unique.",
+        "en": "Answer: yes. Yes: no codeword starts another; prefix-free codes are uniquely decodable."
+      },
+      "answer": "yes",
+      "probabilityCounts": {
+        "x": 7,
+        "y": 6,
+        "z": 5
+      },
+      "codebook": {
+        "x": "1",
+        "y": "00",
+        "z": "01"
+      },
+      "theme": "prefix-validity"
+    },
+    {
+      "id": "C04-T05-E051",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer L(c) pour x→00, y→1, z→01 et p(x)=8/21, p(y)=1/3, p(z)=2/7.",
+        "en": "Calculate L(c) for x→00, y→1, z→01 and p(x)=8/21, p(y)=1/3, p(z)=2/7."
+      },
+      "solution": {
+        "fr": "Réponse : 5/3. L(c)=(16+7+12)/21=5/3.",
+        "en": "Answer: 5/3. L(c)=(16+7+12)/21=5/3."
+      },
+      "answer": "5/3",
+      "probabilityCounts": {
+        "x": 8,
+        "y": 7,
+        "z": 6
+      },
+      "codebook": {
+        "x": "00",
+        "y": "1",
+        "z": "01"
+      },
+      "theme": "weighted-average"
+    },
+    {
+      "id": "C04-T05-E052",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Sur un message contenant exactement 8 x, 7 y et 6 z, combien de bits produit x→00, y→1, z→01 ?",
+        "en": "For exactly 8 x, 7 y and 6 z, how many bits does x→00, y→1, z→01 produce?"
+      },
+      "solution": {
+        "fr": "Réponse : 35. 8×2+7×1+6×2=35.",
+        "en": "Answer: 35. 8×2+7×1+6×2=35."
+      },
+      "answer": "35",
+      "probabilityCounts": {
+        "x": 8,
+        "y": 7,
+        "z": 6
+      },
+      "codebook": {
+        "x": "00",
+        "y": "1",
+        "z": "01"
+      },
+      "theme": "encoded-total"
+    },
+    {
+      "id": "C04-T05-E053",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=8/21, p(y)=1/3, p(z)=2/7 et x→00, y→1, z→01, quelle est la contribution de x à L(c) ?",
+        "en": "With p(x)=8/21, p(y)=1/3, p(z)=2/7 and x→00, y→1, z→01, what does x contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 16/21. p(x)|c(x)|=16/21.",
+        "en": "Answer: 16/21. p(x)|c(x)|=16/21."
+      },
+      "answer": "16/21",
+      "probabilityCounts": {
+        "x": 8,
+        "y": 7,
+        "z": 6
+      },
+      "codebook": {
+        "x": "00",
+        "y": "1",
+        "z": "01"
+      },
+      "theme": "contribution-x"
+    },
+    {
+      "id": "C04-T05-E054",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=8/21, p(y)=1/3, p(z)=2/7 et x→00, y→1, z→01, quelle est la contribution de y à L(c) ?",
+        "en": "With p(x)=8/21, p(y)=1/3, p(z)=2/7 and x→00, y→1, z→01, what does y contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/3. p(y)|c(y)|=1/3.",
+        "en": "Answer: 1/3. p(y)|c(y)|=1/3."
+      },
+      "answer": "1/3",
+      "probabilityCounts": {
+        "x": 8,
+        "y": 7,
+        "z": 6
+      },
+      "codebook": {
+        "x": "00",
+        "y": "1",
+        "z": "01"
+      },
+      "theme": "contribution-y"
+    },
+    {
+      "id": "C04-T05-E055",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec p(x)=8/21, p(y)=1/3, p(z)=2/7 et x→00, y→1, z→01, quelle est la contribution de z à L(c) ?",
+        "en": "With p(x)=8/21, p(y)=1/3, p(z)=2/7 and x→00, y→1, z→01, what does z contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 4/7. p(z)|c(z)|=4/7.",
+        "en": "Answer: 4/7. p(z)|c(z)|=4/7."
+      },
+      "answer": "4/7",
+      "probabilityCounts": {
+        "x": 8,
+        "y": 7,
+        "z": 6
+      },
+      "codebook": {
+        "x": "00",
+        "y": "1",
+        "z": "01"
+      },
+      "theme": "contribution-z"
+    },
+    {
+      "id": "C04-T05-E056",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Quelle est la longueur de c(xxyz) pour x→00, y→1, z→01 ?",
+        "en": "What is the length of c(xxyz) using x→00, y→1, z→01?"
+      },
+      "solution": {
+        "fr": "Réponse : 7. 2×2+1+2=7 bits.",
+        "en": "Answer: 7. 2×2+1+2=7 bits."
+      },
+      "answer": "7",
+      "probabilityCounts": {
+        "x": 8,
+        "y": 7,
+        "z": 6
+      },
+      "codebook": {
+        "x": "00",
+        "y": "1",
+        "z": "01"
+      },
+      "theme": "message-length"
+    },
+    {
+      "id": "C04-T05-E057",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour p(x)=8/21, p(y)=1/3, p(z)=2/7, quelle serait la longueur moyenne d'un code à trois mots de 2 bits chacun ?",
+        "en": "For p(x)=8/21, p(y)=1/3, p(z)=2/7, what is the average length if all three codewords have 2 bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. La somme des probabilités est 1, donc L=2×1=2.",
+        "en": "Answer: 2. Probabilities sum to 1, so L=2×1=2."
+      },
+      "answer": "2",
+      "probabilityCounts": {
+        "x": 8,
+        "y": 7,
+        "z": 6
+      },
+      "codebook": {
+        "x": "00",
+        "y": "1",
+        "z": "01"
+      },
+      "theme": "fixed-length-average"
+    },
+    {
+      "id": "C04-T05-E058",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Comparer le code x→00, y→1, z→01 (L(c)=5/3) à un code à longueur fixe de 2 bits : donner 2-L(c), éventuellement négatif.",
+        "en": "Compare x→00, y→1, z→01 (L(c)=5/3) to a fixed 2-bit code: find 2-L(c), possibly negative."
+      },
+      "solution": {
+        "fr": "Réponse : 1/3. 2-L(c)=(2×21-35)/21=1/3.",
+        "en": "Answer: 1/3. 2-L(c)=(2×21-35)/21=1/3."
+      },
+      "answer": "1/3",
+      "probabilityCounts": {
+        "x": 8,
+        "y": 7,
+        "z": 6
+      },
+      "codebook": {
+        "x": "00",
+        "y": "1",
+        "z": "01"
+      },
+      "theme": "compression-difference"
+    },
+    {
+      "id": "C04-T05-E059",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Donner les longueurs des mots codes (x,y,z) pour x→00, y→1, z→01.",
+        "en": "Give codeword lengths (x,y,z) for x→00, y→1, z→01."
+      },
+      "solution": {
+        "fr": "Réponse : 2,1,2. On compte les bits : (2,1,2).",
+        "en": "Answer: 2,1,2. Count the bits: (2,1,2)."
+      },
+      "answer": "2,1,2",
+      "probabilityCounts": {
+        "x": 8,
+        "y": 7,
+        "z": 6
+      },
+      "codebook": {
+        "x": "00",
+        "y": "1",
+        "z": "01"
+      },
+      "theme": "lengths"
+    },
+    {
+      "id": "C04-T05-E060",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Le code x→00, y→1, z→01 est-il préfixe ? Ce fait permet-il le décodage unique ?",
+        "en": "Is x→00, y→1, z→01 prefix-free? Does this imply unique decoding?"
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : aucun mot code n'est le début d'un autre ; la propriété de préfixe implique le décodage unique.",
+        "en": "Answer: yes. Yes: no codeword starts another; prefix-free codes are uniquely decodable."
+      },
+      "answer": "yes",
+      "probabilityCounts": {
+        "x": 8,
+        "y": 7,
+        "z": 6
+      },
+      "codebook": {
+        "x": "00",
+        "y": "1",
+        "z": "01"
+      },
+      "theme": "prefix-validity"
+    },
+    {
+      "id": "C04-T05-E061",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer L(c) pour x→0, y→100, z→101 et p(x)=3/8, p(y)=1/3, p(z)=7/24.",
+        "en": "Calculate L(c) for x→0, y→100, z→101 and p(x)=3/8, p(y)=1/3, p(z)=7/24."
+      },
+      "solution": {
+        "fr": "Réponse : 9/4. L(c)=(9+24+21)/24=9/4.",
+        "en": "Answer: 9/4. L(c)=(9+24+21)/24=9/4."
+      },
+      "answer": "9/4",
+      "probabilityCounts": {
+        "x": 9,
+        "y": 8,
+        "z": 7
+      },
+      "codebook": {
+        "x": "0",
+        "y": "100",
+        "z": "101"
+      },
+      "theme": "weighted-average"
+    },
+    {
+      "id": "C04-T05-E062",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Sur un message contenant exactement 9 x, 8 y et 7 z, combien de bits produit x→0, y→100, z→101 ?",
+        "en": "For exactly 9 x, 8 y and 7 z, how many bits does x→0, y→100, z→101 produce?"
+      },
+      "solution": {
+        "fr": "Réponse : 54. 9×1+8×3+7×3=54.",
+        "en": "Answer: 54. 9×1+8×3+7×3=54."
+      },
+      "answer": "54",
+      "probabilityCounts": {
+        "x": 9,
+        "y": 8,
+        "z": 7
+      },
+      "codebook": {
+        "x": "0",
+        "y": "100",
+        "z": "101"
+      },
+      "theme": "encoded-total"
+    },
+    {
+      "id": "C04-T05-E063",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=3/8, p(y)=1/3, p(z)=7/24 et x→0, y→100, z→101, quelle est la contribution de x à L(c) ?",
+        "en": "With p(x)=3/8, p(y)=1/3, p(z)=7/24 and x→0, y→100, z→101, what does x contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 3/8. p(x)|c(x)|=3/8.",
+        "en": "Answer: 3/8. p(x)|c(x)|=3/8."
+      },
+      "answer": "3/8",
+      "probabilityCounts": {
+        "x": 9,
+        "y": 8,
+        "z": 7
+      },
+      "codebook": {
+        "x": "0",
+        "y": "100",
+        "z": "101"
+      },
+      "theme": "contribution-x"
+    },
+    {
+      "id": "C04-T05-E064",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=3/8, p(y)=1/3, p(z)=7/24 et x→0, y→100, z→101, quelle est la contribution de y à L(c) ?",
+        "en": "With p(x)=3/8, p(y)=1/3, p(z)=7/24 and x→0, y→100, z→101, what does y contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 1. p(y)|c(y)|=1.",
+        "en": "Answer: 1. p(y)|c(y)|=1."
+      },
+      "answer": "1",
+      "probabilityCounts": {
+        "x": 9,
+        "y": 8,
+        "z": 7
+      },
+      "codebook": {
+        "x": "0",
+        "y": "100",
+        "z": "101"
+      },
+      "theme": "contribution-y"
+    },
+    {
+      "id": "C04-T05-E065",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec p(x)=3/8, p(y)=1/3, p(z)=7/24 et x→0, y→100, z→101, quelle est la contribution de z à L(c) ?",
+        "en": "With p(x)=3/8, p(y)=1/3, p(z)=7/24 and x→0, y→100, z→101, what does z contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 7/8. p(z)|c(z)|=7/8.",
+        "en": "Answer: 7/8. p(z)|c(z)|=7/8."
+      },
+      "answer": "7/8",
+      "probabilityCounts": {
+        "x": 9,
+        "y": 8,
+        "z": 7
+      },
+      "codebook": {
+        "x": "0",
+        "y": "100",
+        "z": "101"
+      },
+      "theme": "contribution-z"
+    },
+    {
+      "id": "C04-T05-E066",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Quelle est la longueur de c(xxyz) pour x→0, y→100, z→101 ?",
+        "en": "What is the length of c(xxyz) using x→0, y→100, z→101?"
+      },
+      "solution": {
+        "fr": "Réponse : 8. 2×1+3+3=8 bits.",
+        "en": "Answer: 8. 2×1+3+3=8 bits."
+      },
+      "answer": "8",
+      "probabilityCounts": {
+        "x": 9,
+        "y": 8,
+        "z": 7
+      },
+      "codebook": {
+        "x": "0",
+        "y": "100",
+        "z": "101"
+      },
+      "theme": "message-length"
+    },
+    {
+      "id": "C04-T05-E067",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour p(x)=3/8, p(y)=1/3, p(z)=7/24, quelle serait la longueur moyenne d'un code à trois mots de 2 bits chacun ?",
+        "en": "For p(x)=3/8, p(y)=1/3, p(z)=7/24, what is the average length if all three codewords have 2 bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. La somme des probabilités est 1, donc L=2×1=2.",
+        "en": "Answer: 2. Probabilities sum to 1, so L=2×1=2."
+      },
+      "answer": "2",
+      "probabilityCounts": {
+        "x": 9,
+        "y": 8,
+        "z": 7
+      },
+      "codebook": {
+        "x": "0",
+        "y": "100",
+        "z": "101"
+      },
+      "theme": "fixed-length-average"
+    },
+    {
+      "id": "C04-T05-E068",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Comparer le code x→0, y→100, z→101 (L(c)=9/4) à un code à longueur fixe de 2 bits : donner 2-L(c), éventuellement négatif.",
+        "en": "Compare x→0, y→100, z→101 (L(c)=9/4) to a fixed 2-bit code: find 2-L(c), possibly negative."
+      },
+      "solution": {
+        "fr": "Réponse : -1/4. 2-L(c)=(2×24-54)/24=-1/4.",
+        "en": "Answer: -1/4. 2-L(c)=(2×24-54)/24=-1/4."
+      },
+      "answer": "-1/4",
+      "probabilityCounts": {
+        "x": 9,
+        "y": 8,
+        "z": 7
+      },
+      "codebook": {
+        "x": "0",
+        "y": "100",
+        "z": "101"
+      },
+      "theme": "compression-difference"
+    },
+    {
+      "id": "C04-T05-E069",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Donner les longueurs des mots codes (x,y,z) pour x→0, y→100, z→101.",
+        "en": "Give codeword lengths (x,y,z) for x→0, y→100, z→101."
+      },
+      "solution": {
+        "fr": "Réponse : 1,3,3. On compte les bits : (1,3,3).",
+        "en": "Answer: 1,3,3. Count the bits: (1,3,3)."
+      },
+      "answer": "1,3,3",
+      "probabilityCounts": {
+        "x": 9,
+        "y": 8,
+        "z": 7
+      },
+      "codebook": {
+        "x": "0",
+        "y": "100",
+        "z": "101"
+      },
+      "theme": "lengths"
+    },
+    {
+      "id": "C04-T05-E070",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Le code x→0, y→100, z→101 est-il préfixe ? Ce fait permet-il le décodage unique ?",
+        "en": "Is x→0, y→100, z→101 prefix-free? Does this imply unique decoding?"
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : aucun mot code n'est le début d'un autre ; la propriété de préfixe implique le décodage unique.",
+        "en": "Answer: yes. Yes: no codeword starts another; prefix-free codes are uniquely decodable."
+      },
+      "answer": "yes",
+      "probabilityCounts": {
+        "x": 9,
+        "y": 8,
+        "z": 7
+      },
+      "codebook": {
+        "x": "0",
+        "y": "100",
+        "z": "101"
+      },
+      "theme": "prefix-validity"
+    },
+    {
+      "id": "C04-T05-E071",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer L(c) pour x→100, y→0, z→101 et p(x)=10/27, p(y)=1/3, p(z)=8/27.",
+        "en": "Calculate L(c) for x→100, y→0, z→101 and p(x)=10/27, p(y)=1/3, p(z)=8/27."
+      },
+      "solution": {
+        "fr": "Réponse : 7/3. L(c)=(30+9+24)/27=7/3.",
+        "en": "Answer: 7/3. L(c)=(30+9+24)/27=7/3."
+      },
+      "answer": "7/3",
+      "probabilityCounts": {
+        "x": 10,
+        "y": 9,
+        "z": 8
+      },
+      "codebook": {
+        "x": "100",
+        "y": "0",
+        "z": "101"
+      },
+      "theme": "weighted-average"
+    },
+    {
+      "id": "C04-T05-E072",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Sur un message contenant exactement 10 x, 9 y et 8 z, combien de bits produit x→100, y→0, z→101 ?",
+        "en": "For exactly 10 x, 9 y and 8 z, how many bits does x→100, y→0, z→101 produce?"
+      },
+      "solution": {
+        "fr": "Réponse : 63. 10×3+9×1+8×3=63.",
+        "en": "Answer: 63. 10×3+9×1+8×3=63."
+      },
+      "answer": "63",
+      "probabilityCounts": {
+        "x": 10,
+        "y": 9,
+        "z": 8
+      },
+      "codebook": {
+        "x": "100",
+        "y": "0",
+        "z": "101"
+      },
+      "theme": "encoded-total"
+    },
+    {
+      "id": "C04-T05-E073",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=10/27, p(y)=1/3, p(z)=8/27 et x→100, y→0, z→101, quelle est la contribution de x à L(c) ?",
+        "en": "With p(x)=10/27, p(y)=1/3, p(z)=8/27 and x→100, y→0, z→101, what does x contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 10/9. p(x)|c(x)|=10/9.",
+        "en": "Answer: 10/9. p(x)|c(x)|=10/9."
+      },
+      "answer": "10/9",
+      "probabilityCounts": {
+        "x": 10,
+        "y": 9,
+        "z": 8
+      },
+      "codebook": {
+        "x": "100",
+        "y": "0",
+        "z": "101"
+      },
+      "theme": "contribution-x"
+    },
+    {
+      "id": "C04-T05-E074",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=10/27, p(y)=1/3, p(z)=8/27 et x→100, y→0, z→101, quelle est la contribution de y à L(c) ?",
+        "en": "With p(x)=10/27, p(y)=1/3, p(z)=8/27 and x→100, y→0, z→101, what does y contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 1/3. p(y)|c(y)|=1/3.",
+        "en": "Answer: 1/3. p(y)|c(y)|=1/3."
+      },
+      "answer": "1/3",
+      "probabilityCounts": {
+        "x": 10,
+        "y": 9,
+        "z": 8
+      },
+      "codebook": {
+        "x": "100",
+        "y": "0",
+        "z": "101"
+      },
+      "theme": "contribution-y"
+    },
+    {
+      "id": "C04-T05-E075",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec p(x)=10/27, p(y)=1/3, p(z)=8/27 et x→100, y→0, z→101, quelle est la contribution de z à L(c) ?",
+        "en": "With p(x)=10/27, p(y)=1/3, p(z)=8/27 and x→100, y→0, z→101, what does z contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 8/9. p(z)|c(z)|=8/9.",
+        "en": "Answer: 8/9. p(z)|c(z)|=8/9."
+      },
+      "answer": "8/9",
+      "probabilityCounts": {
+        "x": 10,
+        "y": 9,
+        "z": 8
+      },
+      "codebook": {
+        "x": "100",
+        "y": "0",
+        "z": "101"
+      },
+      "theme": "contribution-z"
+    },
+    {
+      "id": "C04-T05-E076",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Quelle est la longueur de c(xxyz) pour x→100, y→0, z→101 ?",
+        "en": "What is the length of c(xxyz) using x→100, y→0, z→101?"
+      },
+      "solution": {
+        "fr": "Réponse : 10. 2×3+1+3=10 bits.",
+        "en": "Answer: 10. 2×3+1+3=10 bits."
+      },
+      "answer": "10",
+      "probabilityCounts": {
+        "x": 10,
+        "y": 9,
+        "z": 8
+      },
+      "codebook": {
+        "x": "100",
+        "y": "0",
+        "z": "101"
+      },
+      "theme": "message-length"
+    },
+    {
+      "id": "C04-T05-E077",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour p(x)=10/27, p(y)=1/3, p(z)=8/27, quelle serait la longueur moyenne d'un code à trois mots de 2 bits chacun ?",
+        "en": "For p(x)=10/27, p(y)=1/3, p(z)=8/27, what is the average length if all three codewords have 2 bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. La somme des probabilités est 1, donc L=2×1=2.",
+        "en": "Answer: 2. Probabilities sum to 1, so L=2×1=2."
+      },
+      "answer": "2",
+      "probabilityCounts": {
+        "x": 10,
+        "y": 9,
+        "z": 8
+      },
+      "codebook": {
+        "x": "100",
+        "y": "0",
+        "z": "101"
+      },
+      "theme": "fixed-length-average"
+    },
+    {
+      "id": "C04-T05-E078",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Comparer le code x→100, y→0, z→101 (L(c)=7/3) à un code à longueur fixe de 2 bits : donner 2-L(c), éventuellement négatif.",
+        "en": "Compare x→100, y→0, z→101 (L(c)=7/3) to a fixed 2-bit code: find 2-L(c), possibly negative."
+      },
+      "solution": {
+        "fr": "Réponse : -1/3. 2-L(c)=(2×27-63)/27=-1/3.",
+        "en": "Answer: -1/3. 2-L(c)=(2×27-63)/27=-1/3."
+      },
+      "answer": "-1/3",
+      "probabilityCounts": {
+        "x": 10,
+        "y": 9,
+        "z": 8
+      },
+      "codebook": {
+        "x": "100",
+        "y": "0",
+        "z": "101"
+      },
+      "theme": "compression-difference"
+    },
+    {
+      "id": "C04-T05-E079",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Donner les longueurs des mots codes (x,y,z) pour x→100, y→0, z→101.",
+        "en": "Give codeword lengths (x,y,z) for x→100, y→0, z→101."
+      },
+      "solution": {
+        "fr": "Réponse : 3,1,3. On compte les bits : (3,1,3).",
+        "en": "Answer: 3,1,3. Count the bits: (3,1,3)."
+      },
+      "answer": "3,1,3",
+      "probabilityCounts": {
+        "x": 10,
+        "y": 9,
+        "z": 8
+      },
+      "codebook": {
+        "x": "100",
+        "y": "0",
+        "z": "101"
+      },
+      "theme": "lengths"
+    },
+    {
+      "id": "C04-T05-E080",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Le code x→100, y→0, z→101 est-il préfixe ? Ce fait permet-il le décodage unique ?",
+        "en": "Is x→100, y→0, z→101 prefix-free? Does this imply unique decoding?"
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : aucun mot code n'est le début d'un autre ; la propriété de préfixe implique le décodage unique.",
+        "en": "Answer: yes. Yes: no codeword starts another; prefix-free codes are uniquely decodable."
+      },
+      "answer": "yes",
+      "probabilityCounts": {
+        "x": 10,
+        "y": 9,
+        "z": 8
+      },
+      "codebook": {
+        "x": "100",
+        "y": "0",
+        "z": "101"
+      },
+      "theme": "prefix-validity"
+    },
+    {
+      "id": "C04-T05-E081",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer L(c) pour x→00, y→010, z→011 et p(x)=11/30, p(y)=1/3, p(z)=3/10.",
+        "en": "Calculate L(c) for x→00, y→010, z→011 and p(x)=11/30, p(y)=1/3, p(z)=3/10."
+      },
+      "solution": {
+        "fr": "Réponse : 79/30. L(c)=(22+30+27)/30=79/30.",
+        "en": "Answer: 79/30. L(c)=(22+30+27)/30=79/30."
+      },
+      "answer": "79/30",
+      "probabilityCounts": {
+        "x": 11,
+        "y": 10,
+        "z": 9
+      },
+      "codebook": {
+        "x": "00",
+        "y": "010",
+        "z": "011"
+      },
+      "theme": "weighted-average"
+    },
+    {
+      "id": "C04-T05-E082",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Sur un message contenant exactement 11 x, 10 y et 9 z, combien de bits produit x→00, y→010, z→011 ?",
+        "en": "For exactly 11 x, 10 y and 9 z, how many bits does x→00, y→010, z→011 produce?"
+      },
+      "solution": {
+        "fr": "Réponse : 79. 11×2+10×3+9×3=79.",
+        "en": "Answer: 79. 11×2+10×3+9×3=79."
+      },
+      "answer": "79",
+      "probabilityCounts": {
+        "x": 11,
+        "y": 10,
+        "z": 9
+      },
+      "codebook": {
+        "x": "00",
+        "y": "010",
+        "z": "011"
+      },
+      "theme": "encoded-total"
+    },
+    {
+      "id": "C04-T05-E083",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=11/30, p(y)=1/3, p(z)=3/10 et x→00, y→010, z→011, quelle est la contribution de x à L(c) ?",
+        "en": "With p(x)=11/30, p(y)=1/3, p(z)=3/10 and x→00, y→010, z→011, what does x contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 11/15. p(x)|c(x)|=11/15.",
+        "en": "Answer: 11/15. p(x)|c(x)|=11/15."
+      },
+      "answer": "11/15",
+      "probabilityCounts": {
+        "x": 11,
+        "y": 10,
+        "z": 9
+      },
+      "codebook": {
+        "x": "00",
+        "y": "010",
+        "z": "011"
+      },
+      "theme": "contribution-x"
+    },
+    {
+      "id": "C04-T05-E084",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=11/30, p(y)=1/3, p(z)=3/10 et x→00, y→010, z→011, quelle est la contribution de y à L(c) ?",
+        "en": "With p(x)=11/30, p(y)=1/3, p(z)=3/10 and x→00, y→010, z→011, what does y contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 1. p(y)|c(y)|=1.",
+        "en": "Answer: 1. p(y)|c(y)|=1."
+      },
+      "answer": "1",
+      "probabilityCounts": {
+        "x": 11,
+        "y": 10,
+        "z": 9
+      },
+      "codebook": {
+        "x": "00",
+        "y": "010",
+        "z": "011"
+      },
+      "theme": "contribution-y"
+    },
+    {
+      "id": "C04-T05-E085",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec p(x)=11/30, p(y)=1/3, p(z)=3/10 et x→00, y→010, z→011, quelle est la contribution de z à L(c) ?",
+        "en": "With p(x)=11/30, p(y)=1/3, p(z)=3/10 and x→00, y→010, z→011, what does z contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 9/10. p(z)|c(z)|=9/10.",
+        "en": "Answer: 9/10. p(z)|c(z)|=9/10."
+      },
+      "answer": "9/10",
+      "probabilityCounts": {
+        "x": 11,
+        "y": 10,
+        "z": 9
+      },
+      "codebook": {
+        "x": "00",
+        "y": "010",
+        "z": "011"
+      },
+      "theme": "contribution-z"
+    },
+    {
+      "id": "C04-T05-E086",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Quelle est la longueur de c(xxyz) pour x→00, y→010, z→011 ?",
+        "en": "What is the length of c(xxyz) using x→00, y→010, z→011?"
+      },
+      "solution": {
+        "fr": "Réponse : 10. 2×2+3+3=10 bits.",
+        "en": "Answer: 10. 2×2+3+3=10 bits."
+      },
+      "answer": "10",
+      "probabilityCounts": {
+        "x": 11,
+        "y": 10,
+        "z": 9
+      },
+      "codebook": {
+        "x": "00",
+        "y": "010",
+        "z": "011"
+      },
+      "theme": "message-length"
+    },
+    {
+      "id": "C04-T05-E087",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour p(x)=11/30, p(y)=1/3, p(z)=3/10, quelle serait la longueur moyenne d'un code à trois mots de 2 bits chacun ?",
+        "en": "For p(x)=11/30, p(y)=1/3, p(z)=3/10, what is the average length if all three codewords have 2 bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. La somme des probabilités est 1, donc L=2×1=2.",
+        "en": "Answer: 2. Probabilities sum to 1, so L=2×1=2."
+      },
+      "answer": "2",
+      "probabilityCounts": {
+        "x": 11,
+        "y": 10,
+        "z": 9
+      },
+      "codebook": {
+        "x": "00",
+        "y": "010",
+        "z": "011"
+      },
+      "theme": "fixed-length-average"
+    },
+    {
+      "id": "C04-T05-E088",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Comparer le code x→00, y→010, z→011 (L(c)=79/30) à un code à longueur fixe de 2 bits : donner 2-L(c), éventuellement négatif.",
+        "en": "Compare x→00, y→010, z→011 (L(c)=79/30) to a fixed 2-bit code: find 2-L(c), possibly negative."
+      },
+      "solution": {
+        "fr": "Réponse : -19/30. 2-L(c)=(2×30-79)/30=-19/30.",
+        "en": "Answer: -19/30. 2-L(c)=(2×30-79)/30=-19/30."
+      },
+      "answer": "-19/30",
+      "probabilityCounts": {
+        "x": 11,
+        "y": 10,
+        "z": 9
+      },
+      "codebook": {
+        "x": "00",
+        "y": "010",
+        "z": "011"
+      },
+      "theme": "compression-difference"
+    },
+    {
+      "id": "C04-T05-E089",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Donner les longueurs des mots codes (x,y,z) pour x→00, y→010, z→011.",
+        "en": "Give codeword lengths (x,y,z) for x→00, y→010, z→011."
+      },
+      "solution": {
+        "fr": "Réponse : 2,3,3. On compte les bits : (2,3,3).",
+        "en": "Answer: 2,3,3. Count the bits: (2,3,3)."
+      },
+      "answer": "2,3,3",
+      "probabilityCounts": {
+        "x": 11,
+        "y": 10,
+        "z": 9
+      },
+      "codebook": {
+        "x": "00",
+        "y": "010",
+        "z": "011"
+      },
+      "theme": "lengths"
+    },
+    {
+      "id": "C04-T05-E090",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Le code x→00, y→010, z→011 est-il préfixe ? Ce fait permet-il le décodage unique ?",
+        "en": "Is x→00, y→010, z→011 prefix-free? Does this imply unique decoding?"
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : aucun mot code n'est le début d'un autre ; la propriété de préfixe implique le décodage unique.",
+        "en": "Answer: yes. Yes: no codeword starts another; prefix-free codes are uniquely decodable."
+      },
+      "answer": "yes",
+      "probabilityCounts": {
+        "x": 11,
+        "y": 10,
+        "z": 9
+      },
+      "codebook": {
+        "x": "00",
+        "y": "010",
+        "z": "011"
+      },
+      "theme": "prefix-validity"
+    },
+    {
+      "id": "C04-T05-E091",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Calculer L(c) pour x→000, y→001, z→01 et p(x)=4/11, p(y)=1/3, p(z)=10/33.",
+        "en": "Calculate L(c) for x→000, y→001, z→01 and p(x)=4/11, p(y)=1/3, p(z)=10/33."
+      },
+      "solution": {
+        "fr": "Réponse : 89/33. L(c)=(36+33+20)/33=89/33.",
+        "en": "Answer: 89/33. L(c)=(36+33+20)/33=89/33."
+      },
+      "answer": "89/33",
+      "probabilityCounts": {
+        "x": 12,
+        "y": 11,
+        "z": 10
+      },
+      "codebook": {
+        "x": "000",
+        "y": "001",
+        "z": "01"
+      },
+      "theme": "weighted-average"
+    },
+    {
+      "id": "C04-T05-E092",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Sur un message contenant exactement 12 x, 11 y et 10 z, combien de bits produit x→000, y→001, z→01 ?",
+        "en": "For exactly 12 x, 11 y and 10 z, how many bits does x→000, y→001, z→01 produce?"
+      },
+      "solution": {
+        "fr": "Réponse : 89. 12×3+11×3+10×2=89.",
+        "en": "Answer: 89. 12×3+11×3+10×2=89."
+      },
+      "answer": "89",
+      "probabilityCounts": {
+        "x": 12,
+        "y": 11,
+        "z": 10
+      },
+      "codebook": {
+        "x": "000",
+        "y": "001",
+        "z": "01"
+      },
+      "theme": "encoded-total"
+    },
+    {
+      "id": "C04-T05-E093",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=4/11, p(y)=1/3, p(z)=10/33 et x→000, y→001, z→01, quelle est la contribution de x à L(c) ?",
+        "en": "With p(x)=4/11, p(y)=1/3, p(z)=10/33 and x→000, y→001, z→01, what does x contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 12/11. p(x)|c(x)|=12/11.",
+        "en": "Answer: 12/11. p(x)|c(x)|=12/11."
+      },
+      "answer": "12/11",
+      "probabilityCounts": {
+        "x": 12,
+        "y": 11,
+        "z": 10
+      },
+      "codebook": {
+        "x": "000",
+        "y": "001",
+        "z": "01"
+      },
+      "theme": "contribution-x"
+    },
+    {
+      "id": "C04-T05-E094",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Avec p(x)=4/11, p(y)=1/3, p(z)=10/33 et x→000, y→001, z→01, quelle est la contribution de y à L(c) ?",
+        "en": "With p(x)=4/11, p(y)=1/3, p(z)=10/33 and x→000, y→001, z→01, what does y contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 1. p(y)|c(y)|=1.",
+        "en": "Answer: 1. p(y)|c(y)|=1."
+      },
+      "answer": "1",
+      "probabilityCounts": {
+        "x": 12,
+        "y": 11,
+        "z": 10
+      },
+      "codebook": {
+        "x": "000",
+        "y": "001",
+        "z": "01"
+      },
+      "theme": "contribution-y"
+    },
+    {
+      "id": "C04-T05-E095",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Avec p(x)=4/11, p(y)=1/3, p(z)=10/33 et x→000, y→001, z→01, quelle est la contribution de z à L(c) ?",
+        "en": "With p(x)=4/11, p(y)=1/3, p(z)=10/33 and x→000, y→001, z→01, what does z contribute to L(c)?"
+      },
+      "solution": {
+        "fr": "Réponse : 20/33. p(z)|c(z)|=20/33.",
+        "en": "Answer: 20/33. p(z)|c(z)|=20/33."
+      },
+      "answer": "20/33",
+      "probabilityCounts": {
+        "x": 12,
+        "y": 11,
+        "z": 10
+      },
+      "codebook": {
+        "x": "000",
+        "y": "001",
+        "z": "01"
+      },
+      "theme": "contribution-z"
+    },
+    {
+      "id": "C04-T05-E096",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Quelle est la longueur de c(xxyz) pour x→000, y→001, z→01 ?",
+        "en": "What is the length of c(xxyz) using x→000, y→001, z→01?"
+      },
+      "solution": {
+        "fr": "Réponse : 11. 2×3+3+2=11 bits.",
+        "en": "Answer: 11. 2×3+3+2=11 bits."
+      },
+      "answer": "11",
+      "probabilityCounts": {
+        "x": 12,
+        "y": 11,
+        "z": 10
+      },
+      "codebook": {
+        "x": "000",
+        "y": "001",
+        "z": "01"
+      },
+      "theme": "message-length"
+    },
+    {
+      "id": "C04-T05-E097",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Pour p(x)=4/11, p(y)=1/3, p(z)=10/33, quelle serait la longueur moyenne d'un code à trois mots de 2 bits chacun ?",
+        "en": "For p(x)=4/11, p(y)=1/3, p(z)=10/33, what is the average length if all three codewords have 2 bits?"
+      },
+      "solution": {
+        "fr": "Réponse : 2. La somme des probabilités est 1, donc L=2×1=2.",
+        "en": "Answer: 2. Probabilities sum to 1, so L=2×1=2."
+      },
+      "answer": "2",
+      "probabilityCounts": {
+        "x": 12,
+        "y": 11,
+        "z": 10
+      },
+      "codebook": {
+        "x": "000",
+        "y": "001",
+        "z": "01"
+      },
+      "theme": "fixed-length-average"
+    },
+    {
+      "id": "C04-T05-E098",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Comparer le code x→000, y→001, z→01 (L(c)=89/33) à un code à longueur fixe de 2 bits : donner 2-L(c), éventuellement négatif.",
+        "en": "Compare x→000, y→001, z→01 (L(c)=89/33) to a fixed 2-bit code: find 2-L(c), possibly negative."
+      },
+      "solution": {
+        "fr": "Réponse : -23/33. 2-L(c)=(2×33-89)/33=-23/33.",
+        "en": "Answer: -23/33. 2-L(c)=(2×33-89)/33=-23/33."
+      },
+      "answer": "-23/33",
+      "probabilityCounts": {
+        "x": 12,
+        "y": 11,
+        "z": 10
+      },
+      "codebook": {
+        "x": "000",
+        "y": "001",
+        "z": "01"
+      },
+      "theme": "compression-difference"
+    },
+    {
+      "id": "C04-T05-E099",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Donner les longueurs des mots codes (x,y,z) pour x→000, y→001, z→01.",
+        "en": "Give codeword lengths (x,y,z) for x→000, y→001, z→01."
+      },
+      "solution": {
+        "fr": "Réponse : 3,3,2. On compte les bits : (3,3,2).",
+        "en": "Answer: 3,3,2. Count the bits: (3,3,2)."
+      },
+      "answer": "3,3,2",
+      "probabilityCounts": {
+        "x": 12,
+        "y": 11,
+        "z": 10
+      },
+      "codebook": {
+        "x": "000",
+        "y": "001",
+        "z": "01"
+      },
+      "theme": "lengths"
+    },
+    {
+      "id": "C04-T05-E100",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Le code x→000, y→001, z→01 est-il préfixe ? Ce fait permet-il le décodage unique ?",
+        "en": "Is x→000, y→001, z→01 prefix-free? Does this imply unique decoding?"
+      },
+      "solution": {
+        "fr": "Réponse : yes. Oui : aucun mot code n'est le début d'un autre ; la propriété de préfixe implique le décodage unique.",
+        "en": "Answer: yes. Yes: no codeword starts another; prefix-free codes are uniquely decodable."
+      },
+      "answer": "yes",
+      "probabilityCounts": {
+        "x": 12,
+        "y": 11,
+        "z": 10
+      },
+      "codebook": {
+        "x": "000",
+        "y": "001",
+        "z": "01"
+      },
+      "theme": "prefix-validity"
+    }
+  ]
+}

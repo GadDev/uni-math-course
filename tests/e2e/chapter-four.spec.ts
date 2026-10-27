@@ -12,13 +12,13 @@ for (const locale of ['fr', 'en']) {
         locale === 'fr' ? 'Théorie de' : 'Information',
       );
       await expect(page.locator('.planned-list li')).toHaveCount(6);
-      await expect(page.locator('.planned-list a')).toHaveCount(0);
+      await expect(page.locator('.planned-list a')).toHaveCount(6);
       const selected = page.locator('.chapter-option[aria-current]');
       await expect(selected).toHaveAttribute('data-chapter', 'C04');
       const math = page.locator('.feature-formula .katex-mathml math');
       await expect(math).toBeAttached();
       const primary = page.locator('.featured-action .primary-link');
-      await expect(primary).toHaveAttribute('href', '#parcours');
+      await expect(primary).toHaveAttribute('href', `/${locale}/lessons/L43/`);
       const artwork = page.locator('.hero-art svg[data-variant="ember"]');
       await expect(artwork).toHaveAttribute('aria-hidden', 'true');
       await expect(page.locator('astro-island')).toHaveCount(0);
@@ -30,11 +30,10 @@ for (const locale of ['fr', 'en']) {
       if (width <= 375) await expect(page.locator('.hero-art')).toBeHidden();
       else await expect(page.locator('.hero-art')).toBeVisible();
       await primary.click();
-      const anchorUrl = `/${locale}/chapters/C04/#parcours`;
-      await expect(page).toHaveURL(anchorUrl);
+      await expect(page).toHaveURL(`/${locale}/lessons/L43/`);
       const other = locale === 'fr' ? 'en' : 'fr';
       await page.locator('[data-language-link]').click();
-      await expect(page).toHaveURL(`/${other}/chapters/C04/`);
+      await expect(page).toHaveURL(`/${other}/lessons/L43/`);
     });
   }
 }
@@ -46,9 +45,9 @@ test('C04 works without JavaScript', async ({ browser }) => {
     await page.goto('http://127.0.0.1:4321/fr/chapters/C04/');
     const heading = page.getByRole('heading', { level: 1 });
     await expect(heading).toContainText('Théorie');
-    await expect(page.locator('.planned-list a')).toHaveCount(0);
+    await expect(page.locator('.planned-list a')).toHaveCount(6);
     await page.locator('.featured-action a').click();
-    await expect(page).toHaveURL(/#parcours$/);
+    await expect(page).toHaveURL(/\/fr\/lessons\/L43\/$/);
   } finally {
     await context.close();
   }

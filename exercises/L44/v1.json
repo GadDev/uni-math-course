@@ -1,0 +1,500 @@
+{
+  "lessonId": "L44",
+  "version": 1,
+  "status": "reading-only-unreviewed",
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L44-E01",
+      "lessonId": "L44",
+      "version": 1,
+      "objectiveId": "L44-O01",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→0, y→01, z→011, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→01, z→011, encode source word xyz with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez une étape à la fois.",
+        "en": "Use the definition and work one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$001011$",
+            "en": "$001011$"
+          },
+          "feedback": {
+            "fr": "Concaténation : 0 | 01 | 011 → 001011, soit 6 bits.",
+            "en": "Concatenate: 0 | 01 | 011 → 001011, which is 6 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0010110$",
+            "en": "$0010110$"
+          },
+          "feedback": {
+            "fr": "Cette option ne convient pas. Concaténation : 0 | 01 | 011 → 001011, soit 6 bits.",
+            "en": "That option is incorrect. Concatenate: 0 | 01 | 011 → 001011, which is 6 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$0010111$",
+            "en": "$0010111$"
+          },
+          "feedback": {
+            "fr": "Cette option ne convient pas. Concaténation : 0 | 01 | 011 → 001011, soit 6 bits.",
+            "en": "That option is incorrect. Concatenate: 0 | 01 | 011 → 001011, which is 6 bits."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Concaténation : 0 | 01 | 011 → 001011, soit 6 bits.",
+        "en": "Concatenate: 0 | 01 | 011 → 001011, which is 6 bits."
+      },
+      "prerequisites": [
+        "L43"
+      ],
+      "misconceptions": [
+        "t02-miscalculation"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          5,
+          7,
+          8,
+          9
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l'information (BINFO-LLL 2022–2023)",
+        "referenceBasis": "Original teaching question; staged for author/reviewer check; not served for online practice."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": false,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E02",
+      "lessonId": "L44",
+      "version": 1,
+      "objectiveId": "L44-O02",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→1, y→10, z→100, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→10, z→100, encode source word xyz with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez une étape à la fois.",
+        "en": "Use the definition and work one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$110100$",
+            "en": "$110100$"
+          },
+          "feedback": {
+            "fr": "Concaténation : 1 | 10 | 100 → 110100, soit 6 bits.",
+            "en": "Concatenate: 1 | 10 | 100 → 110100, which is 6 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1101000$",
+            "en": "$1101000$"
+          },
+          "feedback": {
+            "fr": "Cette option ne convient pas. Concaténation : 1 | 10 | 100 → 110100, soit 6 bits.",
+            "en": "That option is incorrect. Concatenate: 1 | 10 | 100 → 110100, which is 6 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1101001$",
+            "en": "$1101001$"
+          },
+          "feedback": {
+            "fr": "Cette option ne convient pas. Concaténation : 1 | 10 | 100 → 110100, soit 6 bits.",
+            "en": "That option is incorrect. Concatenate: 1 | 10 | 100 → 110100, which is 6 bits."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Concaténation : 1 | 10 | 100 → 110100, soit 6 bits.",
+        "en": "Concatenate: 1 | 10 | 100 → 110100, which is 6 bits."
+      },
+      "prerequisites": [
+        "L43"
+      ],
+      "misconceptions": [
+        "t02-miscalculation"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          5,
+          7,
+          8,
+          9
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l'information (BINFO-LLL 2022–2023)",
+        "referenceBasis": "Original teaching question; staged for author/reviewer check; not served for online practice."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": false,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E03",
+      "lessonId": "L44",
+      "version": 1,
+      "objectiveId": "L44-O03",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→0, y→10, z→11, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→10, z→11, encode source word xyz with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez une étape à la fois.",
+        "en": "Use the definition and work one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$01011$",
+            "en": "$01011$"
+          },
+          "feedback": {
+            "fr": "Concaténation : 0 | 10 | 11 → 01011, soit 5 bits.",
+            "en": "Concatenate: 0 | 10 | 11 → 01011, which is 5 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$010110$",
+            "en": "$010110$"
+          },
+          "feedback": {
+            "fr": "Cette option ne convient pas. Concaténation : 0 | 10 | 11 → 01011, soit 5 bits.",
+            "en": "That option is incorrect. Concatenate: 0 | 10 | 11 → 01011, which is 5 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$010111$",
+            "en": "$010111$"
+          },
+          "feedback": {
+            "fr": "Cette option ne convient pas. Concaténation : 0 | 10 | 11 → 01011, soit 5 bits.",
+            "en": "That option is incorrect. Concatenate: 0 | 10 | 11 → 01011, which is 5 bits."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Concaténation : 0 | 10 | 11 → 01011, soit 5 bits.",
+        "en": "Concatenate: 0 | 10 | 11 → 01011, which is 5 bits."
+      },
+      "prerequisites": [
+        "L43"
+      ],
+      "misconceptions": [
+        "t02-miscalculation"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          5,
+          7,
+          8,
+          9
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l'information (BINFO-LLL 2022–2023)",
+        "referenceBasis": "Original teaching question; staged for author/reviewer check; not served for online practice."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": false,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E04",
+      "lessonId": "L44",
+      "version": 1,
+      "objectiveId": "L44-O04",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→00, y→01, z→1, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→01, z→1, encode source word xyz with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez une étape à la fois.",
+        "en": "Use the definition and work one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$00011$",
+            "en": "$00011$"
+          },
+          "feedback": {
+            "fr": "Concaténation : 00 | 01 | 1 → 00011, soit 5 bits.",
+            "en": "Concatenate: 00 | 01 | 1 → 00011, which is 5 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$000110$",
+            "en": "$000110$"
+          },
+          "feedback": {
+            "fr": "Cette option ne convient pas. Concaténation : 00 | 01 | 1 → 00011, soit 5 bits.",
+            "en": "That option is incorrect. Concatenate: 00 | 01 | 1 → 00011, which is 5 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$000111$",
+            "en": "$000111$"
+          },
+          "feedback": {
+            "fr": "Cette option ne convient pas. Concaténation : 00 | 01 | 1 → 00011, soit 5 bits.",
+            "en": "That option is incorrect. Concatenate: 00 | 01 | 1 → 00011, which is 5 bits."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Concaténation : 00 | 01 | 1 → 00011, soit 5 bits.",
+        "en": "Concatenate: 00 | 01 | 1 → 00011, which is 5 bits."
+      },
+      "prerequisites": [
+        "L43"
+      ],
+      "misconceptions": [
+        "t02-miscalculation"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          5,
+          7,
+          8,
+          9
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l'information (BINFO-LLL 2022–2023)",
+        "referenceBasis": "Original teaching question; staged for author/reviewer check; not served for online practice."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": false,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E05",
+      "lessonId": "L44",
+      "version": 1,
+      "objectiveId": "L44-O05",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→01, y→0, z→11, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→01, y→0, z→11, encode source word xyz with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez une étape à la fois.",
+        "en": "Use the definition and work one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$01011$",
+            "en": "$01011$"
+          },
+          "feedback": {
+            "fr": "Concaténation : 01 | 0 | 11 → 01011, soit 5 bits.",
+            "en": "Concatenate: 01 | 0 | 11 → 01011, which is 5 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$010110$",
+            "en": "$010110$"
+          },
+          "feedback": {
+            "fr": "Cette option ne convient pas. Concaténation : 01 | 0 | 11 → 01011, soit 5 bits.",
+            "en": "That option is incorrect. Concatenate: 01 | 0 | 11 → 01011, which is 5 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$010111$",
+            "en": "$010111$"
+          },
+          "feedback": {
+            "fr": "Cette option ne convient pas. Concaténation : 01 | 0 | 11 → 01011, soit 5 bits.",
+            "en": "That option is incorrect. Concatenate: 01 | 0 | 11 → 01011, which is 5 bits."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Concaténation : 01 | 0 | 11 → 01011, soit 5 bits.",
+        "en": "Concatenate: 01 | 0 | 11 → 01011, which is 5 bits."
+      },
+      "prerequisites": [
+        "L43"
+      ],
+      "misconceptions": [
+        "t02-miscalculation"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          5,
+          7,
+          8,
+          9
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l'information (BINFO-LLL 2022–2023)",
+        "referenceBasis": "Original teaching question; staged for author/reviewer check; not served for online practice."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": false,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E06",
+      "lessonId": "L44",
+      "version": 1,
+      "objectiveId": "L44-O06",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→10, y→0, z→11, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→10, y→0, z→11, encode source word xyz with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez une étape à la fois.",
+        "en": "Use the definition and work one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$10011$",
+            "en": "$10011$"
+          },
+          "feedback": {
+            "fr": "Concaténation : 10 | 0 | 11 → 10011, soit 5 bits.",
+            "en": "Concatenate: 10 | 0 | 11 → 10011, which is 5 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$100110$",
+            "en": "$100110$"
+          },
+          "feedback": {
+            "fr": "Cette option ne convient pas. Concaténation : 10 | 0 | 11 → 10011, soit 5 bits.",
+            "en": "That option is incorrect. Concatenate: 10 | 0 | 11 → 10011, which is 5 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$100111$",
+            "en": "$100111$"
+          },
+          "feedback": {
+            "fr": "Cette option ne convient pas. Concaténation : 10 | 0 | 11 → 10011, soit 5 bits.",
+            "en": "That option is incorrect. Concatenate: 10 | 0 | 11 → 10011, which is 5 bits."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Concaténation : 10 | 0 | 11 → 10011, soit 5 bits.",
+        "en": "Concatenate: 10 | 0 | 11 → 10011, which is 5 bits."
+      },
+      "prerequisites": [
+        "L43"
+      ],
+      "misconceptions": [
+        "t02-miscalculation"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          5,
+          7,
+          8,
+          9
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l'information (BINFO-LLL 2022–2023)",
+        "referenceBasis": "Original teaching question; staged for author/reviewer check; not served for online practice."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": false,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

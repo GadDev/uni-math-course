@@ -1,6 +1,6 @@
 # Chapter 4 — Ember Signal implementation
 
-**Status: draft overview implementation awaiting browser verification and editorial review.** This is the selected **Ember Signal** visual direction from [design PR #104](https://github.com/GadDev/uni-math-course/pull/104), not an approval to publish Chapter 4 lessons.
+**Status: six bilingual reading lessons staged for publication on merge; interactive practice withheld pending review.** This is the selected **Ember Signal** visual direction from [design PR #104](https://github.com/GadDev/uni-math-course/pull/104), not an approval to publish Chapter 4 lessons.
 
 ## Design decision
 
@@ -9,13 +9,13 @@
 - Deep orange `#923B1D` (light) / pale orange `#FFD2B2` (dark) is used for small labels and links rather than using the brighter accent as foreground text.
 - Keep the Signal typography, page and header shell, **black main call-to-action**, original numbered section treatment and Chapter 2's mobile artwork behaviour: decorative art is hidden below 700px.
 - The artwork is a source-controlled, original **SVG geometric signal grid** added as `SignalGeometry variant="ember"`, alongside the unchanged `logic` and `decalage` variants. with quarter-circle, rectangle and triangle motifs. It uses existing CSS design tokens; no rasterized formulas, copied source-PDF images, dependencies or external fonts.
-- Keep the existing native keyboard-accessible chapter selector. Chapter 4 appears as **In preparation** in both locales, with no implied released lessons.
+- Keep the existing native keyboard-accessible chapter selector. Chapter 4 appears as **Reading available** with six bilingual lesson links.
 
 ## Content and release boundary
 
-The six illustrated learning-path groups reflect the provided 20-page information-theory PDF: bits/messages (pp. 2–6), coding (pp. 7–9), unique decoding (pp. 9–10), symbol probabilities (pp. 11–13), average codeword length (pp. 14–16), and entropy (pp. 17–20). These **are topic previews, not published lesson IDs**. The formula rendered through KaTeX/MathML is the source's map from source alphabet to binary codewords. The overview does not assign attempts, falsely display mastery progress, or navigate to unavailable lessons.
+The six illustrated learning-path groups reflect the provided 20-page information-theory PDF: bits/messages (pp. 2–6), coding (pp. 7–9), unique decoding (pp. 9–10), symbol probabilities (pp. 11–13), average codeword length (pp. 14–16), and entropy (pp. 17–20). These topics correspond to **L43–L48, the bilingual reading lessons in this PR**. The formula rendered through KaTeX/MathML is the source's map from source alphabet to binary codewords. The overview does not assign attempts, falsely display mastery progress, or navigate to unavailable lessons.
 
-The progress page excludes chapters without released lessons from its anchors until Chapter 4 actually has published content. All 36 existing lesson releases and immutable exercise archives are untouched.
+Chapter 4 reading links are now included in the chapter outline. New lesson banks are present for the content contract but disabled for online practice. All 36 existing lesson releases and immutable exercise archives are untouched.
 
 ## Review checklist
 
@@ -28,3 +28,7 @@ The progress page excludes chapters without released lessons from its anchors un
 - [ ] Complete source-aligned lessons, bilingual review, immutable exercise-bank release metadata and PDFs in separate approved changes.
 
 Do not treat SVG design studies as browser screenshots or tests. Nothing here is merged or deployed.
+
+## Reading-only release
+
+Lesson IDs L43–L48 have `practice: false`, with explicit unreviewed review/translation exceptions in `content/releases.json`. For the actual decision and review gaps see [content release decision](../../../content/chapter-04/RELEASE_DECISION.md). The 600 printable exercises and worked solutions are separate from online grading, and are not evidence of independent review.
