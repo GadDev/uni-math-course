@@ -59,8 +59,11 @@ test('truth-table keys are compared row by row', async () => {
 test('course map reports gaps and stale availability claims', async () => {
   const lessons = await course.loadCourse();
   const result = course.analyse(lessons, 96);
-  assert.equal(result.ids.length, 36);
-  assert.ok(result.uncovered.includes(2), 'title-adjacent page 2 is uncovered');
+  const registry = JSON.parse(
+    await readFile(new URL('../../content/releases.json', import.meta.url), 'utf8'),
+  );
+  assert.equal(result.ids.length, Object.keys(registry.lessons).length);
+  assert.ok(result.covered.includes(2), 'source page 2 is covered');
   assert.equal(course.ranges([3, 4, 5, 9]), '3-5, 9');
   assert.ok(
     result.findings.every((finding) => !/cycle/.test(finding)),
