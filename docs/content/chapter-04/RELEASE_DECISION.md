@@ -29,3 +29,7 @@
 - [ ] Run CI and real browser/keyboard/mobile QA for the Chapter 4 overview and lesson routes.
 
 The PR remains draft pending CI and owner visual/editorial acceptance. Merging it publishes the **reading** content; neither the exercise drafts nor the 36 staged questions are public practice, and no class-pilot review is claimed.
+
+## Superseding owner instruction: Huffman and signed-in practice
+
+The subsequent maintainer request explicitly enables 15 authenticated exercises per Chapter 4 lesson and adds Huffman as a seventh lesson. This reading-only decision is therefore superseded by [INTERACTIVE_RELEASE_DECISION.md](INTERACTIVE_RELEASE_DECISION.md): L43–L48 select version-2 15-question banks and L49 selects version-1, all with unreviewed-exception metadata. The earlier 6-question banks remain in the repository but are no longer served. The 700-question printable PDF files were generated outside GitHub and are not yet included as binary assets in this PR.

@@ -11,7 +11,7 @@ for (const locale of ['fr', 'en']) {
       await expect(heading).toContainText(
         locale === 'fr' ? 'Théorie de' : 'Information',
       );
-      await expect(page.locator('.planned-list li')).toHaveCount(6);
+      await expect(page.locator('.planned-list li')).toHaveCount(7);
       await expect(page.locator('.planned-list a')).toHaveCount(6);
       const selected = page.locator('.chapter-option[aria-current]');
       await expect(selected).toHaveAttribute('data-chapter', 'C04');

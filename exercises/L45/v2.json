@@ -1,0 +1,1237 @@
+{
+  "lessonId": "L45",
+  "version": 2,
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L45-E01",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O01",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→0, y→01, z→011 est-il préfixe ?",
+        "en": "Is code x→0, y→01, z→011 prefix-free?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Non. Chaque mot code a un seul 0, placé au début ; ce 0 sépare les mots codes.",
+            "en": "No. Each codeword has exactly one 0, at the start, which marks the boundaries."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. Chaque mot code a un seul 0, placé au début ; ce 0 sépare les mots codes.",
+            "en": "Incorrect answer. No. Each codeword has exactly one 0, at the start, which marks the boundaries."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. Chaque mot code a un seul 0, placé au début ; ce 0 sépare les mots codes.",
+            "en": "Incorrect answer. No. Each codeword has exactly one 0, at the start, which marks the boundaries."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Non. Chaque mot code a un seul 0, placé au début ; ce 0 sépare les mots codes.",
+        "en": "No. Each codeword has exactly one 0, at the start, which marks the boundaries."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E02",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O02",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→1, y→10, z→100 est-il à décodage unique ?",
+        "en": "Is code x→1, y→10, z→100 uniquely decodable?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Chaque mot code a un seul 1, placé au début ; ce 1 sépare les mots codes.",
+            "en": "Incorrect answer. Yes. Each codeword has exactly one 1, at the start, which marks the boundaries."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Chaque mot code a un seul 1, placé au début ; ce 1 sépare les mots codes.",
+            "en": "Incorrect answer. Yes. Each codeword has exactly one 1, at the start, which marks the boundaries."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Oui. Chaque mot code a un seul 1, placé au début ; ce 1 sépare les mots codes.",
+            "en": "Yes. Each codeword has exactly one 1, at the start, which marks the boundaries."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Oui. Chaque mot code a un seul 1, placé au début ; ce 1 sépare les mots codes.",
+        "en": "Yes. Each codeword has exactly one 1, at the start, which marks the boundaries."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E03",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O03",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→0, y→10, z→11 est-il préfixe ?",
+        "en": "Is code x→0, y→10, z→11 prefix-free?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Incorrect answer. Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Incorrect answer. Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+        "en": "Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E04",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O04",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→00, y→01, z→1 est-il à décodage unique ?",
+        "en": "Is code x→00, y→01, z→1 uniquely decodable?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Incorrect answer. Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Incorrect answer. Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+        "en": "Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E05",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O05",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→0, y→00, z→1 est-il préfixe ?",
+        "en": "Is code x→0, y→00, z→1 prefix-free?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. y ≠ xx, mais c(y)=00=c(xx).",
+            "en": "Incorrect answer. No. y differs from xx, but c(y)=00=c(xx)."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. y ≠ xx, mais c(y)=00=c(xx).",
+            "en": "Incorrect answer. No. y differs from xx, but c(y)=00=c(xx)."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Non. y ≠ xx, mais c(y)=00=c(xx).",
+            "en": "No. y differs from xx, but c(y)=00=c(xx)."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Non. y ≠ xx, mais c(y)=00=c(xx).",
+        "en": "No. y differs from xx, but c(y)=00=c(xx)."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E06",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O06",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→10, y→0, z→11 est-il à décodage unique ?",
+        "en": "Is code x→10, y→0, z→11 uniquely decodable?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Incorrect answer. Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Incorrect answer. Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+        "en": "Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E07",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O01",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→001, y→01, z→0 est-il préfixe ?",
+        "en": "Is code x→001, y→01, z→0 prefix-free?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Non. x ≠ zy, mais c(x)=001=c(zy).",
+            "en": "No. x differs from zy, but c(x)=001=c(zy)."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. x ≠ zy, mais c(x)=001=c(zy).",
+            "en": "Incorrect answer. No. x differs from zy, but c(x)=001=c(zy)."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. x ≠ zy, mais c(x)=001=c(zy).",
+            "en": "Incorrect answer. No. x differs from zy, but c(x)=001=c(zy)."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Non. x ≠ zy, mais c(x)=001=c(zy).",
+        "en": "No. x differs from zy, but c(x)=001=c(zy)."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E08",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O02",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→0, y→1, z→10 est-il à décodage unique ?",
+        "en": "Is code x→0, y→1, z→10 uniquely decodable?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. z ≠ yx, mais c(z)=10=c(yx).",
+            "en": "Incorrect answer. No. z differs from yx, but c(z)=10=c(yx)."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. z ≠ yx, mais c(z)=10=c(yx).",
+            "en": "Incorrect answer. No. z differs from yx, but c(z)=10=c(yx)."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Non. z ≠ yx, mais c(z)=10=c(yx).",
+            "en": "No. z differs from yx, but c(z)=10=c(yx)."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Non. z ≠ yx, mais c(z)=10=c(yx).",
+        "en": "No. z differs from yx, but c(z)=10=c(yx)."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E09",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O03",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→1, y→11, z→0 est-il préfixe ?",
+        "en": "Is code x→1, y→11, z→0 prefix-free?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. y ≠ xx, mais c(y)=11=c(xx).",
+            "en": "Incorrect answer. No. y differs from xx, but c(y)=11=c(xx)."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Non. y ≠ xx, mais c(y)=11=c(xx).",
+            "en": "No. y differs from xx, but c(y)=11=c(xx)."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. y ≠ xx, mais c(y)=11=c(xx).",
+            "en": "Incorrect answer. No. y differs from xx, but c(y)=11=c(xx)."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Non. y ≠ xx, mais c(y)=11=c(xx).",
+        "en": "No. y differs from xx, but c(y)=11=c(xx)."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E10",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O04",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→00, y→101, z→11 est-il à décodage unique ?",
+        "en": "Is code x→00, y→101, z→11 uniquely decodable?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Incorrect answer. Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Incorrect answer. Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+        "en": "Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E11",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O05",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→0, y→01, z→011 est-il à décodage unique ?",
+        "en": "Is code x→0, y→01, z→011 uniquely decodable?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Chaque mot code a un seul 0, placé au début ; ce 0 sépare les mots codes.",
+            "en": "Incorrect answer. Yes. Each codeword has exactly one 0, at the start, which marks the boundaries."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Chaque mot code a un seul 0, placé au début ; ce 0 sépare les mots codes.",
+            "en": "Incorrect answer. Yes. Each codeword has exactly one 0, at the start, which marks the boundaries."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Oui. Chaque mot code a un seul 0, placé au début ; ce 0 sépare les mots codes.",
+            "en": "Yes. Each codeword has exactly one 0, at the start, which marks the boundaries."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Oui. Chaque mot code a un seul 0, placé au début ; ce 0 sépare les mots codes.",
+        "en": "Yes. Each codeword has exactly one 0, at the start, which marks the boundaries."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E12",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O06",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→1, y→10, z→100 est-il préfixe ?",
+        "en": "Is code x→1, y→10, z→100 prefix-free?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. Chaque mot code a un seul 1, placé au début ; ce 1 sépare les mots codes.",
+            "en": "Incorrect answer. No. Each codeword has exactly one 1, at the start, which marks the boundaries."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Non. Chaque mot code a un seul 1, placé au début ; ce 1 sépare les mots codes.",
+            "en": "No. Each codeword has exactly one 1, at the start, which marks the boundaries."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. Chaque mot code a un seul 1, placé au début ; ce 1 sépare les mots codes.",
+            "en": "Incorrect answer. No. Each codeword has exactly one 1, at the start, which marks the boundaries."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Non. Chaque mot code a un seul 1, placé au début ; ce 1 sépare les mots codes.",
+        "en": "No. Each codeword has exactly one 1, at the start, which marks the boundaries."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E13",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O01",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→0, y→10, z→11 est-il à décodage unique ?",
+        "en": "Is code x→0, y→10, z→11 uniquely decodable?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Incorrect answer. Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Incorrect answer. Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+        "en": "Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E14",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O02",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→00, y→01, z→1 est-il préfixe ?",
+        "en": "Is code x→00, y→01, z→1 prefix-free?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Incorrect answer. Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Incorrect answer. Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+            "en": "Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Oui. Aucun mot code n'est préfixe d'un autre : le code est préfixe et à décodage unique.",
+        "en": "Yes. No codeword is a prefix of another; this prefix-free code is uniquely decodable."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L45-E15",
+      "lessonId": "L45",
+      "version": 2,
+      "objectiveId": "L45-O03",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le code x→0, y→00, z→1 est-il à décodage unique ?",
+        "en": "Is code x→0, y→00, z→1 uniquely decodable?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. y ≠ xx, mais c(y)=00=c(xx).",
+            "en": "Incorrect answer. No. y differs from xx, but c(y)=00=c(xx)."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Non. y ≠ xx, mais c(y)=00=c(xx).",
+            "en": "No. y differs from xx, but c(y)=00=c(xx)."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Non. y ≠ xx, mais c(y)=00=c(xx).",
+            "en": "Incorrect answer. No. y differs from xx, but c(y)=00=c(xx)."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Non. y ≠ xx, mais c(y)=00=c(xx).",
+        "en": "No. y differs from xx, but c(y)=00=c(xx)."
+      },
+      "prerequisites": [
+        "L44"
+      ],
+      "misconceptions": [
+        "c04-t03-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          9,
+          10,
+          14,
+          15
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

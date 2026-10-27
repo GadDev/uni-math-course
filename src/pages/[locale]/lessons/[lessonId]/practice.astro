@@ -115,7 +115,13 @@ const lessonNumber = lessonId.slice(1);
       <div class="practice-geometry">
         <SignalGeometry
           compact
-          variant={chapter.id === 'C02' ? 'decalage' : 'logic'}
+          variant={
+            chapter.id === 'C04'
+              ? 'ember'
+              : chapter.id === 'C02'
+                ? 'decalage'
+                : 'logic'
+          }
         />
       </div>
       <PracticeActivity

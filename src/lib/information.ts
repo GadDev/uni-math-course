@@ -7,7 +7,7 @@ export const informationCopy = {
     subtitle: ['Des bits aux messages,', 'puis à l’entropie.'],
     intro:
       'Comment coder un message, le décoder sans ambiguïté et mesurer la quantité d’information qu’il transporte ?',
-    status: 'Six leçons à lire · exercices interactifs à venir',
+    status: 'Sept leçons disponibles · exercices après connexion',
     motto: 'Un message. Un code. Une idée.',
     start: 'Le point de départ',
     basics: 'Des symboles aux bits',
@@ -19,7 +19,7 @@ export const informationCopy = {
     explore: 'Explorer le parcours',
     outline: 'Les leçons du chapitre',
     outlineNote:
-      'Six leçons à lire en français ou en anglais, fondées sur les 20 pages du PDF. Les exercices interactifs restent en préparation.',
+      'Sept leçons bilingues : les six thèmes du PDF source et une extension sur Huffman. Connectez-vous pour pratiquer 15 exercices par leçon.',
     upcoming: 'Lecture disponible',
     pages: 'Pages du PDF',
     lessons: [
@@ -29,6 +29,7 @@ export const informationCopy = {
       { id: 'L46', title: 'Probabilités des symboles', pages: '11–13' },
       { id: 'L47', title: 'Longueur moyenne', pages: '14–16' },
       { id: 'L48', title: 'Entropie de Shannon', pages: '17–20' },
+      { id: 'L49', title: 'Coder avec Huffman', pages: 'Extension' },
     ],
     goals: 'Ce que vous apprendrez',
     objectives: [
@@ -36,12 +37,12 @@ export const informationCopy = {
       'Reconnaître une ambiguïté de décodage et calculer une longueur moyenne pondérée.',
       'Interpréter une probabilité et l’entropie de Shannon sans confondre les deux.',
     ],
-    practice: 'La pratique arrive',
+    practice: 'S’entraîner après connexion',
     practiceText:
-      'Les exercices interactifs, les cahiers A4 et les corrigés détaillés seront ajoutés après validation des leçons, des réponses et des traductions.',
+      'Chaque leçon propose 15 questions avec correction côté serveur après authentification. Les cahiers de 700 exercices et leurs corrigés sont disponibles séparément.',
     review: 'Une progression sans faux raccourcis',
     reviewText:
-      'Les lectures sont disponibles ; les exercices interactifs et la maîtrise évaluée restent désactivés en attendant leur vérification.',
+      'Les exercices sont accessibles uniquement après connexion ; leur statut reste non revu et ne constitue pas une certification pédagogique.',
   },
   en: {
     title: 'Information theory',
@@ -50,7 +51,7 @@ export const informationCopy = {
     subtitle: ['From bits to messages,', 'then to entropy.'],
     intro:
       'How can we encode a message, decode it unambiguously and measure the information it carries?',
-    status: 'Six lessons available · interactive practice coming later',
+    status: 'Seven lessons available · sign in to practise',
     motto: 'One message. One code. One idea.',
     start: 'Start with the basics',
     basics: 'From symbols to bits',
@@ -62,7 +63,7 @@ export const informationCopy = {
     explore: 'Explore the learning path',
     outline: 'Chapter lessons',
     outlineNote:
-      'Six readable French/English lessons based on the 20-page source PDF. Interactive exercises remain unavailable.',
+      'Seven bilingual lessons: six source-PDF topics plus a Huffman extension. Sign in to practise 15 exercises per lesson.',
     upcoming: 'Read now',
     pages: 'PDF pages',
     lessons: [
@@ -72,6 +73,7 @@ export const informationCopy = {
       { id: 'L46', title: 'Symbol probabilities', pages: '11–13' },
       { id: 'L47', title: 'Average codeword length', pages: '14–16' },
       { id: 'L48', title: 'Shannon entropy', pages: '17–20' },
+      { id: 'L49', title: 'Huffman coding', pages: 'Extension' },
     ],
     goals: 'What you will learn',
     objectives: [
@@ -79,11 +81,11 @@ export const informationCopy = {
       'Recognise decoding ambiguity and calculate a weighted average length.',
       'Interpret probability and Shannon entropy without conflating them.',
     ],
-    practice: 'Practice is on the way',
+    practice: 'Practise after signing in',
     practiceText:
-      'Interactive exercises, A4 workbooks and fully worked solutions will follow only after lessons, answers and translations have been reviewed.',
+      'Each lesson has 15 signed-in questions, graded on the server. The separate A4 workbooks now cover 700 exercises and worked solutions.',
     review: 'A learning path without shortcuts',
     reviewText:
-      'Reading lessons are available; interactive practice and assessed mastery remain disabled pending review.',
+      'Exercises require sign-in. Their review status remains unverified and is not a teaching-quality certification.',
   },
 } as const;

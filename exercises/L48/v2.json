@@ -1,0 +1,1237 @@
+{
+  "lessonId": "L48",
+  "version": 2,
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L48-E01",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O01",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Vérifier que la distribution (1/2, 1/2) est valide.",
+        "en": "Check that distribution (1/2, 1/2) is valid."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+            "en": "Answer: yes. Yes: all probabilities are positive and sum to 1."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+            "en": "Incorrect answer. Answer: yes. Yes: all probabilities are positive and sum to 1."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+            "en": "Incorrect answer. Answer: yes. Yes: all probabilities are positive and sum to 1."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Réponse : yes. Oui : toutes les probabilités sont positives et la somme est 1.",
+        "en": "Answer: yes. Yes: all probabilities are positive and sum to 1."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E02",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O02",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/4), trouver l'information I(s1) du premier symbole.",
+        "en": "For (1/2, 1/4, 1/4), find the self-information I(s1) of the first symbol."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 1. I(s1)=-log2(1/2)=1 bits.",
+            "en": "Incorrect answer. Answer: 1. I(s1)=-log2(1/2)=1 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 1. I(s1)=-log2(1/2)=1 bits.",
+            "en": "Incorrect answer. Answer: 1. I(s1)=-log2(1/2)=1 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Réponse : 1. I(s1)=-log2(1/2)=1 bits.",
+            "en": "Answer: 1. I(s1)=-log2(1/2)=1 bits."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Réponse : 1. I(s1)=-log2(1/2)=1 bits.",
+        "en": "Answer: 1. I(s1)=-log2(1/2)=1 bits."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E03",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O03",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/4, 1/4), trouver l'information du dernier symbole.",
+        "en": "For (1/4, 1/4, 1/4, 1/4), find the information carried by the last symbol."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 2. I=-log2(1/4)=2 bits.",
+            "en": "Incorrect answer. Answer: 2. I=-log2(1/4)=2 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Réponse : 2. I=-log2(1/4)=2 bits.",
+            "en": "Answer: 2. I=-log2(1/4)=2 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 2. I=-log2(1/4)=2 bits.",
+            "en": "Incorrect answer. Answer: 2. I=-log2(1/4)=2 bits."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Réponse : 2. I=-log2(1/4)=2 bits.",
+        "en": "Answer: 2. I=-log2(1/4)=2 bits."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E04",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O04",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Calculer exactement H(S) pour la distribution (1/2, 1/4, 1/8, 1/8).",
+        "en": "Calculate H(S) exactly for distribution (1/2, 1/4, 1/8, 1/8)."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$7/4$",
+            "en": "$7/4$"
+          },
+          "feedback": {
+            "fr": "Réponse : 7/4. H(S)=∑p_i×I(s_i)=14/8=7/4 bits/symbole.",
+            "en": "Answer: 7/4. H(S)=∑p_i×I(s_i)=14/8=7/4 bits/symbol."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$11/4$",
+            "en": "$11/4$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 7/4. H(S)=∑p_i×I(s_i)=14/8=7/4 bits/symbole.",
+            "en": "Incorrect answer. Answer: 7/4. H(S)=∑p_i×I(s_i)=14/8=7/4 bits/symbol."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$15/4$",
+            "en": "$15/4$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 7/4. H(S)=∑p_i×I(s_i)=14/8=7/4 bits/symbole.",
+            "en": "Incorrect answer. Answer: 7/4. H(S)=∑p_i×I(s_i)=14/8=7/4 bits/symbol."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Réponse : 7/4. H(S)=∑p_i×I(s_i)=14/8=7/4 bits/symbole.",
+        "en": "Answer: 7/4. H(S)=∑p_i×I(s_i)=14/8=7/4 bits/symbol."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E05",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O05",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour (1/2, 1/8, 1/8, 1/8, 1/8), quelle est l'information maximale d'un symbole (le plus rare) ?",
+        "en": "For (1/2, 1/8, 1/8, 1/8, 1/8), what is the highest single-symbol information (rarest symbol)?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 3. Le plus petit p vaut 1/8, donc Imax=3 bits.",
+            "en": "Incorrect answer. Answer: 3. The smallest probability is 1/8, so Imax=3 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 3. Le plus petit p vaut 1/8, donc Imax=3 bits.",
+            "en": "Incorrect answer. Answer: 3. The smallest probability is 1/8, so Imax=3 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Réponse : 3. Le plus petit p vaut 1/8, donc Imax=3 bits.",
+            "en": "Answer: 3. The smallest probability is 1/8, so Imax=3 bits."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Réponse : 3. Le plus petit p vaut 1/8, donc Imax=3 bits.",
+        "en": "Answer: 3. The smallest probability is 1/8, so Imax=3 bits."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E06",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O06",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec (1/4, 1/4, 1/4, 1/8, 1/8), lequel du premier ou du dernier symbole surprend le plus (ou égalité) ?",
+        "en": "With (1/4, 1/4, 1/4, 1/8, 1/8), is the first or the last symbol more surprising (or tied)?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Le dernier",
+            "en": "The last"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+            "en": "Incorrect answer. Answer: first. The first has lower probability and is more surprising."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Le premier",
+            "en": "The first"
+          },
+          "feedback": {
+            "fr": "Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+            "en": "Answer: first. The first has lower probability and is more surprising."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Égalité",
+            "en": "Tie"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+            "en": "Incorrect answer. Answer: first. The first has lower probability and is more surprising."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+        "en": "Answer: first. The first has lower probability and is more surprising."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E07",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O01",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), quelle est la plus grande probabilité d'un symbole ?",
+        "en": "For (1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8, 1/8), what is the greatest symbol probability?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1/8$",
+            "en": "$1/8$"
+          },
+          "feedback": {
+            "fr": "Réponse : 1/8. La probabilité maximale est 1/8.",
+            "en": "Answer: 1/8. The maximum probability is 1/8."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$9/8$",
+            "en": "$9/8$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 1/8. La probabilité maximale est 1/8.",
+            "en": "Incorrect answer. Answer: 1/8. The maximum probability is 1/8."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$17/8$",
+            "en": "$17/8$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 1/8. La probabilité maximale est 1/8.",
+            "en": "Incorrect answer. Answer: 1/8. The maximum probability is 1/8."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Réponse : 1/8. La probabilité maximale est 1/8.",
+        "en": "Answer: 1/8. The maximum probability is 1/8."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E08",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O02",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/8, 1/16, 1/16), calculer p(s1)+p(s2).",
+        "en": "For (1/2, 1/4, 1/8, 1/16, 1/16), compute p(s1)+p(s2)."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$7/4$",
+            "en": "$7/4$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 3/4. La somme est 1/2+1/4=3/4.",
+            "en": "Incorrect answer. Answer: 3/4. The sum is 1/2+1/4=3/4."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$11/4$",
+            "en": "$11/4$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 3/4. La somme est 1/2+1/4=3/4.",
+            "en": "Incorrect answer. Answer: 3/4. The sum is 1/2+1/4=3/4."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3/4$",
+            "en": "$3/4$"
+          },
+          "feedback": {
+            "fr": "Réponse : 3/4. La somme est 1/2+1/4=3/4.",
+            "en": "Answer: 3/4. The sum is 1/2+1/4=3/4."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Réponse : 3/4. La somme est 1/2+1/4=3/4.",
+        "en": "Answer: 3/4. The sum is 1/2+1/4=3/4."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E09",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O03",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Une source suit (1/4, 1/4, 1/8, 1/8, 1/8, 1/8). Quelle est l'information moyenne attendue par symbole ?",
+        "en": "A source follows (1/4, 1/4, 1/8, 1/8, 1/8, 1/8). What is the expected average information per symbol?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$9/2$",
+            "en": "$9/2$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 5/2. Par définition, c'est l'entropie H(S)=5/2 bits/symbole.",
+            "en": "Incorrect answer. Answer: 5/2. By definition, this is entropy H(S)=5/2 bits/symbol."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5/2$",
+            "en": "$5/2$"
+          },
+          "feedback": {
+            "fr": "Réponse : 5/2. Par définition, c'est l'entropie H(S)=5/2 bits/symbole.",
+            "en": "Answer: 5/2. By definition, this is entropy H(S)=5/2 bits/symbol."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$7/2$",
+            "en": "$7/2$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 5/2. Par définition, c'est l'entropie H(S)=5/2 bits/symbole.",
+            "en": "Incorrect answer. Answer: 5/2. By definition, this is entropy H(S)=5/2 bits/symbol."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Réponse : 5/2. Par définition, c'est l'entropie H(S)=5/2 bits/symbole.",
+        "en": "Answer: 5/2. By definition, this is entropy H(S)=5/2 bits/symbol."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E10",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O04",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), l'entropie H(S) est-elle égale à l'information du premier symbole ?",
+        "en": "For (1/2, 1/8, 1/8, 1/16, 1/16, 1/16, 1/16), is entropy H(S) equal to the self-information of the first symbol?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Non",
+            "en": "No"
+          },
+          "feedback": {
+            "fr": "Réponse : no. Non : H(S)=9/4, I(s1)=1.",
+            "en": "Answer: no.  No: H(S)=9/4, I(s1)=1."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Oui",
+            "en": "Yes"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : no. Non : H(S)=9/4, I(s1)=1.",
+            "en": "Incorrect answer. Answer: no.  No: H(S)=9/4, I(s1)=1."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Information insuffisante",
+            "en": "Not enough information"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : no. Non : H(S)=9/4, I(s1)=1.",
+            "en": "Incorrect answer. Answer: no.  No: H(S)=9/4, I(s1)=1."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Réponse : no. Non : H(S)=9/4, I(s1)=1.",
+        "en": "Answer: no.  No: H(S)=9/4, I(s1)=1."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E11",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O05",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec (1/2, 1/2), trouver l'information du dernier symbole.",
+        "en": "For (1/2, 1/2), find the information carried by the last symbol."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 1. I=-log2(1/2)=1 bits.",
+            "en": "Incorrect answer. Answer: 1. I=-log2(1/2)=1 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 1. I=-log2(1/2)=1 bits.",
+            "en": "Incorrect answer. Answer: 1. I=-log2(1/2)=1 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Réponse : 1. I=-log2(1/2)=1 bits.",
+            "en": "Answer: 1. I=-log2(1/2)=1 bits."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Réponse : 1. I=-log2(1/2)=1 bits.",
+        "en": "Answer: 1. I=-log2(1/2)=1 bits."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E12",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O06",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Calculer exactement H(S) pour la distribution (1/2, 1/4, 1/4).",
+        "en": "Calculate H(S) exactly for distribution (1/2, 1/4, 1/4)."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$7/2$",
+            "en": "$7/2$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 3/2. H(S)=∑p_i×I(s_i)=6/4=3/2 bits/symbole.",
+            "en": "Incorrect answer. Answer: 3/2. H(S)=∑p_i×I(s_i)=6/4=3/2 bits/symbol."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3/2$",
+            "en": "$3/2$"
+          },
+          "feedback": {
+            "fr": "Réponse : 3/2. H(S)=∑p_i×I(s_i)=6/4=3/2 bits/symbole.",
+            "en": "Answer: 3/2. H(S)=∑p_i×I(s_i)=6/4=3/2 bits/symbol."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$5/2$",
+            "en": "$5/2$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 3/2. H(S)=∑p_i×I(s_i)=6/4=3/2 bits/symbole.",
+            "en": "Incorrect answer. Answer: 3/2. H(S)=∑p_i×I(s_i)=6/4=3/2 bits/symbol."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Réponse : 3/2. H(S)=∑p_i×I(s_i)=6/4=3/2 bits/symbole.",
+        "en": "Answer: 3/2. H(S)=∑p_i×I(s_i)=6/4=3/2 bits/symbol."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E13",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O01",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour (1/4, 1/4, 1/4, 1/4), quelle est l'information maximale d'un symbole (le plus rare) ?",
+        "en": "For (1/4, 1/4, 1/4, 1/4), what is the highest single-symbol information (rarest symbol)?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Réponse : 2. Le plus petit p vaut 1/4, donc Imax=2 bits.",
+            "en": "Answer: 2. The smallest probability is 1/4, so Imax=2 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 2. Le plus petit p vaut 1/4, donc Imax=2 bits.",
+            "en": "Incorrect answer. Answer: 2. The smallest probability is 1/4, so Imax=2 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 2. Le plus petit p vaut 1/4, donc Imax=2 bits.",
+            "en": "Incorrect answer. Answer: 2. The smallest probability is 1/4, so Imax=2 bits."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Réponse : 2. Le plus petit p vaut 1/4, donc Imax=2 bits.",
+        "en": "Answer: 2. The smallest probability is 1/4, so Imax=2 bits."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E14",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O02",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec (1/2, 1/4, 1/8, 1/8), lequel du premier ou du dernier symbole surprend le plus (ou égalité) ?",
+        "en": "With (1/2, 1/4, 1/8, 1/8), is the first or the last symbol more surprising (or tied)?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Égalité",
+            "en": "Tie"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+            "en": "Incorrect answer. Answer: first. The first has lower probability and is more surprising."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Le dernier",
+            "en": "The last"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+            "en": "Incorrect answer. Answer: first. The first has lower probability and is more surprising."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Le premier",
+            "en": "The first"
+          },
+          "feedback": {
+            "fr": "Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+            "en": "Answer: first. The first has lower probability and is more surprising."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Réponse : first. Le premier a une probabilité plus faible : surprise plus grande.",
+        "en": "Answer: first. The first has lower probability and is more surprising."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L48-E15",
+      "lessonId": "L48",
+      "version": 2,
+      "objectiveId": "L48-O03",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec (1/2, 1/8, 1/8, 1/8, 1/8), quelle est la plus grande probabilité d'un symbole ?",
+        "en": "For (1/2, 1/8, 1/8, 1/8, 1/8), what is the greatest symbol probability?"
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$5/2$",
+            "en": "$5/2$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 1/2. La probabilité maximale est 1/2.",
+            "en": "Incorrect answer. Answer: 1/2. The maximum probability is 1/2."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1/2$",
+            "en": "$1/2$"
+          },
+          "feedback": {
+            "fr": "Réponse : 1/2. La probabilité maximale est 1/2.",
+            "en": "Answer: 1/2. The maximum probability is 1/2."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3/2$",
+            "en": "$3/2$"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Réponse : 1/2. La probabilité maximale est 1/2.",
+            "en": "Incorrect answer. Answer: 1/2. The maximum probability is 1/2."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Réponse : 1/2. La probabilité maximale est 1/2.",
+        "en": "Answer: 1/2. The maximum probability is 1/2."
+      },
+      "prerequisites": [
+        "L47"
+      ],
+      "misconceptions": [
+        "c04-t06-concept"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          17,
+          18,
+          19,
+          20
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original worked example; signed-in practice under owner-requested unreviewed exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}
