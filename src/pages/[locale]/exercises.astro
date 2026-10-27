@@ -2,7 +2,7 @@
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import Base from '../../layouts/Base.astro';
-import { copy, locales } from '../../lib/i18n';
+import { locales } from '../../lib/i18n';
 import {
   printableChapters,
   printableCopy,
@@ -44,7 +44,8 @@ const missingFiles = chapters.some((chapter) =>
       <div>
         <p class="eyebrow">{text.kicker}</p>
         <h1>
-          {text.title}<span class="signal-stop">.</span>
+          {text.title}
+          <span class="signal-stop">.</span>
         </h1>
         <p class="lede">{text.description}</p>
         <p>{text.intro}</p>
@@ -66,13 +67,11 @@ const missingFiles = chapters.some((chapter) =>
     </nav>
 
     <p class="printable-language-note">{text.languageNote}</p>
-    {
-      missingFiles && (
-        <p class="printable-unavailable-note" role="status">
-          {text.unavailable}
-        </p>
-      )
-    }
+    {missingFiles && (
+      <p class="printable-unavailable-note" role="status">
+        {text.unavailable}
+      </p>
+    )}
 
     {chapters.map((chapter) => (
       <section
@@ -144,9 +143,7 @@ const missingFiles = chapters.some((chapter) =>
                   {text.download}
                 </a>
               ) : (
-                <span class="printable-pending">
-                  {text.pending}
-                </span>
+                <span class="printable-pending">{text.pending}</span>
               )}
             </article>
           ))}
