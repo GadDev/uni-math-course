@@ -67,7 +67,7 @@ test('without JavaScript all entries, translations and the source correction rem
 });
 
 for (const locale of ['fr', 'en']) {
-  for (const width of [320, 375, 768, 1280]) {
+  for (const width of [320, 375, 501, 650, 768, 1280]) {
     test(`glossary fits ${locale} at ${width}px with keyboard-accessible formula scrolling`, async ({
       page,
     }) => {
@@ -79,9 +79,13 @@ for (const locale of ['fr', 'en']) {
       ).toBeLessThanOrEqual(width);
       await page.locator('#E28 .glossary-formula').focus();
       await expect(page.locator('#E28 .glossary-formula')).toBeFocused();
+      // Responsive labels change DOM text, not the accessible link name.
       await expect(
         page.locator('.primary-nav [aria-current="page"]'),
-      ).toHaveText(locale === 'fr' ? 'Glossaire' : 'Glossary');
+      ).toHaveAccessibleName(locale === 'fr' ? 'Glossaire' : 'Glossary');
+      await expect(
+        page.locator('.primary-nav [aria-current="page"]'),
+      ).toHaveAttribute('href', `/${locale}/glossary/`);
       await expect(page.locator('.katex-error')).toHaveCount(0);
     });
   }

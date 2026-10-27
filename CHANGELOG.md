@@ -2,6 +2,14 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.13.0](https://github.com/GadDev/uni-math-course/compare/v0.12.1...v0.13.0) (2026-10-27)
+
+
+### Features
+
+* **exercises:** add printable workbook library for chapters 1 and 2 ([#95](https://github.com/GadDev/uni-math-course/issues/95)) ([e6265e1](https://github.com/GadDev/uni-math-course/commit/e6265e191178437c39f9bb6aa96213fc8ec2b78a))
+* **pdfs:** add exercises and solutions for chapters 1 and 2 ([#100](https://github.com/GadDev/uni-math-course/issues/100)) ([068dbed](https://github.com/GadDev/uni-math-course/commit/068dbed8bdb28bba48932fb416c65e194fe3b16f))
+
 ## [0.12.1](https://github.com/GadDev/uni-math-course/compare/v0.12.0...v0.12.1) (2026-10-23)
 
 
