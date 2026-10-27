@@ -15,7 +15,13 @@ const testBuild = process.env.ASTRO_TEST_BUILD === '1';
 export default defineConfig({
   integrations: [react()],
   // The local production test server uses Node; deployed builds use Vercel.
-  adapter: testBuild ? node({ mode: 'standalone' }) : vercel(),
+  adapter: testBuild
+    ? node({ mode: 'standalone' })
+    : vercel({
+        webAnalytics: {
+          enabled: true,
+        },
+      }),
   outDir: testBuild ? './.test-build/' : './dist/',
   i18n: {
     defaultLocale: 'fr',

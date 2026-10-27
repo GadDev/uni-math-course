@@ -13,6 +13,7 @@ import { glossaryCopy } from '../lib/glossary';
 import { printableCopy } from '../lib/printable-exercises';
 import { authCopy } from '../lib/auth/copy';
 import { progressCopy } from '../lib/progress-copy';
+import { inject } from '@vercel/analytics';
 interface Props {
   locale: Locale;
   title: string;
@@ -41,6 +42,7 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
     <meta name="description" content={description} />
     <ThemeInit />
     <title>{title} · Uni Math Course</title>
+    {inject()}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link
       rel="preload"
