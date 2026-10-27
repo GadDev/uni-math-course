@@ -184,6 +184,17 @@
     gap: 1.875rem;
   }
 }
+@media (max-width: 650px) {
+  .site-header .primary-nav {
+    gap: 1.25rem;
+  }
+  .site-header .primary-nav .nav-full {
+    display: none;
+  }
+  .site-header .primary-nav .nav-short {
+    display: inline;
+  }
+}
 @media (max-width: 500px) {
   .site-header {
     padding: 1rem;
@@ -209,12 +220,6 @@
   }
   .site-header .primary-nav > a {
     font-size: 0.75rem;
-  }
-  .site-header .primary-nav .nav-full {
-    display: none;
-  }
-  .site-header .primary-nav .nav-short {
-    display: inline;
   }
   .chapter-picker {
     position: static;
