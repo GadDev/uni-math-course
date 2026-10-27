@@ -36,7 +36,15 @@ for (const id of ids) {
 test('L38 secant series reproduces the source page values and correct zero limit', async () => {
   const f = (x: number) => x*x/2;
   const secant = (h: number) => (f(1+h)-f(1))/h;
-  for (const [h,slope] of [[2,2],[1,1.5],[0.5,1.25],[0.25,1.125],[0.1,1.05],[-0.2,0.9]]) {
+  const samples: [number, number][] = [
+    [2, 2],
+    [1, 1.5],
+    [0.5, 1.25],
+    [0.25, 1.125],
+    [0.1, 1.05],
+    [-0.2, 0.9],
+  ];
+  for (const [h, slope] of samples) {
     assert.ok(Math.abs(secant(h)-slope) < 1e-9, `Unexpected slope for h=${h}`);
   }
   assert.ok(Math.abs(secant(1e-5)-1) < 1e-4);
