@@ -1,0 +1,287 @@
+---
+lessonId: L42
+locale: en
+version: 2
+status: extended
+title: "Changing bases and comparing algorithms"
+summary: "Understand logarithms, count divisions, construct a tangent and compare costs with interactive graphs."
+minutes: 55
+objectives: [L42-O01, L42-O02, L42-O03, L42-O04, L42-O05, L42-O06]
+prerequisites: [L39, L40, L41]
+sourcePages: [18, 19]
+---
+import { HalvingExplorer, LogExplorer, ComplexityExplorer, TangentExplorer } from '../../../src/components/L42Explorer';
+import L42Print from '../../../src/components/L42Print.astro';
+
+# Changing bases and comparing algorithms
+
+*Original course explanations based on* Bruno Teheux, Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026, pages 18, 19. The activities, diagrams and detailed methods below are original project additions; the graphs remove the need to consult the PDF figure while reading.
+
+## Goals and prerequisites
+
+A list has 64 elements. If its size is halved each time, how many rounds take it down to one element? What if it has 65? The logarithm helps explain the mechanism; the precise code determines its step count.
+
+By the end of this lesson, you will be able to:
+
+1. Rewrite a positive-base power using the exponential.
+2. Read a logarithm as an exponent and change base to calculate it.
+3. Count the divisions of a given loop exactly.
+4. Differentiate an exponential or logarithm and interpret a tangent.
+5. Compare cost models at the same input size.
+6. Distinguish a calculated value, an approximation and an order of growth.
+
+**Before starting.** Check that you can explain why $2^3=8$, why division by zero is forbidden, and what a line’s slope represents. Here, $\ln$ denotes the natural logarithm, $e$ its base, and $\mathbb R$ the real numbers. The symbol $D$ denotes differentiation: $Df(x)=f'(x)$.
+
+<p>Refreshers: <a href="/en/lessons/L38/">L38 — secants and derivatives</a>, <a href="/en/lessons/L39/">L39 — differentiation rules</a>, <a href="/en/lessons/L40/">L40 — exponential</a> and <a href="/en/lessons/L41/">L41 — natural logarithm</a>.</p>
+
+Suggested route: read the example, make a prediction, manipulate the component, then repeat the calculation without it. Control limits keep graphs readable; they do not define the mathematical domain.
+
+## Every positive base
+
+The base is the number raised to a power. For a fixed positive base $a$, the exponential defines the power at every real exponent $x$:
+
+$$a^x=e^{x\ln(a)}\qquad(a>0,\ x\in\mathbb R)$$
+
+**Why does this work?** For a positive integer exponent, multiplying copies of $a=e^{\ln(a)}$ adds the exponents. The formula extends that idea to real exponents. For example:
+
+$$2^3=e^{3\ln(2)}=e^{\ln(8)}=8$$
+
+The sign of $\ln(a)$ explains the direction of change:
+
+- If $a>1$, then $\ln(a)>0$: the power increases with the exponent.
+- If $0<a<1$, then $\ln(a)<0$: it decreases. For example, $(1/2)^3=1/8$.
+- If $a=1$, then $1^x=1$: the function is constant. Many exponents give 1; none gives 8. There is therefore no inverse logarithm.
+
+**Your turn.** Why is $a=0$ unsuitable for this definition over every real exponent?
+
+<details className="l42-answer">
+<summary>Show solution</summary>
+
+The formula would use $\ln(0)$, which is undefined over the reals. A negative power of zero would also require division by zero. The condition $a>0$ is essential here.
+
+</details>
+
+**Remember.** Base 1 is allowed for a general-base exponential, but not for its inverse logarithm. Keep the two conditions distinct.
+
+## Logarithms to base a
+
+**Ask: “Which exponent gives this value?”** Since $2^3=8$, the logarithm of 8 to base 2 is 3. The notation $\log_a(x)$ denotes that exponent, not a product:
+
+$$\log_a(x)=y\quad\Longleftrightarrow\quad a^y=x$$
+
+Assume $a>0$, $a\ne1$ and $x>0$. These conditions guarantee a unique real exponent $y$. A logarithm can be negative:
+
+$$2^{-3}=1/8\quad\Longleftrightarrow\quad\log_2(1/8)=-3$$
+
+**How can you calculate it if your calculator only has the natural logarithm?** Start from the power equation:
+
+$$a^y=x\ \Longrightarrow\ \ln(a^y)=\ln(x)\ \Longrightarrow\ y\ln(a)=\ln(x)$$
+
+Since $a\ne1$, we have $\ln(a)\ne0$: division by this number is allowed. This gives the change-of-base formula:
+
+$$\boxed{\log_a(x)=\frac{\ln(x)}{\ln(a)}}\qquad(x>0,\ a>0,\ a\ne1)$$
+
+A worked example, keeping the calculator’s digits until the final step:
+
+$$\log_2(8)=\frac{\ln(8)}{\ln(2)}\approx\frac{2.079442}{0.693147}\approx3$$
+
+The equality $\log_2(8)=3$ is exact because $2^3=8$. The preceding decimals are rounded: their quotient is therefore displayed with $\approx$ (“approximately equal”).
+
+<LogExplorer locale="en" client:visible />
+
+The graph passes through $(1,0)$ because $a^0=1$. It increases if $a>1$ and decreases if $0<a<1$. For a fixed base, its derivative will explain this behavior in the differentiation section.
+
+**Your turn.** Calculate $\log_{1/2}(8)$ before checking with the component.
+
+<details className="l42-answer">
+<summary>Show solution</summary>
+
+We want the exponent $y$ such that $(1/2)^y=8$. Since $(1/2)^{-3}=2^3=8$, we get $\log_{1/2}(8)=-3$. Change of base confirms the sign: $\ln(8)>0$ and $\ln(1/2)<0$.
+
+</details>
+
+**Common mistake.** The input’s logarithm goes in the numerator; the base’s logarithm goes in the denominator. Check the domain before calculating.
+
+## Understanding repeated halving
+
+A problem size is not always a power of two. To count steps exactly, specify the program. The input $n$ is a positive integer; $m$ is the remaining size and $k$ counts loop-body executions.
+
+```text
+m ← n
+k ← 0
+while m > 1:
+    m ← floor(m / 2)
+    k ← k + 1
+```
+
+The floor $\lfloor t\rfloor$ is the largest integer at most $t$. Thus $\lfloor65/2\rfloor=32$. We round **down at every division**. We count divisions, without counting condition tests as extra divisions.
+
+For 64, the trace is $64\to32\to16\to8\to4\to2\to1$: six divisions, so $\log_2(64)=6$. For 65, the first division gives 32: six divisions again.
+
+<HalvingExplorer locale="en" client:visible />
+
+**Why a logarithm?** Without rounding, after $k$ divisions the remainder is $n/2^k$. With the code’s rounding, the remaining value is exactly:
+
+$$m_k=\left\lfloor\frac{n}{2^k}\right\rfloor$$
+
+Dividing a previously floored integer by 2 and flooring again is equivalent here to flooring the initial quotient by a power of 2 once. This justifies the formula by induction on the number of divisions.
+
+**How can you find the final count without executing the loop?** Place the initial integer between consecutive powers of 2:
+
+$$2^q\le n<2^{q+1}\quad\Longleftrightarrow\quad q\le\log_2(n)<q+1$$
+
+After $q$ divisions the formula gives $m_q=1$; if $q>0$, just before the last division we still have $m_{q-1}\ge2$. The first stop is therefore at:
+
+$$\boxed{k=\lfloor\log_2(n)\rfloor}\qquad(n\in\mathbb N,\ n\ge1)$$
+
+For $n=1$, the condition is false from the start: zero divisions. For $n=63$, we have $32\le63<64$, hence five divisions.
+
+**Mind the chosen code.** If we divided without rounding, keeping real values and the condition “while the value is greater than 1”, the count would be $\lceil\log_2(n)\rceil$, where the upper brackets mean rounding up to an integer. For 65, that would be seven divisions. The logarithm explains growth; the program fixes the exact count.
+
+**Your turn.** How many divisions for $n=100$ with our code?
+
+<details className="l42-answer">
+<summary>Show solution</summary>
+
+Since $64\le100<128$, the count is 6. Check: $100\to50\to25\to12\to6\to3\to1$. This loop illustrates size reduction; it does not promise an exact comparison count for every binary search.
+
+</details>
+
+## Differentiating and changing bases
+
+A curve’s height gives a value; its slope describes local change. Before applying the formulas to logarithms, recall the connection between derivatives and tangents from L38–L39.
+
+Choose $P=(x_0,f(x_0))$ and another point $Q=(x_0+h,f(x_0+h))$. The number $h$ is the horizontal gap, positive or negative. For $h\ne0$ and both points in the domain, the secant slope is “vertical change divided by horizontal change”:
+
+$$s_h=\frac{f(x_0+h)-f(x_0)}{h}$$
+
+If this slope approaches the same finite number as $h$ approaches zero from both sides, that number is the derivative:
+
+$$f'(x_0)=\lim_{h\to0}s_h$$
+
+This is an **instantaneous rate of change**: for a very small horizontal displacement, the function’s change is approximately the slope times that displacement. The line through P with that slope is the tangent:
+
+$$\boxed{y=f(x_0)+f'(x_0)(x-x_0)}$$
+
+**Worked example:** for $f(x)=x^2$ and $x_0=1$, expand before simplifying:
+
+$$
+\begin{aligned}
+s_h&=\frac{(1+h)^2-1}{h}\\
+&=\frac{2h+h^2}{h}=2+h\qquad(h\ne0).
+\end{aligned}
+$$
+
+The limit is 2 from both sides. Since $f(1)=1$, the tangent is $y=1+2(x-1)=2x-1$. At $h=0$, the quotient remains undefined: never replace a limit with division by zero.
+
+<TangentExplorer locale="en" client:visible />
+
+**How do you differentiate a general-base exponential?** The base $a>0$ stays constant. Set $u(x)=x\ln(a)$: its derivative is $u'(x)=\ln(a)$. The chain rule gives:
+
+$$D(a^x)=D(e^{u(x)})=u'(x)e^{u(x)}=\ln(a)\,a^x$$
+
+**How do you differentiate a general-base logarithm?** In change of base, $1/\ln(a)$ is a constant; only the numerator’s function depends on the input:
+
+$$D\log_a(x)=\frac{1}{\ln(a)}D\ln(x)=\frac{1}{x\ln(a)}\qquad(x>0,\ a>0,\ a\ne1)$$
+
+This recovers the lesson’s examples:
+
+$$D(2^x)=\ln(2)\,2^x,\qquad D\log_2(x)=\frac{1}{x\ln(2)}\quad(x>0)$$
+
+The second result is positive for a base above 1 and negative for a base between 0 and 1. This agrees with the logarithm component’s curves.
+
+**Your turn.** For $f(x)=\log_2(x)$, find the tangent at $x_0=1$.
+
+<details className="l42-answer">
+<summary>Show solution</summary>
+
+The height is $f(1)=0$ and the slope is $f'(1)=1/\ln(2)\approx1.442695$. The exact equation is therefore $y=(x-1)/\ln(2)$. It passes through $(1,0)$; choose the logarithm in the component to compare.
+
+</details>
+
+**Common mistake.** Differentiating a power multiplies by the base’s logarithm; differentiating the logarithm divides by that factor and the input. Slope is not curve height.
+
+## Comparing complexity families
+
+If the data size doubles, does the work double too? That depends on the model. Here, $n$ denotes an integer number of elements, not a time, and $T(n)$ an illustrative cost, such as a count of elementary operations. Comparisons need the same input and unit.
+
+The source figure on page 19 motivates the comparison. We keep its families and add the quadratic model as an intermediate reference:
+
+$$1,\quad\log_2(n),\quad\sqrt n,\quad n,\quad n\log_2(n),\quad n^2,\quad2^n,\quad n!$$
+
+The factorial is the product of integers from 1 to $n$: for example, $4!=1\times2\times3\times4=24$. Square root and factorial are optional curves in the tool.
+
+**How do you compare at one input?** For $n=8$, first calculate $\log_2(8)=3$, then substitute in each expression:
+
+$$n\log_2(n)=8\times3=24,\qquad n^2=8^2=64,\qquad 2^n=2^8=256$$
+
+<ComplexityExplorer locale="en" client:visible />
+
+**How do you read the scales?** On a linear scale, equal vertical distances mean equal added quantities. On a logarithmic scale they mean equal multiplicative factors. The scale does not change the values: use the table to check. Zero has no position on an ordinary logarithmic axis.
+
+**Point values and long-term growth.** The models $n^2$ and $2^n$ both equal 16 at $n=4$. That does not mean they grow alike. An exponential with base above 1 eventually outgrows every fixed-degree polynomial. A finite graph window does not prove that theoretical result.
+
+The notation $T(n)\in\Theta(g(n))$ means the **same order of growth**: for sufficiently large inputs the cost lies between two positive multiples of $g(n)$. Formally, if $g(n)$ is positive at those inputs:
+
+$$\exists c_1,c_2>0,\ \exists n_0,\ \forall n\ge n_0:\quad c_1g(n)\le T(n)\le c_2g(n)$$
+
+For example, $T(n)=3n+7$ belongs to $\Theta(n)$: for $n\ge1$, we have $3n\le3n+7\le10n$. The notation $O(g(n))$ gives only an upper bound up to a constant factor: $3n+7\in O(n^2)$ is also true, but less precise. An order of growth is therefore not an exact duration in seconds.
+
+**Why does the base not change the logarithmic family?** For any fixed base $a>1$, change of base gives:
+
+$$\log_a(n)=\frac{\ln(2)}{\ln(a)}\log_2(n)$$
+
+The factor is a positive constant, so the logarithms share the same order of growth. For a cost we use a base above 1 here, avoiding negative values when the input exceeds 1.
+
+**Your turn.** What is the exact value of $3n+7$ at $n=8$? What does its growth family tell you?
+
+<details className="l42-answer">
+<summary>Show solution</summary>
+
+The value is $3\times8+7=31$. The family $\Theta(n)$ indicates long-term linear growth; it does not give the count 31. Constants, input, implementation and hardware still matter for real running time.
+
+</details>
+
+## Final synthesis challenge
+
+Try without the components or solutions:
+
+1. Explain why $\log_2(32)=5$ and write the change of base.
+2. Count the code’s divisions for 31, 32 and 33. Compare with code without rounding.
+3. Calculate $D(3^x)$ and $D\log_3(x)$, stating the domains.
+4. For the square function, construct the tangent at input zero.
+5. At $n=8$, order the values of four models: logarithmic, linear, linearithmic and exponential. Does that order predict measured time?
+
+<details className="l42-answer">
+<summary>Show detailed solutions</summary>
+
+1. $2^5=32$, so $\log_2(32)=\ln(32)/\ln(2)=5$.
+2. With downward rounding, the counts are 4, 5 and 5. Without rounding they are 5, 5 and 6. Both stop at a value at most 1, but visit different values.
+3. $D(3^x)=\ln(3)3^x$ for $x\in\mathbb R$; $D\log_3(x)=1/(x\ln(3))$ for $x>0$.
+4. $f(0)=0$ and $f'(0)=0$: the tangent is $y=0$. A horizontal tangent is still a tangent.
+5. $3<8<24<256$. These are model values for one input, not seconds or a proof of an ordering at every input.
+
+</details>
+
+## Revision sheet: repeat the methods
+
+<div className="l42-memo">
+
+- **Calculate a logarithm:** look for the exponent, check input and base, then divide the input’s logarithm by the base’s logarithm.
+- **Count a loop:** write the code, specify rounding, trace some steps, then place the input between powers of 2.
+- **Construct a tangent:** calculate height and derivative at the chosen point; insert them into point–slope form.
+- **Compare costs:** fix a common input and unit, calculate, choose a readable scale, then distinguish that calculation from asymptotic growth.
+
+$$
+\begin{aligned}
+\log_a(x)&=\frac{\ln(x)}{\ln(a)}&& (x>0,\ a>0,\ a\ne1)\\
+D(a^x)&=\ln(a)a^x&& (a>0)\\
+D\log_a(x)&=\frac{1}{x\ln(a)}&& (x>0,\ a>0,\ a\ne1)
+\end{aligned}
+$$
+
+**Three checks:** is this calculation allowed? Which quantity am I calculating? Is my result exact, rounded or asymptotic?
+
+</div>
+
+<L42Print locale="en" />

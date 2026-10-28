@@ -1,0 +1,171 @@
+.l40-activity,
+.l40-callout {
+  min-width: 0;
+  margin: 1.5rem 0;
+  padding: clamp(0.75rem, 3vw, 1.5rem);
+  border: 1px solid var(--line);
+  background: var(--card);
+}
+.l40-callout {
+  border-left: 4px solid var(--blue-accent);
+}
+.l40-callout[data-kind='essential'] {
+  border-left-width: 8px;
+}
+.l40-activity-title,
+.l40-callout > p:first-child {
+  font-weight: 700;
+  margin-top: 0;
+}
+.l40-question {
+  border-left: 3px solid var(--blue-accent);
+  padding-left: 1rem;
+}
+.l40-activity [hidden] {
+  display: none !important;
+}
+.l40-activity :is(figure, fieldset) {
+  margin: 1rem 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.l40-activity svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: var(--paper);
+  color: var(--ink);
+  font: 16px sans-serif;
+}
+.l40-activity svg text {
+  fill: var(--ink);
+}
+.l40-grid {
+  stroke: var(--soft-line);
+  fill: none;
+}
+.l40-axis {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  fill: none;
+}
+.l40-curve {
+  stroke: var(--blue-accent);
+  stroke-width: 4;
+  fill: none;
+}
+.l40-tangent {
+  stroke: var(--ink);
+  stroke-width: 2.5;
+  stroke-dasharray: 9 6;
+}
+.l40-secant {
+  stroke: var(--ink);
+  stroke-width: 1.8;
+}
+.l40-guide,
+.l40-change {
+  stroke: var(--ink);
+  fill: none;
+  stroke-dasharray: 3 5;
+}
+.l40-a {
+  fill: var(--blue-accent);
+  stroke: var(--paper);
+  stroke-width: 2;
+}
+.l40-b {
+  fill: var(--ink);
+  stroke: var(--paper);
+  stroke-width: 1;
+}
+.l40-label {
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+.l40-activity legend {
+  font-weight: 700;
+}
+.l40-activity label {
+  display: block;
+  margin-top: 0.75rem;
+}
+.l40-activity input[type='range'] {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  accent-color: var(--blue-accent);
+}
+.l40-activity select {
+  width: 100%;
+  max-width: 100%;
+  min-height: 44px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 0.5rem;
+}
+.l40-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+.l40-actions button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 0.75rem;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  font: inherit;
+  cursor: pointer;
+}
+.l40-activity :is(input, select, button, summary):focus-visible,
+.l40-correction summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.l40-readings {
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.l40-readings dl > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  border-bottom: 1px solid var(--soft-line);
+  padding: 0.6rem 0;
+}
+.l40-readings dd {
+  margin: 0;
+  font-weight: 700;
+}
+.l40-activity figcaption,
+.l40-numerical-note,
+.l40-static-note {
+  font-size: 0.9rem;
+}
+.l40-linked,
+.l40-correction {
+  padding: 0.75rem;
+  border: 1px solid var(--soft-line);
+  margin: 1rem 0;
+}
+.l40-linked summary,
+.l40-correction summary {
+  min-height: 44px;
+  padding-block: 0.4rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .l40-activity svg {
+    font-size: 28px;
+  }
+}

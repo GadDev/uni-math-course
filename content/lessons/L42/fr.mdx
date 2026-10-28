@@ -1,0 +1,287 @@
+---
+lessonId: L42
+locale: fr
+version: 2
+status: extended
+title: "Changer de base et comparer les algorithmes"
+summary: "Comprendre les logarithmes, compter les divisions, construire une tangente et comparer les coûts avec des graphiques manipulables."
+minutes: 55
+objectives: [L42-O01, L42-O02, L42-O03, L42-O04, L42-O05, L42-O06]
+prerequisites: [L39, L40, L41]
+sourcePages: [18, 19]
+---
+import { HalvingExplorer, LogExplorer, ComplexityExplorer, TangentExplorer } from '../../../src/components/L42Explorer';
+import L42Print from '../../../src/components/L42Print.astro';
+
+# Changer de base et comparer les algorithmes
+
+*Matériel pédagogique original fondé sur* Bruno Teheux, Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026, pages 18, 19. Les activités, schémas et méthodes détaillées ci-dessous sont des ajouts originaux du projet ; les graphes remplacent le besoin de consulter la figure du PDF pendant la lecture.
+
+## Objectifs et prérequis
+
+Une liste contient 64 éléments. Si l’on divise sa taille par deux à chaque tour, combien de tours faut-il pour arriver à un seul élément ? Et si elle en contient 65 ? Le logarithme permet de comprendre ce mécanisme ; le code précis permet d’en compter les étapes.
+
+À la fin de la leçon, vous saurez :
+
+1. Réécrire une puissance de base positive avec l’exponentielle.
+2. Lire un logarithme comme un exposant et changer de base pour le calculer.
+3. Compter exactement les divisions d’une boucle donnée.
+4. Dériver une exponentielle ou un logarithme et interpréter une tangente.
+5. Comparer des modèles de coût sur une même entrée.
+6. Distinguer une valeur calculée, une approximation et un ordre de croissance.
+
+**Avant de commencer.** Vérifiez que vous pouvez expliquer pourquoi $2^3=8$, pourquoi une division par zéro est interdite et ce que représente la pente d’une droite. Ici, $\ln$ désigne le logarithme népérien, $e$ sa base, et $\mathbb R$ l’ensemble des réels. Le symbole $D$ désigne la dérivée : $Df(x)=f'(x)$.
+
+<p>Rappels : <a href="/fr/lessons/L38/">L38 — sécante et dérivée</a>, <a href="/fr/lessons/L39/">L39 — règles de dérivation</a>, <a href="/fr/lessons/L40/">L40 — exponentielle</a> et <a href="/fr/lessons/L41/">L41 — logarithme népérien</a>.</p>
+
+Parcours conseillé : lisez l’exemple, formulez une prédiction, manipulez le composant, puis refaites le calcul sans lui. Les bornes des commandes servent à garder les graphiques lisibles ; elles ne définissent pas le domaine mathématique.
+
+## Toutes les bases positives
+
+La base est le nombre que l’on élève à une puissance. Pour une base positive fixée $a$, on peut définir la puissance pour tout exposant réel $x$ grâce à l’exponentielle :
+
+$$a^x=e^{x\ln(a)}\qquad(a>0,\ x\in\mathbb R)$$
+
+**Pourquoi cela fonctionne ?** Pour un exposant entier positif, multiplier des copies de $a=e^{\ln(a)}$ additionne les exposants. La formule prolonge cette idée aux exposants réels. Par exemple :
+
+$$2^3=e^{3\ln(2)}=e^{\ln(8)}=8$$
+
+Le signe de $\ln(a)$ explique le sens de variation :
+
+- Si $a>1$, alors $\ln(a)>0$ : la puissance augmente avec l’exposant.
+- Si $0<a<1$, alors $\ln(a)<0$ : elle diminue. Par exemple, $(1/2)^3=1/8$.
+- Si $a=1$, alors $1^x=1$ : la fonction est constante. Plusieurs exposants donnent 1 ; aucun ne donne 8. On ne peut donc pas lui associer un logarithme réciproque.
+
+**À vous de jouer.** Pourquoi $a=0$ ne convient-il pas à cette définition pour tous les exposants réels ?
+
+<details className="l42-answer">
+<summary>Afficher la correction</summary>
+
+La formule utiliserait $\ln(0)$, qui n’est pas défini dans les réels. De plus, une puissance négative de zéro demanderait une division par zéro. La condition $a>0$ est indispensable ici.
+
+</details>
+
+**À retenir.** La base 1 est autorisée pour l’exponentielle de base quelconque, mais pas pour son logarithme réciproque. Ne confondez pas les deux conditions.
+
+## Le logarithme en base a
+
+**La question à poser : « Quel exposant donne cette valeur ? »** Comme $2^3=8$, le logarithme de 8 en base 2 vaut 3. La notation $\log_a(x)$ désigne cet exposant, pas un produit :
+
+$$\log_a(x)=y\quad\Longleftrightarrow\quad a^y=x$$
+
+On suppose $a>0$, $a\ne1$ et $x>0$. Ces conditions garantissent un unique exposant réel $y$. Un logarithme peut être négatif :
+
+$$2^{-3}=1/8\quad\Longleftrightarrow\quad\log_2(1/8)=-3$$
+
+**Comment faire avec une calculatrice qui ne propose que le logarithme népérien ?** Partons de l’égalité puissance :
+
+$$a^y=x\ \Longrightarrow\ \ln(a^y)=\ln(x)\ \Longrightarrow\ y\ln(a)=\ln(x)$$
+
+Puisque $a\ne1$, on a $\ln(a)\ne0$ : on peut diviser par ce nombre. On obtient la formule de changement de base :
+
+$$\boxed{\log_a(x)=\frac{\ln(x)}{\ln(a)}}\qquad(x>0,\ a>0,\ a\ne1)$$
+
+Exemple détaillé, en gardant les chiffres de la calculatrice jusqu’à la fin :
+
+$$\log_2(8)=\frac{\ln(8)}{\ln(2)}\approx\frac{2.079442}{0.693147}\approx3$$
+
+L’égalité $\log_2(8)=3$ est exacte, car $2^3=8$. Les décimales précédentes sont arrondies : c’est pourquoi leur quotient est affiché avec le symbole $\approx$ (« environ égal »).
+
+<LogExplorer locale="fr" client:visible />
+
+Le graphe passe par $(1,0)$ puisque $a^0=1$. Il croît si $a>1$ et décroît si $0<a<1$. À base fixée, sa dérivée expliquera ce comportement dans la section suivante consacrée aux dérivées.
+
+**À vous de jouer.** Calculez $\log_{1/2}(8)$ avant de vérifier avec le composant.
+
+<details className="l42-answer">
+<summary>Afficher la correction</summary>
+
+On cherche l’exposant $y$ tel que $(1/2)^y=8$. Comme $(1/2)^{-3}=2^3=8$, on obtient $\log_{1/2}(8)=-3$. Le changement de base confirme le signe : $\ln(8)>0$ et $\ln(1/2)<0$.
+
+</details>
+
+**Erreur fréquente.** Dans le quotient, le logarithme de l’entrée est au numérateur ; celui de la base est au dénominateur. Vérifiez le domaine avant de calculer.
+
+## Comprendre une boucle qui divise par deux
+
+Une taille de problème n’est pas toujours une puissance de deux. Pour compter des étapes exactes, précisons le programme. L’entrée $n$ est un entier positif ; $m$ est la taille restante et $k$ compte les exécutions du corps de boucle.
+
+```text
+m ← n
+k ← 0
+tant que m > 1 :
+    m ← partie_entière_inférieure(m / 2)
+    k ← k + 1
+```
+
+La partie entière inférieure $\lfloor t\rfloor$ est le plus grand entier inférieur ou égal à $t$. Ainsi, $\lfloor65/2\rfloor=32$. On arrondit **vers le bas à chaque division**. On compte les divisions, sans compter les tests de condition comme des divisions supplémentaires.
+
+Pour 64, la trace est $64\to32\to16\to8\to4\to2\to1$ : six divisions, donc $\log_2(64)=6$. Pour 65, la première division donne 32 : il faut également six divisions.
+
+<HalvingExplorer locale="fr" client:visible />
+
+**Pourquoi un logarithme ?** Sans arrondi, après $k$ divisions, il reste $n/2^k$. Avec les arrondis du code, la valeur restante est exactement :
+
+$$m_k=\left\lfloor\frac{n}{2^k}\right\rfloor$$
+
+Diviser un entier déjà arrondi vers le bas par 2 puis arrondir revient ici à arrondir une seule fois le quotient initial par une puissance de 2. Cela justifie la formule par récurrence sur le nombre de divisions.
+
+**Comment trouver le nombre final sans exécuter la boucle ?** Encadrez l’entier initial entre deux puissances consécutives de 2 :
+
+$$2^q\le n<2^{q+1}\quad\Longleftrightarrow\quad q\le\log_2(n)<q+1$$
+
+Après $q$ divisions, la formule donne $m_q=1$ ; si $q>0$, avant la dernière division on a encore $m_{q-1}\ge2$. Le premier arrêt intervient donc à :
+
+$$\boxed{k=\lfloor\log_2(n)\rfloor}\qquad(n\in\mathbb N,\ n\ge1)$$
+
+Pour $n=1$, la condition est fausse dès le départ : zéro division. Pour $n=63$, on a $32\le63<64$, donc cinq divisions.
+
+**Attention au code choisi.** Si l’on divisait sans arrondir, en gardant des valeurs réelles et la condition « tant que la valeur est supérieure à 1 », le compte serait $\lceil\log_2(n)\rceil$, où les crochets supérieurs désignent l’arrondi entier vers le haut. Pour 65, ce serait sept divisions. Le logarithme donne l’idée de croissance ; le programme fixe le compte exact.
+
+**À vous de jouer.** Combien de divisions pour $n=100$ avec notre code ?
+
+<details className="l42-answer">
+<summary>Afficher la correction</summary>
+
+Comme $64\le100<128$, le compte est 6. Vérification : $100\to50\to25\to12\to6\to3\to1$. Cette boucle illustre une réduction de taille ; ce n’est pas une promesse de nombre exact de comparaisons pour toute recherche binaire.
+
+</details>
+
+## Dérivation et changement de base
+
+La hauteur d’une courbe donne une valeur ; la pente décrit sa variation locale. Avant d’appliquer les formules aux logarithmes, rappelons le lien entre dérivée et tangente étudié en L38–L39.
+
+Choisissez un point $P=(x_0,f(x_0))$ et un autre point $Q=(x_0+h,f(x_0+h))$. Le nombre $h$ est l’écart horizontal, positif ou négatif. Pour $h\ne0$ et deux points dans le domaine, la pente de la sécante est « variation verticale divisée par variation horizontale » :
+
+$$s_h=\frac{f(x_0+h)-f(x_0)}{h}$$
+
+Si cette pente tend vers un même nombre fini lorsque $h$ tend vers zéro par les deux côtés, ce nombre est la dérivée :
+
+$$f'(x_0)=\lim_{h\to0}s_h$$
+
+C’est un **taux de variation instantané** : pour un très petit déplacement horizontal, la variation de la fonction est approximativement la pente multipliée par ce déplacement. La droite passant par P avec cette pente est la tangente :
+
+$$\boxed{y=f(x_0)+f'(x_0)(x-x_0)}$$
+
+**Exemple calculé :** pour $f(x)=x^2$ et $x_0=1$, développons avant de simplifier :
+
+$$
+\begin{aligned}
+s_h&=\frac{(1+h)^2-1}{h}\\
+&=\frac{2h+h^2}{h}=2+h\qquad(h\ne0).
+\end{aligned}
+$$
+
+La limite est 2, depuis les deux côtés. Comme $f(1)=1$, la tangente est $y=1+2(x-1)=2x-1$. À $h=0$, le quotient reste indéfini : on ne remplace jamais une limite par une division par zéro.
+
+<TangentExplorer locale="fr" client:visible />
+
+**Comment dériver une exponentielle de base quelconque ?** La base $a>0$ reste constante. Posons $u(x)=x\ln(a)$ : sa dérivée est $u'(x)=\ln(a)$. La règle de la chaîne donne :
+
+$$D(a^x)=D(e^{u(x)})=u'(x)e^{u(x)}=\ln(a)\,a^x$$
+
+**Comment dériver un logarithme de base quelconque ?** Dans le changement de base, $1/\ln(a)$ est une constante ; seule la fonction du numérateur dépend de l’entrée :
+
+$$D\log_a(x)=\frac{1}{\ln(a)}D\ln(x)=\frac{1}{x\ln(a)}\qquad(x>0,\ a>0,\ a\ne1)$$
+
+On retrouve les exemples de la leçon :
+
+$$D(2^x)=\ln(2)\,2^x,\qquad D\log_2(x)=\frac{1}{x\ln(2)}\quad(x>0)$$
+
+Le second résultat est positif pour une base supérieure à 1, négatif pour une base entre 0 et 1. C’est cohérent avec les courbes du composant logarithme.
+
+**À vous de jouer.** Pour $f(x)=\log_2(x)$, trouvez la tangente en $x_0=1$.
+
+<details className="l42-answer">
+<summary>Afficher la correction</summary>
+
+La hauteur est $f(1)=0$ et la pente est $f'(1)=1/\ln(2)\approx1.442695$. L’équation exacte est donc $y=(x-1)/\ln(2)$. Elle passe bien par $(1,0)$ ; sélectionnez le logarithme dans le composant pour comparer.
+
+</details>
+
+**Erreur fréquente.** Dériver une puissance multiplie par le logarithme de la base ; dériver le logarithme divise par ce facteur et par l’entrée. La pente n’est pas la hauteur de la courbe.
+
+## Comparer les familles de complexité
+
+Si la taille des données double, le travail double-t-il aussi ? Cela dépend du modèle. Ici, $n$ désigne un nombre entier d’éléments, pas un temps, et $T(n)$ un coût illustratif, par exemple un nombre d’opérations élémentaires. Pour comparer, il faut fixer la même entrée et la même unité.
+
+La figure source de la page 19 motive la comparaison. Nous conservons ses familles et ajoutons le modèle quadratique pour fournir un repère intermédiaire :
+
+$$1,\quad\log_2(n),\quad\sqrt n,\quad n,\quad n\log_2(n),\quad n^2,\quad2^n,\quad n!$$
+
+La factorielle est le produit des entiers de 1 à $n$ : par exemple, $4!=1\times2\times3\times4=24$. La racine carrée et la factorielle sont proposées comme courbes optionnelles dans l’outil.
+
+**Comment comparer sur une entrée ?** Pour $n=8$, calculez d’abord $\log_2(8)=3$, puis remplacez dans chaque expression :
+
+$$n\log_2(n)=8\times3=24,\qquad n^2=8^2=64,\qquad 2^n=2^8=256$$
+
+<ComplexityExplorer locale="fr" client:visible />
+
+**Comment lire les échelles ?** Sur une échelle linéaire, un même déplacement vertical représente une même quantité ajoutée. Sur une échelle logarithmique, il représente un même facteur multiplicatif. L’échelle ne change pas les valeurs : le tableau reste le point de contrôle. Une valeur nulle n’a pas de position sur un axe logarithmique ordinaire.
+
+**Valeur ponctuelle et croissance à long terme.** Les modèles $n^2$ et $2^n$ sont égaux à 16 pour $n=4$. Cela ne signifie pas qu’ils croissent de la même façon. Une exponentielle de base supérieure à 1 finit par dépasser tout polynôme de degré fixé. Ce résultat théorique n’est pas démontré par une fenêtre graphique finie.
+
+La notation $T(n)\in\Theta(g(n))$ indique le **même ordre de croissance** : pour des entrées assez grandes, le coût est encadré par deux multiples positifs de $g(n)$. Formellement, si $g(n)$ est positif pour ces entrées :
+
+$$\exists c_1,c_2>0,\ \exists n_0,\ \forall n\ge n_0:\quad c_1g(n)\le T(n)\le c_2g(n)$$
+
+Par exemple, $T(n)=3n+7$ appartient à $\Theta(n)$ : pour $n\ge1$, on a $3n\le3n+7\le10n$. La notation $O(g(n))$ donne seulement une borne supérieure à un facteur constant près : $3n+7\in O(n^2)$ est aussi vrai, mais moins précis. Un ordre de croissance n’est donc pas une durée exacte en secondes.
+
+**Pourquoi la base ne change-t-elle pas la famille logarithmique ?** Pour toute base fixée $a>1$, le changement de base donne :
+
+$$\log_a(n)=\frac{\ln(2)}{\ln(a)}\log_2(n)$$
+
+Le facteur est une constante positive ; les logarithmes ont donc le même ordre de croissance. Pour un coût, on utilise ici une base supérieure à 1 afin de ne pas obtenir des valeurs négatives quand l’entrée dépasse 1.
+
+**À vous de jouer.** Quelle est la valeur exacte de $3n+7$ à $n=8$ ? Que vous apprend sa famille de croissance ?
+
+<details className="l42-answer">
+<summary>Afficher la correction</summary>
+
+La valeur vaut $3\times8+7=31$. La famille $\Theta(n)$ indique une croissance linéaire à long terme ; elle ne fournit pas le compte 31. Les constantes, l’entrée, l’implémentation et le matériel restent nécessaires pour prévoir un temps réel.
+
+</details>
+
+## Dernier exercice de synthèse
+
+Essayez sans composant et sans ouvrir les corrections :
+
+1. Expliquez pourquoi $\log_2(32)=5$ et écrivez le changement de base.
+2. Comptez les divisions du code pour 31, 32 et 33. Comparez avec un code sans arrondi.
+3. Calculez $D(3^x)$ et $D\log_3(x)$ en indiquant les domaines.
+4. Pour la fonction carré, construisez la tangente au point d’abscisse zéro.
+5. À $n=8$, classez les valeurs des quatre modèles : logarithmique, linéaire, linéarithmique et exponentiel. Ce classement suffit-il à prédire un temps mesuré ?
+
+<details className="l42-answer">
+<summary>Afficher les corrections détaillées</summary>
+
+1. $2^5=32$, donc $\log_2(32)=\ln(32)/\ln(2)=5$.
+2. Avec arrondi vers le bas, les comptes sont 4, 5 et 5. Sans arrondi, ils sont 5, 5 et 6. Dans les deux cas, on arrête à une valeur inférieure ou égale à 1, mais les valeurs traversées diffèrent.
+3. $D(3^x)=\ln(3)3^x$ pour $x\in\mathbb R$ ; $D\log_3(x)=1/(x\ln(3))$ pour $x>0$.
+4. $f(0)=0$ et $f'(0)=0$ : la tangente est $y=0$. Une tangente horizontale est bien une tangente.
+5. $3<8<24<256$. Ce sont des valeurs de modèles pour une entrée donnée, pas des secondes ni une preuve de classement pour toute entrée.
+
+</details>
+
+## Fiche de révision : savoir refaire
+
+<div className="l42-memo">
+
+- **Calculer un logarithme :** chercher l’exposant, vérifier entrée et base, puis diviser le logarithme de l’entrée par celui de la base.
+- **Compter une boucle :** écrire le code, préciser l’arrondi, tracer quelques étapes, puis encadrer l’entrée entre deux puissances de 2.
+- **Construire une tangente :** calculer la hauteur et la dérivée au point choisi ; les insérer dans la forme point–pente.
+- **Comparer des coûts :** fixer une entrée commune et une unité, calculer, choisir une échelle lisible, puis distinguer ce calcul de la croissance asymptotique.
+
+$$
+\begin{aligned}
+\log_a(x)&=\frac{\ln(x)}{\ln(a)}&& (x>0,\ a>0,\ a\ne1)\\
+D(a^x)&=\ln(a)a^x&& (a>0)\\
+D\log_a(x)&=\frac{1}{x\ln(a)}&& (x>0,\ a>0,\ a\ne1)
+\end{aligned}
+$$
+
+**Trois vérifications :** ai-je le droit de calculer ? Quelle grandeur suis-je en train de calculer ? Mon résultat est-il exact, arrondi ou asymptotique ?
+
+</div>
+
+<L42Print locale="fr" />
