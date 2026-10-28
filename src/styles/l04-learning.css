@@ -1,0 +1,296 @@
+.l04-lab {
+  border: 1px solid var(--line);
+  padding: clamp(0.75rem, 2vw, 1.5rem);
+  margin: 1.75rem 0;
+  background: var(--paper);
+  color: var(--ink);
+  min-width: 0;
+}
+.l04-lab :is(h3, h4) {
+  font-size: 1.2rem;
+  margin: 0 0 0.75rem;
+}
+.l04-prediction,
+.l04-takeaway,
+.l04-memo {
+  border-left: 3px solid var(--accent);
+  padding: 0.6rem 0.9rem;
+}
+.l04-lab[data-ready='false'] .l04-controls {
+  display: none;
+}
+.l04-controls {
+  display: grid;
+  gap: 0.6rem;
+}
+.l04-lab :is(select, button) {
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  min-height: 44px;
+  padding: 0.5rem;
+  max-width: 100%;
+  border-radius: 0.2rem;
+}
+.l04-lab select {
+  width: 100%;
+  min-width: 0;
+}
+.l04-lab button {
+  cursor: pointer;
+  width: fit-content;
+}
+.l04-lab :is(select, button, input, summary, [tabindex]):focus-visible,
+.l04-solution summary:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+.l04-lab fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 0.6rem;
+  border: 1px solid var(--soft-line);
+  min-width: 0;
+}
+.l04-value {
+  display: grid;
+  flex: 1 1 110px;
+  gap: 0.3rem;
+}
+.l04-check {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 44px;
+  cursor: pointer;
+}
+.l04-check input {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+}
+.l04-formula {
+  display: block;
+  overflow-wrap: anywhere;
+  font-family: var(--mono, monospace);
+  font-size: 1.05em;
+  font-weight: 650;
+  line-height: 1.7;
+}
+.l04-small,
+.l04-lab figcaption {
+  font-size: 0.9rem;
+}
+.l04-result {
+  border-block: 1px solid var(--soft-line);
+  margin-block: 1rem;
+}
+.l04-table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 1rem 0;
+}
+.lesson-prose .l04-table-wrap table {
+  margin: 0;
+  font-size: 0.95rem;
+}
+.lesson-prose .l04-table-wrap :is(th, td) {
+  padding: 0.45rem 0.35rem;
+}
+.l04-table-wrap caption {
+  text-align: left;
+  font-weight: 700;
+  padding-block: 0.5rem;
+}
+.l04-table-wrap [data-current='true'] {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  font-weight: 700;
+}
+.l04-map {
+  max-width: 500px;
+  margin: 1.2rem auto;
+}
+.l04-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.l04-solution {
+  margin: 1rem 0;
+  border-left: 3px solid var(--accent);
+  padding: 0.5rem 0.9rem;
+}
+.l04-solution summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0.5rem 0;
+  font-weight: 700;
+}
+.l04-print-example {
+  display: none;
+}
+.l04-revision {
+  border: 2px solid var(--line);
+  padding: 1rem;
+  margin-top: 2rem;
+}
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm;
+  }
+  html:has([data-lesson-id='L04']) {
+    background: white !important;
+    color-scheme: light;
+  }
+  body:has([data-lesson-id='L04']) {
+    --paper: white;
+    --ink: black;
+    --accent: black;
+    --on-strong: white;
+    background: white !important;
+    color: black !important;
+    font-size: 10.5pt;
+  }
+  body:has([data-lesson-id='L04'])
+    :is(
+      header,
+      footer,
+      .course-outline,
+      .breadcrumb,
+      .mobile-contents,
+      .reading-geometry,
+      .content-provenance,
+      .lesson-completion,
+      .primary-link,
+      .back-link,
+      .reading-notice
+    ) {
+    display: none !important;
+  }
+  body:has([data-lesson-id='L04']) :is(.lesson-page, .reading-column) {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  .lesson-prose[data-lesson-id='L04'] {
+    --ink: black;
+    --paper: white;
+    --line: #333;
+    --soft-line: #aaa;
+    --accent: #333;
+    --on-strong: white;
+    font-size: 10.5pt;
+  }
+  .lesson-prose[data-lesson-id='L04'] :is(h2, h3, h4, summary) {
+    break-after: avoid;
+  }
+  .lesson-prose[data-lesson-id='L04'] p {
+    orphans: 3;
+    widows: 3;
+  }
+  .lesson-prose[data-lesson-id='L04'] :is(img, svg, tr, .l04-memo) {
+    break-inside: avoid;
+  }
+  .lesson-prose[data-lesson-id='L04'] :is(.katex-display, .l04-table-wrap) {
+    overflow: visible;
+  }
+  .lesson-prose[data-lesson-id='L04'] .katex-display {
+    font-size: 0.95em;
+  }
+  .l04-screen {
+    display: none !important;
+  }
+  .l04-print-example {
+    display: block;
+  }
+  .l04-print-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+  .l04-print-grid > div {
+    min-width: 0;
+  }
+  .l04-print-grid .l04-steps {
+    padding-left: 1.2rem;
+  }
+  .l04-print-grid .l04-table-wrap :is(th, td) {
+    padding: 0.3rem 0.15rem;
+  }
+  .l04-print-grid .l04-map {
+    margin-top: 0;
+  }
+  .l04-lab {
+    padding: 0.6rem;
+    margin: 1rem 0;
+    border-color: #333;
+  }
+  .l04-map {
+    max-width: 95mm;
+  }
+  .l04-table-wrap {
+    break-inside: avoid;
+  }
+  .l04-solution::details-content {
+    display: block;
+    content-visibility: visible;
+    height: auto;
+  }
+  .l04-solution > :not(summary) {
+    display: block !important;
+  }
+  .l04-revision {
+    break-before: page;
+    break-inside: avoid;
+  }
+  body:has([data-lesson-id='L04']) .lesson-prose {
+    line-height: 1.45;
+  }
+  .lesson-prose[data-lesson-id='L04'] p {
+    line-height: 1.45;
+    margin: 0.6rem 0;
+  }
+  .lesson-prose[data-lesson-id='L04'] li {
+    line-height: 1.45;
+    margin: 0.35rem 0;
+  }
+  .lesson-prose[data-lesson-id='L04'] h1 {
+    font-size: 24pt;
+  }
+  .lesson-prose[data-lesson-id='L04'] h2 {
+    margin: 1.2rem 0 0.6rem;
+    padding-top: 0.6rem;
+    font-size: 16pt;
+  }
+  .lesson-prose[data-lesson-id='L04'] h3 {
+    margin: 1rem 0 0.5rem;
+  }
+  .lesson-prose[data-lesson-id='L04'] table {
+    break-inside: avoid;
+    margin: 0.8rem 0;
+    font-size: 9.5pt;
+  }
+  .lesson-prose[data-lesson-id='L04'] :is(th, td) {
+    padding: 0.4rem;
+  }
+  .l04-lab {
+    break-inside: avoid;
+  }
+  .l04-lab .l04-formula {
+    font-size: 10pt;
+  }
+  .l04-lab :is(h3, h4) {
+    margin-top: 0;
+  }
+  .l04-revision h2 {
+    margin-top: 0 !important;
+  }
+}
