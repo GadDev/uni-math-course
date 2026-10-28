@@ -1,16 +1,22 @@
 ---
 lessonId: L28
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Équations cartésiennes et courbes"
 summary: "Relier une équation à son ensemble de points et préserver ses solutions."
-minutes: 28
+minutes: 38
 objectives: [L28-O01, L28-O02, L28-O03, L28-O04, L28-O05, L28-O06]
 prerequisites: [L24, L27]
 sourcePages: [31, 32, 33, 34, 35]
 ---
+import GeometryLab from '../../../src/components/GeometryLab';
+
+<div className="geometry-study">
+
 # Équations cartésiennes et courbes
+
+Une équation joue le rôle d’un portier : chaque point présente ses deux coordonnées, et le calcul décide s’il entre dans la courbe. Le dessin aide à voir ; l’égalité permet de décider. Avant de continuer, savez-vous remplacer une lettre par un nombre négatif et lire un couple $(x,y)$ dans un repère ? Reprenez [L24](../L24/) et [L27](../L27/) si nécessaire.
 
 ## Objectifs et prérequis
 
@@ -33,9 +39,23 @@ Une équation cartésienne relie les coordonnées $x$ et $y$. La courbe est l’
 
 **Exemple supplémentaire.** Pour $x^2+y^2=4$, le point $(0,2)$ passe le test car $0^2+2^2=4$. Le point $(0,1)$ échoue. Un tracé illustre le test, mais une substitution fournit la vérification exacte.
 
+## Comment faire : tester, puis comparer
+
+Pour un point donné, remplacez **tous** les $x$ et $y$ par ses coordonnées, calculez séparément les deux membres, puis comparez. Appartenir à la courbe signifie que l’égalité est exacte ; être proche du trait à l’écran ne suffit pas.
+
+Pour reconnaître un cercle, on utilise le théorème de Pythagore dans un **repère orthonormé**, dont les axes sont perpendiculaires avec la même unité. Pour le centre $C=(a,b)$ et un point $P=(x,y)$, les écarts horizontal et vertical valent $x-a$ et $y-b$. Donc :
+
+$$CP^2=(x-a)^2+(y-b)^2.$$
+
+Imposer une distance $CP=r$, avec $r>0$, donne $(x-a)^2+(y-b)^2=r^2$. Si $r=0$, l’ensemble est seulement le centre ; un membre droit négatif ne donne aucun point réel. Ce sont des cas différents d’un cercle de rayon strictement positif.
+
+Pour comparer deux équations, vérifiez que chaque transformation est **réversible**. Une double implication $\Leftrightarrow$ affirme que les mêmes coordonnées conviennent dans les deux sens. Un point ajouté ou perdu suffit à réfuter l’équivalence ; plusieurs essais réussis ne la prouvent pas.
+
+<GeometryLab kind="membership" locale="fr" client:visible />
+
 ## Une équation est un filtre
 
-Une équation cartésienne décrit tous les points réels dont les coordonnées la rendent vraie. Dans $y=2x+1$, le point $(1,3)$ appartient à la courbe, car $3=2\cdot1+1$ ; $(1,4)$ n’y appartient pas. Une équation peut décrire une droite, une courbe, plusieurs morceaux, un point ou même aucun point réel.
+Tester quelques points permet de confirmer leur appartenance, mais ne décrit pas nécessairement tout l’ensemble des solutions. Pour reconnaître la forme entière, on utilise la structure de l’équation et ses conditions de validité. Une équation peut décrire une droite, une courbe, plusieurs morceaux, un point ou même aucun point réel.
 
 <p class="source-next"><a href="/fr/lessons/L28/#pdf-33">Suite du PDF : Une galerie de courbes →</a></p>
 
@@ -100,8 +120,32 @@ Passer de $y=x$ à $y^2=x^2$ ajoute généralement la droite $y=-x$. L’implica
 
 <p class="source-next"><a href="/fr/lessons/L29/#pdf-37">Suite du PDF : Tracer une droite →</a></p>
 
+## À vous de jouer sur papier
+
+Pour $y=x$, on divise les deux membres par $x$. Obtient-on une équation équivalente dans tout le plan réel ? Donnez la restriction et un point perdu.
+
+<details>
+<summary>Afficher la correction expliquée</summary>
+
+La division exige $x\ne0$ et donne $y/x=1$. Le point $(0,0)$ satisfait l’équation initiale, mais l’expression $y/x$ n’y est pas définie. Il faut conserver séparément le cas $x=0$, qui impose ici $y=0$. Contrôle : le point ajouté par un carré, $(1,-1)$, satisfait $y^2=x^2$ mais pas $y=x$.
+
+</details>
+
+<section className="geometry-revision">
+
+## Fiche de révision à imprimer
+
+- **Définition :** une courbe cartésienne rassemble tous les couples réels satisfaisant son équation.
+- **Cercle :** $(x-a)^2+(y-b)^2=r^2$ dans un repère orthonormé ; centre $(a,b)$, rayon $r>0$.
+- **Méthode :** substituer, calculer les deux membres, conclure ; pour l’équivalence, justifier les deux sens.
+- **Pièges :** diviser par zéro, oublier une restriction de signe, confondre cercle et disque. Le disque utilise une inégalité large à la place de l’égalité.
+
+</section>
+
 ## Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+</div>

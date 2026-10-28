@@ -1,16 +1,22 @@
 ---
 lessonId: L28
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Cartesian equations and curves"
 summary: "Connect an equation to its point set and preserve its solutions."
-minutes: 28
+minutes: 38
 objectives: [L28-O01, L28-O02, L28-O03, L28-O04, L28-O05, L28-O06]
 prerequisites: [L24, L27]
 sourcePages: [31, 32, 33, 34, 35]
 ---
+import GeometryLab from '../../../src/components/GeometryLab';
+
+<div className="geometry-study">
+
 # Cartesian equations and curves
+
+An equation acts as a gatekeeper: each point presents its two coordinates, and calculation decides whether it belongs to the curve. The drawing helps us see; equality lets us decide. Before continuing, can you substitute a negative number and read a pair $(x,y)$ in coordinates? Revisit [L24](../L24/) and [L27](../L27/) if needed.
 
 ## Objectives and prerequisites
 
@@ -33,9 +39,23 @@ A Cartesian equation relates coordinates $x$ and $y$. Its curve consists of **al
 
 **Additional example.** For $x^2+y^2=4$, point $(0,2)$ passes because $0^2+2^2=4$. Point $(0,1)$ fails. A plot illustrates the test, whereas substitution gives an exact check.
 
+## How to: test, then compare
+
+For a given point, replace **every** $x$ and $y$ by its coordinates, calculate each side separately, then compare. Membership requires exact equality; being close to the on-screen stroke is insufficient.
+
+To recognise a circle, use Pythagoras in an **orthonormal coordinate system**, with perpendicular axes and the same unit. For centre $C=(a,b)$ and point $P=(x,y)$, horizontal and vertical displacements are $x-a$ and $y-b$. Thus:
+
+$$CP^2=(x-a)^2+(y-b)^2.$$
+
+Requiring distance $CP=r$, with $r>0$, gives $(x-a)^2+(y-b)^2=r^2$. If $r=0$, the set contains only the centre; a negative right side gives no real point. These differ from a circle with strictly positive radius.
+
+To compare equations, check that every transformation is **reversible**. A double implication $\Leftrightarrow$ asserts that the same coordinates work in both directions. One added or lost point disproves equivalence; several successful tests cannot prove it.
+
+<GeometryLab kind="membership" locale="en" client:visible />
+
 ## An equation is a filter
 
-A Cartesian equation describes all real points whose coordinates make it true. For $y=2x+1$, point $(1,3)$ lies on the curve because $3=2\cdot1+1$; $(1,4)$ does not. An equation can describe a line, a curve, several pieces, a single point or even no real point.
+Testing a few points confirms their membership, but does not necessarily describe the entire solution set. To identify the whole shape, use the structure of the equation and its conditions of validity. An equation can describe a line, a curve, several pieces, a single point or even no real point.
 
 <p class="source-next"><a href="/en/lessons/L28/#pdf-33">Next in the PDF : A gallery of curves →</a></p>
 
@@ -100,8 +120,32 @@ Passing from $y=x$ to $y^2=x^2$ generally adds line $y=-x$. A one-way implicatio
 
 <p class="source-next"><a href="/en/lessons/L29/#pdf-37">Next in the PDF : Plotting a straight line →</a></p>
 
+## Your turn on paper
+
+For $y=x$, divide both sides by $x$. Is the resulting equation equivalent over the whole real plane? Give the restriction and one lost point.
+
+<details>
+<summary>Show the worked solution</summary>
+
+Division requires $x\ne0$ and gives $y/x=1$. Point $(0,0)$ satisfies the original equation, but $y/x$ is undefined there. Retain the case $x=0$ separately; here it forces $y=0$. Check: point $(1,-1)$ added by squaring satisfies $y^2=x^2$ but not $y=x$.
+
+</details>
+
+<section className="geometry-revision">
+
+## Printable revision sheet
+
+- **Definition:** a Cartesian curve contains all real pairs satisfying its equation.
+- **Circle:** $(x-a)^2+(y-b)^2=r^2$ in orthonormal coordinates; centre $(a,b)$, radius $r>0$.
+- **Method:** substitute, calculate both sides, conclude; for equivalence, justify both directions.
+- **Traps:** dividing by zero, omitting sign restrictions, confusing circle and disk. A disk uses an inclusive inequality instead of equality.
+
+</section>
+
 ## Practice and recap
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+</div>

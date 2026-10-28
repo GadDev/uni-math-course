@@ -1,16 +1,22 @@
 ---
 lessonId: L29
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Pente et ordonnée à l’origine"
 summary: "Interpréter les paramètres d’une droite affine et reconnaître les cas limites."
-minutes: 30
+minutes: 40
 objectives: [L29-O01, L29-O02, L29-O03, L29-O04, L29-O05, L29-O06]
 prerequisites: [L28]
 sourcePages: [37, 38, 39]
 ---
+import GeometryLab from '../../../src/components/GeometryLab';
+
+<div className="geometry-study">
+
 # Pente et ordonnée à l’origine
+
+Une droite affine est une règle à deux réglages : une hauteur de départ et une variation constante. La leçon relie ces réglages à des points, puis à un dessin. Vérifiez que vous savez calculer une différence signée et tester un point dans une équation ([L28](../L28/)).
 
 ## Objectifs et prérequis
 
@@ -65,6 +71,20 @@ Dans $y=mx+p$, $p$ est l’ordonnée à l’origine, donc la droite passe par $(
 <figcaption>La pente compare les deux marches ; l’intercept repère le passage sur l’axe vertical.</figcaption>
 </figure>
 
+## D’où vient la pente ?
+
+La lettre grecque $\Delta$, « delta », signifie ici **valeur d’arrivée moins valeur de départ**. Pour deux points de la droite, posons $\Delta x=x_2-x_1$ et $\Delta y=y_2-y_1$. Les indices 1 et 2 distinguent les points ; ce ne sont pas des puissances.
+
+Comme $y_1=mx_1+p$ et $y_2=mx_2+p$, soustraire les égalités fait disparaître la constante :
+
+$$\Delta y=(mx_2+p)-(mx_1+p)=m(x_2-x_1)=m\Delta x.$$
+
+Si $\Delta x\ne0$, diviser donne $m=\Delta y/\Delta x$. Voilà pourquoi le rapport est le même pour n’importe quels deux points distincts d’une droite non verticale. À l’inverse, une verticale impose $\Delta x=0$ : ce quotient n’existe pas.
+
+**Comment tracer ?** Placez d’abord $(0,p)$. Choisissez ensuite un déplacement horizontal pratique et multipliez-le par la pente pour trouver le déplacement vertical. Pour $m=-1/2$ et $p=2$, avancer de $2$ donne $\Delta y=(-1/2)\cdot2=-1$ : le second point est $(2,1)$. Vérifiez $1=(-1/2)\cdot2+2$.
+
+<GeometryLab kind="slope" locale="fr" client:visible />
+
 ## Tracer et déplacer une droite
 
 Pour tracer $y=(1/2)x+1$, placer $(0,1)$, puis avancer de $2$ unités et monter de $1$ unité pour obtenir $(2,2)$. Deux points distincts suffisent. Modifier seulement $p$ translate la droite verticalement. Modifier $m$ en gardant $p$ fixe conserve le passage par $(0,p)$ et change l’inclinaison.
@@ -99,8 +119,32 @@ Deux droites de même pente et de constantes différentes sont parallèles et di
 
 <p class="source-next"><a href="/fr/lessons/L30/#pdf-40">Suite du PDF : Une droite à partir de deux points →</a></p>
 
+## À vous de jouer sur papier
+
+Pour $y=-3x+4$, donnez le point sur l’axe vertical, puis la variation de $y$ lorsque $x$ augmente de $2$. Une droite verticale aurait-elle une pente nulle ?
+
+<details>
+<summary>Afficher la correction expliquée</summary>
+
+Le point est $(0,4)$. La variation vaut $\Delta y=m\Delta x=-3\cdot2=-6$ : on descend de six unités, quel que soit le point de départ. Une pente nulle donne une horizontale ; une verticale a une pente indéfinie. Les coordonnées et les variations ne sont pas la même chose.
+
+</details>
+
+<section className="geometry-revision">
+
+## Fiche de révision à imprimer
+
+- **Forme :** $y=mx+p$, pour une droite non verticale ; $p$ est une ordonnée et $m$ un rapport de variations.
+- **Calcul :** $\Delta y=m\Delta x$ ; si $\Delta x\ne0$, $m=\Delta y/\Delta x$.
+- **Méthode :** placer l’ordonnée à l’origine, construire une marche, vérifier un second point.
+- **Pièges :** pente négative ne signifie pas ordonnées toutes négatives ; même pente et même constante donnent une seule droite, pas deux parallèles distinctes.
+
+</section>
+
 ## Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+</div>

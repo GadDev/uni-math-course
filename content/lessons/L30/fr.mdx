@@ -1,16 +1,22 @@
 ---
 lessonId: L30
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Deux points et intersections"
 summary: "Construire une droite et distinguer intersection unique, parallélisme et coïncidence."
-minutes: 30
+minutes: 40
 objectives: [L30-O01, L30-O02, L30-O03, L30-O04, L30-O05, L30-O06]
 prerequisites: [L25, L29]
 sourcePages: [40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
 ---
+import GeometryLab from '../../../src/components/GeometryLab';
+
+<div className="geometry-study">
+
 # Deux points et intersections
+
+Deux points distincts fixent une droite ; deux droites posent une autre question : quels points partagent-elles ? Vous allez passer de la construction à la résolution d’un système. Avant de commencer, revoyez les équations du premier degré ([L25](../L25/)) et le rôle de la pente ([L29](../L29/)).
 
 ## Objectifs et prérequis
 
@@ -39,6 +45,21 @@ Les lettres changent, pas la méthode : l’entrée $C$ remplace $x$ et la sorti
 ## Deux points distincts
 
 Pour $A=(x_1,y_1)$ et $B=(x_2,y_2)$ avec $x_1\ne x_2$, la pente est $m=(y_2-y_1)/(x_2-x_1)$. Ensuite $p=y_1-mx_1$. Inverser l’ordre des deux points change les deux signes du quotient et conserve la pente. Si les abscisses sont égales et les points distincts, la droite est verticale. Un seul point répété ne détermine pas une droite unique.
+
+## Comment retrouver l’équation et vérifier les cas limites ?
+
+Écrivons que les deux points appartiennent à la droite : $y_1=mx_1+p$ et $y_2=mx_2+p$. En soustrayant, on obtient $y_2-y_1=m(x_2-x_1)$. Pour $x_2\ne x_1$, on en déduit :
+
+$$m=\frac{y_2-y_1}{x_2-x_1},\qquad p=y_1-mx_1.$$
+
+La seconde formule vient simplement de la première équation, dans laquelle on isole $p$. Ne mémorisez pas deux recettes sans lien : on élimine d’abord la constante, puis on la retrouve.
+
+1. Comparez les deux points. S’ils sont identiques, les données ne déterminent pas une droite unique.
+2. S’ils sont distincts avec la même abscisse, écrivez la verticale $x=x_1$.
+3. Sinon, calculez la pente en soustrayant dans **le même ordre** au numérateur et au dénominateur.
+4. Calculez la constante, puis remplacez les coordonnées des **deux** points dans l’équation obtenue.
+
+<GeometryLab kind="points" locale="fr" client:visible />
 
 ## Exemple guidé : construire puis vérifier
 
@@ -88,6 +109,16 @@ Ces cas expliquent les trois résultats rencontrés dans les systèmes. Une seul
 <figcaption>Une infinité de points communs.</figcaption>
 </figure>
 
+## Comment résoudre une intersection ?
+
+Un point commun satisfait les deux équations **à la fois**. Pour $y=m_1x+p_1$ et $y=m_2x+p_2$, égaliser les deux expressions de la même ordonnée donne :
+
+$$m_1x+p_1=m_2x+p_2\quad\Longleftrightarrow\quad(m_1-m_2)x=p_2-p_1.$$
+
+Avant de diviser, examinez $m_1-m_2$. S’il est non nul, calculez $x$, puis $y$, et vérifiez les deux équations. S’il est nul, comparez les constantes : différentes, elles donnent une contradiction ; égales, elles laissent tous les points de la droite. La formule pour $x$ ne s’utilise donc pas dans les trois cas. Pour une verticale, substituez directement son abscisse dans l’autre équation.
+
+<GeometryLab kind="intersection" locale="fr" client:visible />
+
 ## Une, aucune ou une infinité
 
 Pour deux droites non verticales, des pentes différentes donnent une intersection unique. Des pentes égales et des constantes différentes donnent aucune intersection. Des paramètres identiques décrivent la même droite et donc une infinité de points communs. Après élimination, une égalité fausse comme $0=3$ indique l’absence de solution ; une identité comme $0=0$ exige de conserver l’équation restante.
@@ -98,8 +129,32 @@ Pour croiser $x=4$ et $y=-x+6$, substituer directement l’abscisse fixée donne
 
 <p class="source-next"><a href="/fr/lessons/L31/#pdf-50">Suite du PDF : Les deux demi-plans →</a></p>
 
+## À vous de jouer sur papier
+
+Construisez la droite passant par $(0,2)$ et $(2,0)$, puis trouvez son intersection avec $y=x$. Vérifiez vos deux coordonnées.
+
+<details>
+<summary>Afficher la correction expliquée</summary>
+
+La pente vaut $(0-2)/(2-0)=-1$ et la constante vaut $2$, donc $y=-x+2$. L’intersection impose $x=-x+2$, puis $2x=2$ et $x=1$. On trouve $y=1$ ; $(1,1)$ satisfait bien les deux équations. La droite construite redonne aussi les deux points initiaux.
+
+</details>
+
+<section className="geometry-revision">
+
+## Fiche de révision à imprimer
+
+- **Deux points :** traiter d’abord les points confondus et les verticales ; sinon calculer $m$ puis $p$.
+- **Intersection :** résoudre $(m_1-m_2)x=p_2-p_1$ en séparant le cas du coefficient nul.
+- **Vérification :** un résultat est un couple, à substituer dans les deux équations.
+- **Pièges :** diviser par zéro ; lire « aucun point visible » comme « aucune solution » ; oublier le domaine du modèle.
+
+</section>
+
 ## Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+</div>

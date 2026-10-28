@@ -1,16 +1,22 @@
 ---
 lessonId: L34
 locale: fr
-version: 4
+version: 5
 status: extended
 title: "Modèles affines et résidus"
 summary: "Mesurer l’erreur verticale d’un modèle et construire une perte quadratique."
-minutes: 30
+minutes: 40
 objectives: [L34-O01, L34-O02, L34-O03, L34-O04, L34-O05, L34-O06]
 prerequisites: [L26, L29]
 sourcePages: [66, 67, 68, 69, 70]
 ---
+import GeometryLab from '../../../src/components/GeometryLab';
+
+<div className="geometry-study">
+
 # Modèles affines et résidus
+
+Une règle affine peut prédire sans passer exactement par les observations. Pour choisir un modèle, on doit mesurer ce qu’il manque et comparer toutes les observations avec le même critère. Revoyez les sommes ([L26](../L26/)) et la lecture de $m$ et $p$ ([L29](../L29/)).
 
 ## Objectifs et prérequis
 
@@ -63,6 +69,21 @@ Le petit chapeau de $\hat y_i$ se lit « y chapeau indice i » : c’est la vale
 
 Pour les données $(0,1),(1,2),(2,2)$ et le modèle $\hat y=x+1$, les prédictions sont $1,2,3$. Les résidus sont $0,0,-1$ et leur somme des carrés vaut $1$. Le dernier résidu négatif indique une surestimation. Changer de convention de signe ne changerait pas les carrés, mais changerait l’interprétation du signe.
 
+## Comment construire une mesure d’erreur ?
+
+L’indice $i$ numérote les observations ; $n$ est leur nombre. Le symbole $\sum_{i=1}^n$ demande d’additionner les termes pour les indices de 1 à $n$. On part d’un calcul concret avant de le condenser en formule :
+
+1. Pour chaque abscisse observée, calculez la prédiction $\hat y_i=mx_i+p$.
+2. Soustrayez **prédiction à observation** : $e_i=y_i-\hat y_i$.
+3. Élevez chaque résidu au carré avant d’additionner : $S=\sum_{i=1}^n e_i^2$.
+4. Si l’on veut une moyenne par observation, divisez par $n>0$ : $\mathrm{MSE}=S/n$.
+
+Pourquoi des carrés ? Ils sont positifs ou nuls, donc des erreurs opposées ne s’annulent plus. Un résidu doublé contribue quatre fois plus au total. Ce choix privilégie les petites erreurs et pénalise fortement les grandes ; une somme de valeurs absolues serait un autre critère.
+
+**Vérification :** $S=0$ implique que chaque carré vaut zéro, donc que chaque observation égale sa prédiction. En revanche, $\sum e_i=0$ dit seulement que les erreurs signées se compensent. Le dessin utilise des segments verticaux parce qu’on compare les deux hauteurs à la même abscisse.
+
+<GeometryLab kind="residuals" locale="fr" client:visible />
+
 ## Une perte qui ne se compense pas
 
 La perte des moindres carrés est $S(m,p)=\sum_{i=1}^n(y_i-mx_i-p)^2$, avec $n\ge1$. Elle est positive ou nulle, et vaut zéro exactement si toutes les prédictions sont exactes sur les données. L’erreur quadratique moyenne est $\mathrm{MSE}=S/n$. Pour un même jeu de données, minimiser l’une ou l’autre donne les mêmes paramètres. Les carrés amplifient les grands résidus.
@@ -74,6 +95,22 @@ Les résidus $-2,2$ ont une somme nulle mais une perte $8$. Les résidus $1,1$ o
 <p class="source-next"><a href="/fr/lessons/L34/#pdf-69">Suite du PDF : La méthode des moindres carrés →</a></p>
 
 <span id="pdf-69" class="source-topic-marker"></span>
+
+## Centrer : soustraire une moyenne avant de multiplier
+
+La barre désigne une **moyenne arithmétique** : $\bar x=(x_1+\cdots+x_n)/n$ et $\bar y=(y_1+\cdots+y_n)/n$. Centrer signifie soustraire cette moyenne à chaque valeur. On mesure ainsi une position par rapport au centre du nuage, plutôt que par rapport à zéro.
+
+Pour les trois données de l’activité, $\bar x=1$ et $\bar y=5/3$. Voici le calcul exact, avant tout arrondi :
+
+| $x_i$ | $y_i$ | $x_i-\bar x$ | $y_i-\bar y$ | $(x_i-\bar x)^2$ | $(x_i-\bar x)(y_i-\bar y)$ |
+| --- | --- | --- | --- | --- | --- |
+| $0$ | $1$ | $-1$ | $-2/3$ | $1$ | $2/3$ |
+| $1$ | $2$ | $0$ | $1/3$ | $0$ | $0$ |
+| $2$ | $2$ | $1$ | $1/3$ | $1$ | $1/3$ |
+
+Les deux dernières colonnes donnent $S_{xx}=2$ et $S_{xy}=1$. En mettant les écarts verticaux au carré, on obtient aussi $S_{yy}=4/9+1/9+1/9=2/3$. Les écarts centrés ont une somme nulle ; leurs carrés, eux, peuvent avoir une somme positive. Ces calculs préparent la formule de la leçon suivante sans supposer qu’elle est déjà connue.
+
+
 
 ## Les moindres carrés et les trois sommes centrées
 
@@ -95,8 +132,32 @@ Les sommes de carrés $S_{xx}$ et $S_{yy}$ ne sont jamais négatives, mais la so
 
 <p class="source-next"><a href="/fr/lessons/L35/#pdf-71">Suite du PDF : La formule →</a></p>
 
+## À vous de jouer sur papier
+
+Pour $(0,1),(1,2),(2,2)$, calculez les résidus, $S$ et MSE du modèle horizontal $\hat y=2$. Comparez avec $\hat y=x+1$ sans conclure que le meilleur modèle possible a été trouvé.
+
+<details>
+<summary>Afficher la correction expliquée</summary>
+
+Les prédictions valent $2,2,2$ ; les résidus valent $-1,0,0$. Donc $S=1$ et MSE vaut $1/3$, comme pour le modèle $\hat y=x+1$. Cela établit seulement une égalité entre ces deux candidats. Le réglage $m=1/2$, $p=7/6$ donne des résidus $-1/6,1/3,-1/6$, donc $S=1/6<1$. Une bonne adéquation numérique ne démontre aucune causalité.
+
+</details>
+
+<section className="geometry-revision">
+
+## Fiche de révision à imprimer
+
+- **Prédiction et résidu :** $\hat y_i=mx_i+p$, $e_i=y_i-\hat y_i$ ; positif signifie observation au-dessus du modèle.
+- **Perte :** $S=\sum e_i^2\ge0$, MSE vaut $S/n$ pour $n>0$ ; comparer sur les mêmes observations.
+- **Centrage :** calculer les moyennes, soustraire, puis former carrés et produits.
+- **Pièges :** somme signée nulle n’est pas perte nulle ; résidu vertical n’est pas distance perpendiculaire ; ajustement n’est pas causalité.
+
+</section>
+
 ## Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+</div>

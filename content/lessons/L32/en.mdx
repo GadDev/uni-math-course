@@ -1,16 +1,22 @@
 ---
 lessonId: L32
 locale: en
-version: 3
+version: 4
 status: extended
 title: "From coordinates to pixels"
 summary: "Build and invert a transformation to a screen with a downward vertical axis."
-minutes: 25
+minutes: 35
 objectives: [L32-O01, L32-O02, L32-O03, L32-O04, L32-O05, L32-O06]
 prerequisites: [L25, L27, L29]
 sourcePages: [52, 53, 54, 55]
 ---
+import GeometryLab from '../../../src/components/GeometryLab';
+
+<div className="geometry-study">
+
 # From coordinates to pixels
+
+The same point can have two addresses: its mathematical coordinates and its screen position. We will build the address change, then check the return trip. Revisit coordinates ([L27](../L27/)) and isolating an unknown ([L25](../L25/)).
 
 ## Objectives and prerequisites
 
@@ -69,6 +75,24 @@ With $s_x>0$ and $s_y>0$ pixels per unit, use $u=u_0+s_xx$ and $v=v_0-s_yy$. The
 <figcaption>Moving up in the plane decreases screen coordinate v.</figcaption>
 </figure>
 
+## How to build and invert the transformation
+
+A **scale** here is a number of pixels per mathematical unit: $s_x$ horizontally, $s_y$ vertically. Screen point $(u_0,v_0)$ specifies where the mathematical origin is placed.
+
+1. Multiply horizontal displacement by its scale: $s_xx$, then add the origin position: $u=u_0+s_xx$.
+2. A positive mathematical height must move up on screen, decreasing row number: $v=v_0-s_yy$.
+3. To return, undo the operations in reverse order:
+
+$$u-u_0=s_xx\quad\Longrightarrow\quad x=\frac{u-u_0}{s_x},$$
+
+$$v_0-v=s_yy\quad\Longrightarrow\quad y=\frac{v_0-v}{s_y}.$$
+
+Division requires nonzero scales; this convention imposes $s_x>0$ and $s_y>0$. Subscripts 0 identify the chosen screen origin, not multiplication by zero.
+
+**Where does screen slope come from?** Two points give $\Delta u=s_x\Delta x$ and $\Delta v=-s_y\Delta y$. For a nonvertical line, division yields $\Delta v/\Delta u=-(s_y/s_x)m$. The minus sign comes from the orientation change, not a calculation error.
+
+<GeometryLab kind="screen" locale="en" client:visible />
+
 ## Guided example: forward and inverse
 
 Take $u=300+40x$ and $v=200-40y$. Point $(-2,3)$ becomes $(220,80)$. To invert, use $x=(u-300)/40$ and $y=(200-v)/40$. Pixel $(380,240)$ therefore corresponds to $(2,-1)$ before any rounding uncertainty.
@@ -77,14 +101,40 @@ Take $u=300+40x$ and $v=200-40y$. Point $(-2,3)$ becomes $(220,80)$. To invert, 
 
 With the same scales, line $y=2x+1$ becomes $v=760-2u$. Indeed, substitute $x=(u-300)/40$ into $v=200-40(2x+1)$. The screen slope is negative: a stroke rising rightward has decreasing screen vertical coordinates. In general, slope becomes $-(s_y/s_x)m$.
 
+The steps are $v=200-40(2x+1)=160-80x$, then $v=160-80(u-300)/40=160-2u+600=760-2u$.
+
 ## Round after calculating
 
 To display a point, calculate continuous coordinates, then apply an explicit rounding rule. Rounding to nearest limits error to half a pixel per coordinate; halfway ties need a convention. Several real points may map to one pixel: rounding is not invertible. An out-of-image coordinate remains out of bounds even when its algebraic transformation is correct.
 
 <p class="source-next"><a href="/en/lessons/L33/#pdf-56">Next in the PDF: Rasterising: which pixels? →</a></p>
 
+## Your turn on paper
+
+With $(u_0,v_0)=(200,150)$ and $s_x=s_y=40$, transform $(-2,3)$, then recover the starting point. Why does this round trip stop being exact after rounding?
+
+<details>
+<summary>Show the worked solution</summary>
+
+We obtain $u=200+40(-2)=120$ and $v=150-40\cdot3=30$. Returning gives $x=(120-200)/40=-2$ and $y=(150-30)/40=3$. After rounding, several continuous positions can give the same pixel index: lost information cannot be recovered exactly. Also check image bounds after applying the chosen rounding convention.
+
+</details>
+
+<section className="geometry-revision">
+
+## Printable revision sheet
+
+- **Transformation:** $u=u_0+s_xx$, $v=v_0-s_yy$, for $s_x,s_y>0$.
+- **Continuous inverse:** $x=(u-u_0)/s_x$, $y=(v_0-v)/s_y$.
+- **Method:** set origin and scales, calculate, check the inverse, then round using an explicit convention and check visibility.
+- **Traps:** omitting the minus; confusing continuous coordinates and integer indices; assuming rounding is invertible.
+
+</section>
+
 ## Practice and recap
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+</div>
