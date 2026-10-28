@@ -1,0 +1,218 @@
+---
+lessonId: L23
+locale: en
+version: 5
+status: extended
+title: "Fractions, powers and roots"
+summary: "Preserve quotient domains and read powers and roots correctly."
+minutes: 53
+objectives: [L23-O01, L23-O02, L23-O03, L23-O04, L23-O05, L23-O06]
+prerequisites: [L21, L22]
+sourcePages: [13, 14]
+---
+import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import FractionExplorer from '../../../src/components/FractionExplorer';
+
+<div className="algebra-study">
+
+# Fractions, powers and roots
+
+Simplifying makes a form lighter without changing its meaning. Before using the “calculator machine”, check whether the input is allowed. We separate three actions: adding shares, repeating factors and finding a root.
+
+## Objectives and prerequisites
+
+- Add fractions.
+- Multiply and divide.
+- Use powers.
+- Calculate a real root.
+- Preserve the domain.
+- Analyse a simplification.
+
+Prerequisites: L21, L22. Domains and restrictions stated below are part of every rule.
+
+**Reminder from [L21](../L21/) and [L22](../L22/).** A factor is multiplied; a term is added. You may cancel $2x/(2y)$ to $x/y$ when $y\ne0$; you cannot remove the $2$ in $(x+2)/(y+2)$. The **domain** is the set of values for which every calculation is defined.
+
+<span id="pdf-13" class="source-topic-marker"></span>
+
+## Fractions: use a common unit before adding
+
+In $a/b$, the **numerator** $a$ counts parts and the **denominator** $b$ describes their size, with $b\ne0$. For the positive parts in the drawing, a half and a third are different sizes.
+
+**PDF example, page 13.** $1/2+1/3=3/6+2/6=5/6$. Divide each whole into six equally sized parts, then count five of them. The result $2/5$ would add incompatible part sizes.
+
+**Additional example.** $3/4-1/6=9/12-2/12=7/12$. Multiplication uses a different rule: $(a/b)(c/d)=ac/(bd)$ for $b,d\ne0$. For example $(2/3)(3/5)=6/15=2/5$. To divide, multiply by the reciprocal: $(a/b)/(c/d)=ad/(bc)$ also requires $c\ne0$.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/fractions.svg" alt="One half represents three sixths and one third two sixths." width="440" height="360" loading="lazy" />
+<figcaption>Equal-sized parts make addition possible.</figcaption>
+</figure>
+
+## Reminder: the four fraction operations
+
+A fraction represents division. The denominator gives the size of the shares; the numerator counts those shares. For $b,d\ne0$, the rules are:
+
+<div className="method-table" tabIndex={0} role="region" aria-label="Four-operation reminder; scrollable table">
+
+| Operation | Rule | Example with steps |
+| --- | --- | --- |
+| Addition | $\frac ab+\frac cd=\frac{ad+bc}{bd}$ | $\frac12+\frac13=\frac36+\frac26=\frac56$ |
+| Subtraction | $\frac ab-\frac cd=\frac{ad-bc}{bd}$ | $\frac34-\frac16=\frac9{12}-\frac2{12}=\frac7{12}$ |
+| Multiplication | $\frac ab\cdot\frac cd=\frac{ac}{bd}$ | $\frac23\cdot\frac35=\frac6{15}=\frac25$ |
+| Division, also requiring $c\ne0$ | $\frac ab\div\frac cd=\frac ab\cdot\frac dc=\frac{ad}{bc}$ | $\frac34\div\frac98=\frac34\cdot\frac89=\frac{24}{36}=\frac23$ |
+
+</div>
+
+**To add or subtract**, make the shares equally sized, then add or subtract their counts. The common denominator may be the product of the denominators; a smaller common multiple also works. Never add fractions by adding their denominators.
+
+**To multiply**, no common denominator is needed. **To divide**, keep the first fraction and invert only the nonzero second one. A reciprocal “undoes” multiplication because $\frac cd\cdot\frac dc=1$ when $c,d\ne0$.
+
+**Finally, reduce** by dividing numerator and denominator by the same nonzero integer: $\frac6{15}=\frac{6\div3}{15\div3}=\frac25$. A denominator sign may move to the numerator: $\frac{a}{-b}=-\frac ab$. A zero fraction is an allowed number; using it as a divisor, or a zero denominator, makes the calculation undefined.
+
+<FractionExplorer locale="en" client:visible />
+
+## Forms with conditions
+
+The quotient $a/b$ of real numbers requires $b\ne0$. For $b,d\ne0$, $a/b+c/d=(ad+bc)/(bd)$. Construct a common unit: adding denominators confuses the sizes of the parts. To multiply fractions, however, multiply numerators and denominators separately. Cancelling removes common nonzero factors, never terms of a sum.
+
+## Guided example: divide two fractions
+
+Calculate $(3/4)/(9/8)$. The divisor is nonzero. Its reciprocal is $8/9$, so $(3/4)(8/9)=2/3$. A different check multiplies the result by the divisor, giving $(2/3)(9/8)=3/4$. This recovers the dividend. Checking a quotient this way is often safer than repeating the calculation.
+
+<p class="source-next"><a href="/en/lessons/L23/#pdf-14">Next in the PDF : Powers and square roots →</a></p>
+
+<span id="pdf-14" class="source-topic-marker"></span>
+
+## Powers and square roots: read each rule
+
+A positive integer exponent counts repeated factors: $a^3=a\cdot a\cdot a$. For nonzero bases and integer exponents $m,n$, the PDF’s rules are:
+
+| Rule | Calculated example |
+| --- | --- |
+| $a^ma^n=a^{m+n}$ | $2^3\cdot2^2=2^5=32$ |
+| $(a^m)^n=a^{mn}$ | $(2^3)^2=2^6=64$ |
+| $(ab)^n=a^nb^n$ | $(2\cdot3)^2=2^2\cdot3^2=36$ |
+| $a^0=1$ | $7^0=1$ |
+| $a^{-n}=1/a^n$ | $2^{-3}=1/8$ |
+
+For a strictly positive integer exponent, the product rule also allows a zero base. **Additional practice application:** $(a^2b)^3=(a^2)^3b^3=a^6b^3$ for all real $a,b$. Squaring $a+b$ instead requires the standard identities: a power does not distribute over a sum.
+
+For $t\ge0$, $\sqrt t$ denotes the **nonnegative** root. Thus $\sqrt{25}=5$; solving $z^2=25$ gives both solutions $z=-5$ and $z=5$. For every real $a$, $\sqrt{a^2}=|a|$: the distance from $a$ to zero. Absolute value $|a|$ equals $a$ when $a\ge0$ and $-a$ otherwise.
+
+The PDF continues with [Standard algebraic identities](../L22/#pdf-15), then [Solving an equation](../L24/#pdf-19).
+
+## Exponent laws
+
+The table’s conditions matter: the nonzero domain avoids undefined reciprocals; we do not use $0^0$. A negative exponent denotes a reciprocal, not a necessarily negative result. Do not confuse adding exponents with multiplying them.
+
+## Guided example: roots and signs
+
+For $a\ge0$, $\sqrt a$ is the unique nonnegative real number whose square is $a$. Thus $\sqrt{72}=6\sqrt2$ because $72=36\cdot2$. For every real $x$, $\sqrt{x^2}=|x|$: at $x=-6$, the root is $6$. We use $\sqrt{ab}=\sqrt a\sqrt b$ here for $a,b\ge0$. It does not transfer to addition.
+
+## A simplified formula keeps its restrictions
+
+The expression $(x^2-9)/(x-3)$ requires $x\ne3$. Factorisation gives $x+3$ only on that domain. The simplified formula has a value at $3$, but the original expression does not. A domain line prevents accidentally adding forbidden values when solving an equation afterwards.
+
+<AlgebraExplorer kind="domain" locale="en" client:visible />
+
+<p class="source-next"><a href="/en/lessons/L22/#pdf-15">Next in the PDF : Standard algebraic identities →</a></p>
+
+## How to: a reusable method
+
+1. Write the conditions before calculating: nonzero denominator, nonnegative radicand for a real square root.
+2. Identify the operation. Addition: common denominator. Multiplication: multiply numerators and denominators. Division: reciprocal of the nonzero divisor.
+3. To simplify a fraction, factorise then cancel only common nonzero factors. Copy the original domain.
+4. For a power, identify base and exponent. For a square root, take the nonnegative value.
+
+**Common mistake.** $\sqrt{9+16}=5$, whereas $\sqrt9+\sqrt{16}=7$. A root does not distribute over a sum.
+
+## Practise step by step
+
+<div className="algebra-exercise">
+
+### 1. Apply
+
+Calculate $2/3-1/4$.
+
+<details>
+<summary>Hint</summary>
+
+Use twelfths.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+$2/3-1/4=8/12-3/12=5/12$. Subtract counts of equal-sized shares.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 2. Combine
+
+Simplify $(x^2-4)/(x-2)$ and state the domain.
+
+<details>
+<summary>Hint</summary>
+
+Factorise the numerator before cancelling.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+For $x\ne2$, $(x^2-4)/(x-2)=(x-2)(x+2)/(x-2)=x+2$. Value $2$ stays excluded even though the final formula could accept it.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 3. Reason
+
+For $x=-3$, compare $\sqrt{x^2}$, $\sqrt x$ and $x^{-2}$.
+
+<details>
+<summary>Hint</summary>
+
+“Square then root” differs from “root directly”.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+$\sqrt{x^2}=3$; $\sqrt x$ is undefined over the reals; $x^{-2}=1/9$. The sign of the exponent does not determine the sign of the result.
+
+</details>
+
+</div>
+
+## Practice and recap
+
+The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
+
+Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+<div className="algebra-revision">
+
+## Essentials and self-check
+
+- To add, make the share sizes equal.
+- Cancelling factors never restores an excluded value.
+- $\sqrt{x^2}=|x|$ for every real number; a negative exponent requires a nonzero base.
+
+**Self-check.** Redo a fraction addition; state the domain before cancellation; explain why a square root does not give two values. Revisit “A simplified formula keeps its restrictions” if needed. [L24](../L24/) uses these conditions when solving equations.
+
+**To print:** use the browser’s Print command. Activities show a fixed example and hints and solutions are expanded on paper.
+
+</div>
+
+</div>
