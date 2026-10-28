@@ -22,10 +22,7 @@ test('printable exercise catalog contains Chapter 3 bilingual PDFs', () => {
   const paths = new Set<string>();
 
   for (const chapter of printableChapters) {
-    assert.equal(
-      chapter.documents.length,
-      chapter.id === 'chapter-03' ? 8 : 2,
-    );
+    assert.equal(chapter.documents.length, chapter.id === 'chapter-03' ? 8 : 2);
     assert.deepEqual(
       chapter.documents.map((document) => document.type),
       chapter.id === 'chapter-03'

@@ -38,15 +38,3 @@ if (
 ) {
   console.log('Release policy checked for ' + (await checkRelease()));
 }
-
-/* Temporary formatting probe. Removed immediately after capturing output. */
-if (process.env.CI) {
-  const prettier = await import('prettier');
-  const name = 'tests/content/printable-exercises.test.ts';
-  const options = (await prettier.resolveConfig(name)) ?? {};
-  const formatted = await prettier.format(await readFile(name, 'utf8'), {
-    ...options,
-    filepath: name,
-  });
-  console.log('FMTUNIT|' + Buffer.from(formatted).toString('base64') + '|END');
-}
