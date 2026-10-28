@@ -1,0 +1,253 @@
+---
+lessonId: L40
+locale: en
+version: 2
+status: extended
+title: "The exponential function"
+summary: "Understand the exponential by connecting values, derivatives, growth and tangents."
+minutes: 45
+objectives: [L40-O01, L40-O02, L40-O03, L40-O04, L40-O05, L40-O06]
+prerequisites: [L38, L39]
+sourcePages: [14, 15]
+---
+import DerivativeExplorer from '../../../src/components/DerivativeExplorer';
+
+# The exponential function
+
+*Original course explanations based on* Bruno Teheux, Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026, pages 14, 15. The figures, reminders and activities below are original additions by the project.
+
+## Goals and prerequisites
+
+Imagine a quantity that grows faster the larger it already is. The exponential function is the reference model for this idea. Its special feature: **at each input, its slope equals its value**.
+
+We will unpack this sentence, differentiate exponential functions and construct their tangents. All the exponential functions in this lesson are defined on $\mathbb R$, the set of real numbers.
+
+Before starting, check that you can read a point $(x,y)$, calculate the slope of a line and expand a simple expression. The reminders below are enough to get started; for more detail, see <a href="/en/lessons/L38/">L38 — from secant to derivative</a> and <a href="/en/lessons/L39/">L39 — calculating derivatives</a>.
+
+## Reminder: what does a derivative measure?
+
+On the graph of a function $f$, choose an input $a$ and point $A=(a,f(a))$. Here, $f(a)$ is the **height** of point A. Then choose a horizontal change $h$, positive or negative, and point $B=(a+h,f(a+h))$.
+
+As long as $h\ne0$, line AB is a **secant**. Its slope, denoted $q_h$, compares two changes:
+
+$$\Delta x=h,\qquad \Delta y=f(a+h)-f(a)$$
+
+$$q_h=\frac{\Delta y}{\Delta x}=\frac{f(a+h)-f(a)}{h}$$
+
+The symbol $\Delta$ means “change”: vertical change divided by horizontal change. This quotient measures an **average rate of change** between two inputs, like an average velocity between two instants.
+
+As B approaches A, the slopes may approach a single number. This number then measures the instantaneous change at A.
+
+<aside className="l40-callout" aria-label="Definition — The derivative">
+
+**Definition — The derivative**
+
+Let $f$ be defined on an open interval containing $a$. If the following limit exists and is finite, $f$ is **differentiable at a** and its derivative there is:
+
+$$f'(a)=Df(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}$$
+
+Take $h\ne0$, with $a+h$ in the domain. The symbol $\lim_{h\to0}$ means “limit as h tends to zero”; the same limit must be obtained from both sides. Read $f'(a)$ as “f prime at a”: it gives the **slope of the tangent** at A.
+
+</aside>
+
+Keep these distinct:
+
+- $f$ is the original function; $f(a)$ is its value at one specific input.
+- $f'$, also written $Df$ in this course, is the **derivative function**, defined at inputs where f is differentiable.
+- $f'(a)=Df(a)$ is a **number**: the value of this derivative function at a.
+
+In the activity, the secant is a thin line through round point A and square point B; the tangent is dashed. The short horizontal-then-vertical path shows the two changes in the quotient.
+
+<DerivativeExplorer kind="secant" locale="en" client:visible />
+
+<aside className="l40-callout" aria-label="Common trap — substituting zero for h">
+
+**Common trap — substituting zero for h**
+
+Never evaluate this quotient at $h=0$: it would give $0/0$, which is undefined. The derivative comes from a **limit**, not division by zero. A graph or a few nearby values provide intuition, not proof that the limit exists.
+
+</aside>
+
+## Definition and initial condition
+
+The **exponential function**, denoted $\exp$ or $x\mapsto e^x$, is the unique differentiable function on $\mathbb R$ whose derivative is itself and whose value at zero is 1. The number $e\approx2{,}71828$ is a constant, like $\pi$; in $e^x$, it is the exponent x that varies.
+
+$$f(x)=e^x,\qquad f'=f,\qquad f(0)=1$$
+
+In other words, for every real x:
+
+$$D(e^x)=e^x$$
+
+The compact notation $Df=f$ is a **differential equation**: a relation between an unknown function and its derivative. We use the existence and uniqueness result here without proving it.
+
+Why add $f(0)=1$? For every real constant C, the function $Ce^x$ also has derivative $Ce^x$. But its value at zero is C. The initial condition therefore requires $C=1$ and selects the usual exponential.
+
+## Why does the graph rise?
+
+The exponential is strictly positive, even when its exponent is negative:
+
+$$e^0=1,\qquad e^x>0$$
+
+Its derivative is therefore strictly positive on all of $\mathbb R$:
+
+$$D(e^x)=e^x>0$$
+
+It is the **sign of the derivative on an interval** that lets us conclude that the function is strictly increasing there. Positive height alone is not enough.
+
+For $f(x)=e^x$, height and slope at the same a are equal: at $a=0$, both are 1; at $a=1$, both are $e\approx2{,}71828$. The graph therefore becomes steeper to the right. To the left, it approaches the horizontal axis without reaching it:
+
+$$\lim_{x\to-\infty}e^x=0$$
+
+This limit does not mean that any real input gives the value zero.
+
+## The fundamental identity
+
+Addition **inside the exponent** becomes a product of values. For all real x and y:
+
+$$e^{x+y}=e^x e^y$$
+
+For example, multiply powers with the same base by adding their exponents:
+
+$$e^2e^3=e^{2+3}=e^5,\qquad e^xe^{-x}=e^0=1$$
+
+For $f(x)=e^x$, this identity also explains the quotient in the first activity:
+
+$$\frac{f(a+h)-f(a)}{h}=e^a\frac{e^h-1}{h},\qquad h\ne0$$
+
+Since $f'(0)=1$, the definition of the derivative at zero gives:
+
+$$\lim_{h\to0}\frac{e^h-1}{h}=1$$
+
+The quotient therefore tends to $e^a$, which is indeed $f'(a)$. This reasoning uses the already accepted characterisation of the exponential; it is not a proof of its existence.
+
+<aside className="l40-callout" aria-label="Common trap — sums and products">
+
+**Common trap — sums and products**
+
+The identity concerns a product, not a sum: $e^0+e^0=2$, whereas $e^{0+0}=1$. We therefore cannot replace $e^x+e^y$ with $e^{x+y}$ in general.
+
+</aside>
+
+## Differentiating a composite exponential
+
+Now consider a function whose exponent depends on x. We calculate this exponent first, then its exponential: this is a **composition**. If g is differentiable on an interval I, then, for x in I:
+
+$$D(e^{g(x)})=g'(x)e^{g(x)}$$
+
+The chain rule requires two steps: **keep the exponential**, then **multiply by the derivative of the exponent**.
+
+Worked example: $F(x)=e^{2x+1}$, defined on $\mathbb R$.
+
+1. Identify the inside: $g(x)=2x+1$.
+2. Differentiate the inside: $g'(x)=2$, since the derivative of $2x$ is 2 and that of the constant 1 is 0.
+3. Apply the rule:
+
+$$F'(x)=2e^{2x+1}$$
+
+The factor 2 comes from differentiating the exponent, not from the base e. We recover:
+
+$$D(e^{2x+1})=2e^{2x+1}$$
+
+A useful comparison for the graph: if $g(x)=-x$, then $g'(x)=-1$ and:
+
+$$D(e^{-x})=-e^{-x}$$
+
+The function $e^{-x}$ stays positive but its derivative is negative: it is strictly decreasing on $\mathbb R$.
+
+## Constructing the tangent equation
+
+A tangent at a is a line through $A=(a,f(a))$ with slope $f'(a)$. The point–slope form of a line immediately gives:
+
+<aside className="l40-callout" aria-label="The tangent equation">
+
+**The tangent equation**
+
+If f is differentiable at a, its tangent at A has equation:
+
+$$y=f(a)+f'(a)(x-a)$$
+
+Here, a is fixed; x varies along the line. When $x=a$, the term $x-a$ vanishes and we recover $y=f(a)$: the line passes through A. When x increases by one unit, y changes by $f'(a)$: this is its slope.
+
+</aside>
+
+Return to the example: $f(x)=e^x$ at input zero.
+
+1. Differentiate the function: $f'(x)=e^x$.
+2. Calculate height and slope at the chosen point:
+
+$$f(0)=e^0=1,\qquad f'(0)=e^0=1$$
+
+3. Substitute into the formula, then simplify:
+
+$$y=f(0)+f'(0)(x-0)=1+1(x-0)=1+x$$
+
+Check: at $x=0$, the line does give $y=1$. At any input a, the same method gives:
+
+$$y=e^a+e^a(x-a)$$
+
+The tangent is a **local approximation**. Near zero, $e^{0{,}1}\approx1{,}10517$ while the tangent gives $1{,}1$: the values are close but distinct. At $x=1$, they are respectively $e\approx2{,}71828$ and 2. The curve does not become a line.
+
+<DerivativeExplorer kind="tangent" locale="en" client:visible />
+
+## Connecting the graphs of f and f′
+
+On the first graph, read the height of A and observe its tangent slope. On the second, this **slope becomes a height**:
+
+$$A=(a,f(a)),\qquad M=(a,f'(a))$$
+
+For $f(x)=e^x$, the graphs of f and f′ are identical. This is a special property of the usual exponential, not a general rule.
+
+For comparison, choose $e^{-x}$: its graph is above the horizontal axis, but its derivative's graph is below. Then choose $x^2$: its derivative $2x$ is negative left of zero, zero at zero and positive to the right. The parabola decreases then increases; its tangent is horizontal at zero.
+
+<DerivativeExplorer kind="linked" locale="en" client:visible />
+
+A derivative equal to zero **at one point** does not make the function constant on an interval. To conclude that a function increases or decreases on an interval, examine the sign of its derivative throughout that interval.
+
+## Method and quick check
+
+<aside className="l40-callout" aria-label="Method — Calculate a derivative and a tangent">
+
+**Method — Calculate a derivative and a tangent**
+
+1. Specify the function, its domain and the chosen input a.
+2. Identify the rule: plain exponential or composition? For a composition, calculate the derivative of the exponent.
+3. Calculate the derivative function $f'(x)$, then the two numbers $f(a)$ and $f'(a)$.
+4. Write $y=f(a)+f'(a)(x-a)$ and check that $x=a$ gives back $y=f(a)$.
+
+</aside>
+
+Try before opening the solutions:
+
+1. For $f(x)=e^x$, how do $f'(x)$ and $f'(0)$ differ?
+2. Calculate the derivative of $u(x)=e^{3x-2}$ on $\mathbb R$.
+3. For $v(x)=e^{-x}$, calculate the tangent at $a=0$. Is the function increasing?
+4. Why can a derivative exist at zero without evaluating the quotient at $h=0$?
+
+<details className="l40-correction">
+<summary>Show the solutions</summary>
+
+1. $f'(x)=e^x$ is the expression for the derivative function; $f'(0)=1$ is its value at one specific input, hence a number.
+2. The exponent $3x-2$ has derivative 3, giving $u'(x)=3e^{3x-2}$.
+3. $v'(x)=-e^{-x}$, so $v(0)=1$ and $v'(0)=-1$. The tangent is $y=1-x$. The derivative is negative throughout $\mathbb R$: v is strictly decreasing.
+4. The limit only uses nonzero h close to zero. The quotient at zero stays undefined even when that limit exists.
+
+</details>
+
+## Essentials to remember
+
+<aside className="l40-callout" data-kind="essential" aria-label="Essentials to remember">
+
+**Remember — the four essential connections**
+
+- **Value**: $f(a)$ is a height. **Derivative**: $f'(a)$ is a slope.
+- For the usual exponential: $D(e^x)=e^x>0$ and $e^0=1$.
+- For a composition: $D(e^{g(x)})=g'(x)e^{g(x)}$. Remember the factor from the inside.
+- For a tangent: $y=f(a)+f'(a)(x-a)$. Do not confuse this line with the whole function.
+
+</aside>
+
+Finally, the usual exponential's relative growth rate is 1:
+
+$$\frac{D(e^x)}{e^x}=1$$
+
+This quotient is defined at every real input because $e^x>0$. It expresses that the rate of change is proportional to the current value.

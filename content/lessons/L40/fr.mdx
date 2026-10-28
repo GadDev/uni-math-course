@@ -1,0 +1,253 @@
+---
+lessonId: L40
+locale: fr
+version: 2
+status: extended
+title: "La fonction exponentielle"
+summary: "Comprendre l’exponentielle en reliant valeur, dérivée, croissance et tangente."
+minutes: 45
+objectives: [L40-O01, L40-O02, L40-O03, L40-O04, L40-O05, L40-O06]
+prerequisites: [L38, L39]
+sourcePages: [14, 15]
+---
+import DerivativeExplorer from '../../../src/components/DerivativeExplorer';
+
+# La fonction exponentielle
+
+*Matériel pédagogique original fondé sur* Bruno Teheux, Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026, pages 14, 15. Les figures, rappels et activités ci-dessous sont des ajouts originaux du projet.
+
+## Objectifs et prérequis
+
+Imaginez une grandeur qui augmente d’autant plus vite qu’elle est déjà grande. La fonction exponentielle est le modèle de référence de cette idée. Sa particularité : **à chaque abscisse, sa pente est égale à sa valeur**.
+
+Nous allons comprendre cette phrase, calculer des dérivées d’exponentielles et construire leurs tangentes. Toutes les fonctions exponentielles de cette leçon sont définies sur $\mathbb R$, l’ensemble des nombres réels.
+
+Avant de commencer, vérifiez que vous savez lire un point $(x,y)$, calculer la pente d’une droite et développer une expression simple. Les rappels ci-dessous suffisent pour démarrer ; pour approfondir, consultez <a href="/fr/lessons/L38/">L38 — de la sécante à la dérivée</a> et <a href="/fr/lessons/L39/">L39 — calculer les dérivées</a>.
+
+## Rappel : que mesure une dérivée ?
+
+Sur le graphe d’une fonction $f$, choisissons une abscisse $a$ et le point $A=(a,f(a))$. Ici, $f(a)$ est la **hauteur** du point A. Choisissons ensuite un déplacement horizontal $h$, positif ou négatif, et le point $B=(a+h,f(a+h))$.
+
+Tant que $h\ne0$, la droite AB est une **sécante**. Sa pente, notée $q_h$, compare deux changements :
+
+$$\Delta x=h,\qquad \Delta y=f(a+h)-f(a)$$
+
+$$q_h=\frac{\Delta y}{\Delta x}=\frac{f(a+h)-f(a)}{h}$$
+
+Le symbole $\Delta$ signifie « variation » : variation verticale divisée par variation horizontale. Ce quotient mesure un **taux de variation moyen** entre deux entrées, comme une vitesse moyenne entre deux instants.
+
+Lorsque B se rapproche de A, les pentes peuvent se rapprocher d’un même nombre. Ce nombre mesure alors la variation instantanée en A.
+
+<aside className="l40-callout" aria-label="Définition — La dérivée">
+
+**Définition — La dérivée**
+
+Soit $f$ définie sur un intervalle ouvert contenant $a$. Si la limite suivante existe et est finie, $f$ est **dérivable en a** et sa dérivée en ce point est :
+
+$$f'(a)=Df(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}$$
+
+On prend $h\ne0$, avec $a+h$ dans le domaine. Le symbole $\lim_{h\to0}$ signifie « limite lorsque h tend vers zéro » ; la même limite doit être obtenue des deux côtés. $f'(a)$ se lit « f prime de a » et donne la **pente de la tangente** au point A.
+
+</aside>
+
+Ne confondez pas :
+
+- $f$ est la fonction de départ ; $f(a)$ est sa valeur en une entrée précise.
+- $f'$, aussi notée $Df$ dans ce cours, est la **fonction dérivée**, définie aux points où f est dérivable.
+- $f'(a)=Df(a)$ est un **nombre** : la valeur de cette fonction dérivée en a.
+
+Dans l’activité, la sécante est un trait fin passant par le rond A et le carré B ; la tangente est en tirets. Le petit chemin horizontal puis vertical montre les deux variations du quotient.
+
+<DerivativeExplorer kind="secant" locale="fr" client:visible />
+
+<aside className="l40-callout" aria-label="Erreur fréquente — remplacer h par zéro">
+
+**Erreur fréquente — remplacer h par zéro**
+
+On ne calcule jamais ce quotient à $h=0$ : on obtiendrait $0/0$, qui est indéfini. La dérivée vient d’une **limite**, pas d’une division par zéro. Un graphe ou quelques valeurs proches donnent une intuition, pas une preuve d’existence de cette limite.
+
+</aside>
+
+## Définition et condition initiale
+
+On appelle **fonction exponentielle**, notée $\exp$ ou $x\mapsto e^x$, l’unique fonction dérivable sur $\mathbb R$ dont la dérivée est elle-même et dont la valeur en zéro est 1. Le nombre $e\approx2{,}71828$ est une constante, comme $\pi$ ; dans $e^x$, c’est l’exposant x qui varie.
+
+$$f(x)=e^x,\qquad f'=f,\qquad f(0)=1$$
+
+Autrement dit, pour chaque réel x :
+
+$$D(e^x)=e^x$$
+
+L’écriture compacte $Df=f$ est une **équation différentielle** : une relation entre une fonction inconnue et sa dérivée. Nous utilisons ici le résultat d’existence et d’unicité sans le démontrer.
+
+Pourquoi ajouter $f(0)=1$ ? Pour toute constante réelle C, la fonction $Ce^x$ a aussi pour dérivée $Ce^x$. Mais sa valeur en zéro est C. La condition initiale impose donc $C=1$ et sélectionne l’exponentielle usuelle.
+
+## Pourquoi le graphe monte-t-il ?
+
+L’exponentielle est strictement positive, même lorsque son exposant est négatif :
+
+$$e^0=1,\qquad e^x>0$$
+
+La dérivée est donc strictement positive sur tout $\mathbb R$ :
+
+$$D(e^x)=e^x>0$$
+
+C’est le **signe de la dérivée sur un intervalle** qui permet de conclure que la fonction y est strictement croissante. Une hauteur positive, à elle seule, ne suffit pas.
+
+Pour $f(x)=e^x$, la hauteur et la pente au même a sont égales : en $a=0$, elles valent 1 ; en $a=1$, elles valent $e\approx2{,}71828$. Le graphe devient donc plus raide vers la droite. Vers la gauche, il s’approche de l’axe horizontal sans l’atteindre :
+
+$$\lim_{x\to-\infty}e^x=0$$
+
+Cette limite ne signifie pas qu’une entrée réelle donne la valeur zéro.
+
+## La propriété fondamentale
+
+Une addition **dans l’exposant** devient un produit de valeurs. Pour tous réels x et y :
+
+$$e^{x+y}=e^x e^y$$
+
+Par exemple, les puissances de même base se multiplient en additionnant leurs exposants :
+
+$$e^2e^3=e^{2+3}=e^5,\qquad e^xe^{-x}=e^0=1$$
+
+Pour $f(x)=e^x$, cette identité explique aussi le quotient de la première activité :
+
+$$\frac{f(a+h)-f(a)}{h}=e^a\frac{e^h-1}{h},\qquad h\ne0$$
+
+Comme $f'(0)=1$, la définition de la dérivée en zéro donne :
+
+$$\lim_{h\to0}\frac{e^h-1}{h}=1$$
+
+Le quotient tend donc vers $e^a$, qui est bien $f'(a)$. Ce raisonnement utilise la caractérisation de l’exponentielle déjà admise ; il n’en constitue pas une preuve d’existence.
+
+<aside className="l40-callout" aria-label="Erreur fréquente — somme et produit">
+
+**Erreur fréquente — somme et produit**
+
+La propriété concerne un produit, pas une somme : $e^0+e^0=2$, tandis que $e^{0+0}=1$. On ne peut donc pas remplacer $e^x+e^y$ par $e^{x+y}$ en général.
+
+</aside>
+
+## Dériver une exponentielle composée
+
+Considérons maintenant une fonction dont l’exposant dépend de x. On calcule d’abord cet exposant, puis son exponentielle : c’est une **composition**. Si g est dérivable sur un intervalle I, alors, pour x dans I :
+
+$$D(e^{g(x)})=g'(x)e^{g(x)}$$
+
+La règle de la chaîne demande deux gestes : **garder l’exponentielle**, puis **multiplier par la dérivée de l’exposant**.
+
+Exemple détaillé : $F(x)=e^{2x+1}$, définie sur $\mathbb R$.
+
+1. Identifier l’intérieur : $g(x)=2x+1$.
+2. Dériver cet intérieur : $g'(x)=2$, car la dérivée de $2x$ est 2 et celle de la constante 1 est 0.
+3. Appliquer la règle :
+
+$$F'(x)=2e^{2x+1}$$
+
+Le facteur 2 vient de la dérivée de l’exposant, pas de la base e. On retrouve ainsi :
+
+$$D(e^{2x+1})=2e^{2x+1}$$
+
+Comparaison utile pour le graphique : si $g(x)=-x$, alors $g'(x)=-1$ et :
+
+$$D(e^{-x})=-e^{-x}$$
+
+La fonction $e^{-x}$ reste positive, mais sa dérivée est négative : elle est strictement décroissante sur $\mathbb R$.
+
+## Construire l’équation de la tangente
+
+Une tangente en a est une droite qui passe par $A=(a,f(a))$ et dont la pente est $f'(a)$. La forme point–pente d’une droite donne immédiatement :
+
+<aside className="l40-callout" aria-label="Équation de la tangente">
+
+**Équation de la tangente**
+
+Si f est dérivable en a, sa tangente en A a pour équation :
+
+$$y=f(a)+f'(a)(x-a)$$
+
+Ici, a est fixé ; x varie le long de la droite. Lorsque $x=a$, le terme $x-a$ s’annule et on retrouve $y=f(a)$ : la droite passe par A. Quand x augmente d’une unité, y varie de $f'(a)$ : c’est sa pente.
+
+</aside>
+
+Reprenons l’exemple : $f(x)=e^x$ au point d’abscisse zéro.
+
+1. Dériver la fonction : $f'(x)=e^x$.
+2. Calculer la hauteur et la pente au point choisi :
+
+$$f(0)=e^0=1,\qquad f'(0)=e^0=1$$
+
+3. Remplacer dans la formule, puis simplifier :
+
+$$y=f(0)+f'(0)(x-0)=1+1(x-0)=1+x$$
+
+Vérification : en $x=0$, la droite donne bien $y=1$. Pour une abscisse a quelconque, la même méthode donne :
+
+$$y=e^a+e^a(x-a)$$
+
+La tangente est une **approximation locale**. Près de zéro, $e^{0{,}1}\approx1{,}10517$ et la tangente donne $1{,}1$ : les valeurs sont proches, mais distinctes. En $x=1$, elles valent respectivement $e\approx2{,}71828$ et 2. La courbe ne devient pas une droite.
+
+<DerivativeExplorer kind="tangent" locale="fr" client:visible />
+
+## Relier le graphe de f à celui de f′
+
+Sur le premier graphe, on lit la hauteur de A et on observe la pente de sa tangente. Sur le second, cette **pente devient une ordonnée** :
+
+$$A=(a,f(a)),\qquad M=(a,f'(a))$$
+
+Pour $f(x)=e^x$, les graphes de f et de f′ sont identiques. C’est une propriété particulière de l’exponentielle usuelle, pas une règle générale.
+
+Pour comparer, choisissez $e^{-x}$ : son graphe est au-dessus de l’axe horizontal, mais celui de sa dérivée est en dessous. Choisissez ensuite $x^2$ : sa dérivée $2x$ est négative à gauche de zéro, nulle en zéro et positive à droite. La parabole décroît puis croît ; sa tangente est horizontale en zéro.
+
+<DerivativeExplorer kind="linked" locale="fr" client:visible />
+
+Une dérivée nulle **en un point** ne signifie pas que la fonction est constante sur un intervalle. Pour conclure à la croissance ou à la décroissance sur un intervalle, on examine le signe de la dérivée sur cet intervalle.
+
+## Méthode et vérification rapide
+
+<aside className="l40-callout" aria-label="Méthode — Calculer une dérivée et une tangente">
+
+**Méthode — Calculer une dérivée et une tangente**
+
+1. Préciser la fonction, son domaine et l’abscisse a choisie.
+2. Identifier la règle : exponentielle seule ou composée ? Pour une composition, calculer la dérivée de l’exposant.
+3. Calculer la fonction dérivée $f'(x)$, puis les deux nombres $f(a)$ et $f'(a)$.
+4. Écrire $y=f(a)+f'(a)(x-a)$ et vérifier que $x=a$ redonne $y=f(a)$.
+
+</aside>
+
+Essayez avant d’ouvrir les corrections :
+
+1. Pour $f(x)=e^x$, quelle est la différence entre $f'(x)$ et $f'(0)$ ?
+2. Calculez la dérivée de $u(x)=e^{3x-2}$ sur $\mathbb R$.
+3. Pour $v(x)=e^{-x}$, calculez la tangente en $a=0$. La fonction est-elle croissante ?
+4. Pourquoi peut-on avoir une dérivée en zéro sans calculer le quotient à $h=0$ ?
+
+<details className="l40-correction">
+<summary>Afficher les corrections</summary>
+
+1. $f'(x)=e^x$ est l’expression de la fonction dérivée ; $f'(0)=1$ est sa valeur en une entrée précise, donc un nombre.
+2. L’exposant $3x-2$ a pour dérivée 3, d’où $u'(x)=3e^{3x-2}$.
+3. $v'(x)=-e^{-x}$, donc $v(0)=1$ et $v'(0)=-1$. La tangente est $y=1-x$. La dérivée est négative sur tout $\mathbb R$ : v est strictement décroissante.
+4. La limite ne demande que des h non nuls proches de zéro. Le quotient à zéro reste indéfini, même lorsque cette limite existe.
+
+</details>
+
+## À retenir
+
+<aside className="l40-callout" data-kind="essential" aria-label="À retenir">
+
+**À retenir — les quatre liens essentiels**
+
+- **Valeur** : $f(a)$ est une hauteur. **Dérivée** : $f'(a)$ est une pente.
+- Pour l’exponentielle usuelle : $D(e^x)=e^x>0$ et $e^0=1$.
+- Pour une composée : $D(e^{g(x)})=g'(x)e^{g(x)}$. Ne pas oublier le facteur intérieur.
+- Pour une tangente : $y=f(a)+f'(a)(x-a)$. Ne pas confondre cette droite avec la fonction entière.
+
+</aside>
+
+Enfin, la croissance relative de l’exponentielle usuelle vaut 1 :
+
+$$\frac{D(e^x)}{e^x}=1$$
+
+Ce quotient est défini pour tout réel, car $e^x>0$. Il exprime que la vitesse de variation est proportionnelle à la valeur actuelle.
