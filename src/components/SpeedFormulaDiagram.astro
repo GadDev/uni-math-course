@@ -1,0 +1,323 @@
+---
+import katex from 'katex';
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const fr = locale === 'fr';
+const tex = (source: string) =>
+  katex.renderToString(source, {
+    output: 'htmlAndMathml',
+    throwOnError: true,
+  });
+const text = fr
+  ? {
+      title: 'Deux photos pour lire la formule',
+      intro:
+        'On observe la même voiture à deux instants. Dans cet exemple, sa position est donnée par s(t) = t² et elle avance vers les positions croissantes.',
+      first: '1 · Première photo',
+      second: '2 · Seconde photo',
+      time: 'Instant de la photo',
+      position: 'Position de la voiture',
+      road: 'La première photo situe la voiture à 4 mètres, la seconde à 9 mètres. Le déplacement vers la droite vaut 5 mètres, mesurés depuis la même origine.',
+      origin: 'Les positions sont mesurées depuis la même origine 0.',
+      words: 'En mots : variation de position ÷ écart de temps.',
+      read: 'Comment la lire à voix haute ?',
+      reading:
+        '« La vitesse moyenne est égale à la position à l’instant t zéro plus h, moins la position à l’instant t zéro, le tout divisé par h. »',
+      functionReading:
+        's(t) se lit « s de t » : la position au temps t. Les parenthèses indiquent à quel instant on évalue la position.',
+      displacement: 'Soustraire les positions',
+      displacementHelp: 'Position après − position avant : le déplacement.',
+      elapsed: 'Trouver l’écart de temps',
+      elapsedHelp: 'Instant après − instant avant : ici, h = 1 seconde.',
+      divide: 'Diviser',
+      result: '5 mètres de déplacement en 1 seconde : une moyenne de 5 m/s.',
+      remember:
+        'Cette moyenne décrit tout l’intervalle : elle ne dit pas que la voiture roule à 5 m/s à chaque instant.',
+      positive:
+        'Ce schéma illustre h > 0. Pour h < 0, on compare à un instant antérieur en gardant le même ordre dans les deux soustractions.',
+    }
+  : {
+      title: 'Two snapshots to read the formula',
+      intro:
+        'Observe the same car at two times. In this example its position is given by s(t) = t² and it moves towards increasing positions.',
+      first: '1 · First snapshot',
+      second: '2 · Second snapshot',
+      time: 'Snapshot time',
+      position: 'Car position',
+      road: 'The first snapshot places the car at 4 metres, the second at 9 metres. The displacement to the right is 5 metres, measured from the same origin.',
+      origin: 'Both positions are measured from the same origin 0.',
+      words: 'In words: change in position ÷ time gap.',
+      read: 'How do you read it aloud?',
+      reading:
+        '“Average velocity equals the position at time t zero plus h, minus the position at time t zero, all divided by h.”',
+      functionReading:
+        's(t) reads “s of t”: position at time t. The parentheses specify the time at which position is evaluated.',
+      displacement: 'Subtract the positions',
+      displacementHelp: 'Later position − earlier position: displacement.',
+      elapsed: 'Find the time gap',
+      elapsedHelp: 'Later time − earlier time: here, h = 1 second.',
+      divide: 'Divide',
+      result: '5 metres of displacement in 1 second: an average of 5 m/s.',
+      remember:
+        'This average describes the whole interval: it does not mean the car travels at 5 m/s at every instant.',
+      positive:
+        'This diagram illustrates h > 0. For h < 0, compare with an earlier time, keeping the same order in both subtractions.',
+    };
+---
+
+<figure class="speed-diagram" data-speed-diagram>
+  <figcaption>
+    <strong>{text.title}</strong>
+  </figcaption>
+  <p>{text.intro}</p>
+  <div class="speed-snapshots">
+    <section class="speed-snapshot" aria-label={text.first}>
+      <p class="speed-label">{text.first}</p>
+      <p>{text.time}</p>
+      <p class="speed-math" set:html={tex(String.raw`t_0=2\,\mathrm{s}`)} />
+      <p>{text.position}</p>
+      <p
+        class="speed-math"
+        set:html={tex(String.raw`s(t_0)=s(2)=4\,\mathrm{m}`)}
+      />
+    </section>
+    <section class="speed-snapshot speed-after" aria-label={text.second}>
+      <p class="speed-label">{text.second}</p>
+      <p>{text.time}</p>
+      <p class="speed-math" set:html={tex(String.raw`t_0+h=3\,\mathrm{s}`)} />
+      <p>{text.position}</p>
+      <p
+        class="speed-math"
+        set:html={tex(String.raw`s(t_0+h)=s(3)=9\,\mathrm{m}`)}
+      />
+    </section>
+  </div>
+  <svg
+    class="speed-road"
+    viewBox="0 0 760 250"
+    role="img"
+    aria-labelledby="l38-speed-road-title"
+  >
+    <title id="l38-speed-road-title">{text.road}</title>
+    <path d="M40 145H720l-13-8m13 8-13 8" class="speed-road-line" />
+    <g class="speed-road-ticks">
+      <path d="M40 138v14M296 138v14M616 138v14M680 138v14" />
+      <text x="40" y="184">
+        0
+      </text>
+      <text x="296" y="184">
+        4 m
+      </text>
+      <text x="616" y="184">
+        9 m
+      </text>
+      <text x="695" y="184">
+        10 m
+      </text>
+    </g>
+    <g class="speed-car speed-car-before" transform="translate(296 0)">
+      <circle cx="0" cy="35" r="20" class="speed-photo-number" />
+      <text x="0" y="44">
+        1
+      </text>
+      <path d="M-32 105v23h68v-23L23 98 12 77h-28l-13 28Z" />
+      <path d="M-17 98h33l-8-14h-17Z" class="speed-window" />
+      <circle cx="-20" cy="135" r="10" />
+      <circle cx="23" cy="135" r="10" />
+    </g>
+    <g class="speed-car speed-car-after" transform="translate(616 0)">
+      <circle cx="0" cy="35" r="20" class="speed-photo-number" />
+      <text x="0" y="44">
+        2
+      </text>
+      <path d="M-32 105v23h68v-23L23 98 12 77h-28l-13 28Z" />
+      <path d="M-17 98h33l-8-14h-17Z" class="speed-window" />
+      <circle cx="-20" cy="135" r="10" />
+      <circle cx="23" cy="135" r="10" />
+    </g>
+    <path d="M296 207v18m0-9H616l-12-7m12 7-12 7" class="speed-displacement" />
+    <text x="456" y="248" class="speed-distance">
+      9 − 4 = 5 m
+    </text>
+  </svg>
+  <p class="speed-origin">{text.origin}</p>
+  <div class="speed-formula">
+    <p>
+      <strong>{text.words}</strong>
+    </p>
+    <div
+      class="speed-equation"
+      set:html={tex(
+        String.raw`\displaystyle v_{\mathrm{moy}}=\frac{s(t_0+h)-s(t_0)}{h},\quad h\ne0`,
+      )}
+    />
+    <p>
+      <strong>{text.read}</strong> {text.reading}
+    </p>
+    <p>{text.functionReading}</p>
+  </div>
+  <ol class="speed-calculation">
+    <li>
+      <strong>{text.displacement}</strong>
+      <p>{text.displacementHelp}</p>
+      <p
+        class="speed-math"
+        set:html={tex(String.raw`9\,\mathrm{m}-4\,\mathrm{m}=5\,\mathrm{m}`)}
+      />
+    </li>
+    <li>
+      <strong>{text.elapsed}</strong>
+      <p>{text.elapsedHelp}</p>
+      <p
+        class="speed-math"
+        set:html={tex(String.raw`3\,\mathrm{s}-2\,\mathrm{s}=1\,\mathrm{s}=h`)}
+      />
+    </li>
+    <li class="speed-result">
+      <strong>{text.divide}</strong>
+      <p
+        class="speed-math"
+        set:html={tex(
+          String.raw`\displaystyle v_{\mathrm{moy}}=\frac{5\,\mathrm{m}}{1\,\mathrm{s}}=5\,\mathrm{m/s}`,
+        )}
+      />
+      <p>{text.result}</p>
+    </li>
+  </ol>
+  <p class="speed-reminder">
+    <strong>{text.remember}</strong>
+  </p>
+  <p class="speed-positive">{text.positive}</p>
+</figure>
+
+<style>
+  .speed-diagram {
+    margin: 1.75rem 0;
+    padding: clamp(0.75rem, 2vw, 1.5rem);
+    border: 1px solid var(--line);
+    background: var(--card);
+    min-width: 0;
+  }
+  .speed-diagram > figcaption {
+    font-size: 1.2rem;
+  }
+  .speed-diagram p {
+    font-size: 0.95rem;
+    margin: 0.6rem 0;
+  }
+  .speed-snapshots {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+  }
+  .speed-snapshot {
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--ink);
+    padding: 0.75rem 1rem;
+    min-width: 0;
+  }
+  .speed-snapshot.speed-after {
+    border-top-color: var(--blue-accent);
+  }
+  .speed-label {
+    font-weight: 700;
+  }
+  .speed-diagram .speed-math {
+    font-size: 1rem;
+  }
+  .speed-road {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 0.75rem;
+    background: #fffdf8;
+  }
+  .speed-road-line,
+  .speed-road-ticks path {
+    stroke: #222;
+    stroke-width: 2;
+    fill: none;
+  }
+  .speed-road text {
+    fill: #222;
+    font:
+      30px Arial,
+      sans-serif;
+    text-anchor: middle;
+  }
+  .speed-car {
+    stroke: #222;
+    stroke-width: 3;
+    fill: #e1e0da;
+  }
+  .speed-car-after {
+    fill: #1455c0;
+  }
+  .speed-car .speed-photo-number,
+  .speed-car .speed-window {
+    fill: #fffdf8;
+  }
+  .speed-car text {
+    stroke: none;
+    font-weight: 700;
+  }
+  .speed-displacement {
+    stroke: #1455c0;
+    stroke-width: 3;
+    fill: none;
+  }
+  .speed-diagram .speed-origin,
+  .speed-diagram .speed-positive {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .speed-formula {
+    border-block: 1px solid var(--line);
+    padding: 0.75rem 0;
+    margin: 1rem 0;
+  }
+  .speed-equation {
+    padding: 0.8rem 0;
+    font-size: clamp(0.85rem, 2vw, 1.15rem);
+  }
+  .speed-calculation {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    padding-left: 1.5rem;
+  }
+  .speed-calculation > li {
+    min-width: 0;
+    padding: 0.5rem;
+  }
+  .speed-calculation > li::marker {
+    font-weight: 700;
+  }
+  .speed-result {
+    grid-column: 1 / -1;
+    background: var(--paper);
+    border: 1px solid var(--line);
+  }
+  .speed-reminder {
+    border-inline-start: 3px solid var(--blue-accent);
+    padding-inline-start: 0.75rem;
+  }
+  @media (max-width: 600px) {
+    .speed-snapshots,
+    .speed-calculation {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .speed-snapshot {
+      padding: 0.5rem 0.75rem;
+    }
+    .speed-diagram .speed-math {
+      font-size: 0.9rem;
+    }
+  }
+</style>
