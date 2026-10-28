@@ -1,15 +1,18 @@
 ---
 lessonId: L48
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Surprise, information et entropie de Shannon"
 summary: "Comprendre le codage de l'information, avec des exemples guidés."
-minutes: 35
+minutes: 45
 objectives: [L48-O01, L48-O02, L48-O03, L48-O04, L48-O05, L48-O06]
-prerequisites: [L47]
+prerequisites: [L47, L42]
 sourcePages: [17, 18, 19, 20]
 ---
+
+import InformationExplorer from '../../../src/components/InformationExplorer';
+
 # Surprise, information et entropie de Shannon
 
 
@@ -19,7 +22,11 @@ sourcePages: [17, 18, 19, 20]
 
 Vous pourrez : (1) lire $\log_2$ ; (2) interpréter $-\log_2(p)$ ; (3) calculer l'information d'un symbole ; (4) utiliser $H(S)$ ; (5) comparer deux sources ; (6) distinguer entropie, longueur moyenne et certitude de prédiction.
 
-Prérequis : T04–T05, puissances de $2$ et logarithmes élémentaires. Dans la convention du PDF, chaque $p_i>0$ et $\sum p_i=1$.
+Prérequis : [L46](/fr/lessons/L46/)–[L47](/fr/lessons/L47/), puissances de $2$ et logarithmes élémentaires. Dans la convention du PDF, chaque $p_i>0$ et $\sum p_i=1$.
+
+## Partir d’une question
+
+Un résultat presque certain surprend peu ; un résultat rare surprend davantage. Mais la surprise d’un événement rare ne doit pas être confondue avec la surprise moyenne d’une source. Nous calculerons d’abord la première, puis sa moyenne pondérée comme en [L47](/fr/lessons/L47/). Pour les logarithmes, révisez [L42](/fr/lessons/L42/).
 
 ## 01 · Qu'est-ce qui nous surprend ?
 
@@ -64,13 +71,64 @@ $$H(S)=-\frac34\log_2(3/4)-\frac14\log_2(1/4)\approx0{,}811.$$
 
 La deuxième distribution est plus prévisible ; son entropie est inférieure. Les valeurs approchées sont en bits par symbole source.
 
+## Comment s’en servir ?
+
+**Quand l’utiliser ?** Pour quantifier la surprise d’un symbole sous un modèle donné, puis comparer l’incertitude moyenne de distributions.
+
+**Pourquoi un logarithme négatif ?** Pour deux événements indépendants de probabilités $p$ et $q$, la probabilité conjointe est $pq$. Le logarithme transforme ce produit en somme :
+
+$$-\log_2(pq)=-\log_2(p)-\log_2(q).$$
+
+Le signe moins donne des valeurs positives lorsque $0<p<1$, et la base deux fixe l’unité : une probabilité $1/2$ correspond à un bit. C’est une motivation de la définition, pas une démonstration de sa caractérisation à partir d’axiomes. Sans indépendance, la probabilité conjointe ne se factorise pas ainsi.
+
+**Comment calculer l’information propre ?** Vérifiez $0<p\le1$, calculez $\log_2(p)=\ln(p)/\ln(2)$, puis changez le signe. Par exemple, $p=1/4=2^{-2}$ donne $I=2$ bits. On ne calcule jamais le logarithme de zéro.
+
+**Comment calculer l’entropie ?** Vérifiez la distribution, calculez chaque information propre, multipliez-la par sa probabilité et additionnez. Pour $(1/4,3/4)$ :
+
+$$H(S)=\frac14\cdot2+\frac34\left(-\log_2\frac34\right)\approx0{,}811278.$$
+
+Le symbole rare porte deux bits d’information **lorsqu’il arrive**, mais la moyenne reste inférieure à un bit par symbole. Pour une source avec mémoire, cette entropie des symboles individuels n’est pas nécessairement le taux d’entropie de toute la suite. Comme en [L46](/fr/lessons/L46/), les dépendances comptent.
+
+**À vous de jouer.** Calculez l’entropie de $(1/2,1/4,1/8,1/8)$ en commençant par les quatre informations propres.
+
+<details className="info-answer">
+<summary>Indice</summary>
+
+Les probabilités sont des puissances de deux ; n’oubliez pas la pondération.
+
+</details>
+
+<details className="info-answer">
+<summary>Afficher la correction expliquée</summary>
+
+Les informations propres valent $1,2,3,3$. Donc $H(S)=1/2+2/4+3/8+3/8=7/4$ bits par symbole. Additionner seulement $1+2+3+3$ donnerait une somme non pondérée, pas l’entropie.
+
+</details>
+
+## Expérimenter et expliquer
+
+**But de l’expérience.** Distinguer la surprise d’un symbole de sa contribution à l’entropie.
+
+**Avant de manipuler.** Si x devient extrêmement rare, I(x) et H augmenteront-ils nécessairement ensemble ?
+
+**Mode d’emploi.** Le curseur règle p(x) ; p(y) vaut automatiquement 1 − p(x). Partez de 0,25, puis essayez 0,50 et 0,01. Comparez l’information de x, sa contribution pondérée et le point sur la courbe de H. Les valeurs 0 et 1 sont une extension explicite du modèle strictement positif : une contribution nulle est définie par limite, sans évaluer log₂(0).
+
+<InformationExplorer lesson={48} locale="fr" client:visible />
+
+<details className="info-answer">
+<summary>Observer, puis expliquer</summary>
+
+Exemple sur papier : à p(x) = 1/4, I(x) = 2, I(y) ≈ 0,4150 et H ≈ 0,8113. À p(x) = 1/2, H = 1. Quand p(x) tend vers zéro, I(x) tend vers +∞ mais sa contribution pondérée tend vers zéro et H tend vers zéro. La courbe illustre ces faits ; sa symétrie vient de l’échange de x et y dans la formule.
+
+</details>
+
 ## 04 · Retour au calcul du codage
 
 **Application pédagogique complémentaire au modèle des pp. 14–15.** Pour $p=(1/2,1/4,1/4)$ :
 
 $$H(S)=-\frac12\log_2(1/2)-2\cdot\frac14\log_2(1/4)=\frac32=1{,}5.$$
 
-Le code $c_2$ du PDF a $L(c_2)=1{,}75$ (T05) ; le code préfixe supplémentaire $d$ a $L(d)=1{,}5$. Ces valeurs coïncident numériquement avec l'entropie pour `d` dans cet exemple. **Le PDF ne démontre pas de théorème général reliant $H$ et le minimum des longueurs** ; une telle démonstration relèverait d'une extension sur le codage optimal.
+Le code $c_2$ du PDF a $L(c_2)=1{,}75$ ([L47](/fr/lessons/L47/)) ; le code préfixe supplémentaire $d$ a $L(d)=1{,}5$. Ces valeurs coïncident numériquement avec l'entropie pour `d` dans cet exemple. **Le PDF ne démontre pas de théorème général reliant $H$ et le minimum des longueurs** ; une telle démonstration relèverait d'une extension sur le codage optimal.
 
 ## 05 · Ce que l'entropie ne dit pas
 
@@ -88,3 +146,14 @@ Deux messages particuliers peuvent avoir une longueur identique mais venir de so
 6. **Question.** Pour le code $c_2$ des pages 14–15, $H(S)=L(c_2)$ ? **Réponse.** Non : $H(S)=1{,}5$ tandis que $L(c_2)=1{,}75$.
 
 **Fin du parcours source.** Le PDF se termine après les définitions par « Exemples. [...] » ; les calculs chiffrés détaillés ci-dessus sont donc des **ajouts pédagogiques** et non des exemples repris d'une suite absente du document.
+
+## À retenir
+
+<div className="info-memo">
+
+- $I(s)=-\log_2(p(s))$ pour $p(s)>0$ : surprise d’un symbole, en bits.
+- $H(S)=\sum_i p_iI(s_i)$ : surprise moyenne, en bits par symbole source.
+- $L(c)$ dépend du code choisi ; $H(S)$ dépend de la distribution. Une égalité dans un exemple n’est pas un théorème général.
+- **Checklist :** symbole ou moyenne ? probabilités valides ? logarithme défini ? pondération ? limites et dépendances explicitées ?
+
+</div>

@@ -1,0 +1,149 @@
+---
+lessonId: L47
+locale: fr
+version: 2
+status: extended
+title: "Longueur moyenne et efficacité du code"
+summary: "Comprendre le codage de l'information, avec des exemples guidés."
+minutes: 45
+objectives: [L47-O01, L47-O02, L47-O03, L47-O04, L47-O05, L47-O06]
+prerequisites: [L46]
+sourcePages: [11, 12, 13, 14, 15, 16]
+---
+
+import InformationExplorer from '../../../src/components/InformationExplorer';
+
+# Longueur moyenne et efficacité du code
+
+
+<span id="pdf-11" class="source-topic-marker"></span>
+
+## Objectifs et prérequis
+
+Vous pourrez : (1) compter la longueur $|w_i|$ d'un mot code ; (2) utiliser une moyenne pondérée ; (3) calculer $L(c)$ ; (4) comparer deux propositions de codage ; (5) contrôler la possibilité de décodage ; (6) expliquer pourquoi une longueur petite ne prouve pas l'optimalité.
+
+Prérequis : [L45](/fr/lessons/L45/)–[L46](/fr/lessons/L46/) et calcul de fractions. La source a un alphabet fini $S=\{s_1,\ldots,s_n\}$ et des probabilités $p_i>0$ de somme $1$.
+
+## Partir d’une question
+
+Un ticket de caisse ne calcule pas la moyenne des prix affichés : il tient compte des quantités achetées. De même, une longueur de code doit être pondérée par la fréquence de son symbole. Réutilisez les probabilités de [L46](/fr/lessons/L46/) et le contrôle du décodage de [L45](/fr/lessons/L45/).
+
+## 01 · Une moyenne qui tient compte des fréquences
+
+**Définition du PDF, p. 12.** Si $c(s_i)=w_i$, la **longueur moyenne du codage**, en symboles de l'alphabet cible par symbole source, est :
+
+$$L(c)=\sum_{i=1}^{n}p_i|w_i|.$$
+
+Le terme $|w_i|$ est la longueur du mot code, et $p_i$ est sa fréquence attendue. Il ne s'agit **pas** de la moyenne simple des longueurs si les symboles ne sont pas équiprobables.
+
+**Exemple pédagogique complémentaire.** Pour deux symboles de probabilités $(3/4,1/4)$ et mots codes de longueurs $(1,3)$, on obtient $L(c)=3/4\times1+1/4\times3=3/2$ bit par symbole source. La moyenne simple des longueurs aurait donné $2$, ce qui ne reflète pas les fréquences.
+
+## 02 · Le calcul de la source, étape par étape
+
+**PDF, pp. 14–15.** Prenons $S=\{x,y,z\}$, $p=(1/2,1/4,1/4)$ et deux codages :
+
+Chaque mot code est suivi de sa longueur en bits entre parenthèses.
+
+| Symbole | $p_i$ | $c_1(s_i)$ | $c_2(s_i)$ |
+| --- | --- | --- | --- |
+| $x$ | $1/2$ | $001$ (3) | $0$ (1) |
+| $y$ | $1/4$ | $01$ (2) | $01$ (2) |
+| $z$ | $1/4$ | $0$ (1) | $011$ (3) |
+
+Pour $c_1$ :
+
+$$L(c_1)=\frac12\cdot3+\frac14\cdot2+\frac14\cdot1=\frac94=2{,}25.$$
+
+Pour $c_2$ :
+
+$$L(c_2)=\frac12\cdot1+\frac14\cdot2+\frac14\cdot3=\frac74=1{,}75.$$
+
+Les deux valeurs sont en **bits par symbole source**. Ainsi `c_2` a une moyenne inférieure de $1/2$ bit par symbole source. L'ordre des longueurs compte : le symbole le plus fréquent, $x$, reçoit un mot plus court dans $c_2$.
+
+## Comment s’en servir ?
+
+**Quand l’utiliser ?** Pour estimer le nombre de bits par symbole, ou comparer des codes pour **la même distribution**.
+
+**D’où vient la formule ?** Dans un message de $N>0$ symboles avec effectifs $n_i$, chaque occurrence de $s_i$ coûte $|w_i|$ bits. Le total exact est $B=\sum_i n_i|w_i|$, donc :
+
+$$\frac BN=\sum_i\frac{n_i}{N}|w_i|=\sum_i\widehat p_i|w_i|.$$
+
+Si les effectifs relatifs sont remplacés par le modèle $p_i$, on obtient $L(c)=\sum_i p_i|w_i|$. C’est une espérance : le coût d’une émission est la variable qui vaut $|w_i|$ lorsque le symbole vaut $s_i$. Pour $N$ émissions ayant la même distribution marginale, le total attendu est $NL(c)$ par additivité de l’espérance ; cette égalité ne nécessite pas l’indépendance. Un message particulier n’a pas forcément ce total.
+
+**Comment procéder ?** Vérifiez les probabilités, comptez les longueurs, multipliez chaque longueur par **sa** probabilité et additionnez. Indiquez l’unité. Vérifiez ensuite la décodabilité avant de comparer les moyennes. Avec $p=(1/2,1/4,1/4)$ et $c_2$, les contributions valent $1/2$, $1/2$ et $3/4$ : leur somme est $7/4$. Pour quatre symboles ayant exactement les effectifs $(2,1,1)$, cela donne sept bits, mais un autre message de quatre symboles peut coûter autrement.
+
+**À vous de jouer.** Pour la même distribution et le code $d$, calculez les bits d’un message contenant deux x, un y et un z ; retrouvez la moyenne.
+
+<details className="info-answer">
+<summary>Indice</summary>
+
+Les longueurs de d sont 1, 2, 2. Comptez chaque occurrence.
+
+</details>
+
+<details className="info-answer">
+<summary>Afficher la correction expliquée</summary>
+
+$B=2\times1+1\times2+1\times2=6$ bits ; $B/N=6/4=3/2$ bits par symbole. C’est inférieur à $7/4$ pour $c_2$, avec un code préfixe valide. Ce calcul ne démontre pas, à lui seul, l’optimalité parmi tous les codes.
+
+</details>
+
+## Expérimenter et expliquer
+
+**But de l’expérience.** Calculer les contributions pondérées et comparer des codes sur la même source.
+
+**Avant de manipuler.** Avec les effectifs 2, 1, 1, passer de c2 à d réduit-il le coût total ?
+
+**Mode d’emploi.** Les effectifs de 1 à 20 définissent des probabilités positives après division par leur somme. La table sélectionnée détermine les longueurs. Modifiez d’abord uniquement le code, puis uniquement les effectifs. La première table détaille chaque produit ; la seconde compare les trois codes sur la même distribution et signale l’ambiguïté de c1.
+
+<InformationExplorer lesson={47} locale="fr" client:visible />
+
+<details className="info-answer">
+<summary>Observer, puis expliquer</summary>
+
+Exemple sur papier : pour (2, 1, 1), c1 coûte 9 bits, c2 en coûte 7 et d en coûte 6, soit les moyennes 9/4, 7/4 et 3/2. c1 reste rejeté pour ambiguïté. Quelle comparaison serait trompeuse ? Comparer un code sur une source très déséquilibrée à un autre code sur une source uniforme.
+
+</details>
+
+## 03 · Une réserve indispensable : décoder le code
+
+Une comparaison de longueur ne suffit pas pour déclarer un code utilisable.
+
+**Contrôle mathématique du PDF.** Comme vu en [L45](/fr/lessons/L45/), $c_1(x)=001=c_1(zy)$ : `c_1` est ambigu, donc impropre au décodage unique. En revanche, `c_2` est à décodage unique bien qu'il ne soit pas préfixe. Les valeurs de $L$ calculées restent correctes, mais comparer des moyennes n'efface pas ce critère.
+
+## 04 · Plus court ne veut pas dire le plus court possible
+
+**Question du PDF, pp. 15–16.** En quel sens $L(c_2)$ est-il « bon » ? Pour cette comparaison particulière, il est plus petit que $L(c_1)$. **Cela ne prouve pas qu'il minimise toutes les longueurs possibles.**
+
+**Contre-exemple pédagogique complémentaire.** Choisissons plutôt un code préfixe :
+
+$$d(x)=0,\qquad d(y)=10,\qquad d(z)=11.$$
+
+Il est à décodage unique et
+
+$$L(d)=\frac12\cdot1+\frac14\cdot2+\frac14\cdot2=\frac32=1{,}5.$$
+
+On a $L(d)<L(c_2)$. Il existe donc au moins un code admissible plus court en moyenne que $c_2$. Ce contre-exemple suffit à réfuter son optimalité. Prouver qu'un code est **globalement optimal** demande un argument supplémentaire, qui n'est pas fourni dans ces diapositives.
+
+**Règle pratique du PDF, p. 16.** Donner des mots courts aux symboles fréquents et des mots plus longs aux moins fréquents est une idée directrice, à appliquer sans négliger la décodabilité.
+
+## Vérifiez vos acquis — solutions incluses
+
+1. **Question.** Probabilités $(1/2,1/2)$, longueurs $(1,3)$ : trouver $L$. **Réponse.** $L=2$.
+2. **Question.** Pour $(3/4,1/4)$ et longueurs $(1,2)$ : trouver $L$. **Réponse.** $3/4+1/2=5/4=1{,}25$.
+3. **Question.** Pourquoi $L(c_1)=9/4$ ne suffit-il pas à approuver $c_1$ ? **Réponse.** Le code est ambigu : $c_1(x)=c_1(zy)$.
+4. **Question.** Une moyenne $1{,}75$ peut-elle être améliorée ici ? **Réponse.** Oui, le code $d$ atteint $1{,}5$.
+5. **Question.** Le fait qu'une moyenne baisse garantit-il la sécurité du message ? **Réponse.** Non ; longueur, décodage et confidentialité sont des propriétés différentes.
+
+**Suite.** [L48](/fr/lessons/L48/) relie la quantité d'information aux probabilités.
+
+## À retenir
+
+<div className="info-memo">
+
+- $L(c)=\sum_i p_i|w_i|$ est en bits par symbole source pour un alphabet cible binaire.
+- Sur un message observé : $B=\sum_i n_i|w_i|$ et moyenne exacte $B/N$.
+- Plus court dans une comparaison ne signifie pas optimal ; une petite moyenne n’efface pas une ambiguïté.
+- **Checklist :** probabilités valides ? produits bien appariés ? même source ? décodage unique ? coûts annexes précisés ?
+
+</div>

@@ -1,0 +1,149 @@
+---
+lessonId: L47
+locale: en
+version: 2
+status: extended
+title: "Average length and coding efficiency"
+summary: "Understand source coding with guided examples."
+minutes: 45
+objectives: [L47-O01, L47-O02, L47-O03, L47-O04, L47-O05, L47-O06]
+prerequisites: [L46]
+sourcePages: [11, 12, 13, 14, 15, 16]
+---
+
+import InformationExplorer from '../../../src/components/InformationExplorer';
+
+# Average length and coding efficiency
+
+
+<span id="pdf-11" class="source-topic-marker"></span>
+
+## Objectives and prerequisites
+
+You will: (1) count codeword length $|w_i|$; (2) apply a weighted mean; (3) calculate $L(c)$; (4) compare two code proposals; (5) check that decoding is possible; (6) explain why a small average does not prove optimality.
+
+Prerequisites: [L45](/en/lessons/L45/)–[L46](/en/lessons/L46/) and fraction arithmetic. The source alphabet is finite, $S=\{s_1,\ldots,s_n\}$, with probabilities $p_i>0$ summing to $1$.
+
+## Start with a question
+
+A receipt does not average listed prices: it accounts for quantities bought. Likewise, a codeword length must be weighted by its symbol’s frequency. Reuse probabilities from [L46](/en/lessons/L46/) and decoding checks from [L45](/en/lessons/L45/).
+
+## 01 · An average that reflects frequencies
+
+**PDF definition, p. 12.** When $c(s_i)=w_i$, the **average codeword length**, in target-alphabet symbols per source symbol, is
+
+$$L(c)=\sum_{i=1}^{n}p_i|w_i|.$$
+
+Here $|w_i|$ is the codeword length and $p_i$ is its expected frequency. This is **not** the simple average of lengths unless the symbols are equally likely.
+
+**Additional teaching example.** For two symbols of probabilities $(3/4,1/4)$ with lengths $(1,3)$, we get $L(c)=3/4\times1+1/4\times3=3/2$ bits per source symbol. The unweighted average would be $2$, which ignores symbol frequencies.
+
+## 02 · Calculating the source example step by step
+
+**PDF, pp. 14–15.** Let $S=\{x,y,z\}$, $p=(1/2,1/4,1/4)$, and consider:
+
+Each codeword is followed by its length in bits in parentheses.
+
+| Symbol | $p_i$ | $c_1(s_i)$ | $c_2(s_i)$ |
+| --- | --- | --- | --- |
+| $x$ | $1/2$ | $001$ (3) | $0$ (1) |
+| $y$ | $1/4$ | $01$ (2) | $01$ (2) |
+| $z$ | $1/4$ | $0$ (1) | $011$ (3) |
+
+For $c_1$:
+
+$$L(c_1)=\frac12\cdot3+\frac14\cdot2+\frac14\cdot1=\frac94=2{,}25.$$
+
+For $c_2$:
+
+$$L(c_2)=\frac12\cdot1+\frac14\cdot2+\frac14\cdot3=\frac74=1{,}75.$$
+
+Both quantities are **bits per source symbol**. Thus the second code's average is smaller by $1/2$ bit per source symbol. Which symbol receives which length matters: the most likely symbol, $x$, has the shorter codeword in $c_2$.
+
+## How to use it
+
+**When to use it?** To estimate bits per symbol, or compare codes for **the same distribution**.
+
+**Where does the formula come from?** In a message of $N>0$ symbols with counts $n_i$, each occurrence of $s_i$ costs $|w_i|$ bits. The exact total is $B=\sum_i n_i|w_i|$, so:
+
+$$\frac BN=\sum_i\frac{n_i}{N}|w_i|=\sum_i\widehat p_i|w_i|.$$
+
+Replacing relative counts with model probabilities $p_i$ gives $L(c)=\sum_i p_i|w_i|$. This is an expectation: one emission’s cost is the variable equal to $|w_i|$ when its symbol is $s_i$. For $N$ emissions with the same marginal distribution, expected total cost is $NL(c)$ by linearity of expectation; independence is not needed for this equality. An individual message need not have that total.
+
+**Procedure.** Validate probabilities, count lengths, multiply each length by **its own** probability and add. State the unit. Then check decodability before comparing averages. With $p=(1/2,1/4,1/4)$ and $c_2$, contributions are $1/2$, $1/2$ and $3/4$, summing to $7/4$. For four symbols with exact counts $(2,1,1)$, this gives seven bits, but another four-symbol message may cost differently.
+
+**Your turn.** For the same distribution and code $d$, calculate the bits of a message containing two x, one y and one z; recover the average.
+
+<details className="info-answer">
+<summary>Hint</summary>
+
+The lengths for d are 1, 2, 2. Count every occurrence.
+
+</details>
+
+<details className="info-answer">
+<summary>Show the explained solution</summary>
+
+$B=2\times1+1\times2+1\times2=6$ bits; $B/N=6/4=3/2$ bits per symbol. This is below $7/4$ for $c_2$, with a valid prefix code. This calculation alone does not prove optimality among all codes.
+
+</details>
+
+## Experiment and explain
+
+**Experiment objective.** Calculate weighted contributions and compare codes on the same source.
+
+**Before manipulating.** For counts 2, 1, 1, does switching from c2 to d reduce total cost?
+
+**How to use the controls.** Counts from 1 to 20 define positive probabilities after division by their sum. The selected table determines lengths. First change only the code, then only the counts. The first table details each product; the second compares all three codes on the same distribution and flags c1’s ambiguity.
+
+<InformationExplorer lesson={47} locale="en" client:visible />
+
+<details className="info-answer">
+<summary>Observe, then explain</summary>
+
+Paper example: for (2, 1, 1), c1 costs 9 bits, c2 costs 7 and d costs 6, giving averages 9/4, 7/4 and 3/2. c1 remains inadmissible because it is ambiguous. Which comparison would mislead? Comparing one code on a skewed source with another on a uniform source.
+
+</details>
+
+## 03 · An essential caveat: can you decode it?
+
+An average-length calculation alone does not make a code usable.
+
+**Mathematical check of the PDF example.** As [L45](/en/lessons/L45/) explains, $c_1(x)=001=c_1(zy)$: the first code is ambiguous and not uniquely decodable. The second code is uniquely decodable even though it is not prefix-free. The arithmetic of $L$ is correct in both cases, but it does not override this requirement.
+
+## 04 · Shorter is not necessarily shortest
+
+**PDF question, pp. 15–16.** In what sense is $L(c_2)$ “good”? It is smaller than $L(c_1)$ for this comparison. **This does not prove it minimises average length across every possible code.**
+
+**Additional counterexample.** Consider the prefix code
+
+$$d(x)=0,\qquad d(y)=10,\qquad d(z)=11.$$
+
+It is uniquely decodable, and
+
+$$L(d)=\frac12\cdot1+\frac14\cdot2+\frac14\cdot2=\frac32=1{,}5.$$
+
+Therefore $L(d)<L(c_2)$. We have found an admissible code with a smaller average, so $c_2$ is not optimal. Proving a code **globally optimal** requires a further argument, not given in these slides.
+
+**Guiding idea from the PDF, p. 16.** Use short codewords for common symbols and longer ones for rare symbols, without sacrificing unique decodability.
+
+## Check your understanding — with answers
+
+1. **Question.** Probabilities $(1/2,1/2)$ and lengths $(1,3)$: find $L$. **Answer.** $L=2$.
+2. **Question.** For $(3/4,1/4)$ and lengths $(1,2)$: find $L$. **Answer.** $3/4+1/2=5/4=1{,}25$.
+3. **Question.** Why does $L(c_1)=9/4$ not make $c_1$ acceptable? **Answer.** It is ambiguous: $c_1(x)=c_1(zy)$.
+4. **Question.** Can average length $1{,}75$ be improved here? **Answer.** Yes; the prefix code $d$ achieves $1{,}5$.
+5. **Question.** Does reducing the average guarantee confidentiality? **Answer.** No; length, decodability and secrecy are separate properties.
+
+**Next.** [L48](/en/lessons/L48/) connects probabilities to information.
+
+## Key takeaways
+
+<div className="info-memo">
+
+- $L(c)=\sum_i p_i|w_i|$ is in bits per source symbol for a binary target alphabet.
+- For an observed message: $B=\sum_i n_i|w_i|$ and exact mean $B/N$.
+- Shorter in one comparison does not mean optimal; a small average cannot repair ambiguity.
+- **Checklist:** valid probabilities? correctly paired products? same source? unique decoding? overhead stated?
+
+</div>

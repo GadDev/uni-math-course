@@ -1,0 +1,127 @@
+---
+lessonId: L46
+locale: en
+version: 2
+status: extended
+title: "Probabilities of a source"
+summary: "Understand source coding with guided examples."
+minutes: 35
+objectives: [L46-O01, L46-O02, L46-O03, L46-O04, L46-O05, L46-O06]
+prerequisites: [L45]
+sourcePages: [11, 13]
+---
+
+import InformationExplorer from '../../../src/components/InformationExplorer';
+
+# Probabilities of a source
+
+
+<span id="pdf-11" class="source-topic-marker"></span>
+
+## Objectives and prerequisites
+
+You will: (1) identify the size $n=|S|$; (2) state conditions on a distribution; (3) interpret $p_i$; (4) calculate frequency from observations; (5) build a valid distribution; (6) articulate assumptions of the model.
+
+Prerequisites: [L44](/en/lessons/L44/), fractions and percentages. Probabilities here concern individual source symbols.
+
+## Start with a question
+
+Before assigning short codewords, we need to know which symbols are common. As when estimating a bag’s marble mix, counting gives an observation; choosing probabilities for future draws adds a model. These are different steps.
+
+## 01 · Not all source symbols are equally frequent
+
+**PDF, p. 11.** A source draws symbols from a finite alphabet $S=\{s_1,\ldots,s_n\}$, where $n=|S|$. The document assumes strictly positive probabilities:
+
+$$p_i>0,\qquad \sum_{i=1}^{n}p_i=1.$$
+
+The number $p_i$ is the probability that the emitted symbol is $s_i$. These values must form a coherent distribution: neither a negative probability nor a sum different from $1$ is allowed.
+
+**PDF example, p. 14 (introduced here to prepare [L47](/en/lessons/L47/)).** The source $S=\{x,y,z\}$ has distribution $(1/2,1/4,1/4)$. Since $1/2+1/4+1/4=1$, the distribution is valid.
+
+## 02 · Estimating probabilities using frequencies
+
+**PDF, p. 13.** For text, character frequencies can be estimated using a frequency table.
+
+**Additional teaching example.** Observe ten source characters: $xxxxyyyxxz$. Symbol $x$ occurs six times, $y$ three times and $z$ once. Hence the empirical frequencies are
+
+$$\widehat p(x)=6/10,\qquad \widehat p(y)=3/10,\qquad \widehat p(z)=1/10.$$
+
+They sum to $1$. The hat on $\widehat p$ means **estimate** here: future symbols need not have precisely these proportions. A sample frequency is not a law of nature.
+
+## How to use it
+
+**When to use it?** To turn counts into frequencies, or check whether numbers define the course’s strictly positive model.
+
+**Why divide by the total?** Let $n_i$ count occurrences of symbol $s_i$, and let $N=\sum_i n_i$ count all observed symbols. For $N>0$, the symbol’s share is $\widehat p_i=n_i/N$. Then:
+
+$$\sum_i\widehat p_i=\sum_i\frac{n_i}{N}=\frac{\sum_i n_i}{N}=\frac NN=1.$$
+
+**Procedure.** Fix the alphabet and counting rules, count each symbol, add counts, then divide by that same total. Check the exact sum before rounding. Counts $(6,3,1)$ have $N=10$ and give $(6/10,3/10,1/10)$. Independence is not required for this counting calculation.
+
+To **validate a model distribution**, separately check $p_i>0$ for every retained symbol and $\sum_i p_i=1$. A zero count gives zero empirical frequency without proving zero true probability. An empty sample permits no division. Rounded values may also appear not to total one: return to fractions to check.
+
+**Your turn.** Calculate frequencies for counts $(2,3,5)$. Is $(0{,}2,0{,}3,0{,}6)$ a valid proposal?
+
+<details className="info-answer">
+<summary>Hint</summary>
+
+Add the counts and, separately, the proposed probabilities.
+
+</details>
+
+<details className="info-answer">
+<summary>Show the explained solution</summary>
+
+$N=2+3+5=10$ gives $(1/5,3/10,1/2)$. Their sum is $1$. The proposal totals $0{,}2+0{,}3+0{,}6=1{,}1$ and fails normalisation even though every entry is positive.
+
+</details>
+
+## Experiment and explain
+
+**Experiment objective.** Build frequencies using one common denominator.
+
+**Before manipulating.** If you add one x, will y’s frequency change despite its unchanged count?
+
+**How to use the controls.** Change the three integer counts from 0 to 20. Bars and fractions use the new total. Start at 6, 3, 1, then set x to 7 and also watch y and z. Try “No x observed” and “Empty sample” to distinguish zero frequency from an undefined fraction.
+
+<InformationExplorer lesson={46} locale="en" client:visible />
+
+<details className="info-answer">
+<summary>Observe, then explain</summary>
+
+Paper example: (6, 3, 1) gives (6/10, 3/10, 1/10). After adding one x: (7/11, 3/11, 1/11). The shares of y and z decrease because the total increases. This describes the sample without determining the next emission.
+
+</details>
+
+## 03 · Model assumptions
+
+The PDF warns on p. 11 that we make **simplifying assumptions**. Specifying the probability of each symbol does not in itself describe the dependencies between successive symbols.
+
+**Additional teaching example.** Two sources can both have $p(0)=p(1)=1/2$ while generating different patterns: one may choose its first bit by a fair coin, then alternate deterministically (giving $0101\ldots$ or $1010\ldots$), while the other makes an independent fair choice at every position. Their symbol probabilities match, but their transition rules do not. Do not confuse a **distribution** with **independence**.
+
+## 04 · Why these probabilities matter for coding
+
+If common symbols have shorter codewords, we may be able to reduce the average length. This motivates the **weighted mean** in [L47](/en/lessons/L47/). The PDF also mentions two-pass estimation for video pixel blocks on p. 13 but does not specify an algorithm; we do not attribute one to that slide.
+
+**Common mistake.** Reading $p(x)=1/2$ as “exactly one in every two characters of every message must be `x`”. A probability is not a guarantee for each finite sample.
+
+## Check your understanding — with answers
+
+1. **Question.** Is $(1/2,1/3,1/6)$ valid? **Answer.** Yes; all probabilities are positive and sum to $1$.
+2. **Question.** Is $(1/2,1/2,1/4)$ valid? **Answer.** No, the sum is $5/4$.
+3. **Question.** Five $x$s and three $y$s: estimate $\widehat p(x)$. **Answer.** $5/8$.
+4. **Question.** Does one sample's frequency guarantee the next sample's frequency? **Answer.** No; it is only an estimate.
+5. **Question.** Do $p(x)$ and $p(y)$ establish independence between consecutive symbols? **Answer.** No; transition information is missing.
+
+**Next.** [L47](/en/lessons/L47/): average codeword length.
+
+## Key takeaways
+
+<div className="info-memo">
+
+- $n=|S|$ counts distinct symbols; $N$ counts observations; $n_i$ counts occurrences of one symbol.
+- $\widehat p_i=n_i/N$ requires $N>0$; the hat signals estimation.
+- The positive model requires $p_i>0$ and $\sum_i p_i=1$; independence is a separate assumption.
+- **Checklist:** shared total? exact sum? sample or model? dependencies specified?
+
+</div>

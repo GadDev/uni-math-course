@@ -1,15 +1,18 @@
 ---
 lessonId: L43
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Des messages aux bits"
 summary: "Comprendre le codage de l'information, avec des exemples guidés."
-minutes: 25
+minutes: 35
 objectives: [L43-O01, L43-O02, L43-O03, L43-O04, L43-O05, L43-O06]
 prerequisites: [L10]
 sourcePages: [2, 3, 4, 5, 6]
 ---
+
+import InformationExplorer from '../../../src/components/InformationExplorer';
+
 # Des messages aux bits
 
 
@@ -20,6 +23,10 @@ sourcePages: [2, 3, 4, 5, 6]
 À la fin de la séquence, vous pourrez : (1) décrire émetteur, canal et récepteur ; (2) distinguer le message du support de transmission ; (3) définir un bit ; (4) compter les mots binaires de longueur fixée ; (5) encoder et décoder un texte avec une convention explicitée ; (6) identifier ce que la transmission ne garantit pas à elle seule.
 
 Prérequis : compter des possibilités et lire une fonction. On travaille avec des suites finies de symboles.
+
+## Partir d’une question
+
+Imaginez un vestiaire : chaque objet doit recevoir une étiquette différente. Les bits sont les cases de cette étiquette ; avec trop peu de cases, deux objets partageraient une étiquette. Le parcours va de cette capacité à une convention de codage ([L44](/fr/lessons/L44/)), puis au décodage ([L45](/fr/lessons/L45/)). Aucun sens n’est contenu dans les bits sans convention.
 
 ## 01 · Pourquoi coder ?
 
@@ -36,6 +43,49 @@ Un message peut être un texte, une image, un son ou une vidéo. Un **bit** est 
 De manière générale, avec exactement $n$ positions binaires, il existe $2^n$ mots, pour $n\in\mathbb N$ (avec $0\in\mathbb N$ dans ce cours). Pour $n=0$, le seul mot est le mot vide, noté $\varepsilon$. Attention : « longueur **exactement** $n$ » n'est pas « longueur **au plus** $n$ ».
 
 **Exemple résolu.** Pour distinguer huit états par des mots de longueur fixe, trois bits suffisent puisque $2^3=8$. Pour neuf états, trois bits ne suffisent pas ; quatre permettent $2^4=16$ mots possibles.
+
+## Comment s’en servir ?
+
+**Quand l’utiliser ?** Quand il faut attribuer une étiquette binaire de longueur fixe à chacun de $M$ états distincts, avec $M\ge1$ entier.
+
+**Pourquoi une puissance ?** Le mot vide fournit une possibilité. Ajouter une position double les possibilités : à chaque ancien mot correspondent un prolongement par $0$ et un par $1$. Après $n$ positions, le produit est $2^n$. Pour des longueurs de zéro à $n$, on additionnerait au contraire $1+2+\cdots+2^n=2^{n+1}-1$.
+
+**Comment procéder ?** Cherchez le plus petit entier $n\ge0$ tel que $2^n\ge M$. Si vous utilisez un logarithme, cela donne $n=\lceil\log_2(M)\rceil$ : les crochets supérieurs signifient « arrondir à l’entier supérieur ». Vérifiez le résultat avec les puissances voisines. Pour $M=9$, $2^3<9\le2^4$ : quatre bits sont nécessaires. La formule vaut aussi pour $M=1$, qui demande zéro bit pour distinguer l’unique état ; cela suppose que le nombre de symboles et le cadrage du message sont connus.
+
+**Comment encoder et décoder un texte ?** Fixez d’abord la convention, puis l’ordre des caractères. En UTF-8, transformez les caractères en octets et écrivez chaque octet sur huit bits, en conservant les zéros initiaux. Pour décoder, reconstituez les octets puis appliquez le décodeur UTF-8 à toute la séquence ; certains caractères utilisent plusieurs octets. Par exemple, `é` (U+00E9) donne `11000011 10101001`, soit deux octets et seize bits. L’espace entre ces octets aide à lire, mais n’est pas un bit supplémentaire. La convention doit également préciser les limites du message.
+
+**À vous de jouer.** Combien de bits à longueur fixe pour 17 états ? Puis combien de bits pour `Hé` en UTF-8, avec le `é` précomposé U+00E9 ?
+
+<details className="info-answer">
+<summary>Indice</summary>
+
+Encadrez 17 entre deux puissances ; distinguez caractères et octets.
+
+</details>
+
+<details className="info-answer">
+<summary>Afficher la correction expliquée</summary>
+
+$2^4=16<17\le32=2^5$ : cinq bits sont nécessaires. `H` utilise un octet et `é` deux : $3\times8=24$ bits. Deux caractères ne signifient donc pas nécessairement seize bits.
+
+</details>
+
+## Expérimenter et expliquer
+
+**But de l’expérience.** Relier le nombre de positions à la capacité et au minimum de bits nécessaire.
+
+**Avant de manipuler.** Trois bits suffiront-ils pour neuf états ? Prévoyez aussi le cas de zéro bit avant de le tester.
+
+**Mode d’emploi.** Chaque position compte dans n ; M désigne le nombre d’états à distinguer. Commencez par « 8 états », puis passez M à 9 sans changer n. Observez le nombre de mots disponibles, les mots affichés et le minimum nécessaire. Passez ensuite n à 4. Les mots affichés sont des étiquettes possibles, pas un encodage de caractères.
+
+<InformationExplorer lesson={43} locale="fr" client:visible />
+
+<details className="info-answer">
+<summary>Observer, puis expliquer</summary>
+
+Exemple sur papier : avec n = 3 et M = 9, huit mots sont disponibles et il en manque un. Avec n = 4, seize mots sont disponibles et sept restent inutilisés. Pourquoi le mot vide compte-t-il pour une possibilité ? Parce qu’il existe une unique suite de longueur zéro, distincte du mot « 0 ».
+
+</details>
 
 ## 03 · L'exercice « Hello World »
 
@@ -56,7 +106,13 @@ De manière générale, avec exactement $n$ positions binaires, il existe $2^n$ 
 
 Conserver les répétitions dans leur ordre donne :
 
-$01001000\,01100101\,01101100\,01101100\,01101111\,00100000\,01010111\,01101111\,01110010\,01101100\,01100100$.
+$$
+\begin{aligned}
+&01001000\,01100101\,01101100\,01101100\\
+&01101111\,00100000\,01010111\,01101111\\
+&01110010\,01101100\,01100100
+\end{aligned}
+$$
 
 Pour décoder : regrouper ici les bits par octets, lire chaque octet selon UTF-8, puis restituer les caractères dans l'ordre. Le regroupement convient à cet exemple parce que ses caractères sont tous codés sur un octet ; **UTF-8 n'a pas toujours un octet par caractère**.
 
@@ -73,4 +129,15 @@ Pour décoder : regrouper ici les bits par octets, lire chaque octet selon UTF-8
 3. **Question.** Une image et un texte ayant la même suite de bits ont-ils forcément le même sens ? **Réponse.** Non ; la représentation et le format déterminent l'interprétation.
 4. **Question.** Si un canal inverse un bit, le codage de texte détectera-t-il forcément l'erreur ? **Réponse.** Non ; il faut un mécanisme supplémentaire de détection ou de correction.
 
-**Suite.** T02 introduit les alphabets et la fonction de codage.
+**Suite.** [L44](/fr/lessons/L44/) introduit les alphabets et la fonction de codage.
+
+## À retenir
+
+<div className="info-memo">
+
+- Un bit est un symbole ; un octet contient huit bits ; le sens dépend du format.
+- Longueur exactement $n$ : $2^n$ mots, y compris un mot vide si $n=0$.
+- Pour $M\ge1$ états : $n=\lceil\log_2(M)\rceil$ bits à longueur fixe.
+- **Checklist :** ai-je fixé l’encodage, la longueur, les limites du message et le sens des unités ?
+
+</div>

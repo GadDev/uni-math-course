@@ -1,0 +1,163 @@
+---
+lessonId: L49
+locale: en
+version: 2
+status: extended
+title: "Huffman coding: build a compression tree"
+summary: "Step-by-step introduction to Huffman trees and codes."
+minutes: 50
+objectives: [L49-O01, L49-O02, L49-O03, L49-O04, L49-O05, L49-O06]
+prerequisites: [L48]
+sourcePages: [14, 15, 16]
+---
+
+import InformationExplorer, { HuffmanDiagram } from '../../../src/components/InformationExplorer';
+
+# Huffman coding: build a compression tree
+
+**Original teaching extension — not covered by the source PDF.** The information-theory PDF (pp. 14–16) introduces average codeword length and the idea of shorter words for frequent symbols, but **does not teach Huffman's algorithm**. This lesson adds the classical technique with a complete guided example.
+
+## Objectives and prerequisites
+
+Learning outcomes: (1) explain the link between frequency and word length, (2) select the two lightest weights, (3) construct a Huffman tree, (4) read and join its codewords, (5) calculate average length, (6) justify unique decoding and understand limitations.
+
+Prerequisites: L44–L48, fractions, weighted averages and prefix codes.
+
+## Start with a question
+
+Imagine a tree whose shortest routes are used most often. A leaf represents a symbol; its path from the root gives its codeword. Huffman builds the tree by first combining small weights. Review prefix codes in [L45](/en/lessons/L45/) and means in [L47](/en/lessons/L47/).
+
+## 01 · The core idea
+
+Some symbols occur more often than others in a message. Giving the most frequent symbol a **shorter codeword** can save bits. Huffman's algorithm constructs a code with **minimum average length among binary prefix codes** for the chosen symbol frequencies.
+
+Repeat one rule: **take the two smallest weights, connect them under a parent, then put their sum back into the list**. Stop when only one tree remains.
+
+## 02 · Worked example: A, B, C and D
+
+Suppose the frequencies are A: 8, B: 4, C: 2, D: 2, for **16 occurrences**.
+
+**First merge:** combine C (2) and D (2) into a node of weight 4.
+
+**Second merge:** remaining weights are A (8), B (4), and CD (4). Merge B and CD into a node of weight 8.
+
+**Third merge:** combine A (8) and BCD (8) to obtain the root of weight 16.
+
+For a tie, choose the subtree containing the **alphabetically earliest symbol** first. Put the first subtree on the left (bit 0), the other on the right (bit 1).
+
+<HuffmanDiagram locale="en" />
+
+Read each codeword by following the path from root to leaf:
+
+| Symbol | Codeword | Bits |
+| --- | --- | --- |
+| A | 0 | 1 |
+| B | 10 | 2 |
+| C | 110 | 3 |
+| D | 111 | 3 |
+
+**Worked example.** Encode ABCD by joining the four codewords without separators: 0 + 10 + 110 + 111 = **010110111**, or 9 bits. To decode, traverse the tree and restart from its root every time a leaf is reached.
+
+## How to use it
+
+**When to use it?** For a finite alphabet of at least two symbols with strictly positive weights, when seeking a symbol-by-symbol binary prefix code minimising average length for those weights. Counts and their normalised probabilities give the same comparisons.
+
+**Procedure.** Create a leaf per symbol, sort weights and remove the two smallest. Create their parent with summed weight, then **reinsert it into the sorted list**. Repeat until one root remains. Label left edges 0 and right edges 1; read paths to the leaves. Our tie rule uses the earliest letter contained in each subtree.
+
+**Why this strategy?** Each merge puts its two subtrees one level deeper. It increases total weighted cost by exactly their summed weights. In the example the added costs are $4$, $8$ and $16$:
+
+$$B=4+8+16=28,\qquad L(c)=B/16=7/4.$$
+
+This independently checks the weight × length sum. This arithmetic check alone does not prove optimality.
+
+<details className="info-answer">
+<summary>Why merge the two smallest? A guided proof</summary>
+
+With positive weights, an optimal tree can be taken to be full: removing a single-child node shortens all its descendants. A full tree has two sibling leaves at maximum depth. The two smallest weights can be placed there without increasing cost. Indeed, if $a\le b$ and $r\le s$, assigning $a$ to depth $s$ and $b$ to $r$ costs no more than the reverse assignment, because:
+
+$$as+br-(ar+bs)=(a-b)(s-r)\le0.$$
+
+Thus an optimum exists where the two smallest weights are siblings. Contract them into one symbol with their summed weight. Original cost equals reduced-problem cost plus that sum. If the reduced problem were not optimal, replacing it with a better tree would also improve the original: a contradiction. Repeat until two symbols remain. This inductive argument justifies Huffman within the stated code class.
+
+</details>
+
+**Your turn.** Restart with four weights all equal to 1. Give the merges, the four codewords under our tie rule and the mean. Is the gain over fixed-length coding always strict?
+
+<details className="info-answer">
+<summary>Hint</summary>
+
+The new AB = 2 must wait while C and D, still of weight 1, merge.
+
+</details>
+
+<details className="info-answer">
+<summary>Show the explained solution</summary>
+
+The merges are $A+B\to AB$, $C+D\to CD$, then $AB+CD$. Codes are $00,01,10,11$. Every length is two: $L(c)=2$. Total cost is $2+2+4=8$ for four symbols. There is no gain here, even before counting tree-transmission overhead.
+
+</details>
+
+## Experiment and explain
+
+**Experiment objective.** Explain and check each merge before reading the final tree’s codewords.
+
+**Before manipulating.** After merging C and D, are the next two candidates original letters or subtrees?
+
+**How to use the controls.** Counts A, B, C, D range from 1 to 20. Before each “Next merge”, read the two announced minimum weights, then check their sum and reinsertion. The diagram shows the current forest; codes and the mean appear after the third merge. Restart with equal weights and then very frequent A. Changing any count restarts construction at step zero.
+
+<InformationExplorer lesson={49} locale="en" client:visible />
+
+<details className="info-answer">
+<summary>Observe, then explain</summary>
+
+Paper example: 2 + 2 = 4, then 4 + 4 = 8, then 8 + 8 = 16. Codes are A = 0, B = 10, C = 110 and D = 111, costing 28 bits for 16 occurrences. Why must the root always weigh the total? Each merge preserves summed weights. The 28-bit total excludes the tree description.
+
+</details>
+
+## 03 · Calculating the savings
+
+The symbol probabilities are 8/16, 4/16, 2/16 and 2/16. Average length in bits **per source symbol** is:
+
+$$
+L(c)=\sum_i p_i\,|c(s_i)|
+$$
+
+$$
+L(c)=\frac{8\times1+4\times2+2\times3+2\times3}{16}=\frac{28}{16}=\frac74=1{,}75
+$$
+
+A fixed-length binary code for four letters needs 2 bits per symbol. This Huffman code uses **1.75 bits per symbol on average**, saving **0.25 bit per symbol**. The average may be fractional even when each actual codeword has an integer length.
+
+## 04 · Why can we always decode it?
+
+Symbols appear only at the **leaves**. The path to one leaf cannot begin the path to another leaf. Thus the codewords are **prefix-free** and every concatenated message has one unambiguous decoding. Remember that some uniquely decodable codes are not prefix-free (L45).
+
+## 05 · Limits and common mistakes
+
+- **Return each merged node to the candidates**. Never keep selecting only the least-frequent original letters.
+- **Equal frequencies** may produce different optimal trees. Our deterministic tie rule specifies one valid answer, not the only valid tree.
+- The decoder must know the **same tree**. Sending that tree has a cost not included in the average length.
+- Huffman coding is not **encryption** or **error correction**. Sample frequencies need not match future messages.
+- Optimality means minimum average length among **binary prefix codes for individual symbols** with the chosen probabilities, not among all conceivable compression systems.
+
+## 06 · Check your understanding, with solutions
+
+1. Which weights merge first? **Answer:** 2 and 2, producing weight 4.
+2. Why does that node weigh 4? **Answer:** its two leaves represent two plus two occurrences.
+3. What is C's codeword in **our tree**? **Answer:** 110, three bits.
+4. Encode AAAB. **Answer:** 0 + 0 + 0 + 10 = 00010 (5 bits).
+5. Can we add codeword 01 for a new letter while retaining A=0? **Answer:** no, because 0 would be its prefix.
+6. Can ties generate different bit strings? **Answer:** yes, while the optimal average lengths are the same.
+
+**Further source (not part of the supplied PDF):** Stanford's Huffman coding tutorial, [Read the Huffman background](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1252/lectures/24-huffman/huffman_background.html).
+
+## Key takeaways
+
+<div className="info-memo">
+
+- Merge the two minimum weights, reinsert their sum, repeat to one root.
+- Read codewords along root-to-leaf paths; the code is prefix-free.
+- Total weighted cost: sum of merge weights, equal to $\sum_i n_i|c(s_i)|$.
+- **Checklist:** list resorted? ties handled? same decoder tree? units and overhead stated? optimality limited to symbol-by-symbol binary prefix codes?
+
+</div>

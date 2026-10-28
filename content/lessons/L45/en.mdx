@@ -1,15 +1,18 @@
 ---
 lessonId: L45
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Decoding without ambiguity"
 summary: "Understand source coding with guided examples."
-minutes: 30
+minutes: 40
 objectives: [L45-O01, L45-O02, L45-O03, L45-O04, L45-O05, L45-O06]
 prerequisites: [L44]
 sourcePages: [9, 10, 14, 15]
 ---
+
+import InformationExplorer from '../../../src/components/InformationExplorer';
+
 # Decoding without ambiguity
 
 
@@ -19,7 +22,11 @@ sourcePages: [9, 10, 14, 15]
 
 You will: (1) test a decoding example; (2) restate unique decodability; (3) exhibit a counterexample; (4) recognise a prefix code; (5) distinguish prefix-free from uniquely decodable; (6) explain what testing one example cannot prove.
 
-Prerequisites: T02; source words belong to $S^*$, encoded words to $T^*$.
+Prerequisites: [L44](/en/lessons/L44/); source words belong to $S^*$, encoded words to $T^*$.
+
+## Start with a question
+
+The receiver sees a bit ribbon without your draft’s block separators. The question is: “Is there just one way to recover the message?” This lesson separates a concrete collision, a general guarantee and a test limited to one word.
 
 ## 01 · When two messages have the same bits
 
@@ -53,6 +60,51 @@ No codeword starts another: a leading $0$ immediately means $x$; when a block st
 
 **Important.** Prefix-free is **sufficient**, but **not necessary**, for unique decodability.
 
+## How to use it
+
+**When to use it?** Before relying on a code for a transmission that must be reversible.
+
+**Procedure.** Separate three tasks. To **decode one word**, try each codeword that begins the remaining bits, then continue on the suffix. Retain only paths consuming every bit. To **refute unique decodability**, find two different messages producing the same bits. To **guarantee unique decodability for all messages**, find a general argument.
+
+**Why does prefix-freeness suffice?** Assume nonempty codewords and distinct codes for different symbols. In a prefix table, the first recognised codeword cannot begin a longer codeword. It is therefore determined without a competing choice. Remove it and repeat on the remainder: this reasoning continues to the end. An arbitrary bit stream may nevertheless be invalid or end inside a codeword.
+
+**Worked example.** For $d(x)=0,d(y)=10,d(z)=11$, the bits $01011$ split into $0\,|\,10\,|\,11$, giving $xyz$. With the same table, $1$ is an incomplete beginning, not a second decoding.
+
+**Non-prefix codes need care.** With $c_2$, wait for the next zero **or the known message end** to count the ones after each zero. This code is uniquely decodable for finite messages without the instantaneous decoding of a prefix code.
+
+**Your turn.** Is $e(x)=0,e(y)=00$ uniquely decodable? Give a witness or proof.
+
+<details className="info-answer">
+<summary>Hint</summary>
+
+Compare one y with two x symbols.
+
+</details>
+
+<details className="info-answer">
+<summary>Show the explained solution</summary>
+
+$e(y)=00=e(xx)$ and $y\ne xx$: the function on messages is not injective. The symbol codes are nevertheless distinct. One such witness refutes a universal property.
+
+</details>
+
+## Experiment and explain
+
+**Experiment objective.** Explain a collision and distinguish a finite test from a general guarantee.
+
+**Before manipulating.** Can 001 under c1 come from two different messages?
+
+**How to use the controls.** The selector displays the complete code table. Choose c1 and 001; compare all parsings rather than just the first. Then try the c2 and d buttons and a string with no source message. The tool exhausts parsings of the entered word, limited to twelve bits; it does not test all possible messages of the code.
+
+<InformationExplorer lesson={45} locale="en" client:visible />
+
+<details className="info-answer">
+<summary>Observe, then explain</summary>
+
+Paper example: c1(x) = 001 and c1(zy) = 0 | 01 = 001. This collision rejects c1. For c2 and d, no collision in one trial does not replace the lesson’s general proofs. With these nonempty codewords, the empty word has one empty decoding.
+
+</details>
+
 ## 04 · Revisiting the PDF codes without hiding their status
 
 **PDF example, pp. 14–15.**
@@ -77,4 +129,15 @@ This code **is not prefix-free**, since $0$ is a prefix of $01$ and $011$. Never
 4. **Question.** Is $c_2$ still uniquely decodable? **Answer.** Yes: each occurrence of $0$ marks a codeword boundary.
 5. **Question.** Is one successful decoding enough to prove uniqueness for every message? **Answer.** No, a general argument is required.
 
-**Next.** T04 introduces the probabilities of source symbols.
+**Next.** [L46](/en/lessons/L46/) introduces the probabilities of source symbols.
+
+## Key takeaways
+
+<div className="info-memo">
+
+- Unique decoding: $c(u)=c(v)\Longrightarrow u=v$ for all messages $u,v\in S^*$.
+- Prefix-free: no codeword begins another, with distinct nonempty symbol codes.
+- Prefix-free implies uniquely decodable; the converse is false.
+- **Checklist:** collision witness, finite test or general proof? Have I consumed every bit?
+
+</div>

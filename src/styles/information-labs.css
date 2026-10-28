@@ -1,0 +1,246 @@
+.info-lab {
+  margin: 1.5rem 0;
+  padding: clamp(0.65rem, 2vw, 1.3rem);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue-accent);
+  background: var(--card);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.info-lab [hidden],
+.info-print {
+  display: none !important;
+}
+.info-controls {
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+}
+.info-controls legend {
+  font-weight: 700;
+}
+.info-controls label {
+  display: block;
+  margin-block: 0.6rem;
+}
+.info-controls :is(input, select) {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 0.5rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.info-controls input[type='range'] {
+  padding: 0;
+  accent-color: var(--blue-accent);
+}
+.info-controls input[aria-invalid='true'] {
+  border: 2px solid var(--ink);
+}
+.info-counts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 0.7rem;
+}
+.info-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+.info-actions button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 0.7rem;
+  font: inherit;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+.info-actions button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.info-lab :is(input, select, button):focus-visible,
+.info-answer summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.info-lab output {
+  display: block;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-left: 3px solid var(--blue-accent);
+  background: var(--paper);
+}
+.info-lab code {
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.info-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.info-words code {
+  border: 1px solid var(--line);
+  padding: 0.4rem;
+}
+.lesson-prose .info-figure {
+  margin: 1rem 0;
+}
+.info-figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 600px;
+  margin-inline: auto;
+  color: var(--ink);
+}
+.info-figure svg text {
+  fill: currentColor;
+  font: 18px sans-serif;
+}
+.info-figure figcaption,
+.info-rounding {
+  font-size: 0.92rem;
+}
+.lesson-prose .info-lab :is(th, td) {
+  padding: 0.45rem;
+  font-size: 0.92rem;
+  overflow-wrap: anywhere;
+}
+.lesson-prose .info-lab td {
+  overflow-wrap: normal;
+}
+.info-answer,
+.info-memo {
+  border: 1px solid var(--line);
+  padding: 0.8rem;
+  margin-block: 1rem;
+}
+.info-answer summary {
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 44px;
+}
+.info-memo {
+  border-width: 2px;
+}
+@media screen and (max-width: 480px) {
+  .info-figure svg text {
+    font-size: 22px;
+  }
+}
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm;
+  }
+  :root:has(.info-lab) {
+    color-scheme: light !important;
+    background: #fff !important;
+  }
+  body:has(.info-lab) {
+    --ink: #111;
+    --paper: #fff;
+    --card: #fff;
+    --muted: #333;
+    --line: #777;
+    --soft-line: #ccc;
+    --blue-accent: #222;
+    background: #fff !important;
+    color: #111 !important;
+  }
+  body:has(.info-lab)
+    :is(
+      .site-header,
+      .site-footer,
+      .skip-link,
+      .course-outline,
+      .mobile-contents,
+      .reading-geometry,
+      .breadcrumb,
+      .back-link,
+      .primary-link,
+      .lesson-completion,
+      .reading-notice,
+      .content-provenance,
+      .info-screen
+    ) {
+    display: none !important;
+  }
+  body:has(.info-lab) :is(.page, .lesson-page, .reading-column) {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  .info-print {
+    display: block !important;
+  }
+  body:has(.info-lab) .lesson-prose {
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+  body:has(.info-lab) .lesson-prose h1 {
+    font-size: 24pt;
+    margin: 0 0 0.8rem;
+  }
+  body:has(.info-lab) .lesson-prose h2 {
+    font-size: 16pt;
+    break-after: avoid;
+    margin: 1rem 0 0.5rem;
+    padding-top: 0.5rem;
+  }
+  body:has(.info-lab) .lesson-prose :is(p, li) {
+    orphans: 3;
+    widows: 3;
+    margin-block: 0.4rem;
+    line-height: 1.45;
+  }
+  body:has(.info-lab) .lesson-prose table {
+    margin-block: 0.7rem;
+  }
+  body:has(.info-lab)
+    .lesson-prose
+    :is(table, figure, .info-answer, .info-memo) {
+    break-inside: avoid;
+  }
+  body:has(.info-lab) .lesson-prose :is(th, td) {
+    padding: 0.3rem;
+    font-size: 9pt;
+  }
+  body:has(.info-lab) .lesson-prose th {
+    background: #eee;
+    color: #111;
+  }
+  body:has(.info-lab) .lesson-prose .katex-display {
+    overflow: visible;
+    font-size: 0.85em;
+  }
+  .info-lab {
+    background: #fff;
+    padding: 0.5rem;
+    break-inside: avoid;
+  }
+  .info-figure svg {
+    max-width: 115mm;
+  }
+  .info-answer::details-content {
+    content-visibility: visible !important;
+    display: block !important;
+  }
+  .info-answer > :not(summary) {
+    display: block !important;
+  }
+  .info-answer summary {
+    min-height: 0;
+  }
+}
