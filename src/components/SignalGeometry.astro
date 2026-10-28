@@ -1,7 +1,7 @@
 ---
 interface Props {
   compact?: boolean;
-  variant?: 'logic' | 'decalage';
+  variant?: 'logic' | 'decalage' | 'functions' | 'functions-mosaic';
 }
 const { compact = false, variant = 'logic' } = Astro.props;
 ---
@@ -36,6 +36,184 @@ const { compact = false, variant = 'logic' } = Astro.props;
         fill="none"
         stroke="var(--ink)"
         stroke-width="1.5"
+        stroke-dasharray="6 7"
+      />
+    </g>
+  ) : variant === 'functions-mosaic' ? (
+    <g>
+      <!-- PR #105 Ember modular grammar: original Chapter 03 blue Function
+           Mosaic with four-column grid, quarter-arcs and sampled values. -->
+      <rect width="560" height="560" fill="var(--paper)" />
+      <!-- Row 01: shape and output -->
+      <path d="M0 0H140V140H0Z" fill="var(--blue-accent)" />
+      <path d="M0 140A140 140 0 0 1 140 0H0Z" fill="var(--paper)" />
+      <path d="M140 0H280V140H140Z" fill="var(--ink)" />
+      <circle cx="350" cy="70" r="70" fill="var(--blue-accent)" />
+      <path d="M420 0H560V140H420Z" fill="var(--blue-accent)" />
+      <path d="M420 0A140 140 0 0 1 560 140H420Z" fill="var(--ink)" />
+      <!-- Row 02: change -->
+      <path d="M0 140H140V280H0Z" fill="var(--ink)" />
+      <path d="M0 140A140 140 0 0 1 140 280H0Z" fill="var(--blue-accent)" />
+      <path d="M140 140H280V280H140Z" fill="var(--blue-accent)" />
+      <path d="M140 280L280 140V280Z" fill="var(--paper)" />
+      <path d="M280 140H420V280H280Z" fill="var(--ink)" />
+      <path d="M280 280A140 140 0 0 1 420 140V280Z" fill="var(--blue-accent)" />
+      <circle cx="490" cy="210" r="70" fill="var(--blue-accent)" />
+      <!-- Row 03: values -->
+      <circle cx="70" cy="350" r="70" fill="var(--ink)" />
+      <path d="M140 280H280V420H140Z" fill="var(--blue-accent)" />
+      <path d="M140 280A140 140 0 0 1 280 420H140Z" fill="var(--paper)" />
+      <circle cx="350" cy="350" r="70" fill="var(--blue-accent)" />
+      <path d="M420 280H560V420H420Z" fill="var(--ink)" />
+      <path d="M420 420A140 140 0 0 1 560 280V420Z" fill="var(--paper)" />
+      <!-- Row 04: input and progression -->
+      <path d="M0 420H140V560H0Z" fill="var(--ink)" />
+      <path d="M0 560A140 140 0 0 1 140 420V560Z" fill="var(--blue-accent)" />
+      <circle cx="210" cy="490" r="70" fill="var(--blue-accent)" />
+      <path d="M280 420H420V560H280Z" fill="var(--ink)" />
+      <path d="M280 560L420 420H420V560Z" fill="var(--blue-accent)" />
+      <path d="M420 420H560V560H420Z" fill="var(--blue-accent)" />
+      <path d="M420 420A140 140 0 0 1 560 560H420Z" fill="var(--ink)" />
+      <!-- Grid and a dashed rising sequence of sampled values -->
+      <path
+        d="M0 140H560M0 280H560M0 420H560M140 0V560M280 0V560M420 0V560"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="1"
+      />
+      <path
+        d="M32 506L190 365L339 216L505 50"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="1.8"
+        stroke-dasharray="5 8"
+      />
+      <path
+        d="M190 365V420M339 216V280"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="1.4"
+        stroke-dasharray="5 6"
+      />
+      <circle
+        cx="32"
+        cy="506"
+        r="7"
+        fill="var(--paper)"
+        stroke="var(--ink)"
+        stroke-width="2"
+      />
+      <circle
+        cx="190"
+        cy="365"
+        r="7"
+        fill="var(--ink)"
+        stroke="var(--paper)"
+        stroke-width="2"
+      />
+      <circle
+        cx="339"
+        cy="216"
+        r="7"
+        fill="var(--paper)"
+        stroke="var(--ink)"
+        stroke-width="2"
+      />
+      <circle
+        cx="505"
+        cy="50"
+        r="7"
+        fill="var(--paper)"
+        stroke="var(--ink)"
+        stroke-width="2"
+      />
+    </g>
+  ) : variant === 'functions' ? (
+    <g>
+      <!-- Distinct Chapter 3 identity: a dominant parabolic ribbon and an
+           illustrative secant/tangent, instead of Décalage's tiled blocks. -->
+      <rect width="560" height="560" fill="var(--paper)" />
+      <path d="M44 42H124V122H44Z" fill="var(--ink)" />
+      <path d="M44 143H124" stroke="var(--ink)" stroke-width="3" />
+      <path d="M44 154H84" stroke="var(--blue-accent)" stroke-width="8" />
+      <path d="M478 42H518V140H478Z" fill="var(--blue-accent)" />
+      <path d="M478 42H518" stroke="var(--ink)" stroke-width="3" />
+      <path
+        d="M42 410H530M251 58V517"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="2.4"
+      />
+      <path
+        d="M522 401L532 410L522 419M242 68L251 56L260 68"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="2.4"
+      />
+      <path
+        d="M75 286Q295 596 515 131"
+        fill="none"
+        stroke="var(--blue-accent)"
+        stroke-width="56"
+        stroke-linecap="butt"
+      />
+      <path
+        d="M75 286Q295 596 515 131"
+        fill="none"
+        stroke="var(--paper)"
+        stroke-width="3"
+        stroke-linecap="round"
+      />
+      <path
+        d="M172 497L525 249"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="3"
+        stroke-dasharray="11 9"
+      />
+      <path
+        d="M278 444L497 212"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="8"
+        stroke-linecap="square"
+      />
+      <path
+        d="M339 379H427V286"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="2"
+        stroke-dasharray="5 7"
+      />
+      <path
+        d="M339 379V410M427 286V410"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="1.7"
+        stroke-dasharray="3 7"
+      />
+      <circle cx="339" cy="379" r="16" fill="var(--ink)" />
+      <circle cx="339" cy="379" r="7" fill="var(--paper)" />
+      <circle cx="427" cy="286" r="16" fill="var(--ink)" />
+      <circle cx="427" cy="286" r="7" fill="var(--paper)" />
+      <path
+        d="M58 480H138V512H182"
+        fill="none"
+        stroke="var(--blue-accent)"
+        stroke-width="11"
+      />
+      <path
+        d="M58 506V526H142"
+        fill="none"
+        stroke="var(--ink)"
+        stroke-width="2"
+        stroke-dasharray="5 6"
+      />
+      <path d="M455 560L560 455V560Z" fill="var(--ink)" />
+      <path
+        d="M450 548H545"
+        stroke="var(--blue-accent)"
+        stroke-width="2"
         stroke-dasharray="6 7"
       />
     </g>
