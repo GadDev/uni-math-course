@@ -1,7 +1,7 @@
 ---
 lessonId: L31
 locale: en
-version: 5
+version: 6
 status: extended
 title: "Half-planes and triangles"
 summary: "Use the sign of an affine expression to describe and test a region."
@@ -11,6 +11,7 @@ prerequisites: [L24, L28, L30]
 sourcePages: [50]
 ---
 import GeometryLab from '../../../src/components/GeometryLab';
+import GeometryExtensions from '../../../src/components/GeometryExtensions';
 
 <div className="geometry-study">
 
@@ -88,6 +89,10 @@ The region $x\ge0$, $y\ge0$, $x+y\le4$ is a closed triangle. A point belongs onl
 ## Guided example: a general triangle
 
 For three noncollinear vertices, each side defines a line. For each line, keep the closed half-plane containing the third vertex. Their intersection is exactly the filled triangle, including its boundary.
+
+Now build your own triangle. For each edge, compare the sign at the opposite vertex with the test point. Swapping two vertices changes the signs used, but not the region; aligned vertices require filling to stop.
+
+<GeometryExtensions kind="triangle" locale="en" client:visible />
 
 ## A same-side test
 

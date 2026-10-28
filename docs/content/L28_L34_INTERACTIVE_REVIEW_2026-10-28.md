@@ -44,7 +44,7 @@ Checks include direct substitution for equations and two-point lines; all inters
 
 Each lesson has an original paper task, an explained native disclosure solution and a revision sheet with definitions, conditions, method and traps. Without JavaScript, SSR provides the fixed graph/calculations and a clear static-example notice. Print CSS replaces live activities with fixed worked figures/results, reveals disclosure content, hides navigation/controls and uses monochrome-friendly strokes. These are printable pages, not a separate generated PDF product.
 
-## Validation
+## Initial implementation validation (before the expansion)
 
 - `pnpm check`: passed with Node 24.19.0 and pnpm 11.25.0 after rebasing onto main 83e5c61 (including L38 and Playwright 1.64.1). Documentation/release/content gates, Astro type checking, formatting, all 344 tests and the Vercel production build passed.
 - Final complete `pnpm test:e2e` on 83e5c61: **362 passed, 3 failed out of 365**. All 26 new geometry checks passed, including both languages, domain/boundary cases, challenge/reset, input validation, keyboard focus/arrow operation, 320 px mobile layout, touch, dark theme, paired section anchors, printing and JavaScript-free reading. Existing Chapter 2 tests now verify the deliberate activity count and `client:visible`, while retaining zero islands on the other Chapter 2 lessons.
@@ -58,3 +58,28 @@ Each lesson has an original paper task, an explained native disclosure solution 
 ## Hosted preview status
 
 The PR’s Vercel status reports failure with a `build-rate-limit` URL. The local production build passed; screen captures are included for review. Hosting limits are separate from mathematical verification and the local browser results.
+
+## User-requested expansion: thirteen activities
+
+The follow-up adds four distinct islands using the same `client:visible`, SSR and print conventions, with original bilingual instructions:
+
+| Lesson | Added island | Controls, response and learning check |
+| --- | --- | --- |
+| L28 | Circle builder | Centre, nonnegative radius and query point update the equation, radius segment and squared-distance test. Includes radius zero and interior-of-disk versus on-circle cases. |
+| L31 | Triangle builder | Select and edit any vertex, swap B/C and test P. Three edge equations compare the test point with the opposite vertex. Aligned/repeated vertices stop filling and interior classification. |
+| L32 | Pixel rounding | Fractional point coordinates and independent positive scales produce continuous coordinates, nearest integer indices and the inverse representative. Ties go toward the greater integer; error bounds are per mathematical coordinate. A nearby second point demonstrates many-to-one mapping; bounds are checked after rounding. |
+| L34 | Centering | Edit any of three observations; switch raw/centred views and inspect means, deviations, squares and products. Presets demonstrate negative Sxy and zero horizontal spread without importing the next lesson’s fitting formula. |
+
+The existing slope activity now accepts positive, negative and zero horizontal increments. Zero has an undefined quotient, while the line’s slope parameter still exists. The intersection activity reveals equating/substitution, elimination and conclusion in three steps, resetting when inputs change. Bresenham has a labelled local E/NE/M zoom, hidden future coordinates/decision until prediction, explanatory feedback for each current step and a gated next-pixel action. Fixed/print views reveal the complete worked state.
+
+Shared accessible inputs and SVG axes were extracted into `GeometryLabPrimitives.tsx`. The four additions live in a separate component; no dependency was added. The paired reading versions and translation fingerprints are advanced; immutable graded banks remain unchanged.
+
+Additional mathematical self-checks compare triangle membership with independent barycentric coordinates in both vertex orientations, verify circle/disk/zero-radius cases, check nearest-integer ties and inverse error bounds, and compare centred cross sums with a pairwise covariance identity.
+### Expansion validation
+
+- `pnpm check` passed on the branch based on main 576165e, with pinned Node 24.19.0 and pnpm 11.25.0: documentation/release/content gates, Astro types, formatting, **355 tests**, and Vercel production build.
+- Targeted geometry/Chapter 2 browser run: **54/54 passed**. Final full browser run: **401 passed, 3 failed out of 404**. All **40 geometry activity checks** passed, including the four new islands, improved slope/intersection/Bresenham tools, invalid input, keyboard focus and table scrolling, dark/touch contexts, 320/375/1440 px layouts, print and JavaScript-free reading.
+- The three failures are the same reproduced shared French header overflow at 1051 px (chapter navigation, public reading and theme). No failure was hidden or assertion weakened. The full browser gate remains red with temporary Chromium 153.
+- All 15 focused mathematical/source checks passed, including the four new independent comparisons described above. The existing symbolic verifier also passed 52 named checks and 860 published raster segments in each language. The immutable-bank check and `git diff --check` passed.
+- New/updated screenshots were inspected for all seven affected activities. All seven latest A4 captures were rendered and inspected; their page counts are **7, 6, 7, 6, 7, 9, 7** for L28–L34. Tables preserve complete headings with keyboard-accessible horizontal scrolling on screen and full-width layout in print. The new activities, printed results, native solutions and revision sheets remain visible; live controls and navigation are hidden in print.
+- This is an implementing-author mathematical and bilingual self-check. No independent review, physical screen-reader/device evaluation or hosted classroom acceptance is asserted.

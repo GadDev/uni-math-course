@@ -1,7 +1,7 @@
 ---
 lessonId: L31
 locale: fr
-version: 5
+version: 6
 status: extended
 title: "Demi-plans et triangles"
 summary: "Utiliser le signe d’une expression affine pour décrire et tester une région."
@@ -11,6 +11,7 @@ prerequisites: [L24, L28, L30]
 sourcePages: [50]
 ---
 import GeometryLab from '../../../src/components/GeometryLab';
+import GeometryExtensions from '../../../src/components/GeometryExtensions';
 
 <div className="geometry-study">
 
@@ -88,6 +89,10 @@ La région $x\ge0$, $y\ge0$, $x+y\le4$ est un triangle fermé. Un point appartie
 ## Exemple guidé : triangle général
 
 Pour trois sommets non alignés, chaque côté définit une droite. Pour chaque droite, garder le demi-plan fermé contenant le troisième sommet. Leur intersection est exactement le triangle rempli, bord compris.
+
+Construisez maintenant votre propre triangle. Pour chaque côté, comparez le signe obtenu au sommet opposé et au point testé. Inverser deux sommets change les signes utilisés, mais pas la région ; des sommets alignés imposent d’arrêter le remplissage.
+
+<GeometryExtensions kind="triangle" locale="fr" client:visible />
 
 ## Un test de même côté
 

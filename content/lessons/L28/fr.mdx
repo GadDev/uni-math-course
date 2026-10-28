@@ -1,7 +1,7 @@
 ---
 lessonId: L28
 locale: fr
-version: 4
+version: 5
 status: extended
 title: "Équations cartésiennes et courbes"
 summary: "Relier une équation à son ensemble de points et préserver ses solutions."
@@ -11,6 +11,7 @@ prerequisites: [L24, L27]
 sourcePages: [31, 32, 33, 34, 35]
 ---
 import GeometryLab from '../../../src/components/GeometryLab';
+import GeometryExtensions from '../../../src/components/GeometryExtensions';
 
 <div className="geometry-study">
 
@@ -103,6 +104,10 @@ L’équation $(x-2)^2+(y+1)^2=9$ décrit les points à distance $3$ de $(2,-1)$
 <p class="source-next"><a href="/fr/lessons/L28/#pdf-35">Suite du PDF : Une courbe, plusieurs équations →</a></p>
 
 <span id="pdf-35" class="source-topic-marker"></span>
+
+Faites varier le centre et le rayon avant de tester un point. Un point peut être dans le disque sans être sur le cercle ; le cas de rayon nul donne un point unique.
+
+<GeometryExtensions kind="circle" locale="fr" client:visible />
 
 ## Une courbe, plusieurs équations
 

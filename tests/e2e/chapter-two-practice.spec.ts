@@ -70,11 +70,7 @@ for (const locale of ['fr', 'en']) {
         await expect(page.locator('.katex-error')).toHaveCount(0);
         await expect(page.locator('.katex-mathml math').first()).toBeAttached();
         const activityCount =
-          number === 30 || number === 33
-            ? 2
-            : number >= 28 && number <= 34
-              ? 1
-              : 0;
+          number >= 28 && number <= 34 ? (number === 29 ? 1 : 2) : 0;
         await expect(page.locator('astro-island')).toHaveCount(activityCount);
         for (const island of await page.locator('astro-island').all()) {
           await expect(island).toHaveAttribute('client', 'visible');

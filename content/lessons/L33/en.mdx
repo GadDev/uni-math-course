@@ -1,7 +1,7 @@
 ---
 lessonId: L33
 locale: en
-version: 5
+version: 6
 status: extended
 title: "Rasterisation and Bresenham’s idea"
 summary: "Sample a segment and trace an integer algorithm in an explicit octant."
@@ -140,6 +140,8 @@ After NE, it becomes $(u+1,v+1)$:
 $$d_{NE}=2v_2(u+2)-u_2(2v+3)=d+2v_2-2u_2.$$
 
 Common terms cancel: that is the trick. Calculate both doubled values once, then add. **How to follow a trace?** Record the current pixel, decision before the step, choice, next pixel and new decision. Stop at the final endpoint: no further choice is needed. If $d=0$, E remains the course choice, even if another rounding algorithm breaks ties differently.
+
+The zoom shows E, NE and midpoint M. Predict before revealing the next pixel and updated decision; each move clears the prediction.
 
 <GeometryLab kind="raster" locale="en" client:visible />
 

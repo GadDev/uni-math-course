@@ -1,7 +1,7 @@
 ---
 lessonId: L34
 locale: en
-version: 5
+version: 6
 status: extended
 title: "Affine models and residuals"
 summary: "Measure a model’s vertical error and build a squared loss."
@@ -11,6 +11,7 @@ prerequisites: [L26, L29]
 sourcePages: [66, 67, 68, 69, 70]
 ---
 import GeometryLab from '../../../src/components/GeometryLab';
+import GeometryExtensions from '../../../src/components/GeometryExtensions';
 
 <div className="geometry-study">
 
@@ -125,6 +126,10 @@ The page-70 notation abbreviates repeated calculations; $S_{yy}$ is supplemental
 | $S_{yy}$ | $\sum_{i=1}^n(y_i-\bar y)^2$ | Sum of squared vertical deviations. |
 
 **Additional example.** For $(0,1)$ and $(2,3)$, means are $\bar x=1$, $\bar y=2$. Horizontal deviations are $-1,1$, as are vertical deviations. Hence $S_{xx}=1+1=2$, $S_{xy}=1+1=2$ and $S_{yy}=1+1=2$. The next lesson keeps these columns visible in a four-observation table.
+
+Change one observation at a time and watch the means and table columns. Then switch to centred coordinates: the cloud’s centre moves to the origin. A zero sum of deviations must not be confused with a zero sum of squares.
+
+<GeometryExtensions kind="centering" locale="en" client:visible />
 
 ## Three useful sums
 

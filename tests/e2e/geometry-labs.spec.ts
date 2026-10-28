@@ -11,6 +11,12 @@ const routes = [
   [34, 'residuals'],
 ] as const;
 const numbers = (lab: Locator) => lab.locator('input[type="number"]');
+async function revealIntersection(lab: Locator) {
+  for (let i = 0; i < 3; i++)
+    await lab
+      .getByRole('button', { name: /Étape suivante|Next step/, exact: true })
+      .click();
+}
 async function values(lab: Locator, values: number[]) {
   for (const [i, v] of values.entries())
     await numbers(lab).nth(i).fill(String(v));
@@ -64,12 +70,17 @@ for (const locale of ['fr', 'en']) {
           break;
         case 'intersection':
           await values(lab, [2, 1]);
-          await expect(result).toContainText(fr ? 'confondues' : 'coincident');
+          await revealIntersection(lab);
+          await expect(lab.locator('.geo-live [data-solution]')).toContainText(
+            fr ? 'confondues' : 'coincident',
+          );
           await lab.locator('select').selectOption('vertical');
           await values(lab, [2]);
+          await revealIntersection(lab);
           await expect(result).toContainText('(2 ; 5)');
           await lab.locator('select').selectOption('affine');
           await values(lab, [1.75, 6]);
+          await revealIntersection(lab);
           await expect(result).toContainText(
             fr ? 'hors de la fenêtre' : 'outside the window',
           );
@@ -113,7 +124,12 @@ for (const locale of ['fr', 'en']) {
           );
           await values(lab, [2, 1, 0]);
           await expect(result).toContainText('d = 0');
-          await expect(result).toContainText('E (d ≤ 0)');
+          await expect(
+            lab.locator('.geo-live [data-decision]'),
+          ).not.toContainText('prochain pas : E');
+          await expect(
+            lab.locator('.geo-live .geo-midpoint svg'),
+          ).toBeVisible();
           await numbers(lab).nth(2).fill('2');
           await expect(result).toContainText(
             fr ? 'extrémité atteinte' : 'endpoint reached',

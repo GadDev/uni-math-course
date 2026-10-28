@@ -1,7 +1,7 @@
 ---
 lessonId: L32
 locale: fr
-version: 4
+version: 5
 status: extended
 title: "Du repère aux pixels"
 summary: "Construire et inverser une transformation vers un écran dont l’axe vertical descend."
@@ -11,6 +11,7 @@ prerequisites: [L25, L27, L29]
 sourcePages: [52, 53, 54, 55]
 ---
 import GeometryLab from '../../../src/components/GeometryLab';
+import GeometryExtensions from '../../../src/components/GeometryExtensions';
 
 <div className="geometry-study">
 
@@ -108,6 +109,10 @@ Les étapes sont $v=200-40(2x+1)=160-80x$, puis $v=160-80(u-300)/40=160-2u+600=7
 Pour afficher un point, calculer les coordonnées continues, puis appliquer une règle d’arrondi explicite. Arrondir au plus proche limite l’erreur à un demi-pixel par coordonnée ; les égalités à mi-chemin demandent une convention. Plusieurs points réels peuvent donner le même pixel : l’arrondi n’est pas inversible. Une coordonnée hors image reste hors image même si sa transformation algébrique est correcte.
 
 <p class="source-next"><a href="/fr/lessons/L33/#pdf-56">Suite du PDF : Rastériser : quels pixels allumer ? →</a></p>
+
+L’activité suivante utilise une petite image de neuf colonnes et neuf lignes. Les indices commencent à zéro. Les coordonnées continues sont arrondies au plus proche, avec les égalités vers l’entier supérieur. Contrôlez la visibilité après cet arrondi : une position continue dans la fenêtre peut donner un indice interdit.
+
+<GeometryExtensions kind="rounding" locale="fr" client:visible />
 
 ## À vous de jouer sur papier
 

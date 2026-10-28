@@ -1,7 +1,7 @@
 ---
 lessonId: L34
 locale: fr
-version: 5
+version: 6
 status: extended
 title: "Modèles affines et résidus"
 summary: "Mesurer l’erreur verticale d’un modèle et construire une perte quadratique."
@@ -11,6 +11,7 @@ prerequisites: [L26, L29]
 sourcePages: [66, 67, 68, 69, 70]
 ---
 import GeometryLab from '../../../src/components/GeometryLab';
+import GeometryExtensions from '../../../src/components/GeometryExtensions';
 
 <div className="geometry-study">
 
@@ -125,6 +126,10 @@ Les notations de la page 70 condensent des calculs répétés ; $S_{yy}$ est un 
 | $S_{yy}$ | $\sum_{i=1}^n(y_i-\bar y)^2$ | Somme des écarts verticaux au carré. |
 
 **Exemple supplémentaire.** Pour $(0,1)$ et $(2,3)$, les moyennes sont $\bar x=1$, $\bar y=2$. Les deux écarts horizontaux sont $-1,1$, comme les écarts verticaux. Donc $S_{xx}=1+1=2$, $S_{xy}=1+1=2$ et $S_{yy}=1+1=2$. Dans la leçon suivante, un tableau garde ces colonnes visibles pour quatre observations.
+
+Modifiez une observation à la fois et regardez le déplacement des moyennes et les colonnes du tableau. Passez ensuite en coordonnées centrées : le centre du nuage arrive à l’origine. Une somme nulle d’écarts ne doit pas être confondue avec une somme de carrés nulle.
+
+<GeometryExtensions kind="centering" locale="fr" client:visible />
 
 ## Trois sommes utiles
 

@@ -1,4 +1,4 @@
-import { useEffect, useId, useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import {
   equationTest,
   throughPoints,
@@ -14,6 +14,7 @@ import {
 } from '../lib/geometry-labs';
 import type { Locale } from '../lib/i18n';
 import '../styles/geometry-labs.css';
+import { format, NumberControl, Plot } from './GeometryLabPrimitives';
 
 type Kind =
   | 'membership'
@@ -68,7 +69,7 @@ const specs: Record<Kind, Spec> = {
       'Construisez y = −0,5x + 2 : pour Δx = 2, vérifiez Δy = −1.',
       'Build y = −0.5x + 2: for Δx = 2, check Δy = −1.',
     ],
-    initial: [2, 1],
+    initial: [2, 1, 2],
     choice: '',
   },
   points: {
@@ -179,11 +180,11 @@ const specs: Record<Kind, Spec> = {
       'Predict: for d = 0, does this lesson choose E or NE?',
     ],
     challenge: [
-      'Choisissez (u₂ ; v₂) = (2 ; 1), revenez au pas 0 et prévoyez le prochain pixel.',
-      'Choose (u₂; v₂) = (2; 1), return to step 0 and predict the next pixel.',
+      'Prévoyez E ou NE, puis vérifiez. Essayez (2 ; 1) au pas 0 pour étudier une égalité.',
+      'Predict E or NE, then check. Try (2; 1) at step 0 to investigate a tie.',
     ],
     initial: [5, 2, 0],
-    choice: 'E',
+    choice: '',
   },
   residuals: {
     title: [
@@ -214,152 +215,87 @@ const equations: Record<Curve, string> = {
   squared: 'y² = x²',
   multiplied: 'xy = x²',
 };
-const format = (n: number, fr: boolean) =>
-  (Math.abs(n) < 1e-12 ? 0 : n).toLocaleString(fr ? 'fr-FR' : 'en-US', {
-    maximumFractionDigits: 4,
-  });
-function NumberControl({
-  label,
-  value,
-  min,
-  max,
-  step = 1,
-  onChange,
+function MidpointView({
+  u2,
+  v2,
+  index,
   fr,
-}: {
-  label: string;
-  value: number;
-  min: number;
-  max: number;
-  step?: number | 'any';
-  onChange: (n: number) => void;
-  fr: boolean;
-}) {
-  const id = useId();
-  const [raw, setRaw] = useState(String(value));
-  const [bad, setBad] = useState(false);
-  useEffect(() => {
-    setRaw(String(value));
-    setBad(false);
-  }, [value]);
-  return (
-    <div className="geo-control">
-      <label htmlFor={id}>
-        {label} : {format(value, fr)}
-      </label>
-      <input
-        id={id}
-        type="range"
-        min={min}
-        max={max}
-        step={step}
-        value={value}
-        aria-valuetext={format(value, fr)}
-        onChange={(e) => onChange(Number(e.target.value))}
-      />
-      <label className="geo-number-label" htmlFor={`${id}-number`}>
-        {fr ? 'Saisir' : 'Enter'} {label}
-      </label>
-      <input
-        id={`${id}-number`}
-        type="number"
-        required
-        min={min}
-        max={max}
-        step={step}
-        value={raw}
-        aria-invalid={bad}
-        aria-describedby={`${id}-error`}
-        onChange={(e) => {
-          const text = e.target.value,
-            n = Number(text);
-          setRaw(text);
-          const valid =
-            text.trim() !== '' &&
-            Number.isFinite(n) &&
-            n >= min &&
-            n <= max &&
-            (step === 'any' ||
-              Math.abs((n - min) / step - Math.round((n - min) / step)) < 1e-8);
-          setBad(!valid);
-          if (valid) onChange(n);
-        }}
-      />
-      <span id={`${id}-error`} role="alert">
-        {bad
-          ? fr
-            ? `Valeur entre ${format(min, fr)} et ${format(max, fr)}${step === 'any' ? '' : `, par pas de ${format(step, fr)}`}. Le dessin conserve la dernière valeur valide.`
-            : `Use ${min} to ${max}${step === 'any' ? '' : `, in steps of ${step}`}. The drawing keeps the last valid value.`
-          : ''}
-      </span>
-    </div>
-  );
-}
-function Plot({
   id,
-  fr,
-  pixel = false,
-  residual = false,
-  children,
-  description,
+  reveal,
 }: {
-  id: string;
+  u2: number;
+  v2: number;
+  index: number;
   fr: boolean;
-  pixel?: boolean;
-  residual?: boolean;
-  children: (X: (n: number) => number, Y: (n: number) => number) => ReactNode;
-  description: string;
+  id: string;
+  reveal: boolean;
 }) {
-  const min = pixel ? -1 : residual ? -0.5 : -4,
-    max = pixel ? 13 : residual ? 3.5 : 8;
-  const X = (x: number) => 40 + ((x - min) * 360) / (max - min),
-    Y = (y: number) => 380 - ((y - min) * 360) / (max - min);
-  const ticks = pixel ? [0, 4, 8, 12] : residual ? [0, 1, 2, 3] : [-4, 0, 4, 8];
+  const steps = bresenham(u2, v2),
+    p = steps?.[index];
+  if (!p || p.choice === 'end') return null;
+  const height = (dx: number) => 140 - 90 * ((v2 / u2) * (p.x + dx) - p.y);
   return (
-    <svg
-      viewBox="0 0 440 430"
-      role="img"
-      aria-labelledby={`${id}-title ${id}-desc`}
-    >
-      <title id={`${id}-title`}>
-        {fr
-          ? 'Repère cartésien, verticale vers le haut'
-          : 'Cartesian coordinates, vertical axis upwards'}
-      </title>
-      <desc id={`${id}-desc`}>{description}</desc>
-      <defs>
-        <clipPath id={`${id}-clip`}>
-          <rect x="40" y="20" width="360" height="360" />
-        </clipPath>
-      </defs>
-      <g className="geo-grid" aria-hidden="true">
-        {ticks.map((t) => (
-          <path key={t} d={`M${X(t)},20V380 M40,${Y(t)}H400`} />
-        ))}
-      </g>
-      <g className="geo-axes" aria-hidden="true">
-        <path d={`M40,${Y(0)}H410 M${X(0)},390V10`} />
-        {ticks.map((t) => (
-          <g key={t}>
-            <text x={X(t)} y="410" textAnchor="middle">
-              {t}
+    <figure className="geo-midpoint">
+      <svg
+        viewBox="0 0 260 190"
+        role="img"
+        aria-labelledby={`${id}-mid-title ${id}-mid-desc`}
+      >
+        <title id={`${id}-mid-title`}>
+          {fr
+            ? 'Zoom : les deux candidats et leur milieu'
+            : 'Zoom: both candidates and their midpoint'}
+        </title>
+        <desc id={`${id}-mid-desc`}>
+          {fr
+            ? 'E conserve la hauteur, NE monte d’une unité et M est à mi-chemin. La droite idéale est en trait continu.'
+            : 'E keeps the height, NE moves up one unit, and M is halfway between. The ideal line is solid.'}
+        </desc>
+        <defs>
+          <clipPath id={`${id}-mid-clip`}>
+            <rect x="20" y="10" width="230" height="160" />
+          </clipPath>
+        </defs>
+        <path className="geo-dashed" d="M60,140H150V50" />
+        <g clipPath={`url(#${id}-mid-clip)`}>
+          <path
+            className="geo-line"
+            d={`M30,${height(-1 / 3)}L230,${height(17 / 9)}`}
+          />
+        </g>
+        <circle className="geo-point" cx="60" cy="140" r="5" />
+        <text x="35" y="165">
+          P
+        </text>
+        {(['E', 'NE'] as const).map((name, i) => (
+          <g key={name}>
+            <rect
+              className={
+                reveal && p.choice === name ? 'geo-pixel' : 'geo-future'
+              }
+              x="143"
+              y={133 - i * 90}
+              width="14"
+              height="14"
+            />
+            <text x="173" y={146 - i * 90}>
+              {name}
             </text>
-            {t !== 0 && (
-              <text x="34" y={Y(t) + 6} textAnchor="end">
-                {t}
-              </text>
-            )}
           </g>
         ))}
-        <text x="414" y={Y(0) - 8}>
-          {pixel ? 'u' : 'x'}
+        <path className="geo-axes" d="M145,90l10,10m-10,0l10,-10" />
+        <text x="173" y="101">
+          M
         </text>
-        <text x={X(0) + 10} y="18">
-          {pixel ? 'v' : 'y'}
-        </text>
-      </g>
-      <g clipPath={`url(#${id}-clip)`}>{children(X, Y)}</g>
-    </svg>
+      </svg>
+      <figcaption>
+        {fr
+          ? 'Zoom local (axes vers le haut)'
+          : 'Local zoom (vertical upwards)'}{' '}
+        : E = ({p.x + 1} ; {p.y}), NE = ({p.x + 1} ; {p.y + 1}), M = ({p.x + 1}{' '}
+        ; {p.y + 0.5}).
+      </figcaption>
+    </figure>
   );
 }
 function LabView({
@@ -368,12 +304,16 @@ function LabView({
   choice,
   fr,
   id,
+  stage = 3,
+  reveal = true,
 }: {
   kind: Kind;
   v: number[];
   choice: string;
   fr: boolean;
   id: string;
+  stage?: number;
+  reveal?: boolean;
 }) {
   const f = (n: number) => format(n, fr),
     pt = (x: number, y: number) => `(${f(x)} ; ${f(y)})`;
@@ -549,10 +489,10 @@ function LabView({
                 {line(X, Y, v[0]!, v[1]!)}
                 <path
                   className="geo-dashed"
-                  d={`M${X(0)},${Y(v[1]!)}H${X(2)}V${Y(2 * v[0]! + v[1]!)}`}
+                  d={`M${X(0)},${Y(v[1]!)}H${X(v[2]!)}V${Y(v[2]! * v[0]! + v[1]!)}`}
                 />
                 {point(X, Y, 0, v[1]!, 'A')}
-                {point(X, Y, 2, 2 * v[0]! + v[1]!, 'B')}
+                {point(X, Y, v[2]!, v[2]! * v[0]! + v[1]!, 'B')}
               </>
             );
           if (kind === 'points') {
@@ -579,12 +519,14 @@ function LabView({
                 {choice === 'vertical' ? (
                   <>
                     <path className="geo-dashed" d={`M${X(v[1]!)},20V380`} />
-                    {point(X, Y, v[1]!, 2 * v[1]! + 1, 'I')}
+                    {stage >= 3 && point(X, Y, v[1]!, 2 * v[1]! + 1, 'I')}
                   </>
                 ) : (
                   <>
                     {line(X, Y, v[0]!, v[1]!, true)}
-                    {r.kind === 'unique' && point(X, Y, r.x, r.y, 'I')}
+                    {stage >= 3 &&
+                      r.kind === 'unique' &&
+                      point(X, Y, r.x, r.y, 'I')}
                   </>
                 )}
               </>
@@ -658,16 +600,18 @@ function LabView({
                 className="geo-dashed"
                 d={`M${X(0)},${Y(0)}L${X(v[0]!)},${Y(v[1]!)}`}
               />
-              {steps?.map((p, i) => (
-                <rect
-                  key={i}
-                  className={i <= active ? 'geo-pixel' : 'geo-future'}
-                  x={X(p.x) - 9}
-                  y={Y(p.y) - 9}
-                  width="18"
-                  height="18"
-                />
-              ))}
+              {steps
+                ?.filter((_, i) => reveal || i <= active)
+                .map((p, i) => (
+                  <rect
+                    key={i}
+                    className={i <= active ? 'geo-pixel' : 'geo-future'}
+                    x={X(p.x) - 9}
+                    y={Y(p.y) - 9}
+                    width="18"
+                    height="18"
+                  />
+                ))}
               {kind === 'raster' &&
                 steps &&
                 point(X, Y, steps[active]!.x, steps[active]!.y, 'P')}
@@ -713,10 +657,17 @@ function LabView({
             y = ({f(v[0]!)})x + ({f(v[1]!)}).
           </p>
           <p>
-            A = {pt(0, v[1]!)} ; B = {pt(2, 2 * v[0]! + v[1]!)}.
+            A = {pt(0, v[1]!)} ; B = {pt(v[2]!, v[2]! * v[0]! + v[1]!)}.
           </p>
           <p>
-            Δx = 2 ; Δy = {f(2 * v[0]!)} ; Δy/Δx = {f(v[0]!)} = m.
+            Δx = {f(v[2]!)} ; Δy = {f(v[2]! * v[0]!)}.
+          </p>
+          <p>
+            {v[2] === 0
+              ? fr
+                ? 'A = B : 0/0 est indéfini. Le paramètre m existe, mais ces deux points ne permettent pas de le retrouver.'
+                : 'A = B: 0/0 is undefined. Parameter m exists, but these two points cannot recover it.'
+              : `Δy/Δx = ${f(v[0]!)} = m.`}
           </p>
           <p>
             {fr
@@ -769,12 +720,24 @@ function LabView({
               : `y = (${f(v[0]!)})x + (${f(v[1]!)})`}
             .
           </p>
+          <p hidden={stage < 1} data-equating>
+            {choice === 'vertical'
+              ? `y = 2 × (${f(v[1]!)}) + 1`
+              : `2x + 1 = (${f(v[0]!)})x + (${f(v[1]!)})`}
+            .{' '}
+            {fr
+              ? 'Même point, mêmes coordonnées dans les deux équations.'
+              : 'Same point, same coordinates in both equations.'}
+          </p>
           {choice !== 'vertical' && (
-            <p>
-              ({f(2 - v[0]!)})x = {f(v[1]! - 1)}.
+            <p hidden={stage < 2} data-elimination>
+              ({f(2 - v[0]!)})x = {f(v[1]! - 1)}.{' '}
+              {fr
+                ? 'Avant de diviser : le coefficient est-il nul ? Si oui, une égalité fausse donne zéro solution ; une identité conserve la droite restante.'
+                : 'Before dividing: is the coefficient zero? If so, a false equality gives no solution; an identity retains the remaining line.'}
             </p>
           )}
-          <p>
+          <p hidden={stage < 3} data-solution>
             {x !== null
               ? `${fr ? 'Intersection unique' : 'Unique intersection'} : I ≈ ${pt(x, y!)}.`
               : r.kind === 'parallel'
@@ -785,13 +748,15 @@ function LabView({
                   ? 'Identité : droites confondues, une infinité de solutions. Conservez y = 2x + 1.'
                   : 'Identity: coincident lines, infinitely many solutions. Retain y = 2x + 1.'}
           </p>
-          {x !== null && (x < -4 || x > 8 || y! < -4 || y! > 8) && (
-            <p>
-              {fr
-                ? 'I est hors de la fenêtre : cela ne signifie pas que les droites sont parallèles.'
-                : 'I is outside the window: that does not make the lines parallel.'}
-            </p>
-          )}
+          {stage >= 3 &&
+            x !== null &&
+            (x < -4 || x > 8 || y! < -4 || y! > 8) && (
+              <p>
+                {fr
+                  ? 'I est hors de la fenêtre : cela ne signifie pas que les droites sont parallèles.'
+                  : 'I is outside the window: that does not make the lines parallel.'}
+              </p>
+            )}
         </>
       );
     }
@@ -863,10 +828,21 @@ function LabView({
         result = (
           <>
             <p>
-              {fr
-                ? 'Pixels (extrémités incluses)'
-                : 'Pixels (both endpoints included)'}{' '}
-              : {steps.map((p) => pt(p.x, p.y)).join(' → ')}.
+              {kind === 'raster' && !reveal
+                ? fr
+                  ? 'Pixels déjà construits'
+                  : 'Pixels built so far'
+                : fr
+                  ? 'Pixels (extrémités incluses)'
+                  : 'Pixels (both endpoints included)'}{' '}
+              :{' '}
+              {(kind === 'raster' && !reveal
+                ? steps.slice(0, v[2]! + 1)
+                : steps
+              )
+                .map((p) => pt(p.x, p.y))
+                .join(' → ')}
+              .
             </p>
             <p>
               {steps.length} {steps.length === 1 ? 'pixel.' : 'pixels.'}{' '}
@@ -881,7 +857,11 @@ function LabView({
                   ? fr
                     ? 'extrémité atteinte, aucun pas suivant.'
                     : 'endpoint reached, no next step.'
-                  : `${fr ? 'prochain pas' : 'next step'} : ${step.choice} (${step.d > 0 ? 'd > 0' : 'd ≤ 0'}). ${fr ? 'Mise à jour' : 'Update'} : d ← d + ${step.choice === 'E' ? 2 * v[1]! : 2 * v[1]! - 2 * v[0]!}.`}
+                  : !reveal
+                    ? fr
+                      ? 'Prévoyez E ou NE, puis vérifiez pour révéler le choix et la mise à jour.'
+                      : 'Predict E or NE, then check to reveal the choice and update.'
+                    : `${fr ? 'prochain pas' : 'next step'} : ${step.choice} (${step.d > 0 ? 'd > 0' : 'd ≤ 0'}). ${fr ? 'Mise à jour' : 'Update'} : d ← d + ${step.choice === 'E' ? 2 * v[1]! : 2 * v[1]! - 2 * v[0]!}.`}
               </p>
             )}
             {kind === 'sampling' && (
@@ -953,6 +933,16 @@ function LabView({
             : 'Observe the drawing, then check the calculations below. A plot illustrates; it does not replace a proof.'}
         </figcaption>
       </figure>
+      {kind === 'raster' && (
+        <MidpointView
+          u2={v[0]!}
+          v2={v[1]!}
+          index={v[2]!}
+          fr={fr}
+          id={id}
+          reveal={reveal}
+        />
+      )}
       <div
         className="geo-results"
         aria-live="polite"
@@ -985,13 +975,16 @@ export default function GeometryLab({
     [v, setV] = useState([...spec.initial]),
     [choice, setChoice] = useState(spec.choice),
     [feedback, setFeedback] = useState(''),
-    [epoch, setEpoch] = useState(0);
+    [epoch, setEpoch] = useState(0),
+    [stage, setStage] = useState(0);
   useEffect(() => setReady(true), []);
   const set = (i: number, n: number) => {
     setV((old) =>
       old.map((a, j) => (i === j ? n : kind === 'raster' && j === 2 ? 0 : a)),
     );
     setFeedback('');
+    setStage(0);
+    if (kind === 'raster') setChoice('');
   };
   const number = (
     i: number,
@@ -1018,6 +1011,7 @@ export default function GeometryLab({
         value={choice}
         onChange={(e) => {
           setChoice(e.target.value);
+          setStage(0);
           setFeedback('');
         }}
       >
@@ -1040,7 +1034,7 @@ export default function GeometryLab({
           : '(−1)² = 1², but −1 ≠ 1. Squaring adds solutions.';
         break;
       case 'slope':
-        ok = v[0] === -0.5 && v[1] === 2;
+        ok = v[0] === -0.5 && v[1] === 2 && v[2] === 2;
         explanation = fr
           ? 'Δy = mΔx = −0,5 × 2 = −1, et (0 ; 2) reste sur la droite.'
           : 'Δy = mΔx = −0.5 × 2 = −1, and (0; 2) remains on the line.';
@@ -1075,12 +1069,23 @@ export default function GeometryLab({
           ? 'Les lignes 0 à 8 donnent neuf pixels ; les colonnes 0 à 3 n’en donnent que quatre.'
           : 'Rows 0 through 8 give nine pixels; columns 0 through 3 give only four.';
         break;
-      case 'raster':
-        ok = v[0] === 2 && v[1] === 1 && v[2] === 0 && choice === 'E';
+      case 'raster': {
+        const trace = bresenham(v[0]!, v[1]!);
+        const current = trace?.[v[2]!];
+        if (!current || current.choice === 'end') {
+          setFeedback(
+            fr
+              ? 'Aucun prochain pas dans cet état.'
+              : 'There is no next step in this state.',
+          );
+          return;
+        }
+        ok = choice === current.choice;
         explanation = fr
-          ? 'd = 2 × 1 − 2 = 0 : on choisit E, donc (1 ; 0). Le test NE exige d > 0.'
-          : 'd = 2 × 1 − 2 = 0: choose E, hence (1; 0). NE requires d > 0.';
+          ? `d = ${current.d} : ${current.d <= 0 ? 'd ≤ 0 impose E' : 'd > 0 impose NE'}. Le milieu M départage les deux candidats ; en cas d’égalité on garde E.`
+          : `d = ${current.d}: ${current.d <= 0 ? 'd ≤ 0 requires E' : 'd > 0 requires NE'}. Midpoint M separates the candidates; a tie keeps E.`;
         break;
+      }
       case 'residuals':
         ok = v[0] === 0.5 && v[1] === 7 / 6;
         explanation = fr
@@ -1088,6 +1093,7 @@ export default function GeometryLab({
           : 'Residuals are −1/6, 1/3 and −1/6. They sum to 0, but their squares sum to 1/6.';
         break;
     }
+    if (kind === 'intersection') setStage(3);
     setFeedback(
       `${ok ? (fr ? 'Défi réussi.' : 'Challenge complete.') : fr ? 'À reprendre : reproduisez les réglages du défi.' : 'Try again: reproduce the challenge settings.'} ${explanation}`,
     );
@@ -1106,7 +1112,15 @@ export default function GeometryLab({
       <p>{t(spec.question)}</p>
       <div className="geo-live">
         <div className="geo-visual">
-          <LabView kind={kind} v={v} choice={choice} fr={fr} id={id} />
+          <LabView
+            kind={kind}
+            v={v}
+            choice={choice}
+            fr={fr}
+            id={id}
+            stage={ready ? stage : 3}
+            reveal={kind !== 'raster' || !ready || feedback !== ''}
+          />
           <p hidden={ready} data-static-note>
             {fr
               ? 'Exemple fixe sans JavaScript. Les méthodes et les corrections restent lisibles ; les contrôles apparaissent quand l’activité est prête.'
@@ -1138,6 +1152,7 @@ export default function GeometryLab({
             <>
               {number(0, 'm', -2, 3, 0.25)}
               {number(1, 'p', -2, 4, kind === 'residuals' ? 'any' : 0.25)}
+              {kind === 'slope' && number(2, 'Δx', -3, 3, 0.5)}
               {kind === 'residuals' && (
                 <button
                   type="button"
@@ -1168,6 +1183,28 @@ export default function GeometryLab({
               ])}
               {choice === 'affine' && number(0, 'm', -2, 3, 0.25)}
               {number(1, 'p', -2, 6, 0.25)}
+              <p>
+                {fr
+                  ? 'Progression : équations → égaliser/substituer → regrouper → conclure.'
+                  : 'Progress: equations → equate/substitute → collect → conclude.'}
+              </p>
+              <p role="status">
+                {fr ? 'Étape' : 'Step'} {stage}/3
+              </p>
+              <button
+                type="button"
+                disabled={stage === 0}
+                onClick={() => setStage(stage - 1)}
+              >
+                {fr ? 'Étape précédente' : 'Previous step'}
+              </button>
+              <button
+                type="button"
+                disabled={stage === 3}
+                onClick={() => setStage(stage + 1)}
+              >
+                {fr ? 'Étape suivante' : 'Next step'}
+              </button>
             </>
           )}
           {kind === 'region' && (
@@ -1211,6 +1248,12 @@ export default function GeometryLab({
                       ? 'Ma prévision pour le prochain pas'
                       : 'My prediction for the next step',
                     [
+                      [
+                        '',
+                        fr
+                          ? 'Choisir avant de révéler'
+                          : 'Choose before revealing',
+                      ],
                       ['E', 'E'],
                       ['NE', 'NE'],
                     ],
@@ -1225,6 +1268,10 @@ export default function GeometryLab({
           </p>
           <button
             type="button"
+            disabled={
+              kind === 'raster' &&
+              (!choice || !bresenham(v[0]!, v[1]!) || v[2] === v[0])
+            }
             onClick={(event) => {
               const inputs = event.currentTarget
                 .closest('fieldset')!
@@ -1235,12 +1282,22 @@ export default function GeometryLab({
           >
             {fr ? 'Vérifier le défi' : 'Check challenge'}
           </button>
+          {kind === 'raster' && (
+            <button
+              type="button"
+              disabled={!feedback || v[2]! >= v[0]!}
+              onClick={() => set(2, v[2]! + 1)}
+            >
+              {fr ? 'Passer au pixel suivant' : 'Advance to the next pixel'}
+            </button>
+          )}
           <p role="status" data-feedback>
             {feedback}
           </p>
           <button
             type="button"
             onClick={() => {
+              setStage(0);
               setV([...spec.initial]);
               setChoice(spec.choice);
               setFeedback('');

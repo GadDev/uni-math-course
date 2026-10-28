@@ -1,0 +1,277 @@
+.l42-lab {
+  margin: 1.5rem 0 2.5rem;
+  padding: clamp(0.7rem, 2vw, 1.4rem);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--blue-accent);
+  background: var(--card);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.l42-lab [hidden] {
+  display: none !important;
+}
+.l42-lab .l42-objective {
+  margin-top: 0;
+}
+.l42-controls {
+  min-width: 0;
+  margin: 1rem 0;
+  border: 1px solid var(--soft-line);
+  padding: 0.8rem;
+}
+.l42-controls legend {
+  font-weight: 700;
+  padding-inline: 0.25rem;
+}
+.l42-controls > label {
+  display: block;
+  margin-top: 0.65rem;
+  font-weight: 600;
+}
+.l42-controls input:not([type='checkbox']),
+.l42-controls select {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  min-width: 0;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: 0.5rem;
+  font: inherit;
+}
+.l42-controls input[type='range'] {
+  accent-color: var(--blue-accent);
+  padding: 0;
+}
+.l42-controls input[aria-invalid='true'] {
+  border: 2px solid var(--ink);
+}
+.l42-actions,
+.l42-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+.l42-options label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding-inline: 0.5rem;
+  border: 1px solid var(--soft-line);
+}
+.l42-options input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--blue-accent);
+}
+.l42-actions button,
+.l42-print-button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+}
+.l42-actions button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.l42-lab :is(button, input, select):focus-visible,
+.l42-answer summary:focus-visible,
+.l42-print-button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.l42-lab output {
+  display: block;
+  padding: 0.8rem;
+  background: var(--paper);
+  border-left: 3px solid var(--blue-accent);
+  font-variant-numeric: tabular-nums;
+}
+.l42-lab .l42-figure {
+  margin: 1rem 0;
+}
+.l42-figure > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: auto;
+}
+.l42-figure figcaption {
+  font-size: 0.92rem;
+  margin-top: 0.6rem;
+}
+.lesson-prose .l42-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+  list-style: none;
+  padding: 0;
+}
+.l42-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.l42-lab tr[data-active='true'] {
+  font-weight: 700;
+  outline: 2px solid var(--blue-accent);
+  outline-offset: -2px;
+}
+.lesson-prose .l42-lab :is(th, td) {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+.l42-answer {
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border: 1px solid var(--line);
+}
+.l42-answer summary {
+  cursor: pointer;
+  min-height: 44px;
+  font-weight: 600;
+}
+.l42-memo {
+  border: 2px solid var(--line);
+  padding: 1rem;
+}
+.l42-print-button {
+  display: none;
+}
+.l42-print-button[data-ready] {
+  display: inline-block;
+}
+@media screen and (max-width: 480px) {
+  .l42-figure > svg {
+    width: calc(100% + 1rem);
+    max-width: none;
+    margin-left: -0.5rem;
+  }
+  .l42-figure > svg text {
+    font-size: 22px;
+  }
+}
+@media print {
+  @page {
+    margin: 16mm;
+  }
+  :root:has([data-lesson-id='L42']) {
+    color-scheme: light !important;
+    background: #fff !important;
+    color: #111 !important;
+  }
+  body:has([data-lesson-id='L42']) {
+    --ink: #111;
+    --paper: #fff;
+    --card: #fff;
+    --muted: #333;
+    --line: #777;
+    --soft-line: #ccc;
+    --on-strong: #fff;
+    --blue-accent: #174ea6;
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 11pt;
+  }
+  body:has([data-lesson-id='L42'])
+    :is(
+      .site-header,
+      .site-footer,
+      .skip-link,
+      .course-outline,
+      .mobile-contents,
+      .reading-geometry,
+      .breadcrumb,
+      .back-link,
+      .primary-link,
+      .lesson-completion,
+      .reading-notice,
+      .l42-print-button,
+      .l42-controls,
+      .l42-static-note
+    ) {
+    display: none !important;
+  }
+  body:has([data-lesson-id='L42']) :is(.page, .lesson-page, .reading-column) {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  .lesson-prose[data-lesson-id='L42'] {
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+  .lesson-prose[data-lesson-id='L42'] h1 {
+    font-size: 24pt;
+    margin-bottom: 1rem;
+  }
+  .lesson-prose[data-lesson-id='L42'] h2 {
+    font-size: 16pt;
+    break-after: avoid;
+    padding-top: 0.5rem;
+    margin-top: 1rem;
+  }
+  .lesson-prose[data-lesson-id='L42'] :is(p, li) {
+    margin-block: 0.4rem;
+    line-height: 1.45;
+    orphans: 3;
+    widows: 3;
+    break-inside: avoid;
+  }
+  .lesson-prose[data-lesson-id='L42'] .katex-display {
+    overflow: visible;
+    font-size: 0.9em;
+  }
+  .lesson-prose[data-lesson-id='L42']
+    :is(table, pre, .l42-figure, .l42-memo, .l42-answer) {
+    break-inside: avoid;
+  }
+  .lesson-prose[data-lesson-id='L42'] pre {
+    background: #f4f4f4 !important;
+    color: #111 !important;
+  }
+  .lesson-prose[data-lesson-id='L42'] :is(th, td) {
+    padding: 0.4rem;
+    font-size: 9.5pt;
+  }
+  .lesson-prose[data-lesson-id='L42'] th {
+    background: #eee;
+    color: #111;
+  }
+  .l42-lab {
+    padding: 0.6rem;
+    background: #fff;
+    border: 1px solid #777;
+  }
+  .l42-lab .l42-figure > svg {
+    max-width: 135mm;
+    margin-inline: auto;
+  }
+  .l42-lab output {
+    background: #fff;
+  }
+  .l42-legend {
+    font-size: 9pt;
+  }
+  .l42-answer::details-content {
+    content-visibility: visible !important;
+    display: block !important;
+  }
+  .l42-answer > :not(summary) {
+    display: block !important;
+  }
+  .l42-answer summary {
+    min-height: 0;
+  }
+}

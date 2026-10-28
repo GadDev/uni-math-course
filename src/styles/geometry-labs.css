@@ -333,3 +333,40 @@
     break-inside: avoid;
   }
 }
+.geo-lab .geo-midpoint svg {
+  max-width: 260px;
+}
+.geo-lab button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+@media (max-width: 600px) {
+  .geo-lab svg text {
+    font-size: 24px;
+  }
+  .geo-lab .geo-midpoint svg text {
+    font-size: 20px;
+  }
+}
+@media print {
+  .geo-lab .geo-midpoint svg {
+    max-width: 46mm;
+  }
+  .geo-lab:has([data-centered-products]) .geo-print table {
+    font-size: 7.5pt;
+  }
+}
+
+.geometry-study .geo-table table {
+  width: max-content;
+  min-width: 100%;
+}
+.geometry-study .geo-table :is(th, td) {
+  white-space: nowrap;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+.geo-table:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}

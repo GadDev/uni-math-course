@@ -170,3 +170,111 @@ test('residuals, squared loss and centred sums match independent rational exampl
   assert.equal(centredSums([]), null);
   assert.equal(residualTable(1, 1, []).mse, null);
 });
+
+test('circles distinguish radius zero, boundary and disk interior', async () => {
+  const { circleTest } = await import('../../src/lib/geometry-labs.ts');
+  assert.equal(circleTest({ x: 2, y: -1 }, 3, { x: 5, y: -1 })!.onCircle, true);
+  assert.equal(
+    circleTest({ x: 2, y: -1 }, 3, { x: 2, y: -1 })!.onCircle,
+    false,
+  );
+  assert.equal(circleTest({ x: 2, y: -1 }, 0, { x: 2, y: -1 })!.onCircle, true);
+  assert.equal(circleTest({ x: 2, y: -1 }, 0, { x: 2, y: 0 })!.onCircle, false);
+  assert.equal(circleTest({ x: 0, y: 0 }, -1, { x: 0, y: 0 }), null);
+});
+test('triangle same-side tests agree with independent barycentric coordinates in both orientations', async () => {
+  const { triangleTest } = await import('../../src/lib/geometry-labs.ts');
+  const a = { x: -1, y: 0 },
+    b = { x: 4, y: 1 },
+    c = { x: 0, y: 4 };
+  const det = (b.y - c.y) * (a.x - c.x) + (c.x - b.x) * (a.y - c.y);
+  for (let x = -2; x <= 6; x++)
+    for (let y = -2; y <= 6; y++) {
+      const l1 = ((b.y - c.y) * (x - c.x) + (c.x - b.x) * (y - c.y)) / det;
+      const l2 = ((c.y - a.y) * (x - c.x) + (a.x - c.x) * (y - c.y)) / det;
+      const l3 = 1 - l1 - l2;
+      const expected = l1 >= -1e-12 && l2 >= -1e-12 && l3 >= -1e-12;
+      assert.equal(triangleTest([a, b, c], { x, y }).inside, expected);
+      assert.equal(triangleTest([a, c, b], { x, y }).inside, expected);
+    }
+  for (const vertices of [
+    [a, a, c],
+    [
+      { x: 0, y: 0 },
+      { x: 4, y: 0 },
+      { x: 2, y: 0 },
+    ],
+  ] as [typeof a, typeof b, typeof c][]) {
+    const r = triangleTest(vertices, { x: 1, y: 0 });
+    assert.equal(r.degenerate, true);
+    assert.equal(r.inside, null);
+  }
+});
+test('quantization has an explicit tie rule, bounded error and a many-to-one inverse', async () => {
+  const { roundPixel, quantizePoint } =
+    await import('../../src/lib/geometry-labs.ts');
+  for (const [x, expected] of [
+    [0.5, 1],
+    [-0.5, 0],
+    [-1.5, -1],
+    [8.5, 9],
+  ])
+    assert.equal(roundPixel(x!), expected);
+  const a = quantizePoint({ x: 0.12, y: 0.12 }, 2, 2)!,
+    b = quantizePoint({ x: 0.18, y: 0.18 }, 2, 2)!;
+  assert.deepEqual([a.u, a.v], [b.u, b.v]);
+  assert.deepEqual(a.recovered, { x: 0, y: 0 });
+  for (const sx of [1, 2, 4])
+    for (const sy of [1, 3, 4])
+      for (let k = -100; k <= 400; k += 7) {
+        const p = { x: k / 100, y: (k + 3) / 100 },
+          q = quantizePoint(p, sx, sy)!;
+        assert.ok(Math.abs(q.errorX) <= 1 / (2 * sx) + 1e-12);
+        assert.ok(Math.abs(q.errorY) <= 1 / (2 * sy) + 1e-12);
+      }
+  const edge = quantizePoint({ x: 2.3, y: 0 }, 2, 2)!;
+  assert.equal(edge.continuousVisible, true);
+  assert.equal(edge.pixelVisible, false);
+  assert.equal(quantizePoint({ x: 0, y: 0 }, 0, 2), null);
+});
+test('editable centred rows retain zero sums and separate spread from cross sign', async () => {
+  const { centeredRows } = await import('../../src/lib/geometry-labs.ts');
+  for (const data of [
+    observations,
+    [
+      { x: 0, y: 2 },
+      { x: 1, y: 1 },
+      { x: 2, y: 0 },
+    ],
+    [
+      { x: 1, y: 1 },
+      { x: 1, y: 2 },
+      { x: 1, y: 3 },
+    ],
+  ]) {
+    const r = centeredRows(data)!;
+    assert.ok(Math.abs(r.sumDx) < 1e-12);
+    assert.ok(Math.abs(r.sumDy) < 1e-12);
+    // Pairwise covariance identity is independent of subtracting means row by row.
+    let cross = 0;
+    for (const a of data)
+      for (const b of data) cross += (a.x - b.x) * (a.y - b.y);
+    assert.ok(Math.abs(r.xy - cross / (2 * data.length)) < 1e-12);
+  }
+  assert.equal(
+    centeredRows([
+      { x: 0, y: 2 },
+      { x: 1, y: 1 },
+      { x: 2, y: 0 },
+    ])!.xy,
+    -2,
+  );
+  assert.equal(
+    centeredRows([
+      { x: 1, y: 1 },
+      { x: 1, y: 2 },
+      { x: 1, y: 3 },
+    ])!.xx,
+    0,
+  );
+});

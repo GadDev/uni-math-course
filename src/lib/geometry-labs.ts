@@ -142,3 +142,81 @@ export function centredSums(data: Point[]) {
     yy: data.reduce((s, p) => s + (p.y - meanY) ** 2, 0),
   };
 }
+
+export function circleTest(center: Point, radius: number, point: Point) {
+  if (!Number.isFinite(radius) || radius < 0) return null;
+  const dx = point.x - center.x,
+    dy = point.y - center.y;
+  const distanceSquared = dx * dx + dy * dy;
+  return {
+    dx,
+    dy,
+    distanceSquared,
+    radiusSquared: radius * radius,
+    onCircle: distanceSquared === radius * radius,
+  };
+}
+/** Signed edge values compared with the opposite vertex; valid in both orientations. */
+export function triangleTest(vertices: [Point, Point, Point], point: Point) {
+  const edges = vertices.map((a, i) => {
+    const b = vertices[(i + 1) % 3]!,
+      opposite = vertices[(i + 2) % 3]!;
+    const aa = a.y - b.y,
+      bb = b.x - a.x,
+      cc = a.x * b.y - b.x * a.y;
+    const value = aa * point.x + bb * point.y + cc;
+    const reference = aa * opposite.x + bb * opposite.y + cc;
+    return {
+      a: aa,
+      b: bb,
+      c: cc,
+      value,
+      reference,
+      accepted: reference > 0 ? value >= 0 : reference < 0 ? value <= 0 : null,
+    };
+  });
+  const area2 = edges[0]!.reference;
+  return {
+    area2,
+    area: Math.abs(area2) / 2,
+    degenerate: area2 === 0,
+    edges,
+    inside: area2 === 0 ? null : edges.every((e) => e.accepted),
+  };
+}
+/** Nearest integer, with all halfway ties toward the greater integer (also below zero). */
+export const roundPixel = (value: number) => Math.floor(value + 0.5);
+export function quantizePoint(point: Point, sx: number, sy: number) {
+  if (![point.x, point.y].every(Number.isFinite)) return null;
+  const screen = toScreen(point, sx, sy, 4, 4);
+  if (!screen) return null;
+  const u = roundPixel(screen.u),
+    v = roundPixel(screen.v);
+  const recovered = fromScreen(u, v, sx, sy, 4, 4)!;
+  return {
+    screen,
+    u,
+    v,
+    recovered,
+    errorX: recovered.x - point.x,
+    errorY: recovered.y - point.y,
+    continuousVisible:
+      screen.u >= 0 && screen.u < 9 && screen.v >= 0 && screen.v < 9,
+    pixelVisible: u >= 0 && u < 9 && v >= 0 && v < 9,
+  };
+}
+export function centeredRows(data: Point[]) {
+  const sums = centredSums(data);
+  if (!sums) return null;
+  const rows = data.map((p) => {
+    const dx = p.x - sums.meanX,
+      dy = p.y - sums.meanY;
+    return { ...p, dx, dy, xx: dx * dx, xy: dx * dy, yy: dy * dy };
+  });
+  return {
+    ...sums,
+    rows,
+    sumDx: rows.reduce((s, r) => s + r.dx, 0),
+    sumDy: rows.reduce((s, r) => s + r.dy, 0),
+  };
+}

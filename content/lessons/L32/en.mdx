@@ -1,7 +1,7 @@
 ---
 lessonId: L32
 locale: en
-version: 4
+version: 5
 status: extended
 title: "From coordinates to pixels"
 summary: "Build and invert a transformation to a screen with a downward vertical axis."
@@ -11,6 +11,7 @@ prerequisites: [L25, L27, L29]
 sourcePages: [52, 53, 54, 55]
 ---
 import GeometryLab from '../../../src/components/GeometryLab';
+import GeometryExtensions from '../../../src/components/GeometryExtensions';
 
 <div className="geometry-study">
 
@@ -108,6 +109,10 @@ The steps are $v=200-40(2x+1)=160-80x$, then $v=160-80(u-300)/40=160-2u+600=760-
 To display a point, calculate continuous coordinates, then apply an explicit rounding rule. Rounding to nearest limits error to half a pixel per coordinate; halfway ties need a convention. Several real points may map to one pixel: rounding is not invertible. An out-of-image coordinate remains out of bounds even when its algebraic transformation is correct.
 
 <p class="source-next"><a href="/en/lessons/L33/#pdf-56">Next in the PDF: Rasterising: which pixels? →</a></p>
+
+The following activity uses a small image with nine columns and nine rows. Indices start at zero. Continuous coordinates are rounded to nearest, with ties towards the greater integer. Check visibility after rounding: a continuous position inside the window can yield a forbidden index.
+
+<GeometryExtensions kind="rounding" locale="en" client:visible />
 
 ## Your turn on paper
 

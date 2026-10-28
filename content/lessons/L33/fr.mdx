@@ -1,7 +1,7 @@
 ---
 lessonId: L33
 locale: fr
-version: 5
+version: 6
 status: extended
 title: "Rastérisation et idée de Bresenham"
 summary: "Échantillonner un segment et suivre un algorithme entier dans un octant explicite."
@@ -140,6 +140,8 @@ Après NE, il devient $(u+1,v+1)$ :
 $$d_{NE}=2v_2(u+2)-u_2(2v+3)=d+2v_2-2u_2.$$
 
 Les termes communs s’annulent : c’est toute l’astuce. On calcule les deux doubles une fois, puis on ajoute. **Comment suivre une trace ?** Notez le pixel courant, la décision avant le pas, le choix, le pixel suivant et la nouvelle décision. À l’extrémité finale, arrêtez-vous : aucun prochain choix n’est nécessaire. Si $d=0$, E reste le choix du cours, même si un autre algorithme d’arrondi pourrait départager autrement.
+
+Le zoom montre E, NE et leur milieu M. Faites votre prévision avant de révéler le pixel suivant et la nouvelle décision ; chaque déplacement remet la prévision à zéro.
 
 <GeometryLab kind="raster" locale="fr" client:visible />
 

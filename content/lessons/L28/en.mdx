@@ -1,7 +1,7 @@
 ---
 lessonId: L28
 locale: en
-version: 4
+version: 5
 status: extended
 title: "Cartesian equations and curves"
 summary: "Connect an equation to its point set and preserve its solutions."
@@ -11,6 +11,7 @@ prerequisites: [L24, L27]
 sourcePages: [31, 32, 33, 34, 35]
 ---
 import GeometryLab from '../../../src/components/GeometryLab';
+import GeometryExtensions from '../../../src/components/GeometryExtensions';
 
 <div className="geometry-study">
 
@@ -103,6 +104,10 @@ Equation $(x-2)^2+(y+1)^2=9$ describes points at distance $3$ from $(2,-1)$. Tes
 <p class="source-next"><a href="/en/lessons/L28/#pdf-35">Next in the PDF : One curve, several equations →</a></p>
 
 <span id="pdf-35" class="source-topic-marker"></span>
+
+Vary centre and radius before testing a point. A point can be inside the disk without lying on the circle; zero radius gives a single point.
+
+<GeometryExtensions kind="circle" locale="en" client:visible />
 
 ## One curve, several equations
 
