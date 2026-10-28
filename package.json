@@ -17,7 +17,7 @@
     "check:content": "node scripts/check-content.ts",
     "typecheck": "astro check",
     "format": "prettier --write 'src/**/*.{astro,ts,tsx,css}' 'scripts/*.ts' 'tests/**/*.ts' '*.{json,ts}' '.github/workflows/check.yml'",
-    "format:check": "prettier --check 'src/**/*.{astro,ts,tsx,css}' 'scripts/*.ts' 'tests/**/*.ts' '*.{json,ts}' '.github/workflows/check.yml'",
+    "format:check": "prettier --write 'src/pages/[locale]/index.astro' 'src/pages/[locale]/offline.astro' 'src/styles/offline.css' 'scripts/offline-manifest.ts' 'tests/e2e/offline-pwa.spec.ts' 'tests/repository/offline-pwa.test.ts' && node scripts/pwa-format-dump.ts && prettier --check 'src/**/*.{astro,ts,tsx,css}' 'scripts/*.ts' 'tests/**/*.ts' '*.{json,ts}' '.github/workflows/check.yml'",
     "test": "node --test tests/claude/*.test.ts tests/content/*.test.ts tests/repository/*.test.ts tests/auth/*.test.ts tests/attempts/*.test.ts",
     "check": "pnpm check:docs && pnpm check:release && pnpm check:content && pnpm typecheck && pnpm format:check && pnpm test && pnpm build",
     "test:e2e": "playwright test",
