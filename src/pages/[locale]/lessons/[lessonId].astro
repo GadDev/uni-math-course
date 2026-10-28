@@ -9,6 +9,7 @@ import { RELEASED_LESSONS } from '../../../lib/released-lessons';
 import { glossaryCopy } from '../../../lib/glossary';
 import SignalGeometry from '../../../components/SignalGeometry.astro';
 import DroitesSourcePath from '../../../components/DroitesSourcePath.astro';
+import ImplicationExplorers from '../../../components/ImplicationExplorers.astro';
 import '../../../styles/droites-teaching.css';
 import { chapterForPath, chapterHref } from '../../../lib/chapters';
 export async function getStaticPaths() {
@@ -181,6 +182,7 @@ const geometryVariant =
       <article class="lesson-prose" data-lesson-id={lesson.data.lessonId}>
         <Content />
       </article>
+      {lesson.data.lessonId === 'L05' && <ImplicationExplorers />}
       {lesson.data.lessonId === 'L10' && (
         <p>
           <a href={'/' + locale + '/numbers/'}>

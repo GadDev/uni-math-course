@@ -1,0 +1,77 @@
+.implication-lab {
+  display: block;
+  border: 1px solid var(--line);
+  background: var(--card);
+  padding: clamp(0.8rem, 3vw, 1.5rem);
+  margin: 1.5rem 0;
+  min-width: 0;
+}
+.implication-lab fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.implication-lab legend {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.implication-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.implication-controls label {
+  display: grid;
+  flex: 1 1 150px;
+  gap: 0.25rem;
+}
+.implication-lab select {
+  min-height: 44px;
+  width: 100%;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 0.4rem;
+  font: inherit;
+}
+.implication-lab input[type='range'] {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  accent-color: var(--ink);
+}
+.implication-lab :is(select, input):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.implication-card {
+  border-left: 8px solid #1d66a5;
+  padding: 0.75rem;
+  font-weight: bold;
+}
+.implication-card[data-colour='red'] {
+  border-color: #b63737;
+}
+.lesson-prose[data-lesson-id='L05'] tr[aria-current='true'] {
+  outline: 3px solid var(--focus);
+  outline-offset: -3px;
+}
+.implication-lab svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--ink);
+}
+.implication-lab details {
+  border-top: 1px solid var(--line);
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+}
+.implication-lab summary {
+  min-height: 44px;
+  cursor: pointer;
+}
+.implication-lab p {
+  overflow-wrap: anywhere;
+}
