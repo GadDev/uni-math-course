@@ -95,20 +95,53 @@ export const printableChapters: readonly PrintableChapter[] = [
     },
     documents: [
       {
-        id: 'chapter-02-exercises',
+        id: 'chapter-02-exercises-fr',
         type: 'exercises',
-        path: 'pdfs/exercises/chapter-02-exercises.pdf',
-        pages: 146,
+        language: 'fr',
+        label: {
+          fr: '640 exercices de calcul',
+          en: '640 calculation exercises',
+        },
+        path: 'pdfs/exercises/chapter-02-exercises-fr.pdf',
+        pages: 181,
         sha256:
-          '7c936ee21b2ed47053b9f5962338746aadb4a2c9d0174d05c8a771727d16c203',
+          'f7d12fb2abc895af282e2d1dc79616a04b73e95653c30ea702dd834bb9368bba',
       },
       {
-        id: 'chapter-02-solutions',
+        id: 'chapter-02-solutions-fr',
         type: 'solutions',
-        path: 'pdfs/exercises/chapter-02-solutions.pdf',
-        pages: 81,
+        language: 'fr',
+        label: {
+          fr: 'Corrigés des 640 exercices',
+          en: 'Solutions to 640 exercises',
+        },
+        path: 'pdfs/exercises/chapter-02-solutions-fr.pdf',
+        pages: 110,
         sha256:
-          '3108f51b5976721ab15d4ca07e2c6827d285bfbd5e61faa209269319aba95b0d',
+          'ed6fc47a0bcc075a202f0f3e7f3886135cd6056e668f673fe20874431054fa41',
+      },
+      {
+        id: 'chapter-02-challenge-exercises-fr',
+        type: 'exercises',
+        language: 'fr',
+        label: { fr: 'Défis Math Ninja', en: 'Math Ninja challenges' },
+        path: 'pdfs/exercises/chapter-02-challenge-exercises-fr.pdf',
+        pages: 28,
+        sha256:
+          '3f65dc906c8bbfbe2a8450253e0d9c39bd8b831881e4f30804e0978d9a7959dd',
+      },
+      {
+        id: 'chapter-02-challenge-solutions-fr',
+        type: 'solutions',
+        language: 'fr',
+        label: {
+          fr: 'Corrigés des défis Ninja',
+          en: 'Math Ninja challenge solutions',
+        },
+        path: 'pdfs/exercises/chapter-02-challenge-solutions-fr.pdf',
+        pages: 30,
+        sha256:
+          'b8281fd1c535a64835603798d496c8016a7149f1611321e3e6c92a5789e29ff0',
       },
     ],
   },
