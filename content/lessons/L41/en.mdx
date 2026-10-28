@@ -1,0 +1,278 @@
+---
+lessonId: L41
+locale: en
+version: 2
+status: extended
+title: "The natural logarithm"
+summary: "Understand logarithms, calculate their derivatives and construct tangents with interactive graphs."
+minutes: 45
+objectives: [L41-O01, L41-O02, L41-O03, L41-O04, L41-O05, L41-O06]
+prerequisites: [L37, L38, L39, L40]
+sourcePages: [16, 17]
+---
+import LogarithmExplorer from '../../../src/components/LogarithmExplorer';
+
+# The natural logarithm
+
+*Original course explanations based on* Bruno Teheux, Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026, pages 16, 17. The added explanations, diagrams and activities are original project work.
+
+## Goals and prerequisites
+
+A logarithm answers a question about an exponent. Its derivative answers a question about a slope. By the end, you will connect the two, differentiate a composition, construct a tangent and check a domain.
+
+Before starting, check: $e^0=1$; a slope is a vertical change divided by a horizontal change; differentiating a composition uses the chain rule.
+
+Need a reminder? Revisit <a href="/en/lessons/L38/">L38 — secants and derivatives</a>, <a href="/en/lessons/L39/">L39 — differentiation rules</a> or <a href="/en/lessons/L40/">L40 — the exponential</a>. A guided derivative refresher is also included here.
+
+## The logarithm recovers the exponent
+
+Imagine a machine that takes an exponent $t$ and returns $e^t$. Here $e\approx2{,}71828$ is a constant. The natural logarithm, written $\ln$, retraces the path: it takes a positive number $x$ and recovers the exponent that produced it.
+
+<div class="l41-block">
+
+**Definition — Natural logarithm**
+
+For every real $x>0$, $\ln(x)$ is the unique real number $t$ such that $e^t=x$.
+
+$$\ln(x)=t\quad\Longleftrightarrow\quad e^t=x\qquad(x>0)$$
+
+The double arrow means “if and only if”. The exponential and logarithm are **inverse functions**: each undoes the other's action.
+
+$$\ln(e^t)=t\quad(t\in\mathbb R),\qquad e^{\ln(x)}=x\quad(x>0)$$
+
+</div>
+
+The symbol $\mathbb R$ denotes the real numbers. The notation below says that logarithm inputs are strictly positive, while its outputs can be any real numbers:
+
+$$\ln:(0,+\infty)\longrightarrow\mathbb R$$
+
+## Reference values and domain
+
+Start with simple exponential values, then reverse the relationship:
+
+$$e^0=1\ \Longrightarrow\ \ln(1)=0$$
+
+$$e^1=e\ \Longrightarrow\ \ln(e)=1$$
+
+$$e^{-2}=\frac1{e^2}\ \Longrightarrow\ \ln(e^{-2})=-2$$
+
+**Positive input does not mean positive output.** For $0<x<1$, the logarithm is negative; at $x=1$, it is zero; for $x>1$, it is positive.
+
+<div class="l41-block l41-warning">
+
+**Watch out — Check the domain before calculating**
+
+Over the real numbers in this course, neither $\ln(0)$ nor $\ln(-2)$ is defined. In $\ln(u(x))$, the **argument** is the inner expression $u(x)$: solve $u(x)>0$ before calculating.
+
+</div>
+
+Quick question: is $\ln(e^{-2})$ allowed despite the minus sign in the exponent? Explain without a calculator.
+
+<details class="l41-correction">
+<summary>Check my answer</summary>
+
+Yes: $e^{-2}>0$. The input is positive and the output equals $-2$.
+
+</details>
+
+## Calculation rules
+
+A logarithm turns a product into a sum: multiplying exponential values adds their exponents. The following rules concern positive inputs; $r$ denotes a real exponent.
+
+$$\ln(xy)=\ln(x)+\ln(y)\qquad(x>0,y>0)$$
+
+$$\ln\left(\frac{x}{y}\right)=\ln(x)-\ln(y)\qquad(x>0,y>0)$$
+
+$$\ln(x^r)=r\ln(x)\qquad(x>0,\ r\in\mathbb R)$$
+
+Example: $\ln(e^2e^3)=\ln(e^5)=5$, recovering $2+3=5$.
+
+**Pitfall:** do not split a sum. Indeed, $\ln(1+1)=\ln(2)>0$, whereas $\ln(1)+\ln(1)=0$.
+
+## Reminder: what does a derivative measure?
+
+A point's height and the slope near that point answer different questions. For $f(x)=\ln(x)$, at input 1 the height is 0; we will see that the slope is 1.
+
+Keep this vocabulary nearby:
+
+- $x$ is the variable, ranging over allowed inputs.
+- $a$ is the chosen input where we study the curve; the corresponding point is $A=(a,f(a))$.
+- $f(a)$ is the height of that point, a number.
+- $h$ is a nonzero horizontal change, positive or negative; the second point is $B=(a+h,f(a+h))$.
+- $f'(a)$ is the **derivative at** $a$, a number giving the tangent slope when it exists.
+- $f'$ is the **derivative function**: it assigns this number to every input where $f$ is differentiable. The course notation $Df$ also denotes $f'$.
+
+## From secant to tangent
+
+The line through two distinct points $A$ and $B$ is a **secant**. Its slope measures the average change in height per unit of horizontal change:
+
+$$m_{AB}=\frac{f(a+h)-f(a)}{(a+h)-a}=\frac{f(a+h)-f(a)}{h}\qquad(h\ne0)$$
+
+Bringing $B$ towards $A$ reduces the horizontal distance $|h|$. When the slopes approach the same finite number from both sides, that number measures local change: it is the derivative at the chosen input.
+
+<div class="l41-block">
+
+**Definition — Derivative at a point and derivative function**
+
+Let $f$ be defined on an open interval containing $a$. If the following limit exists and is finite, $f$ is **differentiable at** $a$, and we define:
+
+$$f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}$$
+
+The notation $h\to0$ means that $h$ approaches zero through nonzero positive and negative values. **Never substitute zero for $h$ in the quotient.** The function $f'$ collects the derivatives at the inputs where they exist.
+
+</div>
+
+For the logarithm we need $a>0$ and $a+h>0$. In the graph, the dotted corner breaks the displacement into two steps: first $h$ horizontally, then the difference in heights vertically.
+
+<LogarithmExplorer mode="secant" locale="en" client:visible />
+
+At $a=1$, compare $h=0{,}1$ and $h=-0{,}1$, then approach zero. The slopes approach 1 from different sides. A table or graph gives intuition; it does not replace a proof of the limit.
+
+## Why is the derivative of ln equal to 1/x?
+
+The inverse of the exponential is differentiable because the exponential's derivative never vanishes; we accept the inverse differentiation theorem here. We can then recover the formula by differentiating a known identity, using L39's chain rule:
+
+1. Start with $e^{\ln(x)}=x$, for $x>0$.
+2. Differentiate both sides: $e^{\ln(x)}\,\ln'(x)=1$.
+3. Replace the exponential by $x$: $x\,\ln'(x)=1$.
+4. Divide by $x$, which is allowed because $x>0$.
+
+<div class="l41-block">
+
+**Formula — Derivative of the logarithm**
+
+$$f(x)=\ln(x)\quad\Longrightarrow\quad f'(x)=D\ln(x)=\frac1x\qquad(x>0)$$
+
+The height $\ln(a)$ can be negative, but the slope $1/a$ is always positive. Do not confuse these two numbers!
+
+</div>
+
+## Method: differentiate a composed logarithm
+
+For a differentiable function $u$ that is strictly positive on the interval under consideration, the chain rule multiplies the outer derivative by the inner derivative:
+
+$$D\ln(u(x))=\frac{u'(x)}{u(x)}\qquad(u(x)>0)$$
+
+<div class="l41-block">
+
+**Method — How do I calculate a derivative?**
+
+Example: $F(x)=\ln(2x+1)$.
+
+1. **Domain:** solve $2x+1>0$, giving $x>-\tfrac12$.
+2. **Inside:** identify $u(x)=2x+1$, then $u'(x)=2$.
+3. **Chain rule:** write $F'(x)=\frac{1}{2x+1}\times2$.
+4. **Result:** $F'(x)=\frac{2}{2x+1}$, still for $x>-\tfrac12$.
+5. **Quick check:** at input 0, the slope is $F'(0)=2$. Forgetting the inner derivative would give 1. This check helps find a mistake; it does not prove the formula for every $x$.
+
+</div>
+
+Quick question: why do $F(0)=0$ and $F'(0)=2$ not contradict each other? One is a height, the other a slope.
+
+## Reading the logarithm graph
+
+Return to the activity's graph: the curve passes through $(1,0)$ and $(e,1)$. It rises everywhere because $1/x>0$ for $x>0$. Moving right, the slope decreases: the curve keeps rising but becomes flatter.
+
+$$\lim_{x\to0^+}\ln(x)=-\infty,\qquad \lim_{x\to+\infty}\ln(x)=+\infty$$
+
+The symbol $0^+$ means “towards zero while staying positive”. The line $x=0$ is a **vertical asymptote**: the curve decreases without bound as it approaches, without a value $\ln(0)$ existing. The graph window clips the curve; it does not show its entire domain.
+
+## Method: determine a tangent
+
+A tangent describes the curve's local direction. If $f$ is differentiable at $a$, its nonvertical tangent has slope $f'(a)$ and passes through $(a,f(a))$.
+
+<div class="l41-block">
+
+**Formula — Tangent equation**
+
+$$y=f(a)+f'(a)(x-a)$$
+
+$x$ remains variable along the line; $a$, $f(a)$ and $f'(a)$ are fixed. At $x=a$, the term $x-a$ vanishes, recovering the height $f(a)$.
+
+</div>
+
+<div class="l41-block">
+
+**Method — How do I determine a tangent?**
+
+Example: tangent to $f(x)=\ln(x)$ at $a=1$.
+
+1. **Identify the input:** $a=1>0$ belongs to the domain.
+2. **Calculate the height:** $f(1)=\ln(1)=0$; the point is $(1,0)$.
+3. **Calculate the slope:** $f'(x)=1/x$, so $f'(1)=1$.
+4. **Substitute:** $y=0+1(x-1)$.
+5. **Simplify and check:** $y=x-1$ passes through $(1,0)$ and its coefficient of $x$ is 1.
+
+</div>
+
+The result is a line, not a new exact expression for the logarithm. Near 1, $\ln(1{,}01)\approx0{,}009950$ and the tangent gives $0{,}01$: the values are close, without being equal.
+
+<LogarithmExplorer mode="tangent" locale="en" client:visible />
+
+To compare slope signs, the activity also offers two transformations, both defined for $x>0$:
+
+$$g(x)=-\ln(x),\quad g'(x)=-\frac1x;\qquad k(x)=(\ln(x))^2,\quad k'(x)=\frac{2\ln(x)}x$$
+
+For $g$, the constant $-1$ stays in front of the derivative. For $k$, the chain rule gives twice the inside, multiplied by its derivative. Try $k$ at $a=1$ for a horizontal tangent, then on either side of 1 to change its slope's sign.
+
+<div class="l41-block l41-warning">
+
+**Watch out — A tangent need not be horizontal**
+
+It is horizontal when the derivative is zero. “Tangent” also does not mean “meets the curve only once”: a tangent can cross a curve again farther away. It describes local direction. Finally, a zero derivative alone does not generally guarantee a maximum or minimum.
+
+</div>
+
+## Solve an equation while preserving the domain
+
+To solve $\ln(x)=2$, first require $x>0$. Then apply the exponential to both sides:
+
+$$\ln(x)=2\quad\Longleftrightarrow\quad x=e^2$$
+
+The solution is positive, and $\ln(e^2)=2$ verifies the original equation.
+
+Another pitfall: $\ln(x^2)$ is defined for $x\ne0$, because a nonzero square is positive. We cannot replace it by $2\ln(x)$ on its entire domain: the latter excludes negative $x$ inputs. However, the chain rule does give $D\ln(x^2)=2/x$ for $x\ne0$.
+
+## Practise before looking at the answers
+
+Write your answers on paper. For tangents, always separate the height from the slope.
+
+1. **Interpret:** for $f(x)=\ln(x)$ at $a=1$, give the height, slope and tangent direction. Why do the two numbers differ?
+2. **Calculate:** find the domain and derivative of $G(x)=\ln(3x-2)$.
+3. **Construct:** find the tangent to $f(x)=\ln(x)$ at $a=e$.
+4. **Combine:** find the tangent to $F(x)=\ln(2x+1)$ at $a=0$.
+
+<details class="l41-correction">
+<summary>A hint before the solution</summary>
+
+For 2, begin with $3x-2>0$. For 3 and 4, first find the point, then the slope; then use point–slope form.
+
+</details>
+
+<details class="l41-correction">
+<summary>Worked solutions</summary>
+
+1. $f(1)=0$ is the height; $f'(1)=1$ is the positive slope. The tangent rises. Height locates the point; slope describes local change.
+2. $3x-2>0\Longleftrightarrow x>\tfrac23$. The inside has derivative 3: $G'(x)=\frac3{3x-2}$ on this domain.
+3. $f(e)=1$ and $f'(e)=1/e$. Thus $y=1+\frac1e(x-e)=x/e$. At $x=e$, we recover 1; the slope is indeed $1/e$.
+4. $F(0)=0$ and $F'(0)=2$. Thus $y=0+2(x-0)=2x$. This line passes through the origin and its slope is 2.
+
+</details>
+
+<section class="l41-block l41-revision" aria-label="Printable revision sheet">
+
+## Essential points to remember
+
+**Revision sheet — ready to print.** The browser's Print menu preserves fixed diagrams and shows the lesson's worked solutions. This sheet starts on a new page.
+
+- **Meaning and domain:** $\ln(x)$ recovers the exponent of $e$; the argument must be strictly positive. $\ln(1)=0$ and $\ln(e)=1$.
+- **Derivative:** $f'(a)$ is the finite limit of the quotient $[f(a+h)-f(a)]/h$ as $h\to0$, with $h\ne0$. It is the local slope; $f(a)$ is the height. $f'$ assigns a slope to each input.
+- **Rules:** $\ln(xy)=\ln(x)+\ln(y)$ and $\ln(x/y)=\ln(x)-\ln(y)$ for $x,y>0$; $\ln(x^r)=r\ln(x)$ for $x>0$ and $r\in\mathbb R$.
+- **Differentiate:** $(\ln x)'=1/x$ for $x>0$. For a differentiable composition: $(\ln u)'=u'/u$ wherever $u>0$. Check the domain, identify the inside, differentiate, apply the chain rule.
+- **Tangent at a:** $y=f(a)+f'(a)(x-a)$ if $f$ is differentiable at $a$. Calculate the point and slope separately, substitute, then check both.
+- **Example:** for $f(x)=\ln x$ at $a=1$, the point is $(1,0)$, the slope is 1 and the tangent is $y=x-1$.
+- **Pitfalls:** do not set $h=0$ in the quotient, forget the inner derivative, split $\ln(x+y)$ or confuse a tangent with the whole curve.
+
+**Memory check:** can you explain the difference between height, secant slope and tangent slope aloud, then recover a tangent equation without looking at the method?
+
+</section>
