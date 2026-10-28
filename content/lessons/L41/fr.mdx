@@ -1,0 +1,278 @@
+---
+lessonId: L41
+locale: fr
+version: 2
+status: extended
+title: "Le logarithme népérien"
+summary: "Comprendre le logarithme, calculer ses dérivées et construire une tangente avec des graphiques manipulables."
+minutes: 45
+objectives: [L41-O01, L41-O02, L41-O03, L41-O04, L41-O05, L41-O06]
+prerequisites: [L37, L38, L39, L40]
+sourcePages: [16, 17]
+---
+import LogarithmExplorer from '../../../src/components/LogarithmExplorer';
+
+# Le logarithme népérien
+
+*Matériel pédagogique original fondé sur* Bruno Teheux, Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026, pages 16, 17. Les explications, schémas et activités ajoutés sont des créations originales du projet.
+
+## Objectifs et prérequis
+
+Le logarithme répond à une question d’exposant. Sa dérivée répond à une question de pente. À la fin, vous saurez passer de l’une à l’autre, calculer une dérivée composée, déterminer une tangente et vérifier un domaine.
+
+Avant de commencer, vérifiez : $e^0=1$ ; une pente est une variation verticale divisée par une variation horizontale ; la dérivée d’une composition utilise la règle de la chaîne.
+
+Besoin d’un rappel ? Relisez <a href="/fr/lessons/L38/">L38 — sécante et dérivée</a>, <a href="/fr/lessons/L39/">L39 — règles de dérivation</a> ou <a href="/fr/lessons/L40/">L40 — exponentielle</a>. Un rappel guidé des dérivées est aussi inclus ici.
+
+## Le logarithme retrouve l’exposant
+
+Imaginez une machine qui reçoit un exposant $t$ et renvoie $e^t$. Ici $e\approx2{,}71828$ est une constante. Le logarithme népérien, noté $\ln$, remonte le chemin : il reçoit un nombre positif $x$ et retrouve l’exposant qui l’a produit.
+
+<div class="l41-block">
+
+**Définition — Logarithme népérien**
+
+Pour tout réel $x>0$, $\ln(x)$ est l’unique nombre réel $t$ tel que $e^t=x$.
+
+$$\ln(x)=t\quad\Longleftrightarrow\quad e^t=x\qquad(x>0)$$
+
+La double flèche signifie « si et seulement si ». Les fonctions exponentielle et logarithme sont **réciproques** : chacune défait l’action de l’autre.
+
+$$\ln(e^t)=t\quad(t\in\mathbb R),\qquad e^{\ln(x)}=x\quad(x>0)$$
+
+</div>
+
+Le symbole $\mathbb R$ désigne les nombres réels. L’écriture suivante indique que les entrées du logarithme sont strictement positives, tandis que ses sorties peuvent être n’importe quels réels :
+
+$$\ln:(0,+\infty)\longrightarrow\mathbb R$$
+
+## Repères indispensables et domaine
+
+Partez des valeurs simples de l’exponentielle, puis inversez le sens de la relation :
+
+$$e^0=1\ \Longrightarrow\ \ln(1)=0$$
+
+$$e^1=e\ \Longrightarrow\ \ln(e)=1$$
+
+$$e^{-2}=\frac1{e^2}\ \Longrightarrow\ \ln(e^{-2})=-2$$
+
+**Entrée positive ne signifie pas sortie positive.** Pour $0<x<1$, le logarithme est négatif ; pour $x=1$, il est nul ; pour $x>1$, il est positif.
+
+<div class="l41-block l41-warning">
+
+**Attention — Le domaine vient avant le calcul**
+
+Dans ce cours réel, ni $\ln(0)$ ni $\ln(-2)$ ne sont définis. Pour $\ln(u(x))$, l’**argument** est l’expression intérieure $u(x)$ : il faut résoudre $u(x)>0$ avant de calculer.
+
+</div>
+
+Question flash : $\ln(e^{-2})$ est-il autorisé malgré le signe moins dans l’exposant ? Expliquez sans calculatrice.
+
+<details class="l41-correction">
+<summary>Vérifier ma réponse</summary>
+
+Oui : $e^{-2}>0$. L’entrée est positive, et la sortie vaut $-2$.
+
+</details>
+
+## Les règles de calcul
+
+Le logarithme transforme un produit en somme : multiplier les valeurs exponentielles revient à additionner leurs exposants. Les règles suivantes concernent des entrées positives ; $r$ désigne un exposant réel.
+
+$$\ln(xy)=\ln(x)+\ln(y)\qquad(x>0,y>0)$$
+
+$$\ln\left(\frac{x}{y}\right)=\ln(x)-\ln(y)\qquad(x>0,y>0)$$
+
+$$\ln(x^r)=r\ln(x)\qquad(x>0,\ r\in\mathbb R)$$
+
+Exemple : $\ln(e^2e^3)=\ln(e^5)=5$, ce qui redonne $2+3=5$.
+
+**Piège :** on ne sépare pas une somme. En effet, $\ln(1+1)=\ln(2)>0$, alors que $\ln(1)+\ln(1)=0$.
+
+## Rappel : que mesure une dérivée ?
+
+Sur une courbe, la hauteur d’un point et la pente au voisinage de ce point répondent à deux questions différentes. Pour $f(x)=\ln(x)$, à l’abscisse 1, la hauteur vaut 0 ; nous verrons que la pente vaut 1.
+
+Voici le vocabulaire à garder sous les yeux :
+
+- $x$ est la variable, qui parcourt les entrées autorisées.
+- $a$ est l’abscisse choisie pour étudier la courbe ; le point correspondant est $A=(a,f(a))$.
+- $f(a)$ est la hauteur de ce point, donc un nombre.
+- $h$ est un déplacement horizontal non nul, positif ou négatif ; le second point est $B=(a+h,f(a+h))$.
+- $f'(a)$ est le **nombre dérivé** en $a$, donc la pente de la tangente quand il existe.
+- $f'$ est la **fonction dérivée** : à chaque abscisse où $f$ est dérivable, elle associe ce nombre. La notation $Df$ utilisée dans le cours désigne aussi $f'$.
+
+## De la sécante à la tangente
+
+La droite passant par deux points distincts $A$ et $B$ est une **sécante**. Sa pente mesure la variation moyenne de la hauteur par unité de déplacement horizontal :
+
+$$m_{AB}=\frac{f(a+h)-f(a)}{(a+h)-a}=\frac{f(a+h)-f(a)}{h}\qquad(h\ne0)$$
+
+Si l’on rapproche $B$ de $A$, on réduit la distance horizontale $|h|$. Lorsque les pentes approchent un même nombre fini depuis les deux côtés, ce nombre mesure la variation locale : c’est le nombre dérivé.
+
+<div class="l41-block">
+
+**Définition — Nombre dérivé et fonction dérivée**
+
+Soit $f$ définie sur un intervalle ouvert contenant $a$. Si la limite suivante existe et est finie, $f$ est **dérivable en $a$** et l’on pose :
+
+$$f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}$$
+
+La notation $h\to0$ signifie que $h$ se rapproche de zéro, par valeurs non nulles, positives et négatives. **On ne remplace jamais $h$ par zéro dans le quotient.** La fonction $f'$ rassemble les nombres dérivés aux abscisses où ils existent.
+
+</div>
+
+Pour le logarithme, il faut $a>0$ et $a+h>0$. Dans le graphique, le coude pointillé décompose le déplacement entre les deux points : d’abord $h$ horizontalement, puis la différence des hauteurs verticalement.
+
+<LogarithmExplorer mode="secant" locale="fr" client:visible />
+
+À $a=1$, comparez $h=0{,}1$ et $h=-0{,}1$, puis rapprochez-vous de zéro. Les pentes approchent 1, depuis des côtés différents. Une table de valeurs ou un tracé donne une intuition ; il ne remplace pas une démonstration de la limite.
+
+## Pourquoi la dérivée de ln vaut-elle 1/x ?
+
+La réciproque de l’exponentielle est dérivable car la dérivée de l’exponentielle ne s’annule jamais ; nous admettons ici ce théorème de dérivation d’une réciproque. Nous pouvons alors retrouver la formule en dérivant une identité connue, avec la règle de la chaîne de L39 :
+
+1. Partir de $e^{\ln(x)}=x$, pour $x>0$.
+2. Dériver les deux membres : $e^{\ln(x)}\,\ln'(x)=1$.
+3. Remplacer l’exponentielle par $x$ : $x\,\ln'(x)=1$.
+4. Diviser par $x$, autorisé puisque $x>0$.
+
+<div class="l41-block">
+
+**Formule — Dérivée du logarithme**
+
+$$f(x)=\ln(x)\quad\Longrightarrow\quad f'(x)=D\ln(x)=\frac1x\qquad(x>0)$$
+
+La hauteur $\ln(a)$ peut être négative, mais la pente $1/a$ est toujours positive. Ne confondez pas ces deux nombres !
+
+</div>
+
+## Méthode : dériver un logarithme composé
+
+Pour une fonction $u$ dérivable et strictement positive sur l’intervalle étudié, la règle de la chaîne multiplie la dérivée extérieure par celle de l’intérieur :
+
+$$D\ln(u(x))=\frac{u'(x)}{u(x)}\qquad(u(x)>0)$$
+
+<div class="l41-block">
+
+**Méthode — Comment calculer une dérivée ?**
+
+Exemple : $F(x)=\ln(2x+1)$.
+
+1. **Domaine :** résoudre $2x+1>0$, soit $x>-\tfrac12$.
+2. **Intérieur :** identifier $u(x)=2x+1$, puis $u'(x)=2$.
+3. **Chaîne :** écrire $F'(x)=\frac{1}{2x+1}\times2$.
+4. **Résultat :** $F'(x)=\frac{2}{2x+1}$, toujours pour $x>-\tfrac12$.
+5. **Contrôle rapide :** au point 0, la pente vaut $F'(0)=2$. Oublier la dérivée intérieure donnerait 1. Ce contrôle aide à repérer une erreur ; il ne prouve pas la formule pour tout $x$.
+
+</div>
+
+Question flash : pourquoi $F(0)=0$ et $F'(0)=2$ ne se contredisent-ils pas ? L’un est une hauteur, l’autre une pente.
+
+## Lire le graphique du logarithme
+
+Revenez au tracé de l’activité : la courbe passe par $(1,0)$ et par $(e,1)$. Elle monte partout car $1/x>0$ pour $x>0$. En allant vers la droite, la pente diminue : la courbe monte encore, mais s’aplatit.
+
+$$\lim_{x\to0^+}\ln(x)=-\infty,\qquad \lim_{x\to+\infty}\ln(x)=+\infty$$
+
+Le symbole $0^+$ signifie « vers zéro, en restant positif ». La droite $x=0$ est une **asymptote verticale** : la courbe descend sans borne à son approche, sans qu’une valeur $\ln(0)$ existe. La fenêtre du graphique coupe la courbe ; elle ne représente pas tout son domaine.
+
+## Méthode : déterminer une tangente
+
+Une tangente décrit localement la direction de la courbe. Si $f$ est dérivable en $a$, sa tangente non verticale a pour pente $f'(a)$ et passe par $(a,f(a))$.
+
+<div class="l41-block">
+
+**Formule — Équation de la tangente**
+
+$$y=f(a)+f'(a)(x-a)$$
+
+$x$ reste variable sur la droite ; $a$, $f(a)$ et $f'(a)$ sont fixés. Pour $x=a$, le terme $x-a$ s’annule : on retrouve bien la hauteur $f(a)$.
+
+</div>
+
+<div class="l41-block">
+
+**Méthode — Comment déterminer une tangente ?**
+
+Exemple : tangente à $f(x)=\ln(x)$ en $a=1$.
+
+1. **Identifier l’abscisse :** $a=1>0$ appartient au domaine.
+2. **Calculer la hauteur :** $f(1)=\ln(1)=0$ ; le point est $(1,0)$.
+3. **Calculer la pente :** $f'(x)=1/x$, donc $f'(1)=1$.
+4. **Substituer :** $y=0+1(x-1)$.
+5. **Simplifier et vérifier :** $y=x-1$ passe par $(1,0)$ et son coefficient de $x$ vaut 1.
+
+</div>
+
+On obtient une droite, pas une nouvelle expression exacte du logarithme. Près de 1, $\ln(1{,}01)\approx0{,}009950$ et la tangente donne $0{,}01$ : les valeurs sont proches, sans être égales.
+
+<LogarithmExplorer mode="tangent" locale="fr" client:visible />
+
+Pour comparer les signes des pentes, l’activité propose aussi deux transformations, toutes deux définies pour $x>0$ :
+
+$$g(x)=-\ln(x),\quad g'(x)=-\frac1x;\qquad k(x)=(\ln(x))^2,\quad k'(x)=\frac{2\ln(x)}x$$
+
+Pour $g$, la constante $-1$ reste devant la dérivée. Pour $k$, la chaîne donne deux fois l’intérieur, multiplié par sa dérivée. Essayez $k$ à $a=1$ pour une tangente horizontale, puis de part et d’autre de 1 pour changer le signe de sa pente.
+
+<div class="l41-block l41-warning">
+
+**Attention — Une tangente n’est pas forcément horizontale**
+
+Elle est horizontale quand le nombre dérivé vaut zéro. Le mot « tangente » ne signifie pas non plus « une seule rencontre avec la courbe » : une tangente peut recouper une courbe plus loin. C’est une notion locale de direction. Enfin, une dérivée nulle ne suffit pas, en général, à garantir un maximum ou un minimum.
+
+</div>
+
+## Résoudre une équation sans perdre le domaine
+
+Pour résoudre $\ln(x)=2$, commencer par exiger $x>0$. Appliquer ensuite l’exponentielle aux deux membres :
+
+$$\ln(x)=2\quad\Longleftrightarrow\quad x=e^2$$
+
+La solution est positive, et $\ln(e^2)=2$ vérifie l’équation de départ.
+
+Piège supplémentaire : $\ln(x^2)$ est défini pour $x\ne0$, car un carré non nul est positif. On ne peut donc pas le remplacer par $2\ln(x)$ sur tout son domaine : cette dernière expression exclut les $x$ négatifs. En revanche, la règle de la chaîne donne bien $D\ln(x^2)=2/x$ pour $x\ne0$.
+
+## S’entraîner avant de regarder les réponses
+
+Écrivez vos réponses sur papier. Pour les tangentes, séparez toujours la hauteur et la pente.
+
+1. **Interpréter :** pour $f(x)=\ln(x)$ en $a=1$, donner la hauteur, la pente et le sens de la tangente. Pourquoi les deux nombres diffèrent-ils ?
+2. **Calculer :** déterminer le domaine et la dérivée de $G(x)=\ln(3x-2)$.
+3. **Construire :** déterminer la tangente à $f(x)=\ln(x)$ en $a=e$.
+4. **Combiner :** déterminer la tangente à $F(x)=\ln(2x+1)$ en $a=0$.
+
+<details class="l41-correction">
+<summary>Un indice avant la correction</summary>
+
+Pour 2, commencez par $3x-2>0$. Pour 3 et 4, cherchez d’abord le point, puis la pente ; utilisez ensuite la forme point–pente.
+
+</details>
+
+<details class="l41-correction">
+<summary>Corrections expliquées</summary>
+
+1. $f(1)=0$ est la hauteur ; $f'(1)=1$ est la pente positive. La tangente monte. La hauteur situe le point ; la pente décrit la variation locale.
+2. $3x-2>0\Longleftrightarrow x>\tfrac23$. L’intérieur a pour dérivée 3 : $G'(x)=\frac3{3x-2}$ sur ce domaine.
+3. $f(e)=1$ et $f'(e)=1/e$. Donc $y=1+\frac1e(x-e)=x/e$. Pour $x=e$, on retrouve 1 ; la pente vaut bien $1/e$.
+4. $F(0)=0$ et $F'(0)=2$. Donc $y=0+2(x-0)=2x$. Cette droite passe par l’origine et sa pente vaut 2.
+
+</details>
+
+<section class="l41-block l41-revision" aria-label="Fiche de révision imprimable">
+
+## L’essentiel à retenir
+
+**Fiche de révision — à imprimer.** Le menu Imprimer du navigateur conserve les schémas fixes et affiche les corrections de la leçon. Cette fiche commence sur une nouvelle page.
+
+- **Sens et domaine :** $\ln(x)$ retrouve l’exposant de $e$ ; l’argument doit être strictement positif. $\ln(1)=0$ et $\ln(e)=1$.
+- **Dérivée :** $f'(a)$ est la limite finie du quotient $[f(a+h)-f(a)]/h$ lorsque $h\to0$, avec $h\ne0$. C’est la pente locale ; $f(a)$ est la hauteur. $f'$ associe à chaque abscisse sa pente.
+- **Règles :** $\ln(xy)=\ln(x)+\ln(y)$ et $\ln(x/y)=\ln(x)-\ln(y)$ pour $x,y>0$ ; $\ln(x^r)=r\ln(x)$ pour $x>0$ et $r\in\mathbb R$.
+- **Dériver :** $(\ln x)'=1/x$ pour $x>0$. Pour une composition dérivable : $(\ln u)'=u'/u$ là où $u>0$. Vérifier le domaine, identifier l’intérieur, dériver, appliquer la chaîne.
+- **Tangente en a :** $y=f(a)+f'(a)(x-a)$ si $f$ est dérivable en $a$. Calculer séparément le point et la pente, substituer, puis vérifier les deux.
+- **Exemple :** pour $f(x)=\ln x$ en $a=1$, le point est $(1,0)$, la pente vaut 1 et la tangente est $y=x-1$.
+- **Pièges :** ne pas poser $h=0$ dans le quotient, oublier la dérivée intérieure, séparer $\ln(x+y)$ ou confondre une tangente avec toute la courbe.
+
+**Test de mémoire :** pouvez-vous expliquer à voix haute la différence entre hauteur, pente de sécante et pente de tangente, puis retrouver une équation de tangente sans regarder la méthode ?
+
+</section>
