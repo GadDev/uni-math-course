@@ -11,6 +11,7 @@ prerequisites: [L27, L37]
 sourcePages: [5, 6, 7, 8, 9, 10, 11, 12]
 ---
 import DerivativeExplorer from '../../../src/components/DerivativeExplorer';
+import SpeedFormulaDiagram from '../../../src/components/SpeedFormulaDiagram.astro';
 
 # De la sécante à la dérivée
 
@@ -41,6 +42,8 @@ $$v_{\mathrm{moy}}=\frac{s(t_0+h)-s(t_0)}{h},\qquad h\ne0$$
 Le numérateur est un déplacement signé, pas nécessairement la distance totale parcourue. Le quotient est donc en mètres par seconde. Pour $h>0$, on compare l’instant de référence à un instant ultérieur ; pour $h<0$, à un instant antérieur, si les deux sont dans le domaine.
 
 Par exemple, si $s(t)=t^2$ pour $t\ge0$ et $t_0=2$, le quotient vaut 5 pour $h=1$, puis 4,1 pour $h=0{,}1$. Lorsque l’écart tend vers zéro, il tend ici vers 4 : c’est la vitesse instantanée, en mètres par seconde. Nous allons expliquer ce passage sans jamais diviser par zéro.
+
+<SpeedFormulaDiagram locale="fr" />
 
 ## Lire la pente d’une sécante
 

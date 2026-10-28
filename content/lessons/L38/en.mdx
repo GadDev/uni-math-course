@@ -11,6 +11,7 @@ prerequisites: [L27, L37]
 sourcePages: [5, 6, 7, 8, 9, 10, 11, 12]
 ---
 import DerivativeExplorer from '../../../src/components/DerivativeExplorer';
+import SpeedFormulaDiagram from '../../../src/components/SpeedFormulaDiagram.astro';
 
 # From secants to derivatives
 
@@ -41,6 +42,8 @@ $$v_{\mathrm{moy}}=\frac{s(t_0+h)-s(t_0)}{h},\qquad h\ne0$$
 The numerator is signed displacement, not necessarily total distance travelled. The quotient is therefore in metres per second. For $h>0$, we compare the reference time with a later time; for $h<0$, with an earlier time, provided both belong to the domain.
 
 For example, if $s(t)=t^2$ for $t\ge0$ and $t_0=2$, the quotient is 5 for $h=1$, then 4.1 for $h=0{,}1$. As the gap tends to zero, it tends to 4 here: the instantaneous velocity in metres per second. We will explain this step without ever dividing by zero.
+
+<SpeedFormulaDiagram locale="en" />
 
 ## Reading a secant slope
 
