@@ -1,0 +1,263 @@
+---
+lessonId: L07
+locale: fr
+version: 5
+status: extended
+title: "La biconditionnelle et l’équivalence sémantique"
+summary: "Construire la biconditionnelle à partir des deux implications, distinguer une ligne d’une table entière, et prouver ou réfuter une équivalence."
+minutes: 30
+objectives: [L07-O01, L07-O02, L07-O03, L07-O04, L07-O05, L07-O06]
+prerequisites: [L04, L05, L06]
+sourcePages: [30, 31]
+---
+import L07Explorer from '../../../src/components/L07Explorer';
+
+# La biconditionnelle et l’équivalence sémantique
+
+## Votre objectif
+
+Vous allez apprendre à exiger **deux implications à la fois**, puis à distinguer deux questions : « ces formules s’accordent-elles dans ce cas ? » et « s’accordent-elles dans tous les cas ? ».
+
+À la fin, vous saurez expliquer et construire la table de la biconditionnelle, lire « si et seulement si », et utiliser une table complète ou un contre-exemple pour décider d’une équivalence.
+
+**Avant de commencer :** <a href="/fr/lessons/L04/">L04 — équivalence et tautologies</a>, <a href="/fr/lessons/L05/">L05 — implication</a> et <a href="/fr/lessons/L06/">L06 — réciproque</a>.
+
+- Une assertion est vraie (1) ou fausse (0). Les lettres $A$ et $B$ désignent ici des assertions, éventuellement des formules composées.
+- $\neg A$ signifie « NON A » ; $A\land B$, « A ET B » ; $A\lor B$, « A OU B », avec un OU inclusif : au moins l’une est vraie.
+- $A\Rightarrow B$ signifie « si A, alors B ». Elle est fausse uniquement pour $A=1$, $B=0$. Sa réciproque est $B\Rightarrow A$.
+- Une **affectation** choisit une valeur pour chaque variable d’une formule. Une **tautologie** vaut 1 pour toute affectation.
+
+**Test éclair :** si A et B sont fausses, combien valent les deux implications ? Elles valent toutes deux 1 : aucune n’a un antécédent vrai et un conséquent faux. Si cela vous surprend, reprenez L05 avant de poursuivre.
+
+**Pour travailler sur papier :** utilisez la commande Imprimer du navigateur. Les expériences seront remplacées par des exemples fixes, et les indices et solutions seront visibles. Vous pouvez d’abord imprimer, cacher les corrections et essayer les exercices.
+
+## Pourquoi deux sens ?
+
+Reprenons les cartes de L05. Pour une carte fixée, A dit « elle est rouge » et B dit « elle porte un tampon ». La règle « si elle est rouge, elle porte un tampon » autorise encore une carte bleue avec tampon.
+
+Ajoutons la règle réciproque : « si elle porte un tampon, elle est rouge ». Nous voulons désormais **rouge avec tampon, ou bleue sans tampon**. Une carte rouge sans tampon échoue dans le premier sens ; une carte bleue avec tampon échoue dans l’autre.
+
+Ce double engagement motive un nouveau connecteur. Il ne demande pas que les deux assertions soient vraies : il demande qu’elles aient **la même valeur**.
+
+## La biconditionnelle
+
+**Définition.** La **biconditionnelle**, notée $A\Leftrightarrow B$, est l’assertion définie par
+
+$$
+(A\Rightarrow B)\land(B\Rightarrow A).
+$$
+
+Elle se lit « A si et seulement si B ». Le connecteur $\Leftrightarrow$ fabrique une nouvelle assertion. Pour calculer sa valeur, calculez les deux implications, puis leur ET. Comme le ET exige deux valeurs 1, **les deux sens doivent tenir**.
+
+## D’où vient la table ?
+
+Avec deux variables indépendantes, chacune a deux valeurs possibles : il y a quatre affectations. On garde la même valeur de chaque variable dans toute une ligne. Dans le tableau, 0 signifie faux et 1 signifie vrai.
+
+| A | B | A ⇒ B | B ⇒ A | A ⇔ B |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 1 | 1 |
+| 0 | 1 | 1 | 0 | 0 |
+| 1 | 0 | 0 | 1 | 0 |
+| 1 | 1 | 1 | 1 | 1 |
+
+**Construisons la ligne 10 :** A est vraie et B fausse. L’implication de A vers B échoue, donc vaut 0. Dans l’autre sens, l’antécédent B est faux, donc l’implication vaut 1. Leur ET vaut 0.
+
+**La ligne 00 mérite une pause :** les deux antécédents sont faux, donc aucune implication n’est contredite. Leur ET vaut 1. On affirme que **les valeurs s’accordent**, pas qu’A ou B est vraie !
+
+Les lignes 01 et 10 sont les désaccords ; 00 et 11 sont les accords. On a donc dérivé la règle de lecture : **la biconditionnelle est vraie exactement quand ses deux côtés ont la même valeur**.
+
+<L07Explorer kind="row" locale="fr" client:visible />
+
+## Lire « si et seulement si »
+
+« A si B » exprime le sens de B vers A. « A seulement si B » exprime le sens de A vers B : B est nécessaire pour A. « A si et seulement si B » rassemble les deux.
+
+Dans ce cours, $\mathbb N=\{0,1,2,\ldots\}$ désigne les entiers naturels, zéro compris. Pour un entier naturel fixé, « il est pair si et seulement s’il est divisible par deux » réunit deux garanties : être pair assure la divisibilité par deux, et cette divisibilité assure la parité.
+
+En revanche, « être divisible par quatre » implique « être pair », mais la réciproque échoue pour 2. Pour prouver une propriété « si et seulement si » pour tout entier naturel, vous devez justifier **chaque sens pour tout entier du domaine**. Quelques essais ne suffisent pas.
+
+## Deux niveaux différents
+
+Écrire « même valeur » ne suffit pas : **pour quelle affectation, ou pour toutes ?** Introduisons les lettres $P$ et $Q$ pour deux formules que nous voulons comparer. Elles peuvent contenir les mêmes variables ; on les évalue toujours avec la même affectation.
+
+| Écriture | Ce que l’on fait | Ce qu’il faut regarder |
+| --- | --- | --- |
+| $P\Leftrightarrow Q$ | Construire une assertion | Une valeur 0 ou 1 sur chaque ligne |
+| $P\equiv Q$ | Affirmer une équivalence sémantique | L’accord des deux formules sur toutes les affectations |
+
+Le symbole $\equiv$ est une **relation entre formules**, pas un connecteur à calculer dans une case. L’équivalence signifie que les deux colonnes de résultats coïncident partout. Les colonnes de calcul intermédiaire n’ont pas besoin d’être identiques.
+
+**Exemple à ne pas généraliser trop vite :** pour A et B fausses, une implication et sa réciproque valent toutes deux 1. Mais à la ligne 01, la première vaut 1 et la réciproque 0 : les deux formules ne sont pas sémantiquement équivalentes.
+
+Le lien précis est le suivant : $P\equiv Q$ est vrai **exactement lorsque** $P\Leftrightarrow Q$ est une tautologie.
+
+### Pourquoi ce critère est-il vrai ?
+
+La justification utilise seulement les définitions, dans les deux sens.
+
+1. **Partons de l’équivalence.** Si $P\equiv Q$, leurs valeurs sont identiques pour toute affectation. Sur chacune, $P\Leftrightarrow Q$ vaut donc 1. Cette dernière formule est une tautologie.
+2. **Partons de la tautologie.** Si $P\Leftrightarrow Q$ vaut 1 pour toute affectation, ses deux côtés ont la même valeur sur chacune. C’est exactement la définition de $P\equiv Q$.
+
+Ceci est une preuve générale pour les formules de la logique propositionnelle classique. L’expérience suivante permet d’en voir le mécanisme sur des formules particulières.
+
+<L07Explorer kind="equivalence" locale="fr" client:visible />
+
+## Comment faire, étape par étape
+
+**Quand choisir une table ?** Pour des formules propositionnelles avec peu de variables : c’est une méthode exhaustive et mécanique. Avec $k$ variables distinctes, il y a $2^k$ affectations, car chaque variable offre deux choix. Le nombre de lignes augmente vite.
+
+1. **Identifier les deux formules.** Nommez-les P et Q et recopiez leurs parenthèses.
+2. **Lister les variables présentes dans au moins l’une des deux formules.** Si seules A et B interviennent, utilisez les lignes 00, 01, 10 et 11. Une variable partagée garde la même valeur dans les deux formules.
+3. **Calculer de l’intérieur vers l’extérieur.** Ajoutez des colonnes pour les sous-formules difficiles.
+4. **Comparer les deux colonnes finales.** Une différence fournit un contre-exemple et suffit à réfuter l’équivalence. Si vous n’avez trouvé que des accords, continuez jusqu’à avoir couvert toutes les affectations.
+5. **Écrire une conclusion justifiée.** « Toutes les lignes concordent » établit l’équivalence ; « la ligne … diffère » la réfute. La colonne de la biconditionnelle rend cette comparaison visible.
+
+**Contrôle utile :** la dernière colonne vaut 1 là où P et Q sont égales, y compris quand elles valent toutes deux 0. Ne remplacez pas ce test par un ET entre P et Q.
+
+## Exemple guidé : tester une équivalence
+
+Testons $(A\Rightarrow B)\equiv(\neg A\lor B)$. Ici, $P=(A\Rightarrow B)$ et $Q=(\neg A\lor B)$. Il faut les comparer sur les quatre affectations de A et B.
+
+| A | B | A ⇒ B | ¬A ∨ B | (A ⇒ B) ⇔ (¬A ∨ B) |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 1 | 1 |
+| 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 0 | 1 |
+| 1 | 1 | 1 | 1 | 1 |
+
+Vérifiez particulièrement la ligne 10 : $\neg A\lor B=\neg1\lor0=0\lor0=0$. L’implication vaut elle aussi 0, donc leur biconditionnelle vaut 1, et non 0.
+
+Les deux colonnes coïncident sur toutes les lignes. La dernière colonne vaut donc toujours 1 : c’est une tautologie, et l’équivalence est établie.
+
+### Retrouver la formule sans table
+
+Une implication échoue exactement quand A est vraie et B fausse. Elle exprime donc la négation de cet échec. Avec les lois de L04 :
+
+$$
+\begin{aligned}
+(A\Rightarrow B)&\equiv\neg(A\land\neg B)\\
+&\equiv(\neg A\lor\neg\neg B)\\
+&\equiv(\neg A\lor B).
+\end{aligned}
+$$
+
+La première étape vient de l’unique cas d’échec ; la deuxième applique de Morgan ; la troisième enlève la double négation. Chaque transformation conserve les valeurs pour toutes les affectations. Cette dérivation explique le résultat que la table vérifie.
+
+Ce travail guidé, dont la solution est visible, sert à comprendre ; il ne mesure pas une maîtrise indépendante.
+
+## Piège : mélanger les deux niveaux
+
+- **« Les deux côtés doivent être vrais. »** Non : la biconditionnelle est aussi vraie à la ligne 00. Une conjonction ne l’est pas.
+- **« Une implication suffit. »** Non : à la ligne 01, une implication est vraie et sa réciproque fausse. Les deux sens comptent.
+- **« Une ligne où les formules s’accordent prouve leur équivalence. »** Non : il faut toutes les affectations. En revanche, une seule différence réfute l’équivalence.
+- **« Deux formules équivalentes sont forcément des tautologies. »** Non : $A\equiv\neg\neg A$, mais les deux côtés sont faux quand A est fausse. C’est leur biconditionnelle qui est une tautologie.
+
+Dire que $A\Leftrightarrow B$ vaut 0 sur une ligne ne donne pas une valeur « sur cette ligne » à la relation $A\equiv B$ : cette ligne constitue un témoin que les deux tables ne coïncident pas partout.
+
+## S’entraîner avant de lire la solution
+
+Ces exercices de lecture sont publics et non notés. Essayez chaque question, puis ouvrez l’indice seulement si nécessaire. Les solutions sont séparées pour vous laisser chercher.
+
+### 1. Calculer une ligne
+
+Pour $A=0$ et $B=1$, calculez les deux implications puis la biconditionnelle. Indiquez le sens qui échoue.
+
+<details className="l07-exercise">
+<summary>Indice — retrouver l’unique cas d’échec</summary>
+
+Dans chaque implication, repérez d’abord l’antécédent. L’échec demande un antécédent vrai et un conséquent faux.
+
+</details>
+<details className="l07-exercise">
+<summary>Solution expliquée — exercice 1</summary>
+
+$A\Rightarrow B$ vaut 1 car A est fausse. $B\Rightarrow A$ vaut 0 car B est vraie et A fausse. Donc $A\Leftrightarrow B$ vaut $1\land0=0$. Le sens de B vers A échoue.
+
+</details>
+
+### 2. Décider avec une table complète
+
+Testez $\neg(A\land B)\equiv(\neg A\lor\neg B)$. Calculez les deux côtés sur les quatre affectations, puis leur biconditionnelle. Justifiez votre conclusion.
+
+<details className="l07-exercise">
+<summary>Indice — respecter les parenthèses</summary>
+
+À gauche, calculez d’abord le ET, puis niez son résultat. À droite, niez chaque entrée, puis appliquez le OU inclusif.
+
+</details>
+<details className="l07-exercise">
+<summary>Solution expliquée — exercice 2</summary>
+
+| A | B | ¬(A ∧ B) | ¬A ∨ ¬B | Biconditionnelle |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 1 | 1 |
+| 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 1 | 1 | 1 |
+| 1 | 1 | 0 | 0 | 1 |
+
+L’accord sur toutes les lignes établit l’équivalence. À la dernière ligne, les deux côtés valent 0, mais leur biconditionnelle vaut 1. On retrouve une loi de Morgan de L04.
+
+</details>
+
+### 3. Réfuter un raisonnement
+
+Une personne affirme : « Une implication et sa réciproque sont équivalentes : j’ai vérifié la ligne 11. » Trouvez un contre-exemple et expliquez pourquoi sa méthode ne suffit pas.
+
+<details className="l07-exercise">
+<summary>Indice — séparer les deux valeurs</summary>
+
+Sur une ligne où A et B ont la même valeur, les deux sens tiennent. Essayez une affectation où leurs valeurs diffèrent.
+
+</details>
+<details className="l07-exercise">
+<summary>Solution expliquée — exercice 3</summary>
+
+À la ligne $A=0$, $B=1$, l’implication $A\Rightarrow B$ vaut 1 et sa réciproque $B\Rightarrow A$ vaut 0. Les deux formules ne sont donc pas équivalentes en général. Un accord sur 11 ne couvrait pas les autres affectations.
+
+</details>
+
+### 4. Construire une autre écriture
+
+Expliquez pourquoi $A\Leftrightarrow B$ est équivalente à $(A\land B)\lor(\neg A\land\neg B)$. Justifiez les cas de vérité et de fausseté, ou utilisez une table.
+
+<details className="l07-exercise">
+<summary>Indice — décrire les deux accords</summary>
+
+Comment écrire « les deux sont vraies » ? Et « les deux sont fausses » ? Le OU inclusif réunit ces deux possibilités.
+
+</details>
+<details className="l07-exercise">
+<summary>Solution expliquée — exercice 4</summary>
+
+$A\land B$ vaut 1 seulement sur 11 ; $\neg A\land\neg B$ vaut 1 seulement sur 00. Leur OU vaut donc 1 exactement sur 00 et 11, et 0 sur 01 et 10. C’est la colonne de la biconditionnelle : l’équivalence est prouvée pour toutes les affectations.
+
+</details>
+
+## Pratique indépendante
+
+Les deux expériences intégrées et les exercices ci-dessus fonctionnent sans compte ; ils ne produisent pas de note enregistrée. Pour répondre à d’autres questions avec correction et suivi, ouvrez <a href="/fr/lessons/L07/practice/">S’exercer</a>. Cette pratique avec compte nécessite une connexion ; sa disponibilité dépend de la version sélectionnée et du statut de publication.
+
+Les exercices sélectionnés portent sur la définition, la table de la biconditionnelle, les deux niveaux, les tautologies, le test par table et la détection des confusions.
+
+## À retenir
+
+**La fiche de révision :**
+
+- **Construire :** $A\Leftrightarrow B$ est définie par $(A\Rightarrow B)\land(B\Rightarrow A)$.
+- **Calculer :** valeurs identiques, résultat 1 ; valeurs différentes, résultat 0. Dans l’ordre 00, 01, 10, 11, la colonne est **1, 0, 0, 1**.
+- **Distinguer :** $\Leftrightarrow$ fabrique une assertion ; $\equiv$ compare les résultats de deux formules sur toutes les affectations.
+- **Décider :** $P\equiv Q$ exactement lorsque $P\Leftrightarrow Q$ est une tautologie. Un seul désaccord réfute ; des accords n’établissent l’équivalence qu’après une vérification exhaustive ou une preuve générale.
+- **Contrôler :** les deux côtés peuvent être faux ensemble. Équivalentes ne signifie pas « toujours vraies ».
+
+## Auto-évaluation
+
+Sans consulter les corrections, pouvez-vous :
+
+1. Écrire la définition avec les deux implications et reconstruire les quatre lignes ? (Objectifs L07-O01 et L07-O02.)
+2. Expliquer le rôle différent de chaque symbole et le piège d’un accord sur une seule ligne ? (L07-O03 et L07-O06.)
+3. Justifier le lien avec les tautologies dans les deux sens ? (L07-O04.)
+4. Tester une nouvelle paire de formules et écrire une conclusion appuyée par toutes les lignes ou par un contre-exemple ? (L07-O05.)
+
+Si un point reste fragile, revenez à l’exemple correspondant, puis refaites un exercice sans aide. Cette auto-évaluation n’est pas une certification de maîtrise.
+
+Texte, dérivations, schémas et expériences originaux du projet. La couverture suit les pages 30 et 31 du PDF selon la carte du cours du dépôt ; le PDF source n’a pas été consulté pour cette révision. Aucune preuve ni illustration n’est attribuée à l’auteur de la source.
