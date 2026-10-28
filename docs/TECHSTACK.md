@@ -6,8 +6,8 @@ Owner: GadDev · Updated: 2026-10-18 · Implemented application stack; hosted cl
 
 | Layer | Implemented choice | Why it fits |
 | --- | --- | --- |
-| Public lessons and routes | **Astro 7**, TypeScript 6, Markdown content collections | Fast prerendered French/English reading without a client-side app shell |
-| Interactive practice | **React 19** with a limited Radix Themes dependency | Client interaction only where necessary; public reading's native disclosure does not load React or global Radix CSS |
+| Public lessons and routes | **Astro 7**, TypeScript 6, Markdown/MDX content collections | Fast prerendered French/English reading without a client-side app shell |
+| Interactive practice | **React 19** with a limited Radix Themes dependency | Client interaction only where necessary; L37 has inline animated React islands, while native reading disclosures do not load React or global Radix CSS |
 | Mathematical notation | **KaTeX** with MathML and local plain-language readings | Readable notation alongside accessible text |
 | Identity and data | **Supabase Auth** and **PostgreSQL** with row-level security | Verified invited-account sessions and private attempt history |
 | API and grading | Astro server routes, immutable exercise banks and transactional PostgreSQL RPC | Answers remain server-held; grading and first-attempt eligibility are authoritative |
@@ -36,3 +36,7 @@ The original, much longer framework/provider comparison is retained as [historic
 ## Verify a change
 
 Run `pnpm check` and the relevant browser suite (`pnpm test:e2e`); use an **empty disposable database** for `tests/database/run.sh`. The GitHub Actions gate retains the required job name `docs`. Hosted authentication, production configuration, Data API isolation, cost/eligibility, privacy and human course reviews remain separate acceptance work, even with green CI. See the [roadmap](ROADMAP.md) and [acceptance record](PILOT_ACCEPTANCE.md).
+
+## Inline lesson panels
+
+L37 uses the official MDX integration to keep French/English prose in the existing content collection and embed `FunctionPanel` React islands beside its examples. Each island uses `client:visible`; the static lesson and diagrams render before hydration and without JavaScript. The graph links a selected input, rule parameter, calculation, table and animated point; playback is opt-in and respects reduced motion. Other lessons remain Markdown. Full-byte reading fingerprints and translation-source freshness apply to both file types; exactly one source per language is required. See [L37 review](content/L37_REVIEW.md).

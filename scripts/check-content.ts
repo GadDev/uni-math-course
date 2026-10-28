@@ -4,6 +4,7 @@ import { readFile, readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 import { checkReleases } from './check-releases.ts';
+import { lessonFiles } from './lesson-files.ts';
 
 const lessonIdPattern = /^L\d{2}$/;
 
@@ -123,14 +124,15 @@ const mathStrings = (text: string) => {
   return [...display, ...inline].map((match) => match[1]!.trim());
 };
 
-async function checkLesson(lessonId: string, bank: ExerciseBank) {
+async function checkLesson(
+  lessonId: string,
+  bank: ExerciseBank,
+  files: string[],
+) {
   const pages = bank.exercises[0]!.provenance.coveragePages;
   const texts = await Promise.all(
-    ['fr', 'en'].map((locale) =>
-      readFile(
-        new URL(`../content/lessons/${lessonId}/${locale}.md`, import.meta.url),
-        'utf8',
-      ),
+    files.map((path) =>
+      readFile(new URL(`../${path}`, import.meta.url), 'utf8'),
     ),
   );
   for (const [index, text] of texts.entries()) {
@@ -229,7 +231,19 @@ export async function checkContent() {
       version,
       'Selected bank version must match release metadata',
     );
-    await checkLesson(lessonId, bank);
+    const files = lessonFiles(lessonId, releases[lessonId].fingerprints);
+    // Detect an extra .md/.mdx file even when it was omitted from the registry.
+    const actual = (
+      await readdir(new URL(`../content/lessons/${lessonId}/`, import.meta.url))
+    )
+      .filter((name) => /^(fr|en)\.mdx?$/.test(name))
+      .map((name) => `content/lessons/${lessonId}/${name}`);
+    assert.deepEqual(
+      actual.sort(),
+      [...files].sort(),
+      `${lessonId}: duplicate or unrecorded reading source`,
+    );
+    await checkLesson(lessonId, bank, files);
   }
   console.log(
     `Validated ${lessonIds.length} lessons in French/English with versioned exercise contracts: ${lessonIds.sort().join(', ')}.`,

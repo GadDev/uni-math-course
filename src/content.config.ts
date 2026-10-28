@@ -3,7 +3,7 @@ import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 const lessons = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './content/lessons' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './content/lessons' }),
   schema: z.object({
     lessonId: z.string().regex(/^L\d{2}$/),
     locale: z.enum(['fr', 'en']),
