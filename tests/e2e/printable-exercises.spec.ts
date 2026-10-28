@@ -10,7 +10,8 @@ for (const locale of ['fr', 'en'] as const) {
 
       await expect(page.locator('html')).toHaveAttribute('lang', locale);
       await expect(page.locator('.printable-chapter')).toHaveCount(4);
-      await expect(page.locator('.printable-document')).toHaveCount(10);
+      const documents = page.locator('.printable-document');
+      await expect(documents).toHaveCount(locale === 'fr' ? 14 : 6);
       await expect(
         page.locator('.printable-chapter-count strong').first(),
       ).toHaveText('300');
@@ -36,7 +37,6 @@ for (const locale of ['fr', 'en'] as const) {
         expect(bytes.subarray(0, 5).toString(), href!).toBe('%PDF-');
       }
 
-      const documents = page.locator('.printable-document');
       for (const document of await documents.all()) {
         const download = document.locator('a[download]');
         if ((await download.count()) > 0) {
