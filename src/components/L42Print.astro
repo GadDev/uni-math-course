@@ -1,0 +1,35 @@
+---
+const { locale } = Astro.props;
+---
+
+<button type="button" class="l42-print-button" data-l42-print>
+  {locale === 'fr'
+    ? 'Imprimer la leçon et les corrections'
+    : 'Print lesson and solutions'}
+</button>
+<p>
+  {locale === 'fr'
+    ? 'Pour réviser sur papier : utilisez le bouton ou la commande Imprimer du navigateur. Les commandes interactives sont masquées ; les exemples, graphiques, tableaux et corrections sont conservés.'
+    : 'For paper revision: use the button or your browser’s Print command. Interactive controls are hidden; examples, graphs, tables and solutions remain.'}
+</p>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>('[data-l42-print]');
+  if (button) {
+    button.dataset.ready = '';
+    button.addEventListener('click', () => window.print());
+    let closed: HTMLDetailsElement[] = [];
+    window.addEventListener('beforeprint', () => {
+      closed = [
+        ...document.querySelectorAll<HTMLDetailsElement>(
+          '.l42-answer:not([open])',
+        ),
+      ];
+      for (const detail of closed) detail.open = true;
+    });
+    window.addEventListener('afterprint', () => {
+      for (const detail of closed) detail.open = false;
+      closed = [];
+    });
+  }
+</script>
