@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 for (const locale of ['fr', 'en'] as const) {
   test(
-    'printable exercise library is a public bilingual reference (' +
+    'printable exercise library provides three chapters and valid PDFs (' +
       locale +
       ')',
     async ({ page }) => {
@@ -18,10 +18,23 @@ for (const locale of ['fr', 'en'] as const) {
         page.locator('.printable-chapter-count strong').last(),
       ).toHaveText('600');
       await expect(page.locator('.printable-language-note')).toBeVisible();
-      await expect(page.locator('#chapter-03 .printable-document')).toHaveCount(4);
-      await expect(page.locator('#chapter-03 a[download]')).toHaveCount(4);
-      for (const link of await page.locator('#chapter-03 a[download]').all()) {
-        await expect(link).toHaveAttribute('href', new RegExp('-' + locale + '\\.pdf
+      await expect(page.locator('#chapter-03 .printable-document')).toHaveCount(
+        4,
+      );
+      const chapterDownloads = page.locator('#chapter-03 a[download]');
+      await expect(chapterDownloads).toHaveCount(4);
+      for (const link of await chapterDownloads.all()) {
+        await expect(link).toHaveAttribute(
+          'href',
+          new RegExp('-' + locale + '\\.pdf$'),
+        );
+        const href = await link.getAttribute('href');
+        const response = await page.request.get(href!);
+        expect(response.status(), href!).toBe(200);
+        const bytes = await response.body();
+        expect(bytes.subarray(0, 5).toString(), href!).toBe('%PDF-');
+      }
+
       const documents = page.locator('.printable-document');
       for (const document of await documents.all()) {
         const download = document.locator('a[download]');
@@ -58,51 +71,8 @@ for (const locale of ['fr', 'en'] as const) {
 test('printable exercise links preserve section on language switch', async ({
   page,
 }) => {
-  await page.goto('/fr/exercises/#chapter-02');
+  await page.goto('/fr/exercises/#chapter-03');
   await page.getByRole('link', { name: 'EN', exact: true }).click();
-  await expect(page).toHaveURL('/en/exercises/#chapter-02');
-  await expect(page.locator('#chapter-02')).toBeAttached();
-});
-));
-      }
-      const documents = page.locator('.printable-document');
-      for (const document of await documents.all()) {
-        const download = document.locator('a[download]');
-        if ((await download.count()) > 0) {
-          await expect(download).toHaveAttribute(
-            'href',
-            /^\/pdfs\/exercises\/.*\.pdf$/,
-          );
-        } else {
-          await expect(document.locator('.printable-pending')).toBeVisible();
-        }
-      }
-      await expect(
-        page.locator('.primary-nav > a[aria-current="page"]'),
-      ).toHaveAttribute('href', '/' + locale + '/exercises/');
-    },
-  );
-
-  for (const width of [320, 375, 501, 650, 768, 1280]) {
-    test(
-      'printable library fits at ' + width + 'px (' + locale + ')',
-      async ({ page }) => {
-        await page.setViewportSize({ width, height: 900 });
-        await page.goto('/' + locale + '/exercises/');
-        await page.evaluate(() => document.fonts.ready);
-        expect(
-          await page.evaluate(() => document.documentElement.scrollWidth),
-        ).toBeLessThanOrEqual(width);
-      },
-    );
-  }
-}
-
-test('printable exercise links preserve section on language switch', async ({
-  page,
-}) => {
-  await page.goto('/fr/exercises/#chapter-02');
-  await page.getByRole('link', { name: 'EN', exact: true }).click();
-  await expect(page).toHaveURL('/en/exercises/#chapter-02');
-  await expect(page.locator('#chapter-02')).toBeAttached();
+  await expect(page).toHaveURL('/en/exercises/#chapter-03');
+  await expect(page.locator('#chapter-03')).toBeAttached();
 });
