@@ -8,7 +8,7 @@ import {
   printableCopy,
 } from '../../src/lib/printable-exercises.ts';
 
-test('printable exercise catalog describes three chapters and eight bilingual Chapter 3 PDFs', () => {
+test('printable exercise catalog contains Chapter 3 bilingual PDFs', () => {
   assert.equal(printableChapters.length, 3);
   assert.equal(
     printableChapters.reduce((sum, chapter) => sum + chapter.count, 0),
@@ -22,7 +22,10 @@ test('printable exercise catalog describes three chapters and eight bilingual Ch
   const paths = new Set<string>();
 
   for (const chapter of printableChapters) {
-    assert.equal(chapter.documents.length, chapter.id === 'chapter-03' ? 8 : 2);
+    assert.equal(
+      chapter.documents.length,
+      chapter.id === 'chapter-03' ? 8 : 2,
+    );
     assert.deepEqual(
       chapter.documents.map((document) => document.type),
       chapter.id === 'chapter-03'
@@ -70,11 +73,15 @@ test('printable exercise catalog describes three chapters and eight bilingual Ch
 
   assert.equal(paths.size, 12);
   assert.equal(
-    printableChapters[2]!.documents.filter((document) => document.language === 'fr').length,
+    printableChapters[2]!.documents.filter(
+      (document) => document.language === 'fr',
+    ).length,
     4,
   );
   assert.equal(
-    printableChapters[2]!.documents.filter((document) => document.language === 'en').length,
+    printableChapters[2]!.documents.filter(
+      (document) => document.language === 'en',
+    ).length,
     4,
   );
   for (const locale of ['fr', 'en'] as const) {

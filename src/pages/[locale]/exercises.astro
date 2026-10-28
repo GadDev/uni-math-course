@@ -20,8 +20,8 @@ const chapters = printableChapters.map((chapter) => ({
   documents: chapter.documents
     .filter((document) => !document.language || document.language === locale)
     .map((document) => ({
-    ...document,
-    available: existsSync(join(process.cwd(), 'public', document.path)),
+      ...document,
+      available: existsSync(join(process.cwd(), 'public', document.path)),
     })),
 }));
 const missingFiles = chapters.some((chapter) =>

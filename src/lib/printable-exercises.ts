@@ -236,7 +236,7 @@ export const printableCopy = {
     notice:
       'Contenus de pratique originaux, non officiels, basés sur la progression des chapitres. Ils ne sont ni publiés ni approuvés par l’Université du Luxembourg.',
     unavailable:
-      'Les fichiers PDF doivent encore être ajoutés à cette branche. Les téléchargements s’activeront dès leur inclusion et la reconstruction du site.',
+      'Les PDF encore manquants seront téléchargeables dès leur ajout et la prochaine reconstruction du site.',
     back: 'Retour au programme',
   },
   en: {
@@ -270,7 +270,7 @@ export const printableCopy = {
     notice:
       'Original, unofficial practice materials following the chapter progression. They are not published or endorsed by the University of Luxembourg.',
     unavailable:
-      'The PDF files still need to be added to this branch. Download links will activate once the files are committed and the site rebuilt.',
+      'Any remaining missing PDFs will become downloadable after they are added and the site is rebuilt.',
     back: 'Back to the programme',
   },
 } as const;
