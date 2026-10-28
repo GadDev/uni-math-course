@@ -1,16 +1,22 @@
 ---
 lessonId: L23
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Fractions, powers and roots"
 summary: "Preserve quotient domains and read powers and roots correctly."
-minutes: 28
+minutes: 43
 objectives: [L23-O01, L23-O02, L23-O03, L23-O04, L23-O05, L23-O06]
 prerequisites: [L21, L22]
 sourcePages: [13, 14]
 ---
+import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+
+<div className="algebra-study">
+
 # Fractions, powers and roots
+
+Simplifying makes a form lighter without changing its meaning. Before using the “calculator machine”, check whether the input is allowed. We separate three actions: adding shares, repeating factors and finding a root.
 
 ## Objectives and prerequisites
 
@@ -22,6 +28,8 @@ sourcePages: [13, 14]
 - Analyse a simplification.
 
 Prerequisites: L21, L22. Domains and restrictions stated below are part of every rule.
+
+**Reminder from [L21](../L21/) and [L22](../L22/).** A factor is multiplied; a term is added. You may cancel $2x/(2y)$ to $x/y$ when $y\ne0$; you cannot remove the $2$ in $(x+2)/(y+2)$. The **domain** is the set of values for which every calculation is defined.
 
 <span id="pdf-13" class="source-topic-marker"></span>
 
@@ -80,10 +88,107 @@ For $a\ge0$, $\sqrt a$ is the unique nonnegative real number whose square is $a$
 
 The expression $(x^2-9)/(x-3)$ requires $x\ne3$. Factorisation gives $x+3$ only on that domain. The simplified formula has a value at $3$, but the original expression does not. A domain line prevents accidentally adding forbidden values when solving an equation afterwards.
 
+<AlgebraExplorer kind="domain" locale="en" client:visible />
+
 <p class="source-next"><a href="/en/lessons/L22/#pdf-15">Next in the PDF : Standard algebraic identities →</a></p>
+
+## How to: a reusable method
+
+1. Write the conditions before calculating: nonzero denominator, nonnegative radicand for a real square root.
+2. Identify the operation. Addition: common denominator. Multiplication: multiply numerators and denominators. Division: reciprocal of the nonzero divisor.
+3. To simplify a fraction, factorise then cancel only common nonzero factors. Copy the original domain.
+4. For a power, identify base and exponent. For a square root, take the nonnegative value.
+
+**Common mistake.** $\sqrt{9+16}=5$, whereas $\sqrt9+\sqrt{16}=7$. A root does not distribute over a sum.
+
+## Practise step by step
+
+<div className="algebra-exercise">
+
+### 1. Apply
+
+Calculate $2/3-1/4$.
+
+<details>
+<summary>Hint</summary>
+
+Use twelfths.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+$2/3-1/4=8/12-3/12=5/12$. Subtract counts of equal-sized shares.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 2. Combine
+
+Simplify $(x^2-4)/(x-2)$ and state the domain.
+
+<details>
+<summary>Hint</summary>
+
+Factorise the numerator before cancelling.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+For $x\ne2$, $(x^2-4)/(x-2)=(x-2)(x+2)/(x-2)=x+2$. Value $2$ stays excluded even though the final formula could accept it.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 3. Reason
+
+For $x=-3$, compare $\sqrt{x^2}$, $\sqrt x$ and $x^{-2}$.
+
+<details>
+<summary>Hint</summary>
+
+“Square then root” differs from “root directly”.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+$\sqrt{x^2}=3$; $\sqrt x$ is undefined over the reals; $x^{-2}=1/9$. The sign of the exponent does not determine the sign of the result.
+
+</details>
+
+</div>
 
 ## Practice and recap
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+<div className="algebra-revision">
+
+## Essentials and self-check
+
+- To add, make the share sizes equal.
+- Cancelling factors never restores an excluded value.
+- $\sqrt{x^2}=|x|$ for every real number; a negative exponent requires a nonzero base.
+
+**Self-check.** Redo a fraction addition; state the domain before cancellation; explain why a square root does not give two values. Revisit “A simplified formula keeps its restrictions” if needed. [L24](../L24/) uses these conditions when solving equations.
+
+**To print:** use the browser’s Print command. Activities show a fixed example and hints and solutions are expanded on paper.
+
+</div>
+
+</div>

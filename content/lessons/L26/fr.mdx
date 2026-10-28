@@ -1,16 +1,22 @@
 ---
 lessonId: L26
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "La notation sigma, les sommes et les moyennes"
 summary: "Lire la notation sigma, calculer une moyenne et comprendre les écarts centrés."
-minutes: 28
+minutes: 43
 objectives: [L26-O01, L26-O02, L26-O03, L26-O04, L26-O05, L26-O06]
 prerequisites: [L21, L23]
 sourcePages: [25, 26]
 ---
+import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+
+<div className="algebra-study">
+
 # La notation sigma, les sommes et les moyennes
+
+Sigma est un raccourci pour une addition longue : il indique où commencer, où s’arrêter et quel terme ajouter. La moyenne réutilise cette somme pour partager un total équitablement. Nous allons d’abord dérouler les consignes, puis expliquer pourquoi les écarts à la moyenne s’équilibrent.
 
 ## Objectifs et prérequis
 
@@ -22,6 +28,8 @@ sourcePages: [25, 26]
 - Analyser les limites d’une somme.
 
 Prérequis : L21, L23. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
+
+**Rappel de [L21](../L21/) et [L23](../L23/).** Additionnez les valeurs avant de diviser leur total. Dans une liste, $x_i$ désigne la valeur à la position $i$, pas un produit. Ici le nombre de données $n$ est un entier strictement positif : diviser par le nombre d’éléments d’une liste vide serait diviser par zéro.
 
 <span id="pdf-25" class="source-topic-marker"></span>
 
@@ -67,7 +75,14 @@ La somme $\sum_{i=2}^4(2i-1)$ vaut $3+5+7=15$. Il y a trois termes, pas quatre. 
 
 La barre dans $\bar x$ se lit « x barre » et désigne la moyenne. On additionne les $n$ observations puis on partage par $n$ : $\bar x=\frac{x_1+\cdots+x_n}{n}$. Pour $2,5,8$, on calcule $(2+5+8)/3=5$. Les écarts $-3,0,3$ se compensent autour de cette valeur.
 
-La preuve du PDF se déroule ainsi : $\sum_{i=1}^n(x_i-\bar x)=\sum_{i=1}^n x_i-\sum_{i=1}^n\bar x=n\bar x-n\bar x=0$. Dans la deuxième somme, $\bar x$ est constant : il apparaît exactement $n$ fois. Plus loin, $\sum_i$ sera une abréviation de cette somme sur toutes les observations, de $1$ à $n$.
+**Pourquoi cela fonctionne-t-il pour toutes les listes non vides ?** Pendant cette preuve, la liste est fixée : sa moyenne est donc une constante, même si les observations diffèrent.
+
+1. Définition : $\bar x=\frac1n\sum_{i=1}^n x_i$ ; donc $\sum_{i=1}^n x_i=n\bar x$.
+2. Répéter la même constante $n$ fois donne $\sum_{i=1}^n\bar x=n\bar x$.
+3. Par linéarité, $\sum_{i=1}^n(x_i-\bar x)=\sum_{i=1}^n x_i-\sum_{i=1}^n\bar x$.
+4. Remplacer les deux sommes donne $n\bar x-n\bar x=0$.
+
+Plus loin, $\sum_i$ abrège une somme sur toutes les observations, de $1$ à $n$. Cette compensation concerne les écarts **signés**, pas leurs valeurs absolues ni leurs carrés.
 
 **Exemple supplémentaire avec groupes.** Deux personnes ont une moyenne $10$, huit autres une moyenne $20$. La moyenne globale est $(2\cdot10+8\cdot20)/(2+8)=18$, pas $15$. Pondérer signifie compter la taille de chaque groupe. Si les deux moyennes étaient toutes deux $10$, le résultat serait $10$ malgré les tailles différentes : des tailles égales garantissent le raccourci, sans être nécessaires dans chaque cas particulier.
 
@@ -75,6 +90,8 @@ La preuve du PDF se déroule ainsi : $\sum_{i=1}^n(x_i-\bar x)=\sum_{i=1}^n x_i-
 <img src="/diagrams/droites/fr/mean.svg" alt="Les observations 2, 5 et 8 sont placées sur une droite ; les écarts de moins 3 et plus 3 se compensent autour de 5." width="440" height="360" loading="lazy" />
 <figcaption>La moyenne 5 équilibre les écarts signés.</figcaption>
 </figure>
+
+<AlgebraExplorer kind="mean" locale="fr" client:visible />
 
 ## Moyenne et unités
 
@@ -90,8 +107,103 @@ Pour $1$ et $-1$, la somme vaut zéro, mais la somme des carrés vaut $2$. Le ca
 
 <p class="source-next"><a href="/fr/lessons/L27/#pdf-28">Suite du PDF : Le repère cartésien →</a></p>
 
+## Comment faire ? Une méthode réutilisable
+
+1. Lisez l’indice, la borne de départ et la borne d’arrivée incluse.
+2. Comptez les termes, puis remplacez l’indice successivement par chaque valeur. Un indice peut se renommer, mais une borne ne se change pas sans modifier les termes.
+3. Pour la moyenne, additionnez toutes les observations et divisez par leur nombre, en gardant l’unité.
+4. Pour des groupes, retrouvez d’abord chaque total par « effectif × moyenne », puis divisez le total général par l’effectif général.
+
+**Erreur fréquente.** $\sum_{i=2}^4 5=15$, et non $20$ : l’indice prend trois valeurs. La constante ne prend pas la valeur de l’indice.
+
+## S’entraîner pas à pas
+
+<div className="algebra-exercise">
+
+### 1. Application
+
+Dérouler $\sum_{i=2}^4 i^2$.
+
+<details>
+<summary>Indice</summary>
+
+Écrire les trois valeurs de l’indice.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+$\sum_{i=2}^4 i^2=2^2+3^2+4^2=4+9+16=29$. Le terme du bas est inclus.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 2. Enchaînement
+
+Calculer la moyenne de $1,2,6$, puis la somme des écarts.
+
+<details>
+<summary>Indice</summary>
+
+La moyenne partage un total de $9$ entre trois valeurs.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+$\bar x=9/3=3$. Les écarts sont $-2,-1,3$ ; leur somme est $0$. Aucun écart individuel n’est nul, pourtant ils se compensent.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 3. Raisonnement
+
+Deux groupes de tailles $3$ et $1$ ont des moyennes $10$ et $18$. Quelle est la moyenne globale ?
+
+<details>
+<summary>Indice</summary>
+
+Reconstituer les totaux avant de partager.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+$(3\cdot10+1\cdot18)/(3+1)=48/4=12$. La moyenne non pondérée $14$ accorderait le même poids à des groupes de tailles différentes.
+
+</details>
+
+</div>
+
 ## Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+<div className="algebra-revision">
+
+## À retenir et auto-évaluation
+
+- Sigma compacte une addition ; les bornes sont incluses.
+- La moyenne est un total divisé par un effectif non nul.
+- Les écarts signés à la moyenne ont une somme nulle, pas nécessairement des valeurs nulles.
+
+**Auto-évaluation.** Lire une somme à voix haute et la dérouler ; refaire le deuxième exercice ; expliquer les poids du troisième. Reprendre la preuve détaillée si la constante répétée reste floue. [L27](../L27/) réutilise la moyenne pour les coordonnées d’un milieu.
+
+**Pour imprimer :** utilisez la commande Imprimer du navigateur. Les activités montrent un exemple fixe et les indices et solutions sont développés sur papier.
+
+</div>
+
+</div>

@@ -1,12 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
+import { readLessonSource } from '../../scripts/lesson-files.ts';
 import {
   droitesSourceParts,
   droitesSourceTopics,
 } from '../../src/lib/droites-source.ts';
 
-test('the PDF path preserves source order across existing lesson boundaries in both languages', () => {
+test('the PDF path preserves source order across existing lesson boundaries in both languages', async () => {
   assert.equal(droitesSourceParts.length, 5);
   const pages = droitesSourceTopics.map((topic) => topic.page);
   assert.equal(new Set(pages).size, pages.length);
@@ -20,9 +21,9 @@ test('the PDF path preserves source order across existing lesson boundaries in b
   );
   for (const locale of ['fr', 'en']) {
     for (const [index, topic] of droitesSourceTopics.entries()) {
-      const text = readFileSync(
-        `content/lessons/${topic.lessonId}/${locale}.md`,
-        'utf8',
+      const text = await readLessonSource(
+        `content/lessons/${topic.lessonId}`,
+        locale,
       );
       assert.equal(text.split(`id="pdf-${topic.page}"`).length - 1, 1);
       const next = droitesSourceTopics[index + 1];
@@ -59,10 +60,12 @@ test('the PDF path preserves source order across existing lesson boundaries in b
   }
 });
 
-test('teaching figures have paired local SVGs, descriptions and matching mathematical notation', () => {
+test('teaching figures have paired local SVGs, descriptions and matching mathematical notation', async () => {
   for (let i = 21; i <= 36; i++) {
-    const pair = ['fr', 'en'].map((locale) =>
-      readFileSync(`content/lessons/L${i}/${locale}.md`, 'utf8'),
+    const pair = await Promise.all(
+      ['fr', 'en'].map((locale) =>
+        readLessonSource(`content/lessons/L${i}`, locale),
+      ),
     );
     const formulas = (text: string) =>
       [...text.matchAll(/\$([^$\n]+)\$/g)].map((m) => m[1]);

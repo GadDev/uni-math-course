@@ -1,16 +1,22 @@
 ---
 lessonId: L25
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Systèmes de deux équations"
 summary: "Substitution, élimination et interprétation du nombre de solutions."
-minutes: 23
+minutes: 38
 objectives: [L25-O01, L25-O02, L25-O03, L25-O04, L25-O05, L25-O06]
 prerequisites: [L24]
 sourcePages: [23, 24]
 ---
+import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+
+<div className="algebra-study">
+
 # Systèmes de deux équations
+
+Un achat peut laisser plusieurs prix possibles. Un second achat apporte une seconde information : il faut satisfaire les deux en même temps. Un système organise cette recherche, puis explique pourquoi il reste zéro, un ou une infinité de couples.
 
 ## Objectifs et prérequis
 
@@ -22,6 +28,8 @@ sourcePages: [23, 24]
 - Analyser un système paramétré.
 
 Prérequis : L24. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
+
+**Rappel de [L24](../L24/).** Une transformation réversible conserve l’ensemble des solutions. Le symbole $\mathbb R^2$ désigne les couples de réels ; $(x;y)$ impose un ordre. Dans cette leçon, une **ligne** du système est une équation, pas une étape de calcul. Un **paramètre** est un nombre fixé pendant la résolution, dont on compare ensuite les valeurs possibles.
 
 <span id="pdf-23" class="source-topic-marker"></span>
 
@@ -54,14 +62,113 @@ Deux billets adultes et un billet enfant coûtent $19$ euros ; un adulte et un e
 
 Une élimination peut donner une valeur précise, une contradiction comme $0=2$, ou une identité comme $0=0$. La contradiction signifie qu’aucun couple ne convient. L’identité peut signaler deux versions d’une même condition : il reste alors une inconnue libre. Par exemple $x+y=6$ et $2x+2y=12$ décrivent les mêmes couples. Ne choisissez pas arbitrairement un couple comme s’il était unique.
 
+**Lire le graphique (facultatif).** Un point a deux coordonnées : x horizontalement, y verticalement. Chaque droite rassemble les couples qui vérifient une équation. Un point commun vérifie les deux ; le calcul sous le dessin suffit aussi sans lecture graphique. Les droites seront étudiées en détail en [L28](../L28/).
+
+<AlgebraExplorer kind="system" locale="fr" client:visible />
+
 ## Paramètres et contraintes
 
 Dans $x+y=5$ et $x+ay=5$, soustraire donne $(a-1)y=0$. Si $a\ne1$, on trouve $y=0$ puis $x=5$. Si $a=1$, les deux lignes sont identiques et il existe une infinité de couples. Une division prématurée par $a-1$ aurait supprimé ce cas. Après le calcul algébrique, revenez toujours aux contraintes du problème initial.
 
 <p class="source-next"><a href="/fr/lessons/L26/#pdf-25">Suite du PDF : La notation sigma (Σ) →</a></p>
 
+## Comment faire ? Une méthode réutilisable
+
+1. Définissez les inconnues, leurs unités et les contraintes du contexte.
+2. Si une inconnue est déjà isolée, substituez son expression dans l’autre équation. Sinon, cherchez des coefficients qui s’annulent en additionnant ou soustrayant les lignes.
+3. Conservez une équation initiale pour retrouver la seconde inconnue. Ne remplacez pas les deux conditions par leur seule différence.
+4. Avant de diviser par un paramètre, traitez son cas nul. Vérifiez le couple dans les deux équations et dans le contexte.
+
+**Erreur fréquente.** De $x+y=3$ et $x-y=1$, la différence donne $2y=2$. Cette seule équation permet n’importe quel $x$ ; il faut conserver la première pour obtenir $x=2$.
+
+## S’entraîner pas à pas
+
+<div className="algebra-exercise">
+
+### 1. Application
+
+Résoudre $x+y=7$ et $x-y=1$.
+
+<details>
+<summary>Indice</summary>
+
+Additionner les deux lignes élimine une inconnue.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+On obtient $2x=8$, puis $x=4$ et $y=3$. Contrôle : $4+3=7$ et $4-3=1$.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 2. Enchaînement
+
+Compter les solutions de $x+y=2$ et $2x+2y=5$.
+
+<details>
+<summary>Indice</summary>
+
+Soustraire deux fois la première ligne à la seconde.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Le calcul donne $0=1$, impossible. L’ensemble de solutions est vide ; aucun couple ne peut vérifier les deux lignes.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 3. Raisonnement
+
+Résoudre $x+y=2$ et $x+ay=2$ selon le paramètre réel $a$.
+
+<details>
+<summary>Indice</summary>
+
+Le coefficient à examiner est $a-1$.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+La différence donne $(a-1)y=0$. Si $a\ne1$, alors $y=0$ et $x=2$. Si $a=1$, tous les couples $(t;2-t)$ avec $t\in\mathbb R$ conviennent. La lettre $t$ décrit la coordonnée libre.
+
+</details>
+
+</div>
+
 ## Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+<div className="algebra-revision">
+
+## À retenir et auto-évaluation
+
+- Un couple solution vérifie simultanément toutes les équations.
+- Substitution et élimination réduisent le nombre d’inconnues sans oublier une condition.
+- Une contradiction exclut toute solution ; deux conditions identiques laissent une famille de couples.
+
+**Auto-évaluation.** Expliquer pourquoi une seule vérification ne suffit pas ; résoudre le premier exercice par l’autre méthode ; décrire les deux cas du troisième. Reprendre « Trois issues possibles » si nécessaire. Le graphique anticipe [les coordonnées en L27](../L27/) et [les droites en L28](../L28/) ; l’algèbre reste suffisante ici.
+
+**Pour imprimer :** utilisez la commande Imprimer du navigateur. Les activités montrent un exemple fixe et les indices et solutions sont développés sur papier.
+
+</div>
+
+</div>

@@ -1,16 +1,22 @@
 ---
 lessonId: L26
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Sigma notation, sums and means"
 summary: "Read sigma notation, calculate a mean and understand centred deviations."
-minutes: 28
+minutes: 43
 objectives: [L26-O01, L26-O02, L26-O03, L26-O04, L26-O05, L26-O06]
 prerequisites: [L21, L23]
 sourcePages: [25, 26]
 ---
+import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+
+<div className="algebra-study">
+
 # Sigma notation, sums and means
+
+Sigma is shorthand for a long addition: it says where to start, where to stop and which term to add. The mean reuses this sum to share a total equally. We first expand the instructions, then explain why deviations from the mean balance.
 
 ## Objectives and prerequisites
 
@@ -22,6 +28,8 @@ sourcePages: [25, 26]
 - Analyse the limitations of a sum.
 
 Prerequisites: L21, L23. Domains and restrictions stated below are part of every rule.
+
+**Reminder from [L21](../L21/) and [L23](../L23/).** Add the values before dividing their total. In a list, $x_i$ denotes the value at position $i$, not a product. The observation count $n$ is a strictly positive integer here: dividing by the size of an empty list would divide by zero.
 
 <span id="pdf-25" class="source-topic-marker"></span>
 
@@ -67,7 +75,14 @@ The sum $\sum_{i=2}^4(2i-1)$ is $3+5+7=15$. There are three terms, not four. A c
 
 The bar in $\bar x$, read “x bar”, denotes the mean. Add the $n$ observations, then share the total across $n$: $\bar x=\frac{x_1+\cdots+x_n}{n}$. For $2,5,8$, calculate $(2+5+8)/3=5$. Deviations $-3,0,3$ balance around this value.
 
-The PDF’s proof expands as follows: $\sum_{i=1}^n(x_i-\bar x)=\sum_{i=1}^n x_i-\sum_{i=1}^n\bar x=n\bar x-n\bar x=0$. In the second sum, $\bar x$ is constant: it appears exactly $n$ times. Later, $\sum_i$ abbreviates summing over all observations, from $1$ to $n$.
+**Why does this work for every nonempty list?** The list is fixed during this proof: its mean is therefore a constant, even though the observations differ.
+
+1. Definition: $\bar x=\frac1n\sum_{i=1}^n x_i$; therefore $\sum_{i=1}^n x_i=n\bar x$.
+2. Repeating the same constant $n$ times gives $\sum_{i=1}^n\bar x=n\bar x$.
+3. By linearity, $\sum_{i=1}^n(x_i-\bar x)=\sum_{i=1}^n x_i-\sum_{i=1}^n\bar x$.
+4. Replacing both sums gives $n\bar x-n\bar x=0$.
+
+Later, $\sum_i$ abbreviates summing over all observations, from $1$ to $n$. This cancellation concerns **signed** deviations, not their absolute values or squares.
 
 **Additional grouped example.** Two people have mean $10$; eight others have mean $20$. The overall mean is $(2\cdot10+8\cdot20)/(2+8)=18$, not $15$. Weighting means counting each group’s size. If both means were $10$, the result would be $10$ despite different sizes: equal sizes guarantee the shortcut without being necessary in every particular case.
 
@@ -75,6 +90,8 @@ The PDF’s proof expands as follows: $\sum_{i=1}^n(x_i-\bar x)=\sum_{i=1}^n x_i
 <img src="/diagrams/droites/en/mean.svg" alt="Observations 2, 5 and 8 lie on a number line; deviations minus 3 and plus 3 balance around 5." width="440" height="360" loading="lazy" />
 <figcaption>Mean 5 balances the signed deviations.</figcaption>
 </figure>
+
+<AlgebraExplorer kind="mean" locale="en" client:visible />
 
 ## Means and units
 
@@ -90,8 +107,103 @@ For $1$ and $-1$, the sum is zero but the sum of squares is $2$. The square of a
 
 <p class="source-next"><a href="/en/lessons/L27/#pdf-28">Next in the PDF : The Cartesian frame →</a></p>
 
+## How to: a reusable method
+
+1. Read the index, starting bound and included ending bound.
+2. Count terms, then replace the index successively by each value. An index can be renamed, but a bound cannot change without adjusting the terms.
+3. For a mean, add every observation and divide by their count, retaining the unit.
+4. For groups, recover each total as “group size × mean”, then divide the overall total by the overall count.
+
+**Common mistake.** $\sum_{i=2}^4 5=15$, not $20$: the index takes three values. The constant does not become the index value.
+
+## Practise step by step
+
+<div className="algebra-exercise">
+
+### 1. Apply
+
+Expand $\sum_{i=2}^4 i^2$.
+
+<details>
+<summary>Hint</summary>
+
+Write the three index values.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+$\sum_{i=2}^4 i^2=2^2+3^2+4^2=4+9+16=29$. The lower bound is included.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 2. Combine
+
+Calculate the mean of $1,2,6$, then the sum of deviations.
+
+<details>
+<summary>Hint</summary>
+
+The mean shares a total of $9$ among three values.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+$\bar x=9/3=3$. Deviations are $-2,-1,3$; their sum is $0$. No individual deviation is zero, yet they cancel.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 3. Reason
+
+Two groups of sizes $3$ and $1$ have means $10$ and $18$. What is their overall mean?
+
+<details>
+<summary>Hint</summary>
+
+Recover totals before sharing.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+$(3\cdot10+1\cdot18)/(3+1)=48/4=12$. The unweighted mean $14$ would give equal weight to groups of different sizes.
+
+</details>
+
+</div>
+
 ## Practice and recap
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+<div className="algebra-revision">
+
+## Essentials and self-check
+
+- Sigma abbreviates addition; both bounds are included.
+- A mean is a total divided by a nonzero count.
+- Signed deviations from the mean sum to zero, without necessarily being zero individually.
+
+**Self-check.** Read a sum aloud and expand it; redo the second exercise; explain the weights in the third. Revisit the detailed proof if the repeated constant is unclear. [L27](../L27/) reuses means for midpoint coordinates.
+
+**To print:** use the browser’s Print command. Activities show a fixed example and hints and solutions are expanded on paper.
+
+</div>
+
+</div>

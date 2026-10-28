@@ -1,16 +1,22 @@
 ---
 lessonId: L23
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Fractions, puissances et racines"
 summary: "Conserver le domaine des quotients et lire correctement puissances et racines."
-minutes: 28
+minutes: 43
 objectives: [L23-O01, L23-O02, L23-O03, L23-O04, L23-O05, L23-O06]
 prerequisites: [L21, L22]
 sourcePages: [13, 14]
 ---
+import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+
+<div className="algebra-study">
+
 # Fractions, puissances et racines
+
+Simplifier, c’est alléger une écriture sans changer ce qu’elle signifie. Avant d’actionner la « machine à calculer », il faut vérifier si l’entrée est autorisée. Nous séparons trois gestes : additionner des parts, répéter des facteurs et retrouver une racine.
 
 ## Objectifs et prérequis
 
@@ -22,6 +28,8 @@ sourcePages: [13, 14]
 - Analyser une simplification.
 
 Prérequis : L21, L22. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
+
+**Rappel de [L21](../L21/) et [L22](../L22/).** Un facteur est multiplié, un terme est ajouté. On peut simplifier $2x/(2y)$ en $x/y$ si $y\ne0$ ; on ne supprime pas le $2$ dans $(x+2)/(y+2)$. Le **domaine** est l’ensemble des valeurs pour lesquelles tous les calculs sont définis.
 
 <span id="pdf-13" class="source-topic-marker"></span>
 
@@ -80,10 +88,107 @@ Pour $a\ge0$, $\sqrt a$ est l’unique réel non négatif dont le carré est $a$
 
 L’expression $(x^2-9)/(x-3)$ impose $x\ne3$. La factorisation donne $x+3$ sur ce domaine seulement. La formule simplifiée possède une valeur en $3$, mais l’expression initiale n’en possède pas. Une ligne « domaine » évite de rajouter par accident des valeurs interdites lorsque vous résolvez ensuite une équation.
 
+<AlgebraExplorer kind="domain" locale="fr" client:visible />
+
 <p class="source-next"><a href="/fr/lessons/L22/#pdf-15">Suite du PDF : Identités remarquables →</a></p>
+
+## Comment faire ? Une méthode réutilisable
+
+1. Écrivez les conditions avant de calculer : dénominateur non nul, radicande non négatif pour une racine carrée réelle.
+2. Identifiez l’opération. Addition : dénominateur commun. Multiplication : produits des numérateurs et des dénominateurs. Division : inverse du diviseur non nul.
+3. Pour simplifier une fraction, factorisez puis supprimez uniquement des facteurs communs non nuls. Recopiez le domaine initial.
+4. Pour une puissance, identifiez base et exposant. Pour une racine carrée, prenez la valeur non négative.
+
+**Erreur fréquente.** $\sqrt{9+16}=5$, alors que $\sqrt9+\sqrt{16}=7$. Une racine ne se distribue pas sur une somme.
+
+## S’entraîner pas à pas
+
+<div className="algebra-exercise">
+
+### 1. Application
+
+Calculer $2/3-1/4$.
+
+<details>
+<summary>Indice</summary>
+
+Découpez en douzièmes.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+$2/3-1/4=8/12-3/12=5/12$. On soustrait les nombres de parts de même taille.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 2. Enchaînement
+
+Simplifier $(x^2-4)/(x-2)$ en précisant le domaine.
+
+<details>
+<summary>Indice</summary>
+
+Factorisez le numérateur avant de simplifier.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Pour $x\ne2$, $(x^2-4)/(x-2)=(x-2)(x+2)/(x-2)=x+2$. La valeur $2$ reste exclue même si la dernière formule pourrait la recevoir.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 3. Raisonnement
+
+Pour $x=-3$, comparer $\sqrt{x^2}$, $\sqrt x$ et $x^{-2}$.
+
+<details>
+<summary>Indice</summary>
+
+L’ordre « carré puis racine » diffère de « racine directement ».
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+$\sqrt{x^2}=3$ ; $\sqrt x$ n’est pas définie dans les réels ; $x^{-2}=1/9$. Le signe de l’exposant ne fixe pas le signe du résultat.
+
+</details>
+
+</div>
 
 ## Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+<div className="algebra-revision">
+
+## À retenir et auto-évaluation
+
+- Pour additionner, rendre les tailles des parts identiques.
+- Simplifier des facteurs ne rétablit jamais une valeur interdite.
+- $\sqrt{x^2}=|x|$ pour tout réel ; un exposant négatif exige une base non nulle.
+
+**Auto-évaluation.** Refaire une addition de fractions ; annoncer le domaine avant une simplification ; expliquer pourquoi une racine carrée ne donne pas deux valeurs. Reprendre « Une formule simplifiée garde ses restrictions » si nécessaire. [L24](../L24/) utilise ces conditions pour résoudre des équations.
+
+**Pour imprimer :** utilisez la commande Imprimer du navigateur. Les activités montrent un exemple fixe et les indices et solutions sont développés sur papier.
+
+</div>
+
+</div>

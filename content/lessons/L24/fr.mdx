@@ -1,16 +1,22 @@
 ---
 lessonId: L24
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Équations et inéquations"
 summary: "Transformer une condition sans perdre de solutions ni ajouter de valeurs interdites."
-minutes: 25
+minutes: 40
 objectives: [L24-O01, L24-O02, L24-O03, L24-O04, L24-O05, L24-O06]
 prerequisites: [L21, L22, L23]
 sourcePages: [19, 20, 21, 22]
 ---
+import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+
+<div className="algebra-study">
+
 # Équations et inéquations
+
+Résoudre, c’est décrire exactement tous les nombres qui respectent une condition. Imaginez une balance : faire la même opération réversible des deux côtés conserve l’équilibre. Une inéquation demande en plus de conserver l’ordre, ou de l’inverser si l’on multiplie par un négatif.
 
 ## Objectifs et prérequis
 
@@ -22,6 +28,8 @@ sourcePages: [19, 20, 21, 22]
 - Analyser une transformation non équivalente.
 
 Prérequis : L21, L22, L23. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
+
+**Rappel.** [L22](../L22/) fournit la distributivité ; [L23](../L23/) apprend à garder les dénominateurs non nuls. Une **solution** est une valeur qui rend l’énoncé vrai. On note $S$ l’ensemble de ces valeurs et $\varnothing$ l’ensemble vide. Une borne **stricte** est exclue ; une borne **large** est incluse.
 
 <span id="pdf-19" class="source-topic-marker"></span>
 
@@ -58,6 +66,8 @@ La solution s’écrit $]-\infty;2[$. Le crochet ouvert en $2$ indique que $2$ e
 <figcaption>Le cercle ouvert exclut la borne 2.</figcaption>
 </figure>
 
+<AlgebraExplorer kind="inequality" locale="fr" client:visible />
+
 ## Inégalités et intervalles
 
 Ajouter un réel conserve l’ordre. Multiplier par un réel positif le conserve aussi ; multiplier par un réel négatif l’inverse. Ainsi $-4x+3\le11$ équivaut à $-4x\le8$, puis $x\ge-2$. L’ensemble est $[-2;+\infty[$ : la borne est incluse. On utilise cette notation française aussi en anglais. Un facteur de signe inconnu ne permet pas de choisir un sens sans distinguer les cas.
@@ -72,8 +82,103 @@ Dans $(x^2-4)/(x-2)=4$, le domaine exclut $2$. La simplification donne $x+2=4$, 
 
 <p class="source-next"><a href="/fr/lessons/L25/#pdf-23">Suite du PDF : Systèmes de deux équations →</a></p>
 
+## Comment faire ? Une méthode réutilisable
+
+1. Annoncez le domaine. Développez ou factorisez selon la forme utile.
+2. Appliquez la même opération aux deux membres et dites pourquoi elle est réversible.
+3. Avant une division, exigez un diviseur non nul. Pour une inégalité, vérifiez aussi son signe ; si le signe dépend d’un paramètre, distinguez les cas.
+4. Écrivez l’ensemble de solutions, puis testez les candidats et les bornes dans la condition initiale.
+
+**Lire un intervalle.** $]-\infty;2[$ se lit « tous les réels strictement inférieurs à deux ». Le crochet tourné vers l’extérieur exclut la borne finie ; un point plein la représente quand elle est incluse.
+
+## S’entraîner pas à pas
+
+<div className="algebra-exercise">
+
+### 1. Application
+
+Résoudre $(x+1)/3=2$ dans les réels.
+
+<details>
+<summary>Indice</summary>
+
+Le dénominateur est une constante non nulle.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Multiplier par $3$ donne $x+1=6$, puis $x=5$. Donc $S=\{5\}$. Contrôle : $(5+1)/3=2$.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 2. Enchaînement
+
+Résoudre $-3x+6\ge0$ et tester la borne.
+
+<details>
+<summary>Indice</summary>
+
+La division se fait par un nombre négatif.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+$-3x\ge-6\Leftrightarrow x\le2$, donc $S=]-\infty;2]$. À $x=2$, le membre gauche vaut zéro : la borne convient.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 3. Raisonnement
+
+Résoudre $\sqrt{x+2}=x$ dans les réels.
+
+<details>
+<summary>Indice</summary>
+
+Le radicande doit être non négatif ; le membre droit doit aussi l’être. Après un carré, vérifiez les candidats.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Il faut $x\ge-2$ et, par le signe de la racine, $x\ge0$. Le carré donne $x+2=x^2$, soit $(x-2)(x+1)=0$. Les candidats sont $2$ et $-1$. Seul $2$ convient : $\sqrt4=2$, tandis que $\sqrt1=1\ne-1$. Donc $S=\{2\}$.
+
+</details>
+
+</div>
+
 ## Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+<div className="algebra-revision">
+
+## À retenir et auto-évaluation
+
+- Une équivalence conserve toutes les solutions sur le même domaine.
+- Diviser par un négatif inverse une inégalité ; diviser par zéro est interdit.
+- Un carré peut ajouter des candidats ; une division par l’inconnue peut en perdre.
+
+**Auto-évaluation.** Isoler une inconnue en justifiant chaque opération ; écrire le deuxième exercice en intervalle ; expliquer le rejet du candidat négatif au troisième exercice. Reprendre « Domaine avant simplification » en cas d’oubli. [L25](../L25/) demande de satisfaire deux conditions à la fois.
+
+**Pour imprimer :** utilisez la commande Imprimer du navigateur. Les activités montrent un exemple fixe et les indices et solutions sont développés sur papier.
+
+</div>
+
+</div>

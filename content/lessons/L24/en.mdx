@@ -1,16 +1,22 @@
 ---
 lessonId: L24
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Equations and inequalities"
 summary: "Transform a condition without losing solutions or adding forbidden values."
-minutes: 25
+minutes: 40
 objectives: [L24-O01, L24-O02, L24-O03, L24-O04, L24-O05, L24-O06]
 prerequisites: [L21, L22, L23]
 sourcePages: [19, 20, 21, 22]
 ---
+import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+
+<div className="algebra-study">
+
 # Equations and inequalities
+
+Solving means describing exactly all numbers satisfying a condition. Imagine a balance: the same reversible operation on both sides preserves balance. An inequality also requires preserving order, or reversing it when multiplying by a negative number.
 
 ## Objectives and prerequisites
 
@@ -22,6 +28,8 @@ sourcePages: [19, 20, 21, 22]
 - Analyse a nonequivalent transformation.
 
 Prerequisites: L21, L22, L23. Domains and restrictions stated below are part of every rule.
+
+**Reminder.** [L22](../L22/) provides distributivity; [L23](../L23/) teaches nonzero denominator restrictions. A **solution** is a value making the statement true. Write $S$ for the set of those values and $\varnothing$ for the empty set. A **strict** boundary is excluded; an **inclusive** boundary is included.
 
 <span id="pdf-19" class="source-topic-marker"></span>
 
@@ -58,6 +66,8 @@ Write the solution as $]-\infty;2[$. The open bracket at $2$ excludes $2$: the l
 <figcaption>The open circle excludes endpoint 2.</figcaption>
 </figure>
 
+<AlgebraExplorer kind="inequality" locale="en" client:visible />
+
 ## Inequalities and intervals
 
 Adding a real number preserves order. Multiplying by a positive real also preserves it; multiplying by a negative real reverses it. Thus $-4x+3\le11$ is equivalent to $-4x\le8$, then $x\ge-2$. The set is $[-2;+\infty[$: the endpoint is included. We use this French interval notation in English too. A factor of unknown sign does not let us choose a direction without separating cases.
@@ -72,8 +82,103 @@ In $(x^2-4)/(x-2)=4$, the domain excludes $2$. Simplification gives $x+2=4$, who
 
 <p class="source-next"><a href="/en/lessons/L25/#pdf-23">Next in the PDF : Systems of two equations →</a></p>
 
+## How to: a reusable method
+
+1. State the domain. Expand or factorise according to the useful form.
+2. Apply the same operation to both sides and explain why it is reversible.
+3. Before dividing, require a nonzero divisor. For an inequality, also check its sign; if a parameter determines the sign, separate cases.
+4. Write the solution set, then test candidates and boundaries in the original condition.
+
+**Read an interval.** $]-\infty;2[$ means “all real numbers strictly below two”. An outward-facing bracket excludes the finite boundary; a filled point represents it when included.
+
+## Practise step by step
+
+<div className="algebra-exercise">
+
+### 1. Apply
+
+Solve $(x+1)/3=2$ over the reals.
+
+<details>
+<summary>Hint</summary>
+
+The denominator is a nonzero constant.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+Multiplying by $3$ gives $x+1=6$, then $x=5$. Thus $S=\{5\}$. Check: $(5+1)/3=2$.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 2. Combine
+
+Solve $-3x+6\ge0$ and test the boundary.
+
+<details>
+<summary>Hint</summary>
+
+Division is by a negative number.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+$-3x\ge-6\Leftrightarrow x\le2$, so $S=]-\infty;2]$. At $x=2$, the left side is zero: the boundary satisfies the condition.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 3. Reason
+
+Solve $\sqrt{x+2}=x$ over the reals.
+
+<details>
+<summary>Hint</summary>
+
+The radicand must be nonnegative; so must the right side. After squaring, check the candidates.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+We require $x\ge-2$ and, from the root’s sign, $x\ge0$. Squaring gives $x+2=x^2$, or $(x-2)(x+1)=0$. Candidates are $2$ and $-1$. Only $2$ works: $\sqrt4=2$, whereas $\sqrt1=1\ne-1$. Thus $S=\{2\}$.
+
+</details>
+
+</div>
+
 ## Practice and recap
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+<div className="algebra-revision">
+
+## Essentials and self-check
+
+- Equivalence preserves all solutions on the same domain.
+- Dividing by a negative reverses an inequality; division by zero is forbidden.
+- Squaring can add candidates; division by the unknown can lose them.
+
+**Self-check.** Isolate an unknown while justifying each operation; write the second exercise as an interval; explain why the negative candidate in the third is rejected. Revisit “Domain before simplification” if needed. [L25](../L25/) requires satisfying two conditions together.
+
+**To print:** use the browser’s Print command. Activities show a fixed example and hints and solutions are expanded on paper.
+
+</div>
+
+</div>

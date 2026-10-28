@@ -69,7 +69,19 @@ for (const locale of ['fr', 'en']) {
         );
         await expect(page.locator('.katex-error')).toHaveCount(0);
         await expect(page.locator('.katex-mathml math').first()).toBeAttached();
-        await expect(page.locator('astro-island')).toHaveCount(0);
+        await expect(page.locator('astro-island')).toHaveCount(
+          number <= 27 ? 1 : 0,
+        );
+        if (number <= 27) {
+          await expect(page.locator('astro-island')).toHaveAttribute(
+            'component-url',
+            /AlgebraExplorer/,
+          );
+          await expect(page.locator('astro-island')).toHaveAttribute(
+            'client',
+            'visible',
+          );
+        }
         expect(
           await page.evaluate(() => document.documentElement.scrollWidth),
         ).toBeLessThanOrEqual(width);
