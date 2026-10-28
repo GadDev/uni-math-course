@@ -168,9 +168,9 @@ export const printableChapters: readonly PrintableChapter[] = [
           en: '600 calculation exercises',
         },
         path: 'pdfs/exercises/chapter-03-exercises-fr.pdf',
-        pages: 50,
+        pages: 118,
         sha256:
-          '663493d43c2e060853f169af302dc039ec2bf451a578649a5a0d0bf93275a2a4',
+          'b049113b002dfb8aca52351898af17c18d2cf5d09a257fdd98c16e6b1298b943',
       },
       {
         id: 'chapter-03-solutions-fr',
@@ -181,9 +181,9 @@ export const printableChapters: readonly PrintableChapter[] = [
           en: 'Solutions to 600 exercises',
         },
         path: 'pdfs/exercises/chapter-03-solutions-fr.pdf',
-        pages: 40,
+        pages: 67,
         sha256:
-          '3678912c2cbb964269d4cb3abc8d5fd94776b9226e7420fc88b0777cb46c76d2',
+          '5ade58a6d4d051a304e5812d9a9cc9dc0b3888290f18ef198fd4730ae2759ffe',
       },
       {
         id: 'chapter-03-challenge-exercises-fr',
@@ -194,9 +194,9 @@ export const printableChapters: readonly PrintableChapter[] = [
           en: 'Math Ninja challenges',
         },
         path: 'pdfs/exercises/chapter-03-challenge-exercises-fr.pdf',
-        pages: 6,
+        pages: 22,
         sha256:
-          '0fbb50cfe4ec7fb8ac737b3f32551cfd225686b6377aa2eaa5122b73fb9e685d',
+          '0a098663dd3628a18a1513e5345812dd9df12c6d387d9a7ef7b330d4df54f0a9',
       },
       {
         id: 'chapter-03-challenge-solutions-fr',
@@ -207,9 +207,9 @@ export const printableChapters: readonly PrintableChapter[] = [
           en: 'Math Ninja challenge solutions',
         },
         path: 'pdfs/exercises/chapter-03-challenge-solutions-fr.pdf',
-        pages: 6,
+        pages: 22,
         sha256:
-          '841783a9e0811619207a4255377d3418ae3a1f9559fa67094cf433bf97124296',
+          '96cb87d52fed267e2e2a9872aa8497003cf8841afde60af90417e6fb60566cca',
       },
       {
         id: 'chapter-03-exercises-en',
