@@ -22,16 +22,17 @@ test('printable exercise catalog covers four chapters, Ninja challenges and Chap
   const paths = new Set<string>();
 
   for (const chapter of printableChapters) {
-    const documentPairs =
-      chapter.id === 'chapter-03' ? 4 : chapter.id === 'chapter-04' ? 1 : 2;
+    const documentPairs = {
+      'chapter-01': 2,
+      'chapter-02': 2,
+      'chapter-03': 4,
+      'chapter-04': 1,
+    }[chapter.id];
     assert.equal(chapter.documents.length, documentPairs * 2);
-    assert.deepEqual(
-      chapter.documents.map((document) => document.type),
-      Array.from({ length: documentPairs }, () => [
-        'exercises',
-        'solutions',
-      ]).flat(),
-    );
+    for (let index = 0; index < chapter.documents.length; index += 2) {
+      assert.equal(chapter.documents[index]?.type, 'exercises');
+      assert.equal(chapter.documents[index + 1]?.type, 'solutions');
+    }
     assert.ok(chapter.title.fr && chapter.title.en);
     assert.ok(chapter.description.fr && chapter.description.en);
     for (const document of chapter.documents) {
@@ -64,12 +65,13 @@ test('printable exercise catalog covers four chapters, Ninja challenges and Chap
 
   assert.equal(paths.size, 18);
   for (const chapter of printableChapters.slice(0, 2)) {
-    assert.equal(
-      chapter.documents.filter((document) => document.id.includes('challenge'))
-        .length,
-      2,
+    const challengeDocuments = chapter.documents.filter(
+      (document) => document.id.includes('challenge'),
     );
-    assert.ok(chapter.documents.every((document) => document.language === 'fr'));
+    assert.equal(challengeDocuments.length, 2);
+    assert.ok(
+      chapter.documents.every((document) => document.language === 'fr'),
+    );
   }
   assert.equal(
     printableChapters[2]!.documents.filter(
