@@ -17,10 +17,12 @@ const { locale } = Astro.props;
 const text = printableCopy[locale];
 const chapters = printableChapters.map((chapter) => ({
   ...chapter,
-  documents: chapter.documents.map((document) => ({
-    ...document,
-    available: existsSync(join(process.cwd(), 'public', document.path)),
-  })),
+  documents: chapter.documents
+    .filter((document) => !document.language || document.language === locale)
+    .map((document) => ({
+      ...document,
+      available: existsSync(join(process.cwd(), 'public', document.path)),
+    })),
 }));
 const totalCount = printableChapters.reduce(
   (sum, chapter) => sum + chapter.count,
@@ -111,9 +113,10 @@ const missingFiles = chapters.some((chapter) =>
                 PDF · A4 · {document.pages} {text.pages}
               </p>
               <h4>
-                {document.type === 'exercises'
-                  ? text.exercises
-                  : text.solutions}
+                {document.label?.[locale] ??
+                  (document.type === 'exercises'
+                    ? text.exercises
+                    : text.solutions)}
               </h4>
               {document.available ? (
                 <a
@@ -129,9 +132,10 @@ const missingFiles = chapters.some((chapter) =>
                   aria-label={
                     text.download +
                     ': ' +
-                    (document.type === 'exercises'
-                      ? text.exercises
-                      : text.solutions) +
+                    (document.label?.[locale] ??
+                      (document.type === 'exercises'
+                        ? text.exercises
+                        : text.solutions)) +
                     ', ' +
                     chapter.title[locale]
                   }

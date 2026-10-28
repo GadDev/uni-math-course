@@ -1,0 +1,1223 @@
+{
+  "lessonId": "L40",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L40-E01",
+      "objectiveId": "L40-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "zero-exponent"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que vaut $e^0$ ?",
+        "en": "What is $e^0$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Tout nombre positif à la puissance zéro vaut un.",
+        "en": "Check the domain and the relevant rule first. Any positive number to the power zero is one."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Tout nombre positif à la puissance zéro vaut un.",
+            "en": "This choice is not correct. Any positive number to the power zero is one."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Tout nombre positif à la puissance zéro vaut un.",
+            "en": "Any positive number to the power zero is one."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$e$",
+            "en": "$e$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Tout nombre positif à la puissance zéro vaut un.",
+            "en": "This choice is not correct. Any positive number to the power zero is one."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Tout nombre positif à la puissance zéro vaut un.",
+        "en": "Any positive number to the power zero is one."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E02",
+      "objectiveId": "L40-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "exponential-derivative"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la dérivée de $e^x$ ?",
+        "en": "What is the derivative of $e^x$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. La fonction exponentielle est égale à sa dérivée.",
+        "en": "Check the domain and the relevant rule first. The exponential function equals its derivative."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$e^x$",
+            "en": "$e^x$"
+          },
+          "feedback": {
+            "fr": "La fonction exponentielle est égale à sa dérivée.",
+            "en": "The exponential function equals its derivative."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$xe^{x-1}$",
+            "en": "$xe^{x-1}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La fonction exponentielle est égale à sa dérivée.",
+            "en": "This choice is not correct. The exponential function equals its derivative."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La fonction exponentielle est égale à sa dérivée.",
+            "en": "This choice is not correct. The exponential function equals its derivative."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La fonction exponentielle est égale à sa dérivée.",
+        "en": "The exponential function equals its derivative."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E03",
+      "objectiveId": "L40-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "exponent-law"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que vaut $e^2e^3$ ?",
+        "en": "What is $e^2e^3$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Pour une base commune, les exposants s’additionnent lors d’une multiplication.",
+        "en": "Check the domain and the relevant rule first. For a common base, multiply by adding the exponents."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$e^6$",
+            "en": "$e^6$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Pour une base commune, les exposants s’additionnent lors d’une multiplication.",
+            "en": "This choice is not correct. For a common base, multiply by adding the exponents."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2e^3$",
+            "en": "$2e^3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Pour une base commune, les exposants s’additionnent lors d’une multiplication.",
+            "en": "This choice is not correct. For a common base, multiply by adding the exponents."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$e^5$",
+            "en": "$e^5$"
+          },
+          "feedback": {
+            "fr": "Pour une base commune, les exposants s’additionnent lors d’une multiplication.",
+            "en": "For a common base, multiply by adding the exponents."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Pour une base commune, les exposants s’additionnent lors d’une multiplication.",
+        "en": "For a common base, multiply by adding the exponents."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E04",
+      "objectiveId": "L40-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "derivative-at-zero"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $f(x)=e^x$, que vaut $Df(0)$ ?",
+        "en": "For $f(x)=e^x$, what is $Df(0)$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. La dérivée vaut $e^x$ et $e^0=1$.",
+        "en": "Check the domain and the relevant rule first. The derivative is $e^x$ and $e^0=1$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La dérivée vaut $e^x$ et $e^0=1$.",
+            "en": "This choice is not correct. The derivative is $e^x$ and $e^0=1$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "La dérivée vaut $e^x$ et $e^0=1$.",
+            "en": "The derivative is $e^x$ and $e^0=1$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$e$",
+            "en": "$e$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La dérivée vaut $e^x$ et $e^0=1$.",
+            "en": "This choice is not correct. The derivative is $e^x$ and $e^0=1$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La dérivée vaut $e^x$ et $e^0=1$.",
+        "en": "The derivative is $e^x$ and $e^0=1$."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E05",
+      "objectiveId": "L40-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "negative-exponent"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que vaut $e^1e^{-1}$ ?",
+        "en": "What is $e^1e^{-1}$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Les exposants totalisent zéro.",
+        "en": "Check the domain and the relevant rule first. The exponents add to zero."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Les exposants totalisent zéro.",
+            "en": "The exponents add to zero."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les exposants totalisent zéro.",
+            "en": "This choice is not correct. The exponents add to zero."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$e^2$",
+            "en": "$e^2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les exposants totalisent zéro.",
+            "en": "This choice is not correct. The exponents add to zero."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Les exposants totalisent zéro.",
+        "en": "The exponents add to zero."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E06",
+      "objectiveId": "L40-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "exp-positivity"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $f(x)=e^x$, laquelle est vraie pour tout réel x ?",
+        "en": "For $f(x)=e^x$, which statement holds for every real x?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. L’exponentielle est strictement positive.",
+        "en": "Check the domain and the relevant rule first. The exponential is strictly positive."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$f(x)\\le0$",
+            "en": "$f(x)\\le0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’exponentielle est strictement positive.",
+            "en": "This choice is not correct. The exponential is strictly positive."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$f(x)=0$",
+            "en": "$f(x)=0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’exponentielle est strictement positive.",
+            "en": "This choice is not correct. The exponential is strictly positive."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$f(x)>0$",
+            "en": "$f(x)>0$"
+          },
+          "feedback": {
+            "fr": "L’exponentielle est strictement positive.",
+            "en": "The exponential is strictly positive."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "L’exponentielle est strictement positive.",
+        "en": "The exponential is strictly positive."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E07",
+      "objectiveId": "L40-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "exp-chain"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dérivez $e^{2x}$.",
+        "en": "Differentiate $e^{2x}$."
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Dérivez l’exposant intérieur : $D(2x)=2$.",
+        "en": "Check the domain and the relevant rule first. Differentiate the inner exponent: $D(2x)=2$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$e^{2x}$",
+            "en": "$e^{2x}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Dérivez l’exposant intérieur : $D(2x)=2$.",
+            "en": "This choice is not correct. Differentiate the inner exponent: $D(2x)=2$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2e^{2x}$",
+            "en": "$2e^{2x}$"
+          },
+          "feedback": {
+            "fr": "Dérivez l’exposant intérieur : $D(2x)=2$.",
+            "en": "Differentiate the inner exponent: $D(2x)=2$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2xe^{2x}$",
+            "en": "$2xe^{2x}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Dérivez l’exposant intérieur : $D(2x)=2$.",
+            "en": "This choice is not correct. Differentiate the inner exponent: $D(2x)=2$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Dérivez l’exposant intérieur : $D(2x)=2$.",
+        "en": "Differentiate the inner exponent: $D(2x)=2$."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E08",
+      "objectiveId": "L40-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "exp-multiple"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dérivez $4e^x$.",
+        "en": "Differentiate $4e^x$."
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Le facteur quatre reste devant la dérivée.",
+        "en": "Check the domain and the relevant rule first. The factor four stays outside the derivative."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4e^x$",
+            "en": "$4e^x$"
+          },
+          "feedback": {
+            "fr": "Le facteur quatre reste devant la dérivée.",
+            "en": "The factor four stays outside the derivative."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$e^x$",
+            "en": "$e^x$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le facteur quatre reste devant la dérivée.",
+            "en": "This choice is not correct. The factor four stays outside the derivative."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$4xe^x$",
+            "en": "$4xe^x$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le facteur quatre reste devant la dérivée.",
+            "en": "This choice is not correct. The factor four stays outside the derivative."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le facteur quatre reste devant la dérivée.",
+        "en": "The factor four stays outside the derivative."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E09",
+      "objectiveId": "L40-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "exp-monotone"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "D'après le graphe, comment varie $e^x$ quand x augmente ?",
+        "en": "According to its graph, how does $e^x$ vary as x increases?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Sa dérivée positive montre que la fonction croît.",
+        "en": "Check the domain and the relevant rule first. Its positive derivative shows the function increases."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\text{décroît}$",
+            "en": "$\\text{décroît}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Sa dérivée positive montre que la fonction croît.",
+            "en": "This choice is not correct. Its positive derivative shows the function increases."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\text{reste constante}$",
+            "en": "$\\text{reste constante}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Sa dérivée positive montre que la fonction croît.",
+            "en": "This choice is not correct. Its positive derivative shows the function increases."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\text{croît}$",
+            "en": "$\\text{croît}$"
+          },
+          "feedback": {
+            "fr": "Sa dérivée positive montre que la fonction croît.",
+            "en": "Its positive derivative shows the function increases."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Sa dérivée positive montre que la fonction croît.",
+        "en": "Its positive derivative shows the function increases."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E10",
+      "objectiveId": "L40-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "exp-inner"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dérivez $e^{x+3}$.",
+        "en": "Differentiate $e^{x+3}$."
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. La dérivée de l’exposant $x+3$ vaut 1.",
+        "en": "Check the domain and the relevant rule first. The exponent $x+3$ has derivative 1."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$3e^{x+3}$",
+            "en": "$3e^{x+3}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La dérivée de l’exposant $x+3$ vaut 1.",
+            "en": "This choice is not correct. The exponent $x+3$ has derivative 1."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$e^{x+3}$",
+            "en": "$e^{x+3}$"
+          },
+          "feedback": {
+            "fr": "La dérivée de l’exposant $x+3$ vaut 1.",
+            "en": "The exponent $x+3$ has derivative 1."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$e^x+3$",
+            "en": "$e^x+3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La dérivée de l’exposant $x+3$ vaut 1.",
+            "en": "This choice is not correct. The exponent $x+3$ has derivative 1."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La dérivée de l’exposant $x+3$ vaut 1.",
+        "en": "The exponent $x+3$ has derivative 1."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E11",
+      "objectiveId": "L40-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "exp-initial"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle fonction vérifie $Df=f$ et $f(0)=1$ ?",
+        "en": "Which function satisfies $Df=f$ and $f(0)=1$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. La condition initiale exclut $2e^x$ ; l’exponentielle satisfait les deux relations.",
+        "en": "Check the domain and the relevant rule first. The initial condition excludes $2e^x$; the exponential satisfies both properties."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$f(x)=e^x$",
+            "en": "$f(x)=e^x$"
+          },
+          "feedback": {
+            "fr": "La condition initiale exclut $2e^x$ ; l’exponentielle satisfait les deux relations.",
+            "en": "The initial condition excludes $2e^x$; the exponential satisfies both properties."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$f(x)=2e^x$",
+            "en": "$f(x)=2e^x$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La condition initiale exclut $2e^x$ ; l’exponentielle satisfait les deux relations.",
+            "en": "This choice is not correct. The initial condition excludes $2e^x$; the exponential satisfies both properties."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$f(x)=x$",
+            "en": "$f(x)=x$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La condition initiale exclut $2e^x$ ; l’exponentielle satisfait les deux relations.",
+            "en": "This choice is not correct. The initial condition excludes $2e^x$; the exponential satisfies both properties."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La condition initiale exclut $2e^x$ ; l’exponentielle satisfait les deux relations.",
+        "en": "The initial condition excludes $2e^x$; the exponential satisfies both properties."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E12",
+      "objectiveId": "L40-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "exp-tangent"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quelle est la tangente à $f(x)=e^x$ au point d’abscisse 0 ?",
+        "en": "What is the tangent to $f(x)=e^x$ at x=0?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. La hauteur et la pente en zéro valent toutes deux un.",
+        "en": "Check the domain and the relevant rule first. Both the height and slope at zero equal one."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$y=x$",
+            "en": "$y=x$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La hauteur et la pente en zéro valent toutes deux un.",
+            "en": "This choice is not correct. Both the height and slope at zero equal one."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$y=e^x$",
+            "en": "$y=e^x$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La hauteur et la pente en zéro valent toutes deux un.",
+            "en": "This choice is not correct. Both the height and slope at zero equal one."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$y=x+1$",
+            "en": "$y=x+1$"
+          },
+          "feedback": {
+            "fr": "La hauteur et la pente en zéro valent toutes deux un.",
+            "en": "Both the height and slope at zero equal one."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La hauteur et la pente en zéro valent toutes deux un.",
+        "en": "Both the height and slope at zero equal one."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E13",
+      "objectiveId": "L40-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "composed-exp"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dérivez $e^{x^2}$.",
+        "en": "Differentiate $e^{x^2}$."
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. La chaîne multiplie par la dérivée de $x^2$, soit $2x$.",
+        "en": "Check the domain and the relevant rule first. The chain rule multiplies by the derivative $2x$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$e^{2x}$",
+            "en": "$e^{2x}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La chaîne multiplie par la dérivée de $x^2$, soit $2x$.",
+            "en": "This choice is not correct. The chain rule multiplies by the derivative $2x$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2xe^{x^2}$",
+            "en": "$2xe^{x^2}$"
+          },
+          "feedback": {
+            "fr": "La chaîne multiplie par la dérivée de $x^2$, soit $2x$.",
+            "en": "The chain rule multiplies by the derivative $2x$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$xe^{x^2}$",
+            "en": "$xe^{x^2}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La chaîne multiplie par la dérivée de $x^2$, soit $2x$.",
+            "en": "This choice is not correct. The chain rule multiplies by the derivative $2x$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La chaîne multiplie par la dérivée de $x^2$, soit $2x$.",
+        "en": "The chain rule multiplies by the derivative $2x$."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E14",
+      "objectiveId": "L40-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "linear-exponent"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Dérivez $e^{3x-2}$.",
+        "en": "Differentiate $e^{3x-2}$."
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Le facteur trois est la dérivée de $3x-2$.",
+        "en": "Check the domain and the relevant rule first. The factor three is the derivative of $3x-2$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$3e^{3x-2}$",
+            "en": "$3e^{3x-2}$"
+          },
+          "feedback": {
+            "fr": "Le facteur trois est la dérivée de $3x-2$.",
+            "en": "The factor three is the derivative of $3x-2$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$e^{3x-2}$",
+            "en": "$e^{3x-2}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le facteur trois est la dérivée de $3x-2$.",
+            "en": "This choice is not correct. The factor three is the derivative of $3x-2$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3xe^{3x-2}$",
+            "en": "$3xe^{3x-2}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le facteur trois est la dérivée de $3x-2$.",
+            "en": "This choice is not correct. The factor three is the derivative of $3x-2$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le facteur trois est la dérivée de $3x-2$.",
+        "en": "The factor three is the derivative of $3x-2$."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L40-E15",
+      "objectiveId": "L40-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "relative-rate"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $f(x)=e^x$, que vaut $Df(x)/f(x)$ ?",
+        "en": "For $f(x)=e^x$, what is $Df(x)/f(x)$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Comme f est strictement positive et $Df=f$, le rapport vaut un.",
+        "en": "Check the domain and the relevant rule first. Since f is positive and $Df=f$, the ratio is one."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x$",
+            "en": "$x$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Comme f est strictement positive et $Df=f$, le rapport vaut un.",
+            "en": "This choice is not correct. Since f is positive and $Df=f$, the ratio is one."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Comme f est strictement positive et $Df=f$, le rapport vaut un.",
+            "en": "This choice is not correct. Since f is positive and $Df=f$, the ratio is one."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Comme f est strictement positive et $Df=f$, le rapport vaut un.",
+            "en": "Since f is positive and $Df=f$, the ratio is one."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Comme f est strictement positive et $Df=f$, le rapport vaut un.",
+        "en": "Since f is positive and $Df=f$, the ratio is one."
+      },
+      "lessonId": "L40",
+      "version": 1,
+      "prerequisites": [
+        "L38",
+        "L39"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          14,
+          15
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

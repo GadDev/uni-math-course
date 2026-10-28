@@ -2,22 +2,9 @@
   --signal-red: var(--green-accent);
   --accent: var(--green-accent);
 }
-/* Ember Signal is an accent and artwork treatment, not a second shell. */
-.chapter-overview[data-chapter='C04'] {
-  --signal-red: var(--orange-accent);
-  --accent: var(--orange-text);
-}
-.chapter-overview[data-chapter='C04'] .signal-title {
-  font-size: clamp(3.1rem, 6.2vw, 6.6rem);
-}
-.chapter-overview[data-chapter='C04'] .signal-title > span {
-  white-space: normal;
-}
-.chapter-overview[data-chapter='C04'] .chapter-pending-note {
-  padding-block: 1rem;
-  border-top: 1px solid var(--soft-line);
-  color: var(--muted);
-  font-size: 0.875rem;
+.chapter-overview[data-chapter='C03'] {
+  --signal-red: var(--blue-accent);
+  --accent: var(--blue-accent);
 }
 .chapter-overview .hero {
   min-height: 490px;
@@ -154,6 +141,23 @@ html[lang='en'] .chapter-overview .signal-title {
   margin: 0.4rem 0 0;
   font-size: 1.4rem;
   color: var(--muted);
+}
+/* Chapter 4 uses the shared overview shell with the Ember Signal accent. */
+.chapter-overview[data-chapter='C04'] {
+  --signal-red: var(--orange-accent);
+  --accent: var(--orange-text);
+}
+.chapter-overview[data-chapter='C04'] .signal-title {
+  font-size: clamp(3.1rem, 6.2vw, 6.6rem);
+}
+.chapter-overview[data-chapter='C04'] .signal-title > span {
+  white-space: normal;
+}
+.chapter-overview[data-chapter='C04'] .chapter-pending-note {
+  padding-block: 1rem;
+  border-top: 1px solid var(--soft-line);
+  color: var(--muted);
+  font-size: 0.875rem;
 }
 @media (max-width: 1050px) {
   .chapter-subtitle {

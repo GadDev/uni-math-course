@@ -56,9 +56,14 @@ test('truth-table keys are compared row by row', async () => {
   assert.ok(logic.checkTable(item, 'B => A').length > 0);
 });
 
-test('course map reports gaps and stale availability claims', async () => {
+test('Chapter 1 course map retains source-specific page coverage', async () => {
   const lessons = await course.loadCourse();
-  const result = course.analyse(lessons, 96);
+  // Each chapter has its own PDF and page numbering. Filtering Chapter 1
+  // avoids treating Chapter 3 source page 2 as coverage of the Logic PDF.
+  const logicLessons = new Map(
+    [...lessons].filter(([id]) => id >= 'L01' && id <= 'L20'),
+  );
+  const result = course.analyse(logicLessons, 96);
   const registry = JSON.parse(
     await readFile(
       new URL('../../content/releases.json', import.meta.url),
