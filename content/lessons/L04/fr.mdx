@@ -1,26 +1,56 @@
 ---
 lessonId: L04
 locale: fr
-version: 4
+version: 5
 status: extended
 title: "Équivalence sémantique et lois booléennes"
 summary: "Vérifier que deux formules ont la même table de vérité, appliquer les lois booléennes, reconnaître les tautologies et les contradictions, et réfuter une équivalence par une seule ligne."
-minutes: 30
+minutes: 45
 objectives: [L04-O01, L04-O02, L04-O03, L04-O04, L04-O05, L04-O06]
 prerequisites: [L01, L02, L03]
 sourcePages: [15, 16, 17, 18, 19]
 ---
+import BooleanLab from '../../../src/components/BooleanLab';
+
 # Équivalence sémantique et lois booléennes
 
 ## Votre objectif
 
 À la fin de cette leçon, vous savez vérifier que deux formules sont sémantiquement équivalentes, appliquer les lois booléennes, reconnaître les tautologies et les contradictions, et réfuter une équivalence par une seule ligne.
 
-**Prérequis :** L01 à L03 : valeurs de vérité, connecteurs $\land$, $\lor$, $\neg$, et tables de vérité complètes.
+**Prérequis :** <a href="/fr/lessons/L01/">L01</a> à <a href="/fr/lessons/L03/">L03</a> : valeurs de vérité et tables complètes. Voici le petit mémo nécessaire :
+
+| Écriture | Lecture | Quand vaut-elle 1 ? |
+| --- | --- | --- |
+| $A$ | Une assertion, vraie (1) ou fausse (0) | Selon la situation choisie |
+| $\neg A$ | NON A | Quand A vaut 0 |
+| $A\land B$ | A ET B | Quand les deux valent 1 |
+| $A\lor B$ | A OU B, inclusif | Quand au moins une vaut 1, y compris les deux |
+
+Une **affectation** est un choix de valeurs pour toutes les variables. Avec deux variables, il y a $2^2=4$ choix ; avec trois, $2^3=8$. Les parenthèses indiquent les groupes à calculer ; la négation porte sur la formule qui la suit.
+
+**Comment utiliser cette leçon :** prédisez d’abord un résultat sur papier, manipulez ensuite une activité, puis expliquez le résultat avec vos mots. Les activités sont publiques et ne nécessitent pas de compte. Pour imprimer, utilisez la commande d’impression du navigateur : des exemples fixes remplacent les commandes, et les corrections sont développées.
 
 ## Équivalence : la même table de vérité
 
+Imaginez deux contrôles d’accès : « avoir un billet ET une invitation » et « avoir une invitation ET un billet ». Ils acceptent exactement les mêmes personnes. L’ordre de la phrase change, la condition reste la même.
+
+Deux formules sont **sémantiquement équivalentes** si aucun choix des valeurs de leurs variables ne les distingue. « Même résultat aujourd’hui » est plus faible que « même résultat dans tous les cas ».
+
 Deux assertions $A$ et $B$ sont **sémantiquement équivalentes**, ce qu’on écrit $A \equiv B$, lorsqu’elles ont la même table de vérité : elles prennent la même valeur pour **toute** affectation. La logique ne peut pas distinguer deux assertions équivalentes.
+
+<aside className="l04-memo">
+
+**Comment vérifier une équivalence ?**
+
+1. Recenser toutes les variables présentes dans les deux formules.
+2. Énumérer les $2^n$ affectations sans oubli ni doublon, où $n$ est le nombre de variables.
+3. Calculer les sous-formules, puis la colonne finale de chaque formule.
+4. Comparer les colonnes : toutes identiques signifie équivalence ; une différence fournit un **contre-exemple**.
+
+</aside>
+
+Par exemple, $A\land B$ et $A\lor B$ valent toutes deux 1 pour A = B = 1. Pourtant elles diffèrent pour A = 1, B = 0 : 0 contre 1. Un accord ne prouve donc rien au-delà de sa ligne.
 
 ## L’équivalence n’est pas un connecteur
 
@@ -30,7 +60,7 @@ Ne le confondez pas avec $\Leftrightarrow$, la biconditionnelle étudiée dans l
 
 ## Premier exemple : deux négations
 
-Avant de comparer huit lignes, essayez une seule variable. NOT inverse la valeur ; une seconde négation la rétablit.
+Avant de comparer huit lignes, essayez une seule variable. NON inverse la valeur ; une seconde négation la rétablit.
 
 | A | ¬A | ¬¬A |
 | --- | --- | --- |
@@ -44,6 +74,10 @@ Les première et dernière colonnes coïncident sur toutes les lignes : $\neg\ne
 Une loi booléenne est un outil pour remplacer une formule par une autre qui donne toujours le même résultat. Pensez à deux recettes différentes qui produisent la même colonne finale. Ici $A$, $B$ et $C$ peuvent aussi désigner des formules entières : une loi reste valable quand on remplace chaque occurrence d’une même lettre par la même formule.
 
 Une affectation fixe une valeur pour chaque variable. Un calcul sur une seule affectation illustre une loi ; il ne la prouve pas. Pour la vérifier par table, il faut comparer toutes les lignes. Les explications et exemples ci-dessous sont des développements originaux du projet.
+
+Nous utilisons les symboles logiques, sans remplacer ET par une multiplication ni OU par une addition. En particulier, $1\lor1=1$, tandis que $1+1=2$ dans l’arithmétique ordinaire.
+
+<BooleanLab kind="rewrite" locale="fr" client:visible />
 
 ### Commutativité : changer l’ordre
 
@@ -67,6 +101,8 @@ Avec $A=1$ et $B=0$, comparez $A\lor B$ et $B\lor A$ : les deux valent $1$. Puis
 
 ![Arbre de A ET (B OU C) : le ET principal relie A au groupe B OU C ; B et C sont les deux entrées du OU.](/diagrams/formula-grouping.svg)
 
+Le schéma précédent indique le groupement : on calcule B OU C avant de le relier à A par ET. La distributivité transforme ensuite ce groupe en deux branches :
+
 $A \land (B \lor C) \equiv (A \land B) \lor (A \land C)$.
 
 Fixons une personne et un événement. Soit $A$ : « elle est inscrite », $B$ : « elle a un billet papier » et $C$ : « elle a un billet numérique ». « Inscrite ET munie d’un billet papier OU numérique » se précise en $A \land (B \lor C)$. Cela veut dire « inscrite avec billet papier, OU inscrite avec billet numérique ». La condition $A$ accompagne chaque possibilité.
@@ -78,6 +114,16 @@ $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$.
 Pourquoi ? Si $A$ est vraie, les deux membres sont vrais. Si $A$ est fausse, les deux membres demandent que $B$ et $C$ soient vraies. C’est une justification qui couvre tous les cas, sans analogie trompeuse avec l’addition ordinaire.
 
 Les deux lois se lisent aussi de droite à gauche : c’est **factoriser**. Par exemple $(A \land B) \lor (A \land C)$ devient $A \land (B \lor C)$. On conserve les deux branches ; supprimer $A \land C$ ferait perdre une possibilité.
+
+<aside className="l04-memo">
+
+**Comment développer ou factoriser ?** Repérez d’abord le connecteur extérieur et le groupe entre parenthèses. En développant, recopiez la partie commune dans chaque branche. En factorisant, cherchez la partie identique dans les deux branches et rassemblez les autres termes. Ce changement n’est pas une suppression de condition.
+
+**Calcul résolu :** A = 1, B = 0, C = 1 donne $1\land(0\lor1)=1\land1=1$. Après développement, $(1\land0)\lor(1\land1)=0\lor1=1$. Si on oublie la seconde branche, il ne reste que $1\land0=0$ : l’erreur devient visible.
+
+</aside>
+
+<BooleanLab kind="distribute" locale="fr" client:visible />
 
 ### Double négation : annuler deux inversions
 
@@ -104,7 +150,16 @@ $\neg(A \lor B) \equiv \neg A \land \neg B$ et $\neg(A \land B) \equiv \neg A \l
 
 Avec $A$ : « j’ai un billet » et $B$ : « j’ai une invitation », nier « j’ai un billet OU une invitation » signifie n’avoir **ni billet ni invitation**. Les deux doivent manquer. Nier « j’ai un billet ET une invitation » signifie qu’au moins une des deux choses manque ; il n’est pas nécessaire que les deux manquent.
 
-Méthode : repérez le connecteur à l’intérieur des parenthèses, échangez ET et OU, puis niez chaque partie. Pour nier un groupe plus grand, avancez une paire de parenthèses à la fois.
+**Comment nier un groupe ?**
+
+1. Repérer exactement le groupe couvert par le NON extérieur.
+2. Échanger son connecteur principal : ET devient OU, OU devient ET.
+3. Nier chacune des deux parties, en conservant leurs groupes internes.
+4. Simplifier les doubles négations. Recommencer si une négation porte encore sur un groupe.
+
+**Pourquoi ça marche ?** Pour que « A ET B » échoue, au moins une condition doit échouer. Pour que « A OU B » échoue, les deux doivent échouer. Le OU est inclusif : il permet aussi que les deux conditions manquent.
+
+La table suivante vérifie la première situation sur les quatre choix :
 
 | A | B | ¬(A ∧ B) | ¬A ∨ ¬B |
 | --- | --- | --- | --- |
@@ -112,6 +167,19 @@ Méthode : repérez le connecteur à l’intérieur des parenthèses, échangez 
 | 0 | 1 | 1 | 1 |
 | 1 | 0 | 1 | 1 |
 | 1 | 1 | 0 | 0 |
+
+La seconde loi se vérifie elle aussi sur quatre lignes :
+
+| A | B | ¬(A ∨ B) | ¬A ∧ ¬B |
+| --- | --- | --- | --- |
+| 0 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 0 |
+| 1 | 0 | 0 | 0 |
+| 1 | 1 | 0 | 0 |
+
+<BooleanLab kind="morgan" locale="fr" client:visible />
+
+La carte de l’activité représente un **univers U** très simple : les quatre affectations possibles de A et B. Chaque case est un cas complet ; les hachures indiquent où la formule de gauche est vraie. Aucun cas extérieur à U n’est sous-entendu.
 
 ### Exemple de réécriture en deux étapes
 
@@ -123,11 +191,29 @@ Partons de $\neg(\neg A \lor B)$. De Morgan donne $\neg\neg A \land \neg B$. La 
 2. Factorisez $(C \land A) \lor (C \land B)$.
 3. Niez $A \lor \neg B$ sans laisser de négation devant un groupe.
 
-Corrections : $A \land B$ (commutativité) ; $C \land (A \lor B)$ (distributivité en sens inverse) ; $\neg A \land B$ (de Morgan puis double négation). Ce sont des essais guidés avec solutions visibles ; les exercices suivants permettent de réessayer avec d’autres formules.
+<details className="l04-solution">
+<summary>Voir les corrections expliquées</summary>
+
+1. $B\land A\equiv A\land B$ : la commutativité échange l’ordre, sans changer ET.
+2. $(C\land A)\lor(C\land B)\equiv C\land(A\lor B)$ : C est commun aux deux branches ; on factorise.
+3. $\neg(A\lor\neg B)\equiv\neg A\land\neg\neg B\equiv\neg A\land B$ : de Morgan, puis double négation.
+
+</details>
+
+**Défi :** réécrivez $\neg(A\lor(B\land C))$ sans NON devant un groupe. Traitez les parenthèses de l’extérieur vers l’intérieur.
+
+<details className="l04-solution">
+<summary>Voir un indice, puis la solution du défi</summary>
+
+Commencez par nier le OU principal : $\neg A\land\neg(B\land C)$. Il reste une négation de groupe ; appliquez de Morgan au ET : $\neg A\land(\neg B\lor\neg C)$. Les parenthèses sont nécessaires pour conserver les deux possibilités du OU.
+
+</details>
 
 ## Exemple guidé : vérifier une loi de distributivité
 
-Vérifions que $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$. Calculez les deux membres sur les huit affectations.
+Vérifions que $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$. Avant de lire les huit lignes, essayez A = 0, B = 1, C = 0. À gauche : $0\lor(1\land0)=0$. À droite : $(0\lor1)\land(0\lor0)=1\land0=0$.
+
+Pour remplir la table, gardez A fixe sur quatre lignes, B sur deux lignes, et alternez C à chaque ligne. Cela énumère exactement les huit affectations.
 
 | A | B | C | A ∨ (B ∧ C) | (A ∨ B) ∧ (A ∨ C) |
 | --- | --- | --- | --- | --- |
@@ -142,7 +228,7 @@ Vérifions que $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$. Calculez
 
 Les deux colonnes coïncident sur chaque ligne : l’équivalence est donc vraie. Cette vérification utilise des tables de vérité ; dériver la loi à partir des autres est une méthode différente, qui n’est pas demandée ici.
 
-Ce travail guidé, dont la solution est visible, n’est pas une réponse indépendante pour mesurer la maîtrise.
+Cachez ensuite les deux dernières colonnes et reconstruisez-les sur papier. N’utilisez le corrigé qu’après votre essai.
 
 ## Tautologies et contradictions
 
@@ -167,10 +253,28 @@ Si $A = 0$, le membre de gauche vaut zéro et les deux conjonctions du membre de
 
 Les exercices sélectionnés travaillent l’équivalence, les tables complètes, les lois de Boole, les tautologies, les contradictions et les contre-exemples. Le nombre et la version actuels sont indiqués dans la pratique.
 
-La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
+Les laboratoires ci-dessus sont libres d’accès. Pour la pratique enregistrée, utilisez le lien « S’exercer » : elle nécessite un compte et dépend de la version publiée.
+
+<section className="l04-revision">
 
 ## À retenir
 
-Deux formules sont équivalentes lorsque leurs tables de vérité sont identiques. Les lois booléennes donnent de telles équivalences ; une seule ligne différente en réfute une ; les tautologies et les contradictions sont les formules toujours vraies ou toujours fausses.
+**Ma fiche de révision — L04**
+
+- **Valeurs :** 0 = faux, 1 = vrai. OU est inclusif.
+- **Équivalence :** même résultat pour toutes les affectations. Une différence suffit à réfuter.
+- **Commutativité :** échanger l’ordre ; **associativité :** regrouper des connecteurs identiques.
+- **Double négation :** $\neg\neg A\equiv A$.
+- **De Morgan :** $\neg(A\land B)\equiv\neg A\lor\neg B$ ; $\neg(A\lor B)\equiv\neg A\land\neg B$.
+- **Distributivité :** $A\land(B\lor C)\equiv(A\land B)\lor(A\land C)$ ; $A\lor(B\land C)\equiv(A\lor B)\land(A\lor C)$.
+- **Tautologie :** toujours vraie, comme $A\lor\neg A$. **Contradiction :** toujours fausse, comme $A\land\neg A$.
+
+**Mon mode d’emploi :** repérer le groupe → choisir une loi → écrire une seule transformation avec sa justification → vérifier la nouvelle formule. En cas de doute, dresser la table complète.
+
+**Trois erreurs à éviter :** nier chaque partie sans échanger ET/OU ; oublier une branche en développant ; conclure après une seule ligne d’accord.
+
+**Auto-évaluation :** sans regarder la leçon, expliquez pourquoi $\neg(A\land B)$ peut être vraie même si A est vraie. Réponse : B peut être fausse ; la conjonction vaut alors 0 et sa négation vaut 1.
+
+</section>
 
 Texte et exemples originaux du projet. La couverture suit les pages 15 à 19 du PDF selon la carte du cours du dépôt. La justification par cas de l’objectif de la page 19 et les vérifications complétées sont des développements originaux du projet.
