@@ -8,7 +8,7 @@ import {
   printableCopy,
 } from '../../src/lib/printable-exercises.ts';
 
-test('printable exercise catalog covers four chapters and Chapter 3 bilingual PDFs', () => {
+test('printable exercise catalog covers four chapters, Ninja challenges and Chapter 3 bilingual PDFs', () => {
   assert.equal(printableChapters.length, 4);
   assert.equal(
     printableChapters.reduce((sum, chapter) => sum + chapter.count, 0),
@@ -22,28 +22,22 @@ test('printable exercise catalog covers four chapters and Chapter 3 bilingual PD
   const paths = new Set<string>();
 
   for (const chapter of printableChapters) {
-    assert.equal(chapter.documents.length, chapter.id === 'chapter-03' ? 8 : 2);
+    const documentPairs =
+      chapter.id === 'chapter-03' ? 4 : chapter.id === 'chapter-04' ? 1 : 2;
+    assert.equal(chapter.documents.length, documentPairs * 2);
     assert.deepEqual(
       chapter.documents.map((document) => document.type),
-      chapter.id === 'chapter-03'
-        ? [
-            'exercises',
-            'solutions',
-            'exercises',
-            'solutions',
-            'exercises',
-            'solutions',
-            'exercises',
-            'solutions',
-          ]
-        : ['exercises', 'solutions'],
+      Array.from({ length: documentPairs }, () => [
+        'exercises',
+        'solutions',
+      ]).flat(),
     );
     assert.ok(chapter.title.fr && chapter.title.en);
     assert.ok(chapter.description.fr && chapter.description.en);
     for (const document of chapter.documents) {
       assert.match(document.path, /^pdfs\/exercises\/[a-z0-9-]+\.pdf$/);
       assert.match(document.sha256, /^[0-9a-f]{64}$/);
-      if (chapter.id === 'chapter-03') {
+      if (chapter.id !== 'chapter-04') {
         assert.ok(document.language === 'fr' || document.language === 'en');
         assert.ok(document.label?.fr && document.label?.en);
       }
@@ -68,7 +62,15 @@ test('printable exercise catalog covers four chapters and Chapter 3 bilingual PD
     }
   }
 
-  assert.equal(paths.size, 14);
+  assert.equal(paths.size, 18);
+  for (const chapter of printableChapters.slice(0, 2)) {
+    assert.equal(
+      chapter.documents.filter((document) => document.id.includes('challenge'))
+        .length,
+      2,
+    );
+    assert.ok(chapter.documents.every((document) => document.language === 'fr'));
+  }
   assert.equal(
     printableChapters[2]!.documents.filter(
       (document) => document.language === 'fr',
