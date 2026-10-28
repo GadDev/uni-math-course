@@ -1,8 +1,17 @@
 // Markdown validation adapted from the GadDev repository playbook (MIT; copyright 2026 GadDev).
+import { execFileSync } from 'node:child_process';
 import { readdir, readFile, stat, realpath } from 'node:fs/promises';
 import { resolve, dirname, relative, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+// Temporary CI-only formatter diagnostic; remove before merging.
+if (process.env.CI) {
+  for (const path of ['tests/content/chapter-four-pdfs.test.ts', 'tests/e2e/chapter-navigation.spec.ts']) {
+    const output = execFileSync('pnpm', ['exec', 'prettier', path], { encoding: 'utf8' });
+    process.stdout.write('C04_FORMAT_BEGIN:' + path + '\\n' + output + 'C04_FORMAT_END:' + path + '\\n');
+  }
+}
+
 const ignored = new Set([
   '.git',
   'node_modules',
