@@ -2,6 +2,14 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.15.0](https://github.com/GadDev/uni-math-course/compare/v0.14.0...v0.15.0) (2026-10-28)
+
+
+### Features
+
+* **content:** clarify L37 with animated React learning panels ([#110](https://github.com/GadDev/uni-math-course/issues/110)) ([0b6badb](https://github.com/GadDev/uni-math-course/commit/0b6badb5b77045ed1ec613487b9e75a9c2117d5b))
+* **lessons:** clarify L05 with accessible interactive examples ([#111](https://github.com/GadDev/uni-math-course/issues/111)) ([13bcb2a](https://github.com/GadDev/uni-math-course/commit/13bcb2a8092965be82220182052b360415b9180d))
+
 ## [0.14.0](https://github.com/GadDev/uni-math-course/compare/v0.13.1...v0.14.0) (2026-10-28)
 
 
