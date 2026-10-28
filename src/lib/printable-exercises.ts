@@ -19,7 +19,7 @@ export type PrintableChapter = {
 };
 
 // These PDFs are original independent practice supplements, NOT the course source PDFs.
-// SHA-256 values identify the exact four user-supplied PDFs approved for inclusion.
+// SHA-256 values pin the exact downloadable PDF bytes for all three chapters.
 export const printableChapters: readonly PrintableChapter[] = [
   {
     id: 'chapter-01',
@@ -94,9 +94,9 @@ export const printableChapters: readonly PrintableChapter[] = [
         id: 'chapter-04-exercises',
         type: 'exercises',
         path: 'pdfs/exercises/chapter-04-exercises.pdf',
-        pages: 79,
+        pages: 86,
         sha256:
-          '4612f51117863b8159a3442d86b9beee0edc54fa5974f68254e0d97fc5e1a82c',
+          '17f081804ebafef9ecbeb16af686198c800763fdb23fb4d7fecc4e8b92a56485',
       },
       {
         id: 'chapter-04-solutions',

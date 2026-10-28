@@ -16,7 +16,7 @@ The supplied PDF covers binary messages, alphabets, substitution codes, unique d
 
 ## Printable books
 
-Two **bilingual A4 workbooks** have been regenerated: **700 questions** (the previous 600 plus 100 original Huffman exercises) and **700 matching detailed solutions**. The PDF documents were generated in the conversation's PDF environment and are available there as the full-layout review editions. In addition, **compact A4 website editions with the same 700 exercise IDs** were generated as binary GitHub blobs and committed under `public/pdfs/exercises/`. Their verified metadata is exercises: **79 pages**, SHA-256 `4612f51117863b8159a3442d86b9beee0edc54fa5974f68254e0d97fc5e1a82c`; solutions: **134 pages**, SHA-256 `bb88e3eacdcf1cd0d32b73fd7f4f1baa9100b144bc977514ac6fedaa643e29a1`. These match `src/lib/printable-exercises.ts`, and site download links are active after merging/deploying the PR.
+Two **bilingual A4 workbooks** have been regenerated: **700 questions** (the previous 600 plus 100 original Huffman exercises) and **700 matching detailed solutions**. The PDF documents were generated in the conversation's PDF environment and are available there as the full-layout review editions. In addition, **compact A4 website editions with the same 700 exercise IDs** were generated as binary GitHub blobs and committed under `public/pdfs/exercises/`. Current, byte-verified site assets: exercises **86 pages**, SHA-256 `17f081804ebafef9ecbeb16af686198c800763fdb23fb4d7fecc4e8b92a56485`; solutions **134 pages**, SHA-256 `bb88e3eacdcf1cd0d32b73fd7f4f1baa9100b144bc977514ac6fedaa643e29a1`. The newer 105-page solutions upload on 28 October 2026 had its binary streams damaged by UTF-8 replacement, so the previous intact 134-page, 700-ID solution PDF was restored to avoid publishing an unusable file. A correctly uploaded 105-page replacement may be reviewed separately. These match `src/lib/printable-exercises.ts`, and site download links are active after merging/deploying the PR.
 
 Exercise IDs in the books are `C04-T01-E001`–`C04-T07-E100`. The **105 signed-in interactive exercises are a separate assessed selection**, not a claim that all 700 printable questions are online. Signed-in practice is answered and persisted server-side using the existing security and RLS contracts.
 
@@ -25,7 +25,7 @@ Exercise IDs in the books are `C04-T01-E001`–`C04-T07-E100`. The **105 signed-
 - [ ] Independently review and correct the 105 interactive solutions and all 700 workbook solutions.
 - [ ] Review French/English wording parity and accessibility.
 - [ ] Confirm authenticated sign-in, practice submission and private saved progress with real cloud credentials.
-- [x] Commit the two compact PDF binaries and their verified SHA-256 hashes; verify both contain all 700 matching exercise IDs.
+- [x] Register both intact PDF binaries and verified SHA-256 hashes; validate the matching 700 exercise IDs in plain or compressed PDF streams.
 - [ ] Run full CI, responsive layout and keyboard navigation tests.
 
 No Chapter 3 files, existing chapter bank versions, or Supabase access controls are changed.
