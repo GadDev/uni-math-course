@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.17.0](https://github.com/GadDev/uni-math-course/compare/v0.16.0...v0.17.0) (2026-10-28)
+
+
+### Features
+
+* **pwa:** installable offline mathematics lessons ([#128](https://github.com/GadDev/uni-math-course/issues/128)) ([e48cf9a](https://github.com/GadDev/uni-math-course/commit/e48cf9a76df15b0defe994aef837268b5cc0d2be))
+
 ## [0.16.0](https://github.com/GadDev/uni-math-course/compare/v0.15.0...v0.16.0) (2026-10-28)
 
 
