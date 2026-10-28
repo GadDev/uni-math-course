@@ -1,13 +1,19 @@
 import test from 'node:test';
+import { lessonFiles } from '../../scripts/lesson-files.ts';
+const sourcePath = (id: string, locale: string) =>
+  lessonFiles(
+    id,
+    JSON.parse(readFileSync('content/releases.json', 'utf8')).lessons[id]
+      .fingerprints,
+  )[locale === 'fr' ? 0 : 1]!;
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
-import { readLessonSource } from '../../scripts/lesson-files.ts';
 import {
   droitesSourceParts,
   droitesSourceTopics,
 } from '../../src/lib/droites-source.ts';
 
-test('the PDF path preserves source order across existing lesson boundaries in both languages', async () => {
+test('the PDF path preserves source order across existing lesson boundaries in both languages', () => {
   assert.equal(droitesSourceParts.length, 5);
   const pages = droitesSourceTopics.map((topic) => topic.page);
   assert.equal(new Set(pages).size, pages.length);
@@ -21,10 +27,7 @@ test('the PDF path preserves source order across existing lesson boundaries in b
   );
   for (const locale of ['fr', 'en']) {
     for (const [index, topic] of droitesSourceTopics.entries()) {
-      const text = await readLessonSource(
-        `content/lessons/${topic.lessonId}`,
-        locale,
-      );
+      const text = readFileSync(sourcePath(topic.lessonId, locale), 'utf8');
       assert.equal(text.split(`id="pdf-${topic.page}"`).length - 1, 1);
       const next = droitesSourceTopics[index + 1];
       const marker = `<span id="pdf-${topic.page}"`;
@@ -60,12 +63,10 @@ test('the PDF path preserves source order across existing lesson boundaries in b
   }
 });
 
-test('teaching figures have paired local SVGs, descriptions and matching mathematical notation', async () => {
+test('teaching figures have paired local SVGs, descriptions and matching mathematical notation', () => {
   for (let i = 21; i <= 36; i++) {
-    const pair = await Promise.all(
-      ['fr', 'en'].map((locale) =>
-        readLessonSource(`content/lessons/L${i}`, locale),
-      ),
+    const pair = ['fr', 'en'].map((locale) =>
+      readFileSync(sourcePath(`L${i}`, locale), 'utf8'),
     );
     const formulas = (text: string) =>
       [...text.matchAll(/\$([^$\n]+)\$/g)].map((m) => m[1]);

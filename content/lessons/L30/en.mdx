@@ -1,16 +1,22 @@
 ---
 lessonId: L30
 locale: en
-version: 2
+version: 4
 status: extended
 title: "Two points and intersections"
 summary: "Construct a line and distinguish unique intersection, parallelism and coincidence."
-minutes: 30
+minutes: 40
 objectives: [L30-O01, L30-O02, L30-O03, L30-O04, L30-O05, L30-O06]
 prerequisites: [L25, L29]
 sourcePages: [40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
 ---
+import GeometryLab from '../../../src/components/GeometryLab';
+
+<div className="geometry-study">
+
 # Two points and intersections
+
+Two distinct points determine a line; two lines pose another question: which points do they share? You will move from construction to solving a system. First revisit first-degree equations ([L25](../L25/)) and the role of slope ([L29](../L29/)).
 
 ## Objectives and prerequisites
 
@@ -39,6 +45,21 @@ The letters change, not the method: input $C$ replaces $x$ and output $F$ replac
 ## Two distinct points
 
 For $A=(x_1,y_1)$ and $B=(x_2,y_2)$ with $x_1\ne x_2$, slope is $m=(y_2-y_1)/(x_2-x_1)$. Then $p=y_1-mx_1$. Reversing point order changes both quotient signs and preserves slope. If horizontal coordinates agree and points are distinct, the line is vertical. Repeating a single point does not determine a unique line.
+
+## How to recover the equation and check boundary cases
+
+State that both points lie on the line: $y_1=mx_1+p$ and $y_2=mx_2+p$. Subtraction gives $y_2-y_1=m(x_2-x_1)$. For $x_2\ne x_1$, this yields:
+
+$$m=\frac{y_2-y_1}{x_2-x_1},\qquad p=y_1-mx_1.$$
+
+The second formula simply isolates $p$ in the first equation. These are connected steps: first eliminate the constant, then recover it.
+
+1. Compare the points. Identical points do not determine a unique line.
+2. Distinct points with the same horizontal coordinate give vertical line $x=x_1$.
+3. Otherwise calculate slope, subtracting in **the same order** in numerator and denominator.
+4. Calculate the intercept, then substitute **both** points into the resulting equation.
+
+<GeometryLab kind="points" locale="en" client:visible />
 
 ## Guided example: construct, then check
 
@@ -88,6 +109,18 @@ These cases explain the three outcomes of a system. A single equation with two u
 <figcaption>Infinitely many shared points.</figcaption>
 </figure>
 
+## How to solve an intersection
+
+A common point satisfies both equations **at once**. For $y=m_1x+p_1$ and $y=m_2x+p_2$, equating the two expressions for the same vertical coordinate gives:
+
+$$m_1x+p_1=m_2x+p_2\quad\Longleftrightarrow\quad(m_1-m_2)x=p_2-p_1.$$
+
+Before dividing, examine $m_1-m_2$. If nonzero, calculate $x$, then $y$, and check both equations. If zero, compare intercepts: different intercepts give a contradiction; equal intercepts leave every point on the line. The formula for $x$ cannot be used in all three cases. For a vertical line, substitute its horizontal coordinate directly into the other equation.
+
+In the activity, advance one step at a time: write both constraints, equate or substitute, collect without dividing too soon, then check the resulting point.
+
+<GeometryLab kind="intersection" locale="en" client:visible />
+
 ## One, none or infinitely many
 
 For two nonvertical lines, different slopes give one intersection. Equal slopes and different intercepts give no intersection. Identical parameters describe the same line and therefore infinitely many common points. After elimination, a false equality such as $0=3$ indicates no solution; an identity such as $0=0$ requires retaining the remaining equation.
@@ -98,8 +131,32 @@ To intersect $x=4$ and $y=-x+6$, directly substitute the fixed horizontal coordi
 
 <p class="source-next"><a href="/en/lessons/L31/#pdf-50">Next in the PDF : The two half-planes →</a></p>
 
+## Your turn on paper
+
+Build the line through $(0,2)$ and $(2,0)$, then find its intersection with $y=x$. Check both coordinates.
+
+<details>
+<summary>Show the worked solution</summary>
+
+Slope is $(0-2)/(2-0)=-1$ and intercept is $2$, hence $y=-x+2$. Intersection requires $x=-x+2$, then $2x=2$ and $x=1$. Thus $y=1$; $(1,1)$ satisfies both equations. The constructed line also recovers both initial points.
+
+</details>
+
+<section className="geometry-revision">
+
+## Printable revision sheet
+
+- **Two points:** first handle repeated points and vertical lines; otherwise calculate $m$ then $p$.
+- **Intersection:** solve $(m_1-m_2)x=p_2-p_1$, separating the zero-coefficient case.
+- **Check:** a result is a pair, to substitute in both equations.
+- **Traps:** dividing by zero; interpreting “no visible intersection” as “no solution”; ignoring the model’s domain.
+
+</section>
+
 ## Practice and recap
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+</div>

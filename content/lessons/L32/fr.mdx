@@ -1,16 +1,23 @@
 ---
 lessonId: L32
 locale: fr
-version: 3
+version: 5
 status: extended
 title: "Du repère aux pixels"
 summary: "Construire et inverser une transformation vers un écran dont l’axe vertical descend."
-minutes: 25
+minutes: 35
 objectives: [L32-O01, L32-O02, L32-O03, L32-O04, L32-O05, L32-O06]
 prerequisites: [L25, L27, L29]
 sourcePages: [52, 53, 54, 55]
 ---
+import GeometryLab from '../../../src/components/GeometryLab';
+import GeometryExtensions from '../../../src/components/GeometryExtensions';
+
+<div className="geometry-study">
+
 # Du repère aux pixels
+
+Le même point peut avoir deux adresses : ses coordonnées mathématiques et sa position sur l’écran. Nous allons construire le changement d’adresse, puis vérifier le trajet inverse. Revoyez les coordonnées ([L27](../L27/)) et l’isolement d’une inconnue ([L25](../L25/)).
 
 ## Objectifs et prérequis
 
@@ -69,6 +76,24 @@ Avec $s_x>0$ et $s_y>0$ pixels par unité, utiliser $u=u_0+s_xx$ et $v=v_0-s_yy$
 <figcaption>Monter dans le plan diminue la coordonnée v de l’écran.</figcaption>
 </figure>
 
+## Comment construire et inverser la transformation ?
+
+Une **échelle** est ici un nombre de pixels par unité mathématique : $s_x$ horizontalement, $s_y$ verticalement. Le point écran $(u_0,v_0)$ indique où placer l’origine mathématique.
+
+1. Multipliez le déplacement horizontal par son échelle : $s_xx$, puis ajoutez la position de l’origine : $u=u_0+s_xx$.
+2. Une hauteur mathématique positive doit monter à l’écran, donc diminuer le numéro de ligne : $v=v_0-s_yy$.
+3. Pour revenir, annulez les opérations dans l’ordre inverse :
+
+$$u-u_0=s_xx\quad\Longrightarrow\quad x=\frac{u-u_0}{s_x},$$
+
+$$v_0-v=s_yy\quad\Longrightarrow\quad y=\frac{v_0-v}{s_y}.$$
+
+Les divisions demandent des échelles non nulles ; dans cette convention, on impose $s_x>0$ et $s_y>0$. Les indices 0 désignent l’origine écran choisie, pas une multiplication par zéro.
+
+**D’où vient la pente écran ?** Deux points donnent $\Delta u=s_x\Delta x$ et $\Delta v=-s_y\Delta y$. Pour une droite non verticale, diviser donne $\Delta v/\Delta u=-(s_y/s_x)m$. Le signe moins provient du changement d’orientation, pas d’une erreur de calcul.
+
+<GeometryLab kind="screen" locale="fr" client:visible />
+
 ## Exemple guidé : aller et retour
 
 Prenons $u=300+40x$ et $v=200-40y$. Le point $(-2,3)$ devient $(220,80)$. Pour revenir, utiliser $x=(u-300)/40$ et $y=(200-v)/40$. Le pixel $(380,240)$ correspond donc à $(2,-1)$ avant toute incertitude liée à l’arrondi.
@@ -77,14 +102,44 @@ Prenons $u=300+40x$ et $v=200-40y$. Le point $(-2,3)$ devient $(220,80)$. Pour r
 
 Avec les mêmes échelles, la droite $y=2x+1$ devient $v=760-2u$. En effet, remplacer $x=(u-300)/40$ dans $v=200-40(2x+1)$. La pente écran est négative : un trait montant vers la droite possède une ordonnée écran décroissante. En général, la pente devient $-(s_y/s_x)m$.
 
+Les étapes sont $v=200-40(2x+1)=160-80x$, puis $v=160-80(u-300)/40=160-2u+600=760-2u$.
+
 ## Arrondir après le calcul
 
 Pour afficher un point, calculer les coordonnées continues, puis appliquer une règle d’arrondi explicite. Arrondir au plus proche limite l’erreur à un demi-pixel par coordonnée ; les égalités à mi-chemin demandent une convention. Plusieurs points réels peuvent donner le même pixel : l’arrondi n’est pas inversible. Une coordonnée hors image reste hors image même si sa transformation algébrique est correcte.
 
 <p class="source-next"><a href="/fr/lessons/L33/#pdf-56">Suite du PDF : Rastériser : quels pixels allumer ? →</a></p>
 
+L’activité suivante utilise une petite image de neuf colonnes et neuf lignes. Les indices commencent à zéro. Les coordonnées continues sont arrondies au plus proche, avec les égalités vers l’entier supérieur. Contrôlez la visibilité après cet arrondi : une position continue dans la fenêtre peut donner un indice interdit.
+
+<GeometryExtensions kind="rounding" locale="fr" client:visible />
+
+## À vous de jouer sur papier
+
+Avec $(u_0,v_0)=(200,150)$ et $s_x=s_y=40$, transformez $(-2,3)$, puis retrouvez le point de départ. Pourquoi cet aller-retour ne suffit-il plus après un arrondi ?
+
+<details>
+<summary>Afficher la correction expliquée</summary>
+
+On obtient $u=200+40(-2)=120$ et $v=150-40\cdot3=30$. Le retour donne $x=(120-200)/40=-2$ et $y=(150-30)/40=3$. Après arrondi, plusieurs positions continues peuvent donner le même indice de pixel : l’information perdue ne peut pas être retrouvée exactement. Vérifiez aussi les bornes de l’image après la convention d’arrondi choisie.
+
+</details>
+
+<section className="geometry-revision">
+
+## Fiche de révision à imprimer
+
+- **Transformation :** $u=u_0+s_xx$, $v=v_0-s_yy$, pour $s_x,s_y>0$.
+- **Retour continu :** $x=(u-u_0)/s_x$, $y=(v_0-v)/s_y$.
+- **Méthode :** fixer origine et échelles, calculer, vérifier le retour, puis seulement arrondir selon une convention explicite et contrôler la visibilité.
+- **Pièges :** oublier le moins ; confondre coordonnées continues et indices entiers ; croire qu’un arrondi est inversible.
+
+</section>
+
 ## Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+</div>

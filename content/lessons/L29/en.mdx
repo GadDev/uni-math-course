@@ -1,16 +1,22 @@
 ---
 lessonId: L29
 locale: en
-version: 2
+version: 4
 status: extended
 title: "Slope and intercept"
 summary: "Interpret affine line parameters and recognise boundary cases."
-minutes: 30
+minutes: 40
 objectives: [L29-O01, L29-O02, L29-O03, L29-O04, L29-O05, L29-O06]
 prerequisites: [L28]
 sourcePages: [37, 38, 39]
 ---
+import GeometryLab from '../../../src/components/GeometryLab';
+
+<div className="geometry-study">
+
 # Slope and intercept
+
+An affine line is a rule with two settings: a starting height and a constant change. This lesson connects those settings to points, then to a drawing. Check that you can calculate a signed difference and test a point in an equation ([L28](../L28/)).
 
 ## Objectives and prerequisites
 
@@ -65,6 +71,22 @@ In $y=mx+p$, $p$ is the vertical intercept, so the line passes through $(0,p)$. 
 <figcaption>Slope compares the two steps; the intercept locates the crossing of the vertical axis.</figcaption>
 </figure>
 
+## Where does slope come from?
+
+Greek letter $\Delta$, “delta”, means **final value minus initial value** here. For two points on the line, set $\Delta x=x_2-x_1$ and $\Delta y=y_2-y_1$. Subscripts 1 and 2 distinguish points; they are not powers.
+
+Since $y_1=mx_1+p$ and $y_2=mx_2+p$, subtracting the equations removes the constant:
+
+$$\Delta y=(mx_2+p)-(mx_1+p)=m(x_2-x_1)=m\Delta x.$$
+
+If $\Delta x\ne0$, division gives $m=\Delta y/\Delta x$. This explains why the ratio is the same for any two distinct points on a nonvertical line. A vertical line instead has $\Delta x=0$: the quotient does not exist.
+
+**How to plot?** First place $(0,p)$. Choose a convenient horizontal displacement and multiply by slope to find the vertical displacement. For $m=-1/2$ and $p=2$, moving right by $2$ gives $\Delta y=(-1/2)\cdot2=-1$: the second point is $(2,1)$. Check $1=(-1/2)\cdot2+2$.
+
+Try a negative horizontal displacement, then zero: the same ratio is recovered for distinct points; it is undefined when displacement is zero.
+
+<GeometryLab kind="slope" locale="en" client:visible />
+
 ## Plotting and shifting a line
 
 To plot $y=(1/2)x+1$, place $(0,1)$, then move right by $2$ units and up by $1$ unit to obtain $(2,2)$. Two distinct points suffice. Changing only $p$ shifts the line vertically. Changing $m$ while keeping $p$ fixed retains point $(0,p)$ and changes the inclination.
@@ -99,8 +121,32 @@ Two lines with equal slopes and different constants are distinct and parallel. Z
 
 <p class="source-next"><a href="/en/lessons/L30/#pdf-40">Next in the PDF : A line through two points →</a></p>
 
+## Your turn on paper
+
+For $y=-3x+4$, give the vertical-axis crossing, then the change in $y$ when $x$ increases by $2$. Would a vertical line have zero slope?
+
+<details>
+<summary>Show the worked solution</summary>
+
+The point is $(0,4)$. Change is $\Delta y=m\Delta x=-3\cdot2=-6$: move down six units, regardless of the starting point. Zero slope gives a horizontal line; a vertical line has undefined slope. Coordinates and changes are different quantities.
+
+</details>
+
+<section className="geometry-revision">
+
+## Printable revision sheet
+
+- **Form:** $y=mx+p$, for a nonvertical line; $p$ is a vertical coordinate and $m$ a ratio of changes.
+- **Calculation:** $\Delta y=m\Delta x$; if $\Delta x\ne0$, $m=\Delta y/\Delta x$.
+- **Method:** plot the intercept, construct a step, check a second point.
+- **Traps:** negative slope does not make every vertical coordinate negative; equal slope and equal intercept give one line, not two distinct parallel lines.
+
+</section>
+
 ## Practice and recap
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+</div>
