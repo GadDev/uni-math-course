@@ -36,20 +36,50 @@ export const printableChapters: readonly PrintableChapter[] = [
     },
     documents: [
       {
-        id: 'chapter-01-exercises',
+        id: 'chapter-01-exercises-fr',
         type: 'exercises',
-        path: 'pdfs/exercises/chapter-01-exercises.pdf',
-        pages: 83,
+        language: 'fr',
+        label: { fr: '300 exercices', en: '300 exercises' },
+        path: 'pdfs/exercises/chapter-01-exercises-fr.pdf',
+        pages: 106,
         sha256:
-          '7212c87b5bb45783a0bb88186d7123b75c46949fee352526e5a7a25913159ecd',
+          'cb630915e7190ed0a1e75e815f514af9294bdff4f899b3e08eddae53f9eb3644',
       },
       {
-        id: 'chapter-01-solutions',
+        id: 'chapter-01-solutions-fr',
         type: 'solutions',
-        path: 'pdfs/exercises/chapter-01-solutions.pdf',
-        pages: 23,
+        language: 'fr',
+        label: {
+          fr: 'Corrigés des 300 exercices',
+          en: 'Solutions to 300 exercises',
+        },
+        path: 'pdfs/exercises/chapter-01-solutions-fr.pdf',
+        pages: 90,
         sha256:
-          '2bb310d4f8dfdc6dc659fb6f6386747958ec39b257c4059cd9fa1010d93c9be4',
+          '556c4d5d99c7cf631eb277f4fc10cdd237662862b7513432d32081781377359b',
+      },
+      {
+        id: 'chapter-01-challenge-exercises-fr',
+        type: 'exercises',
+        language: 'fr',
+        label: { fr: 'Défis Math Ninja', en: 'Math Ninja challenges' },
+        path: 'pdfs/exercises/chapter-01-challenge-exercises-fr.pdf',
+        pages: 34,
+        sha256:
+          '948d1de84bacb46ab20c28419ddbb382784905e691fc12350564a0b3009229c1',
+      },
+      {
+        id: 'chapter-01-challenge-solutions-fr',
+        type: 'solutions',
+        language: 'fr',
+        label: {
+          fr: 'Corrigés des défis Ninja',
+          en: 'Math Ninja challenge solutions',
+        },
+        path: 'pdfs/exercises/chapter-01-challenge-solutions-fr.pdf',
+        pages: 36,
+        sha256:
+          '2e2c8dd2d42bf5e6389ab64bd9b925107ec47b22638c9d12ab81630d56d5e626',
       },
     ],
   },
