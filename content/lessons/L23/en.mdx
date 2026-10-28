@@ -1,16 +1,17 @@
 ---
 lessonId: L23
 locale: en
-version: 4
+version: 5
 status: extended
 title: "Fractions, powers and roots"
 summary: "Preserve quotient domains and read powers and roots correctly."
-minutes: 43
+minutes: 53
 objectives: [L23-O01, L23-O02, L23-O03, L23-O04, L23-O05, L23-O06]
 prerequisites: [L21, L22]
 sourcePages: [13, 14]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import FractionExplorer from '../../../src/components/FractionExplorer';
 
 <div className="algebra-study">
 
@@ -45,6 +46,29 @@ In $a/b$, the **numerator** $a$ counts parts and the **denominator** $b$ describ
 <img src="/diagrams/droites/en/fractions.svg" alt="One half represents three sixths and one third two sixths." width="440" height="360" loading="lazy" />
 <figcaption>Equal-sized parts make addition possible.</figcaption>
 </figure>
+
+## Reminder: the four fraction operations
+
+A fraction represents division. The denominator gives the size of the shares; the numerator counts those shares. For $b,d\ne0$, the rules are:
+
+<div className="method-table" tabIndex={0} role="region" aria-label="Four-operation reminder; scrollable table">
+
+| Operation | Rule | Example with steps |
+| --- | --- | --- |
+| Addition | $\frac ab+\frac cd=\frac{ad+bc}{bd}$ | $\frac12+\frac13=\frac36+\frac26=\frac56$ |
+| Subtraction | $\frac ab-\frac cd=\frac{ad-bc}{bd}$ | $\frac34-\frac16=\frac9{12}-\frac2{12}=\frac7{12}$ |
+| Multiplication | $\frac ab\cdot\frac cd=\frac{ac}{bd}$ | $\frac23\cdot\frac35=\frac6{15}=\frac25$ |
+| Division, also requiring $c\ne0$ | $\frac ab\div\frac cd=\frac ab\cdot\frac dc=\frac{ad}{bc}$ | $\frac34\div\frac98=\frac34\cdot\frac89=\frac{24}{36}=\frac23$ |
+
+</div>
+
+**To add or subtract**, make the shares equally sized, then add or subtract their counts. The common denominator may be the product of the denominators; a smaller common multiple also works. Never add fractions by adding their denominators.
+
+**To multiply**, no common denominator is needed. **To divide**, keep the first fraction and invert only the nonzero second one. A reciprocal “undoes” multiplication because $\frac cd\cdot\frac dc=1$ when $c,d\ne0$.
+
+**Finally, reduce** by dividing numerator and denominator by the same nonzero integer: $\frac6{15}=\frac{6\div3}{15\div3}=\frac25$. A denominator sign may move to the numerator: $\frac{a}{-b}=-\frac ab$. A zero fraction is an allowed number; using it as a divisor, or a zero denominator, makes the calculation undefined.
+
+<FractionExplorer locale="en" client:visible />
 
 ## Forms with conditions
 

@@ -1,16 +1,17 @@
 ---
 lessonId: L25
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Systems of two equations"
 summary: "Substitution, elimination and interpreting the number of solutions."
-minutes: 38
+minutes: 43
 objectives: [L25-O01, L25-O02, L25-O03, L25-O04, L25-O05, L25-O06]
 prerequisites: [L24]
 sourcePages: [23, 24]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
 
 <div className="algebra-study">
 
@@ -57,6 +58,14 @@ For $x+y=9$ and $2x-y=3$, the first row gives $y=9-x$. Substitution in the secon
 ## Guided example: elimination and units
 
 Two adult tickets and one child ticket cost $19$ euros; an adult and a child cost $12$ euros. Let $a$ and $e$ be prices in euros; the equations are $2a+e=19$ and $a+e=12$. Subtracting the second from the first gives $a=7$, then $e=5$. Reconstructing both purchases checks the model as well as the arithmetic.
+
+## Choose and follow a method
+
+**Substitution:** choose it when an unknown is already isolated, or easy to isolate. **Elimination:** look for opposite coefficients to add, or identical coefficients to subtract. The method changes the route, not the solution set.
+
+The workshop uses $x+y=s$ and $x-y=d$, where $s$ and $d$ are fixed numbers during solving. Adding the rows cancels $+y$ and $-y$. For substitution, the first row gives $y=s-x$; in the second, the **entire** group replaces $y$. Here the unknowns are unrestricted real numbers, not prices: negative or fractional results are allowed.
+
+<AlgebraMethodLab kind="elimination" locale="en" client:visible />
 
 ## Three possible outcomes
 

@@ -1,16 +1,17 @@
 ---
 lessonId: L22
 locale: fr
-version: 4
+version: 5
 status: extended
 title: "Développer et factoriser"
 summary: "Changer la forme d’une expression sans changer sa valeur."
-minutes: 45
+minutes: 50
 objectives: [L22-O01, L22-O02, L22-O03, L22-O04, L22-O05, L22-O06]
 prerequisites: [L21]
 sourcePages: [7, 8, 9, 10, 11, 12, 15, 16, 17, 18]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
 
 <div className="algebra-study">
 
@@ -91,6 +92,14 @@ Avant de choisir une identité du tableau, écrivez le carré comme un produit. 
 ## Exemple guidé : factoriser en deux temps
 
 Pour $x\in\mathbb{R}$, $3x^3-12x=3x(x^2-4)=3x(x-2)(x+2)$. Extrayez d’abord le facteur commun, puis reconnaissez la différence de carrés. Redévelopper vérifie le résultat. La forme factorisée rend les zéros visibles sans diviser par un facteur qui pourrait justement être nul.
+
+## Comment repérer une factorisation ?
+
+Commencez par chercher ce qui se répète **dans chaque terme**. Dans $6x^2-9x$, on reconnaît $6x^2=(3x)(2x)$ et $9x=(3x)3$. La distributivité, lue à l’envers, donne donc $6x^2-9x=3x(2x-3)$. On n’a pas divisé par $x$ : l’identité reste vraie à $x=0$.
+
+Sans facteur commun utile, cherchez une structure : deux carrés séparés par un moins, ou deux carrés accompagnés de deux fois leur produit. **Vérifier signifie ensuite redévelopper**, pas seulement essayer un nombre. L’atelier distingue cette preuve algébrique de la vérification numérique à une valeur choisie.
+
+<AlgebraMethodLab kind="factor" locale="fr" client:visible />
 
 ## Choisir une forme pour une question
 

@@ -1,16 +1,17 @@
 ---
 lessonId: L21
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Calculating with real numbers"
 summary: "Precedence, signs and reversible operations: a dependable foundation for equations."
-minutes: 35
+minutes: 40
 objectives: [L21-O01, L21-O02, L21-O03, L21-O04, L21-O05, L21-O06]
 prerequisites: [L10]
 sourcePages: [4, 5, 6]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
 
 <div className="algebra-study">
 
@@ -64,6 +65,14 @@ The numbers $0$ and $1$ have specific roles: $a+0=a$, $a\cdot1=a$ and $a\cdot0=0
 ## Signs and operations
 
 Subtracting $b$ means adding $-b$. Thus $a-b=a+(-b)$ and $a-(-b)=a+b$. A minus sign before a power does not automatically belong to its base: $-4^2=-16$, whereas $(-4)^2=16$. A product of two negative numbers is positive; this does not make a sum of two negative numbers positive.
+
+## Understand: sign, base and exponent
+
+For a power, first ask: **which number is multiplied by itself?** If $a\ge0$ and $n$ is a positive integer, $-a^n=-(a^n)$ means calculate the power of $a$, then its opposite. In contrast, $(-a)^n$ multiplies the number $-a$ by itself $n$ times.
+
+For $a=3$ and $n=2$: $-3^2=-(3\cdot3)=-9$, but $(-3)^2=(-3)(-3)=9$. For $n=3$, both expressions equal $-27$: this agreement does not make the instructions identical. Each pair of negative factors has positive product; with an odd count, one minus sign remains.
+
+<AlgebraMethodLab kind="powers" locale="en" client:visible />
 
 ## Guided example: preserve the structure
 

@@ -1,16 +1,17 @@
 ---
 lessonId: L27
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Coordinates and distances"
 summary: "Locate points and measure distance in an orthonormal coordinate system."
-minutes: 40
+minutes: 45
 objectives: [L27-O01, L27-O02, L27-O03, L27-O04, L27-O05, L27-O06]
 prerequisites: [L23]
 sourcePages: [28, 29, 30]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
 
 <div className="algebra-study">
 
@@ -84,6 +85,16 @@ The midpoint of $A=(0,2)$ and $B=(6,4)$ is $M=(3,3)$: average coordinates separa
 ## Watch the scales
 
 Perpendicular axes alone are insufficient to apply the previous formula directly. If one horizontal unit represents $2$ metres and one vertical unit $1$ metre, a coordinate difference $(3,4)$ represents a physical displacement $(6,4)$ metres, of length $\sqrt{52}$ metres. Stretching a drawing on screen does not change mathematical coordinates, but its visual lengths may mislead.
+
+## Convert units before measuring
+
+A coordinate counts coordinate-system units; a physical length is expressed in metres, centimetres, etc. Let $s_x>0$ be the metres per horizontal unit and $s_y>0$ the metres per vertical unit. Physical displacements are $X=s_x\Delta x$ and $Y=s_y\Delta y$, in metres.
+
+With perpendicular axes, Pythagoras applies to displacements expressed in the same unit: $D=\sqrt{(s_x\Delta x)^2+(s_y\Delta y)^2}$. For a change $(3;4)$, choosing $s_x=2$ and $s_y=1$ gives a physical triangle with legs $6$ m and $4$ m.
+
+Changing metres per unit here changes the represented physical situation. This differs from merely zooming the screen. The workshop graph shows displacements **in metres**, using the same physical scale on both axes; input coordinates remain displayed in the controls.
+
+<AlgebraMethodLab kind="scales" locale="en" client:visible />
 
 <p class="source-next"><a href="/en/lessons/L28/#pdf-31">Next in the PDF : Cartesian equation →</a></p>
 

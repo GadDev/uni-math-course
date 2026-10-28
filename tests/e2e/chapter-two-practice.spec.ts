@@ -70,17 +70,18 @@ for (const locale of ['fr', 'en']) {
         await expect(page.locator('.katex-error')).toHaveCount(0);
         await expect(page.locator('.katex-mathml math').first()).toBeAttached();
         await expect(page.locator('astro-island')).toHaveCount(
-          number <= 27 ? 1 : 0,
+          number <= 27 ? 2 : 0,
         );
         if (number <= 27) {
-          await expect(page.locator('astro-island')).toHaveAttribute(
-            'component-url',
-            /AlgebraExplorer/,
+          await expect(
+            page.locator('astro-island[component-url*="AlgebraExplorer"]'),
+          ).toHaveAttribute('component-url', /AlgebraExplorer/);
+          const methodIsland = page.locator(
+            `astro-island[component-url*="${number === 23 ? 'FractionExplorer' : 'AlgebraMethodLab'}"]`,
           );
-          await expect(page.locator('astro-island')).toHaveAttribute(
-            'client',
-            'visible',
-          );
+          await expect(methodIsland).toHaveCount(1);
+          for (const island of await page.locator('astro-island').all())
+            await expect(island).toHaveAttribute('client', 'visible');
         }
         expect(
           await page.evaluate(() => document.documentElement.scrollWidth),

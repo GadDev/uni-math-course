@@ -1,16 +1,17 @@
 ---
 lessonId: L22
 locale: en
-version: 4
+version: 5
 status: extended
 title: "Expanding and factorising"
 summary: "Change the form of an expression without changing its value."
-minutes: 45
+minutes: 50
 objectives: [L22-O01, L22-O02, L22-O03, L22-O04, L22-O05, L22-O06]
 prerequisites: [L21]
 sourcePages: [7, 8, 9, 10, 11, 12, 15, 16, 17, 18]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
 
 <div className="algebra-study">
 
@@ -91,6 +92,14 @@ Before choosing an identity from the table, write the square as a product. This 
 ## Guided example: factorise in two stages
 
 For $x\in\mathbb{R}$, $3x^3-12x=3x(x^2-4)=3x(x-2)(x+2)$. Extract the common factor first, then recognise the difference of squares. Expanding back checks the result. Factorised form reveals zeros without dividing by a factor that might itself be zero.
+
+## How do you recognise a factorisation?
+
+First look for what repeats **in every term**. In $6x^2-9x$, recognise $6x^2=(3x)(2x)$ and $9x=(3x)3$. Reading distributivity backwards therefore gives $6x^2-9x=3x(2x-3)$. We have not divided by $x$: the identity remains true at $x=0$.
+
+Without a useful common factor, look for a structure: two squares separated by subtraction, or two squares accompanied by twice their product. **Checking then means expanding back**, not merely trying a number. The workshop distinguishes this algebraic proof from a numerical check at one chosen value.
+
+<AlgebraMethodLab kind="factor" locale="en" client:visible />
 
 ## Choose a form for a question
 

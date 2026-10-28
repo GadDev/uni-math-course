@@ -1,16 +1,17 @@
 ---
 lessonId: L21
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Calculer dans les réels"
 summary: "Priorités, signes et opérations réversibles : poser des bases fiables avant les équations."
-minutes: 35
+minutes: 40
 objectives: [L21-O01, L21-O02, L21-O03, L21-O04, L21-O05, L21-O06]
 prerequisites: [L10]
 sourcePages: [4, 5, 6]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
 
 <div className="algebra-study">
 
@@ -64,6 +65,14 @@ Les nombres $0$ et $1$ jouent des rôles précis : $a+0=a$, $a\cdot1=a$ et $a\cd
 ## Signes et opérations
 
 Soustraire $b$ signifie ajouter $-b$. Ainsi $a-b=a+(-b)$ et $a-(-b)=a+b$. Le signe moins devant une puissance n’entre pas automatiquement dans sa base : $-4^2=-16$, tandis que $(-4)^2=16$. Un produit de deux nombres négatifs est positif ; cela ne transforme pas une somme de deux nombres négatifs en nombre positif.
+
+## Comprendre : signe, base et exposant
+
+Dans une puissance, posez d’abord la question : **quel nombre est multiplié par lui-même ?** Si $a\ge0$ et si $n$ est un entier positif, $-a^n=-(a^n)$ demande de calculer la puissance de $a$, puis son opposé. En revanche, $(-a)^n$ multiplie le nombre $-a$ par lui-même $n$ fois.
+
+Pour $a=3$ et $n=2$ : $-3^2=-(3\cdot3)=-9$, mais $(-3)^2=(-3)(-3)=9$. Pour $n=3$, les deux écritures valent $-27$ : ce cas d’accord ne rend pas les deux consignes identiques. Chaque paire de facteurs négatifs donne un produit positif ; avec un nombre impair de facteurs, il reste un signe moins.
+
+<AlgebraMethodLab kind="powers" locale="fr" client:visible />
 
 ## Exemple guidé : conserver la structure
 

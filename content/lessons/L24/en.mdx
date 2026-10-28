@@ -1,16 +1,17 @@
 ---
 lessonId: L24
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Equations and inequalities"
 summary: "Transform a condition without losing solutions or adding forbidden values."
-minutes: 40
+minutes: 45
 objectives: [L24-O01, L24-O02, L24-O03, L24-O04, L24-O05, L24-O06]
 prerequisites: [L21, L22, L23]
 sourcePages: [19, 20, 21, 22]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
 
 <div className="algebra-study">
 
@@ -48,6 +49,14 @@ Solving a real equation means finding every value making it true. Adding the sam
 ## Guided example: isolate then check
 
 For $x\in\mathbb{R}$, $4(x-1)+2=14$ gives $4x-2=14$, then $4x=16$ and $x=4$. Substituting into the statement gives $4(4-1)+2=14$. Substitution checks the candidate; reversible operations show that no other solution exists. These are distinct roles.
+
+## Why does a term appear to change sign?
+
+In $3x+5=11$, number $5$ does not “cross” the equals sign. Subtract $5$ **from both sides**: $3x+5-5=11-5$, hence $3x=6$. Then divide both sides by the same nonzero number: $3x/3=6/3$, hence $x=2$.
+
+The transformation remains reversible: multiply by $3$, then add $5$ to return to the start. For a general equation $ax+b=c$, handle $a=0$ before dividing: the condition then reduces to $b=c$, true for every real number or false for every real number. Unlike an inequality, an equality needs no direction reversal when dividing by a negative number.
+
+<AlgebraMethodLab kind="equation" locale="en" client:visible />
 
 <p class="source-next"><a href="/en/lessons/L24/#pdf-21">Next in the PDF : Inequalities →</a></p>
 

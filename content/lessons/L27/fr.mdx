@@ -1,16 +1,17 @@
 ---
 lessonId: L27
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Repères et distances"
 summary: "Placer des points et mesurer une distance dans un repère orthonormé."
-minutes: 40
+minutes: 45
 objectives: [L27-O01, L27-O02, L27-O03, L27-O04, L27-O05, L27-O06]
 prerequisites: [L23]
 sourcePages: [28, 29, 30]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
 
 <div className="algebra-study">
 
@@ -84,6 +85,16 @@ Le milieu de $A=(0,2)$ et $B=(6,4)$ est $M=(3,3)$ : on moyenne séparément les 
 ## Attention aux échelles
 
 Des axes perpendiculaires ne suffisent pas pour utiliser directement la formule précédente. Si une unité horizontale représente $2$ mètres et une unité verticale $1$ mètre, un écart de coordonnées $(3,4)$ représente un déplacement physique $(6,4)$ mètres, de longueur $\sqrt{52}$ mètres. Un dessin étiré à l’écran ne change pas les coordonnées mathématiques, mais ses longueurs visuelles peuvent être trompeuses.
+
+## Convertir les unités avant de mesurer
+
+Une coordonnée compte des unités du repère ; une longueur physique s’exprime en mètres, centimètres, etc. Notons $s_x>0$ le nombre de mètres par unité horizontale et $s_y>0$ celui par unité verticale. Les déplacements physiques sont $X=s_x\Delta x$ et $Y=s_y\Delta y$, en mètres.
+
+Avec des axes perpendiculaires, Pythagore s’applique à ces deux déplacements exprimés dans la même unité : $D=\sqrt{(s_x\Delta x)^2+(s_y\Delta y)^2}$. Pour un écart $(3;4)$, prendre $s_x=2$ et $s_y=1$ donne un triangle physique de côtés $6$ m et $4$ m.
+
+Changer le nombre de mètres par unité change ici la situation physique représentée. Cela diffère d’un simple zoom sur l’écran. Le graphique de l’atelier montre les déplacements **en mètres**, avec la même échelle physique sur les deux axes ; les coordonnées d’entrée restent affichées dans les commandes.
+
+<AlgebraMethodLab kind="scales" locale="fr" client:visible />
 
 <p class="source-next"><a href="/fr/lessons/L28/#pdf-31">Suite du PDF : Équation cartésienne →</a></p>
 

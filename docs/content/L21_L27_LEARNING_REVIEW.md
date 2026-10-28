@@ -1,5 +1,7 @@
 # L21–L27 — guided algebra and coordinate lessons
 
+Initial implementation record. The [methods follow-up](L21_L27_METHODS_REVIEW.md) documents the additional seven islands and current reading versions.
+
 Review date: 2026-10-28. Basis: `main` at `08ae1e5` (see Git history for the exact parent), all fourteen FR/EN reading sources, Astro configuration, shared reading layout and Chapter 2 teaching assets. The public URLs could not be retrieved through the web reader. The branch was subsequently rebased onto main `7ffe575` (L04 and L07 updates) and checked again. The repository and local production rendering are the review sources; the original PDF was unavailable. Existing source-page references and examples are retained, without asserting a new comparison with the PDF.
 
 Review type: AI-assisted mathematical and translation author self-check, **not independent peer review**, human translation approval, physical-device acceptance or hosted classroom acceptance. New explanations, diagrams and activities are original project work.

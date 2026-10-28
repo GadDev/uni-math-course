@@ -1,16 +1,17 @@
 ---
 lessonId: L26
 locale: fr
-version: 4
+version: 5
 status: extended
 title: "La notation sigma, les sommes et les moyennes"
 summary: "Lire la notation sigma, calculer une moyenne et comprendre les écarts centrés."
-minutes: 43
+minutes: 48
 objectives: [L26-O01, L26-O02, L26-O03, L26-O04, L26-O05, L26-O06]
 prerequisites: [L21, L23]
 sourcePages: [25, 26]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
 
 <div className="algebra-study">
 
@@ -66,6 +67,14 @@ Pour une suite finie de réels, $\sum_{i=1}^n a_i=a_1+\cdots+a_n$. L’indice es
 ## Exemple guidé : dérouler avant de simplifier
 
 La somme $\sum_{i=2}^4(2i-1)$ vaut $3+5+7=15$. Il y a trois termes, pas quatre. Une vérification utilise la linéarité : $2\sum_{i=2}^4i-\sum_{i=2}^41=2(2+3+4)-3=15$. Le terme constant est répété autant de fois que l’indice prend de valeurs.
+
+## Lire une somme sans sauter les bornes
+
+Dans $\sum_{i=r}^{s} a_i$, $r$ est l’indice de départ et $s$ l’indice d’arrivée, inclus. Pour des bornes entières avec $r\le s$, compter donne $s-r+1$ termes : il faut compter le premier terme lui aussi. De $2$ à $4$, la liste des indices est $2,3,4$.
+
+L’indice est une étiquette locale : $\sum_{i=2}^4(2i-1)=\sum_{j=2}^4(2j-1)$. Il faut changer **toutes** ses occurrences ensemble. En revanche, remplacer le terme par une constante change l’instruction : dans $\sum_{i=2}^4 5$, on ajoute toujours $5$, trois fois, et non les valeurs de l’indice.
+
+<AlgebraMethodLab kind="sigma" locale="fr" client:visible />
 
 <p class="source-next"><a href="/fr/lessons/L26/#pdf-26">Suite du PDF : Moyenne et écarts centrés →</a></p>
 

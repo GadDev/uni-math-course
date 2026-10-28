@@ -1,16 +1,17 @@
 ---
 lessonId: L23
 locale: fr
-version: 4
+version: 5
 status: extended
 title: "Fractions, puissances et racines"
 summary: "Conserver le domaine des quotients et lire correctement puissances et racines."
-minutes: 43
+minutes: 53
 objectives: [L23-O01, L23-O02, L23-O03, L23-O04, L23-O05, L23-O06]
 prerequisites: [L21, L22]
 sourcePages: [13, 14]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import FractionExplorer from '../../../src/components/FractionExplorer';
 
 <div className="algebra-study">
 
@@ -45,6 +46,29 @@ Dans $a/b$, le **numérateur** $a$ compte des parts et le **dénominateur** $b$ 
 <img src="/diagrams/droites/fr/fractions.svg" alt="Un demi représente trois sixièmes et un tiers deux sixièmes." width="440" height="360" loading="lazy" />
 <figcaption>Des parts de même taille permettent l’addition.</figcaption>
 </figure>
+
+## Mémo : les quatre opérations sur les fractions
+
+Une fraction représente une division. Le dénominateur donne la taille des parts ; le numérateur compte ces parts. Pour $b,d\ne0$, les règles sont :
+
+<div className="method-table" tabIndex={0} role="region" aria-label="Mémo des quatre opérations ; tableau défilant">
+
+| Opération | Règle | Exemple avec les étapes |
+| --- | --- | --- |
+| Addition | $\frac ab+\frac cd=\frac{ad+bc}{bd}$ | $\frac12+\frac13=\frac36+\frac26=\frac56$ |
+| Soustraction | $\frac ab-\frac cd=\frac{ad-bc}{bd}$ | $\frac34-\frac16=\frac9{12}-\frac2{12}=\frac7{12}$ |
+| Multiplication | $\frac ab\cdot\frac cd=\frac{ac}{bd}$ | $\frac23\cdot\frac35=\frac6{15}=\frac25$ |
+| Division, avec $c\ne0$ aussi | $\frac ab\div\frac cd=\frac ab\cdot\frac dc=\frac{ad}{bc}$ | $\frac34\div\frac98=\frac34\cdot\frac89=\frac{24}{36}=\frac23$ |
+
+</div>
+
+**Pour additionner ou soustraire**, rendez les parts de même taille, puis additionnez ou soustrayez leurs nombres. Le dénominateur commun peut être le produit des dénominateurs ; un multiple commun plus petit suffit aussi. On ne calcule jamais une addition en additionnant les dénominateurs.
+
+**Pour multiplier**, aucun dénominateur commun n’est nécessaire. **Pour diviser**, gardez la première fraction et inversez seulement la deuxième, qui doit être non nulle. L’inverse « défait » une multiplication parce que $\frac cd\cdot\frac dc=1$ lorsque $c,d\ne0$.
+
+**Pour finir, simplifiez** en divisant le numérateur et le dénominateur par un même entier non nul : $\frac6{15}=\frac{6\div3}{15\div3}=\frac25$. Un signe au dénominateur peut être remonté au numérateur : $\frac{a}{-b}=-\frac ab$. Une fraction nulle est permise comme nombre ; c’est sa position de diviseur, ou un dénominateur nul, qui rend le calcul interdit.
+
+<FractionExplorer locale="fr" client:visible />
 
 ## Des écritures avec conditions
 

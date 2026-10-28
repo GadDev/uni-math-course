@@ -1,16 +1,17 @@
 ---
 lessonId: L26
 locale: en
-version: 4
+version: 5
 status: extended
 title: "Sigma notation, sums and means"
 summary: "Read sigma notation, calculate a mean and understand centred deviations."
-minutes: 43
+minutes: 48
 objectives: [L26-O01, L26-O02, L26-O03, L26-O04, L26-O05, L26-O06]
 prerequisites: [L21, L23]
 sourcePages: [25, 26]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
 
 <div className="algebra-study">
 
@@ -66,6 +67,14 @@ For a finite sequence of reals, $\sum_{i=1}^n a_i=a_1+\cdots+a_n$. The index is 
 ## Guided example: expand before simplifying
 
 The sum $\sum_{i=2}^4(2i-1)$ is $3+5+7=15$. There are three terms, not four. A check uses linearity: $2\sum_{i=2}^4i-\sum_{i=2}^41=2(2+3+4)-3=15$. The constant term repeats once for every index value.
+
+## Read a sum without skipping the bounds
+
+In $\sum_{i=r}^{s} a_i$, $r$ is the starting index and $s$ the included ending index. For integer bounds with $r\le s$, there are $s-r+1$ terms: count the first term too. From $2$ to $4$, the index list is $2,3,4$.
+
+The index is a local label: $\sum_{i=2}^4(2i-1)=\sum_{j=2}^4(2j-1)$. Change **all** its occurrences together. Replacing the term with a constant instead changes the instruction: in $\sum_{i=2}^4 5$, always add $5$, three times, rather than the index values.
+
+<AlgebraMethodLab kind="sigma" locale="en" client:visible />
 
 <p class="source-next"><a href="/en/lessons/L26/#pdf-26">Next in the PDF : Mean and centred deviations →</a></p>
 

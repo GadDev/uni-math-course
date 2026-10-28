@@ -1,16 +1,17 @@
 ---
 lessonId: L25
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Systèmes de deux équations"
 summary: "Substitution, élimination et interprétation du nombre de solutions."
-minutes: 38
+minutes: 43
 objectives: [L25-O01, L25-O02, L25-O03, L25-O04, L25-O05, L25-O06]
 prerequisites: [L24]
 sourcePages: [23, 24]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
 
 <div className="algebra-study">
 
@@ -57,6 +58,14 @@ Pour $x+y=9$ et $2x-y=3$, la première ligne donne $y=9-x$. Substituer dans la s
 ## Exemple guidé : élimination et unités
 
 Deux billets adultes et un billet enfant coûtent $19$ euros ; un adulte et un enfant coûtent $12$ euros. Avec $a$ et $e$ les prix en euros, les équations sont $2a+e=19$ et $a+e=12$. Soustraire la seconde de la première donne $a=7$, puis $e=5$. Reconstituer les deux achats vérifie la modélisation autant que le calcul.
+
+## Choisir et suivre une méthode
+
+**Substitution :** choisissez-la lorsqu’une inconnue est déjà isolée, ou facile à isoler. **Élimination :** cherchez deux coefficients opposés pour additionner, ou identiques pour soustraire. Le choix de méthode change le chemin, pas l’ensemble des solutions.
+
+L’atelier utilise $x+y=s$ et $x-y=d$, où $s$ et $d$ sont deux nombres fixés pendant la résolution. En additionnant les lignes, les termes $+y$ et $-y$ s’annulent. Par substitution, la première ligne donne $y=s-x$ ; dans la seconde, **tout** ce groupe remplace $y$. Les inconnues sont ici des réels sans contrainte de prix : un résultat négatif ou fractionnaire est permis.
+
+<AlgebraMethodLab kind="elimination" locale="fr" client:visible />
 
 ## Trois issues possibles
 

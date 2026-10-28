@@ -1,16 +1,17 @@
 ---
 lessonId: L24
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Équations et inéquations"
 summary: "Transformer une condition sans perdre de solutions ni ajouter de valeurs interdites."
-minutes: 40
+minutes: 45
 objectives: [L24-O01, L24-O02, L24-O03, L24-O04, L24-O05, L24-O06]
 prerequisites: [L21, L22, L23]
 sourcePages: [19, 20, 21, 22]
 ---
 import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
 
 <div className="algebra-study">
 
@@ -48,6 +49,14 @@ Résoudre une équation réelle consiste à trouver toutes les valeurs qui la re
 ## Exemple guidé : isoler puis vérifier
 
 Pour $x\in\mathbb{R}$, $4(x-1)+2=14$ donne $4x-2=14$, puis $4x=16$ et $x=4$. Substituer dans l’énoncé donne $4(4-1)+2=14$. Le calcul de substitution vérifie le candidat ; les opérations réversibles montrent qu’il n’existe pas d’autre solution. Ces deux rôles sont distincts.
+
+## Pourquoi un terme semble-t-il changer de signe ?
+
+Dans $3x+5=11$, le nombre $5$ ne « traverse » pas le signe égal. On soustrait $5$ **aux deux membres** : $3x+5-5=11-5$, donc $3x=6$. Puis on divise les deux membres par le même nombre non nul : $3x/3=6/3$, donc $x=2$.
+
+La transformation reste réversible : on peut multiplier par $3$, puis ajouter $5$ pour revenir au départ. Pour une équation générale $ax+b=c$, il faut traiter $a=0$ avant toute division : la condition se réduit alors à $b=c$, vraie pour tous les réels ou fausse pour tous. Contrairement à une inégalité, une égalité ne demande pas d’inverser un sens quand on divise par un nombre négatif.
+
+<AlgebraMethodLab kind="equation" locale="fr" client:visible />
 
 <p class="source-next"><a href="/fr/lessons/L24/#pdf-21">Suite du PDF : Inéquations →</a></p>
 
