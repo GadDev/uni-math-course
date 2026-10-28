@@ -117,3 +117,7 @@ The lesson and examples are original project work. No source PDF or copied slide
 ## Licence
 
 Original project code and documentation are covered by the [MIT licence](LICENSE). Dependencies retain their own notices; bundled reading assets are listed in [CONTENT_LICENSE.md](CONTENT_LICENSE.md) and [third-party notices](public/THIRD_PARTY_NOTICES.txt).
+
+## Offline reading (PWA)
+
+Install Uni Math Course from the browser and use the [offline download page](https://uni-math-course.vercel.app/fr/offline/) to save public French and English lessons, diagrams and client-only React explorers. Authenticated exercises, grading, synchronized progress and PDFs still require a connection. See [offline documentation](docs/OFFLINE.md).
