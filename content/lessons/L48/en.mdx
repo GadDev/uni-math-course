@@ -1,15 +1,18 @@
 ---
 lessonId: L48
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Surprise, self-information and Shannon entropy"
 summary: "Understand source coding with guided examples."
-minutes: 35
+minutes: 45
 objectives: [L48-O01, L48-O02, L48-O03, L48-O04, L48-O05, L48-O06]
-prerequisites: [L47]
+prerequisites: [L47, L42]
 sourcePages: [17, 18, 19, 20]
 ---
+
+import InformationExplorer from '../../../src/components/InformationExplorer';
+
 # Surprise, self-information and Shannon entropy
 
 
@@ -19,7 +22,11 @@ sourcePages: [17, 18, 19, 20]
 
 You will: (1) read $\log_2$; (2) interpret $-\log_2(p)$; (3) calculate self-information; (4) use $H(S)$; (5) compare sources; (6) distinguish entropy, average code length and certainty of prediction.
 
-Prerequisites: T04–T05, powers of $2$ and elementary logarithms. In the PDF's convention, $p_i>0$ and $\sum p_i=1$.
+Prerequisites: [L46](/en/lessons/L46/)–[L47](/en/lessons/L47/), powers of $2$ and elementary logarithms. In the PDF's convention, $p_i>0$ and $\sum p_i=1$.
+
+## Start with a question
+
+An almost certain outcome brings little surprise; a rare outcome brings more. The surprise of a rare event is different from a source’s average surprise. We first calculate the former, then weight it as in [L47](/en/lessons/L47/). Review logarithms in [L42](/en/lessons/L42/).
 
 ## 01 · What makes us surprised?
 
@@ -64,13 +71,64 @@ $$H(S)=-\frac34\log_2(3/4)-\frac14\log_2(1/4)\approx0{,}811.$$
 
 The latter distribution is more predictable and has less entropy. Approximate values are in bits per source symbol.
 
+## How to use it
+
+**When to use it?** To quantify one symbol’s surprise under a given model, then compare distributions’ average uncertainty.
+
+**Why a negative logarithm?** For independent events with probabilities $p$ and $q$, the joint probability is $pq$. The logarithm turns this product into a sum:
+
+$$-\log_2(pq)=-\log_2(p)-\log_2(q).$$
+
+The minus sign gives positive values for $0<p<1$, and base two fixes the unit: probability $1/2$ corresponds to one bit. This motivates the definition, rather than proving its characterisation from axioms. Without independence, joint probabilities do not factor this way.
+
+**How to calculate self-information?** Check $0<p\le1$, calculate $\log_2(p)=\ln(p)/\ln(2)$, then negate it. For example, $p=1/4=2^{-2}$ gives $I=2$ bits. Never evaluate the logarithm of zero.
+
+**How to calculate entropy?** Validate the distribution, calculate each self-information, multiply by its probability and add. For $(1/4,3/4)$:
+
+$$H(S)=\frac14\cdot2+\frac34\left(-\log_2\frac34\right)\approx0{,}811278.$$
+
+The rare symbol carries two bits of information **when it occurs**, but the mean remains below one bit per symbol. For a source with memory, this individual-symbol entropy need not equal the whole sequence’s entropy rate. As in [L46](/en/lessons/L46/), dependencies matter.
+
+**Your turn.** Calculate entropy for $(1/2,1/4,1/8,1/8)$, starting with all four self-informations.
+
+<details className="info-answer">
+<summary>Hint</summary>
+
+The probabilities are powers of two; remember the weights.
+
+</details>
+
+<details className="info-answer">
+<summary>Show the explained solution</summary>
+
+The self-informations are $1,2,3,3$. Thus $H(S)=1/2+2/4+3/8+3/8=7/4$ bits per symbol. Adding only $1+2+3+3$ gives an unweighted sum, not entropy.
+
+</details>
+
+## Experiment and explain
+
+**Experiment objective.** Distinguish a symbol’s surprise from its contribution to entropy.
+
+**Before manipulating.** If x becomes extremely rare, must I(x) and H both increase?
+
+**How to use the controls.** The slider controls p(x); p(y) automatically equals 1 − p(x). Start at 0.25, then try 0.50 and 0.01. Compare x’s information, its weighted contribution and the point on the H curve. Values 0 and 1 explicitly extend the strictly positive model: a zero contribution is defined by a limit without evaluating log₂(0).
+
+<InformationExplorer lesson={48} locale="en" client:visible />
+
+<details className="info-answer">
+<summary>Observe, then explain</summary>
+
+Paper example: at p(x) = 1/4, I(x) = 2, I(y) ≈ 0.4150 and H ≈ 0.8113. At p(x) = 1/2, H = 1. As p(x) tends to zero, I(x) tends to +∞ but its weighted contribution tends to zero, and H tends to zero. The curve illustrates these facts; its symmetry follows from exchanging x and y in the formula.
+
+</details>
+
 ## 04 · Linking entropy back to coding
 
 **Additional application of the model on pp. 14–15.** For $p=(1/2,1/4,1/4)$:
 
 $$H(S)=-\frac12\log_2(1/2)-2\cdot\frac14\log_2(1/4)=\frac32=1{,}5.$$
 
-The PDF code $c_2$ has $L(c_2)=1{,}75$ (T05), whereas the additional prefix code $d$ has $L(d)=1{,}5$. The latter numerically equals entropy in this example. **The PDF does not prove a general theorem relating $H$ to optimal code length**; such a proof would belong to further study of optimal coding.
+The PDF code $c_2$ has $L(c_2)=1{,}75$ ([L47](/en/lessons/L47/)), whereas the additional prefix code $d$ has $L(d)=1{,}5$. The latter numerically equals entropy in this example. **The PDF does not prove a general theorem relating $H$ to optimal code length**; such a proof would belong to further study of optimal coding.
 
 ## 05 · What entropy does not mean
 
@@ -88,3 +146,14 @@ Messages of the same length can come from sources with different probability dis
 6. **Question.** For the code $c_2$ on pp. 14–15, is $H(S)=L(c_2)$? **Answer.** No: $H(S)=1{,}5$ but $L(c_2)=1{,}75$.
 
 **End of source-based route.** The PDF ends just after its definitions with “Exemples. [...]”. The detailed numerical calculations above are **additional teaching work**, not examples quoted from a missing continuation.
+
+## Key takeaways
+
+<div className="info-memo">
+
+- $I(s)=-\log_2(p(s))$ for $p(s)>0$: one symbol’s surprise, in bits.
+- $H(S)=\sum_i p_iI(s_i)$: mean surprise, in bits per source symbol.
+- $L(c)$ depends on the chosen code; $H(S)$ depends on the distribution. Equality in one example is not a general theorem.
+- **Checklist:** symbol or mean? valid probabilities? defined logarithm? weighting? limits and dependencies explicit?
+
+</div>

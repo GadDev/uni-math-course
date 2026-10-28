@@ -1,0 +1,127 @@
+---
+lessonId: L46
+locale: fr
+version: 2
+status: extended
+title: "Probabilités d'une source"
+summary: "Comprendre le codage de l'information, avec des exemples guidés."
+minutes: 35
+objectives: [L46-O01, L46-O02, L46-O03, L46-O04, L46-O05, L46-O06]
+prerequisites: [L45]
+sourcePages: [11, 13]
+---
+
+import InformationExplorer from '../../../src/components/InformationExplorer';
+
+# Probabilités d'une source
+
+
+<span id="pdf-11" class="source-topic-marker"></span>
+
+## Objectifs et prérequis
+
+Vous saurez : (1) reconnaître la taille $n=|S|$ ; (2) énoncer les conditions sur une distribution ; (3) interpréter $p_i$ ; (4) calculer une fréquence à partir d'observations ; (5) construire une distribution valide ; (6) expliciter les hypothèses du modèle.
+
+Prérequis : [L44](/fr/lessons/L44/), fractions et pourcentages. Les probabilités portent ici sur les symboles individuels.
+
+## Partir d’une question
+
+Avant d’attribuer des mots codes courts, il faut savoir quels symboles sont fréquents. Comme pour estimer la composition d’un sac de billes, compter donne une observation ; choisir des probabilités pour les prochains tirages ajoute un modèle. Les deux ne doivent pas être confondus.
+
+## 01 · Une source n'émet pas tous les symboles aussi souvent
+
+**PDF, p. 11.** Une source prend ses symboles dans un alphabet fini $S=\{s_1,\ldots,s_n\}$, où $n=|S|$. Le document suppose des probabilités strictement positives :
+
+$$p_i>0,\qquad \sum_{i=1}^{n}p_i=1.$$
+
+La valeur $p_i$ représente la probabilité qu'un symbole émis soit $s_i$. Les nombres doivent former une distribution cohérente : ni une probabilité négative, ni une somme différente de $1$ n'est admissible.
+
+**Exemple du PDF, p. 14 (annoncé ici pour préparer [L47](/fr/lessons/L47/)).** Sur $S=\{x,y,z\}$, la distribution est $(1/2,1/4,1/4)$. La somme $1/2+1/4+1/4=1$ : elle est valide.
+
+## 02 · Construire des probabilités à partir de fréquences
+
+**PDF, p. 13.** Pour du texte, on peut estimer la probabilité des caractères à partir d'un tableau de fréquences.
+
+**Exemple pédagogique complémentaire.** Observons dix caractères sources : $xxxxyyyxxz$. Le symbole $x$ apparaît six fois, $y$ trois fois et $z$ une fois. Les fréquences empiriques sont donc
+
+$$\widehat p(x)=6/10,\qquad \widehat p(y)=3/10,\qquad \widehat p(z)=1/10.$$
+
+La somme est $1$. Le chapeau dans $\widehat p$ signifie ici **estimation** : la prochaine lettre n'est pas assurée d'obéir exactement aux mêmes proportions. Une fréquence calculée sur un échantillon n'est pas une loi de la nature.
+
+## Comment s’en servir ?
+
+**Quand l’utiliser ?** Pour passer d’un tableau d’effectifs à des fréquences, ou vérifier qu’une liste de nombres définit le modèle positif du cours.
+
+**Pourquoi diviser par le total ?** Notons $n_i$ le nombre d’occurrences du symbole $s_i$ et $N=\sum_i n_i$ le nombre total de symboles observés. Pour $N>0$, la part du symbole est $\widehat p_i=n_i/N$. Alors :
+
+$$\sum_i\widehat p_i=\sum_i\frac{n_i}{N}=\frac{\sum_i n_i}{N}=\frac NN=1.$$
+
+**Comment procéder ?** Fixez l’alphabet et les règles de comptage, comptez chaque symbole, additionnez les effectifs, puis divisez par ce même total. Vérifiez la somme exacte avant d’arrondir. Pour les effectifs $(6,3,1)$, $N=10$ donne $(6/10,3/10,1/10)$. Il n’est pas nécessaire de supposer l’indépendance pour effectuer ce comptage.
+
+Pour **valider une distribution du modèle**, vérifiez séparément $p_i>0$ pour chaque symbole retenu et $\sum_i p_i=1$. Un effectif nul donne une fréquence empirique nulle, mais ne prouve pas une probabilité vraie nulle. Un échantillon vide ne permet aucune division. Enfin, des valeurs arrondies peuvent sembler ne pas totaliser exactement un : revenez aux fractions pour vérifier.
+
+**À vous de jouer.** Avec les effectifs $(2,3,5)$, calculez les fréquences. La proposition $(0{,}2,0{,}3,0{,}6)$ est-elle valide ?
+
+<details className="info-answer">
+<summary>Indice</summary>
+
+Additionnez les effectifs et, séparément, les probabilités proposées.
+
+</details>
+
+<details className="info-answer">
+<summary>Afficher la correction expliquée</summary>
+
+$N=2+3+5=10$ donne $(1/5,3/10,1/2)$. Leur somme est $1$. La proposition totalise $0{,}2+0{,}3+0{,}6=1{,}1$ et échoue au test de normalisation, même si chaque entrée est positive.
+
+</details>
+
+## Expérimenter et expliquer
+
+**But de l’expérience.** Construire des fréquences en conservant le même dénominateur.
+
+**Avant de manipuler.** Si vous ajoutez un x, la fréquence de y changera-t-elle malgré son effectif inchangé ?
+
+**Mode d’emploi.** Modifiez les trois effectifs entiers de 0 à 20. Les barres et fractions se recalculent avec le nouveau total. Partez de 6, 3, 1, puis mettez x à 7 : regardez aussi y et z. Testez « x absent » et « Échantillon vide » pour distinguer fréquence nulle et fraction indéfinie.
+
+<InformationExplorer lesson={46} locale="fr" client:visible />
+
+<details className="info-answer">
+<summary>Observer, puis expliquer</summary>
+
+Exemple sur papier : (6, 3, 1) donne (6/10, 3/10, 1/10). Après ajout d’un x : (7/11, 3/11, 1/11). Les parts de y et z diminuent car le total augmente. Cette observation décrit l’échantillon ; elle n’impose pas la prochaine émission.
+
+</details>
+
+## 03 · Hypothèses du modèle
+
+Le PDF prévient, p. 11, que l'on fait des **hypothèses simplificatrices**. Dire qu'un symbole a une probabilité donnée ne décrit pas, à lui seul, les dépendances entre symboles successifs.
+
+**Exemple pédagogique complémentaire.** Deux sources peuvent avoir $p(0)=p(1)=1/2$ tout en produisant des séquences différentes : l’une peut choisir son premier bit à pile ou face, puis alterner strictement (ainsi $0101\ldots$ ou $1010\ldots$), tandis que l’autre fait un choix équitable indépendant à chaque position. Les probabilités par symbole sont identiques, mais les règles de succession diffèrent. Ne confondez pas « répartition » et « indépendance ».
+
+## 04 · Pourquoi ces probabilités intéressent le codage
+
+Si un symbole fréquent a un mot code plus court, on peut parfois réduire la longueur moyenne. Cela motive la notion de **moyenne pondérée** de [L47](/fr/lessons/L47/). Le PDF mentionne aussi l'estimation en deux passes pour des blocs de pixels vidéo (p. 13), sans détailler l'algorithme : nous ne présentons pas une technique particulière comme provenant du document.
+
+**Erreur fréquente.** Traiter $p(x)=1/2$ comme « exactement une occurrence sur deux dans chaque message ». C'est une propriété probabiliste, pas une obligation pour chaque échantillon fini.
+
+## Vérifiez vos acquis — solutions incluses
+
+1. **Question.** $(1/2,1/3,1/6)$ est-elle valide ? **Réponse.** Oui, car les trois valeurs sont positives et leur somme vaut $1$.
+2. **Question.** $(1/2,1/2,1/4)$ est-elle valide ? **Réponse.** Non, la somme vaut $5/4$.
+3. **Question.** Cinq $x$ et trois $y$ : estimer $\widehat p(x)$. **Réponse.** $5/8$.
+4. **Question.** Une fréquence observée garantit-elle la fréquence d'une prochaine série ? **Réponse.** Non ; elle n'est qu'une estimation.
+5. **Question.** Connaître $p(x)$ et $p(y)$ prouve-t-il l'indépendance des caractères successifs ? **Réponse.** Non ; il manque l'information sur les transitions.
+
+**Suite.** [L47](/fr/lessons/L47/) : la longueur moyenne d'un code.
+
+## À retenir
+
+<div className="info-memo">
+
+- $n=|S|$ compte les symboles distincts ; $N$ compte les observations ; $n_i$ compte les occurrences d’un symbole.
+- $\widehat p_i=n_i/N$ exige $N>0$ ; le chapeau rappelle l’estimation.
+- Le modèle positif exige $p_i>0$ et $\sum_i p_i=1$ ; l’indépendance est une hypothèse distincte.
+- **Checklist :** total commun ? somme exacte ? échantillon ou modèle ? dépendances précisées ?
+
+</div>

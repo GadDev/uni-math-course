@@ -1,15 +1,18 @@
 ---
 lessonId: L43
 locale: en
-version: 1
+version: 2
 status: extended
 title: "From messages to bits"
 summary: "Understand source coding with guided examples."
-minutes: 25
+minutes: 35
 objectives: [L43-O01, L43-O02, L43-O03, L43-O04, L43-O05, L43-O06]
 prerequisites: [L10]
 sourcePages: [2, 3, 4, 5, 6]
 ---
+
+import InformationExplorer from '../../../src/components/InformationExplorer';
+
 # From messages to bits
 
 
@@ -20,6 +23,10 @@ sourcePages: [2, 3, 4, 5, 6]
 After this sequence you should be able to: (1) describe sender, channel and receiver; (2) distinguish a message from its transmission format; (3) define a bit; (4) count binary strings of a fixed length; (5) encode and decode text under a stated convention; (6) identify what transmission alone does not guarantee.
 
 Prerequisites: counting possibilities and reading a function. We work with finite strings of symbols.
+
+## Start with a question
+
+Imagine a cloakroom: each item needs a different label. Bits are the label’s slots; with too few slots, two items would share a label. We move from capacity to an encoding convention ([L44](/en/lessons/L44/)), then decoding ([L45](/en/lessons/L45/)). Bits have no intrinsic meaning without a convention.
 
 ## 01 · Why encode information?
 
@@ -36,6 +43,49 @@ A message might be text, an image, audio or video. A **bit** is one symbol of th
 For exactly $n$ binary positions there are $2^n$ words, for $n\in\mathbb N$ (and $0\in\mathbb N$ in this course). For $n=0$ there is just the empty word $\varepsilon$. Be careful: length **exactly** $n$ is different from length **at most** $n$.
 
 **Worked example.** Eight states can be represented using three fixed-length bits since $2^3=8$. Nine states cannot be represented by three bits; four bits offer $2^4=16$ distinct strings.
+
+## How to use it
+
+**When to use it?** When each of $M$ distinct states needs a fixed-length binary label, for integer $M\ge1$.
+
+**Why a power?** The empty word gives one possibility. Adding one position doubles the possibilities: each existing word can be extended by $0$ or $1$. After $n$ positions, the product is $2^n$. For lengths from zero to $n$, we would instead add $1+2+\cdots+2^n=2^{n+1}-1$.
+
+**Procedure.** Find the smallest integer $n\ge0$ such that $2^n\ge M$. Using a logarithm gives $n=\lceil\log_2(M)\rceil$: the ceiling brackets mean “round up to an integer”. Check using adjacent powers. For $M=9$, $2^3<9\le2^4$: four bits are necessary. The formula also covers $M=1$, which needs zero bits to distinguish the sole state; this assumes the number of symbols and message framing are known.
+
+**How to encode and decode text?** First fix the convention and character order. In UTF-8, turn characters into bytes and write each byte using eight bits, retaining leading zeros. To decode, reconstruct the bytes and apply the UTF-8 decoder to the entire sequence; some characters use several bytes. For example, `é` (U+00E9) gives `11000011 10101001`, two bytes and sixteen bits. The displayed space is not another bit. The convention must also specify message boundaries.
+
+**Your turn.** How many fixed-length bits for 17 states? Then how many bits for `Hé` in UTF-8, using precomposed `é` U+00E9?
+
+<details className="info-answer">
+<summary>Hint</summary>
+
+Bound 17 between two powers; distinguish characters from bytes.
+
+</details>
+
+<details className="info-answer">
+<summary>Show the explained solution</summary>
+
+$2^4=16<17\le32=2^5$: five bits are necessary. `H` uses one byte and `é` two: $3\times8=24$ bits. Two characters therefore do not necessarily mean sixteen bits.
+
+</details>
+
+## Experiment and explain
+
+**Experiment objective.** Connect bit positions to capacity and the required minimum length.
+
+**Before manipulating.** Will three bits suffice for nine states? Also predict the zero-bit case before testing it.
+
+**How to use the controls.** n counts bit positions; M is the number of states to distinguish. Start with “8 states”, then change M to 9 without changing n. Observe capacity, displayed words and the required minimum. Then set n to 4. Displayed words are possible labels, not a character encoding.
+
+<InformationExplorer lesson={43} locale="en" client:visible />
+
+<details className="info-answer">
+<summary>Observe, then explain</summary>
+
+Paper example: n = 3 and M = 9 offer eight words, one short. n = 4 offers sixteen words, leaving seven unused. Why does the empty word count as one possibility? There is exactly one sequence of length zero, distinct from the word “0”.
+
+</details>
 
 ## 03 · The “Hello World” exercise
 
@@ -56,7 +106,13 @@ For exactly $n$ binary positions there are $2^n$ words, for $n\in\mathbb N$ (and
 
 Keeping the repetitions in order gives:
 
-$01001000\,01100101\,01101100\,01101100\,01101111\,00100000\,01010111\,01101111\,01110010\,01101100\,01100100$.
+$$
+\begin{aligned}
+&01001000\,01100101\,01101100\,01101100\\
+&01101111\,00100000\,01010111\,01101111\\
+&01110010\,01101100\,01100100
+\end{aligned}
+$$
 
 To decode: split these bits into bytes, interpret each byte according to UTF-8, and restore the characters in order. Byte splitting works here because every character uses one byte; **UTF-8 does not always use one byte per character**.
 
@@ -73,4 +129,15 @@ To decode: split these bits into bytes, interpret each byte according to UTF-8, 
 3. **Question.** Must an image and a text with the same bits mean the same thing? **Answer.** No; their formats define how to interpret the bits.
 4. **Question.** If one bit changes in transit, will the text encoding necessarily detect it? **Answer.** No; additional error-detection or correction mechanisms are required.
 
-**Next.** T02 defines source alphabets and encoding functions.
+**Next.** [L44](/en/lessons/L44/) defines source alphabets and encoding functions.
+
+## Key takeaways
+
+<div className="info-memo">
+
+- A bit is a symbol; a byte contains eight bits; meaning depends on the format.
+- Length exactly $n$: $2^n$ words, including one empty word if $n=0$.
+- For $M\ge1$ states: $n=\lceil\log_2(M)\rceil$ fixed-length bits.
+- **Checklist:** have I fixed encoding, length, message boundaries and units?
+
+</div>
