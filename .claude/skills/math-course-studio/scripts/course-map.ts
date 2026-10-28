@@ -8,9 +8,10 @@ type Course = Map<string, Lesson>;
 //
 // Usage (from any directory):
 //   node .claude/skills/math-course-studio/scripts/course-map.ts [--pages 96]
-import { readdir, readFile } from 'node:fs/promises';
+import { readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
+import { readLessonSource } from '../../../../scripts/lesson-files.ts';
 
 const root = fileURLToPath(new URL('../../../../', import.meta.url));
 const lessonIdPattern = /^L\d{2}$/;
@@ -59,7 +60,7 @@ export async function loadCourse(contentRoot = `${root}content/lessons/`) {
     for (const locale of ['fr', 'en'] as const) {
       try {
         const { fields, body } = parseFrontmatter(
-          await readFile(`${contentRoot}${id}/${locale}.md`, 'utf8'),
+          await readLessonSource(`${contentRoot}${id}/`, locale),
         );
         lesson.locales[locale] = { fields, body };
       } catch (error) {

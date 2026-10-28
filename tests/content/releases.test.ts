@@ -128,3 +128,41 @@ test('translation metadata and its own evidence are required, including under an
   delete releases.lessons.L05.translation;
   await assert.rejects(validateReleases(releases, read), /translation source/);
 });
+
+test('MDX reading retains fingerprint and translation-source freshness gates', async () => {
+  const { releases, files, read } = fixture();
+  for (const locale of ['fr', 'en']) {
+    const oldPath = `content/lessons/L05/${locale}.md`;
+    const path = `${oldPath}x`;
+    files[path] = files[oldPath]!;
+    delete files[oldPath];
+    releases.lessons.L05.fingerprints[path] =
+      releases.lessons.L05.fingerprints[oldPath];
+    delete releases.lessons.L05.fingerprints[oldPath];
+  }
+  await validateReleases(releases, read);
+  files['content/lessons/L05/fr.mdx'] += ' changed';
+  await assert.rejects(
+    validateReleases(releases, read),
+    /stale release review/,
+  );
+  releases.lessons.L05.fingerprints['content/lessons/L05/fr.mdx'] = createHash(
+    'sha256',
+  )
+    .update(files['content/lessons/L05/fr.mdx']!)
+    .digest('hex');
+  await assert.rejects(
+    validateReleases(releases, read),
+    /translation source changed/,
+  );
+});
+
+test('a release cannot record both Markdown and MDX for one language', async () => {
+  const { releases, read } = fixture();
+  releases.lessons.L05.fingerprints['content/lessons/L05/fr.mdx'] =
+    releases.lessons.L05.fingerprints['content/lessons/L05/fr.md'];
+  await assert.rejects(
+    validateReleases(releases, read),
+    /expected one fr lesson source/,
+  );
+});

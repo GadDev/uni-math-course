@@ -30,9 +30,9 @@ export const copy = {
     practiceTitle: 'À vous de pratiquer',
     practice:
       'Connectez-vous pour répondre aux exercices et retrouver votre progression. La lecture reste libre.',
-    review: 'Texte original du projet · Leçon pilote · Version 1',
+    review: 'Texte original du projet · Leçon pilote',
     reviewExtended:
-      'Texte original du projet · Cours étendu, hors pilote de classe · Version 1',
+      'Texte original du projet · Cours étendu, hors pilote de classe',
     language: 'Langue',
     footer:
       'Projet étudiant indépendant. Aucune affiliation ou approbation universitaire revendiquée.',
@@ -98,9 +98,9 @@ export const copy = {
     practiceTitle: 'Your turn to practise',
     practice:
       'Sign in to answer exercises and return to your progress. Reading stays open.',
-    review: 'Original project text · Pilot lesson · Version 1',
+    review: 'Original project text · Pilot lesson',
     reviewExtended:
-      'Original project text · Extended course, outside the class pilot · Version 1',
+      'Original project text · Extended course, outside the class pilot',
     language: 'Language',
     footer:
       'Independent student project. No university affiliation or endorsement claimed.',

@@ -13,6 +13,7 @@ import { readFile } from 'node:fs/promises';
 import { basename, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadSelectedBanks } from './released-banks.ts';
+import { readLessonSource } from '../../../../scripts/lesson-files.ts';
 
 const root = fileURLToPath(new URL('../../../../', import.meta.url));
 const argument = process.argv[2];
@@ -58,7 +59,7 @@ const listValue = (value = '[]') =>
   value.replace(/^\[|\]$/g, '').split(',').map((item) => item.trim()).filter(Boolean);
 for (const locale of ['fr', 'en']) {
   try {
-    const text = await readFile(`${root}content/lessons/${bank.lessonId}/${locale}.md`, 'utf8');
+    const text = await readLessonSource(`${root}content/lessons/${bank.lessonId}/`, locale);
     const front = Object.fromEntries(
       (text.match(/^---\n([\s\S]*?)\n---\n/)?.[1] ?? '')
         .split('\n')
