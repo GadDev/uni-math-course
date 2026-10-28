@@ -40,20 +40,19 @@ test('offline index includes public reading but excludes authenticated routes', 
 
 test('service worker protects private content and manifest is installable', () => {
   const worker = readFileSync('public/sw.js', 'utf8');
-  assert.match(worker, /request\.mode === 'navigate' && publicPage\.test\(path\)/);
+  assert.match(
+    worker,
+    /request\.mode === 'navigate' && publicPage\.test\(path\)/,
+  );
   assert.doesNotMatch(worker, /\/api\/attempts|\/practice\/|\/pdfs\//);
   const manifest = JSON.parse(
     readFileSync('public/manifest.webmanifest', 'utf8'),
   );
   assert.equal(manifest.display, 'standalone');
   assert.ok(
-    manifest.icons.some(
-      (icon: { sizes: string }) => icon.sizes === '192x192',
-    ),
+    manifest.icons.some((icon: { sizes: string }) => icon.sizes === '192x192'),
   );
   assert.ok(
-    manifest.icons.some(
-      (icon: { sizes: string }) => icon.sizes === '512x512',
-    ),
+    manifest.icons.some((icon: { sizes: string }) => icon.sizes === '512x512'),
   );
 });

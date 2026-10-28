@@ -6,15 +6,25 @@
   font-size: clamp(2.8rem, 6vw, 5rem);
   margin: 0.6rem 0 1rem;
 }
-.offline-page .lede { max-width: 48rem; }
-.offline-panel, .offline-help {
+.offline-page .lede {
+  max-width: 48rem;
+}
+.offline-panel,
+.offline-help {
   margin-top: 2.4rem;
   padding: clamp(1.2rem, 3vw, 2rem);
   border: 1px solid var(--soft-line);
 }
-.offline-panel { background: var(--card); }
-.offline-panel h2, .offline-help h2 { margin-top: 0; }
-.offline-note { color: var(--muted); }
+.offline-panel {
+  background: var(--card);
+}
+.offline-panel h2,
+.offline-help h2 {
+  margin-top: 0;
+}
+.offline-note {
+  color: var(--muted);
+}
 .offline-actions {
   display: flex;
   flex-wrap: wrap;
@@ -31,12 +41,19 @@
   font: inherit;
   cursor: pointer;
 }
-.offline-actions button:disabled { opacity: 0.6; cursor: wait; }
+.offline-actions button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
 #offline-progress {
   display: block;
   width: 100%;
   height: 1rem;
   accent-color: var(--green-accent);
 }
-#offline-progress[hidden] { display: none; }
-#offline-status { min-height: 1.8rem; }
+#offline-progress[hidden] {
+  display: none;
+}
+#offline-status {
+  min-height: 1.8rem;
+}

@@ -14,7 +14,11 @@ const title = fr ? 'Étudier hors ligne' : 'Study offline';
 <Base
   locale={locale}
   title={title}
-  description={fr ? 'Installer le cours et télécharger les leçons pour lire sans connexion.' : 'Install the course and download lessons to study without a connection.'}
+  description={
+    fr
+      ? 'Installer le cours et télécharger les leçons pour lire sans connexion.'
+      : 'Install the course and download lessons to study without a connection.'
+  }
   path="offline/"
 >
   <main id="main" tabindex="-1" class="offline-page">
@@ -24,14 +28,19 @@ const title = fr ? 'Étudier hors ligne' : 'Study offline';
       <span aria-current="page">{title}</span>
     </nav>
     <p class="eyebrow">PWA · {fr ? 'SANS CONNEXION' : 'OFFLINE'}</p>
-    <h1>{title}<span class="signal-stop">.</span></h1>
+    <h1>
+      {title}
+      <span class="signal-stop">.</span>
+    </h1>
     <p class="lede">
       {fr
         ? 'Emportez vos cours de maths partout. Une fois téléchargés, leçons, formules, schémas et explorateurs interactifs restent accessibles sans Internet.'
         : 'Take your mathematics course anywhere. Once downloaded, lessons, formulas, diagrams and interactive explorers remain available without Internet.'}
     </p>
     <section class="offline-panel" aria-labelledby="offline-download-title">
-      <h2 id="offline-download-title">{fr ? 'Télécharger les leçons' : 'Download lessons'}</h2>
+      <h2 id="offline-download-title">
+        {fr ? 'Télécharger les leçons' : 'Download lessons'}
+      </h2>
       <p>
         {fr
           ? 'Télécharge les 49 leçons en français et en anglais, les pages des chapitres, le glossaire, les schémas et les ressources React.'
@@ -47,7 +56,9 @@ const title = fr ? 'Étudier hors ligne' : 'Study offline';
           {fr ? 'Télécharger pour le hors ligne' : 'Download for offline use'}
         </button>
         <button type="button" class="offline-secondary" id="offline-clear">
-          {fr ? 'Supprimer les leçons téléchargées' : 'Remove downloaded lessons'}
+          {fr
+            ? 'Supprimer les leçons téléchargées'
+            : 'Remove downloaded lessons'}
         </button>
       </div>
       <progress id="offline-progress" max="100" value="0" hidden></progress>
@@ -56,7 +67,9 @@ const title = fr ? 'Étudier hors ligne' : 'Study offline';
       </p>
     </section>
     <section class="offline-help" aria-labelledby="offline-install-title">
-      <h2 id="offline-install-title">{fr ? 'Installer comme une application' : 'Install as an app'}</h2>
+      <h2 id="offline-install-title">
+        {fr ? 'Installer comme une application' : 'Install as an app'}
+      </h2>
       <p>
         {fr
           ? 'Sur ordinateur ou Android, ouvrez le menu du navigateur puis « Installer l’application ». Sur iPhone ou iPad avec Safari : Partager → Sur l’écran d’accueil.'
@@ -67,128 +80,175 @@ const title = fr ? 'Étudier hors ligne' : 'Study offline';
           ? 'Après le téléchargement, testez en mode avion. Votre navigateur peut effacer le cache lorsque l’espace manque : retéléchargez si nécessaire.'
           : 'After downloading, test in airplane mode. Your browser may evict stored pages when space is low: download again if needed.'}
       </p>
-      <a href={'/' + locale + '/'}>{fr ? '← Retour au cours' : '← Back to the course'}</a>
+      <a href={'/' + locale + '/'}>
+        {fr ? '← Retour au cours' : '← Back to the course'}
+      </a>
     </section>
   </main>
-<script>
-  type OfflineIndex = { pages: string[]; assets: string[] };
-  const CACHE = 'uni-math-pack-v1';
-  const fr = document.documentElement.lang === 'fr';
-  const download = document.querySelector<HTMLButtonElement>('#offline-download')!;
-  const clear = document.querySelector<HTMLButtonElement>('#offline-clear')!;
-  const status = document.querySelector<HTMLElement>('#offline-status')!;
-  const progress = document.querySelector<HTMLProgressElement>('#offline-progress')!;
-  const message = fr
-    ? {
-        unsupported: 'Le stockage hors ligne nécessite HTTPS et un navigateur compatible.',
-        noIndex: 'Connectez-vous à Internet pour préparer les leçons.',
-        empty: 'Aucune leçon téléchargée pour le moment.',
-        ready: (done: number, total: number) => done + ' ressources sur ' + total + ' enregistrées sur cet appareil.',
-        progress: (done: number, total: number) => 'Téléchargement : ' + done + ' / ' + total + ' ressources.',
-        done: 'Cours téléchargés ! Vous pouvez maintenant lire hors ligne.',
-        partial: (count: number) => count + ' ressource(s) non téléchargée(s). Reconnectez-vous et réessayez.',
-        cleared: 'Pack supprimé. Les pages déjà visitées peuvent rester dans le cache.',
+  <script>
+    type OfflineIndex = { pages: string[]; assets: string[] };
+    const CACHE = 'uni-math-pack-v1';
+    const fr = document.documentElement.lang === 'fr';
+    const download =
+      document.querySelector<HTMLButtonElement>('#offline-download')!;
+    const clear = document.querySelector<HTMLButtonElement>('#offline-clear')!;
+    const status = document.querySelector<HTMLElement>('#offline-status')!;
+    const progress =
+      document.querySelector<HTMLProgressElement>('#offline-progress')!;
+    const message = fr
+      ? {
+          unsupported:
+            'Le stockage hors ligne nécessite HTTPS et un navigateur compatible.',
+          noIndex: 'Connectez-vous à Internet pour préparer les leçons.',
+          empty: 'Aucune leçon téléchargée pour le moment.',
+          ready: (done: number, total: number) =>
+            done +
+            ' ressources sur ' +
+            total +
+            ' enregistrées sur cet appareil.',
+          progress: (done: number, total: number) =>
+            'Téléchargement : ' + done + ' / ' + total + ' ressources.',
+          done: 'Cours téléchargés ! Vous pouvez maintenant lire hors ligne.',
+          partial: (count: number) =>
+            count +
+            ' ressource(s) non téléchargée(s). Reconnectez-vous et réessayez.',
+          cleared:
+            'Pack supprimé. Les pages déjà visitées peuvent rester dans le cache.',
+        }
+      : {
+          unsupported:
+            'Offline storage requires HTTPS and a compatible browser.',
+          noIndex: 'Connect to the Internet to prepare your lessons.',
+          empty: 'No lessons downloaded yet.',
+          ready: (done: number, total: number) =>
+            done + ' of ' + total + ' resources saved on this device.',
+          progress: (done: number, total: number) =>
+            'Downloading: ' + done + ' / ' + total + ' resources.',
+          done: 'Lessons downloaded! You can now read offline.',
+          partial: (count: number) =>
+            count +
+            ' resource(s) could not be downloaded. Reconnect and retry.',
+          cleared:
+            'Download removed. Previously visited pages may remain cached.',
+        };
+
+    async function readIndex(): Promise<OfflineIndex | null> {
+      try {
+        const response = await fetch('/offline-index.json', {
+          cache: 'no-store',
+          credentials: 'omit',
+        });
+        if (!response.ok) return null;
+        const data: unknown = await response.json();
+        if (
+          !data ||
+          typeof data !== 'object' ||
+          !('pages' in data) ||
+          !('assets' in data)
+        )
+          return null;
+        const index = data as OfflineIndex;
+        if (!Array.isArray(index.pages) || !Array.isArray(index.assets))
+          return null;
+        const paths = [...index.pages, ...index.assets];
+        if (
+          paths.some(
+            (path) =>
+              typeof path !== 'string' ||
+              !path.startsWith('/') ||
+              path.startsWith('//'),
+          )
+        )
+          return null;
+        return index;
+      } catch {
+        return null;
       }
-    : {
-        unsupported: 'Offline storage requires HTTPS and a compatible browser.',
-        noIndex: 'Connect to the Internet to prepare your lessons.',
-        empty: 'No lessons downloaded yet.',
-        ready: (done: number, total: number) => done + ' of ' + total + ' resources saved on this device.',
-        progress: (done: number, total: number) => 'Downloading: ' + done + ' / ' + total + ' resources.',
-        done: 'Lessons downloaded! You can now read offline.',
-        partial: (count: number) => count + ' resource(s) could not be downloaded. Reconnect and retry.',
-        cleared: 'Download removed. Previously visited pages may remain cached.',
-      };
-
-  async function readIndex(): Promise<OfflineIndex | null> {
-    try {
-      const response = await fetch('/offline-index.json', { cache: 'no-store', credentials: 'omit' });
-      if (!response.ok) return null;
-      const data: unknown = await response.json();
-      if (!data || typeof data !== 'object' || !('pages' in data) || !('assets' in data))
-        return null;
-      const index = data as OfflineIndex;
-      if (!Array.isArray(index.pages) || !Array.isArray(index.assets)) return null;
-      const paths = [...index.pages, ...index.assets];
-      if (paths.some((path) => typeof path !== 'string' || !path.startsWith('/') || path.startsWith('//')))
-        return null;
-      return index;
-    } catch {
-      return null;
     }
-  }
 
-  async function initialStatus(): Promise<void> {
-    if (!('caches' in window) || !('serviceWorker' in navigator) || !window.isSecureContext) {
-      status.textContent = message.unsupported;
+    async function initialStatus(): Promise<void> {
+      if (
+        !('caches' in window) ||
+        !('serviceWorker' in navigator) ||
+        !window.isSecureContext
+      ) {
+        status.textContent = message.unsupported;
+        download.disabled = true;
+        clear.disabled = true;
+        return;
+      }
+      const index = await readIndex();
+      if (!index) {
+        status.textContent = message.noIndex;
+        download.disabled = true;
+        return;
+      }
+      const urls = [...new Set([...index.pages, ...index.assets])];
+      const keys = await (await caches.open(CACHE)).keys();
+      const saved = new Set(keys.map((key) => new URL(key.url).pathname));
+      const count = urls.filter((url) => saved.has(url)).length;
+      status.textContent = count
+        ? message.ready(count, urls.length)
+        : message.empty;
+    }
+
+    download.addEventListener('click', async () => {
       download.disabled = true;
       clear.disabled = true;
-      return;
-    }
-    const index = await readIndex();
-    if (!index) {
-      status.textContent = message.noIndex;
-      download.disabled = true;
-      return;
-    }
-    const urls = [...new Set([...index.pages, ...index.assets])];
-    const keys = await (await caches.open(CACHE)).keys();
-    const saved = new Set(keys.map((key) => new URL(key.url).pathname));
-    const count = urls.filter((url) => saved.has(url)).length;
-    status.textContent = count ? message.ready(count, urls.length) : message.empty;
-  }
-
-  download.addEventListener('click', async () => {
-    download.disabled = true;
-    clear.disabled = true;
-    const index = await readIndex();
-    if (!index) {
-      status.textContent = message.noIndex;
+      const index = await readIndex();
+      if (!index) {
+        status.textContent = message.noIndex;
+        download.disabled = false;
+        clear.disabled = false;
+        return;
+      }
+      const urls = [...new Set([...index.pages, ...index.assets])];
+      const pages = new Set(index.pages);
+      const cache = await caches.open(CACHE);
+      let next = 0;
+      let completed = 0;
+      let failed = 0;
+      progress.hidden = false;
+      progress.max = urls.length;
+      progress.value = 0;
+      async function worker(): Promise<void> {
+        while (next < urls.length) {
+          const path = urls[next++];
+          if (path === undefined) break;
+          try {
+            const response = await fetch(path, {
+              cache: 'reload',
+              credentials: 'omit',
+            });
+            const type = response.headers.get('content-type') ?? '';
+            const control = response.headers.get('cache-control') ?? '';
+            if (
+              !response.ok ||
+              /(?:private|no-store)/i.test(control) ||
+              (pages.has(path) && !type.includes('text/html'))
+            )
+              throw new Error('Resource not public');
+            await cache.put(path, response);
+          } catch {
+            failed++;
+          }
+          completed++;
+          progress.value = completed;
+          status.textContent = message.progress(completed, urls.length);
+        }
+      }
+      await Promise.all(Array.from({ length: 4 }, () => worker()));
+      status.textContent = failed ? message.partial(failed) : message.done;
       download.disabled = false;
       clear.disabled = false;
-      return;
-    }
-    const urls = [...new Set([...index.pages, ...index.assets])];
-    const pages = new Set(index.pages);
-    const cache = await caches.open(CACHE);
-    let next = 0;
-    let completed = 0;
-    let failed = 0;
-    progress.hidden = false;
-    progress.max = urls.length;
-    progress.value = 0;
-    async function worker(): Promise<void> {
-      while (next < urls.length) {
-        const path = urls[next++];
-        if (path === undefined) break;
-        try {
-          const response = await fetch(path, { cache: 'reload', credentials: 'omit' });
-          const type = response.headers.get('content-type') ?? '';
-          const control = response.headers.get('cache-control') ?? '';
-          if (!response.ok || /(?:private|no-store)/i.test(control) ||
-            (pages.has(path) && !type.includes('text/html')))
-            throw new Error('Resource not public');
-          await cache.put(path, response);
-        } catch {
-          failed++;
-        }
-        completed++;
-        progress.value = completed;
-        status.textContent = message.progress(completed, urls.length);
-      }
-    }
-    await Promise.all(Array.from({ length: 4 }, () => worker()));
-    status.textContent = failed ? message.partial(failed) : message.done;
-    download.disabled = false;
-    clear.disabled = false;
-  });
+    });
 
-  clear.addEventListener('click', async () => {
-    await caches.delete(CACHE);
-    status.textContent = message.cleared;
-    progress.hidden = true;
-  });
+    clear.addEventListener('click', async () => {
+      await caches.delete(CACHE);
+      status.textContent = message.cleared;
+      progress.hidden = true;
+    });
 
-  void initialStatus();
-</script>
+    void initialStatus();
+  </script>
 </Base>

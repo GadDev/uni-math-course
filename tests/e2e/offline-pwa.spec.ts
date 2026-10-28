@@ -18,7 +18,9 @@ test('PWA installs public resources and reads French and English lessons offline
   await expect
     .poll(async () =>
       page.evaluate(() =>
-        navigator.serviceWorker.ready.then((registration) => !!registration.active),
+        navigator.serviceWorker.ready.then(
+          (registration) => !!registration.active,
+        ),
       ),
     )
     .toBe(true);
