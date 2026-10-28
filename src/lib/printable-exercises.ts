@@ -6,10 +6,12 @@ export type PrintableDocument = {
   pages: number;
   sha256: string;
   type: 'exercises' | 'solutions';
+  language?: Locale;
+  label?: Record<Locale, string>;
 };
 
 export type PrintableChapter = {
-  id: 'chapter-01' | 'chapter-02';
+  id: 'chapter-01' | 'chapter-02' | 'chapter-03';
   number: string;
   lessons: string;
   count: number;
@@ -19,7 +21,8 @@ export type PrintableChapter = {
 };
 
 // These PDFs are original independent practice supplements, NOT the course source PDFs.
-// SHA-256 values identify the exact four user-supplied PDFs approved for inclusion.
+// SHA-256 values identify the exact approved PDF bytes, including the eight
+// original bilingual Chapter 3 workbooks and challenge documents.
 export const printableChapters: readonly PrintableChapter[] = [
   {
     id: 'chapter-01',
@@ -79,6 +82,126 @@ export const printableChapters: readonly PrintableChapter[] = [
       },
     ],
   },
+  {
+    id: 'chapter-03',
+    number: '03',
+    lessons: 'L37–L42',
+    count: 600,
+    title: {
+      fr: 'Fonctions d’une variable réelle',
+      en: 'Functions of a real variable',
+    },
+    description: {
+      fr: 'Fonctions, dérivées, exponentielles, logarithmes et complexité. Six leçons, 600 exercices imprimables et défis Ninja séparés.',
+      en: 'Functions, derivatives, exponentials, logarithms and complexity. Six lessons, 600 printable exercises and separate Ninja challenges.',
+    },
+    documents: [
+      {
+        id: 'chapter-03-exercises-fr',
+        type: 'exercises',
+        language: 'fr',
+        label: {
+          fr: '600 exercices de calcul',
+          en: '600 calculation exercises',
+        },
+        path: 'pdfs/exercises/chapter-03-exercises-fr.pdf',
+        pages: 50,
+        sha256:
+          '663493d43c2e060853f169af302dc039ec2bf451a578649a5a0d0bf93275a2a4',
+      },
+      {
+        id: 'chapter-03-solutions-fr',
+        type: 'solutions',
+        language: 'fr',
+        label: {
+          fr: 'Corrigés des 600 exercices',
+          en: 'Solutions to 600 exercises',
+        },
+        path: 'pdfs/exercises/chapter-03-solutions-fr.pdf',
+        pages: 40,
+        sha256:
+          '3678912c2cbb964269d4cb3abc8d5fd94776b9226e7420fc88b0777cb46c76d2',
+      },
+      {
+        id: 'chapter-03-challenge-exercises-fr',
+        type: 'exercises',
+        language: 'fr',
+        label: {
+          fr: 'Défis Math Ninja',
+          en: 'Math Ninja challenges',
+        },
+        path: 'pdfs/exercises/chapter-03-challenge-exercises-fr.pdf',
+        pages: 6,
+        sha256:
+          '0fbb50cfe4ec7fb8ac737b3f32551cfd225686b6377aa2eaa5122b73fb9e685d',
+      },
+      {
+        id: 'chapter-03-challenge-solutions-fr',
+        type: 'solutions',
+        language: 'fr',
+        label: {
+          fr: 'Corrigés des défis Ninja',
+          en: 'Math Ninja challenge solutions',
+        },
+        path: 'pdfs/exercises/chapter-03-challenge-solutions-fr.pdf',
+        pages: 6,
+        sha256:
+          '841783a9e0811619207a4255377d3418ae3a1f9559fa67094cf433bf97124296',
+      },
+      {
+        id: 'chapter-03-exercises-en',
+        type: 'exercises',
+        language: 'en',
+        label: {
+          fr: '600 exercices de calcul',
+          en: '600 calculation exercises',
+        },
+        path: 'pdfs/exercises/chapter-03-exercises-en.pdf',
+        pages: 50,
+        sha256:
+          '7b30b6c887a5dd7f4782612ecfc5db369ceadbdec3993ecb08b7496253197134',
+      },
+      {
+        id: 'chapter-03-solutions-en',
+        type: 'solutions',
+        language: 'en',
+        label: {
+          fr: 'Corrigés des 600 exercices',
+          en: 'Solutions to 600 exercises',
+        },
+        path: 'pdfs/exercises/chapter-03-solutions-en.pdf',
+        pages: 39,
+        sha256:
+          '749feccb5192bfe170112a97cde24ca7279561d1ba2ea03877fe22e877d2283d',
+      },
+      {
+        id: 'chapter-03-challenge-exercises-en',
+        type: 'exercises',
+        language: 'en',
+        label: {
+          fr: 'Défis Math Ninja',
+          en: 'Math Ninja challenges',
+        },
+        path: 'pdfs/exercises/chapter-03-challenge-exercises-en.pdf',
+        pages: 6,
+        sha256:
+          'dd004978822734e198523a727bf8334942c28e918b50ed3dd36491f60c3afff8',
+      },
+      {
+        id: 'chapter-03-challenge-solutions-en',
+        type: 'solutions',
+        language: 'en',
+        label: {
+          fr: 'Corrigés des défis Ninja',
+          en: 'Math Ninja challenge solutions',
+        },
+        path: 'pdfs/exercises/chapter-03-challenge-solutions-en.pdf',
+        pages: 6,
+        sha256:
+          'b2bb3026ae5c88379e77528ec1e7952d93bd134ce3b063a268c31a579fede190',
+      },
+    ],
+  },
 ];
 
 export const printableCopy = {
@@ -88,11 +211,11 @@ export const printableCopy = {
     kicker: 'CAHIERS DE PRATIQUE · FORMAT A4',
     title: 'Exercices à imprimer',
     description:
-      '940 exercices pour s’entraîner à son rythme, avec un corrigé séparé pour chaque chapitre.',
+      '1 540 exercices pour s’entraîner à son rythme, avec un corrigé séparé pour chaque chapitre.',
     intro:
       'Téléchargez un cahier, écrivez vos calculs sur papier, puis vérifiez vos réponses. Pas de compte requis.',
     languageNote:
-      'Les quatre documents sont rédigés en français, y compris sur la page anglaise.',
+      'Les cahiers des chapitres 1 et 2 sont en français. Les ressources du chapitre 3 existent en français et en anglais ; vous voyez la langue de cette page.',
     toc: 'Parcourir les cahiers',
     chapterLabel: 'Chapitre',
     lessonsLabel: 'Leçons',
@@ -122,11 +245,11 @@ export const printableCopy = {
     kicker: 'PRINTABLE PRACTICE · A4',
     title: 'Printable exercises',
     description:
-      '940 exercises to practise at your own pace, with a separate answer booklet for each chapter.',
+      '1,540 exercises to practise at your own pace, with a separate answer booklet for each chapter.',
     intro:
       'Download a workbook, work through the calculations on paper, then check your answers. No account required.',
     languageNote:
-      'All four PDFs are in French, including when accessed from this English page.',
+      'Chapters 1 and 2 have French-only PDFs. Chapter 3 has both French and English editions; this page displays the English PDFs.',
     toc: 'Browse workbooks',
     chapterLabel: 'Chapter',
     lessonsLabel: 'Lessons',

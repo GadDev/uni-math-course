@@ -17,10 +17,12 @@ const { locale } = Astro.props;
 const text = printableCopy[locale];
 const chapters = printableChapters.map((chapter) => ({
   ...chapter,
-  documents: chapter.documents.map((document) => ({
+  documents: chapter.documents
+    .filter((document) => !document.language || document.language === locale)
+    .map((document) => ({
     ...document,
     available: existsSync(join(process.cwd(), 'public', document.path)),
-  })),
+    })),
 }));
 const missingFiles = chapters.some((chapter) =>
   chapter.documents.some((document) => !document.available),
@@ -51,9 +53,9 @@ const missingFiles = chapters.some((chapter) =>
         <p>{text.intro}</p>
       </div>
       <div class="printable-hero-art" aria-hidden="true">
-        <strong>940</strong>
+        <strong>1540</strong>
         <span>{text.exercisesLabel}</span>
-        <small>300 + 640</small>
+        <small>300 + 640 + 600</small>
       </div>
     </header>
 
@@ -104,9 +106,10 @@ const missingFiles = chapters.some((chapter) =>
                 PDF · A4 · {document.pages} {text.pages}
               </p>
               <h4>
-                {document.type === 'exercises'
-                  ? text.exercises
-                  : text.solutions}
+                {document.label?.[locale] ??
+                  (document.type === 'exercises'
+                    ? text.exercises
+                    : text.solutions)}
               </h4>
               {document.available ? (
                 <a
@@ -122,9 +125,10 @@ const missingFiles = chapters.some((chapter) =>
                   aria-label={
                     text.download +
                     ': ' +
-                    (document.type === 'exercises'
-                      ? text.exercises
-                      : text.solutions) +
+                    (document.label?.[locale] ??
+                      (document.type === 'exercises'
+                        ? text.exercises
+                        : text.solutions)) +
                     ', ' +
                     chapter.title[locale]
                   }
