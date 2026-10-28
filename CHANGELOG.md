@@ -2,6 +2,14 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.14.0](https://github.com/GadDev/uni-math-course/compare/v0.13.1...v0.14.0) (2026-10-28)
+
+
+### Features
+
+* **chapter-03:** add bilingual Functions lessons and 90 interactive exercises ([#108](https://github.com/GadDev/uni-math-course/issues/108)) ([a012ae6](https://github.com/GadDev/uni-math-course/commit/a012ae640f77b1aa1e661f23ecf7a0e8c8ae8773))
+* **chapter-04:** seven bilingual lessons, Huffman, 105 practice items and printable PDFs ([#105](https://github.com/GadDev/uni-math-course/issues/105)) ([cdbe3d3](https://github.com/GadDev/uni-math-course/commit/cdbe3d3e2b89b01d7b3da7853a7da270d44b4a94))
+
 ## [0.13.1](https://github.com/GadDev/uni-math-course/compare/v0.13.0...v0.13.1) (2026-10-27)
 
 
