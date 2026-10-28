@@ -8,13 +8,14 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import { existsSync } from 'node:fs';
 import { safeOrigin } from './src/lib/auth/policy.ts';
+import { offlinePwaManifest } from './scripts/offline-manifest.ts';
 
 if (existsSync('.env')) process.loadEnvFile('.env');
 const site = safeOrigin(process.env.AUTH_SITE_URL ?? '');
 const testBuild = process.env.ASTRO_TEST_BUILD === '1';
 
 export default defineConfig({
-  integrations: [react(), mdx()],
+  integrations: [react(), mdx(), offlinePwaManifest()],
   // The local production test server uses Node; deployed builds use Vercel.
   adapter: testBuild
     ? node({ mode: 'standalone' })

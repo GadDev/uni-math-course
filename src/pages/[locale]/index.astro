@@ -176,6 +176,20 @@ const implication = katex.renderToString('A \\Rightarrow B', {
         →
       </a>
     </section>
+    <section class="planned-section" aria-labelledby="offline-title">
+      <p class="eyebrow">PWA · {locale === 'fr' ? 'SANS CONNEXION' : 'OFFLINE'}</p>
+      <h2 id="offline-title">
+        {locale === 'fr' ? 'Emporter les leçons partout' : 'Take lessons anywhere'}
+      </h2>
+      <p>
+        {locale === 'fr'
+          ? 'Installez ce site comme une application et téléchargez les 49 leçons pour les lire sans Internet.'
+          : 'Install this site as an app and download all 49 lessons to read without Internet.'}
+      </p>
+      <a class="primary-link" href={'/' + locale + '/offline/'}>
+        {locale === 'fr' ? 'Préparer le mode hors ligne' : 'Prepare offline mode'} →
+      </a>
+    </section>
     <section class="practice-status" aria-labelledby="practice-title">
       <div class="practice-copy">
         <h2 id="practice-title">{text.practiceTitle}</h2>

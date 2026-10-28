@@ -44,6 +44,9 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
     <title>{title} · Uni Math Course</title>
     {inject()}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <meta name="theme-color" content="#171b1a" />
     <link
       rel="preload"
       href="/fonts/anton-latin-400-normal.woff2"
@@ -51,6 +54,15 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
       type="font/woff2"
       crossorigin
     />
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {
+            // Normal reading still works without offline support.
+          });
+        });
+      }
+    </script>
     <script is:inline>
       // Hide "Sign in" up front when a session may exist, to avoid a flash.
       if (/(?:^|; )um-session=1/.test(document.cookie))
@@ -163,6 +175,11 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
     </div>
     <footer class="site-footer">
       <p>{text.footer}</p>
+      <p>
+        <a href={'/' + locale + '/offline/'}>
+          {locale === 'fr' ? 'Étudier hors ligne' : 'Study offline'}
+        </a>
+      </p>
       <p>
         © 2026 · <a href="https://github.com/GadDev/uni-math-course">GadDev</a>
       </p>
