@@ -8,7 +8,7 @@ import {
   printableCopy,
 } from '../../src/lib/printable-exercises.ts';
 
-test('printable exercise catalog covers four chapters, Ninja challenges and Chapter 3 bilingual PDFs', () => {
+test('printable PDF catalog covers chapters and challenges', () => {
   assert.equal(printableChapters.length, 4);
   assert.equal(
     printableChapters.reduce((sum, chapter) => sum + chapter.count, 0),
@@ -65,13 +65,14 @@ test('printable exercise catalog covers four chapters, Ninja challenges and Chap
 
   assert.equal(paths.size, 18);
   for (const chapter of printableChapters.slice(0, 2)) {
-    const challengeDocuments = chapter.documents.filter(
-      (document) => document.id.includes('challenge'),
-    );
-    assert.equal(challengeDocuments.length, 2);
-    assert.ok(
-      chapter.documents.every((document) => document.language === 'fr'),
-    );
+    let challenges = 0;
+    for (const document of chapter.documents) {
+      if (document.id.includes('challenge')) {
+        challenges += 1;
+      }
+      assert.equal(document.language, 'fr');
+    }
+    assert.equal(challenges, 2);
   }
   assert.equal(
     printableChapters[2]!.documents.filter(
