@@ -210,7 +210,10 @@ test('L38 matching language anchors and isolated hydration', async ({
   await expect(page.locator('.lesson-prose h2')).toHaveCount(frHeadings);
   await page.goto('/fr/lessons/L39/');
   await expect(page.locator('[data-l38-explorer]')).toHaveCount(0);
-  await expect(page.locator('astro-island')).toHaveCount(0);
+  await expect(
+    page.locator('astro-island[component-url*="DerivativeExplorer"]'),
+  ).toHaveCount(0);
+  await expect(page.locator('[data-l39-panel]')).toHaveCount(2);
 });
 
 test('L38 touch controls and dark theme preserve interaction', async ({
