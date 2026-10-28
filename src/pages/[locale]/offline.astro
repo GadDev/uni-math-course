@@ -160,6 +160,7 @@ const title = fr ? 'Étudier hors ligne' : 'Study offline';
     async function worker(): Promise<void> {
       while (next < urls.length) {
         const path = urls[next++];
+        if (path === undefined) break;
         try {
           const response = await fetch(path, { cache: 'reload', credentials: 'omit' });
           const type = response.headers.get('content-type') ?? '';
