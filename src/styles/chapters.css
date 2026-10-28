@@ -284,3 +284,31 @@
     width: 144px;
   }
 }
+:root {
+  --orange-accent: light-dark(#f47b44, #ffa76c);
+  --orange-text: light-dark(#923b1d, #ffd2b2);
+  --orange-surface: light-dark(#fce7d8, #432b22);
+}
+.site-header[data-chapter='C04'] {
+  --chapter-accent: var(--orange-text);
+}
+.lesson-page[data-chapter='C04'] {
+  --signal-red: var(--orange-accent);
+  --accent: var(--orange-text);
+}
+.lesson-page[data-chapter='C04'] .current-topic .outline-number {
+  background: var(--orange-surface);
+  color: var(--orange-text);
+}
+.lesson-page[data-chapter='C04'] .is-wrong,
+.lesson-page[data-chapter='C04'] .practice-error,
+.lesson-page[data-chapter='C04'] .practice-bad {
+  --signal-red: var(--red-signal);
+  --accent: var(--red-accent);
+}
+.primary-nav .chapter-option[data-chapter='C04'][aria-current] {
+  background: var(--orange-surface);
+}
+.chapter-option[data-chapter='C04'] .chapter-option-number {
+  color: var(--orange-text);
+}

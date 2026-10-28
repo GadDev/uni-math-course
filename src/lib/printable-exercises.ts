@@ -11,7 +11,7 @@ export type PrintableDocument = {
 };
 
 export type PrintableChapter = {
-  id: 'chapter-01' | 'chapter-02' | 'chapter-03';
+  id: 'chapter-01' | 'chapter-02' | 'chapter-03' | 'chapter-04';
   number: string;
   lessons: string;
   count: number;
@@ -202,6 +202,35 @@ export const printableChapters: readonly PrintableChapter[] = [
       },
     ],
   },
+  {
+    id: 'chapter-04',
+    number: '04',
+    lessons: 'L43–L49',
+    count: 700,
+    title: { fr: 'Théorie de l’information', en: 'Information theory' },
+    description: {
+      fr: 'Sept leçons, dont Huffman en extension : 700 exercices bilingues et leurs corrigés détaillés.',
+      en: 'Seven lessons, including a Huffman extension: 700 bilingual exercises and worked solutions.',
+    },
+    documents: [
+      {
+        id: 'chapter-04-exercises',
+        type: 'exercises',
+        path: 'pdfs/exercises/chapter-04-exercises.pdf',
+        pages: 86,
+        sha256:
+          '17f081804ebafef9ecbeb16af686198c800763fdb23fb4d7fecc4e8b92a56485',
+      },
+      {
+        id: 'chapter-04-solutions',
+        type: 'solutions',
+        path: 'pdfs/exercises/chapter-04-solutions.pdf',
+        pages: 134,
+        sha256:
+          'bb88e3eacdcf1cd0d32b73fd7f4f1baa9100b144bc977514ac6fedaa643e29a1',
+      },
+    ],
+  },
 ];
 
 export const printableCopy = {
@@ -211,11 +240,11 @@ export const printableCopy = {
     kicker: 'CAHIERS DE PRATIQUE · FORMAT A4',
     title: 'Exercices à imprimer',
     description:
-      '1 540 exercices pour s’entraîner à son rythme, avec un corrigé séparé pour chaque chapitre.',
+      '2 240 exercices pour s’entraîner à son rythme, avec un corrigé séparé pour chaque chapitre.',
     intro:
       'Téléchargez un cahier, écrivez vos calculs sur papier, puis vérifiez vos réponses. Pas de compte requis.',
     languageNote:
-      'Les cahiers des chapitres 1 et 2 sont en français. Les ressources du chapitre 3 existent en français et en anglais ; vous voyez la langue de cette page.',
+      'Les cahiers des chapitres 1 et 2 sont en français. Le chapitre 3 propose des éditions française et anglaise, et le chapitre 4 des cahiers bilingues (FR/EN).',
     toc: 'Parcourir les cahiers',
     chapterLabel: 'Chapitre',
     lessonsLabel: 'Leçons',
@@ -245,11 +274,11 @@ export const printableCopy = {
     kicker: 'PRINTABLE PRACTICE · A4',
     title: 'Printable exercises',
     description:
-      '1,540 exercises to practise at your own pace, with a separate answer booklet for each chapter.',
+      '2,240 exercises to practise at your own pace, with a separate answer booklet for each chapter.',
     intro:
       'Download a workbook, work through the calculations on paper, then check your answers. No account required.',
     languageNote:
-      'Chapters 1 and 2 have French-only PDFs. Chapter 3 has both French and English editions; this page displays the English PDFs.',
+      'Chapters 1 and 2 have French-only PDFs. Chapter 3 has both French and English editions; Chapter 4 workbooks are bilingual (FR/EN).',
     toc: 'Browse workbooks',
     chapterLabel: 'Chapter',
     lessonsLabel: 'Lessons',

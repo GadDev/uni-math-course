@@ -85,11 +85,13 @@ const glossaryLinks: Record<string, [string, string]> = {
 };
 const glossaryLink = glossaryLinks[lesson.data.lessonId];
 const geometryVariant =
-  chapter.id === 'C03'
-    ? 'functions-mosaic'
-    : chapter.id === 'C02'
-      ? 'decalage'
-      : 'logic';
+  chapter.id === 'C04'
+    ? 'ember'
+    : chapter.id === 'C03'
+      ? 'functions-mosaic'
+      : chapter.id === 'C02'
+        ? 'decalage'
+        : 'logic';
 ---
 
 <Base

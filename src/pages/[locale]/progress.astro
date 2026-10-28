@@ -54,6 +54,10 @@ const lessonTitles = new Map(
     .filter((entry) => entry.data.locale === locale)
     .map((entry) => [entry.data.lessonId, entry.data.title]),
 );
+// Avoid links to progress anchors for chapters without published lessons.
+const progressChapters = chapters.filter((chapter) =>
+  chapter.lessonIds.some((id) => lessonTitles.has(id)),
+);
 const format = new Intl.DateTimeFormat(locale, {
   dateStyle: 'medium',
   timeStyle: 'short',
@@ -270,7 +274,7 @@ const recent = progress?.history.slice(0, 3) ?? [];
                 : 'Progress by chapter'
             }
           >
-            {chapters.map((chapter) => (
+            {progressChapters.map((chapter) => (
               <p>
                 <a href={`#chapter-${chapter.id}`}>
                   {chapter.number} · {chapter.title[locale]}

@@ -1,0 +1,123 @@
+---
+import Base from '../../../layouts/Base.astro';
+import SignalGeometry from '../../../components/SignalGeometry.astro';
+import { informationCopy } from '../../../lib/information';
+import { locales } from '../../../lib/i18n';
+import katex from 'katex';
+import '../../../styles/chapter-overview.css';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+
+const { locale } = Astro.props;
+const text = informationCopy[locale];
+const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
+  output: 'htmlAndMathml',
+  throwOnError: true,
+});
+---
+
+<Base
+  locale={locale}
+  title={text.title}
+  description={text.intro}
+  path="chapters/C04/"
+>
+  <main id="main" tabindex="-1" class="chapter-overview" data-chapter="C04">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">{text.eyebrow}</p>
+        <h1 class="signal-title">
+          <span>{text.titleLines[0]}</span>
+          <span>
+            {text.titleLines[1]}
+            <span class="signal-stop">.</span>
+          </span>
+        </h1>
+        <p class="chapter-subtitle">
+          {text.subtitle.map((line) => (
+            <span>{line}</span>
+          ))}
+        </p>
+        <p class="lede">{text.intro}</p>
+        <p class="status">{text.status}</p>
+        <p class="chapter-motto">{text.motto}</p>
+      </div>
+      <div class="hero-art">
+        <SignalGeometry variant="ember" />
+      </div>
+    </section>
+
+    <section class="lesson-feature" aria-labelledby="information-basics-title">
+      <div class="lesson-index" aria-hidden="true">
+        01
+      </div>
+      <div class="featured-identity">
+        <p class="eyebrow">{text.start}</p>
+        <h2 id="information-basics-title">{text.basics}</h2>
+        <div class="feature-formula" set:html={formula} />
+        <p class="visually-hidden">{text.formulaReading}</p>
+        <p class="formula-reading">{text.formulaCaption}</p>
+      </div>
+      <div class="featured-description">
+        <p>{text.description}</p>
+        <div class="lesson-meta">
+          <span>{text.upcoming}</span>
+        </div>
+      </div>
+      <div class="featured-action">
+        <a class="primary-link" href={`/${locale}/lessons/L43/`}>
+          {text.explore}
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+
+    <section
+      id="parcours"
+      class="planned-section"
+      aria-labelledby="information-outline"
+    >
+      <div class="chapter-section-heading">
+        <h2 id="information-outline">{text.outline}</h2>
+        <p>{text.outlineNote}</p>
+      </div>
+      <ol class="planned-list chapter-lessons">
+        {text.lessons.map((lesson, index) => (
+          <li class="available-topic">
+            <span class="planned-number" aria-hidden="true">
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <a href={`/${locale}/lessons/${lesson.id}/`}>{lesson.title}</a>
+            <small class="planned-label">
+              {text.pages} {lesson.pages} · {text.upcoming}
+            </small>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="chapter-objectives" aria-labelledby="information-goals">
+      <h2 id="information-goals">{text.goals}</h2>
+      <ol>
+        {text.objectives.map((objective) => (
+          <li>{objective}</li>
+        ))}
+      </ol>
+    </section>
+
+    <section class="practice-status" aria-labelledby="information-practice">
+      <div class="practice-copy">
+        <h2 id="information-practice">{text.practice}</h2>
+        <p>{text.practiceText}</p>
+      </div>
+      <aside class="reading-notice" aria-labelledby="information-review">
+        <h2 id="information-review" class="reading-notice-title">
+          {text.review}
+        </h2>
+        <p>{text.reviewText}</p>
+      </aside>
+    </section>
+  </main>
+</Base>

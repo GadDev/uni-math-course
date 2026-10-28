@@ -1,0 +1,2717 @@
+{
+  "draft": true,
+  "chapterId": "C04",
+  "topicId": "T07",
+  "origin": "original-project-work",
+  "sourcePages": [
+    14,
+    15,
+    16
+  ],
+  "sourceBoundary": "Huffman is additional teaching material, not in supplied PDF; pages refer to motivation only.",
+  "assessment": "worked-draft-not-server-graded",
+  "answerStatus": "automatically-derived-awaiting-independent-review",
+  "itemCount": 100,
+  "items": [
+    {
+      "id": "C04-T07-E001",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:8, B:4, C:2, D:2 : combien de symboles au total ?",
+        "en": "Frequencies A:8, B:4, C:2, D:2: what is the total count?"
+      },
+      "solution": {
+        "fr": "Additionner : 16.",
+        "en": "Add the frequencies: 16."
+      },
+      "answer": "16",
+      "fixture": {
+        "A": 8,
+        "B": 4,
+        "C": 2,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 4,
+      "theme": "count"
+    },
+    {
+      "id": "C04-T07-E002",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:8, B:4, C:2, D:2 : quels sont les deux poids de la première fusion ?",
+        "en": "Frequencies A:8, B:4, C:2, D:2: which two weights are merged first?"
+      },
+      "solution": {
+        "fr": "Les deux plus faibles sont 2 et 2.",
+        "en": "The lowest weights are 2 and 2."
+      },
+      "answer": "2 + 2",
+      "fixture": {
+        "A": 8,
+        "B": 4,
+        "C": 2,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 4,
+      "theme": "two-smallest"
+    },
+    {
+      "id": "C04-T07-E003",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:8, B:4, C:2, D:2 : quel est le poids du premier nœud fusionné ?",
+        "en": "Frequencies A:8, B:4, C:2, D:2: what is the first merged node weight?"
+      },
+      "solution": {
+        "fr": "2+2=4.",
+        "en": "2+2=4."
+      },
+      "answer": "4",
+      "fixture": {
+        "A": 8,
+        "B": 4,
+        "C": 2,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 4,
+      "theme": "first-merge"
+    },
+    {
+      "id": "C04-T07-E004",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:8, B:4, C:2, D:2 : quelle est la longueur du code Huffman de A ?",
+        "en": "Frequencies A:8, B:4, C:2, D:2: what is the Huffman codeword length of A?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=110, D=111. Donc la longueur de A vaut 1.",
+        "en": "A=0, B=10, C=110, D=111. Thus A has 1 bits."
+      },
+      "answer": "1",
+      "fixture": {
+        "A": 8,
+        "B": 4,
+        "C": 2,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 4,
+      "theme": "length-A"
+    },
+    {
+      "id": "C04-T07-E005",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:8, B:4, C:2, D:2 : quelle est la longueur du code Huffman de B ?",
+        "en": "Frequencies A:8, B:4, C:2, D:2: what is the Huffman codeword length of B?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=110, D=111. Donc la longueur de B vaut 2.",
+        "en": "A=0, B=10, C=110, D=111. Thus B has 2 bits."
+      },
+      "answer": "2",
+      "fixture": {
+        "A": 8,
+        "B": 4,
+        "C": 2,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 4,
+      "theme": "length-B"
+    },
+    {
+      "id": "C04-T07-E006",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:8, B:4, C:2, D:2 : quelle est la longueur du code Huffman de C ?",
+        "en": "Frequencies A:8, B:4, C:2, D:2: what is the Huffman codeword length of C?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=110, D=111. Donc la longueur de C vaut 3.",
+        "en": "A=0, B=10, C=110, D=111. Thus C has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 8,
+        "B": 4,
+        "C": 2,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 4,
+      "theme": "length-C"
+    },
+    {
+      "id": "C04-T07-E007",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:8, B:4, C:2, D:2 : quelle est la longueur du code Huffman de D ?",
+        "en": "Frequencies A:8, B:4, C:2, D:2: what is the Huffman codeword length of D?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=110, D=111. Donc la longueur de D vaut 3.",
+        "en": "A=0, B=10, C=110, D=111. Thus D has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 8,
+        "B": 4,
+        "C": 2,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 4,
+      "theme": "length-D"
+    },
+    {
+      "id": "C04-T07-E008",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:8, B:4, C:2, D:2 : calculer la longueur moyenne Huffman en bits par symbole.",
+        "en": "Frequencies A:8, B:4, C:2, D:2: calculate the average Huffman bit length per symbol."
+      },
+      "solution": {
+        "fr": "Avec A=0, B=10, C=110, D=111, moyenne (28)/(16) = 7/4 bits par symbole.",
+        "en": "Using A=0, B=10, C=110, D=111, weighted mean 28/16 = 7/4 bits per symbol."
+      },
+      "answer": "7/4",
+      "fixture": {
+        "A": 8,
+        "B": 4,
+        "C": 2,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 4,
+      "theme": "weighted-mean"
+    },
+    {
+      "id": "C04-T07-E009",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:8, B:4, C:2, D:2 : départager alphabétiquement, utiliser 0 à gauche et 1 à droite, puis encoder ABCD.",
+        "en": "Frequencies A:8, B:4, C:2, D:2: break ties alphabetically, use 0 left / 1 right, then encode ABCD."
+      },
+      "solution": {
+        "fr": "Codes A=0, B=10, C=110, D=111. On concatène pour obtenir 010110111.",
+        "en": "Codes A=0, B=10, C=110, D=111. Concatenation yields 010110111."
+      },
+      "answer": "010110111",
+      "fixture": {
+        "A": 8,
+        "B": 4,
+        "C": 2,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 4,
+      "theme": "encode"
+    },
+    {
+      "id": "C04-T07-E010",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:8, B:4, C:2, D:2 : combien de bits faut-il pour coder AB ?",
+        "en": "Frequencies A:8, B:4, C:2, D:2: how many bits encode AB?"
+      },
+      "solution": {
+        "fr": "Somme des longueurs 1+2=3.",
+        "en": "Add the lengths 1+2=3."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 8,
+        "B": 4,
+        "C": 2,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 4,
+      "theme": "concatenate"
+    },
+    {
+      "id": "C04-T07-E011",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:10, B:5, C:3, D:2 : combien de symboles au total ?",
+        "en": "Frequencies A:10, B:5, C:3, D:2: what is the total count?"
+      },
+      "solution": {
+        "fr": "Additionner : 20.",
+        "en": "Add the frequencies: 20."
+      },
+      "answer": "20",
+      "fixture": {
+        "A": 10,
+        "B": 5,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 5,
+      "theme": "count"
+    },
+    {
+      "id": "C04-T07-E012",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:10, B:5, C:3, D:2 : quels sont les deux poids de la première fusion ?",
+        "en": "Frequencies A:10, B:5, C:3, D:2: which two weights are merged first?"
+      },
+      "solution": {
+        "fr": "Les deux plus faibles sont 2 et 3.",
+        "en": "The lowest weights are 2 and 3."
+      },
+      "answer": "2 + 3",
+      "fixture": {
+        "A": 10,
+        "B": 5,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 5,
+      "theme": "two-smallest"
+    },
+    {
+      "id": "C04-T07-E013",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:10, B:5, C:3, D:2 : quel est le poids du premier nœud fusionné ?",
+        "en": "Frequencies A:10, B:5, C:3, D:2: what is the first merged node weight?"
+      },
+      "solution": {
+        "fr": "2+3=5.",
+        "en": "2+3=5."
+      },
+      "answer": "5",
+      "fixture": {
+        "A": 10,
+        "B": 5,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 5,
+      "theme": "first-merge"
+    },
+    {
+      "id": "C04-T07-E014",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:10, B:5, C:3, D:2 : quelle est la longueur du code Huffman de A ?",
+        "en": "Frequencies A:10, B:5, C:3, D:2: what is the Huffman codeword length of A?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de A vaut 1.",
+        "en": "A=0, B=10, C=111, D=110. Thus A has 1 bits."
+      },
+      "answer": "1",
+      "fixture": {
+        "A": 10,
+        "B": 5,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 5,
+      "theme": "length-A"
+    },
+    {
+      "id": "C04-T07-E015",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:10, B:5, C:3, D:2 : quelle est la longueur du code Huffman de B ?",
+        "en": "Frequencies A:10, B:5, C:3, D:2: what is the Huffman codeword length of B?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de B vaut 2.",
+        "en": "A=0, B=10, C=111, D=110. Thus B has 2 bits."
+      },
+      "answer": "2",
+      "fixture": {
+        "A": 10,
+        "B": 5,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 5,
+      "theme": "length-B"
+    },
+    {
+      "id": "C04-T07-E016",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:10, B:5, C:3, D:2 : quelle est la longueur du code Huffman de C ?",
+        "en": "Frequencies A:10, B:5, C:3, D:2: what is the Huffman codeword length of C?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de C vaut 3.",
+        "en": "A=0, B=10, C=111, D=110. Thus C has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 10,
+        "B": 5,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 5,
+      "theme": "length-C"
+    },
+    {
+      "id": "C04-T07-E017",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:10, B:5, C:3, D:2 : quelle est la longueur du code Huffman de D ?",
+        "en": "Frequencies A:10, B:5, C:3, D:2: what is the Huffman codeword length of D?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de D vaut 3.",
+        "en": "A=0, B=10, C=111, D=110. Thus D has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 10,
+        "B": 5,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 5,
+      "theme": "length-D"
+    },
+    {
+      "id": "C04-T07-E018",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:10, B:5, C:3, D:2 : calculer la longueur moyenne Huffman en bits par symbole.",
+        "en": "Frequencies A:10, B:5, C:3, D:2: calculate the average Huffman bit length per symbol."
+      },
+      "solution": {
+        "fr": "Avec A=0, B=10, C=111, D=110, moyenne (35)/(20) = 7/4 bits par symbole.",
+        "en": "Using A=0, B=10, C=111, D=110, weighted mean 35/20 = 7/4 bits per symbol."
+      },
+      "answer": "7/4",
+      "fixture": {
+        "A": 10,
+        "B": 5,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 5,
+      "theme": "weighted-mean"
+    },
+    {
+      "id": "C04-T07-E019",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:10, B:5, C:3, D:2 : départager alphabétiquement, utiliser 0 à gauche et 1 à droite, puis encoder ABCD.",
+        "en": "Frequencies A:10, B:5, C:3, D:2: break ties alphabetically, use 0 left / 1 right, then encode ABCD."
+      },
+      "solution": {
+        "fr": "Codes A=0, B=10, C=111, D=110. On concatène pour obtenir 010111110.",
+        "en": "Codes A=0, B=10, C=111, D=110. Concatenation yields 010111110."
+      },
+      "answer": "010111110",
+      "fixture": {
+        "A": 10,
+        "B": 5,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 5,
+      "theme": "encode"
+    },
+    {
+      "id": "C04-T07-E020",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:10, B:5, C:3, D:2 : combien de bits faut-il pour coder AB ?",
+        "en": "Frequencies A:10, B:5, C:3, D:2: how many bits encode AB?"
+      },
+      "solution": {
+        "fr": "Somme des longueurs 1+2=3.",
+        "en": "Add the lengths 1+2=3."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 10,
+        "B": 5,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 5,
+      "theme": "concatenate"
+    },
+    {
+      "id": "C04-T07-E021",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:9, B:6, C:3, D:2 : combien de symboles au total ?",
+        "en": "Frequencies A:9, B:6, C:3, D:2: what is the total count?"
+      },
+      "solution": {
+        "fr": "Additionner : 20.",
+        "en": "Add the frequencies: 20."
+      },
+      "answer": "20",
+      "fixture": {
+        "A": 9,
+        "B": 6,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 5,
+      "theme": "count"
+    },
+    {
+      "id": "C04-T07-E022",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:9, B:6, C:3, D:2 : quels sont les deux poids de la première fusion ?",
+        "en": "Frequencies A:9, B:6, C:3, D:2: which two weights are merged first?"
+      },
+      "solution": {
+        "fr": "Les deux plus faibles sont 2 et 3.",
+        "en": "The lowest weights are 2 and 3."
+      },
+      "answer": "2 + 3",
+      "fixture": {
+        "A": 9,
+        "B": 6,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 5,
+      "theme": "two-smallest"
+    },
+    {
+      "id": "C04-T07-E023",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:9, B:6, C:3, D:2 : quel est le poids du premier nœud fusionné ?",
+        "en": "Frequencies A:9, B:6, C:3, D:2: what is the first merged node weight?"
+      },
+      "solution": {
+        "fr": "2+3=5.",
+        "en": "2+3=5."
+      },
+      "answer": "5",
+      "fixture": {
+        "A": 9,
+        "B": 6,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 5,
+      "theme": "first-merge"
+    },
+    {
+      "id": "C04-T07-E024",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:9, B:6, C:3, D:2 : quelle est la longueur du code Huffman de A ?",
+        "en": "Frequencies A:9, B:6, C:3, D:2: what is the Huffman codeword length of A?"
+      },
+      "solution": {
+        "fr": "A=0, B=11, C=101, D=100. Donc la longueur de A vaut 1.",
+        "en": "A=0, B=11, C=101, D=100. Thus A has 1 bits."
+      },
+      "answer": "1",
+      "fixture": {
+        "A": 9,
+        "B": 6,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 5,
+      "theme": "length-A"
+    },
+    {
+      "id": "C04-T07-E025",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:9, B:6, C:3, D:2 : quelle est la longueur du code Huffman de B ?",
+        "en": "Frequencies A:9, B:6, C:3, D:2: what is the Huffman codeword length of B?"
+      },
+      "solution": {
+        "fr": "A=0, B=11, C=101, D=100. Donc la longueur de B vaut 2.",
+        "en": "A=0, B=11, C=101, D=100. Thus B has 2 bits."
+      },
+      "answer": "2",
+      "fixture": {
+        "A": 9,
+        "B": 6,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 5,
+      "theme": "length-B"
+    },
+    {
+      "id": "C04-T07-E026",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:9, B:6, C:3, D:2 : quelle est la longueur du code Huffman de C ?",
+        "en": "Frequencies A:9, B:6, C:3, D:2: what is the Huffman codeword length of C?"
+      },
+      "solution": {
+        "fr": "A=0, B=11, C=101, D=100. Donc la longueur de C vaut 3.",
+        "en": "A=0, B=11, C=101, D=100. Thus C has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 9,
+        "B": 6,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 5,
+      "theme": "length-C"
+    },
+    {
+      "id": "C04-T07-E027",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:9, B:6, C:3, D:2 : quelle est la longueur du code Huffman de D ?",
+        "en": "Frequencies A:9, B:6, C:3, D:2: what is the Huffman codeword length of D?"
+      },
+      "solution": {
+        "fr": "A=0, B=11, C=101, D=100. Donc la longueur de D vaut 3.",
+        "en": "A=0, B=11, C=101, D=100. Thus D has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 9,
+        "B": 6,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 5,
+      "theme": "length-D"
+    },
+    {
+      "id": "C04-T07-E028",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:9, B:6, C:3, D:2 : calculer la longueur moyenne Huffman en bits par symbole.",
+        "en": "Frequencies A:9, B:6, C:3, D:2: calculate the average Huffman bit length per symbol."
+      },
+      "solution": {
+        "fr": "Avec A=0, B=11, C=101, D=100, moyenne (36)/(20) = 9/5 bits par symbole.",
+        "en": "Using A=0, B=11, C=101, D=100, weighted mean 36/20 = 9/5 bits per symbol."
+      },
+      "answer": "9/5",
+      "fixture": {
+        "A": 9,
+        "B": 6,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 5,
+      "theme": "weighted-mean"
+    },
+    {
+      "id": "C04-T07-E029",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:9, B:6, C:3, D:2 : départager alphabétiquement, utiliser 0 à gauche et 1 à droite, puis encoder ABCD.",
+        "en": "Frequencies A:9, B:6, C:3, D:2: break ties alphabetically, use 0 left / 1 right, then encode ABCD."
+      },
+      "solution": {
+        "fr": "Codes A=0, B=11, C=101, D=100. On concatène pour obtenir 011101100.",
+        "en": "Codes A=0, B=11, C=101, D=100. Concatenation yields 011101100."
+      },
+      "answer": "011101100",
+      "fixture": {
+        "A": 9,
+        "B": 6,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 5,
+      "theme": "encode"
+    },
+    {
+      "id": "C04-T07-E030",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:9, B:6, C:3, D:2 : combien de bits faut-il pour coder AB ?",
+        "en": "Frequencies A:9, B:6, C:3, D:2: how many bits encode AB?"
+      },
+      "solution": {
+        "fr": "Somme des longueurs 1+2=3.",
+        "en": "Add the lengths 1+2=3."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 9,
+        "B": 6,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 5,
+      "theme": "concatenate"
+    },
+    {
+      "id": "C04-T07-E031",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:7, B:4, C:2, D:1 : combien de symboles au total ?",
+        "en": "Frequencies A:7, B:4, C:2, D:1: what is the total count?"
+      },
+      "solution": {
+        "fr": "Additionner : 14.",
+        "en": "Add the frequencies: 14."
+      },
+      "answer": "14",
+      "fixture": {
+        "A": 7,
+        "B": 4,
+        "C": 2,
+        "D": 1
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 3,
+      "theme": "count"
+    },
+    {
+      "id": "C04-T07-E032",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:7, B:4, C:2, D:1 : quels sont les deux poids de la première fusion ?",
+        "en": "Frequencies A:7, B:4, C:2, D:1: which two weights are merged first?"
+      },
+      "solution": {
+        "fr": "Les deux plus faibles sont 1 et 2.",
+        "en": "The lowest weights are 1 and 2."
+      },
+      "answer": "1 + 2",
+      "fixture": {
+        "A": 7,
+        "B": 4,
+        "C": 2,
+        "D": 1
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 3,
+      "theme": "two-smallest"
+    },
+    {
+      "id": "C04-T07-E033",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:7, B:4, C:2, D:1 : quel est le poids du premier nœud fusionné ?",
+        "en": "Frequencies A:7, B:4, C:2, D:1: what is the first merged node weight?"
+      },
+      "solution": {
+        "fr": "1+2=3.",
+        "en": "1+2=3."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 7,
+        "B": 4,
+        "C": 2,
+        "D": 1
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 3,
+      "theme": "first-merge"
+    },
+    {
+      "id": "C04-T07-E034",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:7, B:4, C:2, D:1 : quelle est la longueur du code Huffman de A ?",
+        "en": "Frequencies A:7, B:4, C:2, D:1: what is the Huffman codeword length of A?"
+      },
+      "solution": {
+        "fr": "A=0, B=11, C=101, D=100. Donc la longueur de A vaut 1.",
+        "en": "A=0, B=11, C=101, D=100. Thus A has 1 bits."
+      },
+      "answer": "1",
+      "fixture": {
+        "A": 7,
+        "B": 4,
+        "C": 2,
+        "D": 1
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 3,
+      "theme": "length-A"
+    },
+    {
+      "id": "C04-T07-E035",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:7, B:4, C:2, D:1 : quelle est la longueur du code Huffman de B ?",
+        "en": "Frequencies A:7, B:4, C:2, D:1: what is the Huffman codeword length of B?"
+      },
+      "solution": {
+        "fr": "A=0, B=11, C=101, D=100. Donc la longueur de B vaut 2.",
+        "en": "A=0, B=11, C=101, D=100. Thus B has 2 bits."
+      },
+      "answer": "2",
+      "fixture": {
+        "A": 7,
+        "B": 4,
+        "C": 2,
+        "D": 1
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 3,
+      "theme": "length-B"
+    },
+    {
+      "id": "C04-T07-E036",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:7, B:4, C:2, D:1 : quelle est la longueur du code Huffman de C ?",
+        "en": "Frequencies A:7, B:4, C:2, D:1: what is the Huffman codeword length of C?"
+      },
+      "solution": {
+        "fr": "A=0, B=11, C=101, D=100. Donc la longueur de C vaut 3.",
+        "en": "A=0, B=11, C=101, D=100. Thus C has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 7,
+        "B": 4,
+        "C": 2,
+        "D": 1
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 3,
+      "theme": "length-C"
+    },
+    {
+      "id": "C04-T07-E037",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:7, B:4, C:2, D:1 : quelle est la longueur du code Huffman de D ?",
+        "en": "Frequencies A:7, B:4, C:2, D:1: what is the Huffman codeword length of D?"
+      },
+      "solution": {
+        "fr": "A=0, B=11, C=101, D=100. Donc la longueur de D vaut 3.",
+        "en": "A=0, B=11, C=101, D=100. Thus D has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 7,
+        "B": 4,
+        "C": 2,
+        "D": 1
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 3,
+      "theme": "length-D"
+    },
+    {
+      "id": "C04-T07-E038",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:7, B:4, C:2, D:1 : calculer la longueur moyenne Huffman en bits par symbole.",
+        "en": "Frequencies A:7, B:4, C:2, D:1: calculate the average Huffman bit length per symbol."
+      },
+      "solution": {
+        "fr": "Avec A=0, B=11, C=101, D=100, moyenne (24)/(14) = 12/7 bits par symbole.",
+        "en": "Using A=0, B=11, C=101, D=100, weighted mean 24/14 = 12/7 bits per symbol."
+      },
+      "answer": "12/7",
+      "fixture": {
+        "A": 7,
+        "B": 4,
+        "C": 2,
+        "D": 1
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 3,
+      "theme": "weighted-mean"
+    },
+    {
+      "id": "C04-T07-E039",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:7, B:4, C:2, D:1 : départager alphabétiquement, utiliser 0 à gauche et 1 à droite, puis encoder ABCD.",
+        "en": "Frequencies A:7, B:4, C:2, D:1: break ties alphabetically, use 0 left / 1 right, then encode ABCD."
+      },
+      "solution": {
+        "fr": "Codes A=0, B=11, C=101, D=100. On concatène pour obtenir 011101100.",
+        "en": "Codes A=0, B=11, C=101, D=100. Concatenation yields 011101100."
+      },
+      "answer": "011101100",
+      "fixture": {
+        "A": 7,
+        "B": 4,
+        "C": 2,
+        "D": 1
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 3,
+      "theme": "encode"
+    },
+    {
+      "id": "C04-T07-E040",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:7, B:4, C:2, D:1 : combien de bits faut-il pour coder AB ?",
+        "en": "Frequencies A:7, B:4, C:2, D:1: how many bits encode AB?"
+      },
+      "solution": {
+        "fr": "Somme des longueurs 1+2=3.",
+        "en": "Add the lengths 1+2=3."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 7,
+        "B": 4,
+        "C": 2,
+        "D": 1
+      },
+      "codebook": {
+        "A": "0",
+        "D": "100",
+        "C": "101",
+        "B": "11"
+      },
+      "firstMergeWeight": 3,
+      "theme": "concatenate"
+    },
+    {
+      "id": "C04-T07-E041",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:14, B:7, C:4, D:3 : combien de symboles au total ?",
+        "en": "Frequencies A:14, B:7, C:4, D:3: what is the total count?"
+      },
+      "solution": {
+        "fr": "Additionner : 28.",
+        "en": "Add the frequencies: 28."
+      },
+      "answer": "28",
+      "fixture": {
+        "A": 14,
+        "B": 7,
+        "C": 4,
+        "D": 3
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 7,
+      "theme": "count"
+    },
+    {
+      "id": "C04-T07-E042",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:14, B:7, C:4, D:3 : quels sont les deux poids de la première fusion ?",
+        "en": "Frequencies A:14, B:7, C:4, D:3: which two weights are merged first?"
+      },
+      "solution": {
+        "fr": "Les deux plus faibles sont 3 et 4.",
+        "en": "The lowest weights are 3 and 4."
+      },
+      "answer": "3 + 4",
+      "fixture": {
+        "A": 14,
+        "B": 7,
+        "C": 4,
+        "D": 3
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 7,
+      "theme": "two-smallest"
+    },
+    {
+      "id": "C04-T07-E043",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:14, B:7, C:4, D:3 : quel est le poids du premier nœud fusionné ?",
+        "en": "Frequencies A:14, B:7, C:4, D:3: what is the first merged node weight?"
+      },
+      "solution": {
+        "fr": "3+4=7.",
+        "en": "3+4=7."
+      },
+      "answer": "7",
+      "fixture": {
+        "A": 14,
+        "B": 7,
+        "C": 4,
+        "D": 3
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 7,
+      "theme": "first-merge"
+    },
+    {
+      "id": "C04-T07-E044",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:14, B:7, C:4, D:3 : quelle est la longueur du code Huffman de A ?",
+        "en": "Frequencies A:14, B:7, C:4, D:3: what is the Huffman codeword length of A?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de A vaut 1.",
+        "en": "A=0, B=10, C=111, D=110. Thus A has 1 bits."
+      },
+      "answer": "1",
+      "fixture": {
+        "A": 14,
+        "B": 7,
+        "C": 4,
+        "D": 3
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 7,
+      "theme": "length-A"
+    },
+    {
+      "id": "C04-T07-E045",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:14, B:7, C:4, D:3 : quelle est la longueur du code Huffman de B ?",
+        "en": "Frequencies A:14, B:7, C:4, D:3: what is the Huffman codeword length of B?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de B vaut 2.",
+        "en": "A=0, B=10, C=111, D=110. Thus B has 2 bits."
+      },
+      "answer": "2",
+      "fixture": {
+        "A": 14,
+        "B": 7,
+        "C": 4,
+        "D": 3
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 7,
+      "theme": "length-B"
+    },
+    {
+      "id": "C04-T07-E046",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:14, B:7, C:4, D:3 : quelle est la longueur du code Huffman de C ?",
+        "en": "Frequencies A:14, B:7, C:4, D:3: what is the Huffman codeword length of C?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de C vaut 3.",
+        "en": "A=0, B=10, C=111, D=110. Thus C has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 14,
+        "B": 7,
+        "C": 4,
+        "D": 3
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 7,
+      "theme": "length-C"
+    },
+    {
+      "id": "C04-T07-E047",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:14, B:7, C:4, D:3 : quelle est la longueur du code Huffman de D ?",
+        "en": "Frequencies A:14, B:7, C:4, D:3: what is the Huffman codeword length of D?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de D vaut 3.",
+        "en": "A=0, B=10, C=111, D=110. Thus D has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 14,
+        "B": 7,
+        "C": 4,
+        "D": 3
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 7,
+      "theme": "length-D"
+    },
+    {
+      "id": "C04-T07-E048",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:14, B:7, C:4, D:3 : calculer la longueur moyenne Huffman en bits par symbole.",
+        "en": "Frequencies A:14, B:7, C:4, D:3: calculate the average Huffman bit length per symbol."
+      },
+      "solution": {
+        "fr": "Avec A=0, B=10, C=111, D=110, moyenne (49)/(28) = 7/4 bits par symbole.",
+        "en": "Using A=0, B=10, C=111, D=110, weighted mean 49/28 = 7/4 bits per symbol."
+      },
+      "answer": "7/4",
+      "fixture": {
+        "A": 14,
+        "B": 7,
+        "C": 4,
+        "D": 3
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 7,
+      "theme": "weighted-mean"
+    },
+    {
+      "id": "C04-T07-E049",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:14, B:7, C:4, D:3 : départager alphabétiquement, utiliser 0 à gauche et 1 à droite, puis encoder ABCD.",
+        "en": "Frequencies A:14, B:7, C:4, D:3: break ties alphabetically, use 0 left / 1 right, then encode ABCD."
+      },
+      "solution": {
+        "fr": "Codes A=0, B=10, C=111, D=110. On concatène pour obtenir 010111110.",
+        "en": "Codes A=0, B=10, C=111, D=110. Concatenation yields 010111110."
+      },
+      "answer": "010111110",
+      "fixture": {
+        "A": 14,
+        "B": 7,
+        "C": 4,
+        "D": 3
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 7,
+      "theme": "encode"
+    },
+    {
+      "id": "C04-T07-E050",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:14, B:7, C:4, D:3 : combien de bits faut-il pour coder AB ?",
+        "en": "Frequencies A:14, B:7, C:4, D:3: how many bits encode AB?"
+      },
+      "solution": {
+        "fr": "Somme des longueurs 1+2=3.",
+        "en": "Add the lengths 1+2=3."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 14,
+        "B": 7,
+        "C": 4,
+        "D": 3
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 7,
+      "theme": "concatenate"
+    },
+    {
+      "id": "C04-T07-E051",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:16, B:8, C:4, D:4 : combien de symboles au total ?",
+        "en": "Frequencies A:16, B:8, C:4, D:4: what is the total count?"
+      },
+      "solution": {
+        "fr": "Additionner : 32.",
+        "en": "Add the frequencies: 32."
+      },
+      "answer": "32",
+      "fixture": {
+        "A": 16,
+        "B": 8,
+        "C": 4,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 8,
+      "theme": "count"
+    },
+    {
+      "id": "C04-T07-E052",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:16, B:8, C:4, D:4 : quels sont les deux poids de la première fusion ?",
+        "en": "Frequencies A:16, B:8, C:4, D:4: which two weights are merged first?"
+      },
+      "solution": {
+        "fr": "Les deux plus faibles sont 4 et 4.",
+        "en": "The lowest weights are 4 and 4."
+      },
+      "answer": "4 + 4",
+      "fixture": {
+        "A": 16,
+        "B": 8,
+        "C": 4,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 8,
+      "theme": "two-smallest"
+    },
+    {
+      "id": "C04-T07-E053",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:16, B:8, C:4, D:4 : quel est le poids du premier nœud fusionné ?",
+        "en": "Frequencies A:16, B:8, C:4, D:4: what is the first merged node weight?"
+      },
+      "solution": {
+        "fr": "4+4=8.",
+        "en": "4+4=8."
+      },
+      "answer": "8",
+      "fixture": {
+        "A": 16,
+        "B": 8,
+        "C": 4,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 8,
+      "theme": "first-merge"
+    },
+    {
+      "id": "C04-T07-E054",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:16, B:8, C:4, D:4 : quelle est la longueur du code Huffman de A ?",
+        "en": "Frequencies A:16, B:8, C:4, D:4: what is the Huffman codeword length of A?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=110, D=111. Donc la longueur de A vaut 1.",
+        "en": "A=0, B=10, C=110, D=111. Thus A has 1 bits."
+      },
+      "answer": "1",
+      "fixture": {
+        "A": 16,
+        "B": 8,
+        "C": 4,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 8,
+      "theme": "length-A"
+    },
+    {
+      "id": "C04-T07-E055",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:16, B:8, C:4, D:4 : quelle est la longueur du code Huffman de B ?",
+        "en": "Frequencies A:16, B:8, C:4, D:4: what is the Huffman codeword length of B?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=110, D=111. Donc la longueur de B vaut 2.",
+        "en": "A=0, B=10, C=110, D=111. Thus B has 2 bits."
+      },
+      "answer": "2",
+      "fixture": {
+        "A": 16,
+        "B": 8,
+        "C": 4,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 8,
+      "theme": "length-B"
+    },
+    {
+      "id": "C04-T07-E056",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:16, B:8, C:4, D:4 : quelle est la longueur du code Huffman de C ?",
+        "en": "Frequencies A:16, B:8, C:4, D:4: what is the Huffman codeword length of C?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=110, D=111. Donc la longueur de C vaut 3.",
+        "en": "A=0, B=10, C=110, D=111. Thus C has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 16,
+        "B": 8,
+        "C": 4,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 8,
+      "theme": "length-C"
+    },
+    {
+      "id": "C04-T07-E057",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:16, B:8, C:4, D:4 : quelle est la longueur du code Huffman de D ?",
+        "en": "Frequencies A:16, B:8, C:4, D:4: what is the Huffman codeword length of D?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=110, D=111. Donc la longueur de D vaut 3.",
+        "en": "A=0, B=10, C=110, D=111. Thus D has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 16,
+        "B": 8,
+        "C": 4,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 8,
+      "theme": "length-D"
+    },
+    {
+      "id": "C04-T07-E058",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:16, B:8, C:4, D:4 : calculer la longueur moyenne Huffman en bits par symbole.",
+        "en": "Frequencies A:16, B:8, C:4, D:4: calculate the average Huffman bit length per symbol."
+      },
+      "solution": {
+        "fr": "Avec A=0, B=10, C=110, D=111, moyenne (56)/(32) = 7/4 bits par symbole.",
+        "en": "Using A=0, B=10, C=110, D=111, weighted mean 56/32 = 7/4 bits per symbol."
+      },
+      "answer": "7/4",
+      "fixture": {
+        "A": 16,
+        "B": 8,
+        "C": 4,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 8,
+      "theme": "weighted-mean"
+    },
+    {
+      "id": "C04-T07-E059",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:16, B:8, C:4, D:4 : départager alphabétiquement, utiliser 0 à gauche et 1 à droite, puis encoder ABCD.",
+        "en": "Frequencies A:16, B:8, C:4, D:4: break ties alphabetically, use 0 left / 1 right, then encode ABCD."
+      },
+      "solution": {
+        "fr": "Codes A=0, B=10, C=110, D=111. On concatène pour obtenir 010110111.",
+        "en": "Codes A=0, B=10, C=110, D=111. Concatenation yields 010110111."
+      },
+      "answer": "010110111",
+      "fixture": {
+        "A": 16,
+        "B": 8,
+        "C": 4,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 8,
+      "theme": "encode"
+    },
+    {
+      "id": "C04-T07-E060",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:16, B:8, C:4, D:4 : combien de bits faut-il pour coder AB ?",
+        "en": "Frequencies A:16, B:8, C:4, D:4: how many bits encode AB?"
+      },
+      "solution": {
+        "fr": "Somme des longueurs 1+2=3.",
+        "en": "Add the lengths 1+2=3."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 16,
+        "B": 8,
+        "C": 4,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "C": "110",
+        "D": "111"
+      },
+      "firstMergeWeight": 8,
+      "theme": "concatenate"
+    },
+    {
+      "id": "C04-T07-E061",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:12, B:6, C:4, D:2 : combien de symboles au total ?",
+        "en": "Frequencies A:12, B:6, C:4, D:2: what is the total count?"
+      },
+      "solution": {
+        "fr": "Additionner : 24.",
+        "en": "Add the frequencies: 24."
+      },
+      "answer": "24",
+      "fixture": {
+        "A": 12,
+        "B": 6,
+        "C": 4,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 6,
+      "theme": "count"
+    },
+    {
+      "id": "C04-T07-E062",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:12, B:6, C:4, D:2 : quels sont les deux poids de la première fusion ?",
+        "en": "Frequencies A:12, B:6, C:4, D:2: which two weights are merged first?"
+      },
+      "solution": {
+        "fr": "Les deux plus faibles sont 2 et 4.",
+        "en": "The lowest weights are 2 and 4."
+      },
+      "answer": "2 + 4",
+      "fixture": {
+        "A": 12,
+        "B": 6,
+        "C": 4,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 6,
+      "theme": "two-smallest"
+    },
+    {
+      "id": "C04-T07-E063",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:12, B:6, C:4, D:2 : quel est le poids du premier nœud fusionné ?",
+        "en": "Frequencies A:12, B:6, C:4, D:2: what is the first merged node weight?"
+      },
+      "solution": {
+        "fr": "2+4=6.",
+        "en": "2+4=6."
+      },
+      "answer": "6",
+      "fixture": {
+        "A": 12,
+        "B": 6,
+        "C": 4,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 6,
+      "theme": "first-merge"
+    },
+    {
+      "id": "C04-T07-E064",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:12, B:6, C:4, D:2 : quelle est la longueur du code Huffman de A ?",
+        "en": "Frequencies A:12, B:6, C:4, D:2: what is the Huffman codeword length of A?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de A vaut 1.",
+        "en": "A=0, B=10, C=111, D=110. Thus A has 1 bits."
+      },
+      "answer": "1",
+      "fixture": {
+        "A": 12,
+        "B": 6,
+        "C": 4,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 6,
+      "theme": "length-A"
+    },
+    {
+      "id": "C04-T07-E065",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:12, B:6, C:4, D:2 : quelle est la longueur du code Huffman de B ?",
+        "en": "Frequencies A:12, B:6, C:4, D:2: what is the Huffman codeword length of B?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de B vaut 2.",
+        "en": "A=0, B=10, C=111, D=110. Thus B has 2 bits."
+      },
+      "answer": "2",
+      "fixture": {
+        "A": 12,
+        "B": 6,
+        "C": 4,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 6,
+      "theme": "length-B"
+    },
+    {
+      "id": "C04-T07-E066",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:12, B:6, C:4, D:2 : quelle est la longueur du code Huffman de C ?",
+        "en": "Frequencies A:12, B:6, C:4, D:2: what is the Huffman codeword length of C?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de C vaut 3.",
+        "en": "A=0, B=10, C=111, D=110. Thus C has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 12,
+        "B": 6,
+        "C": 4,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 6,
+      "theme": "length-C"
+    },
+    {
+      "id": "C04-T07-E067",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:12, B:6, C:4, D:2 : quelle est la longueur du code Huffman de D ?",
+        "en": "Frequencies A:12, B:6, C:4, D:2: what is the Huffman codeword length of D?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de D vaut 3.",
+        "en": "A=0, B=10, C=111, D=110. Thus D has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 12,
+        "B": 6,
+        "C": 4,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 6,
+      "theme": "length-D"
+    },
+    {
+      "id": "C04-T07-E068",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:12, B:6, C:4, D:2 : calculer la longueur moyenne Huffman en bits par symbole.",
+        "en": "Frequencies A:12, B:6, C:4, D:2: calculate the average Huffman bit length per symbol."
+      },
+      "solution": {
+        "fr": "Avec A=0, B=10, C=111, D=110, moyenne (42)/(24) = 7/4 bits par symbole.",
+        "en": "Using A=0, B=10, C=111, D=110, weighted mean 42/24 = 7/4 bits per symbol."
+      },
+      "answer": "7/4",
+      "fixture": {
+        "A": 12,
+        "B": 6,
+        "C": 4,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 6,
+      "theme": "weighted-mean"
+    },
+    {
+      "id": "C04-T07-E069",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:12, B:6, C:4, D:2 : départager alphabétiquement, utiliser 0 à gauche et 1 à droite, puis encoder ABCD.",
+        "en": "Frequencies A:12, B:6, C:4, D:2: break ties alphabetically, use 0 left / 1 right, then encode ABCD."
+      },
+      "solution": {
+        "fr": "Codes A=0, B=10, C=111, D=110. On concatène pour obtenir 010111110.",
+        "en": "Codes A=0, B=10, C=111, D=110. Concatenation yields 010111110."
+      },
+      "answer": "010111110",
+      "fixture": {
+        "A": 12,
+        "B": 6,
+        "C": 4,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 6,
+      "theme": "encode"
+    },
+    {
+      "id": "C04-T07-E070",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:12, B:6, C:4, D:2 : combien de bits faut-il pour coder AB ?",
+        "en": "Frequencies A:12, B:6, C:4, D:2: how many bits encode AB?"
+      },
+      "solution": {
+        "fr": "Somme des longueurs 1+2=3.",
+        "en": "Add the lengths 1+2=3."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 12,
+        "B": 6,
+        "C": 4,
+        "D": 2
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 6,
+      "theme": "concatenate"
+    },
+    {
+      "id": "C04-T07-E071",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:13, B:7, C:3, D:2 : combien de symboles au total ?",
+        "en": "Frequencies A:13, B:7, C:3, D:2: what is the total count?"
+      },
+      "solution": {
+        "fr": "Additionner : 25.",
+        "en": "Add the frequencies: 25."
+      },
+      "answer": "25",
+      "fixture": {
+        "A": 13,
+        "B": 7,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "D": "000",
+        "C": "001",
+        "B": "01",
+        "A": "1"
+      },
+      "firstMergeWeight": 5,
+      "theme": "count"
+    },
+    {
+      "id": "C04-T07-E072",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:13, B:7, C:3, D:2 : quels sont les deux poids de la première fusion ?",
+        "en": "Frequencies A:13, B:7, C:3, D:2: which two weights are merged first?"
+      },
+      "solution": {
+        "fr": "Les deux plus faibles sont 2 et 3.",
+        "en": "The lowest weights are 2 and 3."
+      },
+      "answer": "2 + 3",
+      "fixture": {
+        "A": 13,
+        "B": 7,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "D": "000",
+        "C": "001",
+        "B": "01",
+        "A": "1"
+      },
+      "firstMergeWeight": 5,
+      "theme": "two-smallest"
+    },
+    {
+      "id": "C04-T07-E073",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:13, B:7, C:3, D:2 : quel est le poids du premier nœud fusionné ?",
+        "en": "Frequencies A:13, B:7, C:3, D:2: what is the first merged node weight?"
+      },
+      "solution": {
+        "fr": "2+3=5.",
+        "en": "2+3=5."
+      },
+      "answer": "5",
+      "fixture": {
+        "A": 13,
+        "B": 7,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "D": "000",
+        "C": "001",
+        "B": "01",
+        "A": "1"
+      },
+      "firstMergeWeight": 5,
+      "theme": "first-merge"
+    },
+    {
+      "id": "C04-T07-E074",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:13, B:7, C:3, D:2 : quelle est la longueur du code Huffman de A ?",
+        "en": "Frequencies A:13, B:7, C:3, D:2: what is the Huffman codeword length of A?"
+      },
+      "solution": {
+        "fr": "A=1, B=01, C=001, D=000. Donc la longueur de A vaut 1.",
+        "en": "A=1, B=01, C=001, D=000. Thus A has 1 bits."
+      },
+      "answer": "1",
+      "fixture": {
+        "A": 13,
+        "B": 7,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "D": "000",
+        "C": "001",
+        "B": "01",
+        "A": "1"
+      },
+      "firstMergeWeight": 5,
+      "theme": "length-A"
+    },
+    {
+      "id": "C04-T07-E075",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:13, B:7, C:3, D:2 : quelle est la longueur du code Huffman de B ?",
+        "en": "Frequencies A:13, B:7, C:3, D:2: what is the Huffman codeword length of B?"
+      },
+      "solution": {
+        "fr": "A=1, B=01, C=001, D=000. Donc la longueur de B vaut 2.",
+        "en": "A=1, B=01, C=001, D=000. Thus B has 2 bits."
+      },
+      "answer": "2",
+      "fixture": {
+        "A": 13,
+        "B": 7,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "D": "000",
+        "C": "001",
+        "B": "01",
+        "A": "1"
+      },
+      "firstMergeWeight": 5,
+      "theme": "length-B"
+    },
+    {
+      "id": "C04-T07-E076",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:13, B:7, C:3, D:2 : quelle est la longueur du code Huffman de C ?",
+        "en": "Frequencies A:13, B:7, C:3, D:2: what is the Huffman codeword length of C?"
+      },
+      "solution": {
+        "fr": "A=1, B=01, C=001, D=000. Donc la longueur de C vaut 3.",
+        "en": "A=1, B=01, C=001, D=000. Thus C has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 13,
+        "B": 7,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "D": "000",
+        "C": "001",
+        "B": "01",
+        "A": "1"
+      },
+      "firstMergeWeight": 5,
+      "theme": "length-C"
+    },
+    {
+      "id": "C04-T07-E077",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:13, B:7, C:3, D:2 : quelle est la longueur du code Huffman de D ?",
+        "en": "Frequencies A:13, B:7, C:3, D:2: what is the Huffman codeword length of D?"
+      },
+      "solution": {
+        "fr": "A=1, B=01, C=001, D=000. Donc la longueur de D vaut 3.",
+        "en": "A=1, B=01, C=001, D=000. Thus D has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 13,
+        "B": 7,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "D": "000",
+        "C": "001",
+        "B": "01",
+        "A": "1"
+      },
+      "firstMergeWeight": 5,
+      "theme": "length-D"
+    },
+    {
+      "id": "C04-T07-E078",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:13, B:7, C:3, D:2 : calculer la longueur moyenne Huffman en bits par symbole.",
+        "en": "Frequencies A:13, B:7, C:3, D:2: calculate the average Huffman bit length per symbol."
+      },
+      "solution": {
+        "fr": "Avec A=1, B=01, C=001, D=000, moyenne (42)/(25) = 42/25 bits par symbole.",
+        "en": "Using A=1, B=01, C=001, D=000, weighted mean 42/25 = 42/25 bits per symbol."
+      },
+      "answer": "42/25",
+      "fixture": {
+        "A": 13,
+        "B": 7,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "D": "000",
+        "C": "001",
+        "B": "01",
+        "A": "1"
+      },
+      "firstMergeWeight": 5,
+      "theme": "weighted-mean"
+    },
+    {
+      "id": "C04-T07-E079",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:13, B:7, C:3, D:2 : départager alphabétiquement, utiliser 0 à gauche et 1 à droite, puis encoder ABCD.",
+        "en": "Frequencies A:13, B:7, C:3, D:2: break ties alphabetically, use 0 left / 1 right, then encode ABCD."
+      },
+      "solution": {
+        "fr": "Codes A=1, B=01, C=001, D=000. On concatène pour obtenir 101001000.",
+        "en": "Codes A=1, B=01, C=001, D=000. Concatenation yields 101001000."
+      },
+      "answer": "101001000",
+      "fixture": {
+        "A": 13,
+        "B": 7,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "D": "000",
+        "C": "001",
+        "B": "01",
+        "A": "1"
+      },
+      "firstMergeWeight": 5,
+      "theme": "encode"
+    },
+    {
+      "id": "C04-T07-E080",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:13, B:7, C:3, D:2 : combien de bits faut-il pour coder AB ?",
+        "en": "Frequencies A:13, B:7, C:3, D:2: how many bits encode AB?"
+      },
+      "solution": {
+        "fr": "Somme des longueurs 1+2=3.",
+        "en": "Add the lengths 1+2=3."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 13,
+        "B": 7,
+        "C": 3,
+        "D": 2
+      },
+      "codebook": {
+        "D": "000",
+        "C": "001",
+        "B": "01",
+        "A": "1"
+      },
+      "firstMergeWeight": 5,
+      "theme": "concatenate"
+    },
+    {
+      "id": "C04-T07-E081",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:18, B:9, C:5, D:4 : combien de symboles au total ?",
+        "en": "Frequencies A:18, B:9, C:5, D:4: what is the total count?"
+      },
+      "solution": {
+        "fr": "Additionner : 36.",
+        "en": "Add the frequencies: 36."
+      },
+      "answer": "36",
+      "fixture": {
+        "A": 18,
+        "B": 9,
+        "C": 5,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 9,
+      "theme": "count"
+    },
+    {
+      "id": "C04-T07-E082",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:18, B:9, C:5, D:4 : quels sont les deux poids de la première fusion ?",
+        "en": "Frequencies A:18, B:9, C:5, D:4: which two weights are merged first?"
+      },
+      "solution": {
+        "fr": "Les deux plus faibles sont 4 et 5.",
+        "en": "The lowest weights are 4 and 5."
+      },
+      "answer": "4 + 5",
+      "fixture": {
+        "A": 18,
+        "B": 9,
+        "C": 5,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 9,
+      "theme": "two-smallest"
+    },
+    {
+      "id": "C04-T07-E083",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:18, B:9, C:5, D:4 : quel est le poids du premier nœud fusionné ?",
+        "en": "Frequencies A:18, B:9, C:5, D:4: what is the first merged node weight?"
+      },
+      "solution": {
+        "fr": "4+5=9.",
+        "en": "4+5=9."
+      },
+      "answer": "9",
+      "fixture": {
+        "A": 18,
+        "B": 9,
+        "C": 5,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 9,
+      "theme": "first-merge"
+    },
+    {
+      "id": "C04-T07-E084",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:18, B:9, C:5, D:4 : quelle est la longueur du code Huffman de A ?",
+        "en": "Frequencies A:18, B:9, C:5, D:4: what is the Huffman codeword length of A?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de A vaut 1.",
+        "en": "A=0, B=10, C=111, D=110. Thus A has 1 bits."
+      },
+      "answer": "1",
+      "fixture": {
+        "A": 18,
+        "B": 9,
+        "C": 5,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 9,
+      "theme": "length-A"
+    },
+    {
+      "id": "C04-T07-E085",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:18, B:9, C:5, D:4 : quelle est la longueur du code Huffman de B ?",
+        "en": "Frequencies A:18, B:9, C:5, D:4: what is the Huffman codeword length of B?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de B vaut 2.",
+        "en": "A=0, B=10, C=111, D=110. Thus B has 2 bits."
+      },
+      "answer": "2",
+      "fixture": {
+        "A": 18,
+        "B": 9,
+        "C": 5,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 9,
+      "theme": "length-B"
+    },
+    {
+      "id": "C04-T07-E086",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:18, B:9, C:5, D:4 : quelle est la longueur du code Huffman de C ?",
+        "en": "Frequencies A:18, B:9, C:5, D:4: what is the Huffman codeword length of C?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de C vaut 3.",
+        "en": "A=0, B=10, C=111, D=110. Thus C has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 18,
+        "B": 9,
+        "C": 5,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 9,
+      "theme": "length-C"
+    },
+    {
+      "id": "C04-T07-E087",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:18, B:9, C:5, D:4 : quelle est la longueur du code Huffman de D ?",
+        "en": "Frequencies A:18, B:9, C:5, D:4: what is the Huffman codeword length of D?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de D vaut 3.",
+        "en": "A=0, B=10, C=111, D=110. Thus D has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 18,
+        "B": 9,
+        "C": 5,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 9,
+      "theme": "length-D"
+    },
+    {
+      "id": "C04-T07-E088",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:18, B:9, C:5, D:4 : calculer la longueur moyenne Huffman en bits par symbole.",
+        "en": "Frequencies A:18, B:9, C:5, D:4: calculate the average Huffman bit length per symbol."
+      },
+      "solution": {
+        "fr": "Avec A=0, B=10, C=111, D=110, moyenne (63)/(36) = 7/4 bits par symbole.",
+        "en": "Using A=0, B=10, C=111, D=110, weighted mean 63/36 = 7/4 bits per symbol."
+      },
+      "answer": "7/4",
+      "fixture": {
+        "A": 18,
+        "B": 9,
+        "C": 5,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 9,
+      "theme": "weighted-mean"
+    },
+    {
+      "id": "C04-T07-E089",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:18, B:9, C:5, D:4 : départager alphabétiquement, utiliser 0 à gauche et 1 à droite, puis encoder ABCD.",
+        "en": "Frequencies A:18, B:9, C:5, D:4: break ties alphabetically, use 0 left / 1 right, then encode ABCD."
+      },
+      "solution": {
+        "fr": "Codes A=0, B=10, C=111, D=110. On concatène pour obtenir 010111110.",
+        "en": "Codes A=0, B=10, C=111, D=110. Concatenation yields 010111110."
+      },
+      "answer": "010111110",
+      "fixture": {
+        "A": 18,
+        "B": 9,
+        "C": 5,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 9,
+      "theme": "encode"
+    },
+    {
+      "id": "C04-T07-E090",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:18, B:9, C:5, D:4 : combien de bits faut-il pour coder AB ?",
+        "en": "Frequencies A:18, B:9, C:5, D:4: how many bits encode AB?"
+      },
+      "solution": {
+        "fr": "Somme des longueurs 1+2=3.",
+        "en": "Add the lengths 1+2=3."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 18,
+        "B": 9,
+        "C": 5,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 9,
+      "theme": "concatenate"
+    },
+    {
+      "id": "C04-T07-E091",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:20, B:10, C:6, D:4 : combien de symboles au total ?",
+        "en": "Frequencies A:20, B:10, C:6, D:4: what is the total count?"
+      },
+      "solution": {
+        "fr": "Additionner : 40.",
+        "en": "Add the frequencies: 40."
+      },
+      "answer": "40",
+      "fixture": {
+        "A": 20,
+        "B": 10,
+        "C": 6,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 10,
+      "theme": "count"
+    },
+    {
+      "id": "C04-T07-E092",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:20, B:10, C:6, D:4 : quels sont les deux poids de la première fusion ?",
+        "en": "Frequencies A:20, B:10, C:6, D:4: which two weights are merged first?"
+      },
+      "solution": {
+        "fr": "Les deux plus faibles sont 4 et 6.",
+        "en": "The lowest weights are 4 and 6."
+      },
+      "answer": "4 + 6",
+      "fixture": {
+        "A": 20,
+        "B": 10,
+        "C": 6,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 10,
+      "theme": "two-smallest"
+    },
+    {
+      "id": "C04-T07-E093",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:20, B:10, C:6, D:4 : quel est le poids du premier nœud fusionné ?",
+        "en": "Frequencies A:20, B:10, C:6, D:4: what is the first merged node weight?"
+      },
+      "solution": {
+        "fr": "4+6=10.",
+        "en": "4+6=10."
+      },
+      "answer": "10",
+      "fixture": {
+        "A": 20,
+        "B": 10,
+        "C": 6,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 10,
+      "theme": "first-merge"
+    },
+    {
+      "id": "C04-T07-E094",
+      "difficulty": "easy",
+      "prompt": {
+        "fr": "Fréquences A:20, B:10, C:6, D:4 : quelle est la longueur du code Huffman de A ?",
+        "en": "Frequencies A:20, B:10, C:6, D:4: what is the Huffman codeword length of A?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de A vaut 1.",
+        "en": "A=0, B=10, C=111, D=110. Thus A has 1 bits."
+      },
+      "answer": "1",
+      "fixture": {
+        "A": 20,
+        "B": 10,
+        "C": 6,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 10,
+      "theme": "length-A"
+    },
+    {
+      "id": "C04-T07-E095",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:20, B:10, C:6, D:4 : quelle est la longueur du code Huffman de B ?",
+        "en": "Frequencies A:20, B:10, C:6, D:4: what is the Huffman codeword length of B?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de B vaut 2.",
+        "en": "A=0, B=10, C=111, D=110. Thus B has 2 bits."
+      },
+      "answer": "2",
+      "fixture": {
+        "A": 20,
+        "B": 10,
+        "C": 6,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 10,
+      "theme": "length-B"
+    },
+    {
+      "id": "C04-T07-E096",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:20, B:10, C:6, D:4 : quelle est la longueur du code Huffman de C ?",
+        "en": "Frequencies A:20, B:10, C:6, D:4: what is the Huffman codeword length of C?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de C vaut 3.",
+        "en": "A=0, B=10, C=111, D=110. Thus C has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 20,
+        "B": 10,
+        "C": 6,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 10,
+      "theme": "length-C"
+    },
+    {
+      "id": "C04-T07-E097",
+      "difficulty": "medium",
+      "prompt": {
+        "fr": "Fréquences A:20, B:10, C:6, D:4 : quelle est la longueur du code Huffman de D ?",
+        "en": "Frequencies A:20, B:10, C:6, D:4: what is the Huffman codeword length of D?"
+      },
+      "solution": {
+        "fr": "A=0, B=10, C=111, D=110. Donc la longueur de D vaut 3.",
+        "en": "A=0, B=10, C=111, D=110. Thus D has 3 bits."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 20,
+        "B": 10,
+        "C": 6,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 10,
+      "theme": "length-D"
+    },
+    {
+      "id": "C04-T07-E098",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:20, B:10, C:6, D:4 : calculer la longueur moyenne Huffman en bits par symbole.",
+        "en": "Frequencies A:20, B:10, C:6, D:4: calculate the average Huffman bit length per symbol."
+      },
+      "solution": {
+        "fr": "Avec A=0, B=10, C=111, D=110, moyenne (70)/(40) = 7/4 bits par symbole.",
+        "en": "Using A=0, B=10, C=111, D=110, weighted mean 70/40 = 7/4 bits per symbol."
+      },
+      "answer": "7/4",
+      "fixture": {
+        "A": 20,
+        "B": 10,
+        "C": 6,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 10,
+      "theme": "weighted-mean"
+    },
+    {
+      "id": "C04-T07-E099",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:20, B:10, C:6, D:4 : départager alphabétiquement, utiliser 0 à gauche et 1 à droite, puis encoder ABCD.",
+        "en": "Frequencies A:20, B:10, C:6, D:4: break ties alphabetically, use 0 left / 1 right, then encode ABCD."
+      },
+      "solution": {
+        "fr": "Codes A=0, B=10, C=111, D=110. On concatène pour obtenir 010111110.",
+        "en": "Codes A=0, B=10, C=111, D=110. Concatenation yields 010111110."
+      },
+      "answer": "010111110",
+      "fixture": {
+        "A": 20,
+        "B": 10,
+        "C": 6,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 10,
+      "theme": "encode"
+    },
+    {
+      "id": "C04-T07-E100",
+      "difficulty": "hard",
+      "prompt": {
+        "fr": "Fréquences A:20, B:10, C:6, D:4 : combien de bits faut-il pour coder AB ?",
+        "en": "Frequencies A:20, B:10, C:6, D:4: how many bits encode AB?"
+      },
+      "solution": {
+        "fr": "Somme des longueurs 1+2=3.",
+        "en": "Add the lengths 1+2=3."
+      },
+      "answer": "3",
+      "fixture": {
+        "A": 20,
+        "B": 10,
+        "C": 6,
+        "D": 4
+      },
+      "codebook": {
+        "A": "0",
+        "B": "10",
+        "D": "110",
+        "C": "111"
+      },
+      "firstMergeWeight": 10,
+      "theme": "concatenate"
+    }
+  ]
+}

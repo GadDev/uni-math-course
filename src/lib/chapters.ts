@@ -33,6 +33,15 @@ export const chapters = [
     status: 'reading',
     lessonIds: functionsLessonIds,
   },
+  {
+    id: 'C04',
+    number: '04',
+    path: 'chapters/C04/',
+    title: { fr: 'Théorie de l’information', en: 'Information theory' },
+    shortTitle: { fr: 'Information', en: 'Information' },
+    status: 'reading',
+    lessonIds: ['L43', 'L44', 'L45', 'L46', 'L47', 'L48', 'L49'],
+  },
 ] as const;
 
 export type ChapterId = (typeof chapters)[number]['id'];

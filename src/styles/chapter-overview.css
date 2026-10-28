@@ -142,6 +142,23 @@ html[lang='en'] .chapter-overview .signal-title {
   font-size: 1.4rem;
   color: var(--muted);
 }
+/* Chapter 4 uses the shared overview shell with the Ember Signal accent. */
+.chapter-overview[data-chapter='C04'] {
+  --signal-red: var(--orange-accent);
+  --accent: var(--orange-text);
+}
+.chapter-overview[data-chapter='C04'] .signal-title {
+  font-size: clamp(3.1rem, 6.2vw, 6.6rem);
+}
+.chapter-overview[data-chapter='C04'] .signal-title > span {
+  white-space: normal;
+}
+.chapter-overview[data-chapter='C04'] .chapter-pending-note {
+  padding-block: 1rem;
+  border-top: 1px solid var(--soft-line);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
 @media (max-width: 1050px) {
   .chapter-subtitle {
     font-size: 1.75rem;
@@ -157,6 +174,10 @@ html[lang='en'] .chapter-overview .signal-title {
   }
   .chapter-overview .hero-art {
     display: none;
+  }
+  .chapter-overview[data-chapter='C04'] .signal-title,
+  html[lang='en'] .chapter-overview[data-chapter='C04'] .signal-title {
+    font-size: clamp(2.5rem, 10vw, 4.3rem);
   }
   .chapter-overview .signal-title {
     font-size: clamp(3.7rem, 19.5vw, 6rem);

@@ -28,10 +28,12 @@ for (const locale of ['fr', 'en']) {
       'data-chapter',
       'C02',
     );
-    await page.locator('.hero .lede').click();
+    // The four-item dropdown covers part of the hero; click visibly outside it.
+    await page.mouse.click(12, 600);
     await expect(picker).not.toHaveAttribute('open');
     await picker.locator('summary').focus();
     await page.keyboard.press('Enter');
+    await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
@@ -50,7 +52,13 @@ for (const locale of ['fr', 'en']) {
       page,
     }) => {
       await page.setViewportSize({ width, height: 1000 });
-      for (const path of ['', 'chapters/C02/', 'chapters/C03/', 'glossary/']) {
+      for (const path of [
+        '',
+        'chapters/C02/',
+        'chapters/C03/',
+        'chapters/C04/',
+        'glossary/',
+      ]) {
         await page.goto(`/${locale}/${path}`);
         await page.evaluate(() => document.fonts.ready);
         const header = await page.locator('.site-header').boundingBox();
@@ -80,7 +88,7 @@ for (const locale of ['fr', 'en']) {
         expect(
           await page.evaluate(() => document.documentElement.scrollWidth),
         ).toBeLessThanOrEqual(width);
-        await expect(page.locator('.chapter-option')).toHaveCount(3);
+        await expect(page.locator('.chapter-option')).toHaveCount(4);
         for (const link of await page.locator('.chapter-option').all())
           expect((await link.boundingBox())!.height).toBeGreaterThanOrEqual(44);
       }

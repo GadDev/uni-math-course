@@ -24,6 +24,13 @@ const chapters = printableChapters.map((chapter) => ({
       available: existsSync(join(process.cwd(), 'public', document.path)),
     })),
 }));
+const totalCount = printableChapters.reduce(
+  (sum, chapter) => sum + chapter.count,
+  0,
+);
+const countBreakdown = printableChapters
+  .map((chapter) => chapter.count)
+  .join(' + ');
 const missingFiles = chapters.some((chapter) =>
   chapter.documents.some((document) => !document.available),
 );
@@ -53,9 +60,9 @@ const missingFiles = chapters.some((chapter) =>
         <p>{text.intro}</p>
       </div>
       <div class="printable-hero-art" aria-hidden="true">
-        <strong>1540</strong>
+        <strong>{totalCount.toLocaleString(locale)}</strong>
         <span>{text.exercisesLabel}</span>
-        <small>300 + 640 + 600</small>
+        <small>{countBreakdown}</small>
       </div>
     </header>
 

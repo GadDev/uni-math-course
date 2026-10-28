@@ -1,0 +1,1222 @@
+{
+  "lessonId": "L49",
+  "version": 1,
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L49-E01",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O01",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:8, B:4, C:2, D:2. Combien d’occurrences au total ?",
+        "en": "Frequencies A:8, B:4, C:2, D:2. How many total occurrences?"
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$17$",
+            "en": "$17$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : Somme des fréquences : 16.",
+            "en": "Revisit the tree: Sum all frequencies: 16."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$18$",
+            "en": "$18$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : Somme des fréquences : 16.",
+            "en": "Revisit the tree: Sum all frequencies: 16."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$16$",
+            "en": "$16$"
+          },
+          "feedback": {
+            "fr": "Somme des fréquences : 16.",
+            "en": "Sum all frequencies: 16."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Somme des fréquences : 16.",
+        "en": "Sum all frequencies: 16."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E02",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O02",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:10, B:5, C:3, D:2. Quel est le poids du premier nœud fusionné ?",
+        "en": "Frequencies A:10, B:5, C:3, D:2. What is the first merged node’s weight?"
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "2 + 3 = 5.",
+            "en": "2 + 3 = 5."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$6$",
+            "en": "$6$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : 2 + 3 = 5.",
+            "en": "Revisit the tree: 2 + 3 = 5."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$7$",
+            "en": "$7$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : 2 + 3 = 5.",
+            "en": "Revisit the tree: 2 + 3 = 5."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "2 + 3 = 5.",
+        "en": "2 + 3 = 5."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E03",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O03",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:9, B:6, C:3, D:2. Quel est le poids de la racine de l’arbre Huffman ?",
+        "en": "Frequencies A:9, B:6, C:3, D:2. What is the Huffman root weight?"
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$22$",
+            "en": "$22$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : Le poids de la racine est la somme 20.",
+            "en": "Revisit the tree: The root weight is the total 20."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$20$",
+            "en": "$20$"
+          },
+          "feedback": {
+            "fr": "Le poids de la racine est la somme 20.",
+            "en": "The root weight is the total 20."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$21$",
+            "en": "$21$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : Le poids de la racine est la somme 20.",
+            "en": "Revisit the tree: The root weight is the total 20."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le poids de la racine est la somme 20.",
+        "en": "The root weight is the total 20."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E04",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O04",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:7, B:4, C:2, D:1. Quelle longueur en bits Huffman donne-t-il à A ?",
+        "en": "Frequencies A:7, B:4, C:2, D:1. How many Huffman bits encode A?"
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : La construction donne A=0, longueur 1.",
+            "en": "Revisit the tree: The tree yields A=0, length 1."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : La construction donne A=0, longueur 1.",
+            "en": "Revisit the tree: The tree yields A=0, length 1."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "La construction donne A=0, longueur 1.",
+            "en": "The tree yields A=0, length 1."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La construction donne A=0, longueur 1.",
+        "en": "The tree yields A=0, length 1."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E05",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O05",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:14, B:7, C:4, D:3. Quelle longueur en bits Huffman donne-t-il à B ?",
+        "en": "Frequencies A:14, B:7, C:4, D:3. How many Huffman bits encode B?"
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "La construction donne B=10, longueur 2.",
+            "en": "The tree yields B=10, length 2."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : La construction donne B=10, longueur 2.",
+            "en": "Revisit the tree: The tree yields B=10, length 2."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : La construction donne B=10, longueur 2.",
+            "en": "Revisit the tree: The tree yields B=10, length 2."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La construction donne B=10, longueur 2.",
+        "en": "The tree yields B=10, length 2."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E06",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O06",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:16, B:8, C:4, D:4. Quelle longueur en bits Huffman donne-t-il à C ?",
+        "en": "Frequencies A:16, B:8, C:4, D:4. How many Huffman bits encode C?"
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : La construction donne C=110, longueur 3.",
+            "en": "Revisit the tree: The tree yields C=110, length 3."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "La construction donne C=110, longueur 3.",
+            "en": "The tree yields C=110, length 3."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : La construction donne C=110, longueur 3.",
+            "en": "Revisit the tree: The tree yields C=110, length 3."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La construction donne C=110, longueur 3.",
+        "en": "The tree yields C=110, length 3."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E07",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O01",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:12, B:6, C:4, D:2. Quelle longueur en bits Huffman donne-t-il à D ?",
+        "en": "Frequencies A:12, B:6, C:4, D:2. How many Huffman bits encode D?"
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : La construction donne D=110, longueur 3.",
+            "en": "Revisit the tree: The tree yields D=110, length 3."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : La construction donne D=110, longueur 3.",
+            "en": "Revisit the tree: The tree yields D=110, length 3."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "La construction donne D=110, longueur 3.",
+            "en": "The tree yields D=110, length 3."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La construction donne D=110, longueur 3.",
+        "en": "The tree yields D=110, length 3."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E08",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O02",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:13, B:7, C:3, D:2. Quelle longueur moyenne Huffman en bits par symbole ?",
+        "en": "Frequencies A:13, B:7, C:3, D:2. What is average Huffman bits per symbol?"
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$42/25$",
+            "en": "$42/25$"
+          },
+          "feedback": {
+            "fr": "Avec A=1, B=01, C=001, D=000, on calcule 42/25 = 42/25.",
+            "en": "With A=1, B=01, C=001, D=000, the weighted mean is 42/25 = 42/25."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$67/25$",
+            "en": "$67/25$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : Avec A=1, B=01, C=001, D=000, on calcule 42/25 = 42/25.",
+            "en": "Revisit the tree: With A=1, B=01, C=001, D=000, the weighted mean is 42/25 = 42/25."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$92/25$",
+            "en": "$92/25$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : Avec A=1, B=01, C=001, D=000, on calcule 42/25 = 42/25.",
+            "en": "Revisit the tree: With A=1, B=01, C=001, D=000, the weighted mean is 42/25 = 42/25."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Avec A=1, B=01, C=001, D=000, on calcule 42/25 = 42/25.",
+        "en": "With A=1, B=01, C=001, D=000, the weighted mean is 42/25 = 42/25."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E09",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O03",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:18, B:9, C:5, D:4. Avec l’ordre alphabétique pour départager, 0 à gauche et 1 à droite, coder ABCD.",
+        "en": "Frequencies A:18, B:9, C:5, D:4. Break ties alphabetically, assign 0 left and 1 right. Encode ABCD."
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "0101111100",
+            "en": "0101111100"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : A=0, B=10, C=111, D=110; ABCD=010111110.",
+            "en": "Revisit the tree: A=0, B=10, C=111, D=110; ABCD=010111110."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "010111110",
+            "en": "010111110"
+          },
+          "feedback": {
+            "fr": "A=0, B=10, C=111, D=110; ABCD=010111110.",
+            "en": "A=0, B=10, C=111, D=110; ABCD=010111110."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "110111110",
+            "en": "110111110"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : A=0, B=10, C=111, D=110; ABCD=010111110.",
+            "en": "Revisit the tree: A=0, B=10, C=111, D=110; ABCD=010111110."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "A=0, B=10, C=111, D=110; ABCD=010111110.",
+        "en": "A=0, B=10, C=111, D=110; ABCD=010111110."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E10",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O04",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:20, B:10, C:6, D:4. Combien de bits occupe AB dans le code Huffman ?",
+        "en": "Frequencies A:20, B:10, C:6, D:4. How many bits does AB use in the Huffman code?"
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : A a 1 bits et B 2; total 3.",
+            "en": "Revisit the tree: A has 1 bits and B has 2; total 3."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : A a 1 bits et B 2; total 3.",
+            "en": "Revisit the tree: A has 1 bits and B has 2; total 3."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "A a 1 bits et B 2; total 3.",
+            "en": "A has 1 bits and B has 2; total 3."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "A a 1 bits et B 2; total 3.",
+        "en": "A has 1 bits and B has 2; total 3."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E11",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O05",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:8, B:4, C:2, D:2. Quelle longueur moyenne Huffman en bits par symbole ?",
+        "en": "Frequencies A:8, B:4, C:2, D:2. What is average Huffman bits per symbol?"
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$7/4$",
+            "en": "$7/4$"
+          },
+          "feedback": {
+            "fr": "Avec A=0, B=10, C=110, D=111, on calcule 28/16 = 7/4.",
+            "en": "With A=0, B=10, C=110, D=111, the weighted mean is 28/16 = 7/4."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$11/4$",
+            "en": "$11/4$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : Avec A=0, B=10, C=110, D=111, on calcule 28/16 = 7/4.",
+            "en": "Revisit the tree: With A=0, B=10, C=110, D=111, the weighted mean is 28/16 = 7/4."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$15/4$",
+            "en": "$15/4$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : Avec A=0, B=10, C=110, D=111, on calcule 28/16 = 7/4.",
+            "en": "Revisit the tree: With A=0, B=10, C=110, D=111, the weighted mean is 28/16 = 7/4."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Avec A=0, B=10, C=110, D=111, on calcule 28/16 = 7/4.",
+        "en": "With A=0, B=10, C=110, D=111, the weighted mean is 28/16 = 7/4."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E12",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O06",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:9, B:6, C:3, D:2. Avec l’ordre alphabétique pour départager, 0 à gauche et 1 à droite, coder ABCD.",
+        "en": "Frequencies A:9, B:6, C:3, D:2. Break ties alphabetically, assign 0 left and 1 right. Encode ABCD."
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "0111011000",
+            "en": "0111011000"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : A=0, B=11, C=101, D=100; ABCD=011101100.",
+            "en": "Revisit the tree: A=0, B=11, C=101, D=100; ABCD=011101100."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "011101100",
+            "en": "011101100"
+          },
+          "feedback": {
+            "fr": "A=0, B=11, C=101, D=100; ABCD=011101100.",
+            "en": "A=0, B=11, C=101, D=100; ABCD=011101100."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "111101100",
+            "en": "111101100"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : A=0, B=11, C=101, D=100; ABCD=011101100.",
+            "en": "Revisit the tree: A=0, B=11, C=101, D=100; ABCD=011101100."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "A=0, B=11, C=101, D=100; ABCD=011101100.",
+        "en": "A=0, B=11, C=101, D=100; ABCD=011101100."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E13",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O01",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:14, B:7, C:4, D:3. Quel est le poids de la racine de l’arbre Huffman ?",
+        "en": "Frequencies A:14, B:7, C:4, D:3. What is the Huffman root weight?"
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$29$",
+            "en": "$29$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : Le poids de la racine est la somme 28.",
+            "en": "Revisit the tree: The root weight is the total 28."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$30$",
+            "en": "$30$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : Le poids de la racine est la somme 28.",
+            "en": "Revisit the tree: The root weight is the total 28."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$28$",
+            "en": "$28$"
+          },
+          "feedback": {
+            "fr": "Le poids de la racine est la somme 28.",
+            "en": "The root weight is the total 28."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le poids de la racine est la somme 28.",
+        "en": "The root weight is the total 28."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E14",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O02",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:12, B:6, C:4, D:2. Quelle longueur en bits Huffman donne-t-il à A ?",
+        "en": "Frequencies A:12, B:6, C:4, D:2. How many Huffman bits encode A?"
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "La construction donne A=0, longueur 1.",
+            "en": "The tree yields A=0, length 1."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : La construction donne A=0, longueur 1.",
+            "en": "Revisit the tree: The tree yields A=0, length 1."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : La construction donne A=0, longueur 1.",
+            "en": "Revisit the tree: The tree yields A=0, length 1."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La construction donne A=0, longueur 1.",
+        "en": "The tree yields A=0, length 1."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L49-E15",
+      "lessonId": "L49",
+      "version": 1,
+      "objectiveId": "L49-O03",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Fréquences A:18, B:9, C:5, D:4. Quelle longueur en bits Huffman donne-t-il à C ?",
+        "en": "Frequencies A:18, B:9, C:5, D:4. How many Huffman bits encode C?"
+      },
+      "hint": {
+        "fr": "Fusionnez les deux poids les plus légers et réinsérez le nœud obtenu.",
+        "en": "Merge the two lightest nodes, then return the merged node to the pool."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : La construction donne C=111, longueur 3.",
+            "en": "Revisit the tree: The tree yields C=111, length 3."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "La construction donne C=111, longueur 3.",
+            "en": "The tree yields C=111, length 3."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$4$",
+            "en": "$4$"
+          },
+          "feedback": {
+            "fr": "Reprenez l’arbre : La construction donne C=111, longueur 3.",
+            "en": "Revisit the tree: The tree yields C=111, length 3."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La construction donne C=111, longueur 3.",
+        "en": "The tree yields C=111, length 3."
+      },
+      "prerequisites": [
+        "L48"
+      ],
+      "misconceptions": [
+        "huffman-reinsert-merged-node"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          14,
+          15,
+          16
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original Huffman extension not described in the slide deck; tie-break alphabetical; owner-requested unreviewed practice exception."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}
