@@ -223,7 +223,11 @@ test('L39 touch controls, scroll surface and reading isolation', async ({
         .evaluate((el) => getComputedStyle(el).touchAction),
     ).toBe('pan-y');
     await page.goto('http://127.0.0.1:4321/fr/lessons/L38/');
-    await expect(page.locator('astro-island')).toHaveCount(0);
+    await expect(page.locator('[data-l39-panel]')).toHaveCount(0);
+    await expect(
+      page.locator('astro-island[component-url*="DerivativePanel"]'),
+    ).toHaveCount(0);
+    await expect(page.locator('[data-l38-explorer]')).toHaveCount(2);
   } finally {
     await context.close();
   }
