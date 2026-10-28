@@ -301,7 +301,7 @@ if __name__=='__main__':
     referenced=set()
     for i in range(21,37):
         for locale in ('fr','en'):
-            text=(ROOT/f'content/lessons/L{i}/{locale}.md').read_text()
+            text=next((ROOT/f'content/lessons/L{i}').glob(f'{locale}.md*')).read_text()
             referenced.update(re.findall(r'/diagrams/droites/[^" ]+\.svg',text))
     assert all((ROOT/'public'/p.lstrip('/')).is_file() for p in referenced)
     print(f'Generated {len(referenced)} referenced bilingual teaching SVGs.')
