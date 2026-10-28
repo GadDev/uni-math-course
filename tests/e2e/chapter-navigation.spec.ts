@@ -51,7 +51,13 @@ for (const locale of ['fr', 'en']) {
       page,
     }) => {
       await page.setViewportSize({ width, height: 1000 });
-      for (const path of ['', 'chapters/C02/', 'chapters/C03/', 'chapters/C04/', 'glossary/']) {
+      for (const path of [
+        '',
+        'chapters/C02/',
+        'chapters/C03/',
+        'chapters/C04/',
+        'glossary/',
+      ]) {
         await page.goto(`/${locale}/${path}`);
         await page.evaluate(() => document.fonts.ready);
         const header = await page.locator('.site-header').boundingBox();

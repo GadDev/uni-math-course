@@ -62,7 +62,8 @@ function embeddedExerciseIds(bytes: Buffer): Set<string> {
     const end = begin + Number(match[1]);
     assert.ok(end <= bytes.length, 'Truncated compressed PDF stream');
     const decoded = inflateSync(decodeAscii85(bytes.subarray(begin, end)));
-    for (const id of decoded.toString('latin1').match(exerciseIdPattern) ?? []) {
+    for (const id of decoded.toString('latin1').match(exerciseIdPattern) ??
+      []) {
       ids.add(id);
     }
   }
