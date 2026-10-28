@@ -1,0 +1,1238 @@
+{
+  "lessonId": "L41",
+  "version": 1,
+  "status": "review-candidate",
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L41-E01",
+      "objectiveId": "L41-O01",
+      "difficulty": "easy",
+      "misconceptions": [
+        "log-one"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que vaut $\\ln(1)$ ?",
+        "en": "What is $\\ln(1)$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Comme $e^0=1$, son logarithme vaut zéro.",
+        "en": "Check the domain and the relevant rule first. Since $e^0=1$, its logarithm is zero."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Comme $e^0=1$, son logarithme vaut zéro.",
+            "en": "This choice is not correct. Since $e^0=1$, its logarithm is zero."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Comme $e^0=1$, son logarithme vaut zéro.",
+            "en": "Since $e^0=1$, its logarithm is zero."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$e$",
+            "en": "$e$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Comme $e^0=1$, son logarithme vaut zéro.",
+            "en": "This choice is not correct. Since $e^0=1$, its logarithm is zero."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Comme $e^0=1$, son logarithme vaut zéro.",
+        "en": "Since $e^0=1$, its logarithm is zero."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E02",
+      "objectiveId": "L41-O02",
+      "difficulty": "easy",
+      "misconceptions": [
+        "log-e"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que vaut $\\ln(e)$ ?",
+        "en": "What is $\\ln(e)$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Le logarithme annule l’exponentielle.",
+        "en": "Check the domain and the relevant rule first. The logarithm undoes exponentiation."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Le logarithme annule l’exponentielle.",
+            "en": "The logarithm undoes exponentiation."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le logarithme annule l’exponentielle.",
+            "en": "This choice is not correct. The logarithm undoes exponentiation."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$e$",
+            "en": "$e$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le logarithme annule l’exponentielle.",
+            "en": "This choice is not correct. The logarithm undoes exponentiation."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le logarithme annule l’exponentielle.",
+        "en": "The logarithm undoes exponentiation."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E03",
+      "objectiveId": "L41-O03",
+      "difficulty": "easy",
+      "misconceptions": [
+        "inverse-functions"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que vaut $e^{\\ln(5)}$ ?",
+        "en": "What is $e^{\\ln(5)}$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Les deux fonctions sont réciproques pour un argument positif.",
+        "en": "Check the domain and the relevant rule first. The functions are inverse for a positive argument."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\ln(5)$",
+            "en": "$\\ln(5)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les deux fonctions sont réciproques pour un argument positif.",
+            "en": "This choice is not correct. The functions are inverse for a positive argument."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$e^5$",
+            "en": "$e^5$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Les deux fonctions sont réciproques pour un argument positif.",
+            "en": "This choice is not correct. The functions are inverse for a positive argument."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$5$",
+            "en": "$5$"
+          },
+          "feedback": {
+            "fr": "Les deux fonctions sont réciproques pour un argument positif.",
+            "en": "The functions are inverse for a positive argument."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Les deux fonctions sont réciproques pour un argument positif.",
+        "en": "The functions are inverse for a positive argument."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E04",
+      "objectiveId": "L41-O04",
+      "difficulty": "easy",
+      "misconceptions": [
+        "inverse-exponents"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que vaut $\\ln(e^2)$ ?",
+        "en": "What is $\\ln(e^2)$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Le logarithme retrouve l’exposant 2.",
+        "en": "Check the domain and the relevant rule first. The logarithm recovers the exponent 2."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$e^2$",
+            "en": "$e^2$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le logarithme retrouve l’exposant 2.",
+            "en": "This choice is not correct. The logarithm recovers the exponent 2."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "Le logarithme retrouve l’exposant 2.",
+            "en": "The logarithm recovers the exponent 2."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\frac12$",
+            "en": "$\\frac12$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le logarithme retrouve l’exposant 2.",
+            "en": "This choice is not correct. The logarithm recovers the exponent 2."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le logarithme retrouve l’exposant 2.",
+        "en": "The logarithm recovers the exponent 2."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E05",
+      "objectiveId": "L41-O05",
+      "difficulty": "easy",
+      "misconceptions": [
+        "log-derivative"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $x>0$, dérivez $\\ln(x)$.",
+        "en": "For $x>0$, differentiate $\\ln(x)$."
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. La dérivée donnée par le PDF est l’inverse de x.",
+        "en": "Check the domain and the relevant rule first. The source gives the derivative as the reciprocal of x."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\frac1x$",
+            "en": "$\\frac1x$"
+          },
+          "feedback": {
+            "fr": "La dérivée donnée par le PDF est l’inverse de x.",
+            "en": "The source gives the derivative as the reciprocal of x."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\ln(x)$",
+            "en": "$\\ln(x)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La dérivée donnée par le PDF est l’inverse de x.",
+            "en": "This choice is not correct. The source gives the derivative as the reciprocal of x."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x$",
+            "en": "$x$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La dérivée donnée par le PDF est l’inverse de x.",
+            "en": "This choice is not correct. The source gives the derivative as the reciprocal of x."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La dérivée donnée par le PDF est l’inverse de x.",
+        "en": "The source gives the derivative as the reciprocal of x."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E06",
+      "objectiveId": "L41-O06",
+      "difficulty": "medium",
+      "misconceptions": [
+        "log-product"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $x,y>0$, réécrivez $\\ln(xy)$.",
+        "en": "With $x,y>0$, rewrite $\\ln(xy)$."
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Le logarithme transforme un produit en somme.",
+        "en": "Check the domain and the relevant rule first. A logarithm turns a product into a sum."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\ln(x)\\ln(y)$",
+            "en": "$\\ln(x)\\ln(y)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le logarithme transforme un produit en somme.",
+            "en": "This choice is not correct. A logarithm turns a product into a sum."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\ln(x+y)$",
+            "en": "$\\ln(x+y)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le logarithme transforme un produit en somme.",
+            "en": "This choice is not correct. A logarithm turns a product into a sum."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\ln(x)+\\ln(y)$",
+            "en": "$\\ln(x)+\\ln(y)$"
+          },
+          "feedback": {
+            "fr": "Le logarithme transforme un produit en somme.",
+            "en": "A logarithm turns a product into a sum."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le logarithme transforme un produit en somme.",
+        "en": "A logarithm turns a product into a sum."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E07",
+      "objectiveId": "L41-O01",
+      "difficulty": "medium",
+      "misconceptions": [
+        "log-power"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $x>0$, simplifiez $\\ln(x^3)$.",
+        "en": "For $x>0$, simplify $\\ln(x^3)$."
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. La puissance descend en coefficient.",
+        "en": "Check the domain and the relevant rule first. The exponent comes down as a factor."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\ln(3x)$",
+            "en": "$\\ln(3x)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La puissance descend en coefficient.",
+            "en": "This choice is not correct. The exponent comes down as a factor."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$3\\ln(x)$",
+            "en": "$3\\ln(x)$"
+          },
+          "feedback": {
+            "fr": "La puissance descend en coefficient.",
+            "en": "The exponent comes down as a factor."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\ln(x)+3$",
+            "en": "$\\ln(x)+3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La puissance descend en coefficient.",
+            "en": "This choice is not correct. The exponent comes down as a factor."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "La puissance descend en coefficient.",
+        "en": "The exponent comes down as a factor."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E08",
+      "objectiveId": "L41-O02",
+      "difficulty": "medium",
+      "misconceptions": [
+        "negative-log"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que vaut $\\ln(e^{-1})$ ?",
+        "en": "What is $\\ln(e^{-1})$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Le logarithme renvoie l’exposant négatif.",
+        "en": "Check the domain and the relevant rule first. The logarithm returns the negative exponent."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$-1$",
+            "en": "$-1$"
+          },
+          "feedback": {
+            "fr": "Le logarithme renvoie l’exposant négatif.",
+            "en": "The logarithm returns the negative exponent."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$1$",
+            "en": "$1$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le logarithme renvoie l’exposant négatif.",
+            "en": "This choice is not correct. The logarithm returns the negative exponent."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$0$",
+            "en": "$0$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le logarithme renvoie l’exposant négatif.",
+            "en": "This choice is not correct. The logarithm returns the negative exponent."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le logarithme renvoie l’exposant négatif.",
+        "en": "The logarithm returns the negative exponent."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E09",
+      "objectiveId": "L41-O03",
+      "difficulty": "medium",
+      "misconceptions": [
+        "positive-domain"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel domaine réel convient à $\\ln(x)$ ?",
+        "en": "What real domain is valid for $\\ln(x)$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. L’argument doit être strictement positif, sans zéro.",
+        "en": "Check the domain and the relevant rule first. Its argument must be strictly positive, excluding zero."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\mathbb R$",
+            "en": "$\\mathbb R$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’argument doit être strictement positif, sans zéro.",
+            "en": "This choice is not correct. Its argument must be strictly positive, excluding zero."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$[0,+\\infty[$",
+            "en": "$[0,+\\infty[$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. L’argument doit être strictement positif, sans zéro.",
+            "en": "This choice is not correct. Its argument must be strictly positive, excluding zero."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$]0,+\\infty[$",
+            "en": "$]0,+\\infty[$"
+          },
+          "feedback": {
+            "fr": "L’argument doit être strictement positif, sans zéro.",
+            "en": "Its argument must be strictly positive, excluding zero."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "L’argument doit être strictement positif, sans zéro.",
+        "en": "Its argument must be strictly positive, excluding zero."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E10",
+      "objectiveId": "L41-O04",
+      "difficulty": "medium",
+      "misconceptions": [
+        "exponent-negative"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que vaut $\\ln(e^{-3})$ ?",
+        "en": "What is $\\ln(e^{-3})$?"
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Le logarithme naturel et l’exponentielle sont réciproques.",
+        "en": "Check the domain and the relevant rule first. The natural logarithm and exponential are inverse."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$3$",
+            "en": "$3$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le logarithme naturel et l’exponentielle sont réciproques.",
+            "en": "This choice is not correct. The natural logarithm and exponential are inverse."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$-3$",
+            "en": "$-3$"
+          },
+          "feedback": {
+            "fr": "Le logarithme naturel et l’exponentielle sont réciproques.",
+            "en": "The natural logarithm and exponential are inverse."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$e^{-3}$",
+            "en": "$e^{-3}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Le logarithme naturel et l’exponentielle sont réciproques.",
+            "en": "This choice is not correct. The natural logarithm and exponential are inverse."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le logarithme naturel et l’exponentielle sont réciproques.",
+        "en": "The natural logarithm and exponential are inverse."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E11",
+      "objectiveId": "L41-O05",
+      "difficulty": "hard",
+      "misconceptions": [
+        "log-quotient"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec $x,y>0$, développez $\\ln(x/y)$.",
+        "en": "With $x,y>0$, expand $\\ln(x/y)$."
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Écrivez x/y comme produit de x et de $y^{-1}$.",
+        "en": "Check the domain and the relevant rule first. Write x/y as x multiplied by $y^{-1}$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\ln(x)-\\ln(y)$",
+            "en": "$\\ln(x)-\\ln(y)$"
+          },
+          "feedback": {
+            "fr": "Écrivez x/y comme produit de x et de $y^{-1}$.",
+            "en": "Write x/y as x multiplied by $y^{-1}$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\ln(x)/\\ln(y)$",
+            "en": "$\\ln(x)/\\ln(y)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Écrivez x/y comme produit de x et de $y^{-1}$.",
+            "en": "This choice is not correct. Write x/y as x multiplied by $y^{-1}$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\ln(x)+\\ln(y)$",
+            "en": "$\\ln(x)+\\ln(y)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Écrivez x/y comme produit de x et de $y^{-1}$.",
+            "en": "This choice is not correct. Write x/y as x multiplied by $y^{-1}$."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Écrivez x/y comme produit de x et de $y^{-1}$.",
+        "en": "Write x/y as x multiplied by $y^{-1}$."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E12",
+      "objectiveId": "L41-O06",
+      "difficulty": "hard",
+      "misconceptions": [
+        "log-chain"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $x>-1/2$, dérivez $\\ln(2x+1)$.",
+        "en": "For $x>-1/2$, differentiate $\\ln(2x+1)$."
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. La chaîne fait apparaître le facteur intérieur 2.",
+        "en": "Check the domain and the relevant rule first. The chain rule gives an additional inner factor 2."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\frac1{2x+1}$",
+            "en": "$\\frac1{2x+1}$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La chaîne fait apparaître le facteur intérieur 2.",
+            "en": "This choice is not correct. The chain rule gives an additional inner factor 2."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\ln(2)$",
+            "en": "$\\ln(2)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La chaîne fait apparaître le facteur intérieur 2.",
+            "en": "This choice is not correct. The chain rule gives an additional inner factor 2."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\frac2{2x+1}$",
+            "en": "$\\frac2{2x+1}$"
+          },
+          "feedback": {
+            "fr": "La chaîne fait apparaître le facteur intérieur 2.",
+            "en": "The chain rule gives an additional inner factor 2."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La chaîne fait apparaître le facteur intérieur 2.",
+        "en": "The chain rule gives an additional inner factor 2."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E13",
+      "objectiveId": "L41-O01",
+      "difficulty": "hard",
+      "misconceptions": [
+        "log-product-derivative"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $x>0$, dérivez $x\\ln(x)$.",
+        "en": "For $x>0$, differentiate $x\\ln(x)$."
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Règle du produit : $1\\cdot\\ln(x)+x\\cdot1/x$.",
+        "en": "Check the domain and the relevant rule first. Product rule: $1\\cdot\\ln(x)+x\\cdot1/x$."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\ln(x)$",
+            "en": "$\\ln(x)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Règle du produit : $1\\cdot\\ln(x)+x\\cdot1/x$.",
+            "en": "This choice is not correct. Product rule: $1\\cdot\\ln(x)+x\\cdot1/x$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\ln(x)+1$",
+            "en": "$\\ln(x)+1$"
+          },
+          "feedback": {
+            "fr": "Règle du produit : $1\\cdot\\ln(x)+x\\cdot1/x$.",
+            "en": "Product rule: $1\\cdot\\ln(x)+x\\cdot1/x$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\frac1x$",
+            "en": "$\\frac1x$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Règle du produit : $1\\cdot\\ln(x)+x\\cdot1/x$.",
+            "en": "This choice is not correct. Product rule: $1\\cdot\\ln(x)+x\\cdot1/x$."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Règle du produit : $1\\cdot\\ln(x)+x\\cdot1/x$.",
+        "en": "Product rule: $1\\cdot\\ln(x)+x\\cdot1/x$."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E14",
+      "objectiveId": "L41-O02",
+      "difficulty": "hard",
+      "misconceptions": [
+        "solve-log"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Résolvez $\\ln(x)=2$ sur $x>0$.",
+        "en": "Solve $\\ln(x)=2$ for $x>0$."
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. Appliquez l’exponentielle aux deux membres.",
+        "en": "Check the domain and the relevant rule first. Apply the exponential to both sides."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x=e^2$",
+            "en": "$x=e^2$"
+          },
+          "feedback": {
+            "fr": "Appliquez l’exponentielle aux deux membres.",
+            "en": "Apply the exponential to both sides."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x=2e$",
+            "en": "$x=2e$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Appliquez l’exponentielle aux deux membres.",
+            "en": "This choice is not correct. Apply the exponential to both sides."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$x=\\ln(2)$",
+            "en": "$x=\\ln(2)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. Appliquez l’exponentielle aux deux membres.",
+            "en": "This choice is not correct. Apply the exponential to both sides."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Appliquez l’exponentielle aux deux membres.",
+        "en": "Apply the exponential to both sides."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L41-E15",
+      "objectiveId": "L41-O03",
+      "difficulty": "hard",
+      "misconceptions": [
+        "log-square-domain"
+      ],
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Pour $x\\ne0$, dérivez $\\ln(x^2)$.",
+        "en": "For $x\\ne0$, differentiate $\\ln(x^2)$."
+      },
+      "hint": {
+        "fr": "Commencez par vérifier le domaine et la règle utilisée. La règle de chaîne donne $2x/x^2=2/x$ ; il faut exclure zéro.",
+        "en": "Check the domain and the relevant rule first. The chain rule gives $2x/x^2=2/x$; zero is excluded."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\frac1x$",
+            "en": "$\\frac1x$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La règle de chaîne donne $2x/x^2=2/x$ ; il faut exclure zéro.",
+            "en": "This choice is not correct. The chain rule gives $2x/x^2=2/x$; zero is excluded."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$2\\ln(x)$",
+            "en": "$2\\ln(x)$"
+          },
+          "feedback": {
+            "fr": "Cette proposition ne convient pas. La règle de chaîne donne $2x/x^2=2/x$ ; il faut exclure zéro.",
+            "en": "This choice is not correct. The chain rule gives $2x/x^2=2/x$; zero is excluded."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\frac2x$",
+            "en": "$\\frac2x$"
+          },
+          "feedback": {
+            "fr": "La règle de chaîne donne $2x/x^2=2/x$ ; il faut exclure zéro.",
+            "en": "The chain rule gives $2x/x^2=2/x$; zero is excluded."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "La règle de chaîne donne $2x/x^2=2/x$ ; il faut exclure zéro.",
+        "en": "The chain rule gives $2x/x^2=2/x$; zero is excluded."
+      },
+      "lessonId": "L41",
+      "version": 1,
+      "prerequisites": [
+        "L37",
+        "L39",
+        "L40"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "sourceTitle": "Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026",
+        "coveragePages": [
+          16,
+          17
+        ],
+        "referenceBasis": "19-page PDF, 20 Oct 2026; original project exercises; non-slide examples explicitly described in reading."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

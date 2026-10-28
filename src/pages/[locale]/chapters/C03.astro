@@ -1,0 +1,162 @@
+---
+import { getCollection } from 'astro:content';
+import katex from 'katex';
+import Base from '../../../layouts/Base.astro';
+import SignalGeometry from '../../../components/SignalGeometry.astro';
+import LessonCompletion from '../../../components/LessonCompletion.astro';
+import { completionCopy } from '../../../lib/completion-copy';
+import { locales } from '../../../lib/i18n';
+import { functionsCopy } from '../../../lib/functions';
+import {
+  functionsGroups,
+  functionsLessonIds,
+} from '../../../lib/functions-lessons';
+import SecantExplorer from '../../../components/SecantExplorer.astro';
+import '../../../styles/chapter-overview.css';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+const { locale } = Astro.props;
+const text = functionsCopy[locale];
+const entries = (await getCollection('lessons')).filter(
+  (lesson) => lesson.data.locale === locale,
+);
+const lessonData = (id: string) => {
+  const result = entries.find((entry) => entry.data.lessonId === id);
+  if (!result) throw new Error(`Missing Chapter 3 lesson ${id}`);
+  return result.data;
+};
+const formula = katex.renderToString('f:A\\to\\mathbb R,\\;x\\mapsto f(x)', {
+  output: 'htmlAndMathml',
+  throwOnError: true,
+});
+---
+
+<Base
+  locale={locale}
+  title={text.title}
+  description={text.intro}
+  path="chapters/C03/"
+>
+  <main id="main" tabindex="-1" class="chapter-overview" data-chapter="C03">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">{text.eyebrow}</p>
+        <h1 class="signal-title">
+          {text.title}
+          <span class="signal-stop">.</span>
+        </h1>
+        <p class="chapter-subtitle">
+          {text.subtitle.map((line) => (
+            <span>{line}</span>
+          ))}
+        </p>
+        <p class="lede">{text.intro}</p>
+        <p class="status">{text.status}</p>
+        <p class="chapter-motto">{text.motto}</p>
+      </div>
+      <div class="hero-art">
+        <SignalGeometry variant="functions-mosaic" />
+      </div>
+    </section>
+    <section class="lesson-feature" aria-labelledby="functions-title">
+      <div class="lesson-index" aria-hidden="true">
+        01
+      </div>
+      <div class="featured-identity">
+        <p class="eyebrow">{text.start}</p>
+        <h2 id="functions-title">{text.feature}</h2>
+        <div class="feature-formula" set:html={formula} />
+        <p class="visually-hidden">{text.formulaReading}</p>
+      </div>
+      <div class="featured-description">
+        <p>{text.reading}</p>
+        <div class="lesson-meta">
+          <span>
+            {lessonData('L37').minutes} min · 15{' '}
+            {locale === 'fr' ? 'exercices' : 'exercises'}
+          </span>
+        </div>
+      </div>
+      <div class="featured-action">
+        <a class="primary-link" href={`/${locale}/lessons/L37/`}>
+          {locale === 'fr' ? 'Lire la leçon' : 'Read the lesson'} →
+        </a>
+      </div>
+    </section>
+    <section
+      class="planned-section"
+      id="parcours"
+      aria-labelledby="functions-outline"
+    >
+      <div class="chapter-section-heading">
+        <h2 id="functions-outline">{text.outline}</h2>
+        <p>{text.outlineNote}</p>
+      </div>
+      <LessonCompletion locale={locale} lessonIds={functionsLessonIds} />
+      {functionsGroups.map((group) => (
+        <section class="chapter-lesson-group">
+          <h3>{group.title[locale]}</h3>
+          <ol class="planned-list chapter-lessons">
+            {group.lessonIds.map((id) => (
+              <li class="available-topic">
+                <span class="planned-number" aria-hidden="true">
+                  0{Number(id.slice(1)) - 36}
+                </span>
+                <a href={`/${locale}/lessons/${id}/`}>
+                  {lessonData(id).title}
+                  <span
+                    class="completion-badge"
+                    data-completion-badge={id}
+                    hidden
+                  >
+                    ✓ {completionCopy[locale].completed}
+                  </span>
+                </a>
+                <small class="planned-label">
+                  {lessonData(id).minutes} min · 15{' '}
+                  {locale === 'fr' ? 'exercices' : 'exercises'}
+                </small>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))}
+    </section>
+    <section class="chapter-objectives" aria-labelledby="functions-goals">
+      <h2 id="functions-goals">{text.goals}</h2>
+      <ol>
+        {text.objectives.map((objective) => (
+          <li>{objective}</li>
+        ))}
+      </ol>
+    </section>
+    <section class="planned-section" id="secant" aria-labelledby="secant-title">
+      <p class="eyebrow">
+        {locale === 'fr' ? 'OUTIL INTERACTIF' : 'INTERACTIVE LAB'}
+      </p>
+      <h2 id="secant-title">{text.tool}</h2>
+      <p>{text.toolText}</p>
+      <SecantExplorer locale={locale} />
+    </section>
+    <section class="practice-status" aria-labelledby="chapter-practice">
+      <div class="practice-copy">
+        <h2 id="chapter-practice">{text.practice}</h2>
+        <p>{text.practiceText}</p>
+        <a class="primary-link" href={`/${locale}/lessons/L37/practice/`}>
+          {text.practiceLink}
+        </a>
+      </div>
+      <aside class="reading-notice" aria-labelledby="chapter-progress">
+        <h2 id="chapter-progress" class="reading-notice-title">
+          {text.progress}
+        </h2>
+        <p>{text.progressText}</p>
+        <a href={`/${locale}/progress/#chapter-C03`}>
+          {locale === 'fr' ? 'Voir ma progression' : 'View my progress'} →
+        </a>
+      </aside>
+    </section>
+  </main>
+</Base>
