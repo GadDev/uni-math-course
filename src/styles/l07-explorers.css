@@ -1,0 +1,245 @@
+.l07-lab {
+  margin: 1.5rem 0;
+  padding: clamp(0.75rem, 3vw, 1.5rem);
+  border: 1px solid var(--line);
+  background: var(--card);
+  min-width: 0;
+}
+.l07-lab [hidden] {
+  display: none !important;
+}
+.l07-lab-title {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+.l07-lab :is(fieldset, figure) {
+  border: 0;
+  margin: 1rem 0;
+  padding: 0;
+  min-width: 0;
+}
+.l07-lab legend {
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.l07-lab label {
+  display: grid;
+  gap: 0.3rem;
+}
+.l07-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+.l07-lab select {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+.l07-lab :is(select, button) {
+  min-height: 44px;
+  padding: 0.5rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+.l07-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.l07-lab button {
+  cursor: pointer;
+}
+.l07-reset {
+  margin: 0.75rem 0 0;
+}
+.l07-lab :is(select, button):focus-visible,
+.l07-exercise summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.l07-lab [aria-pressed='true'] {
+  outline: 2px solid var(--focus);
+  outline-offset: -3px;
+}
+.l07-lab svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--ink);
+}
+.l07-lab :is(figcaption, caption, .l07-note) {
+  font-size: 0.9rem;
+  text-align: left;
+}
+.lesson-prose .l07-lab :is(th, td) {
+  padding: 0.4rem 0.25rem;
+  text-align: center;
+}
+.l07-lab tr[aria-current='true'] {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+.l07-lab [data-evidence] {
+  border-left: 4px solid var(--ink);
+  padding-left: 0.75rem;
+}
+.l07-calculation {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.l07-exercise {
+  border-left: 3px solid var(--line);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+}
+.l07-exercise summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0.5rem 0;
+  font-weight: 700;
+}
+@media (max-width: 420px) {
+  .l07-controls {
+    grid-template-columns: 1fr;
+  }
+  .l07-actions button {
+    width: 100%;
+  }
+}
+@media print {
+  @page l07 {
+    size: A4;
+    margin: 17mm;
+  }
+  html:has([data-lesson-id='L07']) {
+    color-scheme: light;
+  }
+  body:has([data-lesson-id='L07']) {
+    page: l07;
+    --paper: white;
+    --card: white;
+    --ink: black;
+    --line: #777;
+    --focus: #333;
+    color: black;
+    background: white;
+  }
+  body:has([data-lesson-id='L07'])
+    :is(
+      .site-header,
+      .site-footer,
+      .skip-link,
+      .course-outline,
+      .mobile-contents,
+      .reading-geometry,
+      .breadcrumb,
+      .lesson-completion,
+      .reading-notice,
+      .back-link,
+      .reading-column > p:has(.primary-link)
+    ) {
+    display: none !important;
+  }
+  body:has([data-lesson-id='L07']) .lesson-page {
+    display: block;
+    margin: 0;
+    padding: 0;
+    max-width: none;
+  }
+  body:has([data-lesson-id='L07']) .reading-column {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .lesson-prose[data-lesson-id='L07'] {
+    font: 10.5pt/1.45 sans-serif;
+  }
+  .lesson-prose[data-lesson-id='L07'] :is(p, li, caption, figcaption) {
+    font-size: inherit;
+    line-height: inherit;
+  }
+  .lesson-prose[data-lesson-id='L07'] :is(p, ul, ol) {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+  .lesson-prose[data-lesson-id='L07'] a {
+    color: black;
+  }
+  .lesson-prose[data-lesson-id='L07'] h1 {
+    font: bold 22pt/1.15 sans-serif;
+  }
+  .lesson-prose[data-lesson-id='L07'] h2 {
+    font: bold 15pt/1.2 sans-serif;
+    margin-top: 1.3em;
+    padding-top: 0.5em;
+    break-after: avoid;
+  }
+  .lesson-prose[data-lesson-id='L07'] h3 {
+    font: bold 12pt/1.2 sans-serif;
+    margin-top: 1em;
+    break-after: avoid;
+  }
+  .lesson-prose[data-lesson-id='L07'] :is(#à-retenir, #takeaway) {
+    break-before: page;
+  }
+  .lesson-prose[data-lesson-id='L07'] p {
+    orphans: 3;
+    widows: 3;
+    break-inside: avoid;
+  }
+  .lesson-prose[data-lesson-id='L07']
+    :is(table, figure, .katex-display, .l07-exercise) {
+    break-inside: avoid;
+  }
+  .lesson-prose[data-lesson-id='L07'] :is(th, td) {
+    padding: 0.3rem;
+  }
+  .lesson-prose[data-lesson-id='L07'] th {
+    background: #eee;
+    color: black;
+  }
+  .lesson-prose[data-lesson-id='L07'] .katex-display {
+    overflow: visible;
+    font-size: 0.95em;
+  }
+  .l07-lab {
+    padding: 0.65rem;
+    margin: 1rem 0;
+    background: white;
+    break-inside: avoid;
+  }
+  .l07-live,
+  .l07-prediction {
+    display: none !important;
+  }
+  .l07-lab .l07-static[hidden] {
+    display: block !important;
+  }
+  .l07-lab svg {
+    max-width: 105mm;
+    margin: 0 auto;
+  }
+  .l07-lab .l07-static > p:last-child {
+    display: none;
+  }
+  .l07-exercise::details-content {
+    content-visibility: visible;
+    height: auto;
+  }
+  .l07-exercise > :not(summary) {
+    display: block !important;
+  }
+  .l07-exercise summary {
+    min-height: 0;
+  }
+  .l07-exercise summary::marker {
+    content: '';
+  }
+}
