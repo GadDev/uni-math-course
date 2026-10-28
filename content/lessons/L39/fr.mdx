@@ -1,0 +1,279 @@
+---
+lessonId: L39
+locale: fr
+version: 2
+status: extended
+title: "Calculer les dérivées"
+summary: "Relier pente, dérivée et tangente, puis appliquer les règles de dérivation pas à pas."
+minutes: 50
+objectives: [L39-O01, L39-O02, L39-O03, L39-O04, L39-O05, L39-O06]
+prerequisites: [L23, L37, L38]
+sourcePages: [13]
+---
+import DerivativePanel from '../../../src/components/DerivativePanel';
+
+# Calculer les dérivées
+
+*Matériel pédagogique original fondé sur* Bruno Teheux, Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026, page 13. Les rappels, schémas et activités sont des ajouts originaux du projet.
+
+## Objectifs et prérequis
+
+La dérivée répond à une question : **à quelle vitesse la valeur d’une fonction change-t-elle près d’une entrée donnée ?** Sur un graphique, cette information devient la pente d’une tangente. Nous allons relier ces deux idées, puis calculer des dérivées sans recommencer une limite à chaque fois.
+
+Avant de commencer, vérifiez que vous pouvez :
+
+- Calculer une image : si $f(x)=x^2$, alors $f(2)=4$.
+- Lire un point $(2,4)$ : abscisse 2, ordonnée 4.
+- Calculer la pente d’une droite : variation verticale divisée par variation horizontale, si cette dernière n’est pas nulle.
+
+<p>Besoin d’un rappel ? Retrouvez <a href="/fr/lessons/L23/">les puissances dans L23</a>, <a href="/fr/lessons/L37/">les fonctions et leurs domaines dans L37</a> et <a href="/fr/lessons/L38/">les limites et la pente dans L38</a>.</p>
+
+Dans cette leçon, les fonctions ont des valeurs réelles. Nous étudions la dérivée en un point intérieur à leur domaine : on peut approcher ce point par la gauche et par la droite.
+
+## D’une pente moyenne à une pente instantanée
+
+Imaginez une route courbe : sa pente entre deux endroits donne une information moyenne. Pour connaître sa pente à un endroit précis, on regarde des endroits de plus en plus proches.
+
+Choisissons une entrée fixe $a$ et un écart horizontal $h\ne0$. Le symbole $\ne$ signifie « différent de ». Les deux entrées doivent appartenir au domaine de la fonction. Les points sont :
+
+$$A=(a,f(a)),\qquad B=(a+h,f(a+h))$$
+
+- $a$ est l’abscisse choisie ; $f(a)$ est la hauteur de la courbe à cet endroit.
+- $h$ est le déplacement horizontal de A vers B ; il peut être positif ou négatif.
+- $f(a+h)-f(a)$ est le déplacement vertical correspondant.
+
+La droite passant par ces deux points distincts s’appelle une **sécante**. Sa pente est le **taux de variation moyen** :
+
+$$\frac{\Delta y}{\Delta x}=\frac{f(a+h)-f(a)}{h}$$
+
+La lettre grecque $\Delta$ se lit « delta » et indique ici une variation : $\Delta x=h$ et $\Delta y=f(a+h)-f(a)$.
+
+Pour $f(x)=x^2$ sur $\mathbb R$ (l’ensemble des nombres réels), prenons $a=1$ et $h=1$. Les points sont A = (1 ; 1) et B = (2 ; 4), donc :
+
+$$\frac{f(2)-f(1)}{2-1}=\frac{4-1}{1}=3$$
+
+Mais avec $h=0{,}1$, cette pente vaut $2{,}1$. Quelle valeur approche-t-on lorsque l’écart devient de plus en plus petit ?
+
+<DerivativePanel kind="secant" locale="fr" client:visible />
+
+## Définition : la dérivée en un point
+
+<aside className="l39-callout" aria-label="Intuition">
+<p><strong>Intuition</strong></p>
+
+On garde A fixe et on rapproche B de A. Si les pentes des sécantes tendent vers un même nombre fini des deux côtés, ce nombre est la **pente instantanée**, appelée dérivée en a.
+
+</aside>
+
+<aside className="l39-callout" aria-label="Définition de la dérivée">
+<p><strong>Définition — La dérivée en un point</strong></p>
+
+La fonction est **dérivable en a** lorsque la limite suivante existe et est finie :
+
+$$f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}$$
+
+$f'(a)$ se lit « f prime de a ». La notation $h\to0$ signifie que h se rapproche de zéro **sans valoir zéro dans le quotient**. Les valeurs de h considérées doivent garder les entrées dans le domaine. Les limites à gauche et à droite doivent coïncider.
+
+</aside>
+
+Vérifions pour la fonction carré. Développons le numérateur avant de simplifier :
+
+$$\frac{(a+h)^2-a^2}{h}=\frac{2ah+h^2}{h}=2a+h,\qquad h\ne0$$
+
+Quand h tend vers zéro, cette expression tend vers $2a$. Ainsi $f'(a)=2a$, et en particulier $f'(1)=2$. Le taux moyen 3 calculé plus haut n’était donc pas la pente instantanée en 1.
+
+<aside className="l39-callout" aria-label="Attention aux limites">
+<p><strong>Attention — Approcher zéro n’est pas diviser par zéro</strong></p>
+
+À h = 0, le quotient donnerait 0/0 : il est indéfini. Simplifier pour h non nul puis passer à la limite ne revient pas à lui attribuer une valeur en zéro. Un tableau numérique suggère une limite ; le calcul ci-dessus la justifie.
+
+Une courbe n’est pas forcément dérivable partout. Pour $u(x)=|x|$ sur les réels, les pentes au voisinage de zéro sont −1 à gauche et 1 à droite : $u'(0)$ n’existe pas.
+
+</aside>
+
+## Du nombre dérivé à la fonction dérivée
+
+Il faut distinguer trois objets :
+
+- $f(a)$ est un **nombre**, la hauteur à l’entrée a.
+- $f'(a)$ est un **nombre**, la pente instantanée à cette même entrée.
+- $f'$ est une **fonction** : à chaque entrée où f est dérivable, elle associe cette pente.
+
+Pour la fonction carré, la formule valable pour toutes les entrées réelles s’écrit $f'(x)=2x$. À l’entrée 2, la hauteur vaut 4 mais la pente vaut également 4 ; cette coïncidence ne constitue pas une règle. À l’entrée 1, la hauteur vaut 1 et la pente vaut 2.
+
+On rencontre aussi la notation $Df=f'$, où D désigne l’opération « dériver ». Par exemple, $D(x^2)=2x$ est un raccourci pour « la dérivée de la fonction qui associe son carré à x est la fonction qui associe 2x à x ». Le symbole D n’est pas le domaine de la fonction dans cette notation.
+
+## La tangente : une droite déterminée par un point et une pente
+
+Une droite de pente m passant par le point A s’écrit $y-f(a)=m(x-a)$. Pour la tangente, on utilise la pente instantanée.
+
+<aside className="l39-callout" aria-label="Équation de la tangente">
+<p><strong>Définition — Équation de la tangente</strong></p>
+
+Si f est dérivable en a, sa tangente au point A a pour équation :
+
+$$y=f(a)+f'(a)(x-a)$$
+
+Ici x est l’abscisse variable sur la droite et y son ordonnée ; a reste fixé. En remplaçant x par a, on retrouve la hauteur f(a). Le coefficient de x est f′(a) : c’est la pente de la droite.
+
+</aside>
+
+Pour la fonction carré en a = 1, on calcule d’abord la hauteur et la pente :
+
+$$f(1)=1,\qquad f'(1)=2,\qquad y=1+2(x-1)=2x-1$$
+
+La tangente donne une **approximation locale** de la courbe :
+
+$$f(a+h)\approx f(a)+f'(a)h$$
+
+Le symbole $\approx$ signifie « approximativement égal ». Pour le carré en a = 1, avec h = 0,1, la tangente prédit 1,2 alors que la courbe donne 1,21. Ce n’est pas une égalité ; il faut rester près du point étudié.
+
+Une tangente peut **traverser** la courbe ou la rencontrer ailleurs. Sa définition repose sur la pente locale, pas sur l’idée qu’elle « touche une seule fois ».
+
+<DerivativePanel kind="tangent" locale="fr" client:visible />
+
+## Les premières règles : constante, puissance et somme
+
+Les règles suivantes évitent de refaire la limite. Elles s’appliquent là où les fonctions concernées sont dérivables. Dans les formules, c est un nombre constant et n un entier positif ; les constantes sont traitées séparément.
+
+$$D(c)=0,\qquad D(x^n)=nx^{n-1}$$
+
+Une constante ne change pas lorsque x bouge : sa dérivée est zéro. Pour une puissance, multipliez par l’exposant puis diminuez cet exposant de 1. Par exemple, la dérivée du carré est bien 2x.
+
+Pour une somme et un coefficient constant :
+
+$$D(f+g)=Df+Dg,\qquad D(cf)=cDf$$
+
+Dérivez chaque terme séparément. Dans notre exemple, le domaine est l’ensemble des réels :
+
+$$D(3x^2+2x+5)=3\times2x+2\times1+0=6x+2$$
+
+Le coefficient 3 reste devant la dérivée du carré ; la dérivée de 2x est 2 ; celle de 5 est 0. **La dérivée d’une constante n’est pas la constante.**
+
+## La règle du produit
+
+Pour un produit, les deux facteurs peuvent changer en même temps : il faut deux termes. Si f et g sont dérivables :
+
+$$D(fg)=(Df)g+f(Dg)$$
+
+Dans l’exemple suivant, défini sur les réels, identifiez le premier facteur et le second avant de calculer :
+
+1. Premier facteur : le carré ; sa dérivée est 2x.
+2. Second facteur : x + 1 ; sa dérivée est 1.
+3. Dérivez le premier en gardant le second, puis ajoutez le premier multiplié par la dérivée du second.
+
+$$D\bigl(x^2(x+1)\bigr)=2x(x+1)+x^2\times1=3x^2+2x$$
+
+**Contrôle indépendant :** développer d’abord donne un polynôme dont on peut dériver les termes :
+
+$$x^2(x+1)=x^3+x^2,\qquad D(x^3+x^2)=3x^2+2x$$
+
+Multiplier uniquement les deux dérivées aurait donné 2x : il manquerait des termes.
+
+## La règle du quotient
+
+Le dénominateur doit rester non nul. Pour deux fonctions dérivables, la règle est :
+
+$$D\left(\frac fg\right)=\frac{(Df)g-f(Dg)}{g^2},\qquad g(x)\ne0$$
+
+Pour le quotient de x par x + 1 :
+
+1. Domaine : tous les réels sauf −1, car le dénominateur y est nul.
+2. Dérivée du numérateur : 1 ; dérivée du dénominateur : 1.
+3. Au numérateur : « dérivée du haut × bas − haut × dérivée du bas ». Au dénominateur : le carré du bas.
+
+$$D\left(\frac{x}{x+1}\right)=\frac{1\times(x+1)-x\times1}{(x+1)^2}=\frac{1}{(x+1)^2},\qquad x\ne-1$$
+
+<aside className="l39-callout" aria-label="Attention au quotient">
+<p><strong>Attention</strong></p>
+
+L’ordre de la soustraction compte. Le dénominateur est au carré. Les restrictions de la fonction initiale restent valables après simplification ; la formule dérivée ne rétablit pas une entrée interdite.
+
+</aside>
+
+## La règle de la chaîne
+
+Une composition est un calcul en deux étapes : on applique d’abord la fonction intérieure g, puis la fonction extérieure f. La notation $f\circ g$ se lit « f composée avec g » et signifie $f(g(x))$.
+
+La règle multiplie le taux de changement de l’extérieur, évalué à la sortie intérieure, par celui de l’intérieur. Elle suppose que g est dérivable en x et f en g(x) :
+
+$$D(f\circ g)(x)=Df(g(x))\,Dg(x)$$
+
+Pour le cube de 2x + 1, défini sur les réels :
+
+1. Intérieur : 2x + 1 ; sa dérivée est 2.
+2. Extérieur : élever au cube ; sa dérivée est trois fois le carré de son entrée.
+3. Garder 2x + 1 comme entrée de l’extérieur, puis multiplier par 2.
+
+$$D\bigl((2x+1)^3\bigr)=3(2x+1)^2\times2=6(2x+1)^2$$
+
+Oublier le dernier facteur 2 revient à oublier que l’entrée intérieure change elle aussi.
+
+## Choisir une règle et vérifier son calcul
+
+<aside className="l39-callout" aria-label="Méthode de dérivation">
+<p><strong>Méthode</strong></p>
+
+1. Écrire le domaine de la fonction.
+2. Repérer la dernière opération : somme, produit, quotient ou composition.
+3. Identifier les morceaux, appliquer la règle extérieure, puis dériver les morceaux.
+4. Simplifier en conservant les restrictions.
+5. Contrôler avec une autre expression quand c’est possible.
+
+</aside>
+
+Par exemple, le dénominateur suivant est toujours strictement positif sur les réels :
+
+$$x^2+1>0$$
+
+La dernière opération est un quotient. Les dérivées du haut et du bas valent toutes deux 2x :
+
+$$D\left(\frac{x^2}{x^2+1}\right)=\frac{2x(x^2+1)-x^2(2x)}{(x^2+1)^2}=\frac{2x}{(x^2+1)^2}$$
+
+Au numérateur, les deux termes cubiques s’annulent. Tester une valeur simple peut révéler une erreur, mais quelques tests ne prouvent pas que deux formules sont égales pour toutes les entrées.
+
+Autre contrôle sur les réels : développer ce produit avant de dériver donne :
+
+$$D\bigl((x+1)(x^2-x+1)\bigr)=D(x^3+1)=3x^2$$
+
+La règle du produit donne aussi :
+
+$$(x^2-x+1)+(x+1)(2x-1)=3x^2$$
+
+## Vérification rapide et essentiel à retenir
+
+Essayez avant d’ouvrir les corrections :
+
+1. Pour le polynôme $p(x)=3x^2+2x+5$, calculez p′, puis la hauteur et la pente en a = 1. Écrivez la tangente.
+2. La dérivée d’un produit est-elle le produit des dérivées ? Écrivez les deux termes corrects dans notre exemple.
+3. Pour le quotient de x par x + 1, l’entrée −1 devient-elle autorisée après dérivation ?
+4. Pourquoi le cube de 2x + 1 produit-il un facteur 2 supplémentaire ?
+
+<details className="l39-correction">
+<summary>Afficher les corrections expliquées</summary>
+
+1. Sur les réels :
+
+$$p'(x)=6x+2,\qquad p(1)=10,\qquad p'(1)=8,\qquad y=10+8(x-1)=8x+2$$
+
+La hauteur 10 situe le point ; la pente 8 oriente la droite.
+
+2. Non. Il faut garder un facteur non dérivé dans chacun des deux termes : dans notre exemple, on additionne 2x(x + 1) et le carré de x.
+3. Non : la fonction initiale n’est pas définie en −1. Le domaine reste privé de cette entrée.
+4. L’intérieur 2x + 1 a pour dérivée 2 : la règle de la chaîne impose ce facteur.
+
+</details>
+
+<aside className="l39-callout" data-kind="essential" aria-label="L’essentiel à retenir">
+<p><strong>L’essentiel à retenir</strong></p>
+
+- **Sens :** la dérivée en a est une limite de pentes moyennes et donne la pente instantanée.
+- **Objets :** la valeur f(a) est une hauteur ; f′(a) est une pente ; f′ est la fonction des pentes.
+- **Calcul :** domaine → opération extérieure → règle → simplification → contrôle.
+- **Tangente :** calculer séparément f(a) et f′(a), puis les insérer dans l’équation :
+
+$$y=f(a)+f'(a)(x-a)$$
+
+- **Pièges :** ne pas diviser par zéro, multiplier simplement les dérivées d’un produit, oublier le carré du dénominateur ou la dérivée intérieure.
+
+</aside>

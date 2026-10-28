@@ -1,0 +1,279 @@
+---
+lessonId: L39
+locale: en
+version: 2
+status: extended
+title: "Computing derivatives"
+summary: "Connect slope, derivative and tangent, then apply differentiation rules step by step."
+minutes: 50
+objectives: [L39-O01, L39-O02, L39-O03, L39-O04, L39-O05, L39-O06]
+prerequisites: [L23, L37, L38]
+sourcePages: [13]
+---
+import DerivativePanel from '../../../src/components/DerivativePanel';
+
+# Computing derivatives
+
+*Original course explanations based on* Bruno Teheux, Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026, page 13. Recaps, diagrams and activities are original project additions.
+
+## Goals and prerequisites
+
+A derivative answers a question: **how quickly does a function’s value change near a given input?** On a graph, this information becomes the slope of a tangent. We will connect these ideas, then calculate derivatives without starting a new limit each time.
+
+Before starting, check that you can:
+
+- Calculate an output: if $f(x)=x^2$, then $f(2)=4$.
+- Read a point $(2,4)$: input 2, height 4.
+- Calculate a line’s slope: vertical change divided by horizontal change, provided the latter is nonzero.
+
+<p>Need a recap? Revisit <a href="/en/lessons/L23/">powers in L23</a>, <a href="/en/lessons/L37/">functions and domains in L37</a> and <a href="/en/lessons/L38/">limits and slope in L38</a>.</p>
+
+The functions in this lesson have real values. We study derivatives at interior points of their domains: we can approach from both the left and the right.
+
+## From average slope to instantaneous slope
+
+Imagine a curved road: its slope between two places gives average information. To find its slope at one precise place, consider increasingly nearby places.
+
+Choose a fixed input $a$ and a horizontal gap $h\ne0$. The symbol $\ne$ means “not equal to”. Both inputs must belong to the function’s domain. The points are:
+
+$$A=(a,f(a)),\qquad B=(a+h,f(a+h))$$
+
+- $a$ is the selected input; $f(a)$ is the curve’s height there.
+- $h$ is the horizontal change from A to B; it can be positive or negative.
+- $f(a+h)-f(a)$ is the corresponding vertical change.
+
+The line through these two distinct points is a **secant**. Its slope is the **average rate of change**:
+
+$$\frac{\Delta y}{\Delta x}=\frac{f(a+h)-f(a)}{h}$$
+
+The Greek letter $\Delta$ is read “delta” and indicates a change here: $\Delta x=h$ and $\Delta y=f(a+h)-f(a)$.
+
+For $f(x)=x^2$ on $\mathbb R$ (the set of real numbers), choose $a=1$ and $h=1$. The points are A = (1; 1) and B = (2; 4), so:
+
+$$\frac{f(2)-f(1)}{2-1}=\frac{4-1}{1}=3$$
+
+But with $h=0{,}1$, the slope is $2{,}1$. Which value do we approach as the gap becomes increasingly small?
+
+<DerivativePanel kind="secant" locale="en" client:visible />
+
+## Definition: the derivative at a point
+
+<aside className="l39-callout" aria-label="Intuition">
+<p><strong>Intuition</strong></p>
+
+Keep A fixed and bring B closer to A. If the secant slopes approach the same finite number from both sides, that number is the **instantaneous slope**, called the derivative at a.
+
+</aside>
+
+<aside className="l39-callout" aria-label="Derivative definition">
+<p><strong>Definition — The derivative at a point</strong></p>
+
+The function is **differentiable at a** when the following limit exists and is finite:
+
+$$f'(a)=\lim_{h\to0}\frac{f(a+h)-f(a)}{h}$$
+
+$f'(a)$ is read “f prime of a”. Notation $h\to0$ means that h approaches zero **without being zero in the quotient**. The considered h-values must keep the inputs in the domain. The left and right limits must agree.
+
+</aside>
+
+Check this for the square function. Expand the numerator before simplifying:
+
+$$\frac{(a+h)^2-a^2}{h}=\frac{2ah+h^2}{h}=2a+h,\qquad h\ne0$$
+
+As h tends to zero, this expression tends to $2a$. Thus $f'(a)=2a$, and in particular $f'(1)=2$. The average rate 3 calculated earlier was therefore not the instantaneous slope at 1.
+
+<aside className="l39-callout" aria-label="Limit warning">
+<p><strong>Warning — Approaching zero is not dividing by zero</strong></p>
+
+At h = 0 the quotient would give 0/0: it is undefined. Simplifying for nonzero h and then taking a limit does not assign it a value at zero. A numerical table suggests a limit; the calculation above justifies it.
+
+A curve need not be differentiable everywhere. For $u(x)=|x|$ on the reals, the slopes near zero are −1 on the left and 1 on the right: $u'(0)$ does not exist.
+
+</aside>
+
+## From a derivative value to the derivative function
+
+Distinguish three objects:
+
+- $f(a)$ is a **number**, the height at input a.
+- $f'(a)$ is a **number**, the instantaneous slope at that input.
+- $f'$ is a **function**: it associates each input where f is differentiable with its slope.
+
+For the square function, the formula valid for every real input is $f'(x)=2x$. At input 2 the height is 4 and the slope also happens to be 4; this coincidence is not a rule. At input 1 the height is 1 and the slope is 2.
+
+You may also see $Df=f'$, where D means the operation “differentiate”. For example, $D(x^2)=2x$ is shorthand for “the derivative of the function mapping x to its square is the function mapping x to 2x”. In this notation D is not the function’s domain.
+
+## The tangent: a line determined by a point and a slope
+
+A line with slope m through point A has equation $y-f(a)=m(x-a)$. For the tangent, use the instantaneous slope.
+
+<aside className="l39-callout" aria-label="Tangent equation">
+<p><strong>Definition — Tangent equation</strong></p>
+
+If f is differentiable at a, its tangent at point A has equation:
+
+$$y=f(a)+f'(a)(x-a)$$
+
+Here x is the variable input along the line and y its height; a remains fixed. Substituting a for x gives height f(a). The coefficient of x is f′(a): the line’s slope.
+
+</aside>
+
+For the square function at a = 1, first calculate height and slope:
+
+$$f(1)=1,\qquad f'(1)=2,\qquad y=1+2(x-1)=2x-1$$
+
+The tangent gives a **local approximation** of the curve:
+
+$$f(a+h)\approx f(a)+f'(a)h$$
+
+The symbol $\approx$ means “approximately equal”. For the square function at a = 1, with h = 0.1, the tangent predicts 1.2 while the curve gives 1.21. This is not an equality; stay near the point being studied.
+
+A tangent may **cross** the curve or meet it elsewhere. Its definition concerns local slope, not “touching just once”.
+
+<DerivativePanel kind="tangent" locale="en" client:visible />
+
+## First rules: constants, powers and sums
+
+The following rules avoid repeating the limit. They apply where the functions involved are differentiable. In these formulas, c is a constant number and n a positive integer; constants are handled separately.
+
+$$D(c)=0,\qquad D(x^n)=nx^{n-1}$$
+
+A constant does not change when x moves: its derivative is zero. For a power, multiply by its exponent, then reduce the exponent by 1. For example, the derivative of the square function is indeed 2x.
+
+For a sum and a constant coefficient:
+
+$$D(f+g)=Df+Dg,\qquad D(cf)=cDf$$
+
+Differentiate each term separately. In our example, the domain is all real numbers:
+
+$$D(3x^2+2x+5)=3\times2x+2\times1+0=6x+2$$
+
+Coefficient 3 stays in front of the derivative of the square; the derivative of 2x is 2; that of 5 is 0. **A constant’s derivative is not that constant.**
+
+## The product rule
+
+In a product, both factors can change at the same time: two terms are needed. If f and g are differentiable:
+
+$$D(fg)=(Df)g+f(Dg)$$
+
+In this example, defined on the reals, identify the first and second factors before calculating:
+
+1. First factor: the square; its derivative is 2x.
+2. Second factor: x + 1; its derivative is 1.
+3. Differentiate the first while keeping the second, then add the first times the derivative of the second.
+
+$$D\bigl(x^2(x+1)\bigr)=2x(x+1)+x^2\times1=3x^2+2x$$
+
+**Independent check:** expand first to obtain a polynomial whose terms can be differentiated:
+
+$$x^2(x+1)=x^3+x^2,\qquad D(x^3+x^2)=3x^2+2x$$
+
+Multiplying only the two derivatives would have given 2x: terms would be missing.
+
+## The quotient rule
+
+The denominator must remain nonzero. For two differentiable functions, the rule is:
+
+$$D\left(\frac fg\right)=\frac{(Df)g-f(Dg)}{g^2},\qquad g(x)\ne0$$
+
+For the quotient of x by x + 1:
+
+1. Domain: all real numbers except −1, where the denominator is zero.
+2. Numerator derivative: 1; denominator derivative: 1.
+3. In the numerator: “top derivative × bottom − top × bottom derivative”. In the denominator: the bottom squared.
+
+$$D\left(\frac{x}{x+1}\right)=\frac{1\times(x+1)-x\times1}{(x+1)^2}=\frac{1}{(x+1)^2},\qquad x\ne-1$$
+
+<aside className="l39-callout" aria-label="Quotient warning">
+<p><strong>Warning</strong></p>
+
+The subtraction order matters. The denominator is squared. Restrictions from the original function remain after simplification; a derivative formula does not restore a forbidden input.
+
+</aside>
+
+## The chain rule
+
+A composition is a two-stage calculation: first apply the inner function g, then the outer function f. Notation $f\circ g$ is read “f composed with g” and means $f(g(x))$.
+
+The rule multiplies the outer rate of change, evaluated at the inner output, by the inner rate. It requires g to be differentiable at x and f at g(x):
+
+$$D(f\circ g)(x)=Df(g(x))\,Dg(x)$$
+
+For the cube of 2x + 1, defined on the reals:
+
+1. Inside: 2x + 1; its derivative is 2.
+2. Outside: cubing; its derivative is three times the square of its input.
+3. Keep 2x + 1 as the outer function’s input, then multiply by 2.
+
+$$D\bigl((2x+1)^3\bigr)=3(2x+1)^2\times2=6(2x+1)^2$$
+
+Omitting the final factor 2 forgets that the inner input changes too.
+
+## Choosing a rule and checking the calculation
+
+<aside className="l39-callout" aria-label="Differentiation method">
+<p><strong>Method</strong></p>
+
+1. Write the function’s domain.
+2. Identify the last operation: sum, product, quotient or composition.
+3. Identify the parts, apply the outer rule, then differentiate the parts.
+4. Simplify while keeping the restrictions.
+5. Check using another expression where possible.
+
+</aside>
+
+For example, the following denominator is strictly positive for every real input:
+
+$$x^2+1>0$$
+
+The last operation is a quotient. Both top and bottom derivatives are 2x:
+
+$$D\left(\frac{x^2}{x^2+1}\right)=\frac{2x(x^2+1)-x^2(2x)}{(x^2+1)^2}=\frac{2x}{(x^2+1)^2}$$
+
+The two cubic terms cancel in the numerator. Testing a simple input can reveal a mistake, but a few tests cannot prove that two formulas agree for every input.
+
+Another check on the reals: expanding this product before differentiating gives:
+
+$$D\bigl((x+1)(x^2-x+1)\bigr)=D(x^3+1)=3x^2$$
+
+The product rule also gives:
+
+$$(x^2-x+1)+(x+1)(2x-1)=3x^2$$
+
+## Quick check and essentials to remember
+
+Try before opening the corrections:
+
+1. For polynomial $p(x)=3x^2+2x+5$, calculate p′, then height and slope at a = 1. Write the tangent equation.
+2. Is the derivative of a product the product of the derivatives? Write the two correct terms in our example.
+3. For the quotient of x by x + 1, does input −1 become allowed after differentiation?
+4. Why does the cube of 2x + 1 produce an additional factor 2?
+
+<details className="l39-correction">
+<summary>Show explained corrections</summary>
+
+1. On the reals:
+
+$$p'(x)=6x+2,\qquad p(1)=10,\qquad p'(1)=8,\qquad y=10+8(x-1)=8x+2$$
+
+Height 10 locates the point; slope 8 determines the line’s direction.
+
+2. No. Keep one undifferentiated factor in each of the two terms: in our example, add 2x(x + 1) and the square of x.
+3. No: the original function is undefined at −1. The domain still excludes that input.
+4. The derivative of the inside 2x + 1 is 2: the chain rule requires this factor.
+
+</details>
+
+<aside className="l39-callout" data-kind="essential" aria-label="Essentials to remember">
+<p><strong>Essentials to remember</strong></p>
+
+- **Meaning:** the derivative at a is a limit of average slopes and gives instantaneous slope.
+- **Objects:** value f(a) is height; f′(a) is slope; f′ is the function of slopes.
+- **Calculation:** domain → outer operation → rule → simplification → check.
+- **Tangent:** calculate f(a) and f′(a) separately, then substitute them into the equation:
+
+$$y=f(a)+f'(a)(x-a)$$
+
+- **Pitfalls:** do not divide by zero, simply multiply the derivatives of a product, forget to square the denominator, or omit the inner derivative.
+
+</aside>
