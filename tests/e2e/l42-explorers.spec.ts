@@ -302,5 +302,9 @@ test('L42 language anchors stay paired and adjacent lessons do not load its isla
     '/en/lessons/L42/#understanding-repeated-halving',
   );
   await page.goto('/fr/lessons/L41/');
-  await expect(page.locator('astro-island')).toHaveCount(0);
+  await expect(page.locator('[data-l42]')).toHaveCount(0);
+  await expect(
+    page.locator('astro-island[component-url*="L42Explorer"]'),
+  ).toHaveCount(0);
+  await expect(page.locator('[data-l41-lab]')).toHaveCount(2);
 });
