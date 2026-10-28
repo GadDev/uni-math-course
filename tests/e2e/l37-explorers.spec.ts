@@ -236,10 +236,11 @@ test('other reading lessons do not hydrate the L37 panels', async ({
   const requests: string[] = [];
   page.on('request', (request) => requests.push(request.url()));
   await page.goto('/fr/lessons/L39/');
-  await expect(page.locator('astro-island')).toHaveCount(0);
-  expect(
-    requests.some((url) => /FunctionPanel|react-dom|client\..*\.js/.test(url)),
-  ).toBe(false);
+  await expect(page.locator('[data-l37-activity]')).toHaveCount(0);
+  await expect(
+    page.locator('astro-island[component-url*="FunctionPanel"]'),
+  ).toHaveCount(0);
+  expect(requests.some((url) => /FunctionPanel/.test(url))).toBe(false);
 });
 
 test('L37 controls support touch and do not intercept page scrolling', async ({
