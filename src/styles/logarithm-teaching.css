@@ -1,0 +1,269 @@
+.lesson-prose[data-lesson-id='L41'] .l41-block,
+.l41-lab {
+  border: 1px solid var(--soft-line);
+  border-left: 5px solid var(--blue-accent);
+  padding: clamp(0.8rem, 3vw, 1.5rem);
+  margin-block: 1.5rem;
+  background: var(--card);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.lesson-prose[data-lesson-id='L41'] .l41-block > :first-child {
+  margin-top: 0;
+}
+.lesson-prose[data-lesson-id='L41'] .l41-warning {
+  border-left-color: var(--red-accent);
+}
+.l41-lab [hidden] {
+  display: none;
+}
+.l41-lab-title {
+  font-weight: 700;
+  margin-top: 0;
+}
+.l41-lab figure {
+  margin: 0;
+}
+.l41-lab svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  color: var(--ink);
+}
+.l41-lab svg text {
+  fill: currentColor;
+  font:
+    16px Arial,
+    sans-serif;
+  stroke: none;
+}
+.l41-grid {
+  stroke: var(--soft-line);
+  stroke-width: 0.7;
+}
+.l41-axes {
+  stroke: var(--ink);
+  stroke-width: 1.2;
+}
+.l41-curve {
+  fill: none;
+  stroke: var(--blue-accent);
+  stroke-width: 3.5;
+}
+.l41-tangent {
+  fill: none;
+  stroke: var(--green-accent);
+  stroke-width: 2.5;
+  stroke-dasharray: 9 6;
+}
+.l41-secant {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.7;
+}
+.l41-guides {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.3;
+  stroke-dasharray: 3 4;
+}
+.l41-lab [data-point-a] {
+  fill: var(--ink);
+}
+.l41-lab [data-point-b] {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 2;
+}
+.l41-lab figcaption {
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+.l41-lab fieldset {
+  border: 0;
+  min-width: 0;
+  margin: 1.2rem 0;
+  padding: 0;
+}
+.l41-lab legend {
+  font-weight: 700;
+  padding: 0;
+  margin-bottom: 0.75rem;
+}
+.l41-lab label {
+  display: block;
+  font-weight: 700;
+  margin-top: 0.75rem;
+}
+.l41-lab :is(input, select, button) {
+  font: inherit;
+  min-height: 44px;
+}
+.l41-lab :is(input[type='number'], select) {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.l41-lab input[type='range'] {
+  display: block;
+  width: 100%;
+  accent-color: var(--blue-accent);
+}
+.l41-lab :is(input, select):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.l41-lab button {
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.l41-lab button:disabled {
+  cursor: default;
+  opacity: 0.65;
+}
+.l41-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.l41-lab output {
+  display: block;
+  border-top: 1px solid var(--soft-line);
+  padding-top: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+.l41-lab output span {
+  display: block;
+  margin-block: 0.5rem;
+}
+.l41-lab [role='alert']:not(:empty) {
+  border-left: 4px solid var(--red-accent);
+  padding-left: 0.75rem;
+}
+.lesson-prose[data-lesson-id='L41'] details {
+  border: 1px solid var(--soft-line);
+  padding: 0.75rem;
+  margin-block: 1rem;
+}
+.lesson-prose[data-lesson-id='L41'] summary {
+  cursor: pointer;
+  min-height: 44px;
+  font-weight: 700;
+}
+.l41-print-only {
+  display: none;
+}
+@media screen and (min-width: 1100px) {
+  .l41-live {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+  }
+  .l41-visual {
+    position: sticky;
+    top: 1rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .l41-lab svg text {
+    font-size: 30px;
+  }
+}
+@media print {
+  /* Scoped to this lesson: other lessons retain their existing layout. */
+  html:has([data-lesson-id='L41']) {
+    background: #fff;
+  }
+  body:has([data-lesson-id='L41']) {
+    color-scheme: light;
+    --paper: #fff;
+    --card: #fff;
+    --ink: #000;
+    --muted: #333;
+    --line: #333;
+    --soft-line: #aaa;
+    --blue-accent: #000;
+    --green-accent: #333;
+    --red-accent: #000;
+  }
+  body:has([data-lesson-id='L41'])
+    :is(
+      header,
+      footer,
+      .course-outline,
+      .reading-geometry,
+      .mobile-contents,
+      .breadcrumb,
+      .lesson-completion,
+      .reading-notice,
+      .back-link,
+      .content-provenance
+    ) {
+    display: none !important;
+  }
+  body:has([data-lesson-id='L41']) :is(.lesson-page, .reading-column) {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+  .lesson-prose[data-lesson-id='L41'] {
+    max-width: none;
+    font-size: 10pt;
+  }
+  .lesson-prose[data-lesson-id='L41'] :is(h1, h2, h3) {
+    break-after: avoid;
+  }
+  .lesson-prose[data-lesson-id='L41'] h1 {
+    font-size: 26pt;
+  }
+  .lesson-prose[data-lesson-id='L41'] h2 {
+    font-size: 18pt;
+    margin-top: 1.2rem;
+  }
+  .lesson-prose[data-lesson-id='L41'] :is(.l41-block, .l41-lab, figure) {
+    break-inside: avoid;
+  }
+  .l41-live {
+    display: none;
+  }
+  body:has([data-lesson-id='L41']) .reading-column > p:has(.primary-link) {
+    display: none;
+  }
+  .l41-print-only {
+    display: block;
+  }
+  .l41-print-only svg {
+    max-width: 125mm;
+    margin: auto;
+  }
+  .lesson-prose[data-lesson-id='L41'] details::details-content {
+    content-visibility: visible;
+    display: block;
+  }
+  .lesson-prose[data-lesson-id='L41'] details > :not(summary) {
+    display: block !important;
+  }
+  .lesson-prose[data-lesson-id='L41'] .katex-display {
+    overflow: visible;
+    font-size: 0.9em;
+  }
+  .lesson-prose[data-lesson-id='L41'] .l41-revision {
+    break-before: page;
+    break-inside: avoid;
+    border: 2px solid #000;
+    padding: 5mm;
+  }
+  .lesson-prose[data-lesson-id='L41'] a {
+    color: #000;
+  }
+}
