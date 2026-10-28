@@ -162,12 +162,14 @@ for (const locale of ['fr', 'en']) {
   });
 }
 
-test('only L05 loads its exploration script; no React hydration is added to reading', async ({
+test('only L05 loads its implication script; L04 uses separate Boolean islands', async ({
   page,
 }) => {
   for (const lesson of ['L05', 'L04']) {
     await page.goto(`/fr/lessons/${lesson}/`);
-    await expect(page.locator('astro-island')).toHaveCount(0);
+    await expect(page.locator('astro-island')).toHaveCount(
+      lesson === 'L05' ? 0 : 3,
+    );
     // Astro can inline small modules; inspect both inline and external code.
     const scripts = await page.locator('script').evaluateAll((elements) =>
       elements.map((element) => ({
