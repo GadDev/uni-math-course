@@ -275,6 +275,10 @@ test('L40 section language links stay aligned and L39 does not hydrate these act
   const requests: string[] = [];
   page.on('request', (request) => requests.push(request.url()));
   await page.goto('/fr/lessons/L39/');
-  await expect(page.locator('astro-island')).toHaveCount(0);
-  expect(requests.some((url) => /DerivativeExplorer/.test(url))).toBe(false);
+  await expect(page.locator('[data-l40-activity]')).toHaveCount(0);
+  await expect(
+    page.locator('astro-island[component-url*="L40DerivativeExplorer"]'),
+  ).toHaveCount(0);
+  await expect(page.locator('[data-l39-panel]')).toHaveCount(2);
+  expect(requests.some((url) => /L40DerivativeExplorer/.test(url))).toBe(false);
 });
