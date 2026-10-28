@@ -178,6 +178,27 @@ export async function validateRepository(
           urlPath.replace(/^\/+/, ''),
         );
     let present = await exists(dest);
+    // Public reading routes are generated from a single Markdown/MDX source.
+    // Resolve only this exact route shape; arbitrary missing routes still fail.
+    const lessonRoute = urlPath.match(/^\/(fr|en)\/lessons\/(L\d{2})\/$/);
+    if (!present && lessonRoute) {
+      const sources = await Promise.all(
+        ['md', 'mdx'].map(async (extension) => {
+          const source = resolve(
+            directory,
+            'content/lessons',
+            lessonRoute[2]!,
+            `${lessonRoute[1]}.${extension}`,
+          );
+          return { source, info: await exists(source) };
+        }),
+      );
+      const found = sources.filter((source) => source.info?.isFile());
+      if (found.length === 1) {
+        dest = found[0]!.source;
+        present = found[0]!.info;
+      }
+    }
     // Astro serves files in public/ at root-relative URLs. Resolve only real
     // static files here; missing routes and traversal still fail below.
     if (!present && urlPath.startsWith('/')) {

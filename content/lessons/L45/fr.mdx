@@ -1,15 +1,18 @@
 ---
 lessonId: L45
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Décoder sans ambiguïté"
 summary: "Comprendre le codage de l'information, avec des exemples guidés."
-minutes: 30
+minutes: 40
 objectives: [L45-O01, L45-O02, L45-O03, L45-O04, L45-O05, L45-O06]
 prerequisites: [L44]
 sourcePages: [9, 10, 14, 15]
 ---
+
+import InformationExplorer from '../../../src/components/InformationExplorer';
+
 # Décoder sans ambiguïté
 
 
@@ -19,7 +22,11 @@ sourcePages: [9, 10, 14, 15]
 
 Vous pourrez : (1) tester un exemple de décodage ; (2) reformuler le décodage unique ; (3) construire un contre-exemple ; (4) reconnaître la propriété de préfixe ; (5) distinguer « préfixe » de « décodage unique » ; (6) expliquer la limite de ce que prouve un exemple.
 
-Prérequis : T02 ; les mots sources appartiennent à $S^*$ et les mots codés à $T^*$.
+Prérequis : [L44](/fr/lessons/L44/) ; les mots sources appartiennent à $S^*$ et les mots codés à $T^*$.
+
+## Partir d’une question
+
+Le récepteur voit un ruban de bits, sans les barres qui séparaient les blocs sur votre brouillon. Sa question est : « Existe-t-il une seule manière de retrouver le message ? » La leçon distingue une collision concrète, une garantie générale et un test limité à un seul mot.
 
 ## 01 · Quand deux messages produisent les mêmes bits
 
@@ -53,6 +60,51 @@ Aucun mot code ne commence par un autre : on peut lire $0$ immédiatement comme 
 
 **Important.** Être préfixe est une **condition suffisante**, mais **non nécessaire**, pour être à décodage unique.
 
+## Comment s’en servir ?
+
+**Quand l’utiliser ?** Avant d’utiliser un code pour une transmission que l’on doit pouvoir inverser.
+
+**Comment procéder ?** Distinguez trois tâches. Pour **décoder un mot**, essayez tous les mots codes qui commencent les bits restants, puis poursuivez sur le suffixe. Ne gardez que les chemins qui consomment tous les bits. Pour **réfuter le décodage unique**, trouvez deux messages distincts donnant les mêmes bits. Pour **garantir le décodage unique de tous les messages**, cherchez un argument général.
+
+**Pourquoi le préfixe suffit-il ?** Nous supposons les mots codes non vides et les codes des symboles distincts. Dans une table préfixe, le premier mot code reconnu ne peut être le début d’un mot code plus long. Il est donc déterminé sans choix concurrent. Retirez-le et répétez sur le reste du message : ce raisonnement s’applique jusqu’à la fin. Un flux arbitraire peut toutefois être invalide ou s’arrêter au milieu d’un mot code.
+
+**Exemple résolu.** Avec $d(x)=0,d(y)=10,d(z)=11$, les bits $01011$ se découpent en $0\,|\,10\,|\,11$, donc donnent $xyz$. Avec la même table, $1$ est un début incomplet : ce n’est pas un second décodage.
+
+**Précision sur les codes non préfixes.** Pour $c_2$, on doit attendre le zéro suivant **ou la fin connue du message** pour compter les uns après chaque zéro. Le code est à décodage unique pour les messages finis, sans être instantanément décodable comme un code préfixe.
+
+**À vous de jouer.** Le code $e(x)=0,e(y)=00$ est-il à décodage unique ? Donnez un témoin ou une preuve.
+
+<details className="info-answer">
+<summary>Indice</summary>
+
+Comparez un symbole y avec deux symboles x.
+
+</details>
+
+<details className="info-answer">
+<summary>Afficher la correction expliquée</summary>
+
+$e(y)=00=e(xx)$ et $y\ne xx$ : la fonction sur les messages n’est pas injective. Les codes des symboles sont pourtant distincts. Un seul tel témoin réfute une propriété universelle.
+
+</details>
+
+## Expérimenter et expliquer
+
+**But de l’expérience.** Expliquer une collision et distinguer un test fini d’une garantie générale.
+
+**Avant de manipuler.** La suite 001 avec c1 peut-elle provenir de deux messages différents ?
+
+**Mode d’emploi.** La liste de choix affiche la table complète. Choisissez c1 et 001 ; comparez toutes les découpes, pas seulement la première. Essayez ensuite les boutons c2 et d, puis une suite qui ne donne aucun message. L’outil explore exhaustivement les découpes du mot saisi, limité à douze bits ; il ne teste pas tous les messages possibles du code.
+
+<InformationExplorer lesson={45} locale="fr" client:visible />
+
+<details className="info-answer">
+<summary>Observer, puis expliquer</summary>
+
+Exemple sur papier : c1(x) = 001 et c1(zy) = 0 | 01 = 001. La collision suffit à rejeter c1. Pour c2 et d, l’absence de collision dans cet essai ne remplace pas les preuves générales de la leçon. Le mot vide a un seul décodage vide avec ces mots codes non vides.
+
+</details>
+
 ## 04 · Reprendre les codes du PDF sans masquer leur statut
 
 **Exemple du PDF, pp. 14–15.**
@@ -77,4 +129,15 @@ Ce code **n'est pas préfixe** car $0$ commence $01$ et $011$. Cependant, **il e
 4. **Question.** $c_2$ est-il malgré cela à décodage unique ? **Réponse.** Oui, les séparations sont repérées par chaque occurrence de $0$.
 5. **Question.** Un seul décodage réussi suffit-il pour démontrer la propriété pour tous les messages ? **Réponse.** Non ; il faut un raisonnement général.
 
-**Suite.** T04 introduit les probabilités d'apparition des symboles.
+**Suite.** [L46](/fr/lessons/L46/) introduit les probabilités d'apparition des symboles.
+
+## À retenir
+
+<div className="info-memo">
+
+- Décodage unique : $c(u)=c(v)\Longrightarrow u=v$ pour tous les messages $u,v\in S^*$.
+- Préfixe : aucun mot code n’est le début d’un autre, avec des codes de symboles distincts et non vides.
+- Préfixe implique décodage unique ; la réciproque est fausse.
+- **Checklist :** ai-je un témoin de collision, un test fini ou une preuve générale ? Ai-je consommé tous les bits ?
+
+</div>

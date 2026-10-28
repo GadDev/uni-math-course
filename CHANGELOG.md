@@ -2,6 +2,23 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.16.0](https://github.com/GadDev/uni-math-course/compare/v0.15.0...v0.16.0) (2026-10-28)
+
+
+### Features
+
+* **chapter-03:** update chapter titles and add new PDF exercises and… ([#113](https://github.com/GadDev/uni-math-course/issues/113)) ([cb41b6d](https://github.com/GadDev/uni-math-course/commit/cb41b6db80cdd808c0bbfccc90c820a134668887))
+* **content:** clarifier L38 avec des explorateurs de dérivée et tangente ([#115](https://github.com/GadDev/uni-math-course/issues/115)) ([83e5c61](https://github.com/GadDev/uni-math-course/commit/83e5c61a96138d337b6a64bc530efef5244afc88))
+* **lessons:** add 13 interactive geometry activities to L28–L34 ([#126](https://github.com/GadDev/uni-math-course/issues/126)) ([9be2a62](https://github.com/GadDev/uni-math-course/commit/9be2a62ac9a6538721aa8ae343214487c3065fb8))
+* **lessons:** clarify L04 with interactive Boolean labs ([#121](https://github.com/GadDev/uni-math-course/issues/121)) ([7ffe575](https://github.com/GadDev/uni-math-course/commit/7ffe5758eb8a78fbd142ccd030182a0ba59346fb))
+* **lessons:** clarify L39 derivatives with interactive graphs ([#114](https://github.com/GadDev/uni-math-course/issues/114)) ([0d7d5fe](https://github.com/GadDev/uni-math-course/commit/0d7d5fe9928ca20db3b4bba24e47a63868e3e8a7))
+* **lessons:** clarify L40 derivatives and tangents ([#116](https://github.com/GadDev/uni-math-course/issues/116)) ([76a912e](https://github.com/GadDev/uni-math-course/commit/76a912e84bb03690c5a707a74cd156b9694270cc))
+* **lessons:** clarify L42 with interactive math labs ([#118](https://github.com/GadDev/uni-math-course/issues/118)) ([576165e](https://github.com/GadDev/uni-math-course/commit/576165e2d7a1a26453d48a14f5b699d53f896425))
+* **lessons:** clarify logarithm derivatives with interactive tangent labs ([#117](https://github.com/GadDev/uni-math-course/issues/117)) ([08ae1e5](https://github.com/GadDev/uni-math-course/commit/08ae1e500e2c99d8bbd5582ffae0d228d821a0ba))
+* **lessons:** make L07 interactive and printable ([#119](https://github.com/GadDev/uni-math-course/issues/119)) ([8ebef9b](https://github.com/GadDev/uni-math-course/commit/8ebef9b9c5e899738e60e47bd9bc177a3f1bffd9))
+* **lessons:** teach L21–L27 with interactive methods and print notes ([#125](https://github.com/GadDev/uni-math-course/issues/125)) ([805092b](https://github.com/GadDev/uni-math-course/commit/805092ba7a114b05c93091ceae5cdf3d1c1b8126))
+* **lessons:** teach L43–L49 with guided information labs ([#127](https://github.com/GadDev/uni-math-course/issues/127)) ([83d7b7e](https://github.com/GadDev/uni-math-course/commit/83d7b7e34c0df99c247de8f45145fb94da158dce))
+
 ## [0.15.0](https://github.com/GadDev/uni-math-course/compare/v0.14.0...v0.15.0) (2026-10-28)
 
 

@@ -1,0 +1,163 @@
+---
+lessonId: L49
+locale: fr
+version: 2
+status: extended
+title: "L’algorithme de Huffman : compresser avec un arbre"
+summary: "Introduction pas à pas aux arbres et aux codes de Huffman."
+minutes: 50
+objectives: [L49-O01, L49-O02, L49-O03, L49-O04, L49-O05, L49-O06]
+prerequisites: [L48]
+sourcePages: [14, 15, 16]
+---
+
+import InformationExplorer, { HuffmanDiagram } from '../../../src/components/InformationExplorer';
+
+# Huffman : compresser avec un arbre binaire
+
+**Extension pédagogique originale — hors du PDF source.** Le PDF de théorie de l'information (pp. 14–16) introduit la longueur moyenne et propose de raccourcir les mots codes des symboles fréquents, mais **il ne présente pas l'algorithme de Huffman**. Nous ajoutons ici cette méthode classique avec un exemple entièrement expliqué.
+
+## Objectifs et prérequis
+
+Objectifs : (1) expliquer le lien fréquence / longueur de code, (2) sélectionner les deux poids minimaux, (3) construire un arbre de Huffman, (4) lire et concaténer les mots codes, (5) calculer leur longueur moyenne, (6) justifier le décodage unique et expliquer les limites.
+
+Prérequis : L44 à L48, fractions, moyennes pondérées et codes préfixes.
+
+## Partir d’une question
+
+Imaginez un arbre dont les trajets les plus courts servent le plus souvent. Une feuille représente un symbole ; le chemin depuis la racine donne son mot code. Huffman construit cet arbre en regroupant d’abord les petits poids. Révisez le préfixe en [L45](/fr/lessons/L45/) et la moyenne en [L47](/fr/lessons/L47/).
+
+## 01 · L'idée simple
+
+Un message contient souvent certains symboles plus fréquemment que d'autres. Si l'on donne un **mot code court** au symbole le plus fréquent, on économise des bits. L'algorithme de Huffman cherche à obtenir une **longueur moyenne minimale parmi les codes binaires préfixes** pour les fréquences choisies.
+
+La règle se répète : **prendre les deux poids les plus faibles, les réunir sous un parent, puis remettre leur somme dans la liste**. La construction se termine lorsqu'il ne reste qu'un arbre.
+
+## 02 · Exemple guidé : A, B, C et D
+
+Observons les fréquences A : 8, B : 4, C : 2, D : 2, soit **16 occurrences**.
+
+**Première fusion :** C (2) et D (2) donnent un nœud de poids 4.
+
+**Deuxième fusion :** il reste A (8), B (4) et CD (4). B et CD donnent un nœud de poids 8.
+
+**Troisième fusion :** A (8) et BCD (8) produisent la racine de poids 16.
+
+En cas d'égalité, prenons d'abord le sous-arbre contenant la **plus petite lettre alphabétique**. Le premier sous-arbre va à gauche (bit 0) et l'autre à droite (bit 1).
+
+<HuffmanDiagram locale="fr" />
+
+Les mots codes se lisent depuis la racine jusqu'aux feuilles :
+
+| Symbole | Code | Bits |
+| --- | --- | --- |
+| A | 0 | 1 |
+| B | 10 | 2 |
+| C | 110 | 3 |
+| D | 111 | 3 |
+
+**Exemple résolu.** Pour le mot ABCD, concaténer les quatre codes sans séparateurs : 0 + 10 + 110 + 111 = **010110111**, soit 9 bits. Le décodeur suit l'arbre depuis la racine et revient à la racine chaque fois qu'il atteint une lettre.
+
+## Comment s’en servir ?
+
+**Quand l’utiliser ?** Pour un alphabet fini d’au moins deux symboles, avec des poids strictement positifs, quand on cherche un code binaire préfixe symbole par symbole minimisant la moyenne pour ces poids. Des effectifs et les probabilités normalisées correspondantes donnent les mêmes comparaisons.
+
+**Comment procéder ?** Créez une feuille par symbole, triez les poids, puis retirez les deux plus petits. Créez leur parent, de poids égal à leur somme, et **réinsérez-le dans la liste triée**. Répétez jusqu’à une racine. Étiquetez chaque branche gauche par 0 et droite par 1 ; lisez les chemins vers les feuilles. Notre départage des égalités utilise la plus petite lettre présente dans chaque sous-arbre.
+
+**Pourquoi cette stratégie ?** Chaque fusion place ses deux sous-arbres un niveau plus bas. Elle augmente le coût pondéré total exactement de la somme de leurs poids. Pour l’exemple, les coûts ajoutés sont $4$, $8$ et $16$ :
+
+$$B=4+8+16=28,\qquad L(c)=B/16=7/4.$$
+
+Cela vérifie autrement la somme poids × longueur. Ce contrôle arithmétique n’est pas, à lui seul, la preuve d’optimalité.
+
+<details className="info-answer">
+<summary>Pourquoi fusionner les deux plus petits ? Une preuve guidée</summary>
+
+Avec des poids positifs, un arbre optimal peut être supposé plein : un nœud à un seul enfant se supprime en raccourcissant ses descendants. Dans un arbre plein, il existe deux feuilles sœurs à profondeur maximale. On peut y placer les deux plus petits poids sans augmenter le coût. En effet, si $a\le b$ et $r\le s$, affecter $a$ à la profondeur $s$ et $b$ à $r$ coûte au plus l’affectation inverse, car :
+
+$$as+br-(ar+bs)=(a-b)(s-r)\le0.$$
+
+On peut donc choisir un optimum où les deux poids minimaux sont frères. Contractez ces feuilles en un symbole de poids égal à leur somme. Le coût initial est celui du problème réduit plus cette somme. Si le problème réduit n’était pas optimal, le remplacer par un meilleur arbre améliorerait aussi l’arbre initial : contradiction. On répète l’argument jusqu’à deux symboles. C’est le principe inductif qui justifie Huffman, pour la classe de codes annoncée.
+
+</details>
+
+**À vous de jouer.** Recommencez avec quatre poids égaux à 1. Donnez les fusions, les quatre codes avec notre départage et la moyenne. Le gain face à un code fixe est-il toujours strict ?
+
+<details className="info-answer">
+<summary>Indice</summary>
+
+Le nouveau poids AB = 2 doit attendre que C et D, encore de poids 1, soient fusionnés.
+
+</details>
+
+<details className="info-answer">
+<summary>Afficher la correction expliquée</summary>
+
+Les fusions sont $A+B\to AB$, $C+D\to CD$, puis $AB+CD$. Les codes sont $00,01,10,11$. Chaque longueur vaut deux : $L(c)=2$. Le coût total vaut $2+2+4=8$ pour quatre symboles. Le gain est nul ici, avant même de compter le coût de transmission de l’arbre.
+
+</details>
+
+## Expérimenter et expliquer
+
+**But de l’expérience.** Expliquer et vérifier chaque fusion avant de lire les codes de l’arbre final.
+
+**Avant de manipuler.** Après avoir fusionné C et D, quels sont les deux prochains candidats : des lettres initiales ou des sous-arbres ?
+
+**Mode d’emploi.** Les effectifs A, B, C, D vont de 1 à 20. Avant chaque clic sur « Fusion suivante », lisez les deux poids minimaux annoncés, puis vérifiez leur somme et leur réinsertion dans la liste. L’arbre affiche la forêt à l’étape courante ; les codes et la moyenne apparaissent après la troisième fusion. Recommencez avec les poids égaux, puis avec A très fréquent. Modifier un effectif recommence la construction à zéro.
+
+<InformationExplorer lesson={49} locale="fr" client:visible />
+
+<details className="info-answer">
+<summary>Observer, puis expliquer</summary>
+
+Exemple sur papier : 2 + 2 = 4, puis 4 + 4 = 8, puis 8 + 8 = 16. On obtient A = 0, B = 10, C = 110 et D = 111, pour 28 bits sur 16 occurrences. Pourquoi la racine pèse-t-elle toujours le total ? Chaque fusion conserve la somme des poids. Le total de 28 bits n’inclut pas la description de l’arbre.
+
+</details>
+
+## 03 · Mesurer la compression
+
+Les probabilités sont 8/16, 4/16, 2/16 et 2/16. La longueur moyenne en bits **par symbole source** est :
+
+$$
+L(c)=\sum_i p_i\,|c(s_i)|
+$$
+
+$$
+L(c)=\frac{8\times1+4\times2+2\times3+2\times3}{16}=\frac{28}{16}=\frac74=1{,}75
+$$
+
+Un code à longueur fixe pour quatre lettres exige 2 bits par lettre. Ici, le code de Huffman demande en moyenne **1,75 bit**, soit un gain moyen de **0,25 bit par lettre**. La moyenne peut être fractionnaire même si chaque mot code contient un nombre entier de bits.
+
+## 04 · Pourquoi le décodage est-il unique ?
+
+Les symboles se trouvent uniquement **aux feuilles**. Aucun chemin vers une feuille ne peut être le début d'un chemin vers une autre feuille. Les codes sont donc **préfixes**, ce qui permet de retrouver sans ambiguïté tout message concaténé. Rappel : il existe aussi des codes à décodage unique non préfixes (L45).
+
+## 05 · Conditions et erreurs fréquentes
+
+- **Remettre chaque nœud fusionné** parmi les candidats : sélectionner seulement les deux lettres initiales les moins fréquentes est une erreur.
+- Les **égalités de fréquences** peuvent créer plusieurs arbres optimaux. La convention de départage rend notre exemple reproductible, sans rendre tous les autres arbres incorrects.
+- Le décodeur doit connaître le **même arbre** : le coût de le transmettre n'est pas inclus dans la moyenne.
+- Huffman n'est ni un **chiffrement**, ni un système de **correction d'erreurs**. Les fréquences observées ne sont pas une promesse sur les prochains messages.
+- La garantie d'optimalité s'applique au **codage binaire préfixe des symboles individuels** pour les probabilités choisies ; pas à toutes les techniques de compression imaginables.
+
+## 06 · Mini-évaluation corrigée
+
+1. Quels poids fusionnent d'abord ? **Réponse :** 2 et 2, pour obtenir 4.
+2. Pourquoi le nouveau nœud pèse-t-il 4 ? **Réponse :** ses feuilles ont au total deux plus deux occurrences.
+3. Quel mot code reçoit C dans **notre arbre** ? **Réponse :** 110, trois bits.
+4. Encoder AAAB. **Réponse :** 0 + 0 + 0 + 10 = 00010 (5 bits).
+5. Peut-on ajouter le code 01 à une nouvelle lettre en conservant A=0 ? **Réponse :** non ; 0 serait son préfixe.
+6. Les bits d'un arbre avec des égalités peuvent-ils être différents ? **Réponse :** oui, mais les longueurs moyennes optimales sont égales.
+
+**Référence complémentaire (en dehors du PDF fourni)** : cours de Stanford sur le codage de Huffman, [Lire la fiche Huffman](https://web.stanford.edu/class/archive/cs/cs106b/cs106b.1252/lectures/24-huffman/huffman_background.html).
+
+## À retenir
+
+<div className="info-memo">
+
+- Fusionner les deux poids minimaux, réinsérer leur somme, répéter jusqu’à la racine.
+- Lire chaque mot code sur un chemin racine–feuille ; le code est préfixe.
+- Coût pondéré total : somme des poids des fusions, égale à $\sum_i n_i|c(s_i)|$.
+- **Checklist :** liste retriée ? égalités traitées ? même arbre au décodeur ? unité et coût de l’arbre précisés ? optimalité limitée aux codes binaires préfixes symbole par symbole ?
+
+</div>

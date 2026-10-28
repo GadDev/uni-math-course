@@ -54,3 +54,40 @@ test('root-relative public assets resolve but missing assets and public traversa
     await rm(root, { recursive: true, force: true });
   }
 });
+
+test('lesson reading links resolve to exactly one source without accepting missing routes', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'uni-math-lesson-links-'));
+  try {
+    await mkdir(join(root, 'content/lessons/L43'), { recursive: true });
+    await writeFile(
+      join(root, 'content/lessons/L43/fr.mdx'),
+      '# Lesson\n\n## Method\n',
+    );
+    await writeFile(
+      join(root, 'README.md'),
+      '# Test\n\n[lesson](/fr/lessons/L43/#method)\n',
+    );
+    assert.equal(await validateRepository(root, []), 2);
+    for (const target of [
+      '/en/lessons/L43/',
+      '/fr/lessons/L99/',
+      '/fr/lessons/L43/#missing',
+      '/fr/lessons/L43/practice/',
+      '/fr/../note/',
+    ]) {
+      await writeFile(
+        join(root, 'README.md'),
+        `# Test\n\n[missing](${target})\n`,
+      );
+      await assert.rejects(validateRepository(root, []));
+    }
+    await writeFile(join(root, 'content/lessons/L43/fr.md'), '# Duplicate\n');
+    await writeFile(
+      join(root, 'README.md'),
+      '# Test\n\n[ambiguous](/fr/lessons/L43/)\n',
+    );
+    await assert.rejects(validateRepository(root, []));
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
