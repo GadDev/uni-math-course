@@ -1,0 +1,117 @@
+---
+import '../styles/implication-explorers.css';
+---
+
+<script>
+  import { implicationValues } from '../lib/implication';
+
+  const fr = document.documentElement.lang === 'fr';
+  const bit = (value: boolean) => String(Number(value));
+  const truth = (value: boolean) =>
+    fr ? (value ? 'vrai' : 'faux') : value ? 'true' : 'false';
+
+  for (const lab of document.querySelectorAll<HTMLElement>(
+    '[data-logic-lab]',
+  )) {
+    const aInput = lab.querySelector<HTMLSelectElement>('[data-a]')!;
+    const bInput = lab.querySelector<HTMLSelectElement>('[data-b]')!;
+    const put = (key: string, value: string) => {
+      const target = lab.querySelector<HTMLElement>(`[data-${key}]`);
+      if (target) target.textContent = value;
+    };
+    const update = () => {
+      const a = aInput.value === '1';
+      const b = bInput.value === '1';
+      const values = implicationValues(a, b);
+      put(
+        'calculation',
+        `¬A ∨ B = ${bit(!a)} ∨ ${bit(b)} = ${bit(values.implication)}`,
+      );
+      put(
+        'implication',
+        `A ⇒ B : ${truth(values.implication)} (${bit(values.implication)})`,
+      );
+      put(
+        'negation',
+        `¬(A ⇒ B) : ${truth(values.negation)} (${bit(values.negation)})`,
+      );
+      put(
+        'operands',
+        `¬A ⇒ ¬B : ${truth(values.negatedOperands)} (${bit(values.negatedOperands)})`,
+      );
+      put(
+        'failure',
+        `A ∧ ¬B = ${bit(a)} ∧ ${bit(!b)} = ${bit(values.negation)}`,
+      );
+      put(
+        'card',
+        fr
+          ? `Carte ${a ? 'rouge' : 'bleue'}, ${b ? 'avec' : 'sans'} tampon.`
+          : `${a ? 'Red' : 'Blue'} card, ${b ? 'with' : 'without'} a stamp.`,
+      );
+      const card = lab.querySelector<HTMLElement>('[data-card]');
+      if (card) card.dataset.colour = a ? 'red' : 'blue';
+      put(
+        'reason',
+        a
+          ? b
+            ? fr
+              ? 'A est vraie et B est vraie : la carte respecte la règle.'
+              : 'A is true and B is true: the card respects the rule.'
+            : fr
+              ? 'A est vraie et B est fausse : cette carte est un contre-exemple.'
+              : 'A is true and B is false: this card is a counterexample.'
+          : fr
+            ? 'A est fausse : cette carte ne contredit pas la règle, quel que soit le tampon. Cela ne prouve pas la règle pour toutes les cartes.'
+            : 'A is false: this card does not contradict the rule, whatever the stamp. This does not prove the rule for all cards.',
+      );
+      put(
+        'comparison',
+        values.negation === values.negatedOperands
+          ? fr
+            ? '¬(A ⇒ B) et ¬A ⇒ ¬B ont la même valeur ici. Il faut comparer les quatre cas pour décider d’une équivalence.'
+            : '¬(A ⇒ B) and ¬A ⇒ ¬B have the same value here. Compare all four cases to decide whether the formulas are equivalent.'
+          : fr
+            ? '¬(A ⇒ B) et ¬A ⇒ ¬B ont des valeurs différentes ici : ces formules ne sont donc pas équivalentes.'
+            : '¬(A ⇒ B) and ¬A ⇒ ¬B have different values here, so these formulas are not equivalent.',
+      );
+      if (lab.dataset.logicLab === 'cards') {
+        const rows = document.querySelectorAll<HTMLTableRowElement>(
+          '.lesson-prose > table tbody tr',
+        );
+        rows.forEach((row, index) => {
+          if (index === Number(a) * 2 + Number(b))
+            row.setAttribute('aria-current', 'true');
+          else row.removeAttribute('aria-current');
+        });
+      }
+    };
+    for (const input of [aInput, bInput]) {
+      input.disabled = false;
+      input.addEventListener('change', update);
+    }
+    update();
+  }
+
+  for (const lab of document.querySelectorAll<HTMLElement>(
+    '[data-number-lab]',
+  )) {
+    const slider = lab.querySelector<HTMLInputElement>('input')!;
+    const update = () => {
+      const n = Number(slider.value);
+      const a = n > 10,
+        b = n > 5;
+      lab.querySelector<HTMLOutputElement>('output')!.value = String(n);
+      const marker = lab.querySelector<SVGLineElement>('[data-marker]')!;
+      const x = 30 + n * 28;
+      marker.setAttribute('x1', String(x));
+      marker.setAttribute('x2', String(x));
+      lab.querySelector<HTMLElement>('[data-number-result]')!.textContent = fr
+        ? `n = ${n} : A (« n > 10 ») : ${truth(a)} ; B (« n > 5 ») : ${truth(b)}. A ⇒ B vaut ${bit(!a || b)} ; B ⇒ A vaut ${bit(!b || a)}. ${b && !a ? 'Ce nombre réfute la réciproque B ⇒ A.' : 'Ce nombre ne réfute pas la réciproque. Cherchez entre les deux seuils.'}`
+        : `n = ${n}: A (“n > 10”) is ${truth(a)}; B (“n > 5”) is ${truth(b)}. A ⇒ B is ${bit(!a || b)}; B ⇒ A is ${bit(!b || a)}. ${b && !a ? 'This number refutes the converse B ⇒ A.' : 'This number does not refute the converse. Look between the two thresholds.'}`;
+    };
+    slider.disabled = false;
+    slider.addEventListener('input', update);
+    update();
+  }
+</script>
