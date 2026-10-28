@@ -28,7 +28,8 @@ for (const locale of ['fr', 'en']) {
       'data-chapter',
       'C02',
     );
-    await page.locator('.hero .lede').click();
+    // The four-item dropdown covers part of the hero; click visibly outside it.
+    await page.mouse.click(12, 600);
     await expect(picker).not.toHaveAttribute('open');
     await picker.locator('summary').focus();
     await page.keyboard.press('Enter');

@@ -12,7 +12,7 @@ for (const locale of ['fr', 'en']) {
         locale === 'fr' ? 'Théorie de' : 'Information',
       );
       await expect(page.locator('.planned-list li')).toHaveCount(7);
-      await expect(page.locator('.planned-list a')).toHaveCount(6);
+      await expect(page.locator('.planned-list a')).toHaveCount(7);
       const selected = page.locator('.chapter-option[aria-current]');
       await expect(selected).toHaveAttribute('data-chapter', 'C04');
       const math = page.locator('.feature-formula .katex-mathml math');
@@ -45,7 +45,7 @@ test('C04 works without JavaScript', async ({ browser }) => {
     await page.goto('http://127.0.0.1:4321/fr/chapters/C04/');
     const heading = page.getByRole('heading', { level: 1 });
     await expect(heading).toContainText('Théorie');
-    await expect(page.locator('.planned-list a')).toHaveCount(6);
+    await expect(page.locator('.planned-list a')).toHaveCount(7);
     await page.locator('.featured-action a').click();
     await expect(page).toHaveURL(/\/fr\/lessons\/L43\/$/);
   } finally {
