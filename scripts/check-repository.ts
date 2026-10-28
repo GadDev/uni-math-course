@@ -49,7 +49,7 @@ async function walk(path: string): Promise<string[]> {
     if (ignored.has(entry.name)) continue;
     const full = resolve(path, entry.name);
     if (entry.isDirectory()) files.push(...(await walk(full)));
-    else if (entry.isFile() && extname(full).toLowerCase() === '.md')
+    else if (entry.isFile() && /^\.mdx?$/.test(extname(full).toLowerCase()))
       files.push(full);
   }
   return files.sort();
@@ -198,7 +198,7 @@ export async function validateRepository(
     else if (!present) errors.push(location + 'missing link target: ' + target);
     else if (
       anchor &&
-      extname(dest).toLowerCase() === '.md' &&
+      /^\.mdx?$/.test(extname(dest).toLowerCase()) &&
       !documents.get(dest)?.anchors.has(anchor)
     )
       errors.push(location + 'missing heading anchor: ' + target);
