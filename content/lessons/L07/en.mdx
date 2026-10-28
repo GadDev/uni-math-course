@@ -1,0 +1,263 @@
+---
+lessonId: L07
+locale: en
+version: 5
+status: extended
+title: "The biconditional and semantic equivalence"
+summary: "Build the biconditional from both implications, distinguish one row from a whole table, and prove or refute an equivalence."
+minutes: 30
+objectives: [L07-O01, L07-O02, L07-O03, L07-O04, L07-O05, L07-O06]
+prerequisites: [L04, L05, L06]
+sourcePages: [30, 31]
+---
+import L07Explorer from '../../../src/components/L07Explorer';
+
+# The biconditional and semantic equivalence
+
+## Your objective
+
+You will learn to require **both implications at once**, then distinguish two questions: “do these formulas agree in this case?” and “do they agree in every case?”.
+
+By the end, you will be able to explain and build the biconditional truth table, read “if and only if”, and use a complete table or a counterexample to decide an equivalence.
+
+**Before starting:** <a href="/en/lessons/L04/">L04 — equivalence and tautologies</a>, <a href="/en/lessons/L05/">L05 — implication</a> and <a href="/en/lessons/L06/">L06 — converse</a>.
+
+- An assertion is true (1) or false (0). Letters $A$ and $B$ here denote assertions, possibly compound formulas.
+- $\neg A$ means “NOT A”; $A\land B$, “A AND B”; $A\lor B$, “A OR B”, with inclusive OR: at least one is true.
+- $A\Rightarrow B$ means “if A, then B”. It is false only at $A=1$, $B=0$. Its converse is $B\Rightarrow A$.
+- An **assignment** chooses a value for each variable in a formula. A **tautology** is 1 for every assignment.
+
+**Quick check:** if A and B are false, what are the values of both implications? Both are 1: neither has a true antecedent and a false consequent. If this surprises you, revisit L05 before continuing.
+
+**To work on paper:** use your browser’s Print command. Experiments will be replaced by fixed examples, and hints and solutions will be visible. You can print first, cover the solutions and attempt the exercises.
+
+## Why both directions?
+
+Return to the cards from L05. For a fixed card, A says “it is red” and B says “it has a stamp”. The rule “if it is red, it has a stamp” still allows a blue card with a stamp.
+
+Add the converse rule: “if it has a stamp, it is red”. We now want **red with a stamp, or blue without a stamp**. A red card without a stamp fails in the first direction; a blue card with a stamp fails in the other.
+
+This double commitment motivates a new connective. It does not require both assertions to be true: it requires them to have **the same value**.
+
+## The biconditional
+
+**Definition.** The **biconditional**, written $A\Leftrightarrow B$, is the assertion defined by
+
+$$
+(A\Rightarrow B)\land(B\Rightarrow A).
+$$
+
+Read it as “A if and only if B”. The connective $\Leftrightarrow$ builds a new assertion. To calculate its value, calculate both implications, then their AND. Since AND requires two values of 1, **both directions must hold**.
+
+## Where does the table come from?
+
+With two independent variables, each has two possible values: there are four assignments. Keep each variable’s value fixed throughout a row. In the table, 0 means false and 1 means true.
+
+| A | B | A ⇒ B | B ⇒ A | A ⇔ B |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 1 | 1 |
+| 0 | 1 | 1 | 0 | 0 |
+| 1 | 0 | 0 | 1 | 0 |
+| 1 | 1 | 1 | 1 | 1 |
+
+**Build row 10:** A is true and B false. The implication from A to B fails, so it is 0. In the other direction, antecedent B is false, so the implication is 1. Their AND is 0.
+
+**Pause at row 00:** both antecedents are false, so neither implication is contradicted. Their AND is 1. We are saying that **the values agree**, not that A or B is true!
+
+Rows 01 and 10 are disagreements; 00 and 11 are agreements. We have derived the reading rule: **the biconditional is true exactly when both sides have the same value**.
+
+<L07Explorer kind="row" locale="en" client:visible />
+
+## Reading “if and only if”
+
+“A if B” expresses the direction from B to A. “A only if B” expresses the direction from A to B: B is necessary for A. “A if and only if B” combines both.
+
+In this course, $\mathbb N=\{0,1,2,\ldots\}$ denotes the natural numbers, including zero. For a fixed natural number, “it is even if and only if it is divisible by two” combines two guarantees: being even ensures divisibility by two, and divisibility by two ensures being even.
+
+However, “being divisible by four” implies “being even”, but the converse fails at 2. To prove an “if and only if” property for every natural number, justify **each direction for every integer in the domain**. A few experiments are insufficient.
+
+## Two different levels
+
+Saying “same value” is not enough: **at which assignment, or at every assignment?** Introduce letters $P$ and $Q$ for two formulas we want to compare. They may contain the same variables; always evaluate them with the same assignment.
+
+| Notation | What we do | What to examine |
+| --- | --- | --- |
+| $P\Leftrightarrow Q$ | Build an assertion | A value of 0 or 1 on each row |
+| $P\equiv Q$ | Assert semantic equivalence | Agreement of both formulas on every assignment |
+
+The symbol $\equiv$ is a **relation between formulas**, not a connective to calculate in a cell. Equivalence means that both result columns agree everywhere. Intermediate calculation columns need not be identical.
+
+**An example not to generalize too quickly:** when A and B are false, an implication and its converse are both 1. But at row 01, the first is 1 and its converse 0: the formulas are not semantically equivalent.
+
+The precise link is this: $P\equiv Q$ holds **exactly when** $P\Leftrightarrow Q$ is a tautology.
+
+### Why is this criterion true?
+
+The justification uses only the definitions, in both directions.
+
+1. **Start with equivalence.** If $P\equiv Q$, their values are identical at every assignment. At each one, $P\Leftrightarrow Q$ is therefore 1. This last formula is a tautology.
+2. **Start with a tautology.** If $P\Leftrightarrow Q$ is 1 at every assignment, its two sides have the same value at each one. This is exactly the definition of $P\equiv Q$.
+
+This is a general proof for formulas of classical propositional logic. The following experiment lets you see the mechanism on particular formulas.
+
+<L07Explorer kind="equivalence" locale="en" client:visible />
+
+## How to proceed, step by step
+
+**When should you choose a table?** For propositional formulas with few variables: it is an exhaustive, mechanical method. With $k$ distinct variables, there are $2^k$ assignments, since each variable offers two choices. The number of rows grows quickly.
+
+1. **Identify both formulas.** Name them P and Q and copy their parentheses.
+2. **List the variables appearing in at least one formula.** If only A and B occur, use rows 00, 01, 10 and 11. A shared variable keeps the same value in both formulas.
+3. **Calculate from the inside out.** Add columns for difficult subformulas.
+4. **Compare both final columns.** A difference provides a counterexample and suffices to refute equivalence. If you have found only agreements, continue until you have covered every assignment.
+5. **Write a justified conclusion.** “All rows agree” establishes equivalence; “row … differs” refutes it. The biconditional column makes this comparison visible.
+
+**Useful check:** the last column is 1 wherever P and Q are equal, including when both are 0. Do not replace this test with an AND between P and Q.
+
+## Guided example: testing an equivalence
+
+Test $(A\Rightarrow B)\equiv(\neg A\lor B)$. Here, $P=(A\Rightarrow B)$ and $Q=(\neg A\lor B)$. Compare them on all four assignments of A and B.
+
+| A | B | A ⇒ B | ¬A ∨ B | (A ⇒ B) ⇔ (¬A ∨ B) |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 1 | 1 |
+| 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 0 | 1 |
+| 1 | 1 | 1 | 1 | 1 |
+
+Check row 10 especially: $\neg A\lor B=\neg1\lor0=0\lor0=0$. The implication is also 0, so their biconditional is 1, not 0.
+
+Both columns agree on every row. The last column is therefore always 1: it is a tautology, and equivalence is established.
+
+### Recover the formula without a table
+
+An implication fails exactly when A is true and B false. It therefore expresses the negation of that failure. Using the laws from L04:
+
+$$
+\begin{aligned}
+(A\Rightarrow B)&\equiv\neg(A\land\neg B)\\
+&\equiv(\neg A\lor\neg\neg B)\\
+&\equiv(\neg A\lor B).
+\end{aligned}
+$$
+
+The first step comes from the unique failure case; the second applies De Morgan; the third removes double negation. Each transformation preserves values for every assignment. This derivation explains the result verified by the table.
+
+This guided work, whose solution is visible, supports understanding; it does not measure independent mastery.
+
+## Trap: mixing the two levels
+
+- **“Both sides must be true.”** No: the biconditional is also true at row 00. A conjunction is not.
+- **“One implication is enough.”** No: at row 01, one implication is true and its converse false. Both directions count.
+- **“One row where the formulas agree proves equivalence.”** No: every assignment is needed. However, a single difference refutes equivalence.
+- **“Equivalent formulas must be tautologies.”** No: $A\equiv\neg\neg A$, but both sides are false when A is false. Their biconditional is the tautology.
+
+Saying that $A\Leftrightarrow B$ is 0 on a row does not give the relation $A\equiv B$ a value “on that row”: the row witnesses that the two tables do not agree everywhere.
+
+## Practise before reading the solution
+
+These reading exercises are public and ungraded. Try each question, then open the hint only if needed. Solutions are separate to leave you time to work.
+
+### 1. Calculate one row
+
+For $A=0$ and $B=1$, calculate both implications and then the biconditional. Identify the direction that fails.
+
+<details className="l07-exercise">
+<summary>Hint — recall the unique failure case</summary>
+
+In each implication, identify the antecedent first. Failure requires a true antecedent and a false consequent.
+
+</details>
+<details className="l07-exercise">
+<summary>Explained solution — exercise 1</summary>
+
+$A\Rightarrow B$ is 1 because A is false. $B\Rightarrow A$ is 0 because B is true and A false. So $A\Leftrightarrow B$ is $1\land0=0$. The direction from B to A fails.
+
+</details>
+
+### 2. Decide with a complete table
+
+Test $\neg(A\land B)\equiv(\neg A\lor\neg B)$. Calculate both sides on all four assignments, then their biconditional. Justify your conclusion.
+
+<details className="l07-exercise">
+<summary>Hint — respect the parentheses</summary>
+
+On the left, calculate AND first, then negate its result. On the right, negate each input, then apply inclusive OR.
+
+</details>
+<details className="l07-exercise">
+<summary>Explained solution — exercise 2</summary>
+
+| A | B | ¬(A ∧ B) | ¬A ∨ ¬B | Biconditional |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 1 | 1 |
+| 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 1 | 1 | 1 |
+| 1 | 1 | 0 | 0 | 1 |
+
+Agreement on every row establishes equivalence. On the last row, both sides are 0, but their biconditional is 1. This recovers a De Morgan law from L04.
+
+</details>
+
+### 3. Refute a reasoning error
+
+Someone claims: “An implication and its converse are equivalent: I checked row 11.” Find a counterexample and explain why their method is insufficient.
+
+<details className="l07-exercise">
+<summary>Hint — separate the two values</summary>
+
+On a row where A and B have the same value, both directions hold. Try an assignment where their values differ.
+
+</details>
+<details className="l07-exercise">
+<summary>Explained solution — exercise 3</summary>
+
+At row $A=0$, $B=1$, implication $A\Rightarrow B$ is 1 and its converse $B\Rightarrow A$ is 0. The formulas are therefore not equivalent in general. Agreement at 11 did not cover the other assignments.
+
+</details>
+
+### 4. Build another expression
+
+Explain why $A\Leftrightarrow B$ is equivalent to $(A\land B)\lor(\neg A\land\neg B)$. Justify the true and false cases, or use a table.
+
+<details className="l07-exercise">
+<summary>Hint — describe both agreements</summary>
+
+How do you write “both are true”? And “both are false”? Inclusive OR combines these two possibilities.
+
+</details>
+<details className="l07-exercise">
+<summary>Explained solution — exercise 4</summary>
+
+$A\land B$ is 1 only at 11; $\neg A\land\neg B$ is 1 only at 00. Their OR is therefore 1 exactly at 00 and 11, and 0 at 01 and 10. This is the biconditional column: equivalence has been proved for every assignment.
+
+</details>
+
+## Independent practice
+
+The two embedded experiments and exercises above work without an account; they do not produce a saved grade. For more questions with correction and progress tracking, open <a href="/en/lessons/L07/practice/">Practise</a>. This account-based practice requires sign-in; availability depends on the selected version and release status.
+
+The selected exercises cover the definition, biconditional table, two levels, tautologies, table testing and detection of misconceptions.
+
+## Takeaway
+
+**Revision sheet:**
+
+- **Build:** $A\Leftrightarrow B$ is defined by $(A\Rightarrow B)\land(B\Rightarrow A)$.
+- **Calculate:** identical values give 1; different values give 0. In order 00, 01, 10, 11, the column is **1, 0, 0, 1**.
+- **Distinguish:** $\Leftrightarrow$ builds an assertion; $\equiv$ compares two formulas’ results on every assignment.
+- **Decide:** $P\equiv Q$ exactly when $P\Leftrightarrow Q$ is a tautology. One disagreement refutes; agreements establish equivalence only after an exhaustive check or a general proof.
+- **Check:** both sides can be false together. Equivalent does not mean “always true”.
+
+## Self-assessment
+
+Without consulting the solutions, can you:
+
+1. Write the definition with both implications and reconstruct all four rows? (Objectives L07-O01 and L07-O02.)
+2. Explain the different roles of the symbols and the trap of agreement on a single row? (L07-O03 and L07-O06.)
+3. Justify the link with tautologies in both directions? (L07-O04.)
+4. Test a new pair of formulas and write a conclusion supported by every row or by a counterexample? (L07-O05.)
+
+If a point is still unclear, revisit the relevant example, then redo an exercise without help. This self-assessment is not a mastery certification.
+
+Original project text, derivations, diagrams and experiments. Coverage follows PDF pages 30–31 in the repository’s course map; the source PDF was not consulted for this revision. No proof or illustration is attributed to the source author.
