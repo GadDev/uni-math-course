@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 import react from '@astrojs/react';
+import mdx from '@astrojs/mdx';
 import vercel from '@astrojs/vercel';
 import node from '@astrojs/node';
 import remarkMath from 'remark-math';
@@ -13,7 +14,7 @@ const site = safeOrigin(process.env.AUTH_SITE_URL ?? '');
 const testBuild = process.env.ASTRO_TEST_BUILD === '1';
 
 export default defineConfig({
-  integrations: [react()],
+  integrations: [react(), mdx()],
   // The local production test server uses Node; deployed builds use Vercel.
   adapter: testBuild
     ? node({ mode: 'standalone' })

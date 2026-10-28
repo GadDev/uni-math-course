@@ -212,7 +212,8 @@ const geometryVariant =
         </p>
       )}
       <p class="content-provenance">
-        {lesson.data.status === 'pilot' ? text.review : text.reviewExtended}
+        {lesson.data.status === 'pilot' ? text.review : text.reviewExtended} ·
+        Version {lesson.data.version}
       </p>
       <LessonCompletion
         locale={locale}

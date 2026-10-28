@@ -2,6 +2,7 @@ import type { Releases } from './content-types.ts';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { readFile, readdir } from 'node:fs/promises';
+import { lessonFiles } from './lesson-files.ts';
 
 export async function validateReleases(
   releases: Releases,
@@ -37,16 +38,13 @@ export async function validateReleases(
       (await read(translation.evidence)).length,
       `${id}: missing translation review/exception evidence`,
     );
+    const readingFiles = lessonFiles(id, record.fingerprints);
     assert.equal(
       translation.sourceFingerprint,
-      record.fingerprints[`content/lessons/${id}/fr.md`],
+      record.fingerprints[readingFiles[0]!],
       `${id}: translation source changed; renew bilingual review or explicitly retain the existing exception`,
     );
-    const paths = [
-      `content/lessons/${id}/fr.md`,
-      `content/lessons/${id}/en.md`,
-      `exercises/${id}/v${record.version}.json`,
-    ];
+    const paths = [...readingFiles, `exercises/${id}/v${record.version}.json`];
     assert.deepEqual(
       Object.keys(record.fingerprints).sort(),
       [...paths].sort(),
