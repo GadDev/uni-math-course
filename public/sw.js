@@ -69,6 +69,21 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Keep the course index current online but available offline in the manager.
+  if (path === '/offline-index.json') {
+    event.respondWith((async () => {
+      const cache = await caches.open(RUNTIME);
+      try {
+        const response = await fetch(request);
+        if (cacheable(response)) await cache.put(path, response.clone());
+        return response;
+      } catch {
+        return (await cache.match(path)) || Response.error();
+      }
+    })());
+    return;
+  }
+
   if (publicAsset.test(path) || path === '/favicon.svg' || path === '/manifest.webmanifest') {
     event.respondWith((async () => {
       const packed = await (await caches.open(PACK)).match(path);
