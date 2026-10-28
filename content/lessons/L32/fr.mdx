@@ -1,0 +1,145 @@
+---
+lessonId: L32
+locale: fr
+version: 5
+status: extended
+title: "Du repère aux pixels"
+summary: "Construire et inverser une transformation vers un écran dont l’axe vertical descend."
+minutes: 35
+objectives: [L32-O01, L32-O02, L32-O03, L32-O04, L32-O05, L32-O06]
+prerequisites: [L25, L27, L29]
+sourcePages: [52, 53, 54, 55]
+---
+import GeometryLab from '../../../src/components/GeometryLab';
+import GeometryExtensions from '../../../src/components/GeometryExtensions';
+
+<div className="geometry-study">
+
+# Du repère aux pixels
+
+Le même point peut avoir deux adresses : ses coordonnées mathématiques et sa position sur l’écran. Nous allons construire le changement d’adresse, puis vérifier le trajet inverse. Revoyez les coordonnées ([L27](../L27/)) et l’isolement d’une inconnue ([L25](../L25/)).
+
+## Objectifs et prérequis
+
+- Distinguer les conventions d’axes.
+- Transformer un point.
+- Inverser la transformation.
+- Transformer les variations et pentes.
+- Choisir échelle et origine.
+- Analyser arrondi et visibilité.
+
+Prérequis : L25, L27, L29. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
+
+<span id="pdf-52" class="source-topic-marker"></span>
+
+## L’écran est une grille de pixels
+
+Un **pixel** est une case d’une image. Dans la convention du PDF, les colonnes $u$ vont vers la droite et les lignes $v$ vers le bas ; la première colonne et la première ligne portent le numéro zéro.
+
+**Exemple du PDF, page 52.** Le pixel $(5,2)$ est dans la sixième colonne et la troisième ligne. L’ordre reste horizontal puis vertical, mais la verticale descend. Dans une image $8\times6$, les colonnes vont de $0$ à $7$ et les lignes de $0$ à $5$ : le pixel $(8,6)$ n’existe pas dans cette image.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/pixels.svg" alt="Grille de huit colonnes et six lignes, origine en haut à gauche, case 5,2 marquée par une croix." width="440" height="360" loading="lazy" />
+<figcaption>Les indices commencent à zéro ; v augmente vers le bas.</figcaption>
+</figure>
+
+## Deux repères
+
+Dans le plan mathématique, $y$ augmente vers le haut. Sur l’écran considéré ici, l’origine est en haut à gauche, $u$ augmente vers la droite et $v$ vers le bas. Les coordonnées continues peuvent être réelles ; les indices de pixels sont entiers. Une image de largeur $W$ et hauteur $H$ a des indices $0\le u<W$ et $0\le v<H$.
+
+<p class="source-next"><a href="/fr/lessons/L32/#pdf-54">Suite du PDF : Du repère à l’écran : centrer →</a></p>
+
+<span id="pdf-54" class="source-topic-marker"></span>
+
+## Du repère mathématique au repère écran : centrer
+
+**PDF, pages 53–54.** Dans une fenêtre de $800\times600$ pixels, choisir l’origine au centre donne $(u_0,v_0)=(400,300)$. Avec une unité pour un pixel, $u=400+x$ et $v=300-y$. Le moins est nécessaire : un point plus haut doit avoir un numéro de ligne plus petit.
+
+**Exemple supplémentaire.** $(x,y)=(20,10)$ devient $(u,v)=(420,290)$. L’origine mathématique $(0,0)$ devient $(400,300)$ ; elle ne devient pas le coin supérieur gauche.
+
+## Translation, échelle et signe
+
+Avec $s_x>0$ et $s_y>0$ pixels par unité, utiliser $u=u_0+s_xx$ et $v=v_0-s_yy$. Le point mathématique origine s’affiche en $(u_0,v_0)$. Le signe moins inverse la verticale. Pour préserver les formes et les angles, choisir $s_x=s_y$ ; sinon un cercle apparaît elliptique.
+
+<p class="source-next"><a href="/fr/lessons/L32/#pdf-55">Suite du PDF : Changer d’unité →</a></p>
+
+<span id="pdf-55" class="source-topic-marker"></span>
+
+## Changer d’unité : 50 pixels pour une unité
+
+**Exemple du PDF, page 55.** Garder le centre et choisir $50$ pixels par unité donne $u=400+50x$ et $v=300-50y$. Pour $(2,1)$ : $u=400+100=500$ et $v=300-50=250$.
+
+**Exemple supplémentaire.** Pour $(-3,-2)$, obtenir $(250,400)$. Pour inverser, soustraire le déplacement du centre puis diviser par l’échelle : $x=(u-400)/50$ et $y=(300-v)/50$. Revenir de $(500,250)$ donne bien $(2,1)$. Cette inversion concerne les coordonnées continues, avant l’arrondi en pixels.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/screen.svg" alt="Fenêtre écran avec origine en haut à gauche, centre en 400,300 et point mathématique 2,1 affiché en 500,250." width="440" height="360" loading="lazy" />
+<figcaption>Monter dans le plan diminue la coordonnée v de l’écran.</figcaption>
+</figure>
+
+## Comment construire et inverser la transformation ?
+
+Une **échelle** est ici un nombre de pixels par unité mathématique : $s_x$ horizontalement, $s_y$ verticalement. Le point écran $(u_0,v_0)$ indique où placer l’origine mathématique.
+
+1. Multipliez le déplacement horizontal par son échelle : $s_xx$, puis ajoutez la position de l’origine : $u=u_0+s_xx$.
+2. Une hauteur mathématique positive doit monter à l’écran, donc diminuer le numéro de ligne : $v=v_0-s_yy$.
+3. Pour revenir, annulez les opérations dans l’ordre inverse :
+
+$$u-u_0=s_xx\quad\Longrightarrow\quad x=\frac{u-u_0}{s_x},$$
+
+$$v_0-v=s_yy\quad\Longrightarrow\quad y=\frac{v_0-v}{s_y}.$$
+
+Les divisions demandent des échelles non nulles ; dans cette convention, on impose $s_x>0$ et $s_y>0$. Les indices 0 désignent l’origine écran choisie, pas une multiplication par zéro.
+
+**D’où vient la pente écran ?** Deux points donnent $\Delta u=s_x\Delta x$ et $\Delta v=-s_y\Delta y$. Pour une droite non verticale, diviser donne $\Delta v/\Delta u=-(s_y/s_x)m$. Le signe moins provient du changement d’orientation, pas d’une erreur de calcul.
+
+<GeometryLab kind="screen" locale="fr" client:visible />
+
+## Exemple guidé : aller et retour
+
+Prenons $u=300+40x$ et $v=200-40y$. Le point $(-2,3)$ devient $(220,80)$. Pour revenir, utiliser $x=(u-300)/40$ et $y=(200-v)/40$. Le pixel $(380,240)$ correspond donc à $(2,-1)$ avant toute incertitude liée à l’arrondi.
+
+## Exemple guidé : transformer une droite
+
+Avec les mêmes échelles, la droite $y=2x+1$ devient $v=760-2u$. En effet, remplacer $x=(u-300)/40$ dans $v=200-40(2x+1)$. La pente écran est négative : un trait montant vers la droite possède une ordonnée écran décroissante. En général, la pente devient $-(s_y/s_x)m$.
+
+Les étapes sont $v=200-40(2x+1)=160-80x$, puis $v=160-80(u-300)/40=160-2u+600=760-2u$.
+
+## Arrondir après le calcul
+
+Pour afficher un point, calculer les coordonnées continues, puis appliquer une règle d’arrondi explicite. Arrondir au plus proche limite l’erreur à un demi-pixel par coordonnée ; les égalités à mi-chemin demandent une convention. Plusieurs points réels peuvent donner le même pixel : l’arrondi n’est pas inversible. Une coordonnée hors image reste hors image même si sa transformation algébrique est correcte.
+
+<p class="source-next"><a href="/fr/lessons/L33/#pdf-56">Suite du PDF : Rastériser : quels pixels allumer ? →</a></p>
+
+L’activité suivante utilise une petite image de neuf colonnes et neuf lignes. Les indices commencent à zéro. Les coordonnées continues sont arrondies au plus proche, avec les égalités vers l’entier supérieur. Contrôlez la visibilité après cet arrondi : une position continue dans la fenêtre peut donner un indice interdit.
+
+<GeometryExtensions kind="rounding" locale="fr" client:visible />
+
+## À vous de jouer sur papier
+
+Avec $(u_0,v_0)=(200,150)$ et $s_x=s_y=40$, transformez $(-2,3)$, puis retrouvez le point de départ. Pourquoi cet aller-retour ne suffit-il plus après un arrondi ?
+
+<details>
+<summary>Afficher la correction expliquée</summary>
+
+On obtient $u=200+40(-2)=120$ et $v=150-40\cdot3=30$. Le retour donne $x=(120-200)/40=-2$ et $y=(150-30)/40=3$. Après arrondi, plusieurs positions continues peuvent donner le même indice de pixel : l’information perdue ne peut pas être retrouvée exactement. Vérifiez aussi les bornes de l’image après la convention d’arrondi choisie.
+
+</details>
+
+<section className="geometry-revision">
+
+## Fiche de révision à imprimer
+
+- **Transformation :** $u=u_0+s_xx$, $v=v_0-s_yy$, pour $s_x,s_y>0$.
+- **Retour continu :** $x=(u-u_0)/s_x$, $y=(v_0-v)/s_y$.
+- **Méthode :** fixer origine et échelles, calculer, vérifier le retour, puis seulement arrondir selon une convention explicite et contrôler la visibilité.
+- **Pièges :** oublier le moins ; confondre coordonnées continues et indices entiers ; croire qu’un arrondi est inversible.
+
+</section>
+
+## Pratique et bilan
+
+La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
+
+Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+</div>

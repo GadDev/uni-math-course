@@ -1,0 +1,129 @@
+/* Share the existing algebra-lab controls and print layout. */
+@import './algebra-explorers.css';
+.method-lab select {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  font: inherit;
+  padding: 0.5rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.method-lab select:focus-visible,
+.method-math:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.method-table:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.lesson-page[data-chapter='C02'] .lesson-prose .method-table table {
+  display: table;
+  width: max-content;
+  min-width: 100%;
+}
+.method-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 1rem;
+}
+.method-controls > label {
+  min-width: 0;
+}
+.method-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block: 0.75rem;
+}
+.method-math {
+  max-width: 100%;
+  overflow-x: auto;
+  padding-block: 0.5rem;
+}
+.method-steps {
+  padding-left: 1.5rem;
+}
+.method-current {
+  border: 1px solid var(--accent);
+  padding: 0.65rem;
+  background: var(--paper);
+}
+.method-steps li {
+  padding-block: 0.35rem;
+}
+.method-live .method-steps li[data-active='true'] {
+  border-left: 3px solid var(--accent);
+  padding-left: 0.65rem;
+}
+.method-live .method-steps li[data-active='true'] > p {
+  font-weight: 700;
+}
+.method-print {
+  display: none;
+}
+.fraction-strips {
+  margin: 1rem 0;
+}
+.fraction-strips figcaption {
+  font-size: 0.85rem;
+}
+.fraction-filled {
+  fill: var(--accent);
+  stroke: var(--ink);
+  stroke-width: 0.8;
+}
+.fraction-empty {
+  fill: var(--paper);
+  stroke: var(--ink);
+  stroke-width: 0.8;
+}
+.method-table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+@media (max-width: 400px) {
+  .method-controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .method-math {
+    font-size: 1rem;
+  }
+}
+@media print {
+  .lesson-page[data-chapter='C02'] .lesson-prose .method-table table {
+    width: 100%;
+    min-width: 0;
+  }
+  .method-table {
+    overflow: visible;
+  }
+  .method-live {
+    display: none;
+  }
+  .method-print {
+    display: block;
+  }
+  .method-math {
+    overflow: visible;
+    font-size: 0.9em;
+  }
+  .method-steps {
+    margin-block: 2mm;
+  }
+  .method-steps li {
+    break-inside: avoid;
+    padding-block: 1mm;
+  }
+  .method-lab {
+    break-inside: avoid;
+  }
+  .method-lab > .algebra-title {
+    break-after: avoid;
+  }
+  .method-print figure {
+    break-inside: avoid;
+  }
+}

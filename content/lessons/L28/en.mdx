@@ -1,0 +1,156 @@
+---
+lessonId: L28
+locale: en
+version: 5
+status: extended
+title: "Cartesian equations and curves"
+summary: "Connect an equation to its point set and preserve its solutions."
+minutes: 38
+objectives: [L28-O01, L28-O02, L28-O03, L28-O04, L28-O05, L28-O06]
+prerequisites: [L24, L27]
+sourcePages: [31, 32, 33, 34, 35]
+---
+import GeometryLab from '../../../src/components/GeometryLab';
+import GeometryExtensions from '../../../src/components/GeometryExtensions';
+
+<div className="geometry-study">
+
+# Cartesian equations and curves
+
+An equation acts as a gatekeeper: each point presents its two coordinates, and calculation decides whether it belongs to the curve. The drawing helps us see; equality lets us decide. Before continuing, can you substitute a negative number and read a pair $(x,y)$ in coordinates? Revisit [L24](../L24/) and [L27](../L27/) if needed.
+
+## Objectives and prerequisites
+
+- Test membership.
+- Recognise a line.
+- Recognise a circle.
+- Recognise a parabola.
+- Compare two equations.
+- Detect a nonequivalent transformation.
+
+Prerequisites: L24, L27. Domains and restrictions stated below are part of every rule.
+
+<span id="pdf-31" class="source-topic-marker"></span>
+
+## Cartesian equation: a test for every point
+
+A Cartesian equation relates coordinates $x$ and $y$. Its curve consists of **all** points that pass the equality test. We can do this before knowing how to plot the entire curve.
+
+**PDF example, pages 31–32.** For $y=2x+1$, testing $(1,3)$ gives $3=2\cdot1+1$: true, so the point lies on the curve. Testing $(2,4)$ gives $4=2\cdot2+1$: false, so it does not. Nearby point $(2,5)$ does lie on it.
+
+**Additional example.** For $x^2+y^2=4$, point $(0,2)$ passes because $0^2+2^2=4$. Point $(0,1)$ fails. A plot illustrates the test, whereas substitution gives an exact check.
+
+## How to: test, then compare
+
+For a given point, replace **every** $x$ and $y$ by its coordinates, calculate each side separately, then compare. Membership requires exact equality; being close to the on-screen stroke is insufficient.
+
+To recognise a circle, use Pythagoras in an **orthonormal coordinate system**, with perpendicular axes and the same unit. For centre $C=(a,b)$ and point $P=(x,y)$, horizontal and vertical displacements are $x-a$ and $y-b$. Thus:
+
+$$CP^2=(x-a)^2+(y-b)^2.$$
+
+Requiring distance $CP=r$, with $r>0$, gives $(x-a)^2+(y-b)^2=r^2$. If $r=0$, the set contains only the centre; a negative right side gives no real point. These differ from a circle with strictly positive radius.
+
+To compare equations, check that every transformation is **reversible**. A double implication $\Leftrightarrow$ asserts that the same coordinates work in both directions. One added or lost point disproves equivalence; several successful tests cannot prove it.
+
+<GeometryLab kind="membership" locale="en" client:visible />
+
+## An equation is a filter
+
+Testing a few points confirms their membership, but does not necessarily describe the entire solution set. To identify the whole shape, use the structure of the equation and its conditions of validity. An equation can describe a line, a curve, several pieces, a single point or even no real point.
+
+<p class="source-next"><a href="/en/lessons/L28/#pdf-33">Next in the PDF : A gallery of curves →</a></p>
+
+<span id="pdf-33" class="source-topic-marker"></span>
+
+## A gallery of curves: connect each formula to its drawing
+
+The PDF’s four equations, pages 33–34, describe different shapes. The equations $y=x^2$ and $x=y^2$ in this gallery describe **parabolas**. Exchanging the coordinates changes their orientation; the presence of squares in an equation alone does not make it a parabola.
+
+- $y=2x+1$: a straight line. Increasing $x$ by $1$ increases $y$ by $2$.
+- $x^2+y^2=4$: a circle centred at $O$ with radius $2$, because distance to the origin is $\sqrt{x^2+y^2}=2$.
+- $y=x^2$: an upward-opening parabola. Points $(-1,1)$ and $(1,1)$ show its symmetry.
+- $x=y^2$: a right-opening parabola. Points $(1,-1)$ and $(1,1)$ show that one horizontal coordinate can have two vertical coordinates.
+
+Thus a curve cannot always be described as $y=f(x)$. **Additional example:** $x=2$ is a vertical straight line even though its equation contains no $y$.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/gallery-line.svg" alt="Rising straight line with vertical intercept 1." width="440" height="360" loading="lazy" />
+<figcaption>y = 2x + 1</figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/gallery-circle.svg" alt="Circle centred at zero with radius 2." width="440" height="360" loading="lazy" />
+<figcaption>x² + y² = 4</figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/gallery-parabola.svg" alt="Upward-opening parabola." width="440" height="360" loading="lazy" />
+<figcaption>y = x²</figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/gallery-sideways.svg" alt="Right-opening parabola." width="440" height="360" loading="lazy" />
+<figcaption>x = y²</figcaption>
+</figure>
+
+## A gallery of shapes
+
+A line has equation $ax+by=c$ with $(a,b)\ne(0,0)$. If $b=0$, it is vertical; isolating $y$ is not always possible. In an orthonormal system, $x^2+y^2=r^2$ with $r>0$ is a circle of radius $r$. Equations $y=x^2$ and $x=y^2$ describe differently oriented parabolas.
+
+## Guided example: reading a circle
+
+Equation $(x-2)^2+(y+1)^2=9$ describes points at distance $3$ from $(2,-1)$. Testing $(5,-1)$ gives $9+0=9$. The radius is the positive square root of the right side, not the right side itself. If the right side were negative, no pair of real coordinates would work.
+
+<p class="source-next"><a href="/en/lessons/L28/#pdf-35">Next in the PDF : One curve, several equations →</a></p>
+
+<span id="pdf-35" class="source-topic-marker"></span>
+
+Vary centre and radius before testing a point. A point can be inside the disk without lying on the circle; zero radius gives a single point.
+
+<GeometryExtensions kind="circle" locale="en" client:visible />
+
+## One curve, several equations
+
+**PDF example, page 35.** $y=2x+1\Leftrightarrow2x-y+1=0\Leftrightarrow4x-2y=-2$. Rearranging, then multiplying by $2$, preserves solutions: these forms describe exactly the same line.
+
+Two tasks complement each other: **drawing** goes from an equation to points; **modelling** seeks an equation from points or a situation. The next lessons show both for a straight line. The following examples also explain why transformations such as multiplication by an unknown need extra care.
+
+## Guided example: equivalence
+
+Equations $2x+2y=6$ and $x+y=3$ have exactly the same points: division by the nonzero constant $2$ is reversible. However, multiplying $y=x$ by $x$ gives $xy=x^2$, which also holds at every point on line $x=0$. For example, $(0,2)$ satisfies the new equation but not the original.
+
+## Squares and restrictions
+
+Passing from $y=x$ to $y^2=x^2$ generally adds line $y=-x$. A one-way implication is insufficient to conclude that two equations describe the same curve. Before dividing by a variable expression, retain the case where it is zero. Before taking a root, specify the sign: $y=\sqrt{x}$ requires $x\ge0$ and $y\ge0$.
+
+<p class="source-next"><a href="/en/lessons/L29/#pdf-37">Next in the PDF : Plotting a straight line →</a></p>
+
+## Your turn on paper
+
+For $y=x$, divide both sides by $x$. Is the resulting equation equivalent over the whole real plane? Give the restriction and one lost point.
+
+<details>
+<summary>Show the worked solution</summary>
+
+Division requires $x\ne0$ and gives $y/x=1$. Point $(0,0)$ satisfies the original equation, but $y/x$ is undefined there. Retain the case $x=0$ separately; here it forces $y=0$. Check: point $(1,-1)$ added by squaring satisfies $y^2=x^2$ but not $y=x$.
+
+</details>
+
+<section className="geometry-revision">
+
+## Printable revision sheet
+
+- **Definition:** a Cartesian curve contains all real pairs satisfying its equation.
+- **Circle:** $(x-a)^2+(y-b)^2=r^2$ in orthonormal coordinates; centre $(a,b)$, radius $r>0$.
+- **Method:** substitute, calculate both sides, conclude; for equivalence, justify both directions.
+- **Traps:** dividing by zero, omitting sign restrictions, confusing circle and disk. A disk uses an inclusive inequality instead of equality.
+
+</section>
+
+## Practice and recap
+
+The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
+
+Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+</div>

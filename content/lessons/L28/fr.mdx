@@ -1,0 +1,156 @@
+---
+lessonId: L28
+locale: fr
+version: 5
+status: extended
+title: "Équations cartésiennes et courbes"
+summary: "Relier une équation à son ensemble de points et préserver ses solutions."
+minutes: 38
+objectives: [L28-O01, L28-O02, L28-O03, L28-O04, L28-O05, L28-O06]
+prerequisites: [L24, L27]
+sourcePages: [31, 32, 33, 34, 35]
+---
+import GeometryLab from '../../../src/components/GeometryLab';
+import GeometryExtensions from '../../../src/components/GeometryExtensions';
+
+<div className="geometry-study">
+
+# Équations cartésiennes et courbes
+
+Une équation joue le rôle d’un portier : chaque point présente ses deux coordonnées, et le calcul décide s’il entre dans la courbe. Le dessin aide à voir ; l’égalité permet de décider. Avant de continuer, savez-vous remplacer une lettre par un nombre négatif et lire un couple $(x,y)$ dans un repère ? Reprenez [L24](../L24/) et [L27](../L27/) si nécessaire.
+
+## Objectifs et prérequis
+
+- Tester l’appartenance.
+- Reconnaître une droite.
+- Reconnaître un cercle.
+- Reconnaître une parabole.
+- Comparer deux équations.
+- Repérer une transformation non équivalente.
+
+Prérequis : L24, L27. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
+
+<span id="pdf-31" class="source-topic-marker"></span>
+
+## Équation cartésienne : un test pour chaque point
+
+Une équation cartésienne relie les coordonnées $x$ et $y$. La courbe est l’ensemble de **tous** les points qui passent le test de l’égalité. Cela ne demande pas encore de savoir tracer toute la courbe.
+
+**Exemple du PDF, pages 31–32.** Pour $y=2x+1$, tester $(1,3)$ donne $3=2\cdot1+1$ : vrai, donc le point appartient à la courbe. Tester $(2,4)$ donne $4=2\cdot2+1$ : faux, donc le point n’appartient pas à la courbe. Son point voisin $(2,5)$ y appartient.
+
+**Exemple supplémentaire.** Pour $x^2+y^2=4$, le point $(0,2)$ passe le test car $0^2+2^2=4$. Le point $(0,1)$ échoue. Un tracé illustre le test, mais une substitution fournit la vérification exacte.
+
+## Comment faire : tester, puis comparer
+
+Pour un point donné, remplacez **tous** les $x$ et $y$ par ses coordonnées, calculez séparément les deux membres, puis comparez. Appartenir à la courbe signifie que l’égalité est exacte ; être proche du trait à l’écran ne suffit pas.
+
+Pour reconnaître un cercle, on utilise le théorème de Pythagore dans un **repère orthonormé**, dont les axes sont perpendiculaires avec la même unité. Pour le centre $C=(a,b)$ et un point $P=(x,y)$, les écarts horizontal et vertical valent $x-a$ et $y-b$. Donc :
+
+$$CP^2=(x-a)^2+(y-b)^2.$$
+
+Imposer une distance $CP=r$, avec $r>0$, donne $(x-a)^2+(y-b)^2=r^2$. Si $r=0$, l’ensemble est seulement le centre ; un membre droit négatif ne donne aucun point réel. Ce sont des cas différents d’un cercle de rayon strictement positif.
+
+Pour comparer deux équations, vérifiez que chaque transformation est **réversible**. Une double implication $\Leftrightarrow$ affirme que les mêmes coordonnées conviennent dans les deux sens. Un point ajouté ou perdu suffit à réfuter l’équivalence ; plusieurs essais réussis ne la prouvent pas.
+
+<GeometryLab kind="membership" locale="fr" client:visible />
+
+## Une équation est un filtre
+
+Tester quelques points permet de confirmer leur appartenance, mais ne décrit pas nécessairement tout l’ensemble des solutions. Pour reconnaître la forme entière, on utilise la structure de l’équation et ses conditions de validité. Une équation peut décrire une droite, une courbe, plusieurs morceaux, un point ou même aucun point réel.
+
+<p class="source-next"><a href="/fr/lessons/L28/#pdf-33">Suite du PDF : Une galerie de courbes →</a></p>
+
+<span id="pdf-33" class="source-topic-marker"></span>
+
+## Une galerie de courbes : relier chaque formule au dessin
+
+Les quatre équations du PDF, pages 33–34, décrivent des formes différentes. Les équations $y=x^2$ et $x=y^2$ de cette galerie décrivent des **paraboles**. Échanger les coordonnées change leur orientation ; la présence de carrés dans une équation ne suffit pas à en faire une parabole.
+
+- $y=2x+1$ : une droite. Quand $x$ augmente de $1$, $y$ augmente de $2$.
+- $x^2+y^2=4$ : un cercle de centre $O$ et de rayon $2$, car la distance à l’origine vaut $\sqrt{x^2+y^2}=2$.
+- $y=x^2$ : une parabole ouverte vers le haut. Les points $(-1,1)$ et $(1,1)$ montrent sa symétrie.
+- $x=y^2$ : une parabole ouverte vers la droite. Les points $(1,-1)$ et $(1,1)$ montrent qu’une même abscisse peut avoir deux ordonnées.
+
+On ne peut donc pas toujours décrire une courbe sous la forme $y=f(x)$. **Exemple supplémentaire :** $x=2$ est une droite verticale, même si son équation ne contient pas $y$.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/gallery-line.svg" alt="Droite montante avec une ordonnée à l’origine égale à 1." width="440" height="360" loading="lazy" />
+<figcaption>y = 2x + 1</figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/gallery-circle.svg" alt="Cercle de centre zéro et de rayon 2." width="440" height="360" loading="lazy" />
+<figcaption>x² + y² = 4</figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/gallery-parabola.svg" alt="Parabole ouverte vers le haut." width="440" height="360" loading="lazy" />
+<figcaption>y = x²</figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/gallery-sideways.svg" alt="Parabole ouverte vers la droite." width="440" height="360" loading="lazy" />
+<figcaption>x = y²</figcaption>
+</figure>
+
+## Galerie de formes
+
+Une droite s’écrit $ax+by=c$ avec $(a,b)\ne(0,0)$. Si $b=0$, elle est verticale ; on ne peut pas toujours isoler $y$. Dans un repère orthonormé, $x^2+y^2=r^2$ avec $r>0$ est un cercle de rayon $r$. Les équations $y=x^2$ et $x=y^2$ décrivent des paraboles orientées différemment.
+
+## Exemple guidé : lire un cercle
+
+L’équation $(x-2)^2+(y+1)^2=9$ décrit les points à distance $3$ de $(2,-1)$. Pour tester $(5,-1)$, on obtient $9+0=9$. Le rayon est la racine positive du membre droit, pas ce membre droit lui-même. Si le membre droit était négatif, aucune paire de coordonnées réelles ne conviendrait.
+
+<p class="source-next"><a href="/fr/lessons/L28/#pdf-35">Suite du PDF : Une courbe, plusieurs équations →</a></p>
+
+<span id="pdf-35" class="source-topic-marker"></span>
+
+Faites varier le centre et le rayon avant de tester un point. Un point peut être dans le disque sans être sur le cercle ; le cas de rayon nul donne un point unique.
+
+<GeometryExtensions kind="circle" locale="fr" client:visible />
+
+## Une courbe, plusieurs équations
+
+**Exemple du PDF, page 35.** $y=2x+1\Leftrightarrow2x-y+1=0\Leftrightarrow4x-2y=-2$. Déplacer les termes, puis multiplier par $2$, garde les mêmes solutions : ces écritures décrivent exactement la même droite.
+
+Deux tâches se répondent : **dessiner**, c’est passer d’une équation aux points ; **modéliser**, c’est chercher une équation à partir de points ou d’une situation. Les prochaines leçons montrent comment faire les deux pour une droite. Les exemples suivants expliquent aussi pourquoi certaines transformations, comme multiplier par une inconnue, demandent plus de précautions.
+
+## Exemple guidé : équivalence
+
+Les équations $2x+2y=6$ et $x+y=3$ ont exactement les mêmes points : diviser par la constante non nulle $2$ est réversible. En revanche, multiplier $y=x$ par $x$ donne $xy=x^2$, qui est aussi vraie pour tous les points de la droite $x=0$. Par exemple $(0,2)$ satisfait la nouvelle équation, mais pas l’ancienne.
+
+## Carrés et restrictions
+
+Passer de $y=x$ à $y^2=x^2$ ajoute généralement la droite $y=-x$. L’implication dans un sens ne suffit pas pour conclure que deux équations décrivent la même courbe. Avant de diviser par une expression variable, conservez le cas où elle s’annule. Avant de prendre une racine, précisez le signe : $y=\sqrt{x}$ impose $x\ge0$ et $y\ge0$.
+
+<p class="source-next"><a href="/fr/lessons/L29/#pdf-37">Suite du PDF : Tracer une droite →</a></p>
+
+## À vous de jouer sur papier
+
+Pour $y=x$, on divise les deux membres par $x$. Obtient-on une équation équivalente dans tout le plan réel ? Donnez la restriction et un point perdu.
+
+<details>
+<summary>Afficher la correction expliquée</summary>
+
+La division exige $x\ne0$ et donne $y/x=1$. Le point $(0,0)$ satisfait l’équation initiale, mais l’expression $y/x$ n’y est pas définie. Il faut conserver séparément le cas $x=0$, qui impose ici $y=0$. Contrôle : le point ajouté par un carré, $(1,-1)$, satisfait $y^2=x^2$ mais pas $y=x$.
+
+</details>
+
+<section className="geometry-revision">
+
+## Fiche de révision à imprimer
+
+- **Définition :** une courbe cartésienne rassemble tous les couples réels satisfaisant son équation.
+- **Cercle :** $(x-a)^2+(y-b)^2=r^2$ dans un repère orthonormé ; centre $(a,b)$, rayon $r>0$.
+- **Méthode :** substituer, calculer les deux membres, conclure ; pour l’équivalence, justifier les deux sens.
+- **Pièges :** diviser par zéro, oublier une restriction de signe, confondre cercle et disque. Le disque utilise une inégalité large à la place de l’égalité.
+
+</section>
+
+## Pratique et bilan
+
+La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
+
+Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+</div>

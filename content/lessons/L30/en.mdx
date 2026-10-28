@@ -1,0 +1,162 @@
+---
+lessonId: L30
+locale: en
+version: 4
+status: extended
+title: "Two points and intersections"
+summary: "Construct a line and distinguish unique intersection, parallelism and coincidence."
+minutes: 40
+objectives: [L30-O01, L30-O02, L30-O03, L30-O04, L30-O05, L30-O06]
+prerequisites: [L25, L29]
+sourcePages: [40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
+---
+import GeometryLab from '../../../src/components/GeometryLab';
+
+<div className="geometry-study">
+
+# Two points and intersections
+
+Two distinct points determine a line; two lines pose another question: which points do they share? You will move from construction to solving a system. First revisit first-degree equations ([L25](../L25/)) and the role of slope ([L29](../L29/)).
+
+## Objectives and prerequisites
+
+- Calculate slope between two points.
+- Find a line equation.
+- Solve an intersection.
+- Distinguish the three cases.
+- Handle vertical lines.
+- Analyse a parameter or context.
+
+Prerequisites: L25, L29. Domains and restrictions stated below are part of every rule.
+
+<span id="pdf-40" class="source-topic-marker"></span>
+
+## Two points: finding the Celsius–Fahrenheit conversion
+
+**PDF example, pages 40–43.** Assume the conversion is affine. The observations are $(C,F)=(0,32)$ and $(100,212)$. Fahrenheit changes by $212-32=180$ while Celsius changes by $100-0=100$.
+
+1. Slope: $m=(212-32)/(100-0)=1{,}8$.
+2. Intercept: $p=32-1{,}8\cdot0=32$.
+3. Conversion: $F=1{,}8C+32$.
+4. For $F=50$, solving $50=1{,}8C+32$ gives $C=(50-32)/1{,}8=10$.
+
+The letters change, not the method: input $C$ replaces $x$ and output $F$ replaces $y$. **Additional example:** at $C=20$, the formula gives $F=68$. Substituting into the inverse formula recovers $20$.
+
+## Two distinct points
+
+For $A=(x_1,y_1)$ and $B=(x_2,y_2)$ with $x_1\ne x_2$, slope is $m=(y_2-y_1)/(x_2-x_1)$. Then $p=y_1-mx_1$. Reversing point order changes both quotient signs and preserves slope. If horizontal coordinates agree and points are distinct, the line is vertical. Repeating a single point does not determine a unique line.
+
+## How to recover the equation and check boundary cases
+
+State that both points lie on the line: $y_1=mx_1+p$ and $y_2=mx_2+p$. Subtraction gives $y_2-y_1=m(x_2-x_1)$. For $x_2\ne x_1$, this yields:
+
+$$m=\frac{y_2-y_1}{x_2-x_1},\qquad p=y_1-mx_1.$$
+
+The second formula simply isolates $p$ in the first equation. These are connected steps: first eliminate the constant, then recover it.
+
+1. Compare the points. Identical points do not determine a unique line.
+2. Distinct points with the same horizontal coordinate give vertical line $x=x_1$.
+3. Otherwise calculate slope, subtracting in **the same order** in numerator and denominator.
+4. Calculate the intercept, then substitute **both** points into the resulting equation.
+
+<GeometryLab kind="points" locale="en" client:visible />
+
+## Guided example: construct, then check
+
+For $(1,4)$ and $(3,10)$, slope is $(10-4)/(3-1)=3$ and intercept is $4-3\cdot1=1$. The line is $y=3x+1$. Checking both points is quick and detects sign errors. Form $y-y_1=m(x-x_1)$ also gives the equation without immediately calculating the intercept.
+
+<p class="source-next"><a href="/en/lessons/L30/#pdf-44">Next in the PDF : Intersection of two lines →</a></p>
+
+<span id="pdf-44" class="source-topic-marker"></span>
+
+## Intersection: the same temperature in both units
+
+**PDF example, pages 44–45.** Seek a number expressed identically in Celsius and Fahrenheit: require $F=C$ as well as $F=1{,}8C+32$. Replace $F$ with $C$: $C=1{,}8C+32$, then $-0{,}8C=32$ and $C=-40$. The intersection is $(C,F)=(-40,-40)$.
+
+In the drawing, the intersection is the point shared by both lines. Algebra gives its exact coordinates. Give both coordinates and check both equations, rather than solving only for the first unknown.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/temperature.svg" alt="Lines F equals C and F equals 1.8C plus 32 intersect at minus 40,minus 40." width="440" height="360" loading="lazy" />
+<figcaption>The shared point satisfies both equations at once.</figcaption>
+</figure>
+
+## Guided example: intersection
+
+Lines $y=2x+1$ and $y=-x+7$ meet when $2x+1=-x+7$. We obtain $x=2$, then $y=5$. The result is point $(2,5)$, not merely its horizontal coordinate. Both substitutions indeed give $5$.
+
+<p class="source-next"><a href="/en/lessons/L30/#pdf-46">Next in the PDF : Three situations →</a></p>
+
+<span id="pdf-46" class="source-topic-marker"></span>
+
+## Three situations: one, no or infinitely many solutions
+
+**PDF examples, pages 46–49.** For $y=2x+1$ and $y=-x+4$, solve $2x+1=-x+4$, hence $3x=3$ and intersection $(1,3)$. For $y=2x+1$ and $y=2x+5$, eliminating $2x$ gives $1=5$: no solution. For $y=2x+1$ and $2y=4x+2$, the second equation doubles the first: every point on the line is shared.
+
+These cases explain the three outcomes of a system. A single equation with two unknowns can describe infinitely many pairs: the expression $0=0$ does not mean zero is the only possible coordinate.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/intersection-one.svg" alt="Two lines intersect at point 1,3." width="440" height="360" loading="lazy" />
+<figcaption>One solution.</figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/intersection-none.svg" alt="Two distinct parallel lines do not intersect." width="440" height="360" loading="lazy" />
+<figcaption>No solution.</figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/intersection-many.svg" alt="Two equations represent the same line, with solid and dotted strokes overlapping." width="440" height="360" loading="lazy" />
+<figcaption>Infinitely many shared points.</figcaption>
+</figure>
+
+## How to solve an intersection
+
+A common point satisfies both equations **at once**. For $y=m_1x+p_1$ and $y=m_2x+p_2$, equating the two expressions for the same vertical coordinate gives:
+
+$$m_1x+p_1=m_2x+p_2\quad\Longleftrightarrow\quad(m_1-m_2)x=p_2-p_1.$$
+
+Before dividing, examine $m_1-m_2$. If nonzero, calculate $x$, then $y$, and check both equations. If zero, compare intercepts: different intercepts give a contradiction; equal intercepts leave every point on the line. The formula for $x$ cannot be used in all three cases. For a vertical line, substitute its horizontal coordinate directly into the other equation.
+
+In the activity, advance one step at a time: write both constraints, equate or substitute, collect without dividing too soon, then check the resulting point.
+
+<GeometryLab kind="intersection" locale="en" client:visible />
+
+## One, none or infinitely many
+
+For two nonvertical lines, different slopes give one intersection. Equal slopes and different intercepts give no intersection. Identical parameters describe the same line and therefore infinitely many common points. After elimination, a false equality such as $0=3$ indicates no solution; an identity such as $0=0$ requires retaining the remaining equation.
+
+## Verticals and application domain
+
+To intersect $x=4$ and $y=-x+6$, directly substitute the fixed horizontal coordinate to obtain $(4,2)$. Two distinct vertical lines do not intersect. In a cost or conversion model, an algebraic intersection may lie outside the usable domain. A negative quantity or extrapolation does not acquire practical meaning merely because it solves the equations.
+
+<p class="source-next"><a href="/en/lessons/L31/#pdf-50">Next in the PDF : The two half-planes →</a></p>
+
+## Your turn on paper
+
+Build the line through $(0,2)$ and $(2,0)$, then find its intersection with $y=x$. Check both coordinates.
+
+<details>
+<summary>Show the worked solution</summary>
+
+Slope is $(0-2)/(2-0)=-1$ and intercept is $2$, hence $y=-x+2$. Intersection requires $x=-x+2$, then $2x=2$ and $x=1$. Thus $y=1$; $(1,1)$ satisfies both equations. The constructed line also recovers both initial points.
+
+</details>
+
+<section className="geometry-revision">
+
+## Printable revision sheet
+
+- **Two points:** first handle repeated points and vertical lines; otherwise calculate $m$ then $p$.
+- **Intersection:** solve $(m_1-m_2)x=p_2-p_1$, separating the zero-coefficient case.
+- **Check:** a result is a pair, to substitute in both equations.
+- **Traps:** dividing by zero; interpreting “no visible intersection” as “no solution”; ignoring the model’s domain.
+
+</section>
+
+## Practice and recap
+
+The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
+
+Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+</div>

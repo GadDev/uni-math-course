@@ -74,7 +74,7 @@ check('L35 revised student interpolation',s.Rational('2.3')*s.Rational('3.5')+s.
 check('L35 revised student extrapolation',s.Rational('2.3')*10+s.Rational('5.1'),s.Rational('28.1'))
 # Execute the published restricted-octant code, including every tie, in both languages.
 for lang in ('fr','en'):
-    text=Path(f'content/lessons/L33/{lang}.md').read_text()
+    text=next(Path('content/lessons/L33').glob(f'{lang}.md*')).read_text()
     namespace={}
     for code in re.findall(r'```python\n(.*?)\n```',text,re.S):exec(code,namespace)
     raster=namespace['raster']
