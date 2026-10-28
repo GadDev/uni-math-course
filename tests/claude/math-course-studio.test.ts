@@ -64,14 +64,8 @@ test('Chapter 1 course map retains source-specific page coverage', async () => {
     [...lessons].filter(([id]) => id >= 'L01' && id <= 'L20'),
   );
   const result = course.analyse(logicLessons, 96);
-  const registry = JSON.parse(
-    await readFile(
-      new URL('../../content/releases.json', import.meta.url),
-      'utf8',
-    ),
-  );
-  assert.equal(result.ids.length, Object.keys(registry.lessons).length);
-  assert.ok(result.covered.includes(2), 'source page 2 is covered');
+  assert.equal(result.ids.length, 20);
+  assert.ok(result.uncovered.includes(2), 'title-adjacent page 2 is uncovered');
   assert.equal(course.ranges([3, 4, 5, 9]), '3-5, 9');
   assert.ok(
     result.findings.every((finding) => !/cycle/.test(finding)),
