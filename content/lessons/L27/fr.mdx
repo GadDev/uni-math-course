@@ -1,16 +1,23 @@
 ---
 lessonId: L27
 locale: fr
-version: 2
+version: 4
 status: extended
 title: "Repères et distances"
 summary: "Placer des points et mesurer une distance dans un repère orthonormé."
-minutes: 25
+minutes: 45
 objectives: [L27-O01, L27-O02, L27-O03, L27-O04, L27-O05, L27-O06]
 prerequisites: [L23]
 sourcePages: [28, 29, 30]
 ---
+import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
+
+<div className="algebra-study">
+
 # Repères et distances
+
+Les coordonnées sont une adresse ; la distance mesure le trajet direct entre deux adresses. Pour passer de l’une à l’autre, construisez un triangle rectangle : les différences de coordonnées donnent ses côtés, puis Pythagore donne la longueur cherchée.
 
 ## Objectifs et prérequis
 
@@ -22,6 +29,8 @@ sourcePages: [28, 29, 30]
 - Vérifier les unités du repère.
 
 Prérequis : L23. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
+
+**Rappel de [L23](../L23/).** Une racine carrée est non négative ; le carré d’un nombre négatif est positif. Le théorème de Pythagore dit que, dans un triangle rectangle, le carré de l’hypoténuse est la somme des carrés des deux autres côtés. Un indice comme $x_A$ signifie « abscisse du point A ».
 
 <span id="pdf-28" class="source-topic-marker"></span>
 
@@ -59,6 +68,8 @@ La formule générale est $d(A,B)=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2}$. Le symbole $\
 <figcaption>La formule de distance est Pythagore appliqué aux deux déplacements.</figcaption>
 </figure>
 
+<AlgebraExplorer kind="distance" locale="fr" client:visible />
+
 ## Déplacement et longueur
 
 De $A$ vers $B$, les écarts sont $\Delta x=x_B-x_A$ et $\Delta y=y_B-y_A$. Ils peuvent être négatifs. Dans un repère orthonormé, les axes sont perpendiculaires et une unité représente la même longueur sur les deux axes. Alors $d(A,B)=\sqrt{(\Delta x)^2+(\Delta y)^2}$. Une distance est positive ou nulle ; elle vaut zéro exactement lorsque les deux points coïncident.
@@ -75,10 +86,117 @@ Le milieu de $A=(0,2)$ et $B=(6,4)$ est $M=(3,3)$ : on moyenne séparément les 
 
 Des axes perpendiculaires ne suffisent pas pour utiliser directement la formule précédente. Si une unité horizontale représente $2$ mètres et une unité verticale $1$ mètre, un écart de coordonnées $(3,4)$ représente un déplacement physique $(6,4)$ mètres, de longueur $\sqrt{52}$ mètres. Un dessin étiré à l’écran ne change pas les coordonnées mathématiques, mais ses longueurs visuelles peuvent être trompeuses.
 
+## Convertir les unités avant de mesurer
+
+Une coordonnée compte des unités du repère ; une longueur physique s’exprime en mètres, centimètres, etc. Notons $s_x>0$ le nombre de mètres par unité horizontale et $s_y>0$ celui par unité verticale. Les déplacements physiques sont $X=s_x\Delta x$ et $Y=s_y\Delta y$, en mètres.
+
+Avec des axes perpendiculaires, Pythagore s’applique à ces deux déplacements exprimés dans la même unité : $D=\sqrt{(s_x\Delta x)^2+(s_y\Delta y)^2}$. Pour un écart $(3;4)$, prendre $s_x=2$ et $s_y=1$ donne un triangle physique de côtés $6$ m et $4$ m.
+
+Changer le nombre de mètres par unité change ici la situation physique représentée. Cela diffère d’un simple zoom sur l’écran. Le graphique de l’atelier montre les déplacements **en mètres**, avec la même échelle physique sur les deux axes ; les coordonnées d’entrée restent affichées dans les commandes.
+
+<AlgebraMethodLab kind="scales" locale="fr" client:visible />
+
 <p class="source-next"><a href="/fr/lessons/L28/#pdf-31">Suite du PDF : Équation cartésienne →</a></p>
+
+## Comment faire ? Une méthode réutilisable
+
+1. Écrivez les deux couples dans le même ordre : abscisse, ordonnée.
+2. Vérifiez que les axes sont perpendiculaires et utilisent la même unité physique ; sinon convertissez les déplacements avant Pythagore.
+3. Calculez arrivée moins départ pour chaque coordonnée, puis élevez ces deux différences au carré.
+4. Additionnez et prenez la racine non négative. Contrôlez : la distance doit rester la même en échangeant les points.
+
+Pour un milieu, calculez séparément les moyennes des deux abscisses et des deux ordonnées : $M=((x_A+x_B)/2;(y_A+y_B)/2)$.
+
+**Erreur fréquente.** Additionner les déplacements absolus mesure un trajet en angle droit. Pour un triangle de côtés $3$ et $4$, ce trajet mesure $7$, mais son hypoténuse mesure $5$.
+
+## S’entraîner pas à pas
+
+<div className="algebra-exercise">
+
+### 1. Application
+
+Dans quel quadrant se trouve $P=(-3;2)$ ?
+
+<details>
+<summary>Indice</summary>
+
+Commencer par le signe de l’abscisse.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Le point est à gauche et au-dessus de l’origine : deuxième quadrant. Le premier quadrant est en haut à droite ; on numérote ensuite dans le sens inverse des aiguilles d’une montre.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 2. Enchaînement
+
+Pour $A=(-2;1)$ et $B=(1;5)$, calculer le déplacement, la distance et le milieu dans un repère orthonormé.
+
+<details>
+<summary>Indice</summary>
+
+Conserver les signes jusqu’aux carrés ; moyenner les coordonnées séparément.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Le déplacement vaut $(3;4)$, la distance $\sqrt{3^2+4^2}=5$ et le milieu $M=(-1/2;3)$. En sens inverse, les écarts changent de signe, pas la distance.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 3. Raisonnement
+
+Les axes sont perpendiculaires. Une unité horizontale vaut $2$ m et une unité verticale $1$ m. Quelle longueur physique correspond à un écart $(3;4)$ ?
+
+<details>
+<summary>Indice</summary>
+
+Exprimer les deux déplacements en mètres avant de les élever au carré.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Les déplacements physiques sont $6$ m et $4$ m. La longueur vaut $\sqrt{6^2+4^2}=\sqrt{52}$ m, et non $5$ m. La formule sur les coordonnées brutes supposait une même unité sur les deux axes.
+
+</details>
+
+</div>
 
 ## Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+<div className="algebra-revision">
+
+## À retenir et auto-évaluation
+
+- Un couple est ordonné ; le déplacement utilise arrivée moins départ.
+- Une distance est non négative, symétrique et s’annule uniquement pour des points confondus.
+- Pythagore exige des directions perpendiculaires et des longueurs exprimées dans la même unité.
+
+**Auto-évaluation.** Placer un point sans inverser les coordonnées ; refaire le calcul du deuxième exercice ; expliquer pourquoi le troisième n’utilise pas directement les coordonnées. Reprendre « Attention aux échelles » si nécessaire. [L28](../L28/) décrira une droite par une équation.
+
+**Pour imprimer :** utilisez la commande Imprimer du navigateur. Les activités montrent un exemple fixe et les indices et solutions sont développés sur papier.
+
+</div>
+
+</div>

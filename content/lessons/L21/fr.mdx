@@ -1,16 +1,23 @@
 ---
 lessonId: L21
 locale: fr
-version: 2
+version: 4
 status: extended
 title: "Calculer dans les réels"
 summary: "Priorités, signes et opérations réversibles : poser des bases fiables avant les équations."
-minutes: 20
+minutes: 40
 objectives: [L21-O01, L21-O02, L21-O03, L21-O04, L21-O05, L21-O06]
 prerequisites: [L10]
 sourcePages: [4, 5, 6]
 ---
+import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
+
+<div className="algebra-study">
+
 # Calculer dans les réels
+
+Un calcul ressemble à une recette : changer l’ordre des gestes peut changer le résultat. Cette leçon vous apprend à lire la consigne avant de calculer. Elle prépare [L22 — développer et factoriser](../L22/), puis les équations de L24. Les activités ajoutées sont du matériel original du projet.
 
 ## Objectifs et prérequis
 
@@ -22,6 +29,8 @@ sourcePages: [4, 5, 6]
 - Analyser une transformation.
 
 Prérequis : L10. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
+
+**Rappel utile.** $\mathbb R$ désigne les réels : entiers, fractions et nombres comme $\sqrt2$. Le symbole $\in$ signifie « appartient à ». L’égalité compare deux valeurs ; un signe moins peut indiquer un nombre négatif ou une soustraction. Revoir [les familles de nombres en L10](../L10/) si nécessaire.
 
 <span id="pdf-4" class="source-topic-marker"></span>
 
@@ -36,6 +45,8 @@ Prérequis : L10. Les domaines et restrictions précisés ci-dessous font partie
 On lit « deux plus trois fois le carré de quatre ». À l’inverse, $(2+3)\cdot4^2=80$ : les parenthèses changent la consigne. Pour l’écriture $8\div2(2+2)$, la convention annoncée dans ce cours traite multiplication et division au même niveau, de gauche à droite : $8\div2\cdot4=16$. Écrivez $8/(2(2+2))$ si vous voulez obtenir $1$ ; rendez l’intention visible.
 
 **Exemple supplémentaire.** $-3^2+(-3)^2=-9+9=0$. Dans le premier terme, on prend l’opposé du carré ; dans le second, on élève le nombre négatif au carré. La base d’une puissance est le nombre ou le groupe qui reçoit l’exposant.
+
+<AlgebraExplorer kind="precedence" locale="fr" client:visible />
 
 ## Le contrat de calcul
 
@@ -55,13 +66,21 @@ Les nombres $0$ et $1$ jouent des rôles précis : $a+0=a$, $a\cdot1=a$ et $a\cd
 
 Soustraire $b$ signifie ajouter $-b$. Ainsi $a-b=a+(-b)$ et $a-(-b)=a+b$. Le signe moins devant une puissance n’entre pas automatiquement dans sa base : $-4^2=-16$, tandis que $(-4)^2=16$. Un produit de deux nombres négatifs est positif ; cela ne transforme pas une somme de deux nombres négatifs en nombre positif.
 
+## Comprendre : signe, base et exposant
+
+Dans une puissance, posez d’abord la question : **quel nombre est multiplié par lui-même ?** Si $a\ge0$ et si $n$ est un entier positif, $-a^n=-(a^n)$ demande de calculer la puissance de $a$, puis son opposé. En revanche, $(-a)^n$ multiplie le nombre $-a$ par lui-même $n$ fois.
+
+Pour $a=3$ et $n=2$ : $-3^2=-(3\cdot3)=-9$, mais $(-3)^2=(-3)(-3)=9$. Pour $n=3$, les deux écritures valent $-27$ : ce cas d’accord ne rend pas les deux consignes identiques. Chaque paire de facteurs négatifs donne un produit positif ; avec un nombre impair de facteurs, il reste un signe moins.
+
+<AlgebraMethodLab kind="powers" locale="fr" client:visible />
+
 ## Exemple guidé : conserver la structure
 
 Calculons $18-2(3+1)^2/4$. D’abord $3+1=4$, puis $4^2=16$. Le produit et le quotient donnent $2\cdot16/4=8$. Finalement $18-8=10$. On peut vérifier par une autre écriture : $2/4=1/2$, donc on retire la moitié de $16$. Ce regroupement concerne ici des produits, pas une addition que l’on pourrait déplacer arbitrairement.
 
 ## Ce qui change et ce qui reste
 
-Addition et multiplication sont commutatives et associatives : changer leur ordre ou leurs groupes ne change pas le résultat. Soustraction et division ne le sont pas. Par exemple $12/(3/2)=8$, mais $(12/3)/2=2$. La distributivité relie les deux opérations : $a(b+c)=ab+ac$. Changer une écriture est utile seulement si la valeur et le domaine restent conservés.
+Addition et multiplication sont **commutatives** (on peut échanger les deux nombres : $a+b=b+a$, $ab=ba$) et **associatives** (on peut changer les groupes : $(a+b)+c=a+(b+c)$, $(ab)c=a(bc)$). Les valeurs restent les mêmes. Soustraction et division ne le sont pas. Par exemple $12/(3/2)=8$, mais $(12/3)/2=2$. La distributivité relie les deux opérations : $a(b+c)=ab+ac$. Changer une écriture est utile seulement si la valeur et le domaine restent conservés.
 
 ## Exemple guidé : le zéro n’est pas une permission
 
@@ -69,8 +88,103 @@ Pour $a\ne0$, $a/a=1$. À $a=0$, cette écriture n’est pas définie. L’égal
 
 <p class="source-next"><a href="/fr/lessons/L22/#pdf-7">Suite du PDF : Développer et factoriser →</a></p>
 
+## Comment faire ? Une méthode réutilisable
+
+1. Repérez les groupes et la base de chaque puissance.
+2. Calculez parenthèses, puissances, produits et quotients, puis sommes et différences. À même priorité, avancez de gauche à droite.
+3. Recopiez les morceaux encore inchangés : une ligne doit rester égale à la précédente.
+4. Avant une division, vérifiez que le dénominateur est non nul. Contrôlez le résultat par un autre regroupement autorisé.
+
+**Erreur à débusquer.** « Deux moins font plus » concerne un produit ou la soustraction d’un négatif : $(-2)+(-3)=-5$, tandis que $(-2)(-3)=6$.
+
+## S’entraîner pas à pas
+
+<div className="algebra-exercise">
+
+### 1. Application
+
+Calculer $6-2\cdot3^2$.
+
+<details>
+<summary>Indice</summary>
+
+Quelle est la base du carré ?
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Le carré donne $3^2=9$, puis $2\cdot9=18$, donc $6-18=-12$.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 2. Enchaînement
+
+Comparer $-2^4$ et $(-2)^4$.
+
+<details>
+<summary>Indice</summary>
+
+Le signe moins est-il dans la base ?
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+$-2^4=-(2^4)=-16$ ; $(-2)^4=16$. Une puissance paire d’un réel est non négative ; l’opposé de ce carré répété reste négatif ici.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 3. Raisonnement
+
+Peut-on conclure $u=v$ à partir de $0u=0v$ ? Justifier.
+
+<details>
+<summary>Indice</summary>
+
+Cherchez deux nombres distincts qui vérifient l’égalité.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Non : $u=1$ et $v=2$ donnent $0=0$ sans être égaux. Diviser par zéro n’est pas une opération définie dans les réels.
+
+</details>
+
+</div>
+
 ## Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+<div className="algebra-revision">
+
+## À retenir et auto-évaluation
+
+- Une expression se lit par groupes et priorités, pas seulement de gauche à droite.
+- L’opposé annule une somme ; l’inverse annule un produit et exige un nombre non nul.
+- Un signe devant un groupe concerne tout le groupe.
+
+**Auto-évaluation.** Sans regarder : expliquer la différence entre $-3^2$ et $(-3)^2$ ; refaire le premier exercice ; donner un contre-exemple à une division par zéro. Si une réponse hésite, revenir à « Signes et opérations » ou « Le zéro n’est pas une permission ».
+
+**Pour imprimer :** utilisez la commande Imprimer du navigateur. Les activités montrent un exemple fixe et les indices et solutions sont développés sur papier.
+
+</div>
+
+</div>

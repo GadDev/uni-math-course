@@ -1,16 +1,23 @@
 ---
 lessonId: L22
 locale: en
-version: 3
+version: 5
 status: extended
 title: "Expanding and factorising"
 summary: "Change the form of an expression without changing its value."
-minutes: 30
+minutes: 50
 objectives: [L22-O01, L22-O02, L22-O03, L22-O04, L22-O05, L22-O06]
 prerequisites: [L21]
 sourcePages: [7, 8, 9, 10, 11, 12, 15, 16, 17, 18]
 ---
+import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
+
+<div className="algebra-study">
+
 # Expanding and factorising
+
+One quantity can wear different “costumes”: a sum helps with some calculations and a product with others. The goal is to change form to answer a question while preserving value. First follow L21 → L22 → L23 → L24; “Next in the PDF” links offer an alternative reading in source-document order.
 
 ## Objectives and prerequisites
 
@@ -23,11 +30,13 @@ sourcePages: [7, 8, 9, 10, 11, 12, 15, 16, 17, 18]
 
 Prerequisites: L21. Domains and restrictions stated below are part of every rule.
 
+**Reminder from [L21](../L21/).** $-2(x+1)$ means the number $-2$ multiplies the whole group. Add coefficients of like terms: $3x+2x=5x$, but $x+x^2$ cannot be collected that way. A letter represents a number; $x^2$ means $x\cdot x$.
+
 <span id="pdf-7" class="source-topic-marker"></span>
 
 ## Expanding and factorising: the PDF examples
 
-A **term** is a piece separated by addition or subtraction. A **factor** is a piece multiplied by another. In $3x+6$, the terms are $3x$ and $6$; in $3(x+2)$, the factors are $3$ and $x+2$. Expanding exposes terms; factorising exposes factors.
+A **term** is a piece separated by addition or subtraction at the expression’s outermost level. A **factor** is a piece multiplied by another. In $3x+6$, the terms are $3x$ and $6$; in $3(x+2)$, the factors are $3$ and $x+2$. Expanding exposes terms; factorising exposes factors.
 
 **PDF, pages 7–12 — calculations revisited and explained.**
 
@@ -74,6 +83,8 @@ Expand the first: $(a+b)^2=(a+b)(a+b)=a^2+ab+ba+b^2$. Since $ab=ba$, the two pie
 <figcaption>The four areas add up: a², ab, ab and b².</figcaption>
 </figure>
 
+<AlgebraExplorer kind="area" locale="en" client:visible />
+
 ## Reconstruct the identities
 
 Before choosing an identity from the table, write the square as a product. This recovers the two cross terms instead of relying on an isolated memorised formula.
@@ -82,14 +93,117 @@ Before choosing an identity from the table, write the square as a product. This 
 
 For $x\in\mathbb{R}$, $3x^3-12x=3x(x^2-4)=3x(x-2)(x+2)$. Extract the common factor first, then recognise the difference of squares. Expanding back checks the result. Factorised form reveals zeros without dividing by a factor that might itself be zero.
 
+## How do you recognise a factorisation?
+
+First look for what repeats **in every term**. In $6x^2-9x$, recognise $6x^2=(3x)(2x)$ and $9x=(3x)3$. Reading distributivity backwards therefore gives $6x^2-9x=3x(2x-3)$. We have not divided by $x$: the identity remains true at $x=0$.
+
+Without a useful common factor, look for a structure: two squares separated by subtraction, or two squares accompanied by twice their product. **Checking then means expanding back**, not merely trying a number. The workshop distinguishes this algebraic proof from a numerical check at one chosen value.
+
+<AlgebraMethodLab kind="factor" locale="en" client:visible />
+
 ## Choose a form for a question
 
 Expanded form helps with addition. Factorised form helps study zeros. A square can reveal a sign: $x^2+10x+25=(x+5)^2\ge0$. To refute $(a+b)^2=a^2+b^2$, choose for example $a=2$ and $b=3$; the missing cross term explains the difference. One counterexample refutes a universal identity.
 
 <p class="source-next"><a href="/en/lessons/L24/#pdf-19">Next in the PDF : Solving an equation →</a></p>
 
+## How to: a reusable method
+
+1. Ask what you need: add, calculate quickly, find zeros or study a sign?
+2. To expand, distribute every factor with its sign, then collect only like terms.
+3. To factorise, first seek a common factor, then a standard identity. Do not introduce division by an expression that could be zero.
+4. Expand back to check factorisation. A numerical test detects some mistakes but does not prove an identity.
+
+**Common mistake.** $x^2+4$ is not $(x+2)^2$: at $x=1$, the values are $5$ and $9$.
+
+## Practise step by step
+
+<div className="algebra-exercise">
+
+### 1. Apply
+
+Expand $-3(2x-5)$.
+
+<details>
+<summary>Hint</summary>
+
+Distribute the negative factor to both terms.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+$-3(2x-5)=-6x+15$. The two negative signs multiply to give the positive term.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 2. Combine
+
+Factorise $2x^2-8$.
+
+<details>
+<summary>Hint</summary>
+
+A common factor, then a difference of squares.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+$2x^2-8=2(x^2-4)=2(x-2)(x+2)$. Both steps hold for every real number.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 3. Reason
+
+Choose a form to justify that $x^2-6x+9\ge0$ for every real number.
+
+<details>
+<summary>Hint</summary>
+
+Recognise both squares and their cross term.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+$x^2-6x+9=(x-3)^2\ge0$. A square is nonnegative. It is zero exactly when $x=3$.
+
+</details>
+
+</div>
+
 ## Practice and recap
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+<div className="algebra-revision">
+
+## Essentials and self-check
+
+- Expanding changes a product into a sum; factorisation reverses this.
+- Both cross products remain in a squared sum.
+- The useful form depends on the question; distributivity justifies equality throughout the domain.
+
+**Self-check.** Explain the drawing’s four areas; factorise the second exercise without looking; refute a false identity with a counterexample. If needed, revisit “Reconstruct the identities”. Next: [L23](../L23/) applies factors to fractions and domain restrictions.
+
+**To print:** use the browser’s Print command. Activities show a fixed example and hints and solutions are expanded on paper.
+
+</div>
+
+</div>

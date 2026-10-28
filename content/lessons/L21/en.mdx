@@ -1,16 +1,23 @@
 ---
 lessonId: L21
 locale: en
-version: 2
+version: 4
 status: extended
 title: "Calculating with real numbers"
 summary: "Precedence, signs and reversible operations: a dependable foundation for equations."
-minutes: 20
+minutes: 40
 objectives: [L21-O01, L21-O02, L21-O03, L21-O04, L21-O05, L21-O06]
 prerequisites: [L10]
 sourcePages: [4, 5, 6]
 ---
+import AlgebraExplorer from '../../../src/components/AlgebraExplorer';
+import AlgebraMethodLab from '../../../src/components/AlgebraMethodLab';
+
+<div className="algebra-study">
+
 # Calculating with real numbers
+
+A calculation resembles a recipe: changing the order of the steps can change the result. This lesson teaches you to read the instruction before calculating. It prepares [L22 — expanding and factorising](../L22/), then equations in L24. The added activities are original project material.
 
 ## Objectives and prerequisites
 
@@ -22,6 +29,8 @@ sourcePages: [4, 5, 6]
 - Analyse a transformation.
 
 Prerequisites: L10. Domains and restrictions stated below are part of every rule.
+
+**Useful reminder.** $\mathbb R$ denotes the real numbers: integers, fractions and numbers such as $\sqrt2$. Symbol $\in$ means “belongs to”. Equality compares two values; a minus sign may mark a negative number or subtraction. Review [number families in L10](../L10/) if needed.
 
 <span id="pdf-4" class="source-topic-marker"></span>
 
@@ -36,6 +45,8 @@ Prerequisites: L10. Domains and restrictions stated below are part of every rule
 Read this as “two plus three times the square of four”. In contrast, $(2+3)\cdot4^2=80$: parentheses change the instruction. For $8\div2(2+2)$, this course’s stated convention gives multiplication and division equal priority, working left to right: $8\div2\cdot4=16$. Write $8/(2(2+2))$ if you intend $1$; make the grouping visible.
 
 **Additional example.** $-3^2+(-3)^2=-9+9=0$. The first term takes the opposite of a square; the second squares the negative number itself. A power’s base is the number or group receiving the exponent.
+
+<AlgebraExplorer kind="precedence" locale="en" client:visible />
 
 ## The calculation contract
 
@@ -55,13 +66,21 @@ The numbers $0$ and $1$ have specific roles: $a+0=a$, $a\cdot1=a$ and $a\cdot0=0
 
 Subtracting $b$ means adding $-b$. Thus $a-b=a+(-b)$ and $a-(-b)=a+b$. A minus sign before a power does not automatically belong to its base: $-4^2=-16$, whereas $(-4)^2=16$. A product of two negative numbers is positive; this does not make a sum of two negative numbers positive.
 
+## Understand: sign, base and exponent
+
+For a power, first ask: **which number is multiplied by itself?** If $a\ge0$ and $n$ is a positive integer, $-a^n=-(a^n)$ means calculate the power of $a$, then its opposite. In contrast, $(-a)^n$ multiplies the number $-a$ by itself $n$ times.
+
+For $a=3$ and $n=2$: $-3^2=-(3\cdot3)=-9$, but $(-3)^2=(-3)(-3)=9$. For $n=3$, both expressions equal $-27$: this agreement does not make the instructions identical. Each pair of negative factors has positive product; with an odd count, one minus sign remains.
+
+<AlgebraMethodLab kind="powers" locale="en" client:visible />
+
 ## Guided example: preserve the structure
 
 Calculate $18-2(3+1)^2/4$. First $3+1=4$, then $4^2=16$. The product and quotient give $2\cdot16/4=8$. Finally $18-8=10$. Check using another form: $2/4=1/2$, so subtract half of $16$. This regrouping concerns products here, not an addition that could be moved arbitrarily.
 
 ## What changes and what stays
 
-Addition and multiplication are commutative and associative: changing their order or grouping leaves the result unchanged. Subtraction and division are not. For example, $12/(3/2)=8$, but $(12/3)/2=2$. Distributivity connects the two operations: $a(b+c)=ab+ac$. Changing a form is useful only when its value and domain are preserved.
+Addition and multiplication are **commutative** (swap the two numbers: $a+b=b+a$, $ab=ba$) and **associative** (change the groups: $(a+b)+c=a+(b+c)$, $(ab)c=a(bc)$). The values remain unchanged. Subtraction and division are not. For example, $12/(3/2)=8$, but $(12/3)/2=2$. Distributivity connects the two operations: $a(b+c)=ab+ac$. Changing a form is useful only when its value and domain are preserved.
 
 ## Guided example: zero is not permission
 
@@ -69,8 +88,103 @@ For $a\ne0$, $a/a=1$. At $a=0$, this expression is undefined. The equality $0\cd
 
 <p class="source-next"><a href="/en/lessons/L22/#pdf-7">Next in the PDF : Expanding and factorising →</a></p>
 
+## How to: a reusable method
+
+1. Identify groups and the base of each power.
+2. Evaluate parentheses, powers, products and quotients, then sums and differences. At equal priority, work left to right.
+3. Copy unchanged parts: each line must remain equal to the preceding line.
+4. Before dividing, check that the denominator is nonzero. Check the result with another permitted grouping.
+
+**Spot the mistake.** “Two negatives make a positive” concerns a product or subtraction of a negative: $(-2)+(-3)=-5$, whereas $(-2)(-3)=6$.
+
+## Practise step by step
+
+<div className="algebra-exercise">
+
+### 1. Apply
+
+Calculate $6-2\cdot3^2$.
+
+<details>
+<summary>Hint</summary>
+
+What is the base of the square?
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+The square gives $3^2=9$, then $2\cdot9=18$, so $6-18=-12$.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 2. Combine
+
+Compare $-2^4$ and $(-2)^4$.
+
+<details>
+<summary>Hint</summary>
+
+Is the minus sign inside the base?
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+$-2^4=-(2^4)=-16$; $(-2)^4=16$. An even power of a real number is nonnegative; its opposite is negative here.
+
+</details>
+
+</div>
+
+
+<div className="algebra-exercise">
+
+### 3. Reason
+
+Can we conclude $u=v$ from $0u=0v$? Justify.
+
+<details>
+<summary>Hint</summary>
+
+Look for two distinct numbers satisfying the equality.
+
+</details>
+
+<details>
+<summary>Explained solution</summary>
+
+No: $u=1$ and $v=2$ give $0=0$ without being equal. Division by zero is undefined over the reals.
+
+</details>
+
+</div>
+
 ## Practice and recap
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+<div className="algebra-revision">
+
+## Essentials and self-check
+
+- Read an expression by grouping and precedence, not only left to right.
+- The opposite undoes addition; the reciprocal undoes multiplication and requires a nonzero number.
+- A sign before a group affects the entire group.
+
+**Self-check.** Without looking: explain the difference between $-3^2$ and $(-3)^2$; redo the first exercise; give a counterexample to cancellation by zero. If unsure, return to “Signs and operations” or “Zero is not permission”.
+
+**To print:** use the browser’s Print command. Activities show a fixed example and hints and solutions are expanded on paper.
+
+</div>
+
+</div>
