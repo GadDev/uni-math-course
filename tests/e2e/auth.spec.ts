@@ -424,23 +424,25 @@ test('password recovery does not redeem a scanner GET and requires new sign-in',
   await page.goto(link);
   await expect(page).toHaveURL('/en/reset-password/');
   expect(page.url()).not.toContain('token_hash');
-  await page.getByLabel('New password', { exact: true }).fill('new-recovery-password-123!');
+  await page
+    .getByLabel('New password', { exact: true })
+    .fill('new-recovery-password-123!');
   await page
     .getByLabel('Confirm new password')
     .fill('new-recovery-password-123!');
   await page.getByRole('button', { name: 'Change password' }).click();
   await expect(page).toHaveURL('/en/sign-in/?reset=1');
-  await expect(page.getByRole('status')).toContainText('Password was updated');
+  await expect(page.getByRole('status')).toContainText('Your password was updated');
   expect((await context.request.get('/api/auth/session/')).status()).toBe(401);
   expect(
-    (await context.cookies()).filter((cookie) =>
-      cookie.name.startsWith('sb-'),
-    ),
+    (await context.cookies()).filter((cookie) => cookie.name.startsWith('sb-')),
   ).toHaveLength(0);
 
   // One-time recovery proofs cannot be replayed.
   await page.goto(link);
-  await page.getByLabel('New password', { exact: true }).fill('another-new-password-123!');
+  await page
+    .getByLabel('New password', { exact: true })
+    .fill('another-new-password-123!');
   await page
     .getByLabel('Confirm new password')
     .fill('another-new-password-123!');

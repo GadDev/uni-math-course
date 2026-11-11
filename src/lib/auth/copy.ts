@@ -29,8 +29,7 @@ export const authCopy = {
     password: 'Mot de passe',
     submit: 'Se connecter',
     disabled: 'La connexion sera disponible une fois le service configuré.',
-    note:
-      'L’accès est réservé aux personnes invitées. Votre compte est créé par la personne qui gère le cours. Vos réponses et votre progression sont enregistrées dans votre espace privé.',
+    note: 'L’accès est réservé aux personnes invitées. Votre compte est créé par la personne qui gère le cours. Vos réponses et votre progression sont enregistrées dans votre espace privé.',
     invalid: 'Adresse e-mail ou mot de passe incorrect.',
     denied:
       'Ce compte n’est pas autorisé à accéder à cet espace. Contactez la personne qui gère le cours.',
@@ -41,8 +40,7 @@ export const authCopy = {
     signedOut: 'Vous êtes déconnecté de ce navigateur.',
     active: 'Votre session est active',
     identity: 'Connecté en tant que',
-    next:
-      'Retrouvez vos exercices, vos réponses enregistrées et les erreurs à revoir dans votre progression.',
+    next: 'Retrouvez vos exercices, vos réponses enregistrées et les erreurs à revoir dans votre progression.',
     signOut: 'Se déconnecter de ce navigateur',
     signOutShort: 'Se déconnecter',
     back: 'Revenir à la lecture',
@@ -76,8 +74,7 @@ export const authCopy = {
     password: 'Password',
     submit: 'Sign in',
     disabled: 'Sign-in will be available once the service is configured.',
-    note:
-      'Access is limited to invited people. The course owner creates your account. Your answers and progress are saved in your private space.',
+    note: 'Access is limited to invited people. The course owner creates your account. Your answers and progress are saved in your private space.',
     invalid: 'Incorrect email address or password.',
     denied:
       'This account is not authorised to access this space. Contact the person running the course.',
@@ -88,8 +85,7 @@ export const authCopy = {
     signedOut: 'You are signed out of this browser.',
     active: 'Your session is active',
     identity: 'Signed in as',
-    next:
-      'Find your exercises, saved answers and mistakes to revisit in your progress.',
+    next: 'Find your exercises, saved answers and mistakes to revisit in your progress.',
     signOut: 'Sign out of this browser',
     signOutShort: 'Sign out',
     back: 'Back to reading',
