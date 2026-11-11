@@ -88,7 +88,12 @@ test('a provider lookup outage fails closed with an unavailable response', async
 test('same-origin malformed and oversized forms fail before any auth mutation', async ({
   context,
 }) => {
-  for (const path of ['/auth/login/', '/auth/logout/']) {
+  for (const path of [
+    '/auth/login/',
+    '/auth/logout/',
+    '/auth/forgot-password/',
+    '/auth/reset-password/',
+  ]) {
     const malformed = await context.request.post(path, {
       headers: { Origin: appURL },
       data: { locale: 'en' },
@@ -389,3 +394,100 @@ for (const width of [320, 375, 768, 1280]) {
     },
   );
 }
+
+test('password recovery does not redeem a scanner GET and requires new sign-in', async ({
+  page,
+  request,
+  context,
+}) => {
+  await page.goto('/en/sign-in/');
+  await page.getByRole('link', { name: 'Forgot password?' }).click();
+  await expect(page).toHaveURL('/en/forgot-password/');
+  await page.getByLabel('Email address').fill('recovery@example.invalid');
+  await page.getByRole('button', { name: 'Send reset link' }).click();
+  await expect(page).toHaveURL('/en/forgot-password/?sent=1');
+  await expect(page.getByRole('status')).toContainText(
+    'If this email belongs to an authorised account',
+  );
+
+  const tokenResponse = await request.get(
+    fixtureURL + '/__fixture/recovery-token',
+  );
+  const { token_hash } = await tokenResponse.json();
+  expect(token_hash).toMatch(/^[a-zA-Z0-9_-]{32,256}$/);
+  const link = `/auth/recovery/?locale=en&token_hash=${token_hash}&type=recovery`;
+  // Email scanners and link preview services may open the link first.
+  const scanner = await request.get(appURL + link, { maxRedirects: 0 });
+  expect(scanner.status()).toBe(303);
+  expect(scanner.headers().location).toBe('/en/reset-password/');
+
+  await page.goto(link);
+  await expect(page).toHaveURL('/en/reset-password/');
+  expect(page.url()).not.toContain('token_hash');
+  await page
+    .getByLabel('New password', { exact: true })
+    .fill('new-recovery-password-123!');
+  await page
+    .getByLabel('Confirm new password')
+    .fill('new-recovery-password-123!');
+  await page.getByRole('button', { name: 'Change password' }).click();
+  await expect(page).toHaveURL('/en/sign-in/?reset=1');
+  await expect(page.getByRole('status')).toContainText(
+    'Your password was updated',
+  );
+  expect((await context.request.get('/api/auth/session/')).status()).toBe(401);
+  expect(
+    (await context.cookies()).filter((cookie) => cookie.name.startsWith('sb-')),
+  ).toHaveLength(0);
+
+  // One-time recovery proofs cannot be replayed.
+  await page.goto(link);
+  await page
+    .getByLabel('New password', { exact: true })
+    .fill('another-new-password-123!');
+  await page
+    .getByLabel('Confirm new password')
+    .fill('another-new-password-123!');
+  await page.getByRole('button', { name: 'Change password' }).click();
+  await expect(page).toHaveURL('/en/reset-password/?error=expired');
+
+  await page.goto('/en/sign-in/');
+  await page.getByLabel('Email address').fill('recovery@example.invalid');
+  await page.getByLabel('Password').fill('new-recovery-password-123!');
+  await page.getByRole('button', { name: 'Sign in' }).click();
+  await expect(page).toHaveURL('/en/account/');
+});
+
+test('recovery requires a proof, rejects cross-site mutation and hides account existence', async ({
+  context,
+}) => {
+  const missingProof = await context.request.post('/auth/reset-password/', {
+    headers: { Origin: appURL },
+    form: {
+      locale: 'fr',
+      password: 'a-safe-new-password!',
+      confirm: 'a-safe-new-password!',
+    },
+    maxRedirects: 0,
+  });
+  expect(missingProof.status()).toBe(303);
+  expect(missingProof.headers().location).toBe(
+    '/fr/reset-password/?error=expired',
+  );
+
+  for (const path of ['/auth/forgot-password/', '/auth/reset-password/']) {
+    const crossSite = await context.request.post(path, {
+      headers: { Origin: 'https://evil.example' },
+      form: { locale: 'en', email: 'unknown@example.invalid' },
+    });
+    expect(crossSite.status()).toBe(403);
+  }
+
+  const unknown = await context.request.post('/auth/forgot-password/', {
+    headers: { Origin: appURL },
+    form: { locale: 'en', email: 'unknown@example.invalid' },
+    maxRedirects: 0,
+  });
+  expect(unknown.status()).toBe(303);
+  expect(unknown.headers().location).toBe('/en/forgot-password/?sent=1');
+});
