@@ -365,12 +365,15 @@ export default function FinalExam({ learner }: { learner: string }) {
             correction automatique.
           </p>
           <p>
-            Les fractions équivalentes et les décimales exactes avec virgule ou
-            point sont acceptées. Aucun calcul littéral n’est interprété dans
-            les champs numériques. Une tolérance n’est appliquée que si elle est
-            indiquée. Les problèmes rédigés, dessins et arbres de Huffman sont
-            autoévalués après remise avec une grille; toute construction
-            correcte équivalente est admise.
+            Sauf indication contraire, les variables sont réelles et les
+            naturels incluent zéro. Les dénominateurs doivent être non nuls, les
+            arguments des logarithmes strictement positifs et les radicands non
+            négatifs. Les fractions équivalentes et les décimales exactes avec
+            virgule ou point sont acceptées. Aucun calcul littéral n’est
+            interprété dans les champs numériques. Une tolérance n’est appliquée
+            que si elle est indiquée. Les problèmes rédigés, dessins et arbres
+            de Huffman sont autoévalués après remise avec une grille; toute
+            construction correcte équivalente est admise.
           </p>
           <p>
             Le chronomètre commence au lancement et continue pendant une

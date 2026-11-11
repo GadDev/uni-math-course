@@ -171,11 +171,11 @@ Each row is one independently assessable bank item, not an answer field. Correct
 | FINAL-fonctions-1-01 | domaine-rationnel | L37 | Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour. |
 | FINAL-fonctions-1-02 | domaine-racine | L37 | Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour. |
 | FINAL-fonctions-1-03 | image-antecedents | L37 | Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour. |
-| FINAL-fonctions-1-04 | injectivite-carre | L37 | Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour. |
-| FINAL-fonctions-1-05 | parite | L37 | Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour. |
+| FINAL-fonctions-1-04 | image-et-nombre-antecedents | L37 | Toute sortie y≥−1 a un antécédent √(y+1); les entrées −1 et 1 produisent exactement 0. |
+| FINAL-fonctions-1-05 | image-intervalle | L37 | Les valeurs −3 et 1 sont atteintes et, pour tout y entre elles, x=2+√(y+3) appartient à [2,4]. |
 | FINAL-fonctions-1-06 | graphique-fonction | L37 | Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour. |
-| FINAL-fonctions-1-07 | reciproque-affine | L37 | Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour. |
-| FINAL-fonctions-1-08 | composition | L37 | Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour. |
+| FINAL-fonctions-1-07 | reciproque-affine | L41 | Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour. |
+| FINAL-fonctions-1-08 | composition | L39 | Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour. |
 | FINAL-fonctions-1-09 | derivee-definition | L38 | Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour. |
 | FINAL-fonctions-1-10 | derivee-valeur-absolue | L38 | Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour. |
 | FINAL-fonctions-2-01 | derivee-polynome | L39 | Contrôle par dérivation algébrique et quotient symétrique numérique aux points du domaine. |
@@ -184,7 +184,7 @@ Each row is one independently assessable bank item, not an answer field. Correct
 | FINAL-fonctions-2-04 | derivee-racine | L39 | Contrôle par dérivation algébrique et quotient symétrique numérique aux points du domaine. |
 | FINAL-fonctions-2-05 | derivee-inverse | L39 | Contrôle par dérivation algébrique et quotient symétrique numérique aux points du domaine. |
 | FINAL-fonctions-2-06 | derivee-logarithme | L41 | Contrôle par dérivation algébrique et quotient symétrique numérique aux points du domaine. |
-| FINAL-fonctions-2-07 | derivee-exponentielle-composee | L41 | Contrôle par dérivation algébrique et quotient symétrique numérique aux points du domaine. |
+| FINAL-fonctions-2-07 | derivee-exponentielle-composee | L40 | Contrôle par dérivation algébrique et quotient symétrique numérique aux points du domaine. |
 | FINAL-fonctions-2-08 | derivee-composition-polynome | L39 | Contrôle par dérivation algébrique et quotient symétrique numérique aux points du domaine. |
 | FINAL-fonctions-2-09 | derivee-affine-combinaison | L39 | Contrôle par dérivation algébrique et quotient symétrique numérique aux points du domaine. |
 | FINAL-fonctions-2-10 | derivee-log-compose | L41 | Contrôle par dérivation algébrique et quotient symétrique numérique aux points du domaine. |

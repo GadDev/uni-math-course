@@ -3312,10 +3312,10 @@
   },
   {
     "id": "FINAL-fonctions-1-04",
-    "family": "injectivite-carre",
+    "family": "image-et-nombre-antecedents",
     "slot": "fonctions-1",
     "topic": "fonctions",
-    "objective": "Analyser les propriétés ou la définition locale d’une fonction : injectivite carre.",
+    "objective": "Déterminer l’image d’une fonction et compter les antécédents d’une valeur.",
     "lessonId": "L37",
     "prerequisites": [
       "L37"
@@ -3323,31 +3323,31 @@
     "difficulty": "easy",
     "marks": 2,
     "minutes": 4,
-    "prompt": "La fonction $x\\mapsto x^2$ de $\\mathbb R$ vers $[0,+\\infty[$ est :",
-    "explanation": "Chaque y≥0 a une racine, mais 1 et −1 ont même image.",
-    "pitfall": "Distinguer domaine, image, réciproque et dérivée.",
-    "verification": "Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour.",
+    "prompt": "Pour $f(x)=x^2-1$ définie sur $\\mathbb R$, quelles sont son image et le nombre d’antécédents de 0 ?",
+    "explanation": "Le carré est non négatif et x²=1 a les deux solutions −1 et 1.",
+    "pitfall": "L’image est un ensemble de sorties; les antécédents sont des entrées.",
+    "verification": "Toute sortie y≥−1 a un antécédent √(y+1); les entrées −1 et 1 produisent exactement 0.",
     "type": "single",
     "options": [
       {
         "id": "a",
-        "label": "injective mais non surjective.",
-        "feedback": "1 et −1 réfutent l’injectivité."
+        "label": "Image $\\mathbb R$; un seul antécédent de 0.",
+        "feedback": "Les valeurs strictement inférieures à −1 ne sont jamais atteintes; il y a deux antécédents de 0."
       },
       {
         "id": "b",
-        "label": "bijective.",
-        "feedback": "L’injectivité échoue."
+        "label": "Image $[0,+\\infty[$; aucun antécédent de 0.",
+        "feedback": "f(0)=−1 est atteint et f(1)=f(−1)=0."
       },
       {
         "id": "c",
-        "label": "ni injective ni surjective.",
-        "feedback": "La surjectivité est vraie sur ce codomaine."
+        "label": "Image $[-1,+\\infty[$; un seul antécédent de 0.",
+        "feedback": "L’image est correcte mais les deux entrées −1 et 1 donnent 0."
       },
       {
         "id": "d",
-        "label": "surjective mais non injective.",
-        "feedback": "Chaque y≥0 a une racine, mais 1 et −1 ont même image."
+        "label": "Image $[-1,+\\infty[$; deux antécédents de 0.",
+        "feedback": "Le carré est non négatif et x²=1 a les deux solutions −1 et 1."
       }
     ],
     "answer": [
@@ -3356,10 +3356,10 @@
   },
   {
     "id": "FINAL-fonctions-1-05",
-    "family": "parite",
+    "family": "image-intervalle",
     "slot": "fonctions-1",
     "topic": "fonctions",
-    "objective": "Analyser les propriétés ou la définition locale d’une fonction : parite.",
+    "objective": "Déterminer les bornes de l’image à partir d’un carré sur un intervalle.",
     "lessonId": "L37",
     "prerequisites": [
       "L37"
@@ -3367,31 +3367,31 @@
     "difficulty": "easy",
     "marks": 2,
     "minutes": 4,
-    "prompt": "Quelle fonction sur $\\mathbb R$ est impaire ?",
-    "explanation": "f(−x)=−f(x).",
-    "pitfall": "Distinguer domaine, image, réciproque et dérivée.",
-    "verification": "Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour.",
+    "prompt": "Pour $g(x)=(x-2)^2-3$ sur $[0,4]$, quel est l’ensemble des valeurs atteintes ?",
+    "explanation": "Sur [0,4], x−2 parcourt [−2,2], son carré [0,4], puis on soustrait 3.",
+    "pitfall": "Le domaine et l’image sont deux ensembles différents; ne pas oublier les valeurs atteintes aux bornes.",
+    "verification": "Les valeurs −3 et 1 sont atteintes et, pour tout y entre elles, x=2+√(y+3) appartient à [2,4].",
     "type": "single",
     "options": [
       {
         "id": "a",
-        "label": "$f(x)=x+1$",
-        "feedback": "Le terme constant empêche l’imparité."
+        "label": "$[0,4]$",
+        "feedback": "C’est l’intervalle des entrées, pas celui des sorties."
       },
       {
         "id": "b",
-        "label": "$f(x)=|x|$",
-        "feedback": "La valeur absolue est paire."
+        "label": "$[-3,+\\infty[$",
+        "feedback": "Cette image serait celle du domaine réel entier; ici x est limité à [0,4]."
       },
       {
         "id": "c",
-        "label": "$f(x)=x^3-x$",
-        "feedback": "f(−x)=−f(x)."
+        "label": "$[-3,1]$",
+        "feedback": "Sur [0,4], x−2 parcourt [−2,2], son carré [0,4], puis on soustrait 3."
       },
       {
         "id": "d",
-        "label": "$f(x)=x^2$",
-        "feedback": "Cette fonction est paire."
+        "label": "$]-3,1[$",
+        "feedback": "Les bornes sont atteintes : g(2)=−3 et g(0)=g(4)=1."
       }
     ],
     "answer": [
@@ -3448,14 +3448,16 @@
     "slot": "fonctions-1",
     "topic": "fonctions",
     "objective": "Analyser les propriétés ou la définition locale d’une fonction : reciproque affine.",
-    "lessonId": "L37",
+    "lessonId": "L41",
     "prerequisites": [
-      "L37"
+      "L25",
+      "L37",
+      "L41"
     ],
     "difficulty": "easy",
     "marks": 2,
     "minutes": 4,
-    "prompt": "La réciproque de $f(x)=3x-6$ sur $\\mathbb R$ est :",
+    "prompt": "On cherche la fonction qui défait $f(x)=3x-6$ : elle doit envoyer $f(x)$ sur x pour tout réel x. Quelle est cette fonction $f^{-1}$ ?",
     "explanation": "Résoudre y=3x−6 pour x.",
     "pitfall": "Distinguer domaine, image, réciproque et dérivée.",
     "verification": "Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour.",
@@ -3492,14 +3494,15 @@
     "slot": "fonctions-1",
     "topic": "fonctions",
     "objective": "Analyser les propriétés ou la définition locale d’une fonction : composition.",
-    "lessonId": "L37",
+    "lessonId": "L39",
     "prerequisites": [
-      "L37"
+      "L37",
+      "L39"
     ],
     "difficulty": "easy",
     "marks": 2,
     "minutes": 4,
-    "prompt": "Pour $f(x)=x^2$ et $g(x)=x+2$, que vaut $(f\\circ g)(x)$ ?",
+    "prompt": "Rappel : $(f\\circ g)(x)=f(g(x))$. Pour $f(x)=x^2$ et $g(x)=x+2$, que vaut $(f\\circ g)(x)$ ?",
     "explanation": "Appliquer g puis f.",
     "pitfall": "Distinguer domaine, image, réciproque et dérivée.",
     "verification": "Chaque option est contrôlée par la définition ou un contre-exemple donné dans son retour.",
@@ -3694,8 +3697,8 @@
     "objective": "Calculer une dérivée élémentaire : derivee produit.",
     "lessonId": "L39",
     "prerequisites": [
-      "L38",
-      "L39"
+      "L39",
+      "L40"
     ],
     "difficulty": "medium",
     "marks": 3,
@@ -3817,9 +3820,10 @@
     "slot": "fonctions-2",
     "topic": "fonctions",
     "objective": "Calculer une dérivée élémentaire : derivee exponentielle composee.",
-    "lessonId": "L41",
+    "lessonId": "L40",
     "prerequisites": [
-      "L41"
+      "L39",
+      "L40"
     ],
     "difficulty": "medium",
     "marks": 3,
