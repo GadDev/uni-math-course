@@ -24,6 +24,24 @@ const text = examCopy[locale];
     </h1>
     <p class="lede">{text.intro}</p>
     <p>{text.independent}</p>
+    <section
+      class="exam-card final-exam-card"
+      aria-labelledby="final-exam-entry"
+    >
+      <p class="eyebrow">TOUS LES CHAPITRES · EN FRANÇAIS</p>
+      <h2 id="final-exam-entry">Examen blanc final — Tous les chapitres</h2>
+      <p>
+        120 minutes · 18 questions · 180 questions dans la banque. Logique,
+        nombres, droites, fonctions, complexité et information.
+      </p>
+      <p>
+        Un nouveau sujet équilibré à chaque tentative, avec correction
+        automatique et grilles d’autoévaluation après remise.
+      </p>
+      <a class="primary-link" href="/fr/training-exams/final/">
+        Préparer l’examen final →
+      </a>
+    </section>
     <div class="exam-catalogue">
       {examChapters.map((chapter) => (
         <section

@@ -58,8 +58,12 @@ jobs:
         env:
           TEST_DATABASE_URL: postgresql://postgres:disposable-test-password@localhost:5432/course_contracts
         run: bash tests/database/run.sh
-      - name: Install Chromium
-        run: pnpm exec playwright install --with-deps chromium
+      - name: Select runner-provided Chrome
+        timeout-minutes: 1
+        run: |
+          playwright_chrome="$(command -v google-chrome || command -v google-chrome-stable)"
+          "$playwright_chrome" --version
+          printf 'PLAYWRIGHT_CHROMIUM_EXECUTABLE=%s\n' "$playwright_chrome" >> "$GITHUB_ENV"
       - name: Verify reading, authentication and session behaviour
         run: pnpm test:e2e
       - name: Verify opt-in acceptance runner against the local protocol fixture

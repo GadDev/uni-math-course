@@ -93,7 +93,7 @@ export function safeReturn(value: unknown, locale: AuthLocale): string {
   ).split('?');
   if (
     extra !== undefined ||
-    !/^\/(fr|en)\/(?:account\/|progress\/|chapters\/C02\/|training-exams\/C0[123]\/|(?:lessons\/L\d{2}\/(?:practice\/)?)?)(?:#[a-zA-Z0-9_-]+)?$/.test(
+    !/^\/(fr|en)\/(?:account\/|progress\/|chapters\/C02\/|training-exams\/(?:C0[123]|final)\/|(?:lessons\/L\d{2}\/(?:practice\/)?)?)(?:#[a-zA-Z0-9_-]+)?$/.test(
       path + fragment,
     )
   )
@@ -126,7 +126,7 @@ export function sameOriginPost(request: Request, config: AuthConfig): boolean {
 }
 
 export function authRoute(path: string): boolean {
-  return /^\/(?:auth\/(?:login|logout|forgot-password|recovery|reset-password)|api\/(?:auth\/session|attempts|lesson-completions|exercises\/L[0-9]{2}|training-exams\/C0[123])|(?:fr|en)\/(?:sign-in|forgot-password|reset-password|account|progress|training-exams\/C0[123]|lessons\/L[0-9]{2}\/practice))\/?$/.test(
+  return /^\/(?:auth\/(?:login|logout|forgot-password|recovery|reset-password)|api\/(?:auth\/session|attempts|lesson-completions|exercises\/L[0-9]{2}|training-exams\/(?:C0[123]|final))|(?:fr|en)\/(?:sign-in|forgot-password|reset-password|account|progress|training-exams\/(?:C0[123]|final)|lessons\/L[0-9]{2}\/practice))\/?$/.test(
     path,
   );
 }
