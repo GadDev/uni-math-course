@@ -432,7 +432,9 @@ test('password recovery does not redeem a scanner GET and requires new sign-in',
     .fill('new-recovery-password-123!');
   await page.getByRole('button', { name: 'Change password' }).click();
   await expect(page).toHaveURL('/en/sign-in/?reset=1');
-  await expect(page.getByRole('status')).toContainText('Your password was updated');
+  await expect(page.getByRole('status')).toContainText(
+    'Your password was updated',
+  );
   expect((await context.request.get('/api/auth/session/')).status()).toBe(401);
   expect(
     (await context.cookies()).filter((cookie) => cookie.name.startsWith('sb-')),
