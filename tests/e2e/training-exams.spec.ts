@@ -36,7 +36,7 @@ for (const locale of ['fr', 'en']) {
   }) => {
     await page.setViewportSize({ width: 320, height: 900 });
     await page.goto(`/${locale}/training-exams/`);
-    await expect(page.locator('.exam-card')).toHaveCount(3);
+    await expect(page.locator('.exam-card')).toHaveCount(4);
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth),
     ).toBeLessThanOrEqual(320);

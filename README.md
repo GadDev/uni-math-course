@@ -24,6 +24,7 @@ Public lessons and the symbol glossary can be read without an account. Practice 
 - Light/dark header toggle that follows the system preference initially and remembers an explicit choice across pages and languages.
 - Same-lesson language switching and a native reading disclosure that works without JavaScript.
 - Bilingual chapter-wide mock exams for logic/sets, straight lines and functions: 20 questions per paper, suggested 60 minutes, with server marking and worked solutions after submission.
+- French full-course final mock exam: 18 questions over 120 minutes, drawn from 180 questions, with repeat avoidance, automatic subtotals and written-work self-assessment. See [blueprint and review](docs/content/FINAL_EXAM_REVIEW.md).
 - Versioned exercise contracts and content/mathematical checks.
 - Configurable email/password Supabase sign-in for an invited group, verified server sessions and local logout.
 - Manual, reversible lesson completion with bilingual checkmarks and chapter counters, saved to the learner account. Apply the completion migration before use; see [setup and local review](docs/PRACTICE.md#manual-lesson-completion).

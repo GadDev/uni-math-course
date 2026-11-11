@@ -295,3 +295,49 @@
     border: 1px solid;
   }
 }
+
+.final-exam-card {
+  margin-block: 2rem;
+}
+.final-written {
+  display: grid;
+  gap: 0.5rem;
+}
+.final-written textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  padding: 0.8rem;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+}
+.final-prompt {
+  overflow-x: auto;
+  line-height: 1.7;
+  margin-block: 1rem;
+}
+.self-mark {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  margin-block: 0.8rem;
+}
+.self-mark select {
+  font: inherit;
+  min-height: 44px;
+  color: var(--ink);
+  background: var(--card);
+}
+.final-exam .exam-question h2 {
+  flex-wrap: wrap;
+}
+@media print {
+  .final-written textarea {
+    min-height: 9rem;
+  }
+  .final-exam .self-mark {
+    display: none;
+  }
+}
