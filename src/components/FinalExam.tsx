@@ -827,6 +827,7 @@ export default function FinalExam({ learner }: { learner: string }) {
             } catch {
               setStorageFailure(true);
             }
+            window.location.reload();
           }}
         >
           Abandonner ce brouillon et préparer un nouveau sujet
