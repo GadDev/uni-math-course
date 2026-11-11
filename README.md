@@ -82,6 +82,8 @@ pnpm test:e2e                    # local browser journeys
 
 The [repository checks workflow](.github/workflows/check.yml) also runs release, exercise-immutability and disposable PostgreSQL contract checks, plus browser tests. The required job is named `docs`. Local browser tests use an isolated Auth/Data API fixture; passing CI does **not** establish independent mathematical review, hosted authentication or class readiness.
 
+CI selects the GitHub-hosted runner's preinstalled Google Chrome through the existing `PLAYWRIGHT_CHROMIUM_EXECUTABLE` setting, avoiding a separate Chromium download. Both browser suites use that executable. Local runs can use the Playwright installation above or set `PLAYWRIGHT_CHROMIUM_EXECUTABLE` to an available Chrome/Chromium executable.
+
 Hosted acceptance is separate and opt-in. Follow [hosted E2E setup](docs/HOSTED_TESTS.md) with dedicated synthetic accounts, and record real results in the [pilot acceptance checklist](docs/PILOT_ACCEPTANCE.md).
 
 ## Product and learning documentation
