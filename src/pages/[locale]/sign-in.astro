@@ -48,7 +48,9 @@ if (auth) {
       </p>
     )}
     {Astro.url.searchParams.get('reset') === '1' && (
-      <p class="auth-message" role="status">{text.resetDone}</p>
+      <p class="auth-message" role="status">
+        {text.resetDone}
+      </p>
     )}
     {!error && Astro.url.searchParams.get('signedOut') === '1' && (
       <p class="auth-message" role="status">

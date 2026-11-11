@@ -159,7 +159,8 @@ export async function startAuthFixture(
       }
       if (url.pathname === '/auth/v1/recover' && req.method === 'POST') {
         if (data.email === recoveryUser.email)
-          recoveryTokenHash = randomUUID().replaceAll('-', '') +
+          recoveryTokenHash =
+            randomUUID().replaceAll('-', '') +
             randomUUID().replaceAll('-', '');
         return json(200, {});
       }

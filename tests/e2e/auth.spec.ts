@@ -410,7 +410,9 @@ test('password recovery does not redeem a scanner GET and requires new sign-in',
     'If this email belongs to an authorised account',
   );
 
-  const tokenResponse = await request.get(fixtureURL + '/__fixture/recovery-token');
+  const tokenResponse = await request.get(
+    fixtureURL + '/__fixture/recovery-token',
+  );
   const { token_hash } = await tokenResponse.json();
   expect(token_hash).toMatch(/^[a-zA-Z0-9_-]{32,256}$/);
   const link = `/auth/recovery/?locale=en&token_hash=${token_hash}&type=recovery`;
@@ -423,19 +425,25 @@ test('password recovery does not redeem a scanner GET and requires new sign-in',
   await expect(page).toHaveURL('/en/reset-password/');
   expect(page.url()).not.toContain('token_hash');
   await page.getByLabel('New password', { exact: true }).fill('new-recovery-password-123!');
-  await page.getByLabel('Confirm new password').fill('new-recovery-password-123!');
+  await page
+    .getByLabel('Confirm new password')
+    .fill('new-recovery-password-123!');
   await page.getByRole('button', { name: 'Change password' }).click();
   await expect(page).toHaveURL('/en/sign-in/?reset=1');
   await expect(page.getByRole('status')).toContainText('Password was updated');
   expect((await context.request.get('/api/auth/session/')).status()).toBe(401);
-  expect((await context.cookies()).filter((cookie) =>
-    cookie.name.startsWith('sb-'),
-  )).toHaveLength(0);
+  expect(
+    (await context.cookies()).filter((cookie) =>
+      cookie.name.startsWith('sb-'),
+    ),
+  ).toHaveLength(0);
 
   // One-time recovery proofs cannot be replayed.
   await page.goto(link);
   await page.getByLabel('New password', { exact: true }).fill('another-new-password-123!');
-  await page.getByLabel('Confirm new password').fill('another-new-password-123!');
+  await page
+    .getByLabel('Confirm new password')
+    .fill('another-new-password-123!');
   await page.getByRole('button', { name: 'Change password' }).click();
   await expect(page).toHaveURL('/en/reset-password/?error=expired');
 

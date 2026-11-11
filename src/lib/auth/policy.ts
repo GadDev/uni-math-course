@@ -26,7 +26,6 @@ export function validNewPassword(value: unknown): value is string {
   );
 }
 
-
 export function localeOf(value: unknown): AuthLocale {
   return value === 'en' ? 'en' : 'fr';
 }
