@@ -2,10 +2,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   authConfig,
+  authRoute,
   emailAllowed,
   safeReturn,
   sameOriginPost,
   smallForm,
+  validNewPassword,
+  validRecoveryToken,
 } from '../../src/lib/auth/policy.ts';
 
 const env = {
@@ -146,4 +149,33 @@ test('practice return targets preserve only bounded same-lesson exercise/version
       `/${locale}/account/`,
     );
   }
+});
+
+test('recovery routes participate in private no-store middleware', () => {
+  for (const path of [
+    '/fr/forgot-password/',
+    '/en/reset-password/',
+    '/auth/forgot-password/',
+    '/auth/recovery/',
+    '/auth/reset-password/',
+  ])
+    assert.equal(authRoute(path), true, path);
+  for (const path of ['/auth/confirm/', '/fr/public-recovery/'])
+    assert.equal(authRoute(path), false, path);
+});
+test('recovery proof and new password validation are bounded', () => {
+  assert.equal(validRecoveryToken('a'.repeat(64)), true);
+  for (const value of [
+    null,
+    undefined,
+    'short',
+    'a'.repeat(257),
+    '../'.repeat(30),
+    'a'.repeat(32) + '?next=evil.example',
+  ])
+    assert.equal(validRecoveryToken(value), false);
+  for (const password of ['long-safe-password', '12 chars ok!'])
+    assert.equal(validNewPassword(password), true);
+  for (const password of ['', 'short', ' '.repeat(12), 'x'.repeat(129), null])
+    assert.equal(validNewPassword(password), false);
 });

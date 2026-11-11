@@ -47,6 +47,11 @@ if (auth) {
         {text[error]}
       </p>
     )}
+    {Astro.url.searchParams.get('reset') === '1' && (
+      <p class="auth-message" role="status">
+        {text.resetDone}
+      </p>
+    )}
     {!error && Astro.url.searchParams.get('signedOut') === '1' && (
       <p class="auth-message" role="status">
         {text.signedOut}
@@ -81,6 +86,9 @@ if (auth) {
         </button>
       </form>
       {!auth && <p role="status">{text.disabled}</p>}
+      <p class="auth-note">
+        <a href={`/${locale}/forgot-password/`}>{text.forgotPassword}</a>
+      </p>
       <p class="auth-note">{text.note}</p>
     </section>
     <a
