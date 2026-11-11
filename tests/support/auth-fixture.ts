@@ -40,6 +40,13 @@ export async function startAuthFixture(
     user_metadata: {},
   };
   const refreshes = new Map<string, SessionRecord>();
+  let recoveryPassword = 'recovery-initial-password';
+  let recoveryTokenHash: string | null = null;
+  const recoveryUser: FixtureUser = {
+    ...knownUser,
+    id: randomUUID(),
+    email: 'recovery@example.invalid',
+  };
   const sign = (payload: Record<string, unknown>) => {
     const body = encode({ alg: 'HS256', typ: 'JWT' }) + '.' + encode(payload);
     return (
@@ -150,6 +157,27 @@ export async function startAuthFixture(
         if (record) record.active = false;
         return json(200, {});
       }
+      if (url.pathname === '/auth/v1/recover' && req.method === 'POST') {
+        if (data.email === recoveryUser.email)
+          recoveryTokenHash = randomUUID().replaceAll('-', '') +
+            randomUUID().replaceAll('-', '');
+        return json(200, {});
+      }
+      if (url.pathname === '/__fixture/recovery-token' && req.method === 'GET')
+        return json(200, { token_hash: recoveryTokenHash });
+      if (url.pathname === '/auth/v1/verify' && req.method === 'POST') {
+        if (
+          data.type !== 'recovery' ||
+          !recoveryTokenHash ||
+          data.token_hash !== recoveryTokenHash
+        )
+          return json(403, {
+            code: 'otp_expired',
+            msg: 'Recovery link expired or already used',
+          });
+        recoveryTokenHash = null;
+        return json(200, issue({ user: recoveryUser }));
+      }
       if (url.pathname === '/auth/v1/token' && req.method === 'POST') {
         if (url.searchParams.get('grant_type') === 'password') {
           // The fixed learner and explicitly issued synthetic users can sign in.
@@ -157,10 +185,16 @@ export async function startAuthFixture(
           const loginUser =
             data.email === knownUser.email
               ? knownUser
-              : [...sessions.values()].find(
-                  (entry) => entry.user.email === data.email,
-                )?.user;
-          if (!loginUser || data.password !== 'correct-horse-battery')
+              : data.email === recoveryUser.email
+                ? recoveryUser
+                : [...sessions.values()].find(
+                    (entry) => entry.user.email === data.email,
+                  )?.user;
+          const expectedPassword =
+            data.email === recoveryUser.email
+              ? recoveryPassword
+              : 'correct-horse-battery';
+          if (!loginUser || data.password !== expectedPassword)
             return json(400, {
               code: 'invalid_credentials',
               msg: 'Invalid login credentials',
@@ -285,6 +319,13 @@ export async function startAuthFixture(
           );
         }
         return failure(404);
+      }
+      if (url.pathname === '/auth/v1/user' && req.method === 'PUT') {
+        if (!record || typeof data.password !== 'string') return failure();
+        if (data.password.length < 12) return failure(400);
+        if (record.user.id === recoveryUser.id)
+          recoveryPassword = data.password;
+        return json(200, record.user);
       }
       if (url.pathname === '/auth/v1/user')
         return record?.unavailable
