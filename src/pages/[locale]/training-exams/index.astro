@@ -1,0 +1,61 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { locales } from '../../../lib/i18n';
+import { examChapters, examCopy } from '../../../lib/training-exams/copy';
+import '../../../styles/training-exams.css';
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+const { locale } = Astro.props;
+const text = examCopy[locale];
+---
+
+<Base
+  locale={locale}
+  title={text.title}
+  description={text.intro}
+  path="training-exams/"
+>
+  <main id="main" tabindex="-1" class="exam-page">
+    <p class="eyebrow">{text.eyebrow}</p>
+    <h1>
+      {text.title}
+      <span class="signal-stop">.</span>
+    </h1>
+    <p class="lede">{text.intro}</p>
+    <p>{text.independent}</p>
+    <div class="exam-catalogue">
+      {examChapters.map((chapter) => (
+        <section
+          id={chapter.id}
+          class="exam-card"
+          aria-labelledby={`exam-${chapter.id}`}
+        >
+          <p class="eyebrow">
+            {locale === 'fr' ? 'CHAPITRE' : 'CHAPTER'} {chapter.id.slice(1)} ·{' '}
+            {chapter.lessons}
+          </p>
+          <h2 id={`exam-${chapter.id}`}>{chapter.title[locale]}</h2>
+          <p>{chapter.topics[locale]}</p>
+          <p>
+            <strong>{text.format}</strong>
+          </p>
+          <p>{text.types}</p>
+          <a
+            class="primary-link"
+            href={`/${locale}/training-exams/${chapter.id}/`}
+          >
+            {text.launch} →
+          </a>
+        </section>
+      ))}
+    </div>
+    <section class="exam-preparation" aria-labelledby="exam-how">
+      <h2 id="exam-how">{text.preparation}</h2>
+      <p>{text.rules}</p>
+      <p>{text.marking}</p>
+      <p>{text.privacy}</p>
+      <p class="status">{text.review}</p>
+    </section>
+  </main>
+</Base>

@@ -12,6 +12,7 @@ import { copy, type Locale } from '../lib/i18n';
 import { glossaryCopy } from '../lib/glossary';
 import { printableCopy } from '../lib/printable-exercises';
 import { authCopy } from '../lib/auth/copy';
+import { examCopy } from '../lib/training-exams/copy';
 import { progressCopy } from '../lib/progress-copy';
 import { inject } from '@vercel/analytics';
 interface Props {
@@ -174,6 +175,9 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
       <slot />
     </div>
     <footer class="site-footer">
+      <p>
+        <a href={`/${locale}/training-exams/`}>{examCopy[locale].nav}</a>
+      </p>
       <p>{text.footer}</p>
       <p>
         <a href={'/' + locale + '/offline/'}>

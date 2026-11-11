@@ -1,0 +1,20 @@
+---
+import { examCopy } from '../lib/training-exams/copy';
+import type { Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+  chapterId: string;
+}
+const { locale, chapterId } = Astro.props;
+const text = examCopy[locale];
+---
+
+<section class="planned-section" aria-labelledby={`mock-${chapterId}`}>
+  <p class="eyebrow">{text.eyebrow}</p>
+  <h2 id={`mock-${chapterId}`}>{text.nav}</h2>
+  <p>{text.format}</p>
+  <p>{text.intro}</p>
+  <a class="primary-link" href={`/${locale}/training-exams/#${chapterId}`}>
+    {text.open} →
+  </a>
+</section>

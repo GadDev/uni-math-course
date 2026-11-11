@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import katex from 'katex';
+import TrainingExamLink from '../../../components/TrainingExamLink.astro';
 import Base from '../../../layouts/Base.astro';
 import SignalGeometry from '../../../components/SignalGeometry.astro';
 import LessonCompletion from '../../../components/LessonCompletion.astro';
@@ -158,5 +159,6 @@ const formula = katex.renderToString('f:A\\to\\mathbb R,\\;x\\mapsto f(x)', {
         </a>
       </aside>
     </section>
+    <TrainingExamLink locale={locale} chapterId="C03" />
   </main>
 </Base>
