@@ -9,6 +9,23 @@ export type AuthConfig = {
   allowedEmails: ReadonlySet<string> | null;
 };
 export type AuthLocale = 'fr' | 'en';
+export const RECOVERY_COOKIE = 'um-recovery-token';
+export const RECOVERY_COOKIE_PATH = '/auth/reset-password/';
+
+// Supabase's email TokenHash, not an access token or a session.
+export function validRecoveryToken(value: unknown): value is string {
+  return typeof value === 'string' && /^[a-zA-Z0-9_-]{32,256}$/.test(value);
+}
+
+export function validNewPassword(value: unknown): value is string {
+  return (
+    typeof value === 'string' &&
+    value.length >= 12 &&
+    value.length <= 128 &&
+    value.trim().length > 0
+  );
+}
+
 
 export function localeOf(value: unknown): AuthLocale {
   return value === 'en' ? 'en' : 'fr';
@@ -110,7 +127,7 @@ export function sameOriginPost(request: Request, config: AuthConfig): boolean {
 }
 
 export function authRoute(path: string): boolean {
-  return /^\/(?:auth\/(?:login|logout)|api\/(?:auth\/session|attempts|lesson-completions|exercises\/L[0-9]{2})|(?:fr|en)\/(?:sign-in|account|progress|lessons\/L[0-9]{2}\/practice))\/?$/.test(
+  return /^\/(?:auth\/(?:login|logout|forgot-password|recovery|reset-password)|api\/(?:auth\/session|attempts|lesson-completions|exercises\/L[0-9]{2})|(?:fr|en)\/(?:sign-in|forgot-password|reset-password|account|progress|lessons\/L[0-9]{2}\/practice))\/?$/.test(
     path,
   );
 }

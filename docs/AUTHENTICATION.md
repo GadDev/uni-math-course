@@ -15,7 +15,7 @@ Use a separate Supabase Free development project and synthetic test accounts bef
 1. Create the project, then copy .env.example to .env. Set SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY from the project's Connect dialog. Only a modern sb_publishable_ key is accepted; never use a secret key or service-role JWT in the session client.
 2. Set AUTH_PROVIDER=password and AUTH_SITE_URL to the exact browser origin, initially http://localhost:4321 (scheme and port, no path). Restart/rebuild after changing it: Astro's trusted host list is fixed at build time. Production requires HTTPS; loopback HTTP is allowed for local development.
 3. In Supabase, open Authentication → Sign In / Providers. Keep Email enabled and turn **Allow new users to sign up** off. Under Email, leave email confirmation as you prefer; users created from the dashboard can be marked auto-confirmed.
-4. Add each classmate under Authentication → Users → Add user → Create new user, with their email, an initial password, and Auto Confirm User checked. Share the password privately and ask them to keep it. Password resets are manual: delete or edit the user's password in the dashboard.
+4. Add each classmate under Authentication → Users → Add user → Create new user, with their email, an initial password, and Auto Confirm User checked. Share the password privately and ask them to keep it. Password resets are self-service: users request a one-time recovery link from the sign-in page. Do not edit `auth.users` directly.
 5. Optionally set AUTH_ALLOWED_EMAILS to the same list so that accounts created by mistake cannot enter.
 6. Run pnpm dev. Open /fr/sign-in/ or /en/sign-in/, sign in, reload /account/, switch language and sign out. Verify direct /api/auth/session/ is 401 afterwards. Account/session lookups report a configured service outage as 503, not a fabricated signed-in page.
 
@@ -30,6 +30,11 @@ For a Vercel preview, use an explicitly selected HTTPS preview origin and rebuil
 | /fr/account/, /en/account/ | Verified identity only; anonymous users go to sign-in; service/configuration failures are unavailable |
 | GET /api/auth/session/ | 200 with verified user ID, 401 without valid identity, 503 when unavailable; no token or profile dump |
 | POST /auth/logout/ | Same-origin form; revoke the current session with local scope, clear browser credentials, report uncertain revocation on failure |
+| /fr/forgot-password/, /en/forgot-password/ | Public request form, generic confirmation (no account enumeration) |
+| POST /auth/forgot-password/ | Same-origin bounded form, Supabase recovery email (allowlisted when configured) |
+| GET /auth/recovery/ | Transport token hash to short-lived HttpOnly cookie without verifying it on GET |
+| /fr/reset-password/, /en/reset-password/ | Public password-entry form; no tokens in HTML or JavaScript |
+| POST /auth/reset-password/ | Same-origin bounded form, verify one-time recovery OTP, update password and require fresh sign-in |
 
 Every auth route is on demand. Each request creates its own Supabase SSR client; no client or user state is shared between requests. The adapter handles all cookie chunks and writes rotated cookies to the outgoing response. getUser performs the server-confirmed identity lookup; embedded cookie user records and unverified getSession results are never authorization evidence.
 
@@ -62,3 +67,17 @@ Before activating hosted sign-in for classmates, verify on the chosen Vercel ori
 ## Primary references
 
 Reviewed 2026-10-14: [Supabase SSR clients](https://supabase.com/docs/guides/auth/server-side/creating-a-client), [SSR sessions and caching](https://supabase.com/docs/guides/auth/server-side/advanced-guide), [password auth](https://supabase.com/docs/guides/auth/passwords), [logout](https://supabase.com/docs/reference/javascript/auth-signout), and [Astro Node adapter](https://docs.astro.build/en/guides/integrations-guide/node/).
+
+## Password recovery deployment (manual Supabase settings)
+
+The code does not edit a hosted Supabase project's settings. In **Authentication → Email Templates → Reset Password**, replace the default `{{ .ConfirmationURL }}` link with:
+
+```html
+<a href="{{ .RedirectTo }}&amp;token_hash={{ .TokenHash }}&amp;type=recovery">Reset your password</a>
+```
+
+`resetPasswordForEmail` always supplies `RedirectTo` as the trusted `AUTH_SITE_URL` origin plus `/auth/recovery/?locale=fr` or `locale=en`. In **Authentication → URL Configuration**, allow the exact production `https://YOUR_DOMAIN/auth/recovery/**` path (and your explicitly selected development/preview origins as needed). Keep the Site URL on the intended production HTTPS domain; remove stale `localhost:3000` entries from production configuration. Emails generated before changing the template will not work with this server-side flow: request a fresh one. Confirm the new template actually appears in a delivered test email.
+
+The GET landing does **not** redeem the recovery proof: email/link scanners cannot consume it by prefetching. The token is carried in an HttpOnly, SameSite=Strict, host-only, path-scoped, 15-minute cookie before redirecting to a clean URL. Only the same-origin POST verifies it with Supabase and changes the password. The recovery session uses an isolated server client and never reaches the browser; success clears old local credentials and requires a new sign-in. Provider OTP expiry and single-use semantics still apply. Do not put the reset token in logs, analytics, support screenshots or client storage. Configure reasonable **Authentication → Rate Limits** and SMTP deliverability and test with synthetic accounts.
+
+Security checks: anonymous account/progress/API requests remain protected by `verifiedUser()`; recovery pages are intentionally public, but mutations need both the recovery proof and the existing same-origin POST validation. Responses remain uncached and the PWA does not cache auth URLs. Test unknown emails, scanners that GET the email URL, replay/expired proofs, cross-site POSTs and after-reset login before enabling this for learners. These local checks are not hosted Supabase acceptance.
