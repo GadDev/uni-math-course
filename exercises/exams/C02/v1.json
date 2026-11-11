@@ -1,0 +1,1052 @@
+{
+  "id": "C02-M01",
+  "version": 1,
+  "chapterId": "C02",
+  "title": {
+    "fr": "Droites — Examen blanc 01",
+    "en": "Straight lines — Mock exam 01"
+  },
+  "suggestedMinutes": 60,
+  "review": {
+    "mathematics": "author-self-check",
+    "translation": "author-self-check",
+    "evidence": "docs/content/TRAINING_EXAMS_REVIEW.md"
+  },
+  "provenance": {
+    "origin": "original-project-work",
+    "styleReference": "User-supplied professor quiz JSON: 30 straight-line questions. Original stems and diagram. Questions 1, 2, 19 and 20 additionally cover the repository chapter prerequisites and modelling lessons; no university endorsement."
+  },
+  "grading": {
+    "pointsPerQuestion": 1,
+    "partialCredit": false,
+    "negativeMarking": false,
+    "numeric": "exact-rational; signed integers, decimals or integer fractions"
+  },
+  "questions": [
+    {
+      "id": "C02-M01-Q01",
+      "type": "numeric",
+      "lessonId": "L23",
+      "objective": "fraction-prerequisite",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L23"
+      ],
+      "prompt": {
+        "fr": "Calculer sans calculatrice : $a=\\dfrac34-\\dfrac56$ et $b=\\dfrac23\\div\\dfrac45$. Donner les deux nombres.",
+        "en": "Calculate without a calculator: $a=\\dfrac34-\\dfrac56$ and $b=\\dfrac23\\div\\dfrac45$. Give both numbers."
+      },
+      "explanation": {
+        "fr": "$a=9/12-10/12=-1/12$. Diviser par une fraction revient à multiplier par son inverse : $b=(2/3)(5/4)=5/6$.",
+        "en": "$a=9/12-10/12=-1/12$. Dividing by a fraction means multiplying by its reciprocal: $b=(2/3)(5/4)=5/6$."
+      },
+      "pitfall": {
+        "fr": "Pour soustraire, utiliser un dénominateur commun ; pour diviser, inverser seulement le diviseur.",
+        "en": "Use a common denominator for subtraction; invert only the divisor for division."
+      },
+      "fields": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$a$",
+            "en": "$a$"
+          },
+          "answer": "-1/12"
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$b$",
+            "en": "$b$"
+          },
+          "answer": "5/6"
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q02",
+      "type": "single",
+      "lessonId": "L24",
+      "objective": "inequality-prerequisite",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L24"
+      ],
+      "prompt": {
+        "fr": "Quel est l’ensemble des solutions réelles de $-3x+2\\le11$ ?",
+        "en": "What is the set of real solutions of $-3x+2\\le11$?"
+      },
+      "explanation": {
+        "fr": "$-3x\\le9$ donne $x\\ge-3$ en divisant par $-3$. La borne est incluse puisque l’inégalité est large.",
+        "en": "$-3x\\le9$ gives $x\\ge-3$ after division by $-3$. The endpoint is included because the inequality is non-strict."
+      },
+      "pitfall": {
+        "fr": "Diviser une inégalité par un nombre négatif inverse son sens.",
+        "en": "Dividing an inequality by a negative number reverses its direction."
+      },
+      "answer": [
+        "c"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$]-\\infty,-3]$",
+            "en": "$]-\\infty,-3]$"
+          },
+          "feedback": {
+            "fr": "Le sens n’a pas été inversé.",
+            "en": "The direction was not reversed."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$]-3,+\\infty[$",
+            "en": "$]-3,+\\infty[$"
+          },
+          "feedback": {
+            "fr": "L’égalité est autorisée à la borne.",
+            "en": "Equality is allowed at the endpoint."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$[-3,+\\infty[$",
+            "en": "$[-3,+\\infty[$"
+          },
+          "feedback": {
+            "fr": "Le sens et la borne sont corrects.",
+            "en": "The direction and endpoint are correct."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$[3,+\\infty[$",
+            "en": "$[3,+\\infty[$"
+          },
+          "feedback": {
+            "fr": "Le signe de la borne est incorrect.",
+            "en": "The endpoint has the wrong sign."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q03",
+      "type": "numeric",
+      "lessonId": "L29",
+      "objective": "slope-point",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L29"
+      ],
+      "prompt": {
+        "fr": "Donner l’équation $y=mx+p$ de la droite de pente $-2$ passant par $A(3,1)$.",
+        "en": "Find the equation $y=mx+p$ of the line with slope $-2$ through $A(3,1)$."
+      },
+      "explanation": {
+        "fr": "$m=-2$ et $1=-2\\times3+p$, donc $p=7$. Contrôle : $-2\\times3+7=1$.",
+        "en": "$m=-2$ and $1=-2\\times3+p$, so $p=7$. Check: $-2\\times3+7=1$."
+      },
+      "pitfall": {
+        "fr": "L’ordonnée du point donné n’est pas forcément l’ordonnée à l’origine.",
+        "en": "The given point height is not necessarily the intercept."
+      },
+      "fields": [
+        {
+          "id": "m",
+          "label": {
+            "fr": "$m$",
+            "en": "$m$"
+          },
+          "answer": "-2"
+        },
+        {
+          "id": "p",
+          "label": {
+            "fr": "$p$",
+            "en": "$p$"
+          },
+          "answer": "7"
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q04",
+      "type": "numeric",
+      "lessonId": "L30",
+      "objective": "two-points",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L30"
+      ],
+      "prompt": {
+        "fr": "Donner l’équation $y=mx+p$ de la droite passant par $A(-2,4)$ et $B(4,1)$.",
+        "en": "Find the equation $y=mx+p$ of the line through $A(-2,4)$ and $B(4,1)$."
+      },
+      "explanation": {
+        "fr": "$m=(1-4)/(4-(-2))=-3/6=-1/2$. Avec $A$, $4=1+p$, donc $p=3$. Vérification avec $B$ : $-2+3=1$.",
+        "en": "$m=(1-4)/(4-(-2))=-3/6=-1/2$. Using $A$, $4=1+p$, so $p=3$. Check with $B$: $-2+3=1$."
+      },
+      "pitfall": {
+        "fr": "Conserver le même ordre dans les deux différences.",
+        "en": "Use the same order in both differences."
+      },
+      "fields": [
+        {
+          "id": "m",
+          "label": {
+            "fr": "$m$",
+            "en": "$m$"
+          },
+          "answer": "-1/2"
+        },
+        {
+          "id": "p",
+          "label": {
+            "fr": "$p$",
+            "en": "$p$"
+          },
+          "answer": "3"
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q05",
+      "type": "numeric",
+      "lessonId": "L34",
+      "objective": "affine-model",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L34"
+      ],
+      "prompt": {
+        "fr": "Le prix $P(d)$ en euros d’un taxi dépend de manière affine de la distance $d\\ge0$ en kilomètres. Une course de $2$ km coûte $9$ € et une course de $6$ km coûte $19$ €. Écrire $P(d)=md+p$.",
+        "en": "The taxi fare $P(d)$ in euros is affine in distance $d\\ge0$ in kilometres. A $2$ km trip costs €$9$ and a $6$ km trip costs €$19$. Write $P(d)=md+p$."
+      },
+      "explanation": {
+        "fr": "$m=(19-9)/(6-2)=5/2$ euros par kilomètre. Puis $p=9-(5/2)\\times2=4$ euros. Ces coefficients redonnent les deux prix.",
+        "en": "$m=(19-9)/(6-2)=5/2$ euros per kilometre. Then $p=9-(5/2)\\times2=4$ euros. These coefficients recover both fares."
+      },
+      "pitfall": {
+        "fr": "La pente est un coût par kilomètre ; l’ordonnée à l’origine est le forfait.",
+        "en": "The slope is cost per kilometre; the intercept is the fixed charge."
+      },
+      "fields": [
+        {
+          "id": "m",
+          "label": {
+            "fr": "$m$",
+            "en": "$m$"
+          },
+          "answer": "5/2"
+        },
+        {
+          "id": "p",
+          "label": {
+            "fr": "$p$",
+            "en": "$p$"
+          },
+          "answer": "4"
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q06",
+      "type": "numeric",
+      "lessonId": "L29",
+      "objective": "line-graph",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L29"
+      ],
+      "prompt": {
+        "fr": "Donner l’équation de la droite du graphique sous la forme y = mx + p.",
+        "en": "Find the equation of the plotted line in the form y = mx + p."
+      },
+      "explanation": {
+        "fr": "La droite passe par $(0,2)$ et $(4,0)$. Donc $p=2$ et $m=(0-2)/(4-0)=-1/2$.",
+        "en": "The line passes through $(0,2)$ and $(4,0)$. Thus $p=2$ and $m=(0-2)/(4-0)=-1/2$."
+      },
+      "pitfall": {
+        "fr": "La pente compare une variation verticale à une variation horizontale.",
+        "en": "Slope compares vertical change with horizontal change."
+      },
+      "graph": "line",
+      "fields": [
+        {
+          "id": "m",
+          "label": {
+            "fr": "$m$",
+            "en": "$m$"
+          },
+          "answer": "-1/2"
+        },
+        {
+          "id": "p",
+          "label": {
+            "fr": "$p$",
+            "en": "$p$"
+          },
+          "answer": "2"
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q07",
+      "type": "single",
+      "lessonId": "L29",
+      "objective": "slope-order",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L29"
+      ],
+      "prompt": {
+        "fr": "Les droites $d_1,d_2,d_3,d_4$ ont respectivement pour pentes $-3$, $-1/2$, $0$ et $2$. Quel ordre est correct ?",
+        "en": "Lines $d_1,d_2,d_3,d_4$ have slopes $-3$, $-1/2$, $0$ and $2$, respectively. Which order is correct?"
+      },
+      "explanation": {
+        "fr": "On compare des nombres signés : $-3<-1/2<0<2$. Une pente négative plus proche de zéro est plus grande.",
+        "en": "Compare signed numbers: $-3<-1/2<0<2$. A negative slope closer to zero is larger."
+      },
+      "pitfall": {
+        "fr": "Une droite plus raide n’a pas forcément une pente numériquement plus grande.",
+        "en": "A steeper line does not necessarily have a numerically larger slope."
+      },
+      "answer": [
+        "b"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$m_4<m_3<m_2<m_1$",
+            "en": "$m_4<m_3<m_2<m_1$"
+          },
+          "feedback": {
+            "fr": "Cet ordre est renversé.",
+            "en": "This order is reversed."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$m_1<m_2<m_3<m_4$",
+            "en": "$m_1<m_2<m_3<m_4$"
+          },
+          "feedback": {
+            "fr": "Les nombres signés sont bien classés.",
+            "en": "The signed numbers are correctly ordered."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$m_2<m_1<m_3<m_4$",
+            "en": "$m_2<m_1<m_3<m_4$"
+          },
+          "feedback": {
+            "fr": "Les deux pentes négatives sont inversées.",
+            "en": "The two negative slopes are reversed."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$m_3<m_2<m_1<m_4$",
+            "en": "$m_3<m_2<m_1<m_4$"
+          },
+          "feedback": {
+            "fr": "Zéro n’est pas inférieur aux nombres négatifs.",
+            "en": "Zero is not below negative numbers."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q08",
+      "type": "numeric",
+      "lessonId": "L29",
+      "objective": "increments",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L29"
+      ],
+      "prompt": {
+        "fr": "Sur $y=-\\dfrac34x+5$, l’abscisse passe de $-2$ à $6$. Calculer la variation signée $\\Delta y$.",
+        "en": "On $y=-\\dfrac34x+5$, the first coordinate changes from $-2$ to $6$. Find the signed change $\\Delta y$."
+      },
+      "explanation": {
+        "fr": "$\\Delta x=6-(-2)=8$, donc $\\Delta y=(-3/4)\\times8=-6$. Contrôle par les valeurs : $y(6)-y(-2)=1/2-13/2=-6$.",
+        "en": "$\\Delta x=6-(-2)=8$, so $\\Delta y=(-3/4)\\times8=-6$. Value check: $y(6)-y(-2)=1/2-13/2=-6$."
+      },
+      "pitfall": {
+        "fr": "L’ordonnée à l’origine disparaît dans une différence.",
+        "en": "The intercept cancels in a difference."
+      },
+      "fields": [
+        {
+          "id": "dy",
+          "label": {
+            "fr": "$\\Delta y$",
+            "en": "$\\Delta y$"
+          },
+          "answer": "-6"
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q09",
+      "type": "numeric",
+      "lessonId": "L34",
+      "objective": "unit-conversion",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L34"
+      ],
+      "prompt": {
+        "fr": "Les températures vérifient $F=\\dfrac95C+32$. De combien de degrés Celsius faut-il monter pour augmenter de $18$ degrés Fahrenheit ?",
+        "en": "Temperatures satisfy $F=\\dfrac95C+32$. How many degrees Celsius correspond to an increase of $18$ degrees Fahrenheit?"
+      },
+      "explanation": {
+        "fr": "$\\Delta F=(9/5)\\Delta C$. Ainsi $\\Delta C=18\\times5/9=10$. Le décalage de $32$ n’intervient pas dans les variations.",
+        "en": "$\\Delta F=(9/5)\\Delta C$. Hence $\\Delta C=18\\times5/9=10$. The offset of $32$ does not enter changes."
+      },
+      "pitfall": {
+        "fr": "Pour comparer des variations, ne pas ajouter le décalage initial.",
+        "en": "When comparing changes, do not add the initial offset."
+      },
+      "fields": [
+        {
+          "id": "dc",
+          "label": {
+            "fr": "$\\Delta C$",
+            "en": "$\\Delta C$"
+          },
+          "answer": "10"
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q10",
+      "type": "multi",
+      "lessonId": "L28",
+      "objective": "line-membership",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L28"
+      ],
+      "prompt": {
+        "fr": "Quels points appartiennent à la droite $y=-2x+5$ ?",
+        "en": "Which points lie on the line $y=-2x+5$?"
+      },
+      "explanation": {
+        "fr": "En substituant les abscisses, on trouve $y(0)=5$, $y(1)=3$ et $y(3)=-1$. En revanche $y(2)=1$ et $y(-1)=7$.",
+        "en": "Substituting first coordinates gives $y(0)=5$, $y(1)=3$ and $y(3)=-1$. In contrast $y(2)=1$ and $y(-1)=7$."
+      },
+      "pitfall": {
+        "fr": "Vérifier l’équation pour chaque point, avec le signe de son abscisse.",
+        "en": "Check the equation for every point, including the sign of its first coordinate."
+      },
+      "answer": [
+        "a",
+        "c",
+        "e"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(0,5)$",
+            "en": "$(0,5)$"
+          },
+          "feedback": {
+            "fr": "Le point donne bien l’ordonnée à l’origine.",
+            "en": "This point gives the intercept."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(2,9)$",
+            "en": "$(2,9)$"
+          },
+          "feedback": {
+            "fr": "Pour $x=2$, on obtient $1$, pas $9$.",
+            "en": "At $x=2$, the result is $1$, not $9$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(1,3)$",
+            "en": "$(1,3)$"
+          },
+          "feedback": {
+            "fr": "$-2+5=3$.",
+            "en": "$-2+5=3$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$(-1,3)$",
+            "en": "$(-1,3)$"
+          },
+          "feedback": {
+            "fr": "$-2(-1)+5=7$.",
+            "en": "$-2(-1)+5=7$."
+          }
+        },
+        {
+          "id": "e",
+          "label": {
+            "fr": "$(3,-1)$",
+            "en": "$(3,-1)$"
+          },
+          "feedback": {
+            "fr": "$-6+5=-1$.",
+            "en": "$-6+5=-1$."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q11",
+      "type": "numeric",
+      "lessonId": "L30",
+      "objective": "intersection",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L30"
+      ],
+      "prompt": {
+        "fr": "Calculer l’intersection de $y=2x-1$ et $y=-x+4$. Donner des valeurs exactes.",
+        "en": "Find the intersection of $y=2x-1$ and $y=-x+4$. Give exact values."
+      },
+      "explanation": {
+        "fr": "$2x-1=-x+4$ donne $3x=5$, soit $x=5/3$. Alors $y=10/3-1=7/3$. La deuxième équation donne aussi $4-5/3=7/3$.",
+        "en": "$2x-1=-x+4$ gives $3x=5$, hence $x=5/3$. Then $y=10/3-1=7/3$. The second equation also gives $4-5/3=7/3$."
+      },
+      "pitfall": {
+        "fr": "Le point d’intersection doit satisfaire les deux équations.",
+        "en": "The intersection must satisfy both equations."
+      },
+      "fields": [
+        {
+          "id": "x",
+          "label": {
+            "fr": "$x$",
+            "en": "$x$"
+          },
+          "answer": "5/3"
+        },
+        {
+          "id": "y",
+          "label": {
+            "fr": "$y$",
+            "en": "$y$"
+          },
+          "answer": "7/3"
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q12",
+      "type": "single",
+      "lessonId": "L30",
+      "objective": "coincident-lines",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L30"
+      ],
+      "prompt": {
+        "fr": "Combien de points communs ont les droites $y=3x-2$ et $6x-2y=4$ ?",
+        "en": "How many points do the lines $y=3x-2$ and $6x-2y=4$ share?"
+      },
+      "explanation": {
+        "fr": "La deuxième équation donne $-2y=4-6x$, donc $y=3x-2$. Les deux équations décrivent la même droite.",
+        "en": "The second equation gives $-2y=4-6x$, hence $y=3x-2$. Both equations describe the same line."
+      },
+      "pitfall": {
+        "fr": "Des équations différentes peuvent représenter la même droite.",
+        "en": "Different equations can describe the same line."
+      },
+      "answer": [
+        "d"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Aucun",
+            "en": "None"
+          },
+          "feedback": {
+            "fr": "Les deux équations sont équivalentes.",
+            "en": "The equations are equivalent."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Un seul",
+            "en": "Exactly one"
+          },
+          "feedback": {
+            "fr": "Les droites ne sont pas distinctes.",
+            "en": "The lines are not distinct."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Exactement deux",
+            "en": "Exactly two"
+          },
+          "feedback": {
+            "fr": "Deux droites ayant deux points distincts en commun sont confondues.",
+            "en": "Two lines sharing two distinct points coincide."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Une infinité",
+            "en": "Infinitely many"
+          },
+          "feedback": {
+            "fr": "Les deux équations représentent la même droite.",
+            "en": "Both equations represent the same line."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q13",
+      "type": "multi",
+      "lessonId": "L30",
+      "objective": "parallel-intersecting",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L30"
+      ],
+      "prompt": {
+        "fr": "On considère $d_1:y=3x+1$, $d_2:y=3x-4$ et $d_3:y=-x+1$. Quelles assertions sont vraies ?",
+        "en": "Consider $d_1:y=3x+1$, $d_2:y=3x-4$ and $d_3:y=-x+1$. Which statements are true?"
+      },
+      "explanation": {
+        "fr": "$d_1$ et $d_2$ ont la même pente et des ordonnées à l’origine distinctes : elles sont strictement parallèles. $d_1$ et $d_3$ passent par $(0,1)$ et ont des pentes différentes.",
+        "en": "$d_1$ and $d_2$ have equal slopes and different intercepts: they are distinct parallel lines. $d_1$ and $d_3$ pass through $(0,1)$ and have different slopes."
+      },
+      "pitfall": {
+        "fr": "Même pente n’implique pas même droite ; il faut aussi comparer les ordonnées à l’origine.",
+        "en": "Equal slopes do not imply equal lines; also compare intercepts."
+      },
+      "answer": [
+        "a",
+        "c"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$d_1$ et $d_2$ n’ont aucun point commun.",
+            "en": "$d_1$ and $d_2$ share no point."
+          },
+          "feedback": {
+            "fr": "Leurs pentes sont égales et leurs décalages différents.",
+            "en": "Their slopes agree and offsets differ."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$d_1$ et $d_2$ sont confondues.",
+            "en": "$d_1$ and $d_2$ coincide."
+          },
+          "feedback": {
+            "fr": "Leurs ordonnées à l’origine diffèrent.",
+            "en": "Their intercepts differ."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$d_1$ et $d_3$ se coupent en $(0,1)$.",
+            "en": "$d_1$ and $d_3$ meet at $(0,1)$."
+          },
+          "feedback": {
+            "fr": "Le point satisfait les deux équations.",
+            "en": "The point satisfies both equations."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$d_2$ et $d_3$ sont parallèles.",
+            "en": "$d_2$ and $d_3$ are parallel."
+          },
+          "feedback": {
+            "fr": "Leurs pentes sont différentes.",
+            "en": "Their slopes differ."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q14",
+      "type": "numeric",
+      "lessonId": "L28",
+      "objective": "cartesian-normalization",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L28"
+      ],
+      "prompt": {
+        "fr": "Une droite passe par $(0,3)$ et $(2,0)$. On veut son équation sous la forme $ax+by=12$, avec ce membre de droite fixé. Donner $a$ et $b$.",
+        "en": "A line passes through $(0,3)$ and $(2,0)$. Write its equation as $ax+by=12$, with this fixed right-hand side. Find $a$ and $b$."
+      },
+      "explanation": {
+        "fr": "Avec $(0,3)$ : $3b=12$, donc $b=4$. Avec $(2,0)$ : $2a=12$, donc $a=6$. Les deux points vérifient $6x+4y=12$.",
+        "en": "Using $(0,3)$: $3b=12$, so $b=4$. Using $(2,0)$: $2a=12$, so $a=6$. Both points satisfy $6x+4y=12$."
+      },
+      "pitfall": {
+        "fr": "Fixer le membre de droite fixe aussi la normalisation des coefficients.",
+        "en": "Fixing the right-hand side also fixes coefficient scaling."
+      },
+      "fields": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$a$",
+            "en": "$a$"
+          },
+          "answer": "6"
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$b$",
+            "en": "$b$"
+          },
+          "answer": "4"
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q15",
+      "type": "single",
+      "lessonId": "L29",
+      "objective": "vertical-line",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L29"
+      ],
+      "prompt": {
+        "fr": "Quelle équation décrit la droite passant par $A(2,-1)$ et $B(2,5)$ ?",
+        "en": "Which equation describes the line through $A(2,-1)$ and $B(2,5)$?"
+      },
+      "explanation": {
+        "fr": "Les deux points ont la même abscisse et des ordonnées différentes. La droite est verticale : $x=2$. Elle n’a pas de pente réelle.",
+        "en": "The points have equal first coordinates and different second coordinates. The line is vertical: $x=2$. It has no real-valued slope."
+      },
+      "pitfall": {
+        "fr": "Une droite verticale ne s’écrit pas sous la forme y = mx + p avec une pente finie.",
+        "en": "A vertical line cannot be written as y = mx + p with a finite slope."
+      },
+      "answer": [
+        "a"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$x=2$",
+            "en": "$x=2$"
+          },
+          "feedback": {
+            "fr": "L’abscisse reste constante.",
+            "en": "The first coordinate stays constant."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$y=2$",
+            "en": "$y=2$"
+          },
+          "feedback": {
+            "fr": "C’est une droite horizontale.",
+            "en": "This is a horizontal line."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$y=6x-13$",
+            "en": "$y=6x-13$"
+          },
+          "feedback": {
+            "fr": "Cette équation ne passe pas par le deuxième point.",
+            "en": "This equation misses the second point."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$y=0x+2$",
+            "en": "$y=0x+2$"
+          },
+          "feedback": {
+            "fr": "Une pente nulle décrit une droite horizontale.",
+            "en": "A zero slope describes a horizontal line."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q16",
+      "type": "numeric",
+      "lessonId": "L32",
+      "objective": "world-to-pixel",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L32"
+      ],
+      "prompt": {
+        "fr": "Une fenêtre de $1000\\times800$ pixels utilise $u=500+40x$ et $v=400-40y$ (origine des pixels en haut à gauche). Quel pixel représente le point $(-3,2)$ ?",
+        "en": "A $1000\\times800$ pixel window uses $u=500+40x$ and $v=400-40y$ (pixel origin at the top left). Which pixel represents $(-3,2)$?"
+      },
+      "explanation": {
+        "fr": "$u=500-120=380$ et $v=400-80=320$. Une ordonnée positive déplace le pixel vers le haut.",
+        "en": "$u=500-120=380$ and $v=400-80=320$. A positive second coordinate moves the pixel upwards."
+      },
+      "pitfall": {
+        "fr": "La coordonnée verticale des pixels augmente vers le bas.",
+        "en": "The vertical pixel coordinate increases downwards."
+      },
+      "fields": [
+        {
+          "id": "u",
+          "label": {
+            "fr": "$u$",
+            "en": "$u$"
+          },
+          "answer": "380"
+        },
+        {
+          "id": "v",
+          "label": {
+            "fr": "$v$",
+            "en": "$v$"
+          },
+          "answer": "320"
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q17",
+      "type": "numeric",
+      "lessonId": "L32",
+      "objective": "pixel-to-world",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L32"
+      ],
+      "prompt": {
+        "fr": "Avec $u=500+40x$ et $v=400-40y$, quel point du repère est représenté par le pixel $(560,460)$ ?",
+        "en": "With $u=500+40x$ and $v=400-40y$, which coordinate point is represented by pixel $(560,460)$?"
+      },
+      "explanation": {
+        "fr": "$x=(560-500)/40=3/2$ et $y=(400-460)/40=-3/2$. Réinjecter ces valeurs redonne le pixel initial.",
+        "en": "$x=(560-500)/40=3/2$ and $y=(400-460)/40=-3/2$. Substituting back recovers the original pixel."
+      },
+      "pitfall": {
+        "fr": "Inverser aussi le sens vertical lors du retour aux coordonnées mathématiques.",
+        "en": "Reverse the vertical direction when converting back to mathematical coordinates."
+      },
+      "fields": [
+        {
+          "id": "x",
+          "label": {
+            "fr": "$x$",
+            "en": "$x$"
+          },
+          "answer": "3/2"
+        },
+        {
+          "id": "y",
+          "label": {
+            "fr": "$y$",
+            "en": "$y$"
+          },
+          "answer": "-3/2"
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q18",
+      "type": "numeric",
+      "lessonId": "L32",
+      "objective": "screen-line",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L32"
+      ],
+      "prompt": {
+        "fr": "Dans une fenêtre où $u=400+50x$ et $v=300-50y$, la droite $y=-x+2$ devient $v=au+b$. Donner $a$ et $b$.",
+        "en": "In a window where $u=400+50x$ and $v=300-50y$, the line $y=-x+2$ becomes $v=au+b$. Find $a$ and $b$."
+      },
+      "explanation": {
+        "fr": "$v=300-50(-x+2)=200+50x$. Comme $50x=u-400$, on trouve $v=u-200$. Contrôle : $(0,2)$ devient $(400,200)$, qui vérifie cette équation écran.",
+        "en": "$v=300-50(-x+2)=200+50x$. Since $50x=u-400$, we get $v=u-200$. Check: $(0,2)$ becomes $(400,200)$, satisfying the screen equation."
+      },
+      "pitfall": {
+        "fr": "La pente écran change de signe lorsque l’axe vertical est inversé.",
+        "en": "The screen slope changes sign when the vertical axis is reversed."
+      },
+      "fields": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$a$",
+            "en": "$a$"
+          },
+          "answer": "1"
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$b$",
+            "en": "$b$"
+          },
+          "answer": "-200"
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q19",
+      "type": "numeric",
+      "lessonId": "L35",
+      "objective": "least-squares",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L35"
+      ],
+      "prompt": {
+        "fr": "Pour les données $(0,1),(1,2),(2,4)$, la droite des moindres carrés est $\\widehat y=mx+p$. Utiliser $m=\\dfrac{\\sum(x_i-\\bar x)(y_i-\\bar y)}{\\sum(x_i-\\bar x)^2}$ et $p=\\bar y-m\\bar x$. Donner $m$, $p$, puis le résidu $r=y-\\widehat y$ au point $(1,2)$.",
+        "en": "For data $(0,1),(1,2),(2,4)$, the least-squares line is $\\widehat y=mx+p$. Use $m=\\dfrac{\\sum(x_i-\\bar x)(y_i-\\bar y)}{\\sum(x_i-\\bar x)^2}$ and $p=\\bar y-m\\bar x$. Give $m$, $p$, then the residual $r=y-\\widehat y$ at $(1,2)$."
+      },
+      "explanation": {
+        "fr": "$\\bar x=1$ et $\\bar y=7/3$. Les sommes du numérateur et du dénominateur valent $3$ et $2$, donc $m=3/2$ et $p=5/6$. Pour $x=1$, $\\widehat y=7/3$, donc $r=2-7/3=-1/3$.",
+        "en": "$\\bar x=1$ and $\\bar y=7/3$. The numerator and denominator sums are $3$ and $2$, giving $m=3/2$ and $p=5/6$. At $x=1$, $\\widehat y=7/3$, so $r=2-7/3=-1/3$."
+      },
+      "pitfall": {
+        "fr": "Un ajustement ne passe pas nécessairement par tous les points ; le résidu signé est observation moins prédiction.",
+        "en": "A fitted line need not pass through every point; a signed residual is observation minus prediction."
+      },
+      "fields": [
+        {
+          "id": "m",
+          "label": {
+            "fr": "$m$",
+            "en": "$m$"
+          },
+          "answer": "3/2"
+        },
+        {
+          "id": "p",
+          "label": {
+            "fr": "$p$",
+            "en": "$p$"
+          },
+          "answer": "5/6"
+        },
+        {
+          "id": "r",
+          "label": {
+            "fr": "$r$",
+            "en": "$r$"
+          },
+          "answer": "-1/3"
+        }
+      ]
+    },
+    {
+      "id": "C02-M01-Q20",
+      "type": "multi",
+      "lessonId": "L36",
+      "objective": "correlation-limits",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L36"
+      ],
+      "prompt": {
+        "fr": "Pour des données ayant des variances non nulles, quelles assertions sur la corrélation linéaire r sont toujours vraies ?",
+        "en": "For data with nonzero variances, which statements about linear correlation r are always true?"
+      },
+      "explanation": {
+        "fr": "Le coefficient vérifie $-1\\le r\\le1$. Un signe négatif décrit une association linéaire décroissante. Une forte corrélation ne prouve pas une causalité. Une corrélation nulle n’exclut pas une relation non linéaire.",
+        "en": "The coefficient satisfies $-1\\le r\\le1$. A negative sign describes a decreasing linear association. Strong correlation does not prove causation. Zero correlation does not rule out a nonlinear relationship."
+      },
+      "pitfall": {
+        "fr": "La corrélation mesure une association linéaire, pas une relation de cause à effet.",
+        "en": "Correlation measures linear association, not cause and effect."
+      },
+      "answer": [
+        "a",
+        "d"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$-1\\le r\\le1$",
+            "en": "$-1\\le r\\le1$"
+          },
+          "feedback": {
+            "fr": "C’est la borne du coefficient défini.",
+            "en": "This is the bound for the defined coefficient."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$r=0$ prouve l’absence de toute relation.",
+            "en": "$r=0$ proves there is no relationship of any kind."
+          },
+          "feedback": {
+            "fr": "Une relation non linéaire reste possible.",
+            "en": "A nonlinear relationship remains possible."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$r$ proche de $1$ prouve une causalité.",
+            "en": "$r$ close to $1$ proves causation."
+          },
+          "feedback": {
+            "fr": "Une variable tierce peut expliquer l’association.",
+            "en": "A third variable can explain the association."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$r<0$ indique une association linéaire décroissante.",
+            "en": "$r<0$ indicates a decreasing linear association."
+          },
+          "feedback": {
+            "fr": "Le signe indique le sens de l’association linéaire.",
+            "en": "The sign indicates the direction of linear association."
+          }
+        }
+      ]
+    }
+  ]
+}

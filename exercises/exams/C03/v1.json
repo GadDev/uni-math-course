@@ -1,0 +1,1196 @@
+{
+  "id": "C03-M01",
+  "version": 1,
+  "chapterId": "C03",
+  "title": {
+    "fr": "Fonctions — Examen blanc 01",
+    "en": "Functions — Mock exam 01"
+  },
+  "suggestedMinutes": 60,
+  "review": {
+    "mathematics": "author-self-check",
+    "translation": "author-self-check",
+    "evidence": "docs/content/TRAINING_EXAMS_REVIEW.md"
+  },
+  "provenance": {
+    "origin": "original-project-work",
+    "styleReference": "User-supplied professor quiz JSON, Functions pool (28 items); original stems and diagrams; no university endorsement."
+  },
+  "grading": {
+    "pointsPerQuestion": 1,
+    "partialCredit": false,
+    "negativeMarking": false,
+    "numeric": "exact-rational; signed integers, decimals or integer fractions"
+  },
+  "questions": [
+    {
+      "id": "C03-M01-Q01",
+      "type": "single",
+      "lessonId": "L37",
+      "objective": "rational-domain",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L37"
+      ],
+      "prompt": {
+        "fr": "Quel est le domaine de définition de $f(x)=\\dfrac{x-3}{x^2-9}$ ?",
+        "en": "What is the domain of $f(x)=\\dfrac{x-3}{x^2-9}$?"
+      },
+      "explanation": {
+        "fr": "$x^2-9=(x-3)(x+3)$ : le dénominateur est nul en $-3$ et $3$. Ces deux valeurs sont exclues, même si une simplification est possible pour $x\\ne3$.",
+        "en": "$x^2-9=(x-3)(x+3)$: the denominator is zero at $-3$ and $3$. Both are excluded, even though cancellation is possible for $x\\ne3$."
+      },
+      "pitfall": {
+        "fr": "Simplifier une expression ne rétablit pas les valeurs exclues de son domaine initial.",
+        "en": "Cancelling a factor does not restore excluded inputs to the original domain."
+      },
+      "answer": [
+        "d"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\mathbb R\\setminus\\{-3\\}$",
+            "en": "$\\mathbb R\\setminus\\{-3\\}$"
+          },
+          "feedback": {
+            "fr": "Le facteur simplifié impose encore une exclusion dans la fonction initiale.",
+            "en": "The cancelled factor still imposes an exclusion in the original function."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\mathbb R\\setminus\\{3\\}$",
+            "en": "$\\mathbb R\\setminus\\{3\\}$"
+          },
+          "feedback": {
+            "fr": "Il faut aussi résoudre le deuxième facteur du dénominateur.",
+            "en": "Also solve the second denominator factor."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\mathbb R$",
+            "en": "$\\mathbb R$"
+          },
+          "feedback": {
+            "fr": "Une fraction ne peut pas avoir un dénominateur nul.",
+            "en": "A fraction cannot have a zero denominator."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\mathbb R\\setminus\\{-3,3\\}$",
+            "en": "$\\mathbb R\\setminus\\{-3,3\\}$"
+          },
+          "feedback": {
+            "fr": "Les deux zéros du dénominateur sont exclus.",
+            "en": "Both denominator zeros are excluded."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q02",
+      "type": "single",
+      "lessonId": "L37",
+      "objective": "log-domain",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L37"
+      ],
+      "prompt": {
+        "fr": "Quel est le domaine de définition de $g(x)=\\ln(5-2x)$ ?",
+        "en": "What is the domain of $g(x)=\\ln(5-2x)$?"
+      },
+      "explanation": {
+        "fr": "Il faut $5-2x>0$. Donc $x<\\dfrac52$ : diviser par $-2$ inverse le sens de l’inégalité.",
+        "en": "We need $5-2x>0$. Hence $x<\\dfrac52$: dividing by $-2$ reverses the inequality."
+      },
+      "pitfall": {
+        "fr": "Le logarithme exige un argument strictement positif.",
+        "en": "A logarithm requires a strictly positive argument."
+      },
+      "answer": [
+        "c"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$]-\\infty,\\frac52]$",
+            "en": "$]-\\infty,\\frac52]$"
+          },
+          "feedback": {
+            "fr": "La borne donne un logarithme de zéro.",
+            "en": "The endpoint gives the logarithm of zero."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$]\\frac52,+\\infty[$",
+            "en": "$]\\frac52,+\\infty[$"
+          },
+          "feedback": {
+            "fr": "Diviser par un nombre négatif inverse le sens de l’inégalité.",
+            "en": "Dividing by a negative number reverses the inequality."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$]-\\infty,\\frac52[$",
+            "en": "$]-\\infty,\\frac52[$"
+          },
+          "feedback": {
+            "fr": "L’argument est strictement positif sur cet intervalle.",
+            "en": "The argument is strictly positive on this interval."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\mathbb R\\setminus\\{\\frac52\\}$",
+            "en": "$\\mathbb R\\setminus\\{\\frac52\\}$"
+          },
+          "feedback": {
+            "fr": "Exclure seulement zéro ne suffit pas : les arguments négatifs sont aussi interdits.",
+            "en": "Excluding only zero is insufficient: negative arguments are also forbidden."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q03",
+      "type": "single",
+      "lessonId": "L37",
+      "objective": "graph-definition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L37"
+      ],
+      "prompt": {
+        "fr": "Soit $f:A\\to\\mathbb R$, avec $A\\subseteq\\mathbb R$. Quel ensemble est le graphique de $f$ ?",
+        "en": "Let $f:A\\to\\mathbb R$, with $A\\subseteq\\mathbb R$. Which set is the graph of $f$?"
+      },
+      "explanation": {
+        "fr": "Le graphique contient exactement les couples $(x,f(x))$ pour $x\\in A$. C’est une partie du plan $\\mathbb R^2$.",
+        "en": "The graph contains exactly the ordered pairs $(x,f(x))$ for $x\\in A$. It is a subset of the plane $\\mathbb R^2$."
+      },
+      "pitfall": {
+        "fr": "L’image est un ensemble de valeurs ; le graphique est un ensemble de points.",
+        "en": "The image is a set of values; the graph is a set of points."
+      },
+      "answer": [
+        "b"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\{f(x)\\mid x\\in A\\}$",
+            "en": "$\\{f(x)\\mid x\\in A\\}$"
+          },
+          "feedback": {
+            "fr": "C’est l’ensemble des valeurs prises par la fonction.",
+            "en": "This is the set of values attained by the function."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{(x,f(x))\\mid x\\in A\\}$",
+            "en": "$\\{(x,f(x))\\mid x\\in A\\}$"
+          },
+          "feedback": {
+            "fr": "Chaque abscisse est associée à son image.",
+            "en": "Each input is paired with its image."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\times\\mathbb R$",
+            "en": "$A\\times\\mathbb R$"
+          },
+          "feedback": {
+            "fr": "Cet ensemble contient tous les points au-dessus de chaque abscisse.",
+            "en": "This contains every point above each input."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\{(f(x),x)\\mid x\\in A\\}$",
+            "en": "$\\{(f(x),x)\\mid x\\in A\\}$"
+          },
+          "feedback": {
+            "fr": "Les coordonnées sont inversées.",
+            "en": "The coordinates are reversed."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q04",
+      "type": "multi",
+      "lessonId": "L37",
+      "objective": "point-membership",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L37"
+      ],
+      "prompt": {
+        "fr": "Soit $f(x)=x^2-2x-3$, définie sur $\\mathbb R$. Quels points appartiennent à son graphique ?",
+        "en": "Let $f(x)=x^2-2x-3$, defined on $\\mathbb R$. Which points lie on its graph?"
+      },
+      "explanation": {
+        "fr": "$f(0)=-3$, $f(2)=-3$ et $f(3)=0$. En revanche, $f(1)=-4$ et $f(-1)=0$.",
+        "en": "$f(0)=-3$, $f(2)=-3$ and $f(3)=0$. In contrast, $f(1)=-4$ and $f(-1)=0$."
+      },
+      "pitfall": {
+        "fr": "Un point appartient au graphique lorsque son ordonnée est l’image de son abscisse.",
+        "en": "A point lies on the graph when its second coordinate is the image of its first."
+      },
+      "answer": [
+        "a",
+        "c",
+        "e"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(0,-3)$",
+            "en": "$(0,-3)$"
+          },
+          "feedback": {
+            "fr": "$f(0)=-3$.",
+            "en": "$f(0)=-3$."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(1,4)$",
+            "en": "$(1,4)$"
+          },
+          "feedback": {
+            "fr": "$f(1)=-4$, pas $4$.",
+            "en": "$f(1)=-4$, not $4$."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(2,-3)$",
+            "en": "$(2,-3)$"
+          },
+          "feedback": {
+            "fr": "$f(2)=4-4-3=-3$.",
+            "en": "$f(2)=4-4-3=-3$."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$(-1,-4)$",
+            "en": "$(-1,-4)$"
+          },
+          "feedback": {
+            "fr": "$f(-1)=1+2-3=0$.",
+            "en": "$f(-1)=1+2-3=0$."
+          }
+        },
+        {
+          "id": "e",
+          "label": {
+            "fr": "$(3,0)$",
+            "en": "$(3,0)$"
+          },
+          "feedback": {
+            "fr": "$f(3)=9-6-3=0$.",
+            "en": "$f(3)=9-6-3=0$."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q05",
+      "type": "numeric",
+      "lessonId": "L37",
+      "objective": "graph-reading",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L37"
+      ],
+      "prompt": {
+        "fr": "Lire le graphique ci-dessous. La fonction atteint sa plus petite valeur en un seul point. Compléter les deux réponses.",
+        "en": "Read the graph below. The function attains its minimum at exactly one point. Complete both answers."
+      },
+      "explanation": {
+        "fr": "Le point d’abscisse $4$ a pour ordonnée $3$. Le seul point d’ordonnée $-1$ est le minimum, d’abscisse $2$.",
+        "en": "The point with first coordinate $4$ has second coordinate $3$. The only point with second coordinate $-1$ is the minimum, at $2$."
+      },
+      "pitfall": {
+        "fr": "Pour une image, partir de l’axe horizontal ; pour un antécédent, partir de l’ordonnée demandée.",
+        "en": "For an image, start from the horizontal axis; for a preimage, start from the requested height."
+      },
+      "graph": "values",
+      "fields": [
+        {
+          "id": "image",
+          "label": {
+            "fr": "$f(4)$",
+            "en": "$f(4)$"
+          },
+          "answer": "3"
+        },
+        {
+          "id": "input",
+          "label": {
+            "fr": "$x$ tel que $f(x)=-1$",
+            "en": "$x$ such that $f(x)=-1$"
+          },
+          "answer": "2"
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q06",
+      "type": "single",
+      "lessonId": "L38",
+      "objective": "derivative-definition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L38"
+      ],
+      "prompt": {
+        "fr": "Soit $f:]a,b[\\to\\mathbb R$ et $x\\in]a,b[$. Quelle condition définit la dérivabilité de $f$ en $x$ ?",
+        "en": "Let $f:]a,b[\\to\\mathbb R$ and $x\\in]a,b[$. Which condition defines differentiability of $f$ at $x$?"
+      },
+      "explanation": {
+        "fr": "La limite du quotient $\\dfrac{f(x+h)-f(x)}h$ doit exister et être finie lorsque $h\\to0$. Elle définit $Df(x)$.",
+        "en": "The limit of the quotient $\\dfrac{f(x+h)-f(x)}h$ must exist and be finite as $h\\to0$. It defines $Df(x)$."
+      },
+      "pitfall": {
+        "fr": "On calcule une limite : on ne remplace jamais directement h par zéro dans le quotient.",
+        "en": "We take a limit: never substitute zero directly for h in the quotient."
+      },
+      "answer": [
+        "d"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\displaystyle\\lim_{h\\to+\\infty}\\frac{f(x+h)-f(x)}h\\in\\mathbb R$",
+            "en": "$\\displaystyle\\lim_{h\\to+\\infty}\\frac{f(x+h)-f(x)}h\\in\\mathbb R$"
+          },
+          "feedback": {
+            "fr": "La dérivée décrit un comportement local, lorsque l’écart tend vers zéro.",
+            "en": "A derivative describes local behaviour, as the increment tends to zero."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\displaystyle\\lim_{h\\to0}(f(x+h)-f(x))\\in\\mathbb R$",
+            "en": "$\\displaystyle\\lim_{h\\to0}(f(x+h)-f(x))\\in\\mathbb R$"
+          },
+          "feedback": {
+            "fr": "Il manque la division par l’accroissement.",
+            "en": "Division by the increment is missing."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Le quotient est fini pour chaque $h\\ne0$ assez petit.",
+            "en": "The quotient is finite for each sufficiently small $h\\ne0$."
+          },
+          "feedback": {
+            "fr": "Des valeurs finies ne garantissent pas l’existence d’une limite finie.",
+            "en": "Finite values do not guarantee a finite limit exists."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\displaystyle\\lim_{h\\to0}\\frac{f(x+h)-f(x)}h\\in\\mathbb R$",
+            "en": "$\\displaystyle\\lim_{h\\to0}\\frac{f(x+h)-f(x)}h\\in\\mathbb R$"
+          },
+          "feedback": {
+            "fr": "C’est la définition, avec une limite réelle finie.",
+            "en": "This is the definition, with a finite real limit."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q07",
+      "type": "numeric",
+      "lessonId": "L38",
+      "objective": "difference-quotient",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L38"
+      ],
+      "prompt": {
+        "fr": "Soit $f(x)=x^2-3x$ sur $\\mathbb R$. Pour $h\\ne0$, on écrit $\\dfrac{f(2+h)-f(2)}h=a+h$. Compléter.",
+        "en": "Let $f(x)=x^2-3x$ on $\\mathbb R$. For $h\\ne0$, write $\\dfrac{f(2+h)-f(2)}h=a+h$. Complete."
+      },
+      "explanation": {
+        "fr": "$f(2)=-2$ et $f(2+h)=-2+h+h^2$. Le quotient vaut $1+h$, donc sa limite est $1$. Vérification : $Df(x)=2x-3$.",
+        "en": "$f(2)=-2$ and $f(2+h)=-2+h+h^2$. The quotient is $1+h$, so its limit is $1$. Check: $Df(x)=2x-3$."
+      },
+      "pitfall": {
+        "fr": "Développer, soustraire la valeur initiale, puis diviser avant de prendre la limite.",
+        "en": "Expand, subtract the initial value, then divide before taking the limit."
+      },
+      "fields": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$a$",
+            "en": "$a$"
+          },
+          "answer": "1"
+        },
+        {
+          "id": "derivative",
+          "label": {
+            "fr": "$Df(2)$",
+            "en": "$Df(2)$"
+          },
+          "answer": "1"
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q08",
+      "type": "numeric",
+      "lessonId": "L38",
+      "objective": "average-instantaneous",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L38"
+      ],
+      "prompt": {
+        "fr": "Pour $t\\ge0$, une voiture a parcouru $s(t)=2t^2+t$ mètres après $t$ secondes. Calculer sa vitesse moyenne entre $t=1$ et $t=3$, puis sa vitesse instantanée à $t=1$.",
+        "en": "For $t\\ge0$, a car has travelled $s(t)=2t^2+t$ metres after $t$ seconds. Find its average speed between $t=1$ and $t=3$, then its instantaneous speed at $t=1$."
+      },
+      "explanation": {
+        "fr": "$s(3)=21$ et $s(1)=3$. La vitesse moyenne vaut $\\dfrac{21-3}{3-1}=9$ m/s. Puis $Ds(t)=4t+1$, donc $Ds(1)=5$ m/s.",
+        "en": "$s(3)=21$ and $s(1)=3$. Average speed is $\\dfrac{21-3}{3-1}=9$ m/s. Also $Ds(t)=4t+1$, so $Ds(1)=5$ m/s."
+      },
+      "pitfall": {
+        "fr": "La sécante donne une vitesse moyenne ; la dérivée donne une vitesse instantanée.",
+        "en": "A secant gives average speed; a derivative gives instantaneous speed."
+      },
+      "fields": [
+        {
+          "id": "average",
+          "label": {
+            "fr": "Vitesse moyenne (m/s)",
+            "en": "Average speed (m/s)"
+          },
+          "answer": "9"
+        },
+        {
+          "id": "instant",
+          "label": {
+            "fr": "Vitesse instantanée à 1 s (m/s)",
+            "en": "Instantaneous speed at 1 s (m/s)"
+          },
+          "answer": "5"
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q09",
+      "type": "numeric",
+      "lessonId": "L38",
+      "objective": "tangent-reading",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L38"
+      ],
+      "prompt": {
+        "fr": "La droite tracée est tangente au graphique de $f$ au point $(1,2)$. Elle passe aussi par $(0,4)$ et $(2,0)$. Lire $Df(1)$.",
+        "en": "The straight line is tangent to the graph of $f$ at $(1,2)$. It also passes through $(0,4)$ and $(2,0)$. Read $Df(1)$."
+      },
+      "explanation": {
+        "fr": "$Df(1)$ est la pente de la tangente : $\\dfrac{0-4}{2-0}=-2$. La hauteur du point de contact est $f(1)=2$, pas la dérivée.",
+        "en": "$Df(1)$ is the tangent slope: $\\dfrac{0-4}{2-0}=-2$. The contact point height is $f(1)=2$, not the derivative."
+      },
+      "pitfall": {
+        "fr": "La pente est négative quand la droite descend de gauche à droite.",
+        "en": "The slope is negative when a line falls from left to right."
+      },
+      "graph": "tangent",
+      "fields": [
+        {
+          "id": "slope",
+          "label": {
+            "fr": "$Df(1)$",
+            "en": "$Df(1)$"
+          },
+          "answer": "-2"
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q10",
+      "type": "numeric",
+      "lessonId": "L39",
+      "objective": "polynomial-derivative",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L39"
+      ],
+      "prompt": {
+        "fr": "Soit $f(x)=2x^3-5x^2+4x-7$ sur $\\mathbb R$. On écrit $Df(x)=ax^2+bx+c$. Compléter les coefficients, avec leur signe.",
+        "en": "Let $f(x)=2x^3-5x^2+4x-7$ on $\\mathbb R$. Write $Df(x)=ax^2+bx+c$. Complete the signed coefficients."
+      },
+      "explanation": {
+        "fr": "On dérive terme à terme : $D(2x^3)=6x^2$, $D(-5x^2)=-10x$, $D(4x)=4$ et $D(-7)=0$.",
+        "en": "Differentiate term by term: $D(2x^3)=6x^2$, $D(-5x^2)=-10x$, $D(4x)=4$ and $D(-7)=0$."
+      },
+      "pitfall": {
+        "fr": "La dérivée d’une constante est zéro ; le coefficient négatif garde son signe.",
+        "en": "A constant has derivative zero; the negative coefficient keeps its sign."
+      },
+      "fields": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$a$",
+            "en": "$a$"
+          },
+          "answer": "6"
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$b$",
+            "en": "$b$"
+          },
+          "answer": "-10"
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$c$",
+            "en": "$c$"
+          },
+          "answer": "4"
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q11",
+      "type": "single",
+      "lessonId": "L39",
+      "objective": "product-rule",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L39"
+      ],
+      "prompt": {
+        "fr": "Soit $f(x)=x^2e^x$ sur $\\mathbb R$. Quelle est sa dérivée ?",
+        "en": "Let $f(x)=x^2e^x$ on $\\mathbb R$. What is its derivative?"
+      },
+      "explanation": {
+        "fr": "La règle du produit donne $Df(x)=2xe^x+x^2e^x=(2x+x^2)e^x$.",
+        "en": "The product rule gives $Df(x)=2xe^x+x^2e^x=(2x+x^2)e^x$."
+      },
+      "pitfall": {
+        "fr": "Dériver un produit demande deux termes, pas le produit des dérivées.",
+        "en": "Differentiating a product requires two terms, not the product of the derivatives."
+      },
+      "answer": [
+        "c"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$2xe^x$",
+            "en": "$2xe^x$"
+          },
+          "feedback": {
+            "fr": "C’est le produit des dérivées : il manque un terme.",
+            "en": "This multiplies the derivatives: one term is missing."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$x^2e^x$",
+            "en": "$x^2e^x$"
+          },
+          "feedback": {
+            "fr": "Seul le facteur exponentiel a été dérivé.",
+            "en": "Only the exponential factor was differentiated."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(2x+x^2)e^x$",
+            "en": "$(2x+x^2)e^x$"
+          },
+          "feedback": {
+            "fr": "Les deux termes de la règle du produit sont présents.",
+            "en": "Both terms of the product rule are present."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$(2x-x^2)e^x$",
+            "en": "$(2x-x^2)e^x$"
+          },
+          "feedback": {
+            "fr": "La règle du produit comporte une somme, pas une différence.",
+            "en": "The product rule uses addition, not subtraction."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q12",
+      "type": "single",
+      "lessonId": "L39",
+      "objective": "quotient-rule",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L39"
+      ],
+      "prompt": {
+        "fr": "Soit $f(x)=\\dfrac{2x-1}{x+2}$ sur $\\mathbb R\\setminus\\{-2\\}$. Que vaut $Df(x)$ ?",
+        "en": "Let $f(x)=\\dfrac{2x-1}{x+2}$ on $\\mathbb R\\setminus\\{-2\\}$. What is $Df(x)$?"
+      },
+      "explanation": {
+        "fr": "$Df(x)=\\dfrac{2(x+2)-(2x-1)}{(x+2)^2}=\\dfrac5{(x+2)^2}$. Autre contrôle : $f(x)=2-\\dfrac5{x+2}$.",
+        "en": "$Df(x)=\\dfrac{2(x+2)-(2x-1)}{(x+2)^2}=\\dfrac5{(x+2)^2}$. Another check: $f(x)=2-\\dfrac5{x+2}$."
+      },
+      "pitfall": {
+        "fr": "Dans la règle du quotient, l’ordre de la soustraction et le carré du dénominateur comptent.",
+        "en": "In the quotient rule, the subtraction order and squared denominator matter."
+      },
+      "answer": [
+        "a"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\dfrac5{(x+2)^2}$",
+            "en": "$\\dfrac5{(x+2)^2}$"
+          },
+          "feedback": {
+            "fr": "Le numérateur se simplifie en cinq.",
+            "en": "The numerator simplifies to five."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\dfrac{-5}{(x+2)^2}$",
+            "en": "$\\dfrac{-5}{(x+2)^2}$"
+          },
+          "feedback": {
+            "fr": "La soustraction a été inversée.",
+            "en": "The subtraction was reversed."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$2$",
+            "en": "$2$"
+          },
+          "feedback": {
+            "fr": "On ne divise pas les dérivées du numérateur et du dénominateur.",
+            "en": "Do not divide the numerator and denominator derivatives."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\dfrac5{x+2}$",
+            "en": "$\\dfrac5{x+2}$"
+          },
+          "feedback": {
+            "fr": "Le dénominateur doit être élevé au carré.",
+            "en": "The denominator must be squared."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q13",
+      "type": "numeric",
+      "lessonId": "L39",
+      "objective": "tangent-equation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L39"
+      ],
+      "prompt": {
+        "fr": "Soit $f(x)=x^3+x$ sur $\\mathbb R$. La tangente au point d’abscisse $1$ a pour équation $y=mx+p$. Calculer $m$ et $p$.",
+        "en": "Let $f(x)=x^3+x$ on $\\mathbb R$. The tangent at first coordinate $1$ has equation $y=mx+p$. Find $m$ and $p$."
+      },
+      "explanation": {
+        "fr": "$f(1)=2$ et $Df(1)=3+1=4$. Ainsi $y=2+4(x-1)=4x-2$. Contrôle : pour $x=1$, la droite donne bien $y=2$.",
+        "en": "$f(1)=2$ and $Df(1)=3+1=4$. Hence $y=2+4(x-1)=4x-2$. Check: at $x=1$, the line gives $y=2$."
+      },
+      "pitfall": {
+        "fr": "L’ordonnée à l’origine de la tangente n’est généralement pas la valeur de la fonction au point de contact.",
+        "en": "The tangent intercept is generally not the function value at the contact point."
+      },
+      "fields": [
+        {
+          "id": "m",
+          "label": {
+            "fr": "$m$",
+            "en": "$m$"
+          },
+          "answer": "4"
+        },
+        {
+          "id": "p",
+          "label": {
+            "fr": "$p$",
+            "en": "$p$"
+          },
+          "answer": "-2"
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q14",
+      "type": "single",
+      "lessonId": "L40",
+      "objective": "exponential-definition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L40"
+      ],
+      "prompt": {
+        "fr": "Quelle condition caractérise la fonction exponentielle sur les réels ?",
+        "en": "Which condition characterises the exponential function on the real numbers?"
+      },
+      "explanation": {
+        "fr": "$Df=f$ avec $f(0)=1$ caractérise $e^x$. Sans condition initiale, $2e^x$ et la fonction nulle vérifient aussi $Df=f$.",
+        "en": "$Df=f$ with $f(0)=1$ characterises $e^x$. Without an initial condition, $2e^x$ and the zero function also satisfy $Df=f$."
+      },
+      "pitfall": {
+        "fr": "L’équation différentielle seule ne fixe pas la valeur initiale.",
+        "en": "The differential equation alone does not fix the initial value."
+      },
+      "answer": [
+        "b"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$Df=f$",
+            "en": "$Df=f$"
+          },
+          "feedback": {
+            "fr": "Il manque une condition initiale pour sélectionner l’exponentielle.",
+            "en": "An initial condition is needed to select the exponential."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$Df=f,\\quad f(0)=1$",
+            "en": "$Df=f,\\quad f(0)=1$"
+          },
+          "feedback": {
+            "fr": "La dérivée et la valeur initiale sont les bonnes.",
+            "en": "Both the derivative and initial value are correct."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$Df=f,\\quad f(0)=0$",
+            "en": "$Df=f,\\quad f(0)=0$"
+          },
+          "feedback": {
+            "fr": "La fonction nulle satisfait ces conditions.",
+            "en": "The zero function satisfies these conditions."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$Df=1,\\quad f(0)=1$",
+            "en": "$Df=1,\\quad f(0)=1$"
+          },
+          "feedback": {
+            "fr": "Ces conditions sélectionnent une fonction affine.",
+            "en": "These conditions select an affine function."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q15",
+      "type": "numeric",
+      "lessonId": "L40",
+      "objective": "exponential-laws",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L40"
+      ],
+      "prompt": {
+        "fr": "Pour tout $x\\in\\mathbb R$, on a $\\dfrac{e^{4x+1}e^{2-4x}}{e^{-2}}=e^k$. Calculer $k$.",
+        "en": "For every $x\\in\\mathbb R$, $\\dfrac{e^{4x+1}e^{2-4x}}{e^{-2}}=e^k$. Find $k$."
+      },
+      "explanation": {
+        "fr": "Les exposants s’ajoutent dans le produit et se soustraient dans le quotient : $(4x+1)+(2-4x)-(-2)=5$.",
+        "en": "Exponents add in a product and subtract in a quotient: $(4x+1)+(2-4x)-(-2)=5$."
+      },
+      "pitfall": {
+        "fr": "Soustraire un exposant négatif revient à l’ajouter.",
+        "en": "Subtracting a negative exponent adds its opposite."
+      },
+      "fields": [
+        {
+          "id": "k",
+          "label": {
+            "fr": "$k$",
+            "en": "$k$"
+          },
+          "answer": "5"
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q16",
+      "type": "single",
+      "lessonId": "L41",
+      "objective": "log-inverse",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L41"
+      ],
+      "prompt": {
+        "fr": "Pour tout $x>0$, quelle paire d’égalités exprime correctement que $\\ln$ est la réciproque de l’exponentielle ?",
+        "en": "For every $x>0$, which pair of equalities correctly expresses that $\\ln$ is the inverse of the exponential?"
+      },
+      "explanation": {
+        "fr": "$\\ln(e^{x-2})=x-2$ et $e^{\\ln(x)}=x$. La première composition est définie puisque $e^{x-2}>0$ ; la deuxième nécessite $x>0$.",
+        "en": "$\\ln(e^{x-2})=x-2$ and $e^{\\ln(x)}=x$. The first composition is defined because $e^{x-2}>0$; the second requires $x>0$."
+      },
+      "pitfall": {
+        "fr": "La fonction réciproque annule l’action d’une fonction ; ce n’est pas son inverse multiplicatif.",
+        "en": "An inverse function undoes a function; it is not its reciprocal."
+      },
+      "answer": [
+        "a"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\ln(e^{x-2})=x-2,\\quad e^{\\ln(x)}=x$",
+            "en": "$\\ln(e^{x-2})=x-2,\\quad e^{\\ln(x)}=x$"
+          },
+          "feedback": {
+            "fr": "Chaque composition retrouve son argument.",
+            "en": "Each composition recovers its argument."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\ln(e^{x-2})=e^{x-2},\\quad e^{\\ln(x)}=\\ln(x)$",
+            "en": "$\\ln(e^{x-2})=e^{x-2},\\quad e^{\\ln(x)}=\\ln(x)$"
+          },
+          "feedback": {
+            "fr": "Les deux fonctions se défont : elles ne conservent pas la valeur intermédiaire.",
+            "en": "The two functions undo each other; they do not retain the intermediate value."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\ln(x)=\\dfrac1{e^x},\\quad e^{\\ln(x)}=x$",
+            "en": "$\\ln(x)=\\dfrac1{e^x},\\quad e^{\\ln(x)}=x$"
+          },
+          "feedback": {
+            "fr": "Réciproque ne signifie pas inverse multiplicatif.",
+            "en": "Inverse function does not mean reciprocal."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\ln(e^{x-2})=x,\\quad e^{\\ln(x)}=x-2$",
+            "en": "$\\ln(e^{x-2})=x,\\quad e^{\\ln(x)}=x-2$"
+          },
+          "feedback": {
+            "fr": "La première composition retrouve l’exposant entier, et la seconde son argument.",
+            "en": "The first composition recovers the whole exponent, and the second its argument."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q17",
+      "type": "multi",
+      "lessonId": "L41",
+      "objective": "log-laws",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L41"
+      ],
+      "prompt": {
+        "fr": "Quelles égalités sont vraies pour tous $x,y>0$ ?",
+        "en": "Which equalities hold for every $x,y>0$?"
+      },
+      "explanation": {
+        "fr": "Le quotient devient une différence : $\\ln(x/y)=\\ln(x)-\\ln(y)$. Une puissance donne $\\ln(x^3)=3\\ln(x)$ et $D\\ln(x)=1/x$. Mais $\\ln(1)=0$ ; avec $x=y=1$, la règle proposée pour une somme donnerait $\\ln(2)=0$, ce qui est faux.",
+        "en": "A quotient becomes a difference: $\\ln(x/y)=\\ln(x)-\\ln(y)$. A power gives $\\ln(x^3)=3\\ln(x)$ and $D\\ln(x)=1/x$. However $\\ln(1)=0$; at $x=y=1$, the proposed sum rule would give $\\ln(2)=0$, which is false."
+      },
+      "pitfall": {
+        "fr": "Les règles du logarithme concernent les produits, quotients et puissances, pas les sommes.",
+        "en": "Logarithm rules concern products, quotients and powers, not sums."
+      },
+      "answer": [
+        "a",
+        "c",
+        "d"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\ln(x/y)=\\ln(x)-\\ln(y)$",
+            "en": "$\\ln(x/y)=\\ln(x)-\\ln(y)$"
+          },
+          "feedback": {
+            "fr": "C’est la règle du quotient pour des arguments positifs.",
+            "en": "This is the quotient law for positive arguments."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\ln(x+y)=\\ln(x)+\\ln(y)$",
+            "en": "$\\ln(x+y)=\\ln(x)+\\ln(y)$"
+          },
+          "feedback": {
+            "fr": "Prendre $x=y=1$ fournit un contre-exemple.",
+            "en": "Taking $x=y=1$ gives a counterexample."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\ln(x^3)=3\\ln(x)$",
+            "en": "$\\ln(x^3)=3\\ln(x)$"
+          },
+          "feedback": {
+            "fr": "L’exposant devient un coefficient.",
+            "en": "The exponent becomes a coefficient."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$D\\ln(x)=1/x$",
+            "en": "$D\\ln(x)=1/x$"
+          },
+          "feedback": {
+            "fr": "C’est la dérivée sur les réels strictement positifs.",
+            "en": "This is the derivative on the strictly positive reals."
+          }
+        },
+        {
+          "id": "e",
+          "label": {
+            "fr": "$\\ln(1)=1$",
+            "en": "$\\ln(1)=1$"
+          },
+          "feedback": {
+            "fr": "$e^0=1$, donc $\\ln(1)=0$.",
+            "en": "$e^0=1$, so $\\ln(1)=0$."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q18",
+      "type": "numeric",
+      "lessonId": "L41",
+      "objective": "log-derivative",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L41"
+      ],
+      "prompt": {
+        "fr": "Soit $f(x)=\\ln(x^4)$ sur $]0,+\\infty[$. On écrit $f(x)=a\\ln(x)$. Calculer $a$, puis $Df(2)$.",
+        "en": "Let $f(x)=\\ln(x^4)$ on $]0,+\\infty[$. Write $f(x)=a\\ln(x)$. Find $a$, then $Df(2)$."
+      },
+      "explanation": {
+        "fr": "Sur ce domaine, $f(x)=4\\ln(x)$. Ainsi $Df(x)=4/x$ et $Df(2)=2$. Contrôle par la chaîne : $4x^3/x^4=4/x$.",
+        "en": "On this domain, $f(x)=4\\ln(x)$. Thus $Df(x)=4/x$ and $Df(2)=2$. Chain-rule check: $4x^3/x^4=4/x$."
+      },
+      "pitfall": {
+        "fr": "Le domaine annoncé permet d’utiliser le logarithme de x après simplification.",
+        "en": "The stated domain permits using the logarithm of x after simplification."
+      },
+      "fields": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$a$",
+            "en": "$a$"
+          },
+          "answer": "4"
+        },
+        {
+          "id": "derivative",
+          "label": {
+            "fr": "$Df(2)$",
+            "en": "$Df(2)$"
+          },
+          "answer": "2"
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q19",
+      "type": "numeric",
+      "lessonId": "L42",
+      "objective": "base-two-application",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L42"
+      ],
+      "prompt": {
+        "fr": "Calculer sans calculatrice. Pour la dernière réponse, une population double chaque heure : $N(t)=40\\times2^t$ pour $t\\ge0$. À quel instant atteint-elle $1280$ individus ?",
+        "en": "Calculate without a calculator. For the last answer, a population doubles every hour: $N(t)=40\\times2^t$ for $t\\ge0$. When does it reach $1280$ individuals?"
+      },
+      "explanation": {
+        "fr": "$2^8=256$, donc $\\log_2(256)=8$. Puis $2^{-5}=1/32$, donc $\\log_2(1/32)=-5$. Enfin $1280/40=32=2^5$, donc $t=5$ heures.",
+        "en": "$2^8=256$, so $\\log_2(256)=8$. Also $2^{-5}=1/32$, so $\\log_2(1/32)=-5$. Finally $1280/40=32=2^5$, so $t=5$ hours."
+      },
+      "pitfall": {
+        "fr": "Le logarithme retrouve un exposant ; un argument compris entre zéro et un donne un logarithme en base 2 négatif.",
+        "en": "A logarithm recovers an exponent; an argument between zero and one has a negative base-2 logarithm."
+      },
+      "fields": [
+        {
+          "id": "positive",
+          "label": {
+            "fr": "$\\log_2(256)$",
+            "en": "$\\log_2(256)$"
+          },
+          "answer": "8"
+        },
+        {
+          "id": "negative",
+          "label": {
+            "fr": "$\\log_2(1/32)$",
+            "en": "$\\log_2(1/32)$"
+          },
+          "answer": "-5"
+        },
+        {
+          "id": "time",
+          "label": {
+            "fr": "Temps (heures)",
+            "en": "Time (hours)"
+          },
+          "answer": "5"
+        }
+      ]
+    },
+    {
+      "id": "C03-M01-Q20",
+      "type": "single",
+      "lessonId": "L42",
+      "objective": "complexity-growth",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L42"
+      ],
+      "prompt": {
+        "fr": "Quatre algorithmes ont des coûts proportionnels à $\\log_2(n)$, $n$, $n^2$ et $2^n$. Pour les entiers $n$ suffisamment grands, quel est l’ordre du plus petit au plus grand ?",
+        "en": "Four algorithms have costs proportional to $\\log_2(n)$, $n$, $n^2$ and $2^n$. For sufficiently large integers $n$, which order runs from smallest to largest?"
+      },
+      "explanation": {
+        "fr": "Pour $n$ suffisamment grand, $\\log_2(n)<n<n^2<2^n$. Le logarithme croît plus lentement qu’une fonction linéaire ; une exponentielle finit par dépasser tout polynôme de degré fixé.",
+        "en": "For sufficiently large $n$, $\\log_2(n)<n<n^2<2^n$. The logarithm grows more slowly than a linear function; an exponential eventually exceeds any fixed-degree polynomial."
+      },
+      "pitfall": {
+        "fr": "Cette comparaison porte sur les grandes tailles : certaines courbes peuvent se croiser pour de petits entiers.",
+        "en": "This comparison concerns large inputs: some curves can cross at small integers."
+      },
+      "answer": [
+        "c"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$n<\\log_2(n)<n^2<2^n$",
+            "en": "$n<\\log_2(n)<n^2<2^n$"
+          },
+          "feedback": {
+            "fr": "Le logarithme croît plus lentement que la fonction linéaire.",
+            "en": "The logarithm grows more slowly than the linear function."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\log_2(n)<n<2^n<n^2$",
+            "en": "$\\log_2(n)<n<2^n<n^2$"
+          },
+          "feedback": {
+            "fr": "À long terme, l’exponentielle dépasse le carré.",
+            "en": "Eventually, the exponential exceeds the square."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\log_2(n)<n<n^2<2^n$",
+            "en": "$\\log_2(n)<n<n^2<2^n$"
+          },
+          "feedback": {
+            "fr": "L’ordre respecte les quatre familles de croissance.",
+            "en": "The order respects all four growth families."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\log_2(n)<2^n<n<n^2$",
+            "en": "$\\log_2(n)<2^n<n<n^2$"
+          },
+          "feedback": {
+            "fr": "L’exponentielle ne reste pas sous la croissance linéaire.",
+            "en": "The exponential does not stay below linear growth."
+          }
+        }
+      ]
+    }
+  ]
+}

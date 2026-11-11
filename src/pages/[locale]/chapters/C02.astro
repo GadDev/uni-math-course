@@ -1,6 +1,7 @@
 ---
 import LessonCompletion from '../../../components/LessonCompletion.astro';
 import { completionCopy } from '../../../lib/completion-copy';
+import TrainingExamLink from '../../../components/TrainingExamLink.astro';
 import Base from '../../../layouts/Base.astro';
 import SignalGeometry from '../../../components/SignalGeometry.astro';
 import { locales } from '../../../lib/i18n';
@@ -155,5 +156,6 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
         </a>
       </aside>
     </section>
+    <TrainingExamLink locale={locale} chapterId="C02" />
   </main>
 </Base>
