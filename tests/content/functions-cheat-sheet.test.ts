@@ -75,7 +75,7 @@ test('logarithm identities and domain conditions are complete', () => {
     assert.ok(law.explanation.en && law.explanation.fr);
   }
   assert.equal(Math.log(Math.exp(3)), 3);
-  assert.equal(Math.exp(Math.log(5)), 5);
+  assert.ok(Math.abs(Math.exp(Math.log(5)) - 5) < 1e-12);
   assert.ok(Math.abs(Math.log(6) - Math.log(2) - Math.log(3)) < 1e-12);
   assert.equal(Math.log2(8), 3);
 });
