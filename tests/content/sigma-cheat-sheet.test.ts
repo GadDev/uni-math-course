@@ -29,8 +29,14 @@ test('Sigma examples include finite, indexed, set and infinite readings', () => 
     assert.ok(pattern.reading.fr && pattern.reading.en);
     assert.ok(pattern.expansion);
   }
-  assert.match(sigmaPatterns.find((pattern) => pattern.id === 'powers')!.expansion, /31/);
-  assert.match(sigmaPatterns.find((pattern) => pattern.id === 'set')!.note!.en, /finite/);
+  assert.match(
+    sigmaPatterns.find((pattern) => pattern.id === 'powers')!.expansion,
+    /31/,
+  );
+  assert.match(
+    sigmaPatterns.find((pattern) => pattern.id === 'set')!.note!.en,
+    /finite/,
+  );
   assert.match(
     sigmaPatterns.find((pattern) => pattern.id === 'infinite')!.note!.fr,
     /converge/,
