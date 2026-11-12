@@ -1,0 +1,181 @@
+---
+import type { Locale } from '../lib/i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const text = {
+  fr: {
+    title: 'Deux PDF pour réviser',
+    intro:
+      'Commencez par le guide pas à pas pour comprendre, puis utilisez le compagnon pour retrouver une méthode.',
+    note: 'Documents en français · Format A4 · Accès libre sans compte',
+    download: 'Télécharger',
+    view: 'Consulter le PDF',
+    language: 'PDF en français',
+    pages: 'pages',
+    documents: {
+      guide: {
+        title: 'Aide-mémoire pas à pas',
+        badge: 'Commencer ici',
+        description:
+          'Pour reprendre les bases : lire les symboles et les sommes Σ, développer, factoriser, calculer une dérivée et trouver une tangente. Avec des exemples détaillés et des schémas.',
+      },
+      companion: {
+        title: 'Compagnon d’examen',
+        badge: 'Retrouver une méthode',
+        description:
+          'Un document de référence pour les quatre chapitres : logique et ensembles, droites, fonctions et théorie de l’information. Formules, méthodes et exemples corrigés.',
+      },
+    },
+  },
+  en: {
+    title: 'Two PDFs to help you revise',
+    intro:
+      'Start with the step-by-step guide to understand the basics, then use the companion to look up a method.',
+    note: 'Documents in French · A4 format · Free access without an account',
+    download: 'Download',
+    view: 'View PDF',
+    language: 'PDF in French',
+    pages: 'pages',
+    documents: {
+      guide: {
+        title: 'Step-by-step revision guide',
+        badge: 'Start here',
+        description:
+          'Revisit the basics: reading symbols and sums Σ, expanding, factorising, calculating a derivative and finding a tangent. Includes detailed examples and diagrams.',
+      },
+      companion: {
+        title: 'Exam companion',
+        badge: 'Look up a method',
+        description:
+          'A reference covering the four chapters: logic and sets, lines, functions and information theory. Formulas, methods and worked examples.',
+      },
+    },
+  },
+}[locale];
+const documents = [
+  { id: 'guide' as const, filename: 'aide_memoire_maths_fr.pdf', pages: 22 },
+  {
+    id: 'companion' as const,
+    filename: 'compagnon_examen_maths_fr.pdf',
+    pages: 43,
+  },
+].map((document) => ({
+  ...document,
+  ...text.documents[document.id],
+  href: `/pdfs/revision/${document.filename}`,
+}));
+---
+
+<section
+  id="revision-pdfs"
+  class="revision-downloads"
+  aria-labelledby="revision-pdfs-title"
+>
+  <h2 id="revision-pdfs-title">{text.title}</h2>
+  <p class="revision-intro">{text.intro}</p>
+  <p class="revision-note">{text.note}</p>
+  <div class="revision-grid">
+    {documents.map((document) => (
+      <article class="revision-card">
+        <p class="eyebrow">{document.badge}</p>
+        <h3>{document.title}</h3>
+        <p class="revision-meta">
+          {text.language} · A4 · {document.pages} {text.pages}
+        </p>
+        <p class="revision-description">{document.description}</p>
+        <div class="revision-actions">
+          <a
+            class="primary-link"
+            href={document.href}
+            download={document.filename}
+            type="application/pdf"
+            hreflang="fr"
+            aria-label={`${text.download} : ${document.title} (${text.language}, ${document.pages} ${text.pages})`}
+          >
+            {text.download}
+          </a>
+          <a
+            class="revision-view"
+            href={document.href}
+            type="application/pdf"
+            hreflang="fr"
+            aria-label={`${text.view} : ${document.title} (${text.language})`}
+          >
+            {text.view}
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .revision-downloads {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--line);
+    scroll-margin-top: 1.5rem;
+  }
+  .revision-downloads h2 {
+    margin: 0;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+  }
+  .revision-intro {
+    max-width: 70ch;
+    margin-bottom: 0.5rem;
+  }
+  .revision-note,
+  .revision-meta {
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
+  .revision-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  .revision-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 1px solid var(--soft-line);
+    background: var(--card);
+  }
+  .revision-card .eyebrow {
+    margin: 0 0 0.75rem;
+  }
+  .revision-card h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  .revision-meta {
+    margin-bottom: 0;
+  }
+  .revision-description {
+    flex-grow: 1;
+  }
+  .revision-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+  }
+  .revision-view {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--ink);
+  }
+  @media (max-width: 650px) {
+    .revision-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .revision-card {
+      padding: 1.1rem;
+    }
+  }
+</style>
