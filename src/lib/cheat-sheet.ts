@@ -201,6 +201,93 @@ export const symbolGroups: {
   },
 ];
 
+export type TruthRow = {
+  p: boolean;
+  q: boolean;
+  and: boolean;
+  or: boolean;
+  implies: boolean;
+  iff: boolean;
+};
+
+export const truthTableRows: TruthRow[] = [
+  { p: true, q: true, and: true, or: true, implies: true, iff: true },
+  { p: true, q: false, and: false, or: true, implies: false, iff: false },
+  { p: false, q: true, and: false, or: true, implies: true, iff: false },
+  { p: false, q: false, and: false, or: false, implies: true, iff: true },
+];
+
+export type MappingProperty = {
+  id: 'injective' | 'surjective' | 'bijective';
+  title: Record<Locale, string>;
+  description: Record<Locale, string>;
+  formula: string;
+  arrows: Record<Locale, string>;
+  diagram: {
+    source: string[];
+    target: string[];
+    pairs: [number, number][];
+  };
+};
+
+export const mappingProperties: MappingProperty[] = [
+  {
+    id: 'injective',
+    title: { fr: 'Injective', en: 'Injective / One-to-one' },
+    description: {
+      fr: 'Deux éléments distincts de A ne peuvent pas avoir la même image dans B.',
+      en: 'Two different elements of A cannot have the same image in B.',
+    },
+    formula:
+      '\\forall x_1,x_2\\in A,\\; f(x_1)=f(x_2)\\Rightarrow x_1=x_2',
+    arrows: {
+      fr: 'Chaque élément de B reçoit au plus une flèche (zéro ou une).',
+      en: 'Each element of B receives at most one arrow (zero or one).',
+    },
+    diagram: {
+      source: ['1', '2'],
+      target: ['a', 'b', 'c'],
+      pairs: [[0, 0], [1, 1]],
+    },
+  },
+  {
+    id: 'surjective',
+    title: { fr: 'Surjective', en: 'Surjective / Onto' },
+    description: {
+      fr: 'Tout élément de B est atteint par au moins un élément de A.',
+      en: 'Every element of B is reached by at least one element of A.',
+    },
+    formula: '\\forall y\\in B,\\;\\exists x\\in A : f(x)=y',
+    arrows: {
+      fr: 'Chaque élément de B reçoit au moins une flèche (une ou plus).',
+      en: 'Each element of B receives at least one arrow (one or more).',
+    },
+    diagram: {
+      source: ['1', '2', '3'],
+      target: ['a', 'b'],
+      pairs: [[0, 0], [1, 1], [2, 1]],
+    },
+  },
+  {
+    id: 'bijective',
+    title: { fr: 'Bijective', en: 'Bijective' },
+    description: {
+      fr: 'L’application est à la fois injective et surjective.',
+      en: 'The mapping is both injective and surjective.',
+    },
+    formula: '\\forall y\\in B,\\;\\exists!x\\in A : f(x)=y',
+    arrows: {
+      fr: 'Chaque élément de B reçoit exactement une flèche.',
+      en: 'Every element of B receives exactly one arrow.',
+    },
+    diagram: {
+      source: ['1', '2', '3'],
+      target: ['a', 'b', 'c'],
+      pairs: [[0, 0], [1, 1], [2, 2]],
+    },
+  },
+];
+
 export const cheatSheetCopy = {
   fr: {
     nav: 'Fiche mémo',
@@ -215,6 +302,35 @@ export const cheatSheetCopy = {
     meaning: 'Signification simple',
     alternatives: 'ou',
     print: 'Imprimer cette fiche',
+    truthTitle: 'Tables de vérité et implications logiques',
+    truthIntro:
+      'Chaque proposition P ou Q est vraie (V) ou fausse (F). Les connecteurs combinent ces propositions.',
+    truthTableLabel: 'Table de vérité des connecteurs',
+    trueLabel: 'V',
+    falseLabel: 'F',
+    implicationOnlyFalse: 'Seul cas faux pour l’implication',
+    falseImpliesAnything: 'Le faux implique tout',
+    truthTakeawayTitle: 'Ce qu’il faut retenir par cœur',
+    implicationTitle: 'L’implication (P ⇒ Q)',
+    implicationTakeaway:
+      '« Si P, alors Q » (If P, then Q). Elle est fausse uniquement quand P est vrai et Q est faux. Si P est faux, P ⇒ Q est vrai par définition, quelle que soit la valeur de Q.',
+    biconditionalTitle: 'La biconditionnelle (P ⇔ Q)',
+    biconditionalTakeaway:
+      '« P si et seulement si Q » (P if and only if Q). Elle est vraie quand P et Q ont la même valeur de vérité : V/V ou F/F.',
+    equivalenceNote:
+      'Attention : le connecteur P ⇔ Q est une proposition. Deux formules sont logiquement équivalentes si leur biconditionnelle est vraie pour toutes les valeurs possibles.',
+    mappingTitle: 'Fonctions et applications',
+    mappingIntro:
+      'Une application f : A → B associe à chaque x de A exactement un élément f(x) de B. A est l’ensemble de départ et B l’ensemble d’arrivée.',
+    mappingDiagramLabel: 'Schéma de flèches de A vers B',
+    mappingDefinition: 'Définition intuitive',
+    mappingFormula: 'Formule mathématique',
+    mappingArrows: 'Image mentale',
+    mappingProperty: 'Propriété',
+    mappingSource: 'Départ A',
+    mappingTarget: 'Arrivée B',
+    mappingReminder:
+      'On compte les flèches qui arrivent dans B : au plus une (injective), au moins une (surjective), exactement une (bijective). Une application doit toujours donner exactement une image à chaque élément de A.',
     tipsTitle: 'Trois pièges à éviter',
     tips: [
       '« Ou » (∨) est inclusif : les deux propositions peuvent être vraies en même temps.',
@@ -239,6 +355,35 @@ export const cheatSheetCopy = {
     meaning: 'Simple meaning',
     alternatives: 'or',
     print: 'Print this sheet',
+    truthTitle: 'Truth tables and logical implications',
+    truthIntro:
+      'Every statement P or Q is true (T) or false (F). Logical connectives combine these statements.',
+    truthTableLabel: 'Truth table for logical connectives',
+    trueLabel: 'T',
+    falseLabel: 'F',
+    implicationOnlyFalse: 'The only false implication',
+    falseImpliesAnything: 'False implies anything',
+    truthTakeawayTitle: 'What to remember',
+    implicationTitle: 'Implication (P ⇒ Q)',
+    implicationTakeaway:
+      '“If P, then Q” (Si P, alors Q). This is false only if P is true and Q is false. When P is false, P ⇒ Q is true by definition, regardless of Q.',
+    biconditionalTitle: 'Biconditional (P ⇔ Q)',
+    biconditionalTakeaway:
+      '“P if and only if Q” (P si et seulement si Q). This is true when P and Q have the same truth value: T/T or F/F.',
+    equivalenceNote:
+      'Note: P ⇔ Q is a compound statement. Two formulas are logically equivalent when their biconditional is true for every possible valuation.',
+    mappingTitle: 'Functions and mappings',
+    mappingIntro:
+      'A mapping f : A → B assigns each x in A exactly one element f(x) in B. A is the domain and B is the codomain.',
+    mappingDiagramLabel: 'Arrow diagram from A to B',
+    mappingDefinition: 'Intuitive definition',
+    mappingFormula: 'Mathematical formula',
+    mappingArrows: 'Arrow intuition',
+    mappingProperty: 'Property',
+    mappingSource: 'Domain A',
+    mappingTarget: 'Codomain B',
+    mappingReminder:
+      'Count incoming arrows in B: at most one (injective), at least one (surjective), exactly one (bijective). Every element of A must always have exactly one image.',
     tipsTitle: 'Three common traps',
     tips: [
       '“Or” (∨) is inclusive: both statements can be true at the same time.',
@@ -262,6 +407,29 @@ export const cheatSheetCopy = {
   meaning: string;
   alternatives: string;
   print: string;
+  truthTitle: string;
+  truthIntro: string;
+  truthTableLabel: string;
+  trueLabel: string;
+  falseLabel: string;
+  implicationOnlyFalse: string;
+  falseImpliesAnything: string;
+  truthTakeawayTitle: string;
+  implicationTitle: string;
+  implicationTakeaway: string;
+  biconditionalTitle: string;
+  biconditionalTakeaway: string;
+  equivalenceNote: string;
+  mappingTitle: string;
+  mappingIntro: string;
+  mappingDiagramLabel: string;
+  mappingDefinition: string;
+  mappingFormula: string;
+  mappingArrows: string;
+  mappingProperty: string;
+  mappingSource: string;
+  mappingTarget: string;
+  mappingReminder: string;
   tipsTitle: string;
   tips: readonly string[];
   footnote: string;
