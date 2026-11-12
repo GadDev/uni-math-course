@@ -55,11 +55,11 @@ const math = (formula: string, displayMode = false) =>
     <div class="line-halfplane-formulas">
       <div>
         <h4>{text.above}</h4>
-        <div class="advanced-inline-math" set:html={math('y>mx+p\\quad\\text{ou}\\quad y\\ge mx+p', true)} />
+        <div class="advanced-inline-math" set:html={math('y>mx+p\\quad\\lor\\quad y\\ge mx+p', true)} />
       </div>
       <div>
         <h4>{text.below}</h4>
-        <div class="advanced-inline-math" set:html={math('y<mx+p\\quad\\text{ou}\\quad y\\le mx+p', true)} />
+        <div class="advanced-inline-math" set:html={math('y<mx+p\\quad\\lor\\quad y\\le mx+p', true)} />
       </div>
       <p>{text.border}</p>
     </div>
