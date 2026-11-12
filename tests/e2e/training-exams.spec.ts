@@ -42,8 +42,12 @@ for (const locale of ['fr', 'en']) {
       await expect(nav).toHaveAttribute('href', `/${locale}/training-exams/`);
       const expectedLabel =
         locale === 'fr' ? 'Examens blancs' : 'Practice exams';
-      const expectedVisibleLabel =
-        width <= 650 ? (locale === 'fr' ? 'Examens' : 'Exams') : expectedLabel;
+      const compactLabel = width <= 820 || (width >= 1051 && width <= 1370);
+      const expectedVisibleLabel = compactLabel
+        ? locale === 'fr'
+          ? 'Examens'
+          : 'Exams'
+        : expectedLabel;
       await expect(nav).toHaveText(expectedVisibleLabel, {
         useInnerText: true,
       });
