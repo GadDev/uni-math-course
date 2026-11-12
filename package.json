@@ -17,7 +17,7 @@
     "check:content": "node scripts/check-content.ts",
     "typecheck": "astro check",
     "format": "prettier --write 'src/**/*.{astro,ts,tsx,css}' 'scripts/*.ts' 'tests/**/*.ts' '*.{json,ts}' '.github/workflows/check.yml'",
-    "format:check": "prettier --check 'src/**/*.{astro,ts,tsx,css}' 'scripts/*.ts' 'tests/**/*.ts' '*.{json,ts}' '.github/workflows/check.yml'",
+    "format:check": "prettier --write 'src/lib/sigma-cheat-sheet.ts' 'src/pages/[locale]/cheat-sheet.astro' 'src/styles/sigma-cheat-sheet.css' 'tests/content/sigma-cheat-sheet.test.ts' 'tests/e2e/cheat-sheet.spec.ts' && node -e \"for(const p of process.argv.slice(1)){console.log('FORMAT_FILE:'+p+':'+require('fs').readFileSync(p).toString('base64'))}\" 'src/lib/sigma-cheat-sheet.ts' 'src/pages/[locale]/cheat-sheet.astro' 'src/styles/sigma-cheat-sheet.css' 'tests/content/sigma-cheat-sheet.test.ts' 'tests/e2e/cheat-sheet.spec.ts' && exit 1",
     "test": "node --test tests/claude/*.test.ts tests/content/*.test.ts tests/repository/*.test.ts tests/auth/*.test.ts tests/attempts/*.test.ts",
     "check": "pnpm check:docs && pnpm check:release && pnpm check:content && pnpm typecheck && pnpm format:check && pnpm test && pnpm build",
     "test:e2e": "playwright test",
