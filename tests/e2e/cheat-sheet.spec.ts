@@ -42,7 +42,9 @@ for (const locale of ['fr', 'en'] as const) {
       page.locator('#pixels .bres-trace-table tbody tr'),
     ).toHaveCount(6);
     await expect(
-      page.locator('#regression .regression-hand-table:not(.regression-blank-table) tbody tr'),
+      page.locator(
+        '#regression .regression-hand-table:not(.regression-blank-table) tbody tr',
+      ),
     ).toHaveCount(3);
     await expect(
       page.locator('#regression .regression-limits-table tbody tr'),
@@ -194,7 +196,9 @@ test('integer Bresenham steps and regression hand table are printable', async ({
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('#pixels .bres-trace-table')).toBeVisible();
   await expect(
-    page.locator('#regression .regression-hand-table:not(.regression-blank-table)'),
+    page.locator(
+      '#regression .regression-hand-table:not(.regression-blank-table)',
+    ),
   ).toBeVisible();
   await expect(
     page.locator('#regression .regression-blank-table tbody tr'),
