@@ -108,6 +108,13 @@ export default function InformationTheoryLab({ mode, locale }: Props) {
   const tree =
     p && mode === 'decisions' ? questionTree(weights, strategy) : null;
   const comparison = p && q ? gibbs(p, q) : null;
+  const exactlySameModel =
+    comparison &&
+    weights.every(
+      (w, i) =>
+        w * qRaw.map(Number).reduce((a, b) => a + b, 0) ===
+        Number(qRaw[i]) * weights.reduce((a, b) => a + b, 0),
+    );
   const bound = p && k ? entropyBound(weights, lengths) : null;
   const blocks =
     p && mode === 'blocks' ? binaryBlocks(weights, blockSize) : null;
@@ -172,6 +179,11 @@ export default function InformationTheoryLab({ mode, locale }: Props) {
         {fr
           ? 'Référence initiale calculée ci-dessous. Les exemples et solutions de la leçon restent utilisables sans JavaScript et à l’impression.'
           : 'The initial reference is calculated below. Lesson examples and solutions remain usable without JavaScript and in print.'}
+      </p>
+      <p>
+        {fr
+          ? 'Décimales arrondies à cinq chiffres après la virgule. Une égalité théorique ne se déduit pas de valeurs arrondies identiques.'
+          : 'Decimals are rounded to five places. Identical rounded values do not establish a theoretical equality.'}
       </p>
       <fieldset className="theory-controls">
         <legend>
@@ -456,6 +468,15 @@ export default function InformationTheoryLab({ mode, locale }: Props) {
                       {fr ? 'écart' : 'gap'} ={' '}
                       {number(Math.max(0, comparison.gap), locale)}
                     </output>
+                  </p>
+                  <p className="theory-exact-model">
+                    {exactlySameModel
+                      ? fr
+                        ? 'Égalité exacte : p = q.'
+                        : 'Exact equality: p = q.'
+                      : fr
+                        ? 'Modèles différents : inégalité stricte avant arrondi.'
+                        : 'Different models: strict inequality before rounding.'}
                   </p>
                   <p>
                     {fr

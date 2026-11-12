@@ -112,6 +112,22 @@ test('Gibbs equality and entropy-bound slack remain distinct', async ({
   await expect(panel.locator('output')).not.toHaveText(/écart = 0$/);
   await panel.getByRole('button', { name: 'Utiliser q = p' }).click();
   await expect(panel.locator('output')).toContainText('écart = 0');
+  await expect(panel.locator('.theory-exact-model')).toContainText(
+    'Égalité exacte',
+  );
+  const closeModels = [19, 20, 20, 18, 19, 19];
+  for (let i = 0; i < closeModels.length; i++)
+    await panel.locator('input').nth(i).fill(String(closeModels[i]));
+  await expect(panel.locator('output')).toContainText('écart = 0');
+  await expect(panel.locator('.theory-exact-model')).toContainText(
+    'inégalité stricte avant arrondi',
+  );
+  const proportional = [4, 2, 2, 2, 1, 1];
+  for (let i = 0; i < proportional.length; i++)
+    await panel.locator('input').nth(i).fill(String(proportional[i]));
+  await expect(panel.locator('.theory-exact-model')).toContainText(
+    'Égalité exacte',
+  );
   panel = await lab(page, 53);
   await expect(panel.locator('output')).toHaveText(
     'H = 1,5 ≤ L + log₂ K = 1,5 ≤ L = 1,5',
