@@ -124,7 +124,10 @@ for (const locale of ['fr', 'en'] as const) {
         return { viewport, pageWidth, wrappers, leakers, rootScroll };
       });
       expect(
-        { rootScroll: overflowReport.rootScroll, leakers: overflowReport.leakers },
+        {
+          rootScroll: overflowReport.rootScroll,
+          leakers: overflowReport.leakers,
+        },
         JSON.stringify(overflowReport, null, 2),
       ).toEqual({ rootScroll: 0, leakers: [] });
       await expect(
