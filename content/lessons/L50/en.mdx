@@ -1,0 +1,79 @@
+---
+lessonId: L50
+locale: en
+version: 1
+status: extended
+title: "From yes/no questions to codes"
+summary: "Connect decision trees, prefix codes and expected question counts."
+minutes: 35
+objectives: [L50-O01, L50-O02, L50-O03, L50-O04, L50-O05, L50-O06]
+prerequisites: [L48, L49]
+sourcePages: [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
+---
+
+import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+
+# Guess a symbol using questions
+
+Someone chooses a symbol. You may only ask questions answered “yes” or “no”. Should you always split the list in half? Not if some symbols are much more likely.
+
+**Source: PDF, pp. 33–44.** The detailed calculations, activities and exercises below are original teaching developments.
+
+## Objectives and prerequisites
+
+You will: (1) read a yes/no tree; (2) construct its code; (3) calculate the expected question count; (4) compare strategies; (5) analyse the die example; (6) distinguish individual cost from expectation. Review means in [L47](/en/lessons/L47/), entropy in [L48](/en/lessons/L48/) and Huffman in [L49](/en/lessons/L49/).
+
+## 01 · A path becomes a word
+
+Assume a finite alphabet with at least two symbols, strictly positive probabilities and a finite tree that always identifies the symbol. Every internal node asks a question. Every leaf is a definitive answer. The professor's convention is **yes = 1, no = 0**. Reading answers from root to leaf gives a binary word.
+
+A leaf cannot be an ancestor of another leaf, so these words form a **prefix code**. Conversely, the prefixes of a prefix code draw a tree. At each node, asking whether the symbol belongs to the right-branch group is enough. These are not questions about a message's meaning: any subset of symbols can define a question.
+
+## 02 · Three symbols: weight the paths
+
+Take $p(a)=1/2$ and $p(b)=p(c)=1/4$. Ask “is it a?”. Yes gives `1`. Otherwise ask “is it b?”: yes gives `01`, no gives `00`. The depths are $1,2,2$.
+
+$$E(Q)=\sum_i p_i\ell_i=\frac12\cdot1+\frac14\cdot2+\frac14\cdot2=\frac32.$$
+
+Each game uses one or two questions; the average is one and a half. Starting with “is it c?” gives depths $2,2,1$ for a, b, c:
+
+$$E(Q)=\frac12\cdot2+\frac14\cdot2+\frac14\cdot1=\frac74.$$
+
+The geometric tree shape is not enough: probability placement matters. Huffman minimises this expectation among binary identification trees. A tree's expected cost is exactly its code's average length.
+
+## 03 · A die: mean and maximum
+
+For six equally likely faces, entropy is $H(S)=\log_2 6\approx2{,}585$. An optimal tree has two leaves at depth 2 and four at depth 3:
+
+$$L=\frac{2\cdot2+4\cdot3}{6}=\frac83\approx2{,}667.$$
+
+For example, `00`, `01`, `100`, `101`, `110`, `111` form a prefix code. The mean is $8/3$ and the maximum is 3. Testing faces one at a time gives depths $1,2,3,4,5,5$ and an average cost $20/6=10/3$.
+
+**Clarification of pp. 41–43.** An individual question count is an integer; **an average may be fractional**. The entropy gap comes from constraints on integer depths and the tree, not a ban on fractional averages. We prove $L\ge H(S)$ in [L53](/en/lessons/L53/).
+
+## Experiment and explain
+
+**Goal.** Connect every path to its cost and compare strategies on the same source. **Prediction.** Is splitting the number of symbols equally always optimal? Choose three symbols or the die, change positive counts from 1 to 20, then change the strategy. The table and tree show paths, probabilities and the mean. Selecting a symbol shows its answer sequence.
+
+<InformationTheoryLab mode="decisions" locale="en" client:visible />
+
+On paper, compare the means $3/2$ and $7/4$ above. The table also provides a text reading of the tree.
+
+## Exercises with reasoning
+
+1. For four equally likely symbols, propose a tree and calculate its mean.
+2. For probabilities $(3/4,1/8,1/8)$ and depths $(1,2,2)$, calculate mean and worst cost.
+3. A student claims “an average of 1.5 questions is impossible”. How would you respond?
+
+<details className="info-answer">
+<summary>Justified solutions</summary>
+
+1. `00`, `01`, `10`, `11`: four paths of two questions, giving mean 2, equal to entropy.
+2. $L=3/4+2/8+2/8=5/4$; the maximum is 2. Weight the lengths rather than averaging the three lengths without probabilities.
+3. Individual results are integers, but their weighted mean need not be. The three-symbol example gives an explicit realisation.
+
+</details>
+
+## Remember and continue
+
+A leaf is a symbol, a path is a codeword, and its depth counts questions. Weight the depths. Distinguish mean, maximum and entropy. [L51](/en/lessons/L51/) explains which depth lists are possible. Examples and solutions are printable.

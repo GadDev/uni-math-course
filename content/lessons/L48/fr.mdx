@@ -1,14 +1,14 @@
 ---
 lessonId: L48
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Surprise, information et entropie de Shannon"
 summary: "Comprendre le codage de l'information, avec des exemples guidés."
 minutes: 45
 objectives: [L48-O01, L48-O02, L48-O03, L48-O04, L48-O05, L48-O06]
 prerequisites: [L47, L42]
-sourcePages: [17, 18, 19, 20]
+sourcePages: [22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
 ---
 
 import InformationExplorer from '../../../src/components/InformationExplorer';
@@ -16,7 +16,7 @@ import InformationExplorer from '../../../src/components/InformationExplorer';
 # Surprise, information et entropie de Shannon
 
 
-<span id="pdf-17" class="source-topic-marker"></span>
+<span id="pdf-22" class="source-topic-marker"></span>
 
 ## Objectifs et prérequis
 
@@ -30,13 +30,13 @@ Un résultat presque certain surprend peu ; un résultat rare surprend davantage
 
 ## 01 · Qu'est-ce qui nous surprend ?
 
-**Motivation du PDF, pp. 18–19.** Une source émet une longue série de $0$ puis un nouveau symbole $s_1$ ; une autre affiche une suite de $0$ et de $1$ plus variée puis $s_2$. Le document demande sur quelle valeur on miserait. C'est une **intuition**, pas une estimation numérique de probabilités à partir de ces seules séquences : il manque un modèle de génération.
+**Motivation du PDF, pp. 22–23.** Une source émet une longue série de $0$ puis un nouveau symbole $s_1$ ; une autre affiche une suite de $0$ et de $1$ plus variée puis $s_2$. Le document demande sur quelle valeur on miserait. C'est une **intuition**, pas une estimation numérique de probabilités à partir de ces seules séquences : il manque un modèle de génération.
 
 Un événement fréquent est peu surprenant ; un événement rare est plus surprenant. Shannon propose de quantifier ce contraste à l'aide d'un logarithme.
 
 ## 02 · Information portée par un symbole
 
-**PDF, p. 20.** Pour un symbole $s$ de probabilité $p(s)>0$, la quantité
+**PDF, p. 24.** Pour un symbole $s$ de probabilité $p(s)>0$, la quantité
 
 $$I(s)=-\log_2(p(s))$$
 
@@ -55,7 +55,7 @@ s'exprime en **bits d'information**. Le logarithme en base $2$ répond à la que
 
 ## 03 · L'entropie d'une source : une moyenne
 
-**Définition du PDF, p. 20.** Pour $S=\{s_1,\ldots,s_n\}$ et $p_1,\ldots,p_n$ :
+**Définition du PDF, p. 26.** Pour $S=\{s_1,\ldots,s_n\}$ et $p_1,\ldots,p_n$ :
 
 $$H(S)=-\sum_{i=1}^{n}p_i\log_2(p_i)=\sum_{i=1}^{n}p_i I(s_i).$$
 
@@ -105,6 +105,18 @@ Les informations propres valent $1,2,3,3$. Donc $H(S)=1/2+2/4+3/8+3/8=7/4$ bits 
 
 </details>
 
+## 03 bis · L'entropie binaire du PDF
+
+Pour deux symboles de probabilités $p$ et $1-p$, avec $0<p<1$ :
+
+$$H_2(p)=-p\log_2p-(1-p)\log_2(1-p).$$
+
+La page 27 trace cette courbe. Échanger les deux symboles remplace p par 1 − p sans changer la somme : la courbe est symétrique. Pour vérifier son sommet, on peut dériver :
+
+$$H_2'(p)=\log_2\left(\frac{1-p}{p}\right).$$
+
+Cette dérivée est positive avant un demi et négative après ; le maximum vaut un bit lorsque les deux symboles sont équiprobables. Aux extrémités, la convention explicite $0\log_2 0=0$ par limite donne une entropie nulle. Elle n'attribue pas une information propre finie à un événement impossible.
+
 ## Expérimenter et expliquer
 
 **But de l’expérience.** Distinguer la surprise d’un symbole de sa contribution à l’entropie.
@@ -128,7 +140,7 @@ Exemple sur papier : à p(x) = 1/4, I(x) = 2, I(y) ≈ 0,4150 et H ≈ 0,8113. �
 
 $$H(S)=-\frac12\log_2(1/2)-2\cdot\frac14\log_2(1/4)=\frac32=1{,}5.$$
 
-Le code $c_2$ du PDF a $L(c_2)=1{,}75$ ([L47](/fr/lessons/L47/)) ; le code préfixe supplémentaire $d$ a $L(d)=1{,}5$. Ces valeurs coïncident numériquement avec l'entropie pour `d` dans cet exemple. **Le PDF ne démontre pas de théorème général reliant $H$ et le minimum des longueurs** ; une telle démonstration relèverait d'une extension sur le codage optimal.
+Le code $c_2$ du PDF a $L(c_2)=1{,}75$ ([L47](/fr/lessons/L47/)) ; le code préfixe supplémentaire $d$ a $L(d)=1{,}5$. Le code `d` atteint ici l'entropie. Le PDF actualisé démontre la borne générale : [L51](/fr/lessons/L51/) prépare McMillan, [L52](/fr/lessons/L52/) démontre Gibbs et [L53](/fr/lessons/L53/) les assemble. Une longueur individuelle reste entière ; l'entropie est une moyenne, pas la longueur prescrite à chaque mot.
 
 ## 05 · Ce que l'entropie ne dit pas
 
@@ -145,7 +157,7 @@ Deux messages particuliers peuvent avoir une longueur identique mais venir de so
 5. **Question.** Une grande entropie signifie-t-elle un message plus « important » ? **Réponse.** Non ; elle mesure une moyenne de surprise probabiliste, pas un jugement de valeur.
 6. **Question.** Pour le code $c_2$ des pages 14–15, $H(S)=L(c_2)$ ? **Réponse.** Non : $H(S)=1{,}5$ tandis que $L(c_2)=1{,}75$.
 
-**Fin du parcours source.** Le PDF se termine après les définitions par « Exemples. [...] » ; les calculs chiffrés détaillés ci-dessus sont donc des **ajouts pédagogiques** et non des exemples repris d'une suite absente du document.
+**Suite du parcours source.** Le PDF continue avec les arbres de questions ([L50](/fr/lessons/L50/)), la borne d'entropie ([L53](/fr/lessons/L53/)) et les extensions de source ([L54](/fr/lessons/L54/)). Les exemples uniformes et dyadiques correspondent aux pp. 29–32 ; les autres exercices sont des développements pédagogiques.
 
 ## À retenir
 

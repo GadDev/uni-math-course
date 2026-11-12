@@ -1,14 +1,14 @@
 ---
 lessonId: L48
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Surprise, self-information and Shannon entropy"
 summary: "Understand source coding with guided examples."
 minutes: 45
 objectives: [L48-O01, L48-O02, L48-O03, L48-O04, L48-O05, L48-O06]
 prerequisites: [L47, L42]
-sourcePages: [17, 18, 19, 20]
+sourcePages: [22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
 ---
 
 import InformationExplorer from '../../../src/components/InformationExplorer';
@@ -16,7 +16,7 @@ import InformationExplorer from '../../../src/components/InformationExplorer';
 # Surprise, self-information and Shannon entropy
 
 
-<span id="pdf-17" class="source-topic-marker"></span>
+<span id="pdf-22" class="source-topic-marker"></span>
 
 ## Objectives and prerequisites
 
@@ -30,13 +30,13 @@ An almost certain outcome brings little surprise; a rare outcome brings more. Th
 
 ## 01 · What makes us surprised?
 
-**PDF motivation, pp. 18–19.** One source displays a long run of $0$s followed by a symbol $s_1$; another displays a more varied pattern of $0$s and $1$s followed by $s_2$. The slides ask what value you would bet on. This is an **intuition exercise**, not a numerical probability estimate from those strings alone: the generating model has not been specified.
+**PDF motivation, pp. 22–23.** One source displays a long run of $0$s followed by a symbol $s_1$; another displays a more varied pattern of $0$s and $1$s followed by $s_2$. The slides ask what value you would bet on. This is an **intuition exercise**, not a numerical probability estimate from those strings alone: the generating model has not been specified.
 
 A frequent event is less surprising; a rare one is more surprising. Shannon's framework measures this using a logarithm.
 
 ## 02 · Information carried by a symbol
 
-**PDF, p. 20.** For a symbol $s$ with probability $p(s)>0$, the quantity
+**PDF, p. 24.** For a symbol $s$ with probability $p(s)>0$, the quantity
 
 $$I(s)=-\log_2(p(s))$$
 
@@ -55,7 +55,7 @@ is measured in **bits of information**. The base-$2$ logarithm asks “which exp
 
 ## 03 · Source entropy: an average
 
-**PDF definition, p. 20.** For $S=\{s_1,\ldots,s_n\}$ and $p_1,\ldots,p_n$:
+**PDF definition, p. 26.** For $S=\{s_1,\ldots,s_n\}$ and $p_1,\ldots,p_n$:
 
 $$H(S)=-\sum_{i=1}^{n}p_i\log_2(p_i)=\sum_{i=1}^{n}p_i I(s_i).$$
 
@@ -105,6 +105,18 @@ The self-informations are $1,2,3,3$. Thus $H(S)=1/2+2/4+3/8+3/8=7/4$ bits per sy
 
 </details>
 
+## 03 bis · The PDF's binary entropy
+
+For two symbols of probabilities $p$ and $1-p$, with $0<p<1$:
+
+$$H_2(p)=-p\log_2p-(1-p)\log_2(1-p).$$
+
+Page 27 plots this curve. Exchanging the symbols replaces p by 1 − p without changing the sum: the curve is symmetric. To verify its peak, differentiate:
+
+$$H_2'(p)=\log_2\left(\frac{1-p}{p}\right).$$
+
+This derivative is positive before one half and negative afterwards; the maximum is one bit when the symbols are equally likely. At endpoints, the explicit limiting convention $0\log_2 0=0$ gives zero entropy. It does not assign finite self-information to an impossible event.
+
 ## Experiment and explain
 
 **Experiment objective.** Distinguish a symbol’s surprise from its contribution to entropy.
@@ -128,7 +140,7 @@ Paper example: at p(x) = 1/4, I(x) = 2, I(y) ≈ 0.4150 and H ≈ 0.8113. At p(x
 
 $$H(S)=-\frac12\log_2(1/2)-2\cdot\frac14\log_2(1/4)=\frac32=1{,}5.$$
 
-The PDF code $c_2$ has $L(c_2)=1{,}75$ ([L47](/en/lessons/L47/)), whereas the additional prefix code $d$ has $L(d)=1{,}5$. The latter numerically equals entropy in this example. **The PDF does not prove a general theorem relating $H$ to optimal code length**; such a proof would belong to further study of optimal coding.
+The PDF code $c_2$ has $L(c_2)=1{,}75$ ([L47](/en/lessons/L47/)), whereas the additional prefix code $d$ has $L(d)=1{,}5$. Code `d` attains entropy here. The updated PDF proves the general bound: [L51](/en/lessons/L51/) prepares McMillan, [L52](/en/lessons/L52/) proves Gibbs and [L53](/en/lessons/L53/) combines them. Individual lengths remain integers; entropy is a mean, not the prescribed length of every word.
 
 ## 05 · What entropy does not mean
 
@@ -145,7 +157,7 @@ Messages of the same length can come from sources with different probability dis
 5. **Question.** Does high entropy mean a message is more “important”? **Answer.** No; it is average probabilistic surprise, not a value judgement.
 6. **Question.** For the code $c_2$ on pp. 14–15, is $H(S)=L(c_2)$? **Answer.** No: $H(S)=1{,}5$ but $L(c_2)=1{,}75$.
 
-**End of source-based route.** The PDF ends just after its definitions with “Exemples. [...]”. The detailed numerical calculations above are **additional teaching work**, not examples quoted from a missing continuation.
+**Source route continues.** The PDF continues with question trees ([L50](/en/lessons/L50/)), the entropy bound ([L53](/en/lessons/L53/)) and source extensions ([L54](/en/lessons/L54/)). Uniform and dyadic examples correspond to pp. 29–32; other exercises are teaching developments.
 
 ## Key takeaways
 

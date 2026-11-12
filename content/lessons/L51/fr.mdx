@@ -1,0 +1,81 @@
+---
+lessonId: L51
+locale: fr
+version: 1
+status: extended
+title: "Kraft–McMillan : quelles longueurs sont possibles ?"
+summary: "Calculer la somme de Kraft et distinguer existence et décodabilité."
+minutes: 35
+objectives: [L51-O01, L51-O02, L51-O03, L51-O04, L51-O05, L51-O06]
+prerequisites: [L45, L50]
+sourcePages: [44, 45]
+---
+
+import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+
+# Peut-on donner des mots courts à tout le monde ?
+
+Trois symboles, trois mots binaires de longueur 1 : cela semble économique, mais il n'existe que deux mots de cette longueur. La somme de Kraft rend ce problème de place précis.
+
+**Source : PDF, pp. 44–45.** La source énonce McMillan sans démonstration. Nous démontrons le cas préfixe, admettons le cas général à décodage unique, puis ajoutons la réciproque d'existence sur les longueurs.
+
+## Objectifs et prérequis
+
+Vous saurez : (1) calculer la somme de Kraft ; (2) expliquer la contrainte d'espace ; (3) appliquer la condition nécessaire ; (4) construire un exemple préfixe ; (5) distinguer longueurs et attribution ; (6) relier McMillan à Huffman. Prérequis : [L45](/fr/lessons/L45/) et [L50](/fr/lessons/L50/).
+
+## 01 · La somme et ses hypothèses
+
+Prenons un alphabet fini d'au moins deux symboles, un code binaire de mots non vides et leurs longueurs entières positives $\ell_1,\ldots,\ell_m$. Définissons
+
+$$K(c)=\sum_{i=1}^m2^{-\ell_i}.$$
+
+**Kraft–McMillan.** Si le code est à décodage unique pour les messages finis sans séparateurs, alors $K(c)\le1$. Ce théorème n'utilise pas les probabilités de la source. En particulier, $K(c)>1$ prouve l'impossibilité du décodage unique.
+
+Exemples : pour les longueurs $(1,2,2)$, $K=1/2+1/4+1/4=1$. Pour $(1,1,2)$, $K=1/2+1/2+1/4=5/4>1$ : aucune attribution ne convient.
+
+## 02 · Pourquoi un arbre préfixe satisfait l'inégalité
+
+Soit $M=\max_i\ell_i$. Dans l'arbre binaire complet de profondeur $M$, il y a $2^M$ positions. Une feuille à profondeur $\ell_i$ réserve les $2^{M-\ell_i}$ positions qui prolongent son mot. Pour un code préfixe, ces groupes ne se recouvrent pas : aucun mot ne commence par un autre.
+
+$$\sum_i2^{M-\ell_i}\le2^M\quad\Longrightarrow\quad\sum_i2^{-\ell_i}\le1.$$
+
+On divise par le nombre positif $2^M$. **Portée de la preuve :** elle démontre le cas préfixe. Le théorème de McMillan étend la nécessité à tous les codes à décodage unique, y compris ceux qui ne sont pas préfixes ; nous utilisons ce résultat admis, sans prétendre l'avoir prouvé ici.
+
+## 03 · Une réciproque sur les longueurs
+
+**Complément pédagogique.** Si une liste de longueurs entières positives satisfait $K\le1$, il **existe** un code préfixe ayant exactement ces longueurs. Pour voir la construction, classez les longueurs par ordre croissant et attribuez de gauche à droite des intervalles binaires de taille $2^{-\ell_i}$ dans $[0,1)$. La somme déjà réservée est un multiple de la taille suivante, car les longueurs précédentes sont plus petites. Le prochain intervalle est donc aligné sur la grille binaire ; la somme totale au plus 1 garantit qu'il tient. Les intervalles disjoints donnent des mots dont aucun n'est préfixe d'un autre.
+
+Exemple : longueurs $(1,2,3,3)$, mots `0`, `10`, `110`, `111`. Les intervalles ont les tailles $1/2,1/4,1/8,1/8$ et remplissent tout l'espace. Pour les longueurs $(2,2)$, les mots `00`, `01` laissent de la place : $K=1/2$. Un code incomplet peut parfaitement être à décodage unique.
+
+## 04 · Le piège : une liste n'est pas un code
+
+Considérez a→`0`, b→`01`, c→`10`. Les trois mots sont différents, leurs longueurs valent $(1,2,2)$ et $K=1$. Pourtant `010` représente aussi bien ac que ba. Le code est injectif **sur les symboles**, mais pas à décodage unique **sur les messages**.
+
+La réciproque garantit un **autre** code préfixe, par exemple a→`0`, b→`10`, c→`11`. Elle ne répare pas automatiquement la table précédente.
+
+**Lien avec Huffman.** Toute liste de longueurs d'un code à décodage unique satisfait McMillan et peut donc être réalisée par un code préfixe. Huffman minimise la moyenne parmi les codes préfixes ; il est ainsi aussi optimal parmi les codes à décodage unique, pour une source et un codage symbole par symbole fixés.
+
+## Expérimenter et expliquer
+
+**But.** Distinguer une impossibilité sur les longueurs d'une construction préfixe possible. **Prédiction.** Si vous raccourcissez tous les mots, que devient la place disponible ? Modifiez quatre longueurs entières de 1 à 8. Le panneau calcule la somme exacte et construit un code canonique si elle est au plus 1. Il ne teste pas une table de mots saisie ailleurs.
+
+<InformationTheoryLab mode="kraft" locale="fr" client:visible />
+
+## Exercices et solutions
+
+1. Les longueurs $(2,2,2)$ peuvent-elles être celles d'un code préfixe ?
+2. Les longueurs $(1,2,2,3)$ peuvent-elles appartenir à un code à décodage unique ?
+3. Un code de somme 1 est-il nécessairement à décodage unique ? Justifiez par des messages.
+
+<details className="info-answer">
+<summary>Solutions justifiées</summary>
+
+1. $K=3/4\le1$. Oui, par exemple `00`, `01`, `10`.
+2. $K=1/2+1/4+1/4+1/8=9/8>1$. Non, par la nécessité de McMillan.
+3. Non. La table ambiguë de la section 04 satisfait la somme, mais ac et ba ont la même image `010`.
+
+</details>
+
+## À retenir et suite
+
+McMillan : décodage unique implique somme au plus 1. La réciproque porte sur **l'existence d'un code préfixe avec ces longueurs**, pas sur la validité d'une attribution particulière. Une somme inférieure à 1 n'est pas une erreur. [L52](/fr/lessons/L52/) prépare l'autre outil de la borne d'entropie.

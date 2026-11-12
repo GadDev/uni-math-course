@@ -1,0 +1,99 @@
+---
+lessonId: L53
+locale: fr
+version: 1
+status: extended
+title: "Pourquoi la longueur moyenne dépasse l’entropie"
+summary: "Assembler McMillan et Gibbs pour démontrer la borne et son cas d’égalité."
+minutes: 40
+objectives: [L53-O01, L53-O02, L53-O03, L53-O04, L53-O05, L53-O06]
+prerequisites: [L51, L52]
+sourcePages: [49, 50, 51, 52, 53, 54]
+---
+
+import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+
+# Une limite que le code ne peut pas franchir
+
+Peut-on trouver un code encore plus malin que Huffman et passer sous l'entropie ? Pour un code binaire à décodage unique et une source fixée, non. Voici pourquoi, sans sauter le mystérieux facteur de normalisation du PDF.
+
+**Source : PDF, pp. 49–54**, avec les outils des pp. 45–48. Le résultat porte sur la longueur moyenne, pas sur chaque symbole isolé.
+
+## Objectifs et prérequis
+
+Vous saurez : (1) énoncer les hypothèses ; (2) normaliser les poids binaires ; (3) appliquer Gibbs ; (4) suivre la chaîne d'inégalités ; (5) caractériser l'égalité ; (6) expliquer un écart strict. Prérequis : [L51](/fr/lessons/L51/) et [L52](/fr/lessons/L52/).
+
+## 01 · Les objets de la preuve
+
+Une source possède un alphabet fini d'au moins deux symboles avec $p_i>0$ et $\sum_i p_i=1$. Un code binaire à décodage unique attribue des mots non vides de longueurs $\ell_i$. Rappelons
+
+$$L(c)=\sum_i p_i\ell_i,\qquad H(S)=-\sum_i p_i\log_2p_i.$$
+
+Aucune indépendance temporelle n'est nécessaire pour cette borne symbole par symbole. En revanche, le décodage unique est indispensable : le code impossible qui donnerait le même mot court à tous les symboles pourrait avoir une petite moyenne, mais ne transmettrait pas l'information.
+
+## 02 · Construire une distribution à partir des longueurs
+
+Par McMillan, $K=\sum_i2^{-\ell_i}\le1$. Chaque terme est positif, donc $0<K\le1$. Les poids ne somment pas nécessairement à 1 : ce ne sont pas encore des probabilités. Définissons
+
+$$q_i=\frac{2^{-\ell_i}}K.$$
+
+Alors chaque terme est positif et
+
+$$\sum_iq_i=\frac1K\sum_i2^{-\ell_i}=1.$$
+
+C'est exactement ce qu'exige Gibbs. Remplacer directement q par les poids non normalisés serait une faute si la somme est strictement inférieure à 1.
+
+## 03 · La chaîne complète
+
+Gibbs appliqué à p et q donne
+
+$$H(S)\le-\sum_i p_i\log_2q_i.$$
+
+Développons le logarithme : $\log_2q_i=-\ell_i-\log_2K$. Donc
+
+$$-\sum_i p_i\log_2q_i=\sum_i p_i\ell_i+\log_2K\sum_i p_i=L(c)+\log_2K.$$
+
+La somme des probabilités vaut 1. Enfin, le logarithme est croissant et $K\le1$, donc $\log_2K\le0$. On obtient
+
+$$H(S)\le L(c)+\log_2K\le L(c).$$
+
+**Attention au signe :** c'est un **plus** devant le logarithme de K ; comme ce logarithme est négatif ou nul, le terme intermédiaire ne dépasse pas L. Nous avons prouvé la borne annoncée.
+
+## 04 · Quand atteint-on la borne ?
+
+Les deux inégalités doivent devenir des égalités. Gibbs exige $p_i=q_i$ pour tout i ; la seconde exige $K=1$. Ensemble :
+
+$$L(c)=H(S)\quad\Longleftrightarrow\quad p_i=2^{-\ell_i}\quad(\forall i).$$
+
+La normalisation des probabilités assure alors automatiquement la somme de Kraft égale à 1. Les probabilités doivent donc être des puissances inverses de deux adaptées aux longueurs entières. Dire seulement « le code est Huffman » ne garantit pas l'égalité.
+
+- Pour $(1/2,1/4,1/4)$ et les mots `0`, `10`, `11`, on a $K=1$ et $L=H=3/2$.
+- Pour $(1/2,1/2)$ et les mots `00`, `01`, on a $K=1/2$, $q=p$ et $H=1=L+\log_2K< L=2$. Gibbs est une égalité, mais le code laisse de la place inutilisée.
+- Pour $(2/3,1/3)$ et les mots `0`, `1`, Huffman donne $L=1$ tandis que $H\approx0{,}9183$. Le code est optimal symbole par symbole ; l'écart reste strict car les probabilités ne sont pas dyadiques.
+
+Une longueur individuelle peut être plus petite que la surprise du symbole : la borne porte sur la **moyenne pondérée**. Elle ne dit pas non plus que chaque message observé coûte au moins son nombre de symboles multiplié par l'entropie.
+
+## Expérimenter et expliquer
+
+**But.** Voir séparément les deux inégalités. **Prédiction.** Si vous ajoutez un bit à tous les mots sans changer p, quelle inégalité devient stricte ? Modifiez trois effectifs de 1 à 20 et trois longueurs de 1 à 8. Le panneau construit un code préfixe lorsque la somme le permet, normalise q et affiche les trois termes de la preuve. Il refuse d'appliquer la chaîne lorsque la somme dépasse 1.
+
+<InformationTheoryLab mode="bound" locale="fr" client:visible />
+
+## Exercices et solutions
+
+1. Reconstituez la preuve sans regarder : quelles sont les deux normalisations ?
+2. Pour les probabilités $(1/2,1/4,1/4)$ et longueurs $(2,3,3)$, calculez K, q et les trois termes.
+3. Une source uniforme sur trois symboles peut-elle avoir une longueur moyenne égale à son entropie avec un code binaire symbole par symbole ?
+
+<details className="info-answer">
+<summary>Solutions justifiées</summary>
+
+1. p somme à 1 par hypothèse ; les poids binaires deviennent q après division par K. Gibbs puis McMillan terminent la preuve.
+2. $K=1/4+1/8+1/8=1/2$, $q=(1/2,1/4,1/4)$ et $H=3/2$, $L+\log_2K=3/2$, $L=5/2$. Seule la seconde inégalité est stricte.
+3. Non : $1/3$ n'est pas une puissance inverse de deux d'exposant entier. Huffman donne les longueurs 1, 2, 2, de moyenne $5/3>\log_2 3$.
+
+</details>
+
+## À retenir et suite
+
+Hypothèses → McMillan → normalisation → Gibbs → logarithme négatif ou nul. L'égalité demande à la fois un arbre complet et les probabilités adaptées à ses profondeurs. [L54](/fr/lessons/L54/) montre comment coder des blocs pour réduire l'écart par symbole.

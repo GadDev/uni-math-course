@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "sources": [
     {
       "title": "Mathématiques Générales — Logique et ensembles",
@@ -26,6 +26,19 @@
       "pageCount": 92,
       "revision": "2026-10-20",
       "sha256": "7a51f4b02822073ec9575aa709b63d6441724a989271aa2c3bf88b88302cceb9"
+    },
+    {
+      "id": "information",
+      "shortTitle": {
+        "fr": "Théorie de l’information",
+        "en": "Information theory"
+      },
+      "title": "Mathématiques Générales — Théorie de l’information",
+      "author": "Bruno Teheux",
+      "institution": "University of Luxembourg",
+      "year": "2022–2023 (couverture / cover)",
+      "pageCount": 60,
+      "sha256": "283514eaae1098669434d3393adf65befe3c244b0de47ed6b22e2b92c0e3e1d9"
     }
   ],
   "categories": [
@@ -97,6 +110,13 @@
       "title": {
         "fr": "Régression et corrélation",
         "en": "Regression and correlation"
+      }
+    },
+    {
+      "id": "information",
+      "title": {
+        "fr": "Codes et entropie",
+        "en": "Codes and entropy"
       }
     }
   ],
@@ -4502,6 +4522,229 @@
         "reading": "u gets u plus one; d gets d plus twice v subscript two.",
         "explanation": "Evaluate the right-hand side using the old values, then store the result.",
         "confusion": "This is not an equation to solve: u equals u plus one would be impossible."
+      }
+    },
+    {
+      "id": "E65",
+      "sourceId": "information",
+      "category": "information",
+      "notation": "c:S\\to\\{0,1\\}^*",
+      "example": "c(ab)=c(a)c(b)",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        7,
+        8,
+        9
+      ],
+      "fr": {
+        "name": "Codage par substitution",
+        "meaning": "Associe un mot binaire à chaque symbole, puis concatène sur les messages.",
+        "reading": "c de a b égale c de a suivi de c de b.",
+        "explanation": "Le même c désigne la règle sur les symboles et son extension aux mots.",
+        "confusion": "Des mots individuels différents ne garantissent pas le décodage unique des messages."
+      },
+      "en": {
+        "name": "Substitution coding",
+        "meaning": "Assigns a binary word to each symbol, then concatenates on messages.",
+        "reading": "c of a b equals c of a followed by c of b.",
+        "explanation": "The same c denotes the symbol rule and its extension to words.",
+        "confusion": "Distinct individual words do not guarantee unique message decoding."
+      }
+    },
+    {
+      "id": "E66",
+      "sourceId": "information",
+      "category": "information",
+      "notation": "c(u)=c(v)\\Rightarrow u=v",
+      "example": "c(x)=001=c(zy)",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        10,
+        14
+      ],
+      "fr": {
+        "name": "Décodage unique",
+        "meaning": "L’extension aux messages finis est injective.",
+        "reading": "Même image implique même message.",
+        "explanation": "La table c1 du PDF fournit une collision : x et zy sont deux messages différents.",
+        "confusion": "La propriété préfixe est suffisante, mais pas nécessaire."
+      },
+      "en": {
+        "name": "Unique decodability",
+        "meaning": "The extension to finite messages is injective.",
+        "reading": "Same image implies same message.",
+        "explanation": "PDF table c1 gives a collision: x and zy are different messages.",
+        "confusion": "The prefix property is sufficient but not necessary."
+      }
+    },
+    {
+      "id": "E67",
+      "sourceId": "information",
+      "category": "information",
+      "notation": "L(c)=\\sum_i p_i\\ell_i",
+      "example": "L=\\frac12+\\frac24+\\frac24=\\frac32",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        12,
+        14,
+        15,
+        16
+      ],
+      "fr": {
+        "name": "Longueur moyenne",
+        "meaning": "Espérance de longueur d’un mot code.",
+        "reading": "Somme des probabilités fois les longueurs.",
+        "explanation": "Pour un code binaire de symboles, l’unité est le bit par symbole source.",
+        "confusion": "Une moyenne peut être fractionnaire même si toutes les longueurs sont entières."
+      },
+      "en": {
+        "name": "Average length",
+        "meaning": "Expected codeword length.",
+        "reading": "Sum of probabilities times lengths.",
+        "explanation": "For a binary symbol code, the unit is bits per source symbol.",
+        "confusion": "A mean may be fractional even when every length is an integer."
+      }
+    },
+    {
+      "id": "E68",
+      "sourceId": "information",
+      "category": "information",
+      "notation": "I(s)=-\\log_2p(s)",
+      "example": "p(s)=\\frac18\\Rightarrow I(s)=3",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        24,
+        25
+      ],
+      "fr": {
+        "name": "Information propre",
+        "meaning": "Surprise associée à un symbole de probabilité positive.",
+        "reading": "Moins le logarithme en base deux de sa probabilité.",
+        "explanation": "Un symbole plus rare porte davantage d’information lorsqu’il arrive.",
+        "confusion": "Ce n’est ni une moyenne ni nécessairement une longueur entière de code."
+      },
+      "en": {
+        "name": "Self-information",
+        "meaning": "Surprise associated with a positive-probability symbol.",
+        "reading": "Minus the base-two logarithm of its probability.",
+        "explanation": "A rarer symbol carries more information when it occurs.",
+        "confusion": "This is neither a mean nor necessarily an integer code length."
+      }
+    },
+    {
+      "id": "E69",
+      "sourceId": "information",
+      "category": "information",
+      "notation": "H(S)=-\\sum_i p_i\\log_2p_i",
+      "example": "H(1/2,1/2)=1",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32
+      ],
+      "fr": {
+        "name": "Entropie de la source",
+        "meaning": "Moyenne pondérée des informations propres.",
+        "reading": "H de S.",
+        "explanation": "Pour un alphabet binaire uniforme, elle vaut un bit par symbole.",
+        "confusion": "Si zéro est autorisé, son terme est défini par limite comme nul ; on ne calcule pas log de zéro."
+      },
+      "en": {
+        "name": "Source entropy",
+        "meaning": "Weighted mean of self-information.",
+        "reading": "H of S.",
+        "explanation": "For a uniform binary alphabet, it is one bit per symbol.",
+        "confusion": "If zero is permitted, its term is defined as zero by a limit; do not calculate log of zero."
+      }
+    },
+    {
+      "id": "E70",
+      "sourceId": "information",
+      "category": "information",
+      "notation": "K=\\sum_i2^{-\\ell_i}",
+      "example": "2^{-1}+2^{-2}+2^{-2}=1",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        45
+      ],
+      "fr": {
+        "name": "Somme de Kraft",
+        "meaning": "Mesure la place réservée par les longueurs dans un arbre binaire.",
+        "reading": "Somme de deux à la puissance opposée de chaque longueur.",
+        "explanation": "Un code à décodage unique impose une somme au plus un.",
+        "confusion": "La somme au plus un ne certifie pas une attribution particulière des mots."
+      },
+      "en": {
+        "name": "Kraft sum",
+        "meaning": "Measures space reserved by lengths in a binary tree.",
+        "reading": "Sum of two raised to the negative of each length.",
+        "explanation": "A uniquely decodable code requires sum at most one.",
+        "confusion": "Sum at most one does not certify a particular word assignment."
+      }
+    },
+    {
+      "id": "E71",
+      "sourceId": "information",
+      "category": "information",
+      "notation": "q_i=2^{-\\ell_i}/K",
+      "example": "H(S)\\le L(c)+\\log_2K\\le L(c)",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54
+      ],
+      "fr": {
+        "name": "Normalisation et borne d’entropie",
+        "meaning": "Transforme les poids binaires en distribution pour appliquer Gibbs.",
+        "reading": "q indice i égale deux puissance moins longueur, divisé par K.",
+        "explanation": "La somme des q vaut un. Le logarithme de K est négatif ou nul.",
+        "confusion": "L’égalité avec l’entropie exige K égal à un et p égal à q."
+      },
+      "en": {
+        "name": "Normalisation and entropy bound",
+        "meaning": "Turns binary weights into a distribution for Gibbs.",
+        "reading": "q sub i equals two to the minus length, divided by K.",
+        "explanation": "The q values sum to one. The logarithm of K is nonpositive.",
+        "confusion": "Entropy equality requires K equal to one and p equal to q."
+      }
+    },
+    {
+      "id": "E72",
+      "sourceId": "information",
+      "category": "information",
+      "notation": "S^n,\\quad L_n/n",
+      "example": "H(S^n)=nH(S)",
+      "exampleOrigin": "teaching-example",
+      "sourcePages": [
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ],
+      "fr": {
+        "name": "Extension de source",
+        "meaning": "Un bloc de n symboles devient un symbole du nouvel alphabet.",
+        "reading": "S puissance n ; longueur moyenne du bloc divisée par n.",
+        "explanation": "Dans le modèle i.i.d., les probabilités se multiplient et les entropies s’additionnent.",
+        "confusion": "Ne pas confondre bits par bloc et bits par symbole initial ; l’indépendance doit être explicite."
+      },
+      "en": {
+        "name": "Source extension",
+        "meaning": "A block of n symbols becomes a symbol of the new alphabet.",
+        "reading": "S to the n; mean block length divided by n.",
+        "explanation": "In the iid model, probabilities multiply and entropies add.",
+        "confusion": "Distinguish bits per block from bits per original symbol; independence must be explicit."
       }
     }
   ]

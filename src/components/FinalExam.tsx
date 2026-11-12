@@ -322,6 +322,13 @@ export default function FinalExam({ learner }: { learner: string }) {
         et les pondérations ci-dessous sont des choix d’entraînement, sans
         valeur de règlement officiel.
       </p>
+      <p className="exam-coverage-note">
+        Le chapitre 4 a été enrichi : cet examen couvre le codage, Huffman et
+        l’entropie, mais n’évalue pas encore les objectifs nouveaux de
+        <a href="/fr/lessons/L50/"> L50 à L54</a> (arbres de questions,
+        Kraft–McMillan, Gibbs, preuve de la borne et blocs de Shannon). Leurs
+        exercices sont accessibles depuis les leçons après connexion.
+      </p>
       {storageFailure && (
         <p role="status">
           Le stockage est indisponible : la reprise après actualisation et

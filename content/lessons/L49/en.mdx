@@ -1,21 +1,21 @@
 ---
 lessonId: L49
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Huffman coding: build a compression tree"
 summary: "Step-by-step introduction to Huffman trees and codes."
 minutes: 50
 objectives: [L49-O01, L49-O02, L49-O03, L49-O04, L49-O05, L49-O06]
 prerequisites: [L48]
-sourcePages: [14, 15, 16]
+sourcePages: [17, 18, 19, 20]
 ---
 
 import InformationExplorer, { HuffmanDiagram } from '../../../src/components/InformationExplorer';
 
 # Huffman coding: build a compression tree
 
-**Original teaching extension — not covered by the source PDF.** The information-theory PDF (pp. 14–16) introduces average codeword length and the idea of shorter words for frequent symbols, but **does not teach Huffman's algorithm**. This lesson adds the classical technique with a complete guided example.
+**Updated source: PDF, pp. 17–20.** The document now presents Huffman and its optimality. The guided four-symbol example remains a teaching development; below we add the source examples and connect them to the later theory.
 
 ## Objectives and prerequisites
 
@@ -139,6 +139,22 @@ Symbols appear only at the **leaves**. The path to one leaf cannot begin the pat
 - The decoder must know the **same tree**. Sending that tree has a cost not included in the average length.
 - Huffman coding is not **encryption** or **error correction**. Sample frequencies need not match future messages.
 - Optimality means minimum average length among **binary prefix codes for individual symbols** with the chosen probabilities, not among all conceivable compression systems.
+
+## 05 bis · Recover the source examples
+
+**Page 18.** For probabilities $(1/2,1/4,1/8,1/16,1/16)$, merge weights $1+1=2$, $2+2=4$, $4+4=8$, $8+8=16$. Lengths are $1,2,3,4,4$:
+
+$$L=\frac12+\frac24+\frac38+\frac4{16}+\frac4{16}=\frac{15}8.$$
+
+One code is `0`, `10`, `110`, `1110`, `1111`. Each probability is two raised to the negative of its length: entropy equals the mean here.
+
+**Page 19.** ABRACADABRA has counts A: 5, B: 2, R: 2, C: 1, D: 1. Merging C and D gives 2; merging two of the three weights 2 gives 4; merging the remaining 2 and 4 gives 6; then 5 and 6 gives 11. Merge weights sum to $2+4+6+11=23$:
+
+$$L=\frac{23}{11}\text{ bits/symbole}.$$
+
+One table is A→`0`, B→`100`, R→`101`, C→`110`, D→`111`. Another tie-based assignment may give B and R or subtree CD different lengths while preserving minimum mean cost. Check prefix-freeness and cost rather than literal bit identity.
+
+**Page 20: precise scope.** Huffman is optimal among binary uniquely decodable codes for a fixed source and symbol-by-symbol coding. Our exchange argument proves the prefix case; [L51](/en/lessons/L51/) explains the extension to all uniquely decodable codes using McMillan and Kraft's converse. [L54](/en/lessons/L54/) changes the alphabet by grouping symbols: this can improve per-symbol cost without contradicting that optimality.
 
 ## 06 · Check your understanding, with solutions
 

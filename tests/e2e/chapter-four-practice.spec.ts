@@ -40,7 +40,7 @@ for (const locale of ['fr', 'en']) {
   }) => {
     await identify(context);
     await page.setViewportSize({ width: 375, height: 900 });
-    for (let n = 43; n <= 49; n++) {
+    for (let n = 43; n <= 54; n++) {
       const id = `L${n}`;
       const response = await page.goto(`/${locale}/lessons/${id}/practice/`);
       expect(response?.status(), id).toBe(200);

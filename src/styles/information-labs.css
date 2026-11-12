@@ -244,3 +244,14 @@
     min-height: 0;
   }
 }
+
+.info-entropy-point {
+  transition:
+    cx 280ms ease-out,
+    cy 280ms ease-out;
+}
+@media (prefers-reduced-motion: reduce), print {
+  .info-entropy-point {
+    transition: none;
+  }
+}

@@ -27,6 +27,11 @@ test('chapter routes preserve existing identities and keep shared resources neut
     'L47',
     'L48',
     'L49',
+    'L50',
+    'L51',
+    'L52',
+    'L53',
+    'L54',
   ]);
   for (const id of chapters[3].lessonIds) {
     assert.equal(chapterForPath(`lessons/${id}/`)?.id, 'C04');

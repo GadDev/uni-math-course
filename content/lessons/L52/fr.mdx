@@ -1,0 +1,95 @@
+---
+lessonId: L52
+locale: fr
+version: 1
+status: extended
+title: "Du logarithme au lemme de Gibbs"
+summary: "Démontrer l’inégalité logarithmique puis comparer deux distributions."
+minutes: 40
+objectives: [L52-O01, L52-O02, L52-O03, L52-O04, L52-O05, L52-O06]
+prerequisites: [L48, L41]
+sourcePages: [46, 47, 48]
+---
+
+import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+
+# Quel est le coût d'un mauvais modèle ?
+
+Vous préparez un code pour des probabilités annoncées, mais les symboles suivent une autre loi. Le lemme de Gibbs explique pourquoi la surprise moyenne calculée avec le mauvais modèle ne peut pas battre l'entropie réelle. Avant le codage, il faut un petit outil de calcul : une inégalité sur le logarithme.
+
+**Source : PDF, pp. 46–48.** Nous détaillons chaque étape de sa preuve, avec les logarithmes en base 2 pour mesurer des bits.
+
+## Objectifs et prérequis
+
+Vous saurez : (1) démontrer l'inégalité logarithmique ; (2) repérer son cas d'égalité ; (3) vérifier deux distributions positives ; (4) démontrer Gibbs ; (5) calculer l'écart entre modèles ; (6) distinguer longueur idéale et longueur entière. Prérequis : entropie [L48](/fr/lessons/L48/), dérivée du logarithme et signe d'une dérivée.
+
+## 01 · Une courbe sous sa tangente
+
+Pour $x>0$, posons $g(x)=x-1-\ln x$. Sa dérivée est
+
+$$g'(x)=1-\frac1x=\frac{x-1}{x}.$$
+
+Le dénominateur est positif : la dérivée est négative avant 1 et positive après 1. La fonction atteint donc son minimum global en 1, où $g(1)=0$. Ainsi
+
+$$\ln x\le x-1\qquad(x>0),$$
+
+avec égalité **si et seulement si** $x=1$. Géométriquement, la courbe du logarithme reste sous sa tangente en 1. Ne remplacez pas directement le logarithme naturel par celui de base 2 : il faut diviser par $\ln2>0$.
+
+## 02 · Énoncer Gibbs sans oublier les hypothèses
+
+Prenons deux listes de même taille $p_i>0$, $q_i>0$, avec $\sum_i p_i=\sum_i q_i=1$. Le lemme affirme
+
+$$-\sum_i p_i\log_2q_i\ge-\sum_i p_i\log_2p_i=H(p).$$
+
+À gauche, on moyenne la surprise du modèle q avec les **vraies pondérations p**. Cette quantité est aussi appelée entropie croisée. L'égalité a lieu exactement lorsque $p_i=q_i$ pour tout i. Nous restons dans le cadre strictement positif ; aucune expression avec le logarithme de zéro n'est utilisée.
+
+## 03 · Quatre étapes pour la preuve
+
+1. Le quotient est positif, donc appliquer l'inégalité à $x=q_i/p_i$ donne
+
+$$\ln(q_i/p_i)\le q_i/p_i-1.$$
+
+2. Multipliez par $p_i>0$ : le sens de l'inégalité est conservé. Puis additionnez :
+
+$$\sum_i p_i\ln(q_i/p_i)\le\sum_i(q_i-p_i)=1-1=0.$$
+
+3. Développez le logarithme du quotient et changez de signe. Le sens s'inverse :
+
+$$-\sum_i p_i\ln q_i\ge-\sum_i p_i\ln p_i.$$
+
+4. Divisez par $\ln2>0$ pour obtenir les logarithmes en base 2 et l'énoncé précédent.
+
+**Égalité.** Chaque écart de l'inégalité logarithmique est non négatif, pondéré par un nombre strictement positif. Leur somme ne peut être nulle que si tous sont nuls : chaque quotient vaut 1. Cela donne précisément $p_i=q_i$ pour tout i. L'égalité des seules sommes des probabilités ne suffit pas.
+
+## 04 · Un exemple calculé
+
+Pour $p=(1/2,1/2)$, l'entropie vaut 1 bit. Choisissons $q=(1/4,3/4)$ :
+
+$$-\sum_i p_i\log_2q_i=\frac12\cdot2+\frac12\log_2(4/3)\approx1{,}2075.$$
+
+Le surcoût idéal vaut environ 0,2075 bit par symbole. Si q devient p, l'entropie croisée devient 1 et l'écart s'annule. **Attention :** ces logarithmes ne sont pas nécessairement des longueurs entières réalisables symbole par symbole. Gibbs prépare une borne ; il ne construit pas directement un code.
+
+## Expérimenter et expliquer
+
+**But.** Observer l'écart de Gibbs en séparant la loi réelle et le modèle. **Prédiction.** Quel choix de q annule l'écart ? Modifiez les deux séries de poids entiers positifs de 1 à 20 ; chacune est normalisée séparément. Le panneau affiche p, q, l'entropie, l'entropie croisée et leur différence. Le bouton « q = p » permet de tester l'égalité.
+
+<InformationTheoryLab mode="gibbs" locale="fr" client:visible />
+
+## Exercices et solutions
+
+1. Pourquoi le domaine de l'inégalité est-il strictement positif ?
+2. Pour $p=(1/2,1/4,1/4)$ et $q=(1/3,1/3,1/3)$, calculez les deux membres de Gibbs.
+3. Si les deux distributions ont somme 1, pourquoi l'égalité n'est-elle pas automatique ?
+
+<details className="info-answer">
+<summary>Solutions justifiées</summary>
+
+1. Le logarithme et le quotient de la preuve doivent être définis. La preuve donnée ne traite pas les zéros par convention implicite.
+2. L'entropie vaut $3/2$ ; l'entropie croisée vaut $\log_2 3\approx1{,}585$. L'inégalité est stricte car p et q diffèrent.
+3. L'annulation de la somme des différences utilise les normalisations, mais l'égalité dans chaque application logarithmique exige en plus chaque quotient égal à 1.
+
+</details>
+
+## À retenir et suite
+
+Logarithme sous sa tangente ; quotients positifs ; multiplication sans inversion ; changement de signe avec inversion ; conversion de base positive. Gibbs dit qu'un modèle différent ne diminue pas la surprise moyenne réelle. [L53](/fr/lessons/L53/) choisit q à partir des longueurs d'un code.

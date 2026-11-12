@@ -9,14 +9,17 @@ function readJson(path: string) {
   return JSON.parse(readFileSync(path, 'utf8'));
 }
 
-test('all seven Chapter 4 practice banks have 15 exercises, six objectives and no client answer leakage', () => {
+test('all twelve Chapter 4 practice banks have 15 exercises, six objectives and no client answer leakage', () => {
   const releases = readJson('content/releases.json').lessons;
-  for (let number = 43; number <= 49; number++) {
+  for (let number = 43; number <= 54; number++) {
     const id = `L${number}`;
-    const version = number === 49 ? 1 : 2;
+    const version = number >= 50 ? 1 : number === 48 ? 3 : 2;
     assert.equal(releases[id].version, version);
     assert.equal(releases[id].practice, true);
-    assert.equal(releases[id].review, 'unreviewed-exception');
+    assert.equal(
+      releases[id].review,
+      number >= 48 ? 'self-checked' : 'unreviewed-exception',
+    );
     const bank = validateBank(readJson(`exercises/${id}/v${version}.json`));
     assert.equal(bank.exerciseCount, 15);
     assert.equal(bank.exercises.length, 15);
@@ -38,7 +41,7 @@ test('all seven Chapter 4 practice banks have 15 exercises, six objectives and n
   }
 });
 
-test('Chapter 4 v2 choices agree with their bilingual worked exercise sources', () => {
+test('archived Chapter 4 v2 choices preserve historical draft transcriptions (not a correctness oracle)', () => {
   for (let n = 1; n <= 6; n++) {
     const bank = readJson(`exercises/L${n + 42}/v2.json`);
     const draft = readJson(`exercises/drafts/chapter-04/T0${n}.json`);
