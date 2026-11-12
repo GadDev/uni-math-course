@@ -8,21 +8,30 @@ import {
   truthTableRows,
 } from '../../lib/cheat-sheet';
 import katex from 'katex';
+import {
+  sigmaCopy,
+  sigmaParts,
+  sigmaPatterns,
+  sigmaRules,
+} from '../../lib/sigma-cheat-sheet';
 import '../../styles/cheat-sheet.css';
+import '../../styles/sigma-cheat-sheet.css';
 
 export function getStaticPaths() {
   return locales.map((locale) => ({ params: { locale }, props: { locale } }));
 }
 const { locale } = Astro.props;
 const text = cheatSheetCopy[locale];
+const sigmaText = sigmaCopy[locale];
 const truth = (value: boolean) => (value ? text.trueLabel : text.falseLabel);
 const nodeY = (count: number, index: number) =>
   count === 2 ? 73 + 68 * index : 47 + 48 * index;
-const math = (value: string) =>
+const math = (value: string, displayMode = false) =>
   katex.renderToString(value, {
     output: 'htmlAndMathml',
     throwOnError: true,
     trust: false,
+    displayMode,
   });
 ---
 
@@ -66,6 +75,10 @@ const math = (value: string) =>
         <span aria-hidden="true">04</span>
         {text.mappingTitle}
       </a>
+      <a href="#sigma">
+        <span aria-hidden="true">05</span>
+        {sigmaText.title}
+      </a>
     </nav>
 
     {symbolGroups.map((group, index) => (
@@ -74,7 +87,7 @@ const math = (value: string) =>
         class="cheat-sheet-section"
         aria-labelledby={group.id + '-title'}
       >
-        <p class="eyebrow">0{index + 1} / 04</p>
+        <p class="eyebrow">0{index + 1} / 05</p>
         <h2 id={group.id + '-title'}>{group.title[locale]}</h2>
         <div
           class="cheat-sheet-table-scroll"
@@ -123,7 +136,7 @@ const math = (value: string) =>
       class="cheat-sheet-section"
       aria-labelledby="truth-table-title"
     >
-      <p class="eyebrow">03 / 04</p>
+      <p class="eyebrow">03 / 05</p>
       <h2 id="truth-table-title">{text.truthTitle}</h2>
       <p class="cheat-sheet-section-intro">{text.truthIntro}</p>
       <div
@@ -197,7 +210,7 @@ const math = (value: string) =>
       class="cheat-sheet-section"
       aria-labelledby="functions-title"
     >
-      <p class="eyebrow">04 / 04</p>
+      <p class="eyebrow">04 / 05</p>
       <h2 id="functions-title">{text.mappingTitle}</h2>
       <p class="cheat-sheet-section-intro">{text.mappingIntro}</p>
       <div
@@ -314,6 +327,123 @@ const math = (value: string) =>
         </table>
       </div>
       <p class="cheat-sheet-table-note">{text.mappingReminder}</p>
+    </section>
+
+    <section
+      id="sigma"
+      class="cheat-sheet-section sigma-section"
+      aria-labelledby="sigma-title"
+    >
+      <p class="eyebrow">05 / 05</p>
+      <h2 id="sigma-title">{sigmaText.title}</h2>
+      <p class="cheat-sheet-section-intro">{sigmaText.intro}</p>
+
+      <div class="sigma-hero" role="region" aria-label={sigmaText.partsTitle}>
+        <div
+          class="sigma-hero-formula"
+          set:html={math('\\sum_{i=m}^{n}a_i=a_m+a_{m+1}+\\cdots+a_n', true)}
+        />
+      </div>
+
+      <h3>{sigmaText.partsTitle}</h3>
+      <div
+        class="cheat-sheet-table-scroll"
+        role="region"
+        tabindex="0"
+        aria-label={sigmaText.partsTitle}
+      >
+        <table class="cheat-sheet-table sigma-parts-table">
+          <caption class="visually-hidden">{sigmaText.partsTitle}</caption>
+          <thead>
+            <tr>
+              <th scope="col">{sigmaText.partName}</th>
+              <th scope="col">{sigmaText.partSymbol}</th>
+              <th scope="col" lang="en">{text.english}</th>
+              <th scope="col" lang="fr">{text.french}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sigmaParts.map((part) => (
+              <tr>
+                <th scope="row">
+                  {part.name[locale]}
+                </th>
+                <td class="sigma-math" set:html={math(part.symbol)} />
+                <td lang="en">
+                  <strong>{part.name.en}</strong> — {part.meaning.en}
+                </td>
+                <td lang="fr">
+                  <strong>{part.name.fr}</strong> — {part.meaning.fr}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h3>{sigmaText.patternTitle}</h3>
+      <div
+        class="cheat-sheet-table-scroll"
+        role="region"
+        tabindex="0"
+        aria-label={sigmaText.patternTitle}
+      >
+        <table class="cheat-sheet-table sigma-patterns-table">
+          <caption class="visually-hidden">{sigmaText.patternTitle}</caption>
+          <thead>
+            <tr>
+              <th scope="col">{sigmaText.notation}</th>
+              <th scope="col" lang="en">{text.english}</th>
+              <th scope="col" lang="fr">{text.french}</th>
+              <th scope="col">{sigmaText.expanded}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sigmaPatterns.map((pattern) => (
+              <tr>
+                <th scope="row">
+                  <span
+                    class="sigma-math"
+                    set:html={math(pattern.notation)}
+                  />
+                </th>
+                <td lang="en">{pattern.reading.en}</td>
+                <td lang="fr">{pattern.reading.fr}</td>
+                <td>
+                  <span
+                    class="sigma-math"
+                    set:html={math(pattern.expansion)}
+                  />
+                  {pattern.note && (
+                    <p class="sigma-pattern-note">{pattern.note[locale]}</p>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h3>{sigmaText.exampleTitle}</h3>
+      <div class="sigma-worked">
+        <p>{sigmaText.exampleLead}</p>
+        <div
+          class="sigma-worked-formula"
+          set:html={math('\\sum_{i=2}^{4}i^2=2^2+3^2+4^2=4+9+16=29', true)}
+        />
+        <p>{sigmaText.exampleExplanation}</p>
+      </div>
+
+      <h3>{sigmaText.rulesTitle}</h3>
+      <ol class="sigma-rules">
+        {sigmaRules.map((rule) => (
+          <li>
+            <div class="sigma-rule-formula" set:html={math(rule.formula, true)} />
+            <p>{rule.explanation[locale]}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="cheat-sheet-table-note sigma-caution">{sigmaText.caution}</p>
     </section>
 
     <aside class="cheat-sheet-tips" aria-labelledby="cheat-tips-title">
