@@ -24,9 +24,10 @@ for (const locale of ['fr', 'en'] as const) {
       page.locator('#sigma .sigma-patterns-table tbody tr'),
     ).toHaveCount(5);
     await expect(page.locator('#sigma .sigma-rules li')).toHaveCount(5);
-    await expect(page.locator('#geometry .geometry-formula-table tbody tr')).toHaveCount(9);
+    await expect(page.locator('#geometry .geometry-formula-table tbody tr')).toHaveCount(5);
     await expect(page.locator('#geometry .geometry-method')).toHaveCount(5);
     await expect(page.locator('#geometry .geometry-regression li')).toHaveCount(3);
+    await expect(page.locator('#geometry .geometry-formula-reading')).toHaveCount(4);
     await expect(page.locator('#geometry svg[role="img"]')).toHaveCount(1);
     await expect(page.locator('#functions svg')).toHaveCount(3);
     await expect(page.locator('#functions .katex-mathml math')).toHaveCount(3);
@@ -107,13 +108,13 @@ test('geometry navigation and language switching preserve the section anchor', a
   await expect(page.locator('#geometry h2')).toContainText('Droites');
   await expect(
     page.locator('#geometry .geometry-formula-table tbody tr'),
-  ).toHaveCount(9);
+  ).toHaveCount(5);
   await page.getByRole('link', { name: 'EN', exact: true }).click();
   await expect(page).toHaveURL('/en/cheat-sheet/#geometry');
   await expect(page.locator('#geometry h2')).toContainText('Analytic geometry');
   await expect(
     page.locator('#geometry .geometry-formula-table tbody tr'),
-  ).toHaveCount(9);
+  ).toHaveCount(5);
 });
 
 test('geometry regression and chart formulas render as accessible math', async ({
