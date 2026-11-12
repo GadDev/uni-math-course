@@ -24,10 +24,16 @@ for (const locale of ['fr', 'en'] as const) {
       page.locator('#sigma .sigma-patterns-table tbody tr'),
     ).toHaveCount(5);
     await expect(page.locator('#sigma .sigma-rules li')).toHaveCount(5);
-    await expect(page.locator('#geometry .geometry-formula-table tbody tr')).toHaveCount(5);
+    await expect(
+      page.locator('#geometry .geometry-formula-table tbody tr'),
+    ).toHaveCount(5);
     await expect(page.locator('#geometry .geometry-method')).toHaveCount(5);
-    await expect(page.locator('#geometry .geometry-regression li')).toHaveCount(3);
-    await expect(page.locator('#geometry .geometry-formula-reading')).toHaveCount(4);
+    await expect(page.locator('#geometry .geometry-regression li')).toHaveCount(
+      3,
+    );
+    await expect(
+      page.locator('#geometry .geometry-formula-reading'),
+    ).toHaveCount(4);
     await expect(page.locator('#geometry svg[role="img"]')).toHaveCount(1);
     await expect(page.locator('#functions svg')).toHaveCount(3);
     await expect(page.locator('#functions .katex-mathml math')).toHaveCount(3);
@@ -121,10 +127,14 @@ test('geometry regression and chart formulas render as accessible math', async (
   page,
 }) => {
   await page.goto('/fr/cheat-sheet/#geometry');
-  await expect(page.locator('#geometry .geometry-chart svg title')).toContainText(
-    'y = 2x + 1',
+  await expect(
+    page.locator('#geometry .geometry-chart svg title'),
+  ).toContainText('y = 2x + 1');
+  await expect(page.locator('#geometry .geometry-regression li')).toHaveCount(
+    3,
   );
-  await expect(page.locator('#geometry .geometry-regression li')).toHaveCount(3);
-  await expect(page.locator('#geometry .katex-mathml math').first()).toBeAttached();
+  await expect(
+    page.locator('#geometry .katex-mathml math').first(),
+  ).toBeAttached();
   await expect(page.locator('#geometry')).toBeVisible();
 });
