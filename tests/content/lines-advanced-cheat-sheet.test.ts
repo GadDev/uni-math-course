@@ -65,7 +65,11 @@ test('Bresenham integer decision trace follows the requested E/NE convention', (
   assert.equal(bresenhamExample.length, 6);
   assert.deepEqual(
     bresenhamGentle(0, 0, 2, 1).map(({ x, y }) => [x, y]),
-    [[0, 0], [1, 1], [2, 1]],
+    [
+      [0, 0],
+      [1, 1],
+      [2, 1],
+    ],
   );
   assert.throws(() => bresenhamGentle(0, 0, 1, 3), RangeError);
   assert.throws(() => bresenhamGentle(0.5, 0, 2, 1), RangeError);
@@ -81,23 +85,37 @@ test('least squares means, centered columns, slope, intercept and SSR are exact'
   assert.equal(fit.slope, 1.5);
   assert.equal(fit.intercept, 0);
   assert.deepEqual(
-    fit.rows.map(({ dx, dy, product, squared }) => [
-      dx, dy, product, squared,
-    ]),
+    fit.rows.map(({ dx, dy, product, squared }) => [dx, dy, product, squared]),
     [
       [-1, -1, 1, 1],
       [0, -1, 0, 0],
       [1, 2, 2, 1],
     ],
   );
-  assert.equal(fit.rows.reduce((sum, row) => sum + row.dx, 0), 0);
-  assert.equal(fit.rows.reduce((sum, row) => sum + row.dy, 0), 0);
-  assert.deepEqual(fit.rows.map(({ residual }) => residual), [0.5, -1, 0.5]);
+  assert.equal(
+    fit.rows.reduce((sum, row) => sum + row.dx, 0),
+    0,
+  );
+  assert.equal(
+    fit.rows.reduce((sum, row) => sum + row.dy, 0),
+    0,
+  );
+  assert.deepEqual(
+    fit.rows.map(({ residual }) => residual),
+    [0.5, -1, 0.5],
+  );
   assert.equal(fit.ssr, 1.5);
   assert.equal(fit.slope * fit.meanX + fit.intercept, fit.meanY);
   assert.equal((3 - fit.intercept) / fit.slope, 2);
   assert.throws(() => regressionLeastSquares([[1, 2]]), RangeError);
-  assert.throws(() => regressionLeastSquares([[1, 2], [1, 4]]), RangeError);
+  assert.throws(
+    () =>
+      regressionLeastSquares([
+        [1, 2],
+        [1, 4],
+      ]),
+    RangeError,
+  );
 });
 
 test('regression limits and all student-facing notes are bilingual', () => {
