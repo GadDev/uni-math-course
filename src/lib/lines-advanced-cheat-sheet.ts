@@ -425,6 +425,10 @@ export const regressionCopy = {
     procedureIntro:
       'Lire ∑ comme « somme ». Pour chaque ligne, calculer les écarts aux deux moyennes, puis le produit et le carré.',
     tableTitle: 'Tableau de calcul pour 3 points',
+    blankTableTitle: 'Tableau vierge à compléter pendant les exercices',
+    blankTableTip:
+      'Recopier les points, calculer les deux moyennes et compléter les quatre colonnes. Additionner les deux dernières colonnes pour calculer m.',
+    blankTotal: 'Totaux',
     top: 'Somme numérateur de m',
     bottom: 'Somme dénominateur de m',
     sums: 'Sommes',
@@ -470,6 +474,10 @@ export const regressionCopy = {
     procedureIntro:
       'Read ∑ as “sum”. For each observation, calculate deviations from both means, their product and the square.',
     tableTitle: 'Calculation table for three points',
+    blankTableTitle: 'Blank table to fill in during exercises',
+    blankTableTip:
+      'Copy the points, calculate the means, then complete the four deviation columns. Add the last two columns to calculate m.',
+    blankTotal: 'Totals',
     top: 'Sum in numerator of m',
     bottom: 'Sum in denominator of m',
     sums: 'Totals',
@@ -512,6 +520,9 @@ export const regressionCopy = {
     procedureTitle: string;
     procedureIntro: string;
     tableTitle: string;
+    blankTableTitle: string;
+    blankTableTip: string;
+    blankTotal: string;
     top: string;
     bottom: string;
     sums: string;
