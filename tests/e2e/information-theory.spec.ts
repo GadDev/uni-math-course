@@ -172,7 +172,25 @@ test('block coding updates both units, animates manual merges, and respects redu
 });
 test('exam preparation discloses the new-topic coverage gap and new glossary symbols are searchable', async ({
   page,
+  request,
+  context,
 }) => {
+  await page.goto('/fr/training-exams/');
+  await expect(page.locator('.final-exam-card')).toContainText(
+    'Les nouveaux objectifs L50–L54',
+  );
+  const issued = await (
+    await request.post('http://127.0.0.1:54329/__fixture/session', { data: {} })
+  ).json();
+  await context.addCookies([
+    {
+      name: issued.cookieName,
+      value: issued.cookieValue,
+      url: 'http://127.0.0.1:4321',
+      httpOnly: true,
+      sameSite: 'Lax',
+    },
+  ]);
   await page.goto('/fr/training-exams/final/');
   await expect(page.locator('.exam-coverage-note')).toContainText(
     'n’évalue pas encore',
