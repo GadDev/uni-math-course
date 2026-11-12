@@ -12,7 +12,7 @@ for (const locale of ['fr', 'en'] as const) {
     await link.click();
     await expect(page).toHaveURL(`/${locale}/cheat-sheet/`);
     await expect(link).toHaveAttribute('aria-current', 'page');
-    await expect(page.locator('.cheat-sheet-table')).toHaveCount(11);
+    await expect(page.locator('.cheat-sheet-table')).toHaveCount(12);
     await expect(page.locator('#logic tbody tr')).toHaveCount(8);
     await expect(page.locator('#sets tbody tr')).toHaveCount(11);
     await expect(page.locator('#truth-table tbody tr')).toHaveCount(4);
@@ -42,7 +42,7 @@ for (const locale of ['fr', 'en'] as const) {
       page.locator('#pixels .bres-trace-table tbody tr'),
     ).toHaveCount(6);
     await expect(
-      page.locator('#regression .regression-hand-table tbody tr'),
+      page.locator('#regression .regression-hand-table:not(.regression-blank-table) tbody tr'),
     ).toHaveCount(3);
     await expect(
       page.locator('#regression .regression-limits-table tbody tr'),
@@ -88,14 +88,14 @@ test('language switching retains the set-theory anchor', async ({ page }) => {
   await expect(page.locator('#sets')).toBeVisible();
 });
 
-test('print stylesheet removes site chrome but retains all eleven reference tables', async ({
+test('print stylesheet removes site chrome but retains all twelve reference tables', async ({
   page,
 }) => {
   await page.goto('/fr/cheat-sheet/');
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('.site-header')).toBeHidden();
   await expect(page.locator('.site-footer')).toBeHidden();
-  await expect(page.locator('.cheat-sheet-table')).toHaveCount(11);
+  await expect(page.locator('.cheat-sheet-table')).toHaveCount(12);
   await expect(page.locator('.cheat-sheet-table').first()).toBeVisible();
 });
 
