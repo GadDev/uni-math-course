@@ -12,7 +12,7 @@ for (const locale of ['fr', 'en'] as const) {
     await link.click();
     await expect(page).toHaveURL(`/${locale}/cheat-sheet/`);
     await expect(link).toHaveAttribute('aria-current', 'page');
-    await expect(page.locator('.cheat-sheet-table')).toHaveCount(6);
+    await expect(page.locator('.cheat-sheet-table')).toHaveCount(7);
     await expect(page.locator('#logic tbody tr')).toHaveCount(8);
     await expect(page.locator('#sets tbody tr')).toHaveCount(11);
     await expect(page.locator('#truth-table tbody tr')).toHaveCount(4);
@@ -24,6 +24,10 @@ for (const locale of ['fr', 'en'] as const) {
       page.locator('#sigma .sigma-patterns-table tbody tr'),
     ).toHaveCount(5);
     await expect(page.locator('#sigma .sigma-rules li')).toHaveCount(5);
+    await expect(page.locator('#geometry .geometry-formula-table tbody tr')).toHaveCount(9);
+    await expect(page.locator('#geometry .geometry-method')).toHaveCount(5);
+    await expect(page.locator('#geometry .geometry-regression li')).toHaveCount(3);
+    await expect(page.locator('#geometry svg[role="img"]')).toHaveCount(1);
     await expect(page.locator('#functions svg')).toHaveCount(3);
     await expect(page.locator('#functions .katex-mathml math')).toHaveCount(3);
     await expect(page.getByText('𝒫(A)', { exact: true })).toBeVisible();
@@ -63,14 +67,14 @@ test('language switching retains the set-theory anchor', async ({ page }) => {
   await expect(page.locator('#sets')).toBeVisible();
 });
 
-test('print stylesheet removes site chrome but retains all six reference tables', async ({
+test('print stylesheet removes site chrome but retains all seven reference tables', async ({
   page,
 }) => {
   await page.goto('/fr/cheat-sheet/');
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('.site-header')).toBeHidden();
   await expect(page.locator('.site-footer')).toBeHidden();
-  await expect(page.locator('.cheat-sheet-table')).toHaveCount(6);
+  await expect(page.locator('.cheat-sheet-table')).toHaveCount(7);
   await expect(page.locator('.cheat-sheet-table').first()).toBeVisible();
 });
 
@@ -89,4 +93,37 @@ test('Sigma section is reachable using an anchor and preserves language', async 
   await expect(page.locator('#sigma .sigma-parts-table tbody tr')).toHaveCount(
     5,
   );
+});
+
+test('geometry navigation and language switching preserve the section anchor', async ({
+  page,
+}) => {
+  await page.goto('/fr/cheat-sheet/');
+  await page
+    .locator('.cheat-sheet-toc')
+    .getByRole('link', { name: /Droites, géométrie analytique/ })
+    .click();
+  await expect(page).toHaveURL('/fr/cheat-sheet/#geometry');
+  await expect(page.locator('#geometry h2')).toContainText('Droites');
+  await expect(
+    page.locator('#geometry .geometry-formula-table tbody tr'),
+  ).toHaveCount(9);
+  await page.getByRole('link', { name: 'EN', exact: true }).click();
+  await expect(page).toHaveURL('/en/cheat-sheet/#geometry');
+  await expect(page.locator('#geometry h2')).toContainText('Analytic geometry');
+  await expect(
+    page.locator('#geometry .geometry-formula-table tbody tr'),
+  ).toHaveCount(9);
+});
+
+test('geometry regression and chart formulas render as accessible math', async ({
+  page,
+}) => {
+  await page.goto('/fr/cheat-sheet/#geometry');
+  await expect(page.locator('#geometry .geometry-chart svg title')).toContainText(
+    'y = 2x + 1',
+  );
+  await expect(page.locator('#geometry .geometry-regression li')).toHaveCount(3);
+  await expect(page.locator('#geometry .katex-mathml math').first()).toBeAttached();
+  await expect(page.locator('#geometry')).toBeVisible();
 });
