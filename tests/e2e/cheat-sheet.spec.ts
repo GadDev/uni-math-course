@@ -138,7 +138,14 @@ for (const locale of ['fr', 'en'] as const) {
           rootScroll = scroller.scrollLeft;
           scroller.scrollLeft = 0;
         }
-        return { viewport, pageWidth, wrappers, leakers, rootScroll, overflowChain };
+        return {
+          viewport,
+          pageWidth,
+          wrappers,
+          leakers,
+          rootScroll,
+          overflowChain,
+        };
       });
       expect(
         {
