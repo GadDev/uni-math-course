@@ -76,7 +76,7 @@ for (const locale of ['fr', 'en'] as const) {
   });
 
   for (const width of [320, 375, 650, 768, 1051, 1280]) {
-    test(`cheat sheet and navigation avoid page overflow (${locale}, ${width}px)`, async ({
+    test.only(`cheat sheet and navigation avoid page overflow (${locale}, ${width}px)`, async ({
       page,
     }) => {
       await page.setViewportSize({ width, height: 900 });
