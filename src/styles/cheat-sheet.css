@@ -1,6 +1,8 @@
 .cheat-sheet-page {
   max-width: 1120px;
   margin: 2.5rem auto 4rem;
+  min-width: 0;
+  overflow-x: clip;
 }
 
 .cheat-sheet-breadcrumb {
@@ -257,6 +259,7 @@
   .cheat-sheet-page {
     max-width: none;
     margin: 0;
+    overflow-x: visible;
   }
 
   .cheat-sheet-heading {
