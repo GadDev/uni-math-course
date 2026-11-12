@@ -31,3 +31,7 @@ The fingerprint gate detects changed bytes, missing translations and stale recor
 ## Class-pilot acceptance
 
 Local builds, protocol fixtures and database tests are separate evidence. Before classmates use the hosted service, verify sign-in, refresh/logout, secure/no-store responses, migrations, two-account isolation, answer/reload/later-sign-in persistence, and the privacy/retention/deletion/export decisions in [ROADMAP.md](ROADMAP.md). A green CI run does not certify cloud configuration.
+
+## Training exam banks
+
+Chapter-wide training papers use their own versioned contract in `exercises/exams/Cxx/vN.json`, selected explicitly by `src/lib/training-exams/bank.ts`. They support single choice, exact multiple selections and numeric rational fields; these types do not extend the existing lesson-bank schema. Each item inherits its bank version, provenance and actual review evidence. The first three papers have the [documented mathematical and bilingual author self-check](content/TRAINING_EXAMS_REVIEW.md), not independent review. Content tests check the exam contract and notation; the immutable-exercise CI gate protects existing exam versions too. Correct a paper in a new version with renewed evidence and selector. Training scores are not stored attempts or fresh mastery evidence.

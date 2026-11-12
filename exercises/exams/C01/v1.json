@@ -1,0 +1,1369 @@
+{
+  "id": "C01-M01",
+  "version": 1,
+  "chapterId": "C01",
+  "title": {
+    "fr": "Logique et ensembles — Examen blanc 01",
+    "en": "Logic and sets — Mock exam 01"
+  },
+  "suggestedMinutes": 60,
+  "review": {
+    "mathematics": "author-self-check",
+    "translation": "author-self-check",
+    "evidence": "docs/content/TRAINING_EXAMS_REVIEW.md"
+  },
+  "provenance": {
+    "origin": "original-project-work",
+    "styleReference": "User-supplied professor quiz JSON: logic, predicates, sets and applicable past questions. Original questions; no university endorsement."
+  },
+  "grading": {
+    "pointsPerQuestion": 1,
+    "partialCredit": false,
+    "negativeMarking": false,
+    "numeric": "exact-rational; signed integers, decimals or integer fractions"
+  },
+  "questions": [
+    {
+      "id": "C01-M01-Q01",
+      "type": "single",
+      "lessonId": "L01",
+      "objective": "proposition",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L01"
+      ],
+      "prompt": {
+        "fr": "Quel énoncé est une assertion, avec une valeur de vérité bien déterminée ?",
+        "en": "Which statement is a proposition with a definite truth value?"
+      },
+      "explanation": {
+        "fr": "L’égalité $7+5=13$ est fausse, mais possède une valeur de vérité. Une question, un ordre ou une formule avec une variable libre ne sont pas des assertions fermées.",
+        "en": "The equality $7+5=13$ is false but has a truth value. A question, a command or a formula with a free variable is not a closed proposition."
+      },
+      "pitfall": {
+        "fr": "Une assertion peut être fausse.",
+        "en": "A proposition can be false."
+      },
+      "answer": [
+        "c"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Fermez la fenêtre.",
+            "en": "Close the window."
+          },
+          "feedback": {
+            "fr": "C’est un ordre.",
+            "en": "This is a command."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Quelle heure est-il ?",
+            "en": "What time is it?"
+          },
+          "feedback": {
+            "fr": "C’est une question.",
+            "en": "This is a question."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$7+5=13$",
+            "en": "$7+5=13$"
+          },
+          "feedback": {
+            "fr": "C’est une assertion fausse.",
+            "en": "This is a false proposition."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$x+2=8$",
+            "en": "$x+2=8$"
+          },
+          "feedback": {
+            "fr": "La variable n’a pas reçu de valeur ni de quantificateur.",
+            "en": "The variable has no assigned value or quantifier."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q02",
+      "type": "single",
+      "lessonId": "L02",
+      "objective": "connectives",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L02"
+      ],
+      "prompt": {
+        "fr": "On suppose $P$ fausse et $Q$ vraie. Que vaut $(\\neg P\\land Q)\\lor P$ ?",
+        "en": "Assume $P$ is false and $Q$ true. What is the truth value of $(\\neg P\\land Q)\\lor P$?"
+      },
+      "explanation": {
+        "fr": "$\\neg P$ est vraie ; la conjonction avec $Q$ est vraie. La disjonction avec $P$ reste vraie.",
+        "en": "$\\neg P$ is true; its conjunction with $Q$ is true. Disjoining with $P$ remains true."
+      },
+      "pitfall": {
+        "fr": "Évaluer les connecteurs dans l’ordre des parenthèses.",
+        "en": "Evaluate connectives in parenthesis order."
+      },
+      "answer": [
+        "b"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Faux",
+            "en": "False"
+          },
+          "feedback": {
+            "fr": "La première branche de la disjonction est vraie.",
+            "en": "The first disjunct is true."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Vrai",
+            "en": "True"
+          },
+          "feedback": {
+            "fr": "Une disjonction est vraie dès qu’un de ses termes est vrai.",
+            "en": "A disjunction is true when either term is true."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q03",
+      "type": "single",
+      "lessonId": "L03",
+      "objective": "implication-table",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L03"
+      ],
+      "prompt": {
+        "fr": "Dans l’ordre $(P,Q)=(0,0),(0,1),(1,0),(1,1)$, quelle colonne correspond à $P\\Rightarrow Q$ ? On note $0$ faux et $1$ vrai.",
+        "en": "In the order $(P,Q)=(0,0),(0,1),(1,0),(1,1)$, which column represents $P\\Rightarrow Q$? Here $0$ means false and $1$ true."
+      },
+      "explanation": {
+        "fr": "Seul le cas $(1,0)$ fait échouer l’implication. La colonne est donc $(1,1,0,1)$.",
+        "en": "Only $(1,0)$ makes the implication false. The column is therefore $(1,1,0,1)$."
+      },
+      "pitfall": {
+        "fr": "Quand l’antécédent est faux, l’implication est vraie.",
+        "en": "When the antecedent is false, the implication is true."
+      },
+      "answer": [
+        "d"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$(0,0,1,1)$",
+            "en": "$(0,0,1,1)$"
+          },
+          "feedback": {
+            "fr": "Cette colonne recopie la première variable.",
+            "en": "This copies the first variable."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$(1,0,1,1)$",
+            "en": "$(1,0,1,1)$"
+          },
+          "feedback": {
+            "fr": "Le seul échec est placé sur la mauvaise ligne.",
+            "en": "The only false case is on the wrong row."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(1,0,0,1)$",
+            "en": "$(1,0,0,1)$"
+          },
+          "feedback": {
+            "fr": "C’est la colonne de la biconditionnelle.",
+            "en": "This is the biconditional column."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$(1,1,0,1)$",
+            "en": "$(1,1,0,1)$"
+          },
+          "feedback": {
+            "fr": "La promesse échoue seulement avec antécédent vrai et conséquent faux.",
+            "en": "The promise fails only with a true antecedent and false consequent."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q04",
+      "type": "multi",
+      "lessonId": "L04",
+      "objective": "tautology",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L04"
+      ],
+      "prompt": {
+        "fr": "Quelles formules sont des tautologies ?",
+        "en": "Which formulas are tautologies?"
+      },
+      "explanation": {
+        "fr": "$P\\lor\\neg P$ est toujours vraie. Si $P\\land Q$ est vraie, $P$ l’est aussi. Enfin, une implication est équivalente à sa contraposée. $P\\Rightarrow Q$ peut être fausse et $P\\land\\neg P$ est toujours fausse.",
+        "en": "$P\\lor\\neg P$ is always true. If $P\\land Q$ is true, so is $P$. An implication is equivalent to its contrapositive. $P\\Rightarrow Q$ can be false and $P\\land\\neg P$ is always false."
+      },
+      "pitfall": {
+        "fr": "Une tautologie doit être vraie pour chaque valuation.",
+        "en": "A tautology must be true under every valuation."
+      },
+      "answer": [
+        "a",
+        "c",
+        "e"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$P\\lor\\neg P$",
+            "en": "$P\\lor\\neg P$"
+          },
+          "feedback": {
+            "fr": "C’est le tiers exclu.",
+            "en": "This is the law of excluded middle."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$P\\Rightarrow Q$",
+            "en": "$P\\Rightarrow Q$"
+          },
+          "feedback": {
+            "fr": "Le cas $P$ vraie et $Q$ fausse réfute cette formule.",
+            "en": "True $P$ and false $Q$ refute this formula."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$(P\\land Q)\\Rightarrow P$",
+            "en": "$(P\\land Q)\\Rightarrow P$"
+          },
+          "feedback": {
+            "fr": "La conjonction implique chacun de ses termes.",
+            "en": "A conjunction implies each of its terms."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$P\\land\\neg P$",
+            "en": "$P\\land\\neg P$"
+          },
+          "feedback": {
+            "fr": "C’est une contradiction.",
+            "en": "This is a contradiction."
+          }
+        },
+        {
+          "id": "e",
+          "label": {
+            "fr": "$(P\\Rightarrow Q)\\Leftrightarrow(\\neg Q\\Rightarrow\\neg P)$",
+            "en": "$(P\\Rightarrow Q)\\Leftrightarrow(\\neg Q\\Rightarrow\\neg P)$"
+          },
+          "feedback": {
+            "fr": "L’implication et sa contraposée ont la même table.",
+            "en": "An implication and its contrapositive have the same table."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q05",
+      "type": "single",
+      "lessonId": "L05",
+      "objective": "negated-implication",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L05"
+      ],
+      "prompt": {
+        "fr": "Quelle assertion est équivalente à la négation de $P\\Rightarrow Q$ ?",
+        "en": "Which proposition is equivalent to the negation of $P\\Rightarrow Q$?"
+      },
+      "explanation": {
+        "fr": "On nie $\\neg P\\lor Q$. Par De Morgan, on obtient $P\\land\\neg Q$, l’unique cas d’échec de la promesse.",
+        "en": "Negate $\\neg P\\lor Q$. De Morgan gives $P\\land\\neg Q$, the unique way the promise fails."
+      },
+      "pitfall": {
+        "fr": "Nier une implication ne consiste pas à nier ses deux membres.",
+        "en": "Negating an implication does not mean negating both its sides."
+      },
+      "answer": [
+        "a"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$P\\land\\neg Q$",
+            "en": "$P\\land\\neg Q$"
+          },
+          "feedback": {
+            "fr": "L’antécédent est vrai et le conséquent faux.",
+            "en": "The antecedent is true and consequent false."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg P\\Rightarrow\\neg Q$",
+            "en": "$\\neg P\\Rightarrow\\neg Q$"
+          },
+          "feedback": {
+            "fr": "C’est l’implication inverse, pas la négation.",
+            "en": "This is the inverse implication, not its negation."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg P\\land Q$",
+            "en": "$\\neg P\\land Q$"
+          },
+          "feedback": {
+            "fr": "Ce cas ne fait pas échouer la promesse.",
+            "en": "This case does not break the promise."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$P\\lor\\neg Q$",
+            "en": "$P\\lor\\neg Q$"
+          },
+          "feedback": {
+            "fr": "La disjonction inclut beaucoup de cas où la promesse est tenue.",
+            "en": "The disjunction includes many cases where the promise holds."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q06",
+      "type": "single",
+      "lessonId": "L06",
+      "objective": "contrapositive",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L06"
+      ],
+      "prompt": {
+        "fr": "Une règle dit : « Si un fichier est archivé, alors il est en lecture seule. » Quelle est sa contraposée ?",
+        "en": "A rule says: “If a file is archived, then it is read-only.” Which is its contrapositive?"
+      },
+      "explanation": {
+        "fr": "La contraposée échange les deux propositions et les nie : un fichier qui n’est pas en lecture seule n’est pas archivé.",
+        "en": "The contrapositive swaps and negates both propositions: a file that is not read-only is not archived."
+      },
+      "pitfall": {
+        "fr": "La réciproque échange les membres sans les nier.",
+        "en": "The converse swaps sides without negating them."
+      },
+      "answer": [
+        "c"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Si un fichier est en lecture seule, il est archivé.",
+            "en": "If a file is read-only, it is archived."
+          },
+          "feedback": {
+            "fr": "C’est la réciproque.",
+            "en": "This is the converse."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Si un fichier n’est pas archivé, il n’est pas en lecture seule.",
+            "en": "If a file is not archived, it is not read-only."
+          },
+          "feedback": {
+            "fr": "C’est l’implication inverse.",
+            "en": "This is the inverse implication."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Si un fichier n’est pas en lecture seule, il n’est pas archivé.",
+            "en": "If a file is not read-only, it is not archived."
+          },
+          "feedback": {
+            "fr": "L’ordre et les deux négations sont corrects.",
+            "en": "The order and both negations are correct."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Un fichier est archivé ou en lecture seule, mais pas les deux.",
+            "en": "A file is archived or read-only, but not both."
+          },
+          "feedback": {
+            "fr": "Une implication n’exprime pas un OU exclusif.",
+            "en": "An implication is not exclusive OR."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q07",
+      "type": "multi",
+      "lessonId": "L07",
+      "objective": "biconditional-equivalence",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L07"
+      ],
+      "prompt": {
+        "fr": "Quelles assertions sont vraies à propos de $P\\Leftrightarrow Q$ ?",
+        "en": "Which statements about $P\\Leftrightarrow Q$ are true?"
+      },
+      "explanation": {
+        "fr": "Une biconditionnelle est vraie si ses deux membres ont la même valeur, y compris quand ils sont tous deux faux. Elle équivaut à $(P\\Rightarrow Q)\\land(Q\\Rightarrow P)$. Sa vérité pour une seule valuation ne prouve pas l’équivalence sémantique de deux formules.",
+        "en": "A biconditional is true when both sides have the same value, including when both are false. It equals $(P\\Rightarrow Q)\\land(Q\\Rightarrow P)$. Its truth under one valuation does not prove semantic equivalence of two formulas."
+      },
+      "pitfall": {
+        "fr": "Un connecteur évalué sur une ligne et l’équivalence de tables entières sont deux notions distinctes.",
+        "en": "A connective evaluated on one row and equivalence of entire tables are distinct notions."
+      },
+      "answer": [
+        "b",
+        "d"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Elle est fausse quand les deux membres sont faux.",
+            "en": "It is false when both sides are false."
+          },
+          "feedback": {
+            "fr": "Des valeurs égales donnent une biconditionnelle vraie.",
+            "en": "Equal values give a true biconditional."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Elle équivaut à $(P\\Rightarrow Q)\\land(Q\\Rightarrow P)$.",
+            "en": "It equals $(P\\Rightarrow Q)\\land(Q\\Rightarrow P)$."
+          },
+          "feedback": {
+            "fr": "Les deux implications sont nécessaires.",
+            "en": "Both implications are required."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Une seule ligne vraie prouve l’équivalence sémantique.",
+            "en": "One true row proves semantic equivalence."
+          },
+          "feedback": {
+            "fr": "Il faut vérifier toutes les valuations.",
+            "en": "Every valuation must be checked."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Elle est vraie quand les deux membres sont faux.",
+            "en": "It is true when both sides are false."
+          },
+          "feedback": {
+            "fr": "Les deux valeurs coïncident.",
+            "en": "Both truth values agree."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q08",
+      "type": "single",
+      "lessonId": "L08",
+      "objective": "functional-completeness",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L08"
+      ],
+      "prompt": {
+        "fr": "Quelle formule utilise seulement $\\lor$ et $\\neg$ et est équivalente à $P\\land Q$ ?",
+        "en": "Which formula uses only $\\lor$ and $\\neg$ and is equivalent to $P\\land Q$?"
+      },
+      "explanation": {
+        "fr": "Par De Morgan, $P\\land Q\\equiv\\neg(\\neg P\\lor\\neg Q)$.",
+        "en": "De Morgan gives $P\\land Q\\equiv\\neg(\\neg P\\lor\\neg Q)$."
+      },
+      "pitfall": {
+        "fr": "Il faut nier les deux membres et toute la disjonction.",
+        "en": "Negate both terms and the entire disjunction."
+      },
+      "answer": [
+        "b"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\neg(P\\lor Q)$",
+            "en": "$\\neg(P\\lor Q)$"
+          },
+          "feedback": {
+            "fr": "Cette formule nie une disjonction des membres initiaux.",
+            "en": "This negates the disjunction of the original terms."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\neg(\\neg P\\lor\\neg Q)$",
+            "en": "$\\neg(\\neg P\\lor\\neg Q)$"
+          },
+          "feedback": {
+            "fr": "Les trois négations reconstruisent la conjonction.",
+            "en": "The three negations reconstruct conjunction."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\neg P\\lor\\neg Q$",
+            "en": "$\\neg P\\lor\\neg Q$"
+          },
+          "feedback": {
+            "fr": "Il manque la négation extérieure.",
+            "en": "The outer negation is missing."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$P\\lor Q$",
+            "en": "$P\\lor Q$"
+          },
+          "feedback": {
+            "fr": "La disjonction permet qu’un seul membre soit vrai.",
+            "en": "Disjunction allows just one term to be true."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q09",
+      "type": "single",
+      "lessonId": "L09",
+      "objective": "russell",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L09"
+      ],
+      "prompt": {
+        "fr": "La collection naïve $R=\\{x\\mid x\\notin x\\}$ conduit à quelle difficulté ?",
+        "en": "What problem arises from the naive collection $R=\\{x\\mid x\\notin x\\}$?"
+      },
+      "explanation": {
+        "fr": "Supposer que cette collection est un ensemble autorisé donne $R\\in R\\Leftrightarrow R\\notin R$, une contradiction. La compréhension sans restriction doit être limitée.",
+        "en": "Assuming this collection is an allowed set yields $R\\in R\\Leftrightarrow R\\notin R$, a contradiction. Unrestricted comprehension must be restricted."
+      },
+      "pitfall": {
+        "fr": "On ne résout pas le paradoxe en choisissant simplement vrai ou faux.",
+        "en": "The paradox is not resolved by simply choosing true or false."
+      },
+      "answer": [
+        "d"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Elle prouve que tout ensemble est vide.",
+            "en": "It proves every set is empty."
+          },
+          "feedback": {
+            "fr": "La contradiction ne concerne pas tous les ensembles ordinaires.",
+            "en": "The contradiction does not concern all ordinary sets."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Elle prouve seulement que cette collection contient zéro élément.",
+            "en": "It proves only that this collection contains zero elements."
+          },
+          "feedback": {
+            "fr": "Même le choix vide ne satisfait pas la définition proposée.",
+            "en": "Even choosing the empty set does not satisfy the proposed definition."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Il suffit de déclarer que cette collection se contient elle-même.",
+            "en": "It suffices to declare the collection contains itself."
+          },
+          "feedback": {
+            "fr": "Ce choix impose immédiatement le contraire.",
+            "en": "That choice immediately forces its opposite."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Elle révèle une contradiction dans la compréhension sans restriction.",
+            "en": "It reveals a contradiction in unrestricted comprehension."
+          },
+          "feedback": {
+            "fr": "C’est le rôle du paradoxe de Russell.",
+            "en": "This is the point of Russell’s paradox."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q10",
+      "type": "multi",
+      "lessonId": "L10",
+      "objective": "membership-inclusion",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L10"
+      ],
+      "prompt": {
+        "fr": "Soit $A=\\{0,2,\\{4\\}\\}$. Quelles assertions sont vraies ? Le cours inclut $0$ dans $\\mathbb N$.",
+        "en": "Let $A=\\{0,2,\\{4\\}\\}$. Which statements are true? This course includes $0$ in $\\mathbb N$."
+      },
+      "explanation": {
+        "fr": "Les éléments de $A$ sont $0$, $2$ et $\\{4\\}$. Ainsi $\\{4\\}\\in A$, mais $4\\notin A$. Comme $0\\in A$, $\\{0\\}\\subseteq A$. Enfin $0\\in\\mathbb N$.",
+        "en": "The elements of $A$ are $0$, $2$ and $\\{4\\}$. Thus $\\{4\\}\\in A$, but $4\\notin A$. Since $0\\in A$, $\\{0\\}\\subseteq A$. Also $0\\in\\mathbb N$."
+      },
+      "pitfall": {
+        "fr": "Appartenir à un ensemble et y être inclus sont deux relations différentes.",
+        "en": "Membership and inclusion are different relations."
+      },
+      "answer": [
+        "b",
+        "c",
+        "e"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$4\\in A$",
+            "en": "$4\\in A$"
+          },
+          "feedback": {
+            "fr": "C’est le singleton qui est un élément, pas son contenu.",
+            "en": "The singleton is an element, not its content."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\{4\\}\\in A$",
+            "en": "$\\{4\\}\\in A$"
+          },
+          "feedback": {
+            "fr": "Ce singleton apparaît comme un élément.",
+            "en": "This singleton appears as an element."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\{0\\}\\subseteq A$",
+            "en": "$\\{0\\}\\subseteq A$"
+          },
+          "feedback": {
+            "fr": "Son unique élément appartient à l’ensemble.",
+            "en": "Its only element belongs to the set."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\{2\\}\\in A$",
+            "en": "$\\{2\\}\\in A$"
+          },
+          "feedback": {
+            "fr": "Le singleton ne figure pas comme élément.",
+            "en": "The singleton is not listed as an element."
+          }
+        },
+        {
+          "id": "e",
+          "label": {
+            "fr": "$0\\in\\mathbb N$",
+            "en": "$0\\in\\mathbb N$"
+          },
+          "feedback": {
+            "fr": "Le cours adopte cette convention.",
+            "en": "The course adopts this convention."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q11",
+      "type": "single",
+      "lessonId": "L11",
+      "objective": "quantifier-order",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L11"
+      ],
+      "prompt": {
+        "fr": "Quelle assertion est vraie sur $\\mathbb R$ ?",
+        "en": "Which statement is true over $\\mathbb R$?"
+      },
+      "explanation": {
+        "fr": "Pour chaque $x$, choisir $y=x+1$ donne $y>x$. Aucune constante $y$ ne dépasse tous les réels : prendre $x=y$ suffit à la réfuter.",
+        "en": "For each $x$, choosing $y=x+1$ gives $y>x$. No constant $y$ exceeds every real number: taking $x=y$ refutes it."
+      },
+      "pitfall": {
+        "fr": "Changer l’ordre des quantificateurs change la dépendance des choix.",
+        "en": "Swapping quantifiers changes which choices can depend on others."
+      },
+      "answer": [
+        "a"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall x\\in\\mathbb R,\\ \\exists y\\in\\mathbb R,\\ y>x$",
+            "en": "$\\forall x\\in\\mathbb R,\\ \\exists y\\in\\mathbb R,\\ y>x$"
+          },
+          "feedback": {
+            "fr": "Le choix peut dépendre du réel donné.",
+            "en": "The choice can depend on the given real number."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists y\\in\\mathbb R,\\ \\forall x\\in\\mathbb R,\\ y>x$",
+            "en": "$\\exists y\\in\\mathbb R,\\ \\forall x\\in\\mathbb R,\\ y>x$"
+          },
+          "feedback": {
+            "fr": "Un réel ne peut pas dépasser tous les réels.",
+            "en": "One real cannot exceed every real."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall x\\in\\mathbb R,\\ \\forall y\\in\\mathbb R,\\ y>x$",
+            "en": "$\\forall x\\in\\mathbb R,\\ \\forall y\\in\\mathbb R,\\ y>x$"
+          },
+          "feedback": {
+            "fr": "Le choix de deux réels égaux réfute cette formule.",
+            "en": "Choosing equal reals refutes this formula."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\exists x\\in\\mathbb R,\\ \\forall y\\in\\mathbb R,\\ y>x$",
+            "en": "$\\exists x\\in\\mathbb R,\\ \\forall y\\in\\mathbb R,\\ y>x$"
+          },
+          "feedback": {
+            "fr": "Prendre les deux réels égaux réfute aussi cette formule.",
+            "en": "Choosing equal reals refutes this formula too."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q12",
+      "type": "single",
+      "lessonId": "L12",
+      "objective": "quantifier-negation",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L12"
+      ],
+      "prompt": {
+        "fr": "Quelle est la négation de $\\forall n\\in\\mathbb Z,\\ \\exists m\\in\\mathbb Z,\\ m>n$ ?",
+        "en": "What is the negation of $\\forall n\\in\\mathbb Z,\\ \\exists m\\in\\mathbb Z,\\ m>n$?"
+      },
+      "explanation": {
+        "fr": "On échange les quantificateurs, puis on nie $m>n$ en $m\\le n$ : $\\exists n\\in\\mathbb Z,\\ \\forall m\\in\\mathbb Z,\\ m\\le n$.",
+        "en": "Swap the quantifiers, then negate $m>n$ as $m\\le n$: $\\exists n\\in\\mathbb Z,\\ \\forall m\\in\\mathbb Z,\\ m\\le n$."
+      },
+      "pitfall": {
+        "fr": "L’inégalité opposée doit aussi inclure l’égalité.",
+        "en": "The opposite inequality must include equality."
+      },
+      "answer": [
+        "c"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\forall n\\in\\mathbb Z,\\ \\exists m\\in\\mathbb Z,\\ m\\le n$",
+            "en": "$\\forall n\\in\\mathbb Z,\\ \\exists m\\in\\mathbb Z,\\ m\\le n$"
+          },
+          "feedback": {
+            "fr": "Les quantificateurs n’ont pas été échangés.",
+            "en": "The quantifiers were not swapped."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists n\\in\\mathbb Z,\\ \\forall m\\in\\mathbb Z,\\ m<n$",
+            "en": "$\\exists n\\in\\mathbb Z,\\ \\forall m\\in\\mathbb Z,\\ m<n$"
+          },
+          "feedback": {
+            "fr": "L’égalité manque dans la négation de strictement supérieur.",
+            "en": "Equality is missing from the negation of strictly greater."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\exists n\\in\\mathbb Z,\\ \\forall m\\in\\mathbb Z,\\ m\\le n$",
+            "en": "$\\exists n\\in\\mathbb Z,\\ \\forall m\\in\\mathbb Z,\\ m\\le n$"
+          },
+          "feedback": {
+            "fr": "Les deux quantificateurs et la propriété ont été niés.",
+            "en": "Both quantifiers and the property were negated."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\exists n\\in\\mathbb Z,\\ \\exists m\\in\\mathbb Z,\\ m\\le n$",
+            "en": "$\\exists n\\in\\mathbb Z,\\ \\exists m\\in\\mathbb Z,\\ m\\le n$"
+          },
+          "feedback": {
+            "fr": "Le second quantificateur doit devenir universel.",
+            "en": "The second quantifier must become universal."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q13",
+      "type": "numeric",
+      "lessonId": "L13",
+      "objective": "set-builder",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L13"
+      ],
+      "prompt": {
+        "fr": "Soit $A=\\{n\\in\\mathbb N\\mid n<8\\ \\land\\ \\exists k\\in\\mathbb N,\\ n=2k\\}$. Le cours inclut $0$ dans $\\mathbb N$. Donner le nombre d’éléments et la somme des éléments de $A$.",
+        "en": "Let $A=\\{n\\in\\mathbb N\\mid n<8\\ \\land\\ \\exists k\\in\\mathbb N,\\ n=2k\\}$. This course includes $0$ in $\\mathbb N$. Give the number and sum of the elements of $A$."
+      },
+      "explanation": {
+        "fr": "$A=\\{0,2,4,6\\}$. Il a $4$ éléments et leur somme est $12$.",
+        "en": "$A=\\{0,2,4,6\\}$. It has $4$ elements and their sum is $12$."
+      },
+      "pitfall": {
+        "fr": "Ne pas oublier zéro, et ne pas inclure la borne exclue.",
+        "en": "Do not forget zero or include the excluded endpoint."
+      },
+      "fields": [
+        {
+          "id": "count",
+          "label": {
+            "fr": "$|A|$",
+            "en": "$|A|$"
+          },
+          "answer": "4"
+        },
+        {
+          "id": "sum",
+          "label": {
+            "fr": "Somme des éléments",
+            "en": "Sum of the elements"
+          },
+          "answer": "12"
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q14",
+      "type": "numeric",
+      "lessonId": "L14",
+      "objective": "power-product-count",
+      "difficulty": "easy",
+      "prerequisites": [
+        "L14"
+      ],
+      "prompt": {
+        "fr": "Un ensemble $E$ possède $4$ éléments et $F$ possède $3$ éléments. Calculer $|\\mathcal P(E)|$, puis $|E\\times F|$.",
+        "en": "A set $E$ has $4$ elements and $F$ has $3$ elements. Calculate $|\\mathcal P(E)|$, then $|E\\times F|$."
+      },
+      "explanation": {
+        "fr": "Chaque élément de $E$ peut être inclus ou non : $2^4=16$ parties. Le produit possède $4\\times3=12$ couples.",
+        "en": "Each element of $E$ may be included or excluded: $2^4=16$ subsets. The product has $4\\times3=12$ ordered pairs."
+      },
+      "pitfall": {
+        "fr": "L’ensemble des parties et le produit cartésien n’utilisent pas la même formule.",
+        "en": "A power set and a Cartesian product use different counting formulas."
+      },
+      "fields": [
+        {
+          "id": "power",
+          "label": {
+            "fr": "$|\\mathcal P(E)|$",
+            "en": "$|\\mathcal P(E)|$"
+          },
+          "answer": "16"
+        },
+        {
+          "id": "product",
+          "label": {
+            "fr": "$|E\\times F|$",
+            "en": "$|E\\times F|$"
+          },
+          "answer": "12"
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q15",
+      "type": "numeric",
+      "lessonId": "L15",
+      "objective": "set-operations",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L15"
+      ],
+      "prompt": {
+        "fr": "Dans l’univers $U=\\{0,1,2,3,4,5\\}$, soient $A=\\{0,2,4\\}$ et $B=\\{2,3\\}$. Donner les cardinalités demandées. Le complémentaire est relatif à $U$.",
+        "en": "In the universe $U=\\{0,1,2,3,4,5\\}$, let $A=\\{0,2,4\\}$ and $B=\\{2,3\\}$. Give the requested cardinalities. Complements are relative to $U$."
+      },
+      "explanation": {
+        "fr": "$A\\cap B=\\{2\\}$, $A\\cup B=\\{0,2,3,4\\}$ et $U\\setminus A=\\{1,3,5\\}$. Les cardinalités sont $1$, $4$ et $3$.",
+        "en": "$A\\cap B=\\{2\\}$, $A\\cup B=\\{0,2,3,4\\}$ and $U\\setminus A=\\{1,3,5\\}$. The cardinalities are $1$, $4$ and $3$."
+      },
+      "pitfall": {
+        "fr": "Une union ne compte jamais deux fois un élément commun.",
+        "en": "A union never counts a shared element twice."
+      },
+      "fields": [
+        {
+          "id": "intersection",
+          "label": {
+            "fr": "$|A\\cap B|$",
+            "en": "$|A\\cap B|$"
+          },
+          "answer": "1"
+        },
+        {
+          "id": "union",
+          "label": {
+            "fr": "$|A\\cup B|$",
+            "en": "$|A\\cup B|$"
+          },
+          "answer": "4"
+        },
+        {
+          "id": "complement",
+          "label": {
+            "fr": "$|U\\setminus A|$",
+            "en": "$|U\\setminus A|$"
+          },
+          "answer": "3"
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q16",
+      "type": "multi",
+      "lessonId": "L16",
+      "objective": "non-inclusion",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L16"
+      ],
+      "prompt": {
+        "fr": "Soient $A$ et $B$ des parties d’un même univers $U$. Quelles assertions sont équivalentes à $A\\not\\subseteq B$ ?",
+        "en": "Let $A$ and $B$ be subsets of the same universe $U$. Which statements are equivalent to $A\\not\\subseteq B$?"
+      },
+      "explanation": {
+        "fr": "Il existe un élément de $A$ absent de $B$. Cela signifie exactement que $A\\setminus B$ est non vide. Un élément de $B$ absent de $A$ ne suffit pas.",
+        "en": "There is an element of $A$ absent from $B$. This means exactly that $A\\setminus B$ is nonempty. An element of $B$ absent from $A$ is insufficient."
+      },
+      "pitfall": {
+        "fr": "Le témoin de non-inclusion doit se trouver dans le premier ensemble.",
+        "en": "A witness of non-inclusion must lie in the first set."
+      },
+      "answer": [
+        "a",
+        "d"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists x\\in U,\\ x\\in A\\land x\\notin B$",
+            "en": "$\\exists x\\in U,\\ x\\in A\\land x\\notin B$"
+          },
+          "feedback": {
+            "fr": "Ce témoin réfute l’inclusion.",
+            "en": "This witness refutes inclusion."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\exists x\\in U,\\ x\\in B\\land x\\notin A$",
+            "en": "$\\exists x\\in U,\\ x\\in B\\land x\\notin A$"
+          },
+          "feedback": {
+            "fr": "Les rôles des ensembles sont inversés.",
+            "en": "The roles of the sets are reversed."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$A\\cap B=\\varnothing$",
+            "en": "$A\\cap B=\\varnothing$"
+          },
+          "feedback": {
+            "fr": "L’ensemble vide est inclus même si l’intersection est vide.",
+            "en": "The empty set is included even when the intersection is empty."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$A\\setminus B\\ne\\varnothing$",
+            "en": "$A\\setminus B\\ne\\varnothing$"
+          },
+          "feedback": {
+            "fr": "La différence contient exactement les témoins recherchés.",
+            "en": "The difference contains exactly the required witnesses."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q17",
+      "type": "single",
+      "lessonId": "L17",
+      "objective": "relation-quantifiers",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L17"
+      ],
+      "prompt": {
+        "fr": "Pour $A=B=\\{0,1\\}$, une relation $R\\subseteq A\\times B$ est donnée par $R=\\{(0,0),(1,1)\\}$. Quelle assertion est vraie ?",
+        "en": "For $A=B=\\{0,1\\}$, a relation $R\\subseteq A\\times B$ is given by $R=\\{(0,0),(1,1)\\}$. Which statement is true?"
+      },
+      "explanation": {
+        "fr": "Pour chaque $x$, choisir $y=x$ donne un couple de $R$. Aucun même $y$ n’est lié aux deux éléments : chaque colonne ne contient qu’un couple.",
+        "en": "For each $x$, choosing $y=x$ gives a pair in $R$. No fixed $y$ is related to both elements: each column contains only one pair."
+      },
+      "pitfall": {
+        "fr": "Un choix dépendant du premier élément n’est pas un choix commun à tous.",
+        "en": "A choice depending on the first element is not one shared choice for all."
+      },
+      "answer": [
+        "b"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$\\exists y\\in B,\\ \\forall x\\in A,\\ (x,y)\\in R$",
+            "en": "$\\exists y\\in B,\\ \\forall x\\in A,\\ (x,y)\\in R$"
+          },
+          "feedback": {
+            "fr": "Aucune colonne n’est complète.",
+            "en": "No column is complete."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$\\forall x\\in A,\\ \\exists y\\in B,\\ (x,y)\\in R$",
+            "en": "$\\forall x\\in A,\\ \\exists y\\in B,\\ (x,y)\\in R$"
+          },
+          "feedback": {
+            "fr": "Le couple diagonal fournit un témoin pour chaque élément.",
+            "en": "The diagonal pair provides a witness for each element."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$\\forall x\\in A,\\ \\forall y\\in B,\\ (x,y)\\in R$",
+            "en": "$\\forall x\\in A,\\ \\forall y\\in B,\\ (x,y)\\in R$"
+          },
+          "feedback": {
+            "fr": "Les couples hors diagonale sont absents.",
+            "en": "Off-diagonal pairs are missing."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$\\exists x\\in A,\\ \\forall y\\in B,\\ (x,y)\\in R$",
+            "en": "$\\exists x\\in A,\\ \\forall y\\in B,\\ (x,y)\\in R$"
+          },
+          "feedback": {
+            "fr": "Aucune ligne n’est complète.",
+            "en": "No row is complete."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q18",
+      "type": "single",
+      "lessonId": "L18",
+      "objective": "sql-existence",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L18"
+      ],
+      "prompt": {
+        "fr": "Dans le modèle de tables sans doublons ni NULL du cours, une requête garde les clients pour lesquels NOT EXISTS une commande associée. Quels clients renvoie-t-elle ?",
+        "en": "In the course model of tables without duplicates or NULL, a query keeps customers for whom NOT EXISTS a linked order. Which customers does it return?"
+      },
+      "explanation": {
+        "fr": "NOT EXISTS signifie qu’aucune ligne de commande ne satisfait le lien avec ce client.",
+        "en": "NOT EXISTS means no order row satisfies the link with that customer."
+      },
+      "pitfall": {
+        "fr": "L’absence d’un témoin correspond à la négation de l’existence.",
+        "en": "Absence of a witness corresponds to negating existence."
+      },
+      "answer": [
+        "d"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Les clients ayant au moins une commande.",
+            "en": "Customers with at least one order."
+          },
+          "feedback": {
+            "fr": "Ce serait EXISTS.",
+            "en": "That would be EXISTS."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Les clients ayant exactement une commande.",
+            "en": "Customers with exactly one order."
+          },
+          "feedback": {
+            "fr": "L’absence de ligne ne compte pas exactement une commande.",
+            "en": "Absence of a row does not count exactly one order."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Tous les clients si une autre personne a commandé.",
+            "en": "All customers if somebody else ordered."
+          },
+          "feedback": {
+            "fr": "La condition porte sur le client courant.",
+            "en": "The condition concerns the current customer."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "Les clients sans aucune commande associée.",
+            "en": "Customers with no linked orders."
+          },
+          "feedback": {
+            "fr": "Aucun témoin associé n’existe.",
+            "en": "No linked witness exists."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q19",
+      "type": "multi",
+      "lessonId": "L19",
+      "objective": "empty-all-any",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L19"
+      ],
+      "prompt": {
+        "fr": "En Python, pour une liste vide, quelles expressions valent True ?",
+        "en": "In Python, which expressions evaluate to True for an empty list?"
+      },
+      "explanation": {
+        "fr": "all sur une liste vide vaut True, car aucun contre-exemple n’existe. any vaut False, car aucun témoin n’existe. Les négations renversent ces valeurs.",
+        "en": "all on an empty list is True because no counterexample exists. any is False because no witness exists. Negations reverse those values."
+      },
+      "pitfall": {
+        "fr": "Une affirmation universelle sur un ensemble vide est vraie ; une existence y est fausse.",
+        "en": "A universal statement over the empty set is true; an existence statement is false."
+      },
+      "answer": [
+        "a",
+        "c"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "`all([])`",
+            "en": "`all([])`"
+          },
+          "feedback": {
+            "fr": "Aucun élément ne réfute le test universel.",
+            "en": "No element refutes the universal test."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "`any([])`",
+            "en": "`any([])`"
+          },
+          "feedback": {
+            "fr": "Aucun élément ne fournit de témoin.",
+            "en": "No element supplies a witness."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "`not any([])`",
+            "en": "`not any([])`"
+          },
+          "feedback": {
+            "fr": "La négation de False vaut True.",
+            "en": "Negating False gives True."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "`not all([])`",
+            "en": "`not all([])`"
+          },
+          "feedback": {
+            "fr": "La négation de True vaut False.",
+            "en": "Negating True gives False."
+          }
+        }
+      ]
+    },
+    {
+      "id": "C01-M01-Q20",
+      "type": "single",
+      "lessonId": "L20",
+      "objective": "only-necessary",
+      "difficulty": "medium",
+      "prerequisites": [
+        "L20"
+      ],
+      "prompt": {
+        "fr": "Une règle dit : « Seuls les comptes validés peuvent publier. » Pour un compte, P signifie « peut publier » et V signifie « est validé ». Quelle formule traduit exactement la règle ?",
+        "en": "A rule says: “Only validated accounts may publish.” For an account, P means “may publish” and V means “is validated”. Which formula translates the rule exactly?"
+      },
+      "explanation": {
+        "fr": "La validation est nécessaire pour publier : $P\\Rightarrow V$. La règle ne promet pas que tout compte validé peut publier.",
+        "en": "Validation is necessary for publishing: $P\\Rightarrow V$. The rule does not promise that every validated account may publish."
+      },
+      "pitfall": {
+        "fr": "« Seuls » introduit une condition nécessaire, pas une autorisation suffisante.",
+        "en": "“Only” introduces a necessary condition, not sufficient permission."
+      },
+      "answer": [
+        "a"
+      ],
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "$P\\Rightarrow V$",
+            "en": "$P\\Rightarrow V$"
+          },
+          "feedback": {
+            "fr": "Publier implique avoir la validation.",
+            "en": "Publishing implies validation."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "$V\\Rightarrow P$",
+            "en": "$V\\Rightarrow P$"
+          },
+          "feedback": {
+            "fr": "Cette formule transforme la validation en autorisation suffisante.",
+            "en": "This makes validation sufficient permission."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "$P\\Leftrightarrow V$",
+            "en": "$P\\Leftrightarrow V$"
+          },
+          "feedback": {
+            "fr": "Cette formule ajoute une promesse absente.",
+            "en": "This adds a promise that was not stated."
+          }
+        },
+        {
+          "id": "d",
+          "label": {
+            "fr": "$P\\lor V$",
+            "en": "$P\\lor V$"
+          },
+          "feedback": {
+            "fr": "Une disjonction n’impose pas la condition nécessaire.",
+            "en": "A disjunction does not impose the necessary condition."
+          }
+        }
+      ]
+    }
+  ]
+}

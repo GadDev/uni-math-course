@@ -1,0 +1,73 @@
+---
+import Base from '../../../layouts/Base.astro';
+import TrainingExam from '../../../components/TrainingExam';
+import { localeOf } from '../../../lib/auth/policy';
+import { examBank } from '../../../lib/training-exams/bank';
+import { publicExam } from '../../../lib/training-exams/grading';
+import { examCopy } from '../../../lib/training-exams/copy';
+import '../../../styles/training-exams.css';
+export const prerender = false;
+
+const chapterId = Astro.params.chapterId ?? '';
+const exam = examBank.get(chapterId);
+if (!['fr', 'en'].includes(Astro.params.locale ?? '') || !exam)
+  return new Response('Not found', { status: 404 });
+const locale = localeOf(Astro.params.locale);
+const destination = `/${locale}/training-exams/${chapterId}/`;
+const auth = Astro.locals.auth;
+if (!auth) return new Response('Sign-in is not configured.', { status: 503 });
+let user = null;
+try {
+  user = await auth.verifiedUser();
+} catch {
+  return new Response('Sign-in is unavailable.', { status: 503 });
+}
+if (!user)
+  return Astro.redirect(
+    `/${locale}/sign-in/?${new URLSearchParams({ next: destination })}`,
+    303,
+  );
+const text = examCopy[locale];
+---
+
+<Base
+  locale={locale}
+  title={exam.title[locale]}
+  description={text.intro}
+  path={`training-exams/${chapterId}/`}
+>
+  <main
+    id="main"
+    tabindex="-1"
+    class="exam-page"
+    data-chapter={chapterId}
+    data-practice-learner={user.id}
+  >
+    <a href={`/${locale}/training-exams/`}>← {text.browse}</a>
+    <p class="eyebrow">{text.eyebrow}</p>
+    <h1>
+      {exam.title[locale]}
+      <span class="signal-stop">.</span>
+    </h1>
+    <TrainingExam
+      client:load
+      exam={publicExam(exam)}
+      learner={user.id}
+      locale={locale}
+    />
+    <noscript>
+      <p>{text.noJs}</p>
+    </noscript>
+    <p>
+      <a
+        href={
+          chapterId === 'C01'
+            ? `/${locale}/`
+            : `/${locale}/chapters/${chapterId}/`
+        }
+      >
+        {text.lessons} →
+      </a>
+    </p>
+  </main>
+</Base>

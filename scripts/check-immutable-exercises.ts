@@ -15,7 +15,11 @@ const invalid = changes
   .filter((line) => {
     const [status, path] = line.split('\t');
     return (
-      path && /^exercises\/L\d{2}\/v\d+\.json$/.test(path) && status !== 'A'
+      path &&
+      /^exercises\/(?:L\d{2}|exams\/C\d{2}|final-exam)\/v\d+\.json$/.test(
+        path,
+      ) &&
+      status !== 'A'
     );
   });
 if (invalid.length)

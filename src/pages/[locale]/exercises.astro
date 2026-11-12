@@ -75,6 +75,13 @@ const missingFiles = chapters.some((chapter) =>
       <a href="#how-to-use">{text.howTitle}</a>
     </nav>
 
+    <p>
+      <a class="primary-link" href={`/${locale}/training-exams/`}>
+        {locale === 'fr'
+          ? 'Préparer un examen blanc en ligne →'
+          : 'Prepare an online mock exam →'}
+      </a>
+    </p>
     <p class="printable-language-note">{text.languageNote}</p>
     {missingFiles && (
       <p class="printable-unavailable-note" role="status">

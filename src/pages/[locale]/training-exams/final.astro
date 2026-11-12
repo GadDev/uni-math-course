@@ -1,0 +1,49 @@
+---
+import Base from '../../../layouts/Base.astro';
+import FinalExam from '../../../components/FinalExam';
+import '../../../styles/training-exams.css';
+export const prerender = false;
+if (!['fr', 'en'].includes(Astro.params.locale ?? ''))
+  return new Response('Page introuvable.', { status: 404 });
+if (Astro.params.locale === 'en')
+  return Astro.redirect('/fr/training-exams/final/', 303);
+const auth = Astro.locals.auth;
+if (!auth)
+  return new Response('La connexion n’est pas configurée.', { status: 503 });
+let user;
+try {
+  user = await auth.verifiedUser();
+} catch {
+  return new Response('La connexion est indisponible.', { status: 503 });
+}
+if (!user)
+  return Astro.redirect(
+    '/fr/sign-in/?next=%2Ffr%2Ftraining-exams%2Ffinal%2F',
+    303,
+  );
+---
+
+<Base
+  locale="fr"
+  title="Examen blanc final — Tous les chapitres"
+  description="Un entraînement de deux heures sur tout le programme."
+  path="training-exams/final/"
+>
+  <main
+    id="main"
+    tabindex="-1"
+    class="exam-page"
+    data-practice-learner={user.id}
+  >
+    <a href="/fr/training-exams/">← Tous les examens blancs</a>
+    <p class="eyebrow">ENTRAÎNEMENT · TOUS LES CHAPITRES</p>
+    <h1>
+      Examen blanc final<span class="signal-stop">.</span>
+    </h1>
+    <FinalExam client:load learner={user.id} />
+    <noscript>
+      Activez JavaScript pour composer un sujet, retrouver vos réponses et
+      demander une correction.
+    </noscript>
+  </main>
+</Base>

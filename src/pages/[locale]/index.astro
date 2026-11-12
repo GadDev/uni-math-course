@@ -1,6 +1,7 @@
 ---
 import LessonCompletion from '../../components/LessonCompletion.astro';
 import { completionCopy } from '../../lib/completion-copy';
+import TrainingExamLink from '../../components/TrainingExamLink.astro';
 import Base from '../../layouts/Base.astro';
 import ReadingNotice from '../../components/ReadingNotice.astro';
 import { copy, locales } from '../../lib/i18n';
@@ -207,5 +208,6 @@ const implication = katex.renderToString('A \\Rightarrow B', {
       </div>
       <ReadingNotice locale={locale} />
     </section>
+    <TrainingExamLink locale={locale} chapterId="C01" />
   </main>
 </Base>
