@@ -13,7 +13,10 @@ export const sigmaParts: SigmaPart[] = [
   {
     id: 'operator',
     symbol: '\\sum',
-    name: { fr: 'Opérateur de somme (sigma)', en: 'Summation operator (sigma)' },
+    name: {
+      fr: 'Opérateur de somme (sigma)',
+      en: 'Summation operator (sigma)',
+    },
     meaning: {
       fr: 'Additionne les termes indiqués.',
       en: 'Adds the indicated terms together.',
@@ -154,8 +157,7 @@ export const sigmaRules: SigmaRule[] = [
   },
   {
     id: 'split',
-    formula:
-      '\\sum_{i=m}^{n}(a_i+b_i)=\\sum_{i=m}^{n}a_i+\\sum_{i=m}^{n}b_i',
+    formula: '\\sum_{i=m}^{n}(a_i+b_i)=\\sum_{i=m}^{n}a_i+\\sum_{i=m}^{n}b_i',
     explanation: {
       fr: 'On peut séparer une somme de deux expressions en deux sommes ayant les mêmes bornes.',
       en: 'A sum of two expressions can be split into two sums with the same limits.',
@@ -212,20 +214,23 @@ export const sigmaCopy = {
     caution:
       'The rules on this sheet apply to finite sums. For infinite series, check convergence before manipulating or rearranging terms.',
   },
-} as const satisfies Record<Locale, {
-  title: string;
-  intro: string;
-  partsTitle: string;
-  partName: string;
-  partSymbol: string;
-  partMeaning: string;
-  patternTitle: string;
-  notation: string;
-  reading: string;
-  expanded: string;
-  rulesTitle: string;
-  exampleTitle: string;
-  exampleLead: string;
-  exampleExplanation: string;
-  caution: string;
-}>;
+} as const satisfies Record<
+  Locale,
+  {
+    title: string;
+    intro: string;
+    partsTitle: string;
+    partName: string;
+    partSymbol: string;
+    partMeaning: string;
+    patternTitle: string;
+    notation: string;
+    reading: string;
+    expanded: string;
+    rulesTitle: string;
+    exampleTitle: string;
+    exampleLead: string;
+    exampleExplanation: string;
+    caution: string;
+  }
+>;
