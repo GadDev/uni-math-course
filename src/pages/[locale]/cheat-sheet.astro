@@ -1,0 +1,113 @@
+---
+import Base from '../../layouts/Base.astro';
+import { copy, locales } from '../../lib/i18n';
+import { cheatSheetCopy, symbolGroups } from '../../lib/cheat-sheet';
+import '../../styles/cheat-sheet.css';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+const { locale } = Astro.props;
+const text = cheatSheetCopy[locale];
+---
+
+<Base
+  locale={locale}
+  title={text.title}
+  description={text.intro}
+  path="cheat-sheet/"
+>
+  <main id="main" tabindex="-1" class="cheat-sheet-page">
+    <nav class="breadcrumb cheat-sheet-breadcrumb" aria-label={text.contents}>
+      <a href={'/' + locale + '/'}>{copy[locale].course}</a>
+      <span aria-hidden="true"> / </span>
+      <span aria-current="page">{text.nav}</span>
+    </nav>
+
+    <header class="cheat-sheet-heading">
+      <p class="eyebrow">{text.kicker}</p>
+      <h1>{text.title}<span class="signal-stop">.</span></h1>
+      <p class="lede">{text.intro}</p>
+      <button type="button" class="cheat-sheet-print" data-print hidden>
+        {text.print}
+      </button>
+    </header>
+
+    <nav class="cheat-sheet-toc" aria-label={text.contents}>
+      {symbolGroups.map((group, index) => (
+        <a href={'#' + group.id}>
+          <span aria-hidden="true">0{index + 1}</span>
+          {group.title[locale]}
+        </a>
+      ))}
+    </nav>
+
+    {symbolGroups.map((group, index) => (
+      <section
+        id={group.id}
+        class="cheat-sheet-section"
+        aria-labelledby={group.id + '-title'}
+      >
+        <p class="eyebrow">0{index + 1} / 02</p>
+        <h2 id={group.id + '-title'}>{group.title[locale]}</h2>
+        <div
+          class="cheat-sheet-table-scroll"
+          role="region"
+          tabindex="0"
+          aria-label={group.title[locale]}
+        >
+          <table class="cheat-sheet-table">
+            <caption class="visually-hidden">{group.title[locale]}</caption>
+            <thead>
+              <tr>
+                <th scope="col">{text.symbol}</th>
+                <th scope="col" lang="en">{text.english}</th>
+                <th scope="col" lang="fr">{text.french}</th>
+                <th scope="col">{text.meaning}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {group.rows.map((row) => (
+                <tr>
+                  <th scope="row" class="cheat-sheet-symbol">
+                    <span class="cheat-sheet-glyph">{row.notation}</span>
+                    {row.alternative && (
+                      <span class="cheat-sheet-alternative">
+                        {text.alternatives} <span>{row.alternative}</span>
+                      </span>
+                    )}
+                  </th>
+                  <td lang="en">{row.english}</td>
+                  <td lang="fr">{row.french}</td>
+                  <td>{row.meaning[locale]}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    ))}
+
+    <aside class="cheat-sheet-tips" aria-labelledby="cheat-tips-title">
+      <h2 id="cheat-tips-title">{text.tipsTitle}</h2>
+      <ol>
+        {text.tips.map((tip) => <li>{tip}</li>)}
+      </ol>
+    </aside>
+    <p class="cheat-sheet-note">{text.footnote}</p>
+    <p class="cheat-sheet-links">
+      <a href={'/' + locale + '/glossary/'}>{text.glossary}</a>
+      <a href={'/' + locale + '/'}>{text.home}</a>
+    </p>
+  </main>
+</Base>
+
+<script>
+  const printButton = document.querySelector<HTMLButtonElement>(
+    '[data-print]',
+  );
+  if (printButton) {
+    printButton.hidden = false;
+    printButton.addEventListener('click', () => window.print());
+  }
+</script>
