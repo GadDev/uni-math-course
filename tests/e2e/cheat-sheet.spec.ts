@@ -194,7 +194,7 @@ test('integer Bresenham steps and regression hand table are printable', async ({
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('#pixels .bres-trace-table')).toBeVisible();
   await expect(
-    page.locator('#regression .regression-hand-table'),
+    page.locator('#regression .regression-hand-table:not(.regression-blank-table)'),
   ).toBeVisible();
   await expect(
     page.locator('#regression .regression-blank-table tbody tr'),
