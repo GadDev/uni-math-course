@@ -312,3 +312,39 @@
 .chapter-option[data-chapter='C04'] .chapter-option-number {
   color: var(--orange-text);
 }
+
+/* Keep the extra reference link visible without crowding the header. */
+@media (min-width: 1051px) and (max-width: 1370px) {
+  .site-header .primary-nav {
+    gap: 0.85rem;
+  }
+  .site-header .primary-nav .nav-full,
+  .site-header .chapter-title-full {
+    display: none;
+  }
+  .site-header .primary-nav .nav-short,
+  .site-header .chapter-title-short {
+    display: inline;
+  }
+  .site-header .chapter-picker summary {
+    width: 196px;
+  }
+}
+
+@media (min-width: 651px) and (max-width: 820px) {
+  .site-header .primary-nav {
+    gap: 1rem;
+  }
+  .site-header .primary-nav .nav-full {
+    display: none;
+  }
+  .site-header .primary-nav .nav-short {
+    display: inline;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 650px) {
+  .site-header .primary-nav {
+    gap: 0.65rem;
+  }
+}
