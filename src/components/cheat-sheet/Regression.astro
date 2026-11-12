@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../../lib/i18n';
-import { geometryFormulae, regressionSteps } from '../../lib/geometry-cheat-sheet';
+import { geometryCopy, geometryFormulae, regressionSteps } from '../../lib/geometry-cheat-sheet';
 import {
   regressionCopy,
   regressionExample,
@@ -13,6 +13,7 @@ interface Props {
 }
 const { locale } = Astro.props;
 const text = regressionCopy[locale];
+const geometryText = geometryCopy[locale];
 const math = (formula: string, displayMode = false) =>
   katex.renderToString(formula, {
     output: 'htmlAndMathml',
@@ -24,7 +25,6 @@ const numberText = (number: number) =>
   Object.is(number, -0) ? '0' : String(number).replace('.', locale === 'fr' ? ',' : '.');
 const sum = (field: 'dx' | 'dy' | 'product' | 'squared') =>
   regressionExample.rows.reduce((total, row) => total + row[field], 0);
-const formatResidual = (n: number) => numberText(n);
 ---
 
 <section id="regression" class="cheat-sheet-section advanced-section regression-section" aria-labelledby="regression-title">
@@ -103,6 +103,18 @@ const formatResidual = (n: number) => numberText(n);
       </li>
     ))}
   </ol>
+
+  <h4 class="geometry-regression-read-title">{geometryText.regressionReadings}</h4>
+  <div class="geometry-formula-readings">
+    {geometryFormulae.slice(5).map((item) => (
+      <div class="geometry-formula-reading">
+        <div class="geometry-reading-math" set:html={math(item.formula, true)} />
+        <p lang="fr"><strong>FR :</strong> {item.reading.fr}</p>
+        <p lang="en"><strong>EN :</strong> {item.reading.en}</p>
+        <p>{item.meaning[locale]}</p>
+      </div>
+    ))}
+  </div>
 
   <h4>{text.tableTitle}</h4>
   <div class="cheat-sheet-table-scroll" role="region" tabindex="0" aria-label={text.tableTitle}>
