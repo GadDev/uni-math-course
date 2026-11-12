@@ -1,7 +1,13 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { copy, locales } from '../../lib/i18n';
-import { cheatSheetCopy, symbolGroups } from '../../lib/cheat-sheet';
+import {
+  cheatSheetCopy,
+  mappingProperties,
+  symbolGroups,
+  truthTableRows,
+} from '../../lib/cheat-sheet';
+import katex from 'katex';
 import '../../styles/cheat-sheet.css';
 
 export function getStaticPaths() {
@@ -9,6 +15,16 @@ export function getStaticPaths() {
 }
 const { locale } = Astro.props;
 const text = cheatSheetCopy[locale];
+const truth = (value: boolean) =>
+  value ? text.trueLabel : text.falseLabel;
+const nodeY = (count: number, index: number) =>
+  count === 2 ? 73 + 68 * index : 47 + 48 * index;
+const math = (value: string) =>
+  katex.renderToString(value, {
+    output: 'htmlAndMathml',
+    throwOnError: true,
+    trust: false,
+  });
 ---
 
 <Base
@@ -40,6 +56,14 @@ const text = cheatSheetCopy[locale];
           {group.title[locale]}
         </a>
       ))}
+      <a href="#truth-table">
+        <span aria-hidden="true">03</span>
+        {text.truthTitle}
+      </a>
+      <a href="#functions">
+        <span aria-hidden="true">04</span>
+        {text.mappingTitle}
+      </a>
     </nav>
 
     {symbolGroups.map((group, index) => (
@@ -48,7 +72,7 @@ const text = cheatSheetCopy[locale];
         class="cheat-sheet-section"
         aria-labelledby={group.id + '-title'}
       >
-        <p class="eyebrow">0{index + 1} / 02</p>
+        <p class="eyebrow">0{index + 1} / 04</p>
         <h2 id={group.id + '-title'}>{group.title[locale]}</h2>
         <div
           class="cheat-sheet-table-scroll"
@@ -87,6 +111,198 @@ const text = cheatSheetCopy[locale];
         </div>
       </section>
     ))}
+
+    <section
+      id="truth-table"
+      class="cheat-sheet-section"
+      aria-labelledby="truth-table-title"
+    >
+      <p class="eyebrow">03 / 04</p>
+      <h2 id="truth-table-title">{text.truthTitle}</h2>
+      <p class="cheat-sheet-section-intro">{text.truthIntro}</p>
+      <div
+        class="cheat-sheet-table-scroll"
+        role="region"
+        tabindex="0"
+        aria-label={text.truthTableLabel}
+      >
+        <table class="cheat-sheet-table cheat-sheet-truth">
+          <caption class="visually-hidden">{text.truthTableLabel}</caption>
+          <thead>
+            <tr>
+              <th scope="col">P</th>
+              <th scope="col">Q</th>
+              <th scope="col">
+                P ∧ Q <small>{locale === 'fr' ? 'ET' : 'AND'}</small>
+              </th>
+              <th scope="col">
+                P ∨ Q <small>{locale === 'fr' ? 'OU' : 'OR'}</small>
+              </th>
+              <th scope="col">
+                P ⇒ Q <small>{locale === 'fr' ? 'Implique' : 'Implies'}</small>
+              </th>
+              <th scope="col">
+                P ⇔ Q <small>{locale === 'fr' ? 'Ssi' : 'Iff'}</small>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {truthTableRows.map((row) => (
+              <tr>
+                <th scope="row">{truth(row.p)}</th>
+                <td>{truth(row.q)}</td>
+                <td>{truth(row.and)}</td>
+                <td>{truth(row.or)}</td>
+                <td class={row.p && !row.q ? 'cheat-truth-fail' : undefined}>
+                  <strong>{truth(row.implies)}</strong>
+                </td>
+                <td>{truth(row.iff)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="cheat-sheet-table-note">
+        <strong>{text.implicationOnlyFalse} :</strong> P = {text.trueLabel},
+        Q = {text.falseLabel}.
+        <span>
+          {text.falseImpliesAnything} : P = {text.falseLabel}
+          ⇒ P ⇒ Q = {text.trueLabel}.
+        </span>
+      </p>
+      <div class="cheat-sheet-takeaways">
+        <h3>{text.truthTakeawayTitle}</h3>
+        <div class="cheat-sheet-takeaway-grid">
+          <div>
+            <h4>{text.implicationTitle}</h4>
+            <p>{text.implicationTakeaway}</p>
+          </div>
+          <div>
+            <h4>{text.biconditionalTitle}</h4>
+            <p>{text.biconditionalTakeaway}</p>
+          </div>
+        </div>
+        <p class="cheat-sheet-equivalence-note">{text.equivalenceNote}</p>
+      </div>
+    </section>
+
+    <section
+      id="functions"
+      class="cheat-sheet-section"
+      aria-labelledby="functions-title"
+    >
+      <p class="eyebrow">04 / 04</p>
+      <h2 id="functions-title">{text.mappingTitle}</h2>
+      <p class="cheat-sheet-section-intro">{text.mappingIntro}</p>
+      <div
+        class="cheat-sheet-table-scroll"
+        role="region"
+        tabindex="0"
+        aria-label={text.mappingTitle}
+      >
+        <table class="cheat-sheet-table cheat-sheet-mappings">
+          <caption class="visually-hidden">{text.mappingTitle}</caption>
+          <thead>
+            <tr>
+              <th scope="col">{text.mappingProperty}</th>
+              <th scope="col">{text.mappingDefinition}</th>
+              <th scope="col">{text.mappingFormula}</th>
+              <th scope="col">{text.mappingArrows}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {mappingProperties.map((property) => (
+              <tr>
+                <th scope="row">{property.title[locale]}</th>
+                <td>{property.description[locale]}</td>
+                <td>
+                  <span
+                    class="cheat-sheet-math"
+                    set:html={math(property.formula)}
+                  />
+                </td>
+                <td class="cheat-sheet-diagram-cell">
+                  <figure class="cheat-sheet-diagram">
+                    <svg
+                      viewBox="0 0 290 185"
+                      role="img"
+                      aria-label={text.mappingDiagramLabel +
+                        ' — ' +
+                        property.title[locale] +
+                        '. ' +
+                        property.arrows[locale]}
+                    >
+                      <defs>
+                        <marker
+                          id={'cheat-arrow-' + property.id}
+                          markerWidth="7"
+                          markerHeight="7"
+                          refX="6"
+                          refY="3"
+                          orient="auto"
+                          markerUnits="strokeWidth"
+                        >
+                          <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" />
+                        </marker>
+                      </defs>
+                      <text x="65" y="16" text-anchor="middle">A</text>
+                      <text x="230" y="16" text-anchor="middle">B</text>
+                      {property.diagram.pairs.map(([from, to]) => (
+                        <line
+                          x1="83"
+                          y1={nodeY(property.diagram.source.length, from)}
+                          x2="210"
+                          y2={nodeY(property.diagram.target.length, to)}
+                          stroke="currentColor"
+                          stroke-width="2"
+                          marker-end={'url(#cheat-arrow-' + property.id + ')'}
+                        />
+                      ))}
+                      {property.diagram.source.map((name, index) => (
+                        <g>
+                          <circle
+                            cx="65"
+                            cy={nodeY(property.diagram.source.length, index)}
+                            r="17"
+                          />
+                          <text
+                            x="65"
+                            y={nodeY(property.diagram.source.length, index)}
+                            text-anchor="middle"
+                            dominant-baseline="central"
+                          >
+                            {name}
+                          </text>
+                        </g>
+                      ))}
+                      {property.diagram.target.map((name, index) => (
+                        <g>
+                          <circle
+                            cx="230"
+                            cy={nodeY(property.diagram.target.length, index)}
+                            r="17"
+                          />
+                          <text
+                            x="230"
+                            y={nodeY(property.diagram.target.length, index)}
+                            text-anchor="middle"
+                            dominant-baseline="central"
+                          >
+                            {name}
+                          </text>
+                        </g>
+                      ))}
+                    </svg>
+                    <figcaption>{property.arrows[locale]}</figcaption>
+                  </figure>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="cheat-sheet-table-note">{text.mappingReminder}</p>
+    </section>
 
     <aside class="cheat-sheet-tips" aria-labelledby="cheat-tips-title">
       <h2 id="cheat-tips-title">{text.tipsTitle}</h2>
