@@ -8,6 +8,7 @@ interface Props {
 }
 const { locale } = Astro.props;
 const text = lineExtraCopy[locale];
+const falseWord = locale === 'fr' ? 'faux' : 'false';
 const math = (formula: string, displayMode = false) =>
   katex.renderToString(formula, {
     output: 'htmlAndMathml',
@@ -79,7 +80,7 @@ const math = (formula: string, displayMode = false) =>
   <div class="advanced-worked">
     <h4>{text.shadeTitle}</h4>
     <p>{text.shadeInstructions}</p>
-    <div class="advanced-formula" set:html={math('y>2x+1:\\quad(0,0)\\Rightarrow 0>1\\;\\text{faux}', true)} />
+    <div class="advanced-formula" set:html={math('y>2x+1:\\quad(0,0)\\Rightarrow 0>1\\;\\text{' + falseWord + '}', true)} />
     <p>{text.shadeExample}</p>
     <p>{text.shadeOnLine}</p>
   </div>
