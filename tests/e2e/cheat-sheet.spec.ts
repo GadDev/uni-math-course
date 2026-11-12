@@ -114,7 +114,7 @@ test('geometry navigation and language switching preserve the section anchor', a
   await page.goto('/fr/cheat-sheet/');
   await page
     .locator('.cheat-sheet-toc')
-    .getByRole('link', { name: /Droites, géométrie analytique/ })
+    .getByRole('link', { name: /Droites et géométrie analytique/ })
     .click();
   await expect(page).toHaveURL('/fr/cheat-sheet/#geometry');
   await expect(page.locator('#geometry h2')).toContainText('Droites');
