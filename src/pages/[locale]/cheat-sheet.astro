@@ -507,7 +507,7 @@ const math = (value: string, displayMode = false) =>
             </tr>
           </thead>
           <tbody>
-            {geometryFormulae.map((item) => (
+            {geometryFormulae.slice(0, 5).map((item) => (
               <tr>
                 <th scope="row">
                   <span class="geometry-math" set:html={math(item.formula)} />
@@ -619,6 +619,17 @@ const math = (value: string, displayMode = false) =>
           </li>
         ))}
       </ol>
+      <h4 class="geometry-regression-read-title">{geometryText.regressionReadings}</h4>
+      <div class="geometry-formula-readings">
+        {geometryFormulae.slice(5).map((item) => (
+          <div class="geometry-formula-reading">
+            <div class="geometry-reading-math" set:html={math(item.formula, true)} />
+            <p lang="fr"><strong>FR :</strong> {item.reading.fr}</p>
+            <p lang="en"><strong>EN :</strong> {item.reading.en}</p>
+            <p>{item.meaning[locale]}</p>
+          </div>
+        ))}
+      </div>
       <p class="geometry-regression-example">{geometryText.regressionExample}</p>
       <p class="cheat-sheet-table-note">{geometryText.regressionConstraint}</p>
       <p class="cheat-sheet-table-note">{geometryText.warning}</p>
