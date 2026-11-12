@@ -28,17 +28,25 @@ for (const locale of ['fr', 'en'] as const) {
       page.locator('#geometry .geometry-formula-table tbody tr'),
     ).toHaveCount(5);
     await expect(page.locator('#geometry .geometry-method')).toHaveCount(5);
-    await expect(page.locator('#regression .advanced-procedure li')).toHaveCount(
-      3,
-    );
+    await expect(
+      page.locator('#regression .advanced-procedure li'),
+    ).toHaveCount(3);
     await expect(
       page.locator('#regression .geometry-formula-reading'),
     ).toHaveCount(4);
     await expect(page.locator('#geometry svg[role="img"]')).toHaveCount(2);
-    await expect(page.locator('#geometry .line-case-table tbody tr')).toHaveCount(3);
-    await expect(page.locator('#pixels .bres-trace-table tbody tr')).toHaveCount(6);
-    await expect(page.locator('#regression .regression-hand-table tbody tr')).toHaveCount(3);
-    await expect(page.locator('#regression .regression-limits-table tbody tr')).toHaveCount(4);
+    await expect(
+      page.locator('#geometry .line-case-table tbody tr'),
+    ).toHaveCount(3);
+    await expect(
+      page.locator('#pixels .bres-trace-table tbody tr'),
+    ).toHaveCount(6);
+    await expect(
+      page.locator('#regression .regression-hand-table tbody tr'),
+    ).toHaveCount(3);
+    await expect(
+      page.locator('#regression .regression-limits-table tbody tr'),
+    ).toHaveCount(4);
     await expect(page.locator('#pixels svg[role="img"]')).toHaveCount(2);
     await expect(page.locator('#regression svg[role="img"]')).toHaveCount(1);
     await expect(page.locator('#functions svg')).toHaveCount(3);
@@ -133,11 +141,15 @@ test('straight-line graphs and half-plane formulas render as accessible math', a
   page,
 }) => {
   await page.goto('/fr/cheat-sheet/#geometry');
-  await expect(page.locator('#geometry .geometry-chart svg title')).toContainText(
-    'y = 2x + 1',
+  await expect(
+    page.locator('#geometry .geometry-chart svg title'),
+  ).toContainText('y = 2x + 1');
+  await expect(page.locator('#geometry .line-case-table tbody tr')).toHaveCount(
+    3,
   );
-  await expect(page.locator('#geometry .line-case-table tbody tr')).toHaveCount(3);
-  await expect(page.locator('#geometry .katex-mathml math').first()).toBeAttached();
+  await expect(
+    page.locator('#geometry .katex-mathml math').first(),
+  ).toBeAttached();
   await expect(page.locator('#geometry')).toBeVisible();
 });
 
@@ -145,25 +157,49 @@ for (const [anchor, frenchTitle, englishTitle] of [
   ['pixels', /Droites sur écran/, /Lines on a screen/],
   ['regression', /Régression linéaire/, /Linear regression/],
 ] as const) {
-  test('bilingual navigation preserves ' + anchor + ' anchor', async ({ page }) => {
-    await page.goto('/fr/cheat-sheet/');
-    await page.locator('.cheat-sheet-toc').getByRole('link', { name: frenchTitle }).click();
-    await expect(page).toHaveURL('/fr/cheat-sheet/#' + anchor);
-    await expect(page.locator('#' + anchor + ' h2')).toContainText(frenchTitle);
-    await page.getByRole('link', { name: 'EN', exact: true }).click();
-    await expect(page).toHaveURL('/en/cheat-sheet/#' + anchor);
-    await expect(page.locator('#' + anchor + ' h2')).toContainText(englishTitle);
-  });
+  test(
+    'bilingual navigation preserves ' + anchor + ' anchor',
+    async ({ page }) => {
+      await page.goto('/fr/cheat-sheet/');
+      await page
+        .locator('.cheat-sheet-toc')
+        .getByRole('link', { name: frenchTitle })
+        .click();
+      await expect(page).toHaveURL('/fr/cheat-sheet/#' + anchor);
+      await expect(page.locator('#' + anchor + ' h2')).toContainText(
+        frenchTitle,
+      );
+      await page.getByRole('link', { name: 'EN', exact: true }).click();
+      await expect(page).toHaveURL('/en/cheat-sheet/#' + anchor);
+      await expect(page.locator('#' + anchor + ' h2')).toContainText(
+        englishTitle,
+      );
+    },
+  );
 }
 
-test('integer Bresenham steps and regression hand table are printable', async ({ page }) => {
+test('integer Bresenham steps and regression hand table are printable', async ({
+  page,
+}) => {
   await page.goto('/fr/cheat-sheet/#pixels');
-  await expect(page.locator('#pixels .bres-trace-table tbody tr')).toHaveCount(6);
-  await expect(page.locator('#pixels .advanced-code')).toContainText('D = 2*dy - dx');
-  await expect(page.locator('#pixels .katex-mathml math').first()).toBeAttached();
+  await expect(page.locator('#pixels .bres-trace-table tbody tr')).toHaveCount(
+    6,
+  );
+  await expect(page.locator('#pixels .advanced-code')).toContainText(
+    'D = 2*dy - dx',
+  );
+  await expect(
+    page.locator('#pixels .katex-mathml math').first(),
+  ).toBeAttached();
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('#pixels .bres-trace-table')).toBeVisible();
-  await expect(page.locator('#regression .regression-hand-table')).toBeVisible();
-  await expect(page.locator('#regression .regression-limits-table tbody tr')).toHaveCount(4);
-  await expect(page.locator('#regression .geometry-formula-reading')).toHaveCount(4);
+  await expect(
+    page.locator('#regression .regression-hand-table'),
+  ).toBeVisible();
+  await expect(
+    page.locator('#regression .regression-limits-table tbody tr'),
+  ).toHaveCount(4);
+  await expect(
+    page.locator('#regression .geometry-formula-reading'),
+  ).toHaveCount(4);
 });
