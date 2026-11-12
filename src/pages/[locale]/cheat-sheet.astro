@@ -20,9 +20,13 @@ import {
   geometryCopy,
   geometryFormulae,
   geometryMethods,
-  regressionSteps,
 } from '../../lib/geometry-cheat-sheet';
 import '../../styles/geometry-cheat-sheet.css';
+import LineExtras from '../../components/cheat-sheet/LineExtras.astro';
+import PixelLines from '../../components/cheat-sheet/PixelLines.astro';
+import Regression from '../../components/cheat-sheet/Regression.astro';
+import { pixelCopy, regressionCopy } from '../../lib/lines-advanced-cheat-sheet';
+import '../../styles/lines-advanced-cheat-sheet.css';
 
 export function getStaticPaths() {
   return locales.map((locale) => ({ params: { locale }, props: { locale } }));
@@ -31,6 +35,8 @@ const { locale } = Astro.props;
 const text = cheatSheetCopy[locale];
 const sigmaText = sigmaCopy[locale];
 const geometryText = geometryCopy[locale];
+const pixelText = pixelCopy[locale];
+const regressionText = regressionCopy[locale];
 const truth = (value: boolean) => (value ? text.trueLabel : text.falseLabel);
 const nodeY = (count: number, index: number) =>
   count === 2 ? 73 + 68 * index : 47 + 48 * index;
@@ -91,6 +97,14 @@ const math = (value: string, displayMode = false) =>
         <span aria-hidden="true">06</span>
         {geometryText.title}
       </a>
+      <a href="#pixels">
+        <span aria-hidden="true">07</span>
+        {pixelText.title}
+      </a>
+      <a href="#regression">
+        <span aria-hidden="true">08</span>
+        {regressionText.title}
+      </a>
     </nav>
 
     {symbolGroups.map((group, index) => (
@@ -99,7 +113,7 @@ const math = (value: string, displayMode = false) =>
         class="cheat-sheet-section"
         aria-labelledby={group.id + '-title'}
       >
-        <p class="eyebrow">0{index + 1} / 06</p>
+        <p class="eyebrow">0{index + 1} / 08</p>
         <h2 id={group.id + '-title'}>{group.title[locale]}</h2>
         <div
           class="cheat-sheet-table-scroll"
@@ -148,7 +162,7 @@ const math = (value: string, displayMode = false) =>
       class="cheat-sheet-section"
       aria-labelledby="truth-table-title"
     >
-      <p class="eyebrow">03 / 06</p>
+      <p class="eyebrow">03 / 08</p>
       <h2 id="truth-table-title">{text.truthTitle}</h2>
       <p class="cheat-sheet-section-intro">{text.truthIntro}</p>
       <div
@@ -222,7 +236,7 @@ const math = (value: string, displayMode = false) =>
       class="cheat-sheet-section"
       aria-labelledby="functions-title"
     >
-      <p class="eyebrow">04 / 06</p>
+      <p class="eyebrow">04 / 08</p>
       <h2 id="functions-title">{text.mappingTitle}</h2>
       <p class="cheat-sheet-section-intro">{text.mappingIntro}</p>
       <div
@@ -346,7 +360,7 @@ const math = (value: string, displayMode = false) =>
       class="cheat-sheet-section sigma-section"
       aria-labelledby="sigma-title"
     >
-      <p class="eyebrow">05 / 06</p>
+      <p class="eyebrow">05 / 08</p>
       <h2 id="sigma-title">{sigmaText.title}</h2>
       <p class="cheat-sheet-section-intro">{sigmaText.intro}</p>
 
@@ -466,7 +480,7 @@ const math = (value: string, displayMode = false) =>
       class="cheat-sheet-section geometry-section"
       aria-labelledby="geometry-title"
     >
-      <p class="eyebrow">06 / 06</p>
+      <p class="eyebrow">06 / 08</p>
       <h2 id="geometry-title">{geometryText.title}</h2>
       <p class="cheat-sheet-section-intro">{geometryText.intro}</p>
 
@@ -638,47 +652,11 @@ const math = (value: string, displayMode = false) =>
         ))}
       </div>
 
-      <h3>{geometryText.regressionTitle}</h3>
-      <p class="cheat-sheet-section-intro">{geometryText.regressionIntro}</p>
-      <ol class="geometry-regression">
-        {regressionSteps.map((step) => (
-          <li>
-            <p>{step.text[locale]}</p>
-            {step.formula && (
-              <div
-                class="geometry-step-formula"
-                set:html={math(step.formula, true)}
-              />
-            )}
-          </li>
-        ))}
-      </ol>
-      <h4 class="geometry-regression-read-title">
-        {geometryText.regressionReadings}
-      </h4>
-      <div class="geometry-formula-readings">
-        {geometryFormulae.slice(5).map((item) => (
-          <div class="geometry-formula-reading">
-            <div
-              class="geometry-reading-math"
-              set:html={math(item.formula, true)}
-            />
-            <p lang="fr">
-              <strong>FR :</strong> {item.reading.fr}
-            </p>
-            <p lang="en">
-              <strong>EN :</strong> {item.reading.en}
-            </p>
-            <p>{item.meaning[locale]}</p>
-          </div>
-        ))}
-      </div>
-      <p class="geometry-regression-example">
-        {geometryText.regressionExample}
-      </p>
-      <p class="cheat-sheet-table-note">{geometryText.regressionConstraint}</p>
-      <p class="cheat-sheet-table-note">{geometryText.warning}</p>
+      <LineExtras locale={locale} />
     </section>
+
+    <PixelLines locale={locale} />
+    <Regression locale={locale} />
 
     <aside class="cheat-sheet-tips" aria-labelledby="cheat-tips-title">
       <h2 id="cheat-tips-title">{text.tipsTitle}</h2>
