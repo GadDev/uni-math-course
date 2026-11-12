@@ -511,5 +511,7 @@ test('missing recovery hash shows an actionable localized error without changing
   await expect(page.getByRole('alert')).toContainText(
     'Ce lien est invalide ou expiré',
   );
-  await expect(page.getByRole('button', { name: 'Envoyer le lien' })).toBeVisible();
+  await expect(
+    page.getByRole('button', { name: 'Envoyer le lien' }),
+  ).toBeVisible();
 });
