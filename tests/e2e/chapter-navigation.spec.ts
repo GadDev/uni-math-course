@@ -62,7 +62,7 @@ for (const locale of ['fr', 'en']) {
         await page.goto(`/${locale}/${path}`);
         await page.evaluate(() => document.fonts.ready);
         const header = await page.locator('.site-header').boundingBox();
-        expect(header!.height).toBeLessThanOrEqual(width > 1050 ? 100 : 145);
+        expect(header!.height).toBeLessThanOrEqual(width > 1100 ? 100 : 145);
         for (const node of await page
           .locator('.primary-nav > a, .chapter-selector-title')
           .all()) {

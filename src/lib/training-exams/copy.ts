@@ -72,7 +72,7 @@ export const examCopy = {
     types: 'Choix simple, choix multiple et réponses à compléter.',
   },
   en: {
-    nav: 'Mock exams',
+    nav: 'Practice exams',
     eyebrow: 'PRACTICE · YOUR TURN',
     title: 'Mock exams',
     intro:
