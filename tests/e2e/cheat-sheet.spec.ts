@@ -12,7 +12,7 @@ for (const locale of ['fr', 'en'] as const) {
     await link.click();
     await expect(page).toHaveURL(`/${locale}/cheat-sheet/`);
     await expect(link).toHaveAttribute('aria-current', 'page');
-    await expect(page.locator('.cheat-sheet-table')).toHaveCount(12);
+    await expect(page.locator('.cheat-sheet-table')).toHaveCount(16);
     await expect(page.locator('#logic tbody tr')).toHaveCount(8);
     await expect(page.locator('#sets tbody tr')).toHaveCount(11);
     await expect(page.locator('#truth-table tbody tr')).toHaveCount(4);
@@ -51,6 +51,11 @@ for (const locale of ['fr', 'en'] as const) {
     ).toHaveCount(4);
     await expect(page.locator('#pixels svg[role="img"]')).toHaveCount(2);
     await expect(page.locator('#regression svg[role="img"]')).toHaveCount(1);
+    await expect(page.locator('#chapter-functions .function-domain-table tbody tr')).toHaveCount(3);
+    await expect(page.locator('#chapter-functions .function-derivative-table tbody tr')).toHaveCount(8);
+    await expect(page.locator('#chapter-functions .function-law-table tbody tr')).toHaveCount(7);
+    await expect(page.locator('#chapter-functions .function-growth-table tbody tr')).toHaveCount(6);
+    await expect(page.locator('#chapter-functions svg[role="img"]')).toHaveCount(2);
     await expect(page.locator('#functions svg')).toHaveCount(3);
     await expect(page.locator('#functions .katex-mathml math')).toHaveCount(3);
     await expect(page.getByText('𝒫(A)', { exact: true })).toBeVisible();
@@ -90,14 +95,14 @@ test('language switching retains the set-theory anchor', async ({ page }) => {
   await expect(page.locator('#sets')).toBeVisible();
 });
 
-test('print stylesheet removes site chrome but retains all twelve reference tables', async ({
+test('print stylesheet removes site chrome but retains all sixteen reference tables', async ({
   page,
 }) => {
   await page.goto('/fr/cheat-sheet/');
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('.site-header')).toBeHidden();
   await expect(page.locator('.site-footer')).toBeHidden();
-  await expect(page.locator('.cheat-sheet-table')).toHaveCount(12);
+  await expect(page.locator('.cheat-sheet-table')).toHaveCount(16);
   await expect(page.locator('.cheat-sheet-table').first()).toBeVisible();
 });
 
@@ -209,4 +214,34 @@ test('integer Bresenham steps and regression hand table are printable', async ({
   await expect(
     page.locator('#regression .geometry-formula-reading'),
   ).toHaveCount(4);
+});
+
+test('Chapter 3 has accessible bilingual formulas, figures and course links', async ({ page }) => {
+  await page.goto('/fr/cheat-sheet/');
+  await page
+    .locator('.cheat-sheet-toc')
+    .getByRole('link', { name: /Chapitre 3/ })
+    .click();
+  await expect(page).toHaveURL('/fr/cheat-sheet/#chapter-functions');
+  await expect(page.locator('#chapter-functions h2')).toContainText('Fonctions');
+  await expect(page.locator('#chapter-functions .function-derivative-table tbody tr')).toHaveCount(8);
+  await expect(page.locator('#chapter-functions .function-law-table tbody tr')).toHaveCount(7);
+  await expect(page.locator('#chapter-functions .katex-mathml math').first()).toBeAttached();
+  await expect(page.locator('#chapter-functions svg[role="img"]')).toHaveCount(2);
+  for (const lesson of ['L37', 'L38', 'L39', 'L40', 'L41', 'L42']) {
+    await expect(page.locator('#chapter-functions .function-lessons').getByRole('link', { name: lesson })).toHaveAttribute('href', '/fr/lessons/' + lesson + '/');
+  }
+  await page.getByRole('link', { name: 'EN', exact: true }).click();
+  await expect(page).toHaveURL('/en/cheat-sheet/#chapter-functions');
+  await expect(page.locator('#chapter-functions h2')).toContainText('Functions');
+  await expect(page.locator('#chapter-functions .function-growth-table tbody tr')).toHaveCount(6);
+});
+
+test('Chapter 3 graphs, tables and headings remain printable', async ({ page }) => {
+  await page.goto('/fr/cheat-sheet/#chapter-functions');
+  await page.emulateMedia({ media: 'print' });
+  await expect(page.locator('#chapter-functions .function-derivative-table')).toBeVisible();
+  await expect(page.locator('#chapter-functions .function-law-table')).toBeVisible();
+  await expect(page.locator('#chapter-functions .function-growth-table')).toBeVisible();
+  await expect(page.locator('#chapter-functions svg[role="img"]')).toHaveCount(2);
 });
