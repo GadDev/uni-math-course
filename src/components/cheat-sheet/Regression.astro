@@ -225,6 +225,57 @@ const sum = (field: 'dx' | 'dy' | 'product' | 'squared') =>
       </tfoot>
     </table>
   </div>
+  <h4>{text.blankTableTitle}</h4>
+  <p>{text.blankTableTip}</p>
+  <div
+    class="cheat-sheet-table-scroll"
+    role="region"
+    tabindex="0"
+    aria-label={text.blankTableTitle}
+  >
+    <table class="cheat-sheet-table regression-hand-table regression-blank-table">
+      <caption class="visually-hidden">{text.blankTableTitle}</caption>
+      <thead>
+        <tr>
+          {[
+            'x_i',
+            'y_i',
+            'x_i-\\bar{x}',
+            'y_i-\\bar{y}',
+            '(x_i-\\bar{x})(y_i-\\bar{y})',
+            '(x_i-\\bar{x})^2',
+          ].map((formula) => (
+            <th scope="col"><span set:html={math(formula)} /></th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {Array.from({ length: 4 }, (_, index) => (
+          <tr>
+            {Array.from({ length: 6 }, (_, cell) => (
+              <td>
+                <span class="regression-write-space" aria-hidden="true">________</span>
+                <span class="visually-hidden">
+                  {locale === 'fr' ? 'Ligne' : 'Row'} {index + 1},
+                  {locale === 'fr' ? 'colonne' : 'column'} {cell + 1}
+                </span>
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row">{text.blankTotal}</th>
+          <td>—</td>
+          <td>0</td>
+          <td>0</td>
+          <td><span class="regression-write-space">________</span></td>
+          <td><span class="regression-write-space">________</span></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
   <p>{text.meansCheck}</p>
   <div
     class="advanced-formula"
