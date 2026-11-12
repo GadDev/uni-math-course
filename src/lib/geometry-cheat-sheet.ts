@@ -71,6 +71,30 @@ export const geometryFormulae: GeometryFormula[] = [
     },
   },
   {
+    id: 'mean-x',
+    formula: '\\bar{x}=\\frac{1}{n}\\sum_{i=1}^{n}x_i',
+    reading: {
+      fr: 'x barre égale la somme des x i, divisée par n.',
+      en: 'x bar equals the sum of the x i values divided by n.',
+    },
+    meaning: {
+      fr: 'Moyenne des abscisses des n points.',
+      en: 'Mean of the x-coordinates for n points.',
+    },
+  },
+  {
+    id: 'mean-y',
+    formula: '\\bar{y}=\\frac{1}{n}\\sum_{i=1}^{n}y_i',
+    reading: {
+      fr: 'y barre égale la somme des y i, divisée par n.',
+      en: 'y bar equals the sum of the y i values divided by n.',
+    },
+    meaning: {
+      fr: 'Moyenne des ordonnées des n points.',
+      en: 'Mean of the y-coordinates for n points.',
+    },
+  },
+  {
     id: 'regression-slope',
     formula:
       'm=\\frac{\\sum_{i=1}^{n}(x_i-\\bar{x})(y_i-\\bar{y})}{\\sum_{i=1}^{n}(x_i-\\bar{x})^2}',
@@ -222,7 +246,7 @@ export const geometryMethods: GeometryMethod[] = [
           fr: 'Écrire m comme une fraction : avancer selon le dénominateur et monter ou descendre selon le numérateur.',
           en: 'Express m as a fraction: move right by the denominator and up/down by the numerator.',
         },
-        formula: 'm=\\frac{\\text{montée}}{\\text{déplacement}}',
+        formula: 'm=\\frac{\\Delta y}{\\Delta x}',
       },
       {
         id: 'draw',
