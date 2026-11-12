@@ -245,7 +245,9 @@ const sum = (field: 'dx' | 'dy' | 'product' | 'squared') =>
             '(x_i-\\bar{x})(y_i-\\bar{y})',
             '(x_i-\\bar{x})^2',
           ].map((formula) => (
-            <th scope="col"><span set:html={math(formula)} /></th>
+            <th scope="col">
+              <span set:html={math(formula)} />
+            </th>
           ))}
         </tr>
       </thead>
@@ -254,7 +256,9 @@ const sum = (field: 'dx' | 'dy' | 'product' | 'squared') =>
           <tr>
             {Array.from({ length: 6 }, (_, cell) => (
               <td>
-                <span class="regression-write-space" aria-hidden="true">________</span>
+                <span class="regression-write-space" aria-hidden="true">
+                  ________
+                </span>
                 <span class="visually-hidden">
                   {locale === 'fr' ? 'Ligne' : 'Row'} {index + 1},
                   {locale === 'fr' ? 'colonne' : 'column'} {cell + 1}
@@ -270,8 +274,12 @@ const sum = (field: 'dx' | 'dy' | 'product' | 'squared') =>
           <td>—</td>
           <td>0</td>
           <td>0</td>
-          <td><span class="regression-write-space">________</span></td>
-          <td><span class="regression-write-space">________</span></td>
+          <td>
+            <span class="regression-write-space">________</span>
+          </td>
+          <td>
+            <span class="regression-write-space">________</span>
+          </td>
         </tr>
       </tfoot>
     </table>
