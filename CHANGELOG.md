@@ -2,6 +2,23 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.18.0](https://github.com/GadDev/uni-math-course/compare/v0.17.0...v0.18.0) (2026-11-12)
+
+
+### Features
+
+* add bilingual logic, sets, Sigma and mappings cheat sheet ([#142](https://github.com/GadDev/uni-math-course/issues/142)) ([c68c75b](https://github.com/GadDev/uni-math-course/commit/c68c75bf6b143369b2e2f0d30c63cc17800a41b0))
+* add bilingual mock exams for chapters one to three ([#138](https://github.com/GadDev/uni-math-course/issues/138)) ([06ba449](https://github.com/GadDev/uni-math-course/commit/06ba44929e3e189136d244bbf2ee93504ee9af14))
+* add French revision PDFs and home-page download links ([#144](https://github.com/GadDev/uni-math-course/issues/144)) ([61b5aea](https://github.com/GadDev/uni-math-course/commit/61b5aeab01816554bac15414691a43bc1bd80e6a))
+* add varied two-hour full-course mock final exam ([#139](https://github.com/GadDev/uni-math-course/issues/139)) ([5d1b743](https://github.com/GadDev/uni-math-course/commit/5d1b74382b869de1b1e1e82e803bdfdf18027373))
+* **auth:** add secure bilingual Supabase password recovery ([#133](https://github.com/GadDev/uni-math-course/issues/133)) ([19eca44](https://github.com/GadDev/uni-math-course/commit/19eca4473d67f4a46fe5ca186aafaafe1eb05ef2))
+* **content:** complete Chapter 4 information theory lessons ([#141](https://github.com/GadDev/uni-math-course/issues/141)) ([30229f3](https://github.com/GadDev/uni-math-course/commit/30229f316d1ffb840df44da46b86f589a0af4002))
+
+
+### Bug Fixes
+
+* **auth:** clarify recovery failures and add practice exams navbar link ([#140](https://github.com/GadDev/uni-math-course/issues/140)) ([c37b396](https://github.com/GadDev/uni-math-course/commit/c37b3968ba0c6a1eb98ac69eabd41f576a28e4a8))
+
 ## [0.17.0](https://github.com/GadDev/uni-math-course/compare/v0.16.0...v0.17.0) (2026-10-28)
 
 
