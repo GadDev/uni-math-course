@@ -1,0 +1,79 @@
+---
+lessonId: L50
+locale: fr
+version: 1
+status: extended
+title: "Des questions oui/non aux codes"
+summary: "Relier les arbres de décision, les codes préfixes et le nombre moyen de questions."
+minutes: 35
+objectives: [L50-O01, L50-O02, L50-O03, L50-O04, L50-O05, L50-O06]
+prerequisites: [L48, L49]
+sourcePages: [33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
+---
+
+import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+
+# Deviner un symbole avec des questions
+
+Une personne choisit un symbole. Vous pouvez seulement poser des questions dont la réponse est « oui » ou « non ». Faut-il toujours couper la liste en deux ? Pas si certains symboles sont beaucoup plus probables.
+
+**Source : PDF, pp. 33–44.** Les calculs détaillés, activités et exercices ci-dessous sont des développements pédagogiques originaux.
+
+## Objectifs et prérequis
+
+Vous saurez : (1) lire un arbre oui/non ; (2) construire son code ; (3) calculer le nombre moyen de questions ; (4) comparer des stratégies ; (5) analyser le cas du dé ; (6) distinguer un coût individuel d'une espérance. Révisez la moyenne en [L47](/fr/lessons/L47/), l'entropie en [L48](/fr/lessons/L48/) et Huffman en [L49](/fr/lessons/L49/).
+
+## 01 · Un trajet devient un mot
+
+Supposons un alphabet fini, au moins deux symboles, des probabilités strictement positives et un arbre fini qui identifie toujours le symbole. Chaque nœud interne pose une question. Chaque feuille donne une réponse définitive. Convention du professeur : **oui = 1, non = 0**. Lire les réponses de la racine à une feuille donne un mot binaire.
+
+Une feuille ne peut pas être l'ancêtre d'une autre feuille : les mots obtenus forment donc un **code préfixe**. Réciproquement, les préfixes des mots d'un code préfixe dessinent un arbre. À chaque nœud, demander si le symbole appartient au groupe de la branche droite suffit. Il ne s'agit pas de questions sur le sens du message : tout sous-ensemble des symboles peut définir une question.
+
+## 02 · Trois symboles : pondérer les trajets
+
+Prenons $p(a)=1/2$ et $p(b)=p(c)=1/4$. Demandez « est-ce a ? ». Oui donne `1`. Sinon, demandez « est-ce b ? » : oui donne `01`, non donne `00`. Les profondeurs sont $1,2,2$.
+
+$$E(Q)=\sum_i p_i\ell_i=\frac12\cdot1+\frac14\cdot2+\frac14\cdot2=\frac32.$$
+
+Chaque partie utilise une ou deux questions ; la moyenne est une question et demie. Commencer par « est-ce c ? » donne les profondeurs $2,2,1$ pour a, b, c :
+
+$$E(Q)=\frac12\cdot2+\frac14\cdot2+\frac14\cdot1=\frac74.$$
+
+La forme géométrique de l'arbre ne suffit pas : le placement des probabilités compte. Huffman minimise cette espérance parmi les arbres binaires d'identification. Le coût moyen d'un arbre est exactement la longueur moyenne de son code.
+
+## 03 · Un dé : moyenne et maximum
+
+Pour six faces équiprobables, l'entropie vaut $H(S)=\log_2 6\approx2{,}585$. Un arbre optimal possède deux feuilles à profondeur 2 et quatre à profondeur 3 :
+
+$$L=\frac{2\cdot2+4\cdot3}{6}=\frac83\approx2{,}667.$$
+
+Par exemple, les mots `00`, `01`, `100`, `101`, `110`, `111` sont préfixes. La moyenne vaut $8/3$, le maximum vaut 3. Une stratégie qui teste les faces une à une a les profondeurs $1,2,3,4,5,5$ et coûte $20/6=10/3$ en moyenne.
+
+**Précision sur les pp. 41–43.** Un nombre individuel de questions est entier ; **une moyenne peut être fractionnaire**. L'écart avec l'entropie vient des contraintes sur les profondeurs entières et sur l'arbre, pas d'une interdiction des moyennes fractionnaires. On prouvera $L\ge H(S)$ en [L53](/fr/lessons/L53/).
+
+## Expérimenter et expliquer
+
+**But.** Relier chaque chemin à son coût et comparer les stratégies sur une même source. **Prédiction.** Une division égale du nombre de symboles est-elle toujours optimale ? Choisissez trois symboles ou le dé, modifiez les effectifs positifs de 1 à 20, puis la stratégie. La table et l'arbre montrent les chemins, leurs probabilités et leur moyenne. Le choix d'un symbole affiche sa suite de réponses.
+
+<InformationTheoryLab mode="decisions" locale="fr" client:visible />
+
+Sur papier, comparez les deux moyennes $3/2$ et $7/4$ de l'exemple. Le tableau constitue aussi une lecture textuelle de l'arbre.
+
+## Exercices avec raisonnement
+
+1. Pour quatre symboles équiprobables, proposez un arbre et calculez sa moyenne.
+2. Pour les probabilités $(3/4,1/8,1/8)$ et les profondeurs $(1,2,2)$, calculez le coût moyen et le pire coût.
+3. Un étudiant affirme : « une moyenne de 1,5 question est impossible ». Que répondez-vous ?
+
+<details className="info-answer">
+<summary>Solutions justifiées</summary>
+
+1. `00`, `01`, `10`, `11` : quatre trajets de deux questions, donc moyenne 2, égale à l'entropie.
+2. $L=3/4+2/8+2/8=5/4$ ; le maximum vaut 2. Il faut pondérer, pas moyenner les trois longueurs sans tenir compte des probabilités.
+3. Les résultats individuels sont entiers, mais leur moyenne pondérée ne l'est pas nécessairement. L'exemple à trois symboles en donne une réalisation explicite.
+
+</details>
+
+## À retenir et suite
+
+Une feuille est un symbole, un trajet est un mot code, sa profondeur est un nombre de questions. Pondérez les profondeurs. Ne confondez pas moyenne, maximum et entropie. [L51](/fr/lessons/L51/) explique quelles listes de profondeurs sont possibles. Les exemples et solutions sont imprimables.

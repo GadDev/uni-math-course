@@ -1,0 +1,81 @@
+---
+lessonId: L51
+locale: en
+version: 1
+status: extended
+title: "Kraft–McMillan: which lengths are possible?"
+summary: "Calculate the Kraft sum and distinguish existence from decodability."
+minutes: 35
+objectives: [L51-O01, L51-O02, L51-O03, L51-O04, L51-O05, L51-O06]
+prerequisites: [L45, L50]
+sourcePages: [44, 45]
+---
+
+import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+
+# Can everyone have a short word?
+
+Three symbols, three binary words of length 1: that sounds economical, but only two such words exist. The Kraft sum makes this space constraint precise.
+
+**Source: PDF, pp. 44–45.** The source states McMillan without proof. We prove the prefix case, admit the general uniquely decodable case, then add the existence converse about lengths.
+
+## Objectives and prerequisites
+
+You will: (1) calculate the Kraft sum; (2) explain the space constraint; (3) apply necessity; (4) construct a prefix example; (5) distinguish lengths from assignment; (6) connect McMillan to Huffman. Prerequisites: [L45](/en/lessons/L45/) and [L50](/en/lessons/L50/).
+
+## 01 · The sum and its assumptions
+
+Take a finite alphabet of at least two symbols, a binary code with nonempty words and positive integer lengths $\ell_1,\ldots,\ell_m$. Define
+
+$$K(c)=\sum_{i=1}^m2^{-\ell_i}.$$
+
+**Kraft–McMillan.** If the code uniquely decodes finite messages without separators, then $K(c)\le1$. This theorem does not use source probabilities. In particular, $K(c)>1$ proves that unique decodability is impossible.
+
+Examples: for lengths $(1,2,2)$, $K=1/2+1/4+1/4=1$. For $(1,1,2)$, $K=1/2+1/2+1/4=5/4>1$: no assignment works.
+
+## 02 · Why a prefix tree satisfies the inequality
+
+Let $M=\max_i\ell_i$. A complete binary tree of depth $M$ has $2^M$ positions. A leaf at depth $\ell_i$ reserves the $2^{M-\ell_i}$ positions extending its word. In a prefix code these groups do not overlap: no word starts with another word.
+
+$$\sum_i2^{M-\ell_i}\le2^M\quad\Longrightarrow\quad\sum_i2^{-\ell_i}\le1.$$
+
+Divide by the positive number $2^M$. **Scope of the proof:** this proves the prefix case. McMillan extends necessity to all uniquely decodable codes, including non-prefix ones; we use this admitted result without claiming to prove it here.
+
+## 03 · A converse about lengths
+
+**Teaching addition.** If positive integer lengths satisfy $K\le1$, there **exists** a prefix code with exactly those lengths. To see the construction, sort lengths increasingly and allocate binary intervals of size $2^{-\ell_i}$ from left to right in $[0,1)$. The previously reserved total is a multiple of the next size, because previous lengths are smaller. The next interval is therefore aligned with the binary grid; a total at most 1 guarantees it fits. Disjoint intervals give words such that none is a prefix of another.
+
+Example: lengths $(1,2,3,3)$, words `0`, `10`, `110`, `111`. Interval sizes $1/2,1/4,1/8,1/8$ fill all available space. For lengths $(2,2)$, words `00`, `01` leave space: $K=1/2$. An incomplete code can still be uniquely decodable.
+
+## 04 · The trap: a list is not a code
+
+Consider a→`0`, b→`01`, c→`10`. The three words differ, their lengths are $(1,2,2)$ and $K=1$. Yet `010` represents both ac and ba. The code is injective **on symbols**, but not uniquely decodable **on messages**.
+
+The converse guarantees **another** prefix code, for example a→`0`, b→`10`, c→`11`. It does not automatically repair the earlier table.
+
+**Connection to Huffman.** Every length list from a uniquely decodable code satisfies McMillan and can therefore be realised by a prefix code. Huffman minimises the mean among prefix codes, so it is also optimal among uniquely decodable codes, for a fixed source and symbol-by-symbol coding.
+
+## Experiment and explain
+
+**Goal.** Distinguish impossible lengths from a possible prefix construction. **Prediction.** If you shorten every word, what happens to available space? Edit four integer lengths from 1 to 8. The panel calculates the exact sum and constructs a canonical code if it is at most 1. It does not test a word table entered elsewhere.
+
+<InformationTheoryLab mode="kraft" locale="en" client:visible />
+
+## Exercises and solutions
+
+1. Can $(2,2,2)$ be prefix-code lengths?
+2. Can $(1,2,2,3)$ belong to a uniquely decodable code?
+3. Is a code with sum 1 necessarily uniquely decodable? Justify using messages.
+
+<details className="info-answer">
+<summary>Justified solutions</summary>
+
+1. $K=3/4\le1$. Yes, for example `00`, `01`, `10`.
+2. $K=1/2+1/4+1/4+1/8=9/8>1$. No, by McMillan's necessity.
+3. No. The ambiguous table in section 04 satisfies the sum, but ac and ba share image `010`.
+
+</details>
+
+## Remember and continue
+
+McMillan: unique decoding implies sum at most 1. The converse concerns **existence of a prefix code with these lengths**, not validity of a particular assignment. A sum below 1 is not an error. [L52](/en/lessons/L52/) prepares the other tool for the entropy bound.
