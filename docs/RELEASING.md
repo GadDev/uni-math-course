@@ -33,7 +33,7 @@ Keep the full gate named `docs`: it includes application, release-policy/plannin
 
 Preflight compares the run's SHA with current main. A superseded revision reports a notice and successful skip before creating an App token or invoking Release Please. Current main handles pending work after its own `docs` succeeds. No manual action is needed for the skip itself.
 
-A current revision still needs successful GitHub Actions `docs` on its exact SHA and the exact merge SHA of every pending merged release PR. Newer main checks cannot substitute for unchecked release merges. API errors and inconsistent package/manifest versions remain failures. Manual dispatch follows the same rules.
+A current revision needs successful GitHub Actions `docs` on its exact SHA. That check validates the full current main tree, including any earlier release merges; historical release PR labels do not impose separate checks on their merge commits. API errors and inconsistent package/manifest versions remain failures. Manual dispatch follows the same rules.
 
 ## Retries and recovery
 

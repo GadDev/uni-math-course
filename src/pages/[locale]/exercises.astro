@@ -2,6 +2,7 @@
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import Base from '../../layouts/Base.astro';
+import RevisionDownloads from '../../components/RevisionDownloads.astro';
 import { locales } from '../../lib/i18n';
 import {
   printableChapters,
@@ -67,6 +68,9 @@ const missingFiles = chapters.some((chapter) =>
     </header>
 
     <nav class="printable-toc" aria-label={text.toc}>
+      <a href="#revision-pdfs">
+        {locale === 'fr' ? 'Guides de révision' : 'Revision guides'}
+      </a>
       {chapters.map((chapter) => (
         <a href={'#' + chapter.id}>
           {text.chapterLabel} {chapter.number}
@@ -74,6 +78,8 @@ const missingFiles = chapters.some((chapter) =>
       ))}
       <a href="#how-to-use">{text.howTitle}</a>
     </nav>
+
+    <RevisionDownloads locale={locale} />
 
     <p>
       <a class="primary-link" href={`/${locale}/training-exams/`}>
