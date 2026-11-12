@@ -1,6 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { symbolGroups, cheatSheetCopy } from '../../src/lib/cheat-sheet';
+import {
+  cheatSheetCopy,
+  mappingProperties,
+  symbolGroups,
+  truthTableRows,
+} from '../../src/lib/cheat-sheet';
 
 test('cheat sheet lists all requested logic and set symbols', () => {
   const logic = symbolGroups.find((group) => group.id === 'logic');
@@ -63,4 +68,52 @@ test('critical notation alternatives and distinctions are explicit', () => {
     logic.rows.find((row) => row.notation === '∨')!.meaning.en,
     /inclusive/,
   );
+});
+
+test('truth table covers every P/Q valuation with correct connectives', () => {
+  assert.equal(truthTableRows.length, 4);
+  const combinations = new Set(
+    truthTableRows.map((row) => `${row.p}:${row.q}`),
+  );
+  assert.equal(combinations.size, 4);
+  for (const row of truthTableRows) {
+    assert.equal(row.and, row.p && row.q);
+    assert.equal(row.or, row.p || row.q);
+    assert.equal(row.implies, !row.p || row.q);
+    assert.equal(row.iff, row.p === row.q);
+  }
+  assert.equal(truthTableRows.filter((row) => !row.implies).length, 1);
+});
+
+test('mapping examples obey the injective/surjective/bijective formulas', () => {
+  assert.deepEqual(
+    mappingProperties.map((property) => property.id),
+    ['injective', 'surjective', 'bijective'],
+  );
+  for (const property of mappingProperties) {
+    const { source, target, pairs } = property.diagram;
+    assert.equal(pairs.length, source.length);
+    assert.deepEqual(
+      pairs.map(([from]) => from).sort(),
+      source.map((_, index) => index),
+    );
+    const arrivals = target.map(
+      (_, to) => pairs.filter(([, destination]) => destination === to).length,
+    );
+    if (property.id === 'injective') {
+      assert.ok(arrivals.every((count) => count <= 1));
+      assert.ok(arrivals.some((count) => count === 0));
+    }
+    if (property.id === 'surjective') {
+      assert.ok(arrivals.every((count) => count >= 1));
+      assert.ok(arrivals.some((count) => count > 1));
+    }
+    if (property.id === 'bijective') {
+      assert.ok(arrivals.every((count) => count === 1));
+    }
+    assert.ok(property.formula.includes('\\forall'));
+    assert.ok(property.title.fr && property.title.en);
+    assert.ok(property.description.fr && property.description.en);
+    assert.ok(property.arrows.fr && property.arrows.en);
+  }
 });
