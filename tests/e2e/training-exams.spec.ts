@@ -31,6 +31,33 @@ const bank = (chapter: string) =>
   ) as TrainingExam;
 
 for (const locale of ['fr', 'en']) {
+  test(`global navigation reaches the public exam catalogue (${locale})`, async ({
+    page,
+  }) => {
+    for (const width of [320, 375, 768, 1280]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(`/${locale}/`);
+      const nav = page.locator('[data-exams-nav]');
+      await expect(nav).toBeVisible();
+      await expect(nav).toHaveAttribute('href', `/${locale}/training-exams/`);
+      await expect(nav).toHaveText(
+        locale === 'fr' ? 'Examens blancs' : 'Practice exams',
+      );
+      expect(
+        await page.evaluate(() => document.documentElement.scrollWidth),
+      ).toBeLessThanOrEqual(width);
+      await nav.focus();
+      await expect(nav).toBeFocused();
+      await page.keyboard.press('Enter');
+      await expect(page).toHaveURL(`/${locale}/training-exams/`);
+      await expect(page.locator('[data-exams-nav]')).toHaveAttribute(
+        'aria-current',
+        'page',
+      );
+      await expect(page.locator('.exam-card')).toHaveCount(4);
+    }
+  });
+
   test(`public mock exam catalogue and chapter entries fit mobile (${locale})`, async ({
     page,
   }) => {

@@ -31,11 +31,19 @@ export const POST: APIRoute = async (context) => {
   if (emailAllowed(auth.config, email)) {
     const candidate = createRequestAuth(context, { isolated: true });
     try {
-      await candidate?.client.auth.resetPasswordForEmail(email, {
+      const result = await candidate?.client.auth.resetPasswordForEmail(email, {
         redirectTo: `${auth.config.origin}/auth/recovery/?locale=${locale}`,
       });
+      if (result?.error) {
+        // Only non-identifying metadata; never log email, token or provider payload.
+        console.warn('[auth-recovery] Provider rejected reset request', {
+          status: result.error.status ?? 0,
+          code: result.error.code ?? 'unspecified',
+        });
+      }
     } catch {
-      // Same generic response as unknown and non-allowlisted accounts.
+      // Provider network failures must not turn into account-enumeration leaks.
+      console.warn('[auth-recovery] Recovery provider unavailable');
     }
   }
   return context.redirect(`/${locale}/forgot-password/?sent=1`, 303);
