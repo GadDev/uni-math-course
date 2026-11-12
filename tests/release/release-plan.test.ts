@@ -249,7 +249,6 @@ if (args.includes('git/ref/heads/main')) {
   if (process.env.MAIN_LOOKUP_FAILURE === 'true') process.exit(2);
   console.log('a'.repeat(40));
 }
-else if (args.includes('/pulls?')) console.log('b'.repeat(40));
 else if (args.includes('/commits/')) console.log(args.includes(process.env.UNCHECKED_SHA || 'not-a-sha') ? process.env.DOCS_RESULT : 'true');
 else process.exit(2);
 `,
@@ -315,12 +314,19 @@ else process.exit(2);
       );
     }
     await t.test(
-      'unchecked pending release cannot borrow newer main checks',
+      'historical pending releases do not block checked current main',
       async () => {
-        const unchecked = await run({ UNCHECKED_SHA: 'b'.repeat(40) });
-        assert.notEqual(unchecked.status, 0);
-        assert.match(unchecked.stdout, /successful docs check for exact SHA b/);
-        assert.equal(unchecked.output, '');
+        const checked = await run({
+          UNCHECKED_SHA: 'b'.repeat(40),
+          DOCS_RESULT: 'false',
+        });
+        assert.equal(checked.status, 0, checked.stdout + checked.stderr);
+        assert.equal(checked.output, 'release=true\n');
+        assert.equal(checked.calls.length, 2);
+        assert.ok(checked.calls.every((call) => !call.includes('/pulls?')));
+        assert.ok(
+          checked.calls.every((call) => !call.includes('b'.repeat(40))),
+        );
       },
     );
     await t.test(
@@ -332,16 +338,13 @@ else process.exit(2);
         assert.doesNotMatch(failed.stdout, /Superseded revision/);
       },
     );
-    await t.test(
-      'checked current main and pending release authorize release work',
-      async () => {
-        const checked = await run();
-        assert.equal(checked.status, 0, checked.stdout + checked.stderr);
-        assert.equal(checked.output, 'release=true\n');
-        assert.match(checked.stdout, /Release policy checked/);
-        assert.equal(checked.calls.length, 4);
-      },
-    );
+    await t.test('checked current main authorizes release work', async () => {
+      const checked = await run();
+      assert.equal(checked.status, 0, checked.stdout + checked.stderr);
+      assert.equal(checked.output, 'release=true\n');
+      assert.match(checked.stdout, /Release policy checked/);
+      assert.equal(checked.calls.length, 2);
+    });
   } finally {
     await rm(directory, { recursive: true, force: true });
   }

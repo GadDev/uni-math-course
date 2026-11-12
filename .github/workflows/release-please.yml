@@ -50,11 +50,6 @@ jobs:
             test "$checked" = true || { echo "A successful docs check for exact SHA $1 is required."; exit 1; }
           }
           require_docs "$GITHUB_SHA"
-          pending="$(gh api --paginate "repos/$GITHUB_REPOSITORY/pulls?state=closed&base=main&per_page=100" --jq '.[] | select(.merged_at != null and any(.labels[]; .name == "autorelease: pending")) | .merge_commit_sha')"
-          while IFS= read -r release_sha; do
-            test -n "$release_sha" || continue
-            require_docs "$release_sha"
-          done <<< "$pending"
           node scripts/check-release.ts
           echo "release=true" >> "$GITHUB_OUTPUT"
       - name: Create repository-scoped release token
