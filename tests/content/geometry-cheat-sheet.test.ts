@@ -20,7 +20,13 @@ test('geometry reference keeps course slope-intercept notation in both languages
 test('methods cover all forward and reverse Cartesian line tasks', () => {
   assert.deepEqual(
     geometryMethods.map((method) => method.id),
-    ['chart-to-equation', 'points-to-equation', 'equation-to-chart', 'coordinates', 'point-test'],
+    [
+      'chart-to-equation',
+      'points-to-equation',
+      'equation-to-chart',
+      'coordinates',
+      'point-test',
+    ],
   );
   for (const method of geometryMethods) {
     assert.ok(method.title.fr && method.title.en);
@@ -32,7 +38,8 @@ test('methods cover all forward and reverse Cartesian line tasks', () => {
     }
   }
   assert.match(
-    geometryMethods.find((method) => method.id === 'points-to-equation')!.example.fr,
+    geometryMethods.find((method) => method.id === 'points-to-equation')!
+      .example.fr,
     /verticale/,
   );
   assert.match(geometryCopy.fr.warning, /m ≠ 0/);
@@ -78,10 +85,7 @@ test('worked line, vertical exception and regression numbers are consistent', ()
     (sum, value, index) => sum + (value - xbar) * (y[index]! - ybar),
     0,
   );
-  const denominator = x.reduce(
-    (sum, value) => sum + (value - xbar) ** 2,
-    0,
-  );
+  const denominator = x.reduce((sum, value) => sum + (value - xbar) ** 2, 0);
   const m = numerator / denominator;
   const p = ybar - m * xbar;
   assert.equal(xbar, 2);
