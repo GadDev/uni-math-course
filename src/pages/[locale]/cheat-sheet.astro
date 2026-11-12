@@ -358,16 +358,18 @@ const math = (value: string, displayMode = false) =>
             <tr>
               <th scope="col">{sigmaText.partName}</th>
               <th scope="col">{sigmaText.partSymbol}</th>
-              <th scope="col" lang="en">{text.english}</th>
-              <th scope="col" lang="fr">{text.french}</th>
+              <th scope="col" lang="en">
+                {text.english}
+              </th>
+              <th scope="col" lang="fr">
+                {text.french}
+              </th>
             </tr>
           </thead>
           <tbody>
             {sigmaParts.map((part) => (
               <tr>
-                <th scope="row">
-                  {part.name[locale]}
-                </th>
+                <th scope="row">{part.name[locale]}</th>
                 <td class="sigma-math" set:html={math(part.symbol)} />
                 <td lang="en">
                   <strong>{part.name.en}</strong> — {part.meaning.en}
@@ -393,8 +395,12 @@ const math = (value: string, displayMode = false) =>
           <thead>
             <tr>
               <th scope="col">{sigmaText.notation}</th>
-              <th scope="col" lang="en">{text.english}</th>
-              <th scope="col" lang="fr">{text.french}</th>
+              <th scope="col" lang="en">
+                {text.english}
+              </th>
+              <th scope="col" lang="fr">
+                {text.french}
+              </th>
               <th scope="col">{sigmaText.expanded}</th>
             </tr>
           </thead>
@@ -402,18 +408,12 @@ const math = (value: string, displayMode = false) =>
             {sigmaPatterns.map((pattern) => (
               <tr>
                 <th scope="row">
-                  <span
-                    class="sigma-math"
-                    set:html={math(pattern.notation)}
-                  />
+                  <span class="sigma-math" set:html={math(pattern.notation)} />
                 </th>
                 <td lang="en">{pattern.reading.en}</td>
                 <td lang="fr">{pattern.reading.fr}</td>
                 <td>
-                  <span
-                    class="sigma-math"
-                    set:html={math(pattern.expansion)}
-                  />
+                  <span class="sigma-math" set:html={math(pattern.expansion)} />
                   {pattern.note && (
                     <p class="sigma-pattern-note">{pattern.note[locale]}</p>
                   )}
@@ -438,7 +438,10 @@ const math = (value: string, displayMode = false) =>
       <ol class="sigma-rules">
         {sigmaRules.map((rule) => (
           <li>
-            <div class="sigma-rule-formula" set:html={math(rule.formula, true)} />
+            <div
+              class="sigma-rule-formula"
+              set:html={math(rule.formula, true)}
+            />
             <p>{rule.explanation[locale]}</p>
           </li>
         ))}
