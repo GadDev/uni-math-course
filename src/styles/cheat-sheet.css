@@ -1,0 +1,628 @@
+.cheat-sheet-page {
+  max-width: 1120px;
+  margin: 2.5rem auto 4rem;
+}
+
+.cheat-sheet-breadcrumb {
+  margin-bottom: 1.5rem;
+}
+
+.cheat-sheet-heading {
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding: 2.25rem 0 1.8rem;
+}
+
+.cheat-sheet-heading h1 {
+  font-size: clamp(2.4rem, 5.5vw, 4.7rem);
+  text-transform: uppercase;
+  margin: 0.75rem 0 1rem;
+  max-width: 24ch;
+}
+
+.cheat-sheet-heading .lede {
+  max-width: 64ch;
+}
+
+.cheat-sheet-print {
+  min-height: 44px;
+  margin-top: 0.7rem;
+  padding: 0.6rem 1rem;
+  background: var(--ink);
+  color: var(--on-strong);
+  border: 1px solid var(--ink);
+  font: inherit;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cheat-sheet-print[hidden] {
+  display: none;
+}
+
+.cheat-sheet-print:hover {
+  background: var(--strong-hover);
+}
+
+.cheat-sheet-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  border-bottom: 1px solid var(--line);
+  padding: 0.8rem 0;
+}
+
+.cheat-sheet-toc a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--ink);
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.cheat-sheet-toc a span {
+  font: 400 1.5rem var(--display);
+  color: var(--accent);
+}
+
+.cheat-sheet-section {
+  padding-top: 2rem;
+  scroll-margin-top: 1rem;
+}
+
+.cheat-sheet-section h2 {
+  margin: 0.35rem 0 1.1rem;
+  text-transform: uppercase;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.cheat-sheet-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--soft-line);
+}
+
+.cheat-sheet-table-scroll:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.cheat-sheet-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 790px;
+  table-layout: fixed;
+  font-size: 0.9rem;
+}
+
+.cheat-sheet-table th,
+.cheat-sheet-table td {
+  text-align: left;
+  vertical-align: middle;
+  padding: 0.8rem 0.9rem;
+  line-height: 1.55;
+  border-bottom: 1px solid var(--soft-line);
+  overflow-wrap: anywhere;
+}
+
+.cheat-sheet-table thead th {
+  background: var(--ink);
+  color: var(--on-strong);
+  font-size: 0.8rem;
+  letter-spacing: 0.025em;
+}
+
+.cheat-sheet-table th:nth-child(1) {
+  width: 16%;
+}
+
+.cheat-sheet-table th:nth-child(2) {
+  width: 23%;
+}
+
+.cheat-sheet-table th:nth-child(3) {
+  width: 25%;
+}
+
+.cheat-sheet-table th:nth-child(4) {
+  width: 36%;
+}
+
+.cheat-sheet-table tbody tr:nth-child(even) {
+  background: var(--card);
+}
+
+.cheat-sheet-table tbody tr:last-child th,
+.cheat-sheet-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.cheat-sheet-symbol {
+  font-weight: normal;
+}
+
+.cheat-sheet-glyph {
+  display: block;
+  font-size: 1.65rem;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.cheat-sheet-alternative {
+  display: block;
+  color: var(--muted);
+  font-size: 0.77rem;
+  white-space: nowrap;
+  margin-top: 0.15rem;
+}
+
+.cheat-sheet-alternative span {
+  font-family: ui-monospace, Consolas, monospace;
+}
+
+.cheat-sheet-tips {
+  margin-top: 2.2rem;
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding: 1.4rem 0;
+}
+
+.cheat-sheet-tips h2 {
+  margin: 0 0 0.8rem;
+  font-size: 1.55rem;
+}
+
+.cheat-sheet-tips ol {
+  padding-left: 1.3rem;
+  margin: 0;
+}
+
+.cheat-sheet-tips li {
+  margin: 0.55rem 0;
+  line-height: 1.6;
+}
+
+.cheat-sheet-note {
+  margin: 1.5rem 0;
+  color: var(--muted);
+  font-size: 0.89rem;
+}
+
+.cheat-sheet-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+}
+
+.cheat-sheet-links a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .cheat-sheet-page {
+    margin-top: 1.5rem;
+  }
+
+  .cheat-sheet-heading {
+    padding-top: 1.6rem;
+  }
+
+  .cheat-sheet-table {
+    min-width: 760px;
+  }
+
+  .cheat-sheet-section {
+    padding-top: 1.5rem;
+  }
+}
+
+@page {
+  size: A4;
+  margin: 11mm;
+}
+
+@media print {
+  :root {
+    color-scheme: light;
+  }
+
+  body,
+  .page,
+  .cheat-sheet-page {
+    color: #111 !important;
+    background: #fff !important;
+  }
+
+  .site-header,
+  .site-footer,
+  .skip-link,
+  .cheat-sheet-breadcrumb,
+  .cheat-sheet-print,
+  .cheat-sheet-toc,
+  .cheat-sheet-links {
+    display: none !important;
+  }
+
+  .page {
+    padding: 0;
+    max-width: none;
+  }
+
+  .cheat-sheet-page {
+    max-width: none;
+    margin: 0;
+  }
+
+  .cheat-sheet-heading {
+    padding: 0 0 0.6rem;
+    border-top: 0;
+    border-bottom: 1px solid #888;
+  }
+
+  .cheat-sheet-heading .eyebrow {
+    display: none;
+  }
+
+  .cheat-sheet-heading h1 {
+    font:
+      700 19pt Arial,
+      Helvetica,
+      sans-serif;
+    text-transform: none;
+    margin: 0 0 0.35rem;
+  }
+
+  .cheat-sheet-heading .signal-stop {
+    color: #111;
+  }
+
+  .cheat-sheet-heading .lede {
+    color: #222;
+    font-size: 9pt;
+    line-height: 1.3;
+    margin: 0;
+    max-width: none;
+  }
+
+  .cheat-sheet-section {
+    padding-top: 0.7rem;
+  }
+
+  .cheat-sheet-section > .eyebrow {
+    display: none;
+  }
+
+  .cheat-sheet-section h2 {
+    font:
+      700 12pt Arial,
+      Helvetica,
+      sans-serif;
+    margin: 0 0 0.4rem;
+    break-after: avoid;
+  }
+
+  .cheat-sheet-table-scroll {
+    overflow: visible;
+    border: 0;
+  }
+
+  .cheat-sheet-table {
+    min-width: 0;
+    font-size: 8.1pt;
+  }
+
+  .cheat-sheet-table th,
+  .cheat-sheet-table td {
+    padding: 0.3rem 0.45rem;
+    line-height: 1.25;
+    border: 1px solid #aaa;
+  }
+
+  .cheat-sheet-table thead th {
+    background: #fff !important;
+    color: #111 !important;
+    border-bottom: 2px solid #111;
+  }
+
+  .cheat-sheet-table tbody tr {
+    background: #fff !important;
+    break-inside: avoid;
+  }
+
+  .cheat-sheet-glyph {
+    font-size: 13pt;
+  }
+
+  .cheat-sheet-alternative {
+    color: #333 !important;
+    font-size: 7pt;
+  }
+
+  .cheat-sheet-tips {
+    margin-top: 0.9rem;
+    padding: 0.6rem 0;
+    border-top: 1px solid #888;
+  }
+
+  .cheat-sheet-tips h2 {
+    font:
+      700 11pt Arial,
+      Helvetica,
+      sans-serif;
+    margin-bottom: 0.35rem;
+  }
+
+  .cheat-sheet-tips ol {
+    font-size: 8pt;
+    padding-left: 1.2rem;
+  }
+
+  .cheat-sheet-tips li {
+    margin: 0.2rem 0;
+    line-height: 1.25;
+  }
+
+  .cheat-sheet-note {
+    margin: 0.5rem 0 0;
+    color: #333 !important;
+    font-size: 7.5pt;
+  }
+}
+
+.cheat-sheet-section-intro {
+  max-width: 72ch;
+  margin: 0 0 1.2rem;
+}
+
+.cheat-sheet-truth {
+  min-width: 650px;
+  text-align: center;
+}
+
+.cheat-sheet-truth th,
+.cheat-sheet-truth td {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.cheat-sheet-truth thead th:nth-child(n) {
+  width: auto;
+}
+
+.cheat-sheet-truth thead small {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: normal;
+}
+
+.cheat-truth-fail {
+  font-weight: bold;
+  background: var(--error-surface);
+  color: var(--ink);
+  box-shadow: inset 4px 0 var(--accent);
+}
+
+.cheat-sheet-table-note {
+  border-left: 3px solid var(--accent);
+  padding: 0.7rem 1rem;
+  background: var(--card);
+  margin: 1rem 0;
+  line-height: 1.6;
+  font-size: 0.93rem;
+}
+
+.cheat-sheet-table-note span {
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.cheat-sheet-takeaways {
+  margin-top: 1.3rem;
+}
+
+.cheat-sheet-takeaways h3 {
+  margin: 0.5rem 0 0.8rem;
+}
+
+.cheat-sheet-takeaway-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.cheat-sheet-takeaway-grid > div {
+  border: 1px solid var(--line);
+  background: var(--card);
+  padding: 1rem;
+}
+
+.cheat-sheet-takeaway-grid h4 {
+  margin: 0;
+}
+
+.cheat-sheet-takeaway-grid p {
+  margin: 0.5rem 0 0;
+}
+
+.cheat-sheet-equivalence-note {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.cheat-sheet-mappings {
+  min-width: 1000px;
+}
+
+.cheat-sheet-mappings thead th:nth-child(1) {
+  width: 17%;
+}
+
+.cheat-sheet-mappings thead th:nth-child(2) {
+  width: 24%;
+}
+
+.cheat-sheet-mappings thead th:nth-child(3) {
+  width: 28%;
+}
+
+.cheat-sheet-mappings thead th:nth-child(4) {
+  width: 31%;
+}
+
+.cheat-sheet-mappings .katex {
+  font-size: 0.93em;
+}
+
+.cheat-sheet-math {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: middle;
+}
+
+.cheat-sheet-diagram-cell {
+  padding-block: 0.6rem;
+}
+
+.cheat-sheet-diagram {
+  margin: 0;
+}
+
+.cheat-sheet-diagram svg {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  color: var(--accent);
+}
+
+.cheat-sheet-diagram circle {
+  fill: var(--card);
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.cheat-sheet-diagram text {
+  fill: var(--ink);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.cheat-sheet-diagram figcaption {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 650px) {
+  .cheat-sheet-takeaway-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .cheat-sheet-section-intro {
+    margin: 0 0 0.35rem;
+    font-size: 8.2pt;
+    line-height: 1.3;
+  }
+
+  .cheat-sheet-truth,
+  .cheat-sheet-mappings {
+    min-width: 0;
+  }
+
+  .cheat-sheet-truth th,
+  .cheat-sheet-truth td {
+    font-size: 8.8pt;
+    padding: 0.3rem;
+  }
+
+  .cheat-sheet-truth thead small {
+    font-size: 6.8pt;
+  }
+
+  .cheat-truth-fail {
+    background: #fff !important;
+    color: #111 !important;
+    box-shadow: inset 3px 0 #111;
+  }
+
+  .cheat-sheet-table-note {
+    border-left: 2px solid #111;
+    background: #fff !important;
+    font-size: 7.8pt;
+    padding: 0.3rem 0.5rem;
+    margin: 0.45rem 0;
+  }
+
+  .cheat-sheet-takeaways {
+    margin-top: 0.5rem;
+  }
+
+  .cheat-sheet-takeaways h3 {
+    font:
+      700 10pt Arial,
+      Helvetica,
+      sans-serif;
+    margin: 0 0 0.3rem;
+  }
+
+  .cheat-sheet-takeaway-grid {
+    gap: 0.5rem;
+  }
+
+  .cheat-sheet-takeaway-grid > div {
+    background: #fff !important;
+    border-color: #aaa;
+    padding: 0.5rem;
+  }
+
+  .cheat-sheet-takeaway-grid h4,
+  .cheat-sheet-takeaway-grid p {
+    font-size: 7.7pt;
+    line-height: 1.25;
+  }
+
+  .cheat-sheet-equivalence-note {
+    color: #333 !important;
+    font-size: 7.5pt;
+    margin: 0.35rem 0;
+  }
+
+  .cheat-sheet-mappings th,
+  .cheat-sheet-mappings td {
+    font-size: 7.3pt;
+    padding: 0.25rem 0.35rem;
+  }
+
+  .cheat-sheet-mappings .katex {
+    font-size: 0.84em;
+  }
+
+  .cheat-sheet-diagram svg {
+    max-width: 150px;
+    color: #222 !important;
+  }
+
+  .cheat-sheet-diagram circle {
+    fill: #fff !important;
+    stroke: #111 !important;
+  }
+
+  .cheat-sheet-diagram text {
+    fill: #111 !important;
+  }
+
+  .cheat-sheet-diagram figcaption {
+    font-size: 7.1pt;
+    line-height: 1.2;
+  }
+}
