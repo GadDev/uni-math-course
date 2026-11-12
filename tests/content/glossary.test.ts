@@ -12,12 +12,17 @@ const bank: typeof Glossary = JSON.parse(
 );
 
 test('glossary has stable, unique bilingual entries, valid pages and renderable math', () => {
-  assert.equal(bank.version, 2);
-  assert.equal(bank.entries.length, 145);
-  assert.equal(new Set(bank.entries.map((e) => e.id)).size, 145);
+  assert.equal(bank.version, 3);
+  assert.equal(bank.entries.length, 153);
+  assert.equal(new Set(bank.entries.map((e) => e.id)).size, 153);
   const sources = new Map(bank.sources.map((source) => [source.id, source]));
   assert.equal(sources.size, bank.sources.length);
   assert.equal(sources.get('logic')!.pageCount, 96);
+  assert.equal(sources.get('information')!.pageCount, 60);
+  assert.equal(
+    bank.entries.filter((e) => e.sourceId === 'information').length,
+    8,
+  );
   assert.equal(sources.get('droites')!.pageCount, 92);
   assert.equal(bank.entries.filter((e) => e.sourceId === 'logic').length, 64);
   assert.equal(bank.entries.filter((e) => e.sourceId === 'droites').length, 81);

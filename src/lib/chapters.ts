@@ -40,7 +40,20 @@ export const chapters = [
     title: { fr: 'Théorie de l’information', en: 'Information theory' },
     shortTitle: { fr: 'Information', en: 'Information' },
     status: 'reading',
-    lessonIds: ['L43', 'L44', 'L45', 'L46', 'L47', 'L48', 'L49'],
+    lessonIds: [
+      'L43',
+      'L44',
+      'L45',
+      'L46',
+      'L47',
+      'L48',
+      'L49',
+      'L50',
+      'L51',
+      'L52',
+      'L53',
+      'L54',
+    ],
   },
 ] as const;
 

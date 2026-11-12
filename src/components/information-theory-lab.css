@@ -1,0 +1,147 @@
+.theory-lab {
+  border: 2px solid currentColor;
+  border-radius: 0.5rem;
+  padding: clamp(0.75rem, 3vw, 1.5rem);
+  margin: 2rem 0;
+  min-width: 0;
+}
+.theory-controls {
+  display: none;
+  border: 0;
+  padding: 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+astro-island[uid]:not([ssr]) .theory-controls {
+  display: flex;
+}
+.theory-controls legend {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+.theory-controls label,
+.theory-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.theory-inputs {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.theory-controls input {
+  width: 5rem;
+}
+.theory-controls input,
+.theory-controls select,
+.theory-controls button {
+  min-height: 44px;
+  padding: 0.5rem;
+  font: inherit;
+  color: inherit;
+  background: var(--paper, Canvas);
+  border: 1px solid currentColor;
+  border-radius: 0.25rem;
+  max-width: 100%;
+}
+.theory-controls button {
+  cursor: pointer;
+  align-self: end;
+}
+.theory-controls :focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+.theory-results {
+  overflow-wrap: anywhere;
+}
+.theory-lab table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95em;
+}
+.theory-lab th,
+.theory-lab td {
+  padding: 0.4rem;
+  border-bottom: 1px solid currentColor;
+  text-align: left;
+}
+.theory-lab caption {
+  text-align: left;
+  font-weight: 700;
+  padding: 0.5rem 0;
+}
+.theory-tree {
+  width: 100%;
+  height: auto;
+  min-width: 0;
+  color: inherit;
+}
+.theory-tree line {
+  stroke: currentColor;
+}
+.theory-tree circle {
+  fill: var(--paper, Canvas);
+  stroke: currentColor;
+}
+.theory-tree text {
+  fill: currentColor;
+  font-size: 15px;
+}
+@media print {
+  .theory-lab .theory-controls {
+    display: none !important;
+  }
+  .theory-lab {
+    border: 1px solid #000;
+    break-inside: auto;
+    color: #000;
+  }
+  .theory-lab tr {
+    break-inside: avoid;
+  }
+  .theory-tree {
+    max-height: 20cm;
+  }
+}
+
+.theory-state,
+.theory-merge {
+  animation: theory-reveal 260ms ease-out both;
+}
+.theory-print-merges {
+  display: none;
+}
+@keyframes theory-reveal {
+  from {
+    opacity: 0.25;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .theory-state,
+  .theory-merge {
+    animation: none;
+  }
+}
+@media print {
+  .theory-state,
+  .theory-merge {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+  .theory-merges {
+    display: none;
+  }
+  .theory-print-merges {
+    display: block;
+  }
+}

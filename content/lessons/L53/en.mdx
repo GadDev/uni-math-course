@@ -1,0 +1,99 @@
+---
+lessonId: L53
+locale: en
+version: 1
+status: extended
+title: "Why average length is bounded by entropy"
+summary: "Combine McMillan and Gibbs to prove the bound and its equality case."
+minutes: 40
+objectives: [L53-O01, L53-O02, L53-O03, L53-O04, L53-O05, L53-O06]
+prerequisites: [L51, L52]
+sourcePages: [49, 50, 51, 52, 53, 54]
+---
+
+import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+
+# A limit a code cannot cross
+
+Could an even cleverer code beat Huffman and go below entropy? For a binary uniquely decodable code and a fixed source, no. Here is why, without skipping the PDF's normalisation factor.
+
+**Source: PDF, pp. 49–54**, using the tools from pp. 45–48. The result concerns average length, not each isolated symbol.
+
+## Objectives and prerequisites
+
+You will: (1) state assumptions; (2) normalise binary weights; (3) apply Gibbs; (4) follow the inequality chain; (5) characterise equality; (6) explain a strict gap. Prerequisites: [L51](/en/lessons/L51/) and [L52](/en/lessons/L52/).
+
+## 01 · Objects used in the proof
+
+A source has a finite alphabet of at least two symbols with $p_i>0$ and $\sum_i p_i=1$. A binary uniquely decodable code assigns nonempty words of lengths $\ell_i$. Recall
+
+$$L(c)=\sum_i p_i\ell_i,\qquad H(S)=-\sum_i p_i\log_2p_i.$$
+
+No temporal independence is needed for this symbol-by-symbol bound. Unique decodability is essential, however: the impossible code giving the same short word to every symbol could have a small mean but would not transmit the information.
+
+## 02 · Build a distribution from lengths
+
+By McMillan, $K=\sum_i2^{-\ell_i}\le1$. Every term is positive, so $0<K\le1$. The weights do not necessarily sum to 1: they are not yet probabilities. Define
+
+$$q_i=\frac{2^{-\ell_i}}K.$$
+
+Every term is positive and
+
+$$\sum_iq_i=\frac1K\sum_i2^{-\ell_i}=1.$$
+
+This is exactly what Gibbs requires. Directly replacing q by the unnormalised weights would be wrong if their sum is strictly below 1.
+
+## 03 · The full chain
+
+Gibbs applied to p and q gives
+
+$$H(S)\le-\sum_i p_i\log_2q_i.$$
+
+Expand the logarithm: $\log_2q_i=-\ell_i-\log_2K$. Thus
+
+$$-\sum_i p_i\log_2q_i=\sum_i p_i\ell_i+\log_2K\sum_i p_i=L(c)+\log_2K.$$
+
+Probabilities sum to 1. Finally, logarithms increase and $K\le1$, so $\log_2K\le0$. We obtain
+
+$$H(S)\le L(c)+\log_2K\le L(c).$$
+
+**Watch the sign:** there is a **plus** before the logarithm of K; since this logarithm is negative or zero, the middle term does not exceed L. This proves the announced bound.
+
+## 04 · When is the bound attained?
+
+Both inequalities must become equalities. Gibbs requires $p_i=q_i$ for every i; the second requires $K=1$. Together:
+
+$$L(c)=H(S)\quad\Longleftrightarrow\quad p_i=2^{-\ell_i}\quad(\forall i).$$
+
+Probability normalisation then automatically gives Kraft sum 1. Probabilities must therefore be inverse powers of two matching integer lengths. Saying only “the code is Huffman” does not guarantee equality.
+
+- For $(1/2,1/4,1/4)$ and words `0`, `10`, `11`, we have $K=1$ and $L=H=3/2$.
+- For $(1/2,1/2)$ and words `00`, `01`, we have $K=1/2$, $q=p$ and $H=1=L+\log_2K< L=2$. Gibbs is an equality, but the code leaves space unused.
+- For $(2/3,1/3)$ and words `0`, `1`, Huffman gives $L=1$ while $H\approx0{,}9183$. The code is symbol-by-symbol optimal; the gap remains strict because probabilities are not dyadic.
+
+An individual length may be smaller than its symbol's surprise: the bound concerns the **weighted average**. It also does not say that every observed message costs at least its symbol count times entropy.
+
+## Experiment and explain
+
+**Goal.** Observe the two inequalities separately. **Prediction.** If you add a bit to every word without changing p, which inequality becomes strict? Edit three counts from 1 to 20 and three lengths from 1 to 8. The panel constructs a prefix code when the sum permits, normalises q and displays the proof's three terms. It refuses to apply the chain when the sum exceeds 1.
+
+<InformationTheoryLab mode="bound" locale="en" client:visible />
+
+## Exercises and solutions
+
+1. Reconstruct the proof without looking: what are the two normalisations?
+2. For probabilities $(1/2,1/4,1/4)$ and lengths $(2,3,3)$, calculate K, q and all three terms.
+3. Can a uniform three-symbol source have average length equal to entropy with binary symbol-by-symbol coding?
+
+<details className="info-answer">
+<summary>Justified solutions</summary>
+
+1. p sums to 1 by assumption; binary weights become q after division by K. Gibbs followed by McMillan completes the proof.
+2. $K=1/4+1/8+1/8=1/2$, $q=(1/2,1/4,1/4)$ and $H=3/2$, $L+\log_2K=3/2$, $L=5/2$. Only the second inequality is strict.
+3. No: $1/3$ is not an inverse power of two with integer exponent. Huffman gives lengths 1, 2, 2 with mean $5/3>\log_2 3$.
+
+</details>
+
+## Remember and continue
+
+Assumptions → McMillan → normalisation → Gibbs → nonpositive logarithm. Equality needs both a complete tree and probabilities matching its depths. [L54](/en/lessons/L54/) shows how block coding reduces the per-symbol gap.

@@ -840,6 +840,7 @@ function Entropy({ locale, ready, print }: ActivityProps) {
             strokeWidth="3"
           />
           <circle
+            className="info-entropy-point"
             cx={55 + p * 330}
             cy={235 - h! * 180}
             r="7"

@@ -1,6 +1,9 @@
 import { expect, test, type Locator } from '@playwright/test';
 
 async function setRange(input: Locator, value: string) {
+  // Controls are hidden until hydration; a hidden input can still be enabled.
+  await expect(input).toBeVisible();
+  await expect(input).toBeEnabled();
   await input.evaluate((element, next) => {
     const setter = Object.getOwnPropertyDescriptor(
       HTMLInputElement.prototype,

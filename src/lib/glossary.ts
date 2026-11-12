@@ -117,7 +117,7 @@ export const glossaryCopy = {
     conventions:
       'Dans ce cours, les naturels comprennent zéro. Les intervalles gardent la notation française dans les deux langues. Le rôle des lettres dépend du contexte : A peut être une assertion ou un ensemble.',
     sourceNote:
-      'Deux sources de Bruno Teheux : Logique (96 pages) et Droites (87 pages). Chaque entrée précise son document et ses pages, couverture comprise. Explications et lectures originales du projet ; aucune diapositive redistribuée.',
+      'Trois sources de Bruno Teheux : Logique (96 pages), Droites (92 pages) et Théorie de l’information (60 pages). Chaque entrée précise son document et ses pages, couverture comprise. Explications et lectures originales du projet ; aucune diapositive redistribuée.',
     discrepancyTitle: 'Logique, page 48 : un exemple à corriger',
     discrepancy:
       'Le cours marque comme vrai « il existe un humain plus vieux que tous les humains ». Avec une relation strictement « plus vieux », c’est faux : la personne choisie fait elle-même partie des humains et ne peut pas être plus vieille qu’elle-même.',
@@ -155,7 +155,7 @@ export const glossaryCopy = {
     conventions:
       'In this course, natural numbers include zero. Intervals keep French notation in both languages. The role of a letter depends on context: A can be a statement or a set.',
     sourceNote:
-      'Two sources by Bruno Teheux: Logic (96 pages) and Lines (87 pages). Each entry identifies its document and pages, counting the cover. Original project explanations and readings; no slides redistributed.',
+      'Three sources by Bruno Teheux: Logic (96 pages), Lines (92 pages) and Information theory (60 pages). Each entry identifies its document and pages, counting the cover. Original project explanations and readings; no slides redistributed.',
     discrepancyTitle: 'Logic, page 48: an example needing correction',
     discrepancy:
       'The course marks “there exists a human older than all humans” as true. With a strict “older than” relation, this is false: the chosen person is themselves among the humans and cannot be older than themselves.',

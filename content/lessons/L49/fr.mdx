@@ -1,21 +1,21 @@
 ---
 lessonId: L49
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "L’algorithme de Huffman : compresser avec un arbre"
 summary: "Introduction pas à pas aux arbres et aux codes de Huffman."
 minutes: 50
 objectives: [L49-O01, L49-O02, L49-O03, L49-O04, L49-O05, L49-O06]
 prerequisites: [L48]
-sourcePages: [14, 15, 16]
+sourcePages: [17, 18, 19, 20]
 ---
 
 import InformationExplorer, { HuffmanDiagram } from '../../../src/components/InformationExplorer';
 
 # Huffman : compresser avec un arbre binaire
 
-**Extension pédagogique originale — hors du PDF source.** Le PDF de théorie de l'information (pp. 14–16) introduit la longueur moyenne et propose de raccourcir les mots codes des symboles fréquents, mais **il ne présente pas l'algorithme de Huffman**. Nous ajoutons ici cette méthode classique avec un exemple entièrement expliqué.
+**Source actualisée : PDF, pp. 17–20.** Le document présente maintenant Huffman et son optimalité. L'exemple guidé à quatre symboles reste un développement pédagogique ; nous ajoutons ci-dessous les exemples de la source et le lien avec la suite théorique.
 
 ## Objectifs et prérequis
 
@@ -139,6 +139,22 @@ Les symboles se trouvent uniquement **aux feuilles**. Aucun chemin vers une feui
 - Le décodeur doit connaître le **même arbre** : le coût de le transmettre n'est pas inclus dans la moyenne.
 - Huffman n'est ni un **chiffrement**, ni un système de **correction d'erreurs**. Les fréquences observées ne sont pas une promesse sur les prochains messages.
 - La garantie d'optimalité s'applique au **codage binaire préfixe des symboles individuels** pour les probabilités choisies ; pas à toutes les techniques de compression imaginables.
+
+## 05 bis · Retrouver les exemples de la source
+
+**Page 18.** Pour les probabilités $(1/2,1/4,1/8,1/16,1/16)$, on fusionne les poids $1+1=2$, $2+2=4$, $4+4=8$, $8+8=16$. Les longueurs sont $1,2,3,4,4$ :
+
+$$L=\frac12+\frac24+\frac38+\frac4{16}+\frac4{16}=\frac{15}8.$$
+
+Un code possible est `0`, `10`, `110`, `1110`, `1111`. Chaque probabilité vaut deux à la puissance opposée de sa longueur : l'entropie coïncide ici avec la moyenne.
+
+**Page 19.** Dans ABRACADABRA, les effectifs sont A : 5, B : 2, R : 2, C : 1, D : 1. Fusionner C et D donne 2 ; fusionner deux des trois poids 2 donne 4 ; fusionner le 2 restant et 4 donne 6 ; puis 5 et 6 donnent 11. La somme des fusions vaut $2+4+6+11=23$ :
+
+$$L=\frac{23}{11}\text{ bits/symbole}.$$
+
+Une table possible est A→`0`, B→`100`, R→`101`, C→`110`, D→`111`. Une autre attribution liée aux ex æquo peut donner des longueurs différentes à B et R ou au sous-arbre CD, avec la même moyenne minimale. On vérifie la propriété préfixe et le coût, pas l'identité littérale des bits.
+
+**Page 20 : portée exacte.** Huffman est optimal parmi les codes binaires à décodage unique pour une source et un codage symbole par symbole fixés. Notre argument d'échange démontre le cas préfixe ; [L51](/fr/lessons/L51/) explique le passage à tous les codes à décodage unique grâce à McMillan et à la réciproque de Kraft. [L54](/fr/lessons/L54/) change l'alphabet en regroupant les symboles : cela peut améliorer le coût par symbole sans contredire cette optimalité.
 
 ## 06 · Mini-évaluation corrigée
 

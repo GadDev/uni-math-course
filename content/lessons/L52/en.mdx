@@ -1,0 +1,95 @@
+---
+lessonId: L52
+locale: en
+version: 1
+status: extended
+title: "From logarithms to Gibbs’ lemma"
+summary: "Prove the logarithm inequality and compare two distributions."
+minutes: 40
+objectives: [L52-O01, L52-O02, L52-O03, L52-O04, L52-O05, L52-O06]
+prerequisites: [L48, L41]
+sourcePages: [46, 47, 48]
+---
+
+import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+
+# What does a wrong model cost?
+
+You prepare a code for announced probabilities, but symbols follow another distribution. Gibbs' lemma explains why average surprise calculated with the wrong model cannot beat actual entropy. Before coding, we need a small calculus tool: a logarithm inequality.
+
+**Source: PDF, pp. 46–48.** We expand every proof step, using base-2 logarithms to measure bits.
+
+## Objectives and prerequisites
+
+You will: (1) prove the logarithm inequality; (2) identify equality; (3) validate two positive distributions; (4) prove Gibbs; (5) calculate the model gap; (6) distinguish ideal and integer lengths. Prerequisites: entropy [L48](/en/lessons/L48/), the logarithm derivative and derivative signs.
+
+## 01 · A curve below its tangent
+
+For $x>0$, set $g(x)=x-1-\ln x$. Its derivative is
+
+$$g'(x)=1-\frac1x=\frac{x-1}{x}.$$
+
+The denominator is positive: the derivative is negative before 1 and positive after 1. The function therefore reaches its global minimum at 1, where $g(1)=0$. Thus
+
+$$\ln x\le x-1\qquad(x>0),$$
+
+with equality **if and only if** $x=1$. Geometrically, the logarithm curve stays below its tangent at 1. Do not directly replace the natural logarithm by base 2: divide by $\ln2>0$.
+
+## 02 · State Gibbs with all assumptions
+
+Take two lists of the same size $p_i>0$, $q_i>0$, with $\sum_i p_i=\sum_i q_i=1$. The lemma states
+
+$$-\sum_i p_i\log_2q_i\ge-\sum_i p_i\log_2p_i=H(p).$$
+
+On the left, model-q surprise is averaged using the **actual weights p**. This quantity is also called cross entropy. Equality holds exactly when $p_i=q_i$ for every i. We remain in the strictly positive setting; no logarithm of zero is used.
+
+## 03 · Four proof steps
+
+1. The ratio is positive, so applying the inequality to $x=q_i/p_i$ gives
+
+$$\ln(q_i/p_i)\le q_i/p_i-1.$$
+
+2. Multiply by $p_i>0$: the inequality keeps its direction. Then sum:
+
+$$\sum_i p_i\ln(q_i/p_i)\le\sum_i(q_i-p_i)=1-1=0.$$
+
+3. Expand the quotient logarithm and change sign. The direction reverses:
+
+$$-\sum_i p_i\ln q_i\ge-\sum_i p_i\ln p_i.$$
+
+4. Divide by $\ln2>0$ to obtain base-2 logarithms and the stated lemma.
+
+**Equality.** Every logarithm-inequality gap is nonnegative and weighted by a strictly positive number. Their sum can be zero only if every gap is zero: each ratio equals 1. This gives precisely $p_i=q_i$ for every i. Equality of the probability sums alone is insufficient.
+
+## 04 · A worked example
+
+For $p=(1/2,1/2)$, entropy is 1 bit. Choose $q=(1/4,3/4)$:
+
+$$-\sum_i p_i\log_2q_i=\frac12\cdot2+\frac12\log_2(4/3)\approx1{,}2075.$$
+
+The ideal overhead is about 0.2075 bits per symbol. If q becomes p, cross entropy becomes 1 and the gap vanishes. **Careful:** these logarithms are not necessarily integer lengths achievable symbol by symbol. Gibbs prepares a bound; it does not directly construct a code.
+
+## Experiment and explain
+
+**Goal.** Observe the Gibbs gap by separating the actual law and the model. **Prediction.** Which q makes the gap vanish? Edit two sets of positive integer weights from 1 to 20; each is normalised separately. The panel displays p, q, entropy, cross entropy and their difference. The “q = p” button tests equality.
+
+<InformationTheoryLab mode="gibbs" locale="en" client:visible />
+
+## Exercises and solutions
+
+1. Why is the inequality's domain strictly positive?
+2. For $p=(1/2,1/4,1/4)$ and $q=(1/3,1/3,1/3)$, calculate both sides of Gibbs.
+3. If both distributions sum to 1, why is equality not automatic?
+
+<details className="info-answer">
+<summary>Justified solutions</summary>
+
+1. The logarithm and proof ratio must be defined. This proof does not handle zeros through an unstated convention.
+2. Entropy is $3/2$; cross entropy is $\log_2 3\approx1{,}585$. The inequality is strict because p and q differ.
+3. The sum of differences vanishes using normalisation, but equality in each logarithm application additionally requires every ratio to equal 1.
+
+</details>
+
+## Remember and continue
+
+Logarithm below its tangent; positive ratios; multiplication without reversal; a sign change with reversal; positive base conversion. Gibbs says a different model cannot lower actual average surprise. [L53](/en/lessons/L53/) chooses q from code lengths.

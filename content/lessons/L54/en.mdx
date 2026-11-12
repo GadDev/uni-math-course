@@ -1,0 +1,122 @@
+---
+lessonId: L54
+locale: en
+version: 1
+status: extended
+title: "Source extensions and Shannon’s theorem"
+summary: "Code independent blocks and compare efficiency with codebook size."
+minutes: 45
+objectives: [L54-O01, L54-O02, L54-O03, L54-O04, L54-O05, L54-O06]
+prerequisites: [L49, L53]
+sourcePages: [55, 56, 57, 58, 59, 60]
+---
+
+import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+
+# Group symbols to approach the limit
+
+Two symbols may each need one bit even when one is much rarer. Can coding pairs use less than one bit **per original symbol**? Yes, without falling below entropy: integer lengths are shared more efficiently across several symbols.
+
+**Source: PDF, pp. 55–60.** The quantitative upper-bound proof below is a teaching addition to the source's statement of Shannon's theorem.
+
+## Objectives and prerequisites
+
+You will: (1) form the block alphabet; (2) calculate probabilities under independence; (3) Huffman-code pairs; (4) distinguish cost units; (5) prove entropy additivity and Shannon's bound; (6) explain the codebook trade-off. Prerequisites: [L49](/en/lessons/L49/) and [L53](/en/lessons/L53/).
+
+## 01 · The alphabet changes, and assumptions matter
+
+Let S have m symbols, with $m\ge2$, strictly positive probabilities and **independent, identically distributed** draws (the iid model). Extension $S^n$ treats each word of n symbols as one new symbol. Its alphabet has $m^n$ blocks.
+
+Independence gives
+
+$$P(s_{i_1}\cdots s_{i_n})=\prod_{j=1}^n p_{i_j}.$$
+
+Without independence, this multiplication is unjustified. For example, a sequence always alternating a and b with an equally likely first symbol has uniform marginals, but only ab and ba can occur in a two-symbol block. Probabilities of aa and bb are not one quarter.
+
+Block length n is known to the decoder. A finite message whose size is not a multiple of n needs an agreed remainder rule; the formulas below describe complete blocks and exclude headers, a transmitted dictionary or final padding.
+
+## 02 · The PDF example with explicit units
+
+Take $p(a)=2/3$, $p(b)=1/3$. Coding individual symbols as `0` and `1` gives mean 1 bit per symbol. For independent pairs:
+
+| Block | Probability | Codeword | Length |
+| --- | --- | --- | --- |
+| aa | 4/9 | 0 | 1 |
+| ab | 2/9 | 10 | 2 |
+| ba | 2/9 | 110 | 3 |
+| bb | 1/9 | 111 | 3 |
+
+Huffman merges weights $1+2=3$, then $2+3=5$, then $4+5=9$. Ties allow ab and ba to exchange roles without changing optimal cost.
+
+Write $L_n$ for average length **per block**. Then
+
+$$L_2=\frac49\cdot1+\frac29\cdot2+\frac29\cdot3+\frac19\cdot3=\frac{17}9\text{ bits/bloc}.$$
+
+A block represents two symbols:
+
+$$\frac{L_2}{2}=\frac{17}{18}\approx0{,}9444\text{ bit/symbole}.$$
+
+This improves on 1, but original entropy remains $H(S)\approx0{,}9183$. Page 58 reports cost already converted per character; we separate the two units to avoid comparing 17/9 directly with 1.
+
+## 03 · Why block entropy is multiplied by n
+
+A product logarithm becomes a sum. Write blocks as w with probability P:
+
+$$H(S^n)=-\sum_w P(w)\log_2P(w)=-\sum_wP(w)\sum_{j=1}^n\log_2p_{i_j}.$$
+
+Exchange the two finite sums. For a fixed position j, summing probabilities over other positions gives 1: what remains is the mean surprise of one symbol. Each of the n positions therefore contributes $H(S)$:
+
+$$H(S^n)=nH(S).$$
+
+This identity uses the iid model; it does not follow merely from a block's letter count. For the previous pairs, block entropy is about 1.8366 bits, or 0.9183 bits per symbol.
+
+## 04 · Shannon: bound the per-symbol cost
+
+For every n, construct a Huffman code on blocks. Its optimal mean is $L_n$. The previous bound applied to the block alphabet gives $L_n\ge H(S^n)$.
+
+For the upper bound, first choose Shannon lengths
+
+$$\ell(w)=\lceil-\log_2P(w)\rceil.$$
+
+Every block probability is strictly between 0 and 1 in our setting, so these are positive integer lengths. Rounding upwards gives $2^{-\ell(w)}\le P(w)$. Their sum is at most 1: Kraft guarantees a prefix code with these lengths. Also, $\ell(w)<-\log_2P(w)+1$. Weighting and summing gives a mean strictly below $H(S^n)+1$. Huffman cannot cost more than this code, so
+
+$$H(S^n)\le L_n<H(S^n)+1.$$
+
+Divide by positive n and use additivity:
+
+$$H(S)\le\frac{L_n}{n}<H(S)+\frac1n.$$
+
+The guaranteed per-symbol gap tends to zero. For a positive margin $\varepsilon$, choosing $n>1/\varepsilon$ guarantees a gap strictly below that margin. This is a general guarantee, not the smallest block size needed for a specific source. Costs need not decrease strictly at every n.
+
+## Experiment and explain
+
+**Goal.** Compare blocks and symbols in the right units. **Prediction.** Does moving from n = 1 to n = 2 improve cost for a uniform source? Edit two weights from 1 to 20 and n from 1 to 3. Computation is capped at eight blocks: iid probabilities, Huffman merges, codes, entropies and costs update. Ties may give a different table from the PDF while preserving cost.
+
+<InformationTheoryLab mode="blocks" locale="en" client:visible />
+
+## 05 · Codebook cost and the PDF conclusion
+
+The alphabet grows from m symbols to $m^n$ blocks. Storing, building and sharing the codebook costs more; a short message may not offset that overhead. The theorem concerns ideal average codeword cost, not automatically the final size of a real file.
+
+The final page briefly mentions dictionary compression. **Historical correction:** it associates “LZW (1977)” with ZIP. LZ77 dates from 1977; LZW is the variant Welch published in 1984. The DEFLATE format commonly used in ZIP combines LZ77 and Huffman. This locates the families; learning LZW is not an additional chapter objective.
+
+References for this clarification: [Welch, 1984](https://courses.cs.duke.edu/spring03/cps296.5/papers/welch_1984_technique_for.pdf) ; [RFC 1951, DEFLATE](https://www.rfc-editor.org/rfc/rfc1951.html).
+
+## Exercises and solutions
+
+1. An iid binary source has probabilities $(3/4,1/4)$. Calculate pair probabilities and Huffman cost per symbol.
+2. A size-3 block code averages 7.2 bits per block. What is its cost per symbol?
+3. Why not automatically choose block size one million?
+
+<details className="info-answer">
+<summary>Justified solutions</summary>
+
+1. Probabilities are $9/16,3/16,3/16,1/16$. Weight merges are $1+3=4$, $3+4=7$, $7+9=16$. Merge weights sum to 27: $L_2=27/16$ bits per block and $L_2/2=27/32$ bits per symbol. Original entropy is about 0.8113: the bound is respected.
+2. $7{,}2/3=2{,}4$ bits per symbol. Units require division.
+3. The codebook has exponentially many blocks; building, storing and transmitting it becomes impractical. A small theoretical gap does not remove these costs.
+
+</details>
+
+## Remember
+
+Always state assumptions and units: independence for multiplication, identical laws for the additivity used, bits per block before dividing by n. Shannon guarantees approaching entropy from above at the cost of a growing codebook. The full path now connects codes from [L43](/en/lessons/L43/) to their mathematical limit.

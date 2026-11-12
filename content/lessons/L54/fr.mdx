@@ -1,0 +1,122 @@
+---
+lessonId: L54
+locale: fr
+version: 1
+status: extended
+title: "Extensions de source et théorème de Shannon"
+summary: "Coder des blocs indépendants et comparer efficacité et taille du dictionnaire."
+minutes: 45
+objectives: [L54-O01, L54-O02, L54-O03, L54-O04, L54-O05, L54-O06]
+prerequisites: [L49, L53]
+sourcePages: [55, 56, 57, 58, 59, 60]
+---
+
+import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+
+# Regrouper pour se rapprocher de la limite
+
+Deux symboles peuvent chacun demander un bit, même si l'un est beaucoup plus rare. En les codant par paires, peut-on passer sous un bit **par symbole initial** ? Oui, sans descendre sous l'entropie : on répartit mieux les longueurs entières entre plusieurs symboles.
+
+**Source : PDF, pp. 55–60.** La preuve quantitative de la borne supérieure ci-dessous est un complément pédagogique au théorème de Shannon énoncé dans la source.
+
+## Objectifs et prérequis
+
+Vous saurez : (1) former l'alphabet des blocs ; (2) calculer leurs probabilités sous hypothèse d'indépendance ; (3) coder des paires avec Huffman ; (4) distinguer les deux unités de coût ; (5) démontrer l'additivité de l'entropie et la borne de Shannon ; (6) expliquer le compromis du dictionnaire. Prérequis : [L49](/fr/lessons/L49/) et [L53](/fr/lessons/L53/).
+
+## 01 · L'alphabet change, les hypothèses aussi
+
+Soit une source S sur m symboles, avec $m\ge2$, des probabilités strictement positives et une suite de tirages **indépendants et de même loi** (modèle i.i.d.). L'extension $S^n$ traite chaque mot de n symboles comme un seul nouveau symbole. Son alphabet contient $m^n$ blocs.
+
+L'indépendance donne
+
+$$P(s_{i_1}\cdots s_{i_n})=\prod_{j=1}^n p_{i_j}.$$
+
+Sans indépendance, cette multiplication n'est pas justifiée. Exemple : une suite qui alterne toujours a et b, avec un premier symbole équiprobable, a des marginales uniformes, mais seuls ab et ba sont possibles en bloc de deux. Les probabilités de aa et bb ne valent pas un quart.
+
+La longueur du bloc n est connue du décodeur. Pour un message fini dont la taille n'est pas multiple de n, il faut convenir du traitement du reste ; les formules ci-dessous décrivent les blocs complets et ne comptent pas un en-tête, un dictionnaire transmis ou un remplissage final.
+
+## 02 · L'exemple du PDF sans mélanger les unités
+
+Prenons $p(a)=2/3$, $p(b)=1/3$. En codant les symboles séparément par `0` et `1`, la moyenne vaut 1 bit par symbole. Pour les paires indépendantes :
+
+| Bloc | Probabilité | Mot code | Longueur |
+| --- | --- | --- | --- |
+| aa | 4/9 | 0 | 1 |
+| ab | 2/9 | 10 | 2 |
+| ba | 2/9 | 110 | 3 |
+| bb | 1/9 | 111 | 3 |
+
+Huffman fusionne les poids $1+2=3$, puis $2+3=5$, puis $4+5=9$. Les ex æquo permettent d'échanger les rôles de ab et ba sans changer le coût optimal.
+
+Notons $L_n$ la longueur moyenne **par bloc**. Alors
+
+$$L_2=\frac49\cdot1+\frac29\cdot2+\frac29\cdot3+\frac19\cdot3=\frac{17}9\text{ bits/bloc}.$$
+
+Un bloc représente deux symboles :
+
+$$\frac{L_2}{2}=\frac{17}{18}\approx0{,}9444\text{ bit/symbole}.$$
+
+On gagne face à 1, mais l'entropie initiale reste $H(S)\approx0{,}9183$. La page 58 note le coût déjà ramené au caractère ; nous séparons les deux unités pour éviter de comparer 17/9 directement à 1.
+
+## 03 · Pourquoi l'entropie du bloc est multipliée par n
+
+Le logarithme d'un produit devient une somme. En notant les blocs w et leur probabilité P :
+
+$$H(S^n)=-\sum_w P(w)\log_2P(w)=-\sum_wP(w)\sum_{j=1}^n\log_2p_{i_j}.$$
+
+Échangeons les deux sommes, finies. Pour une position j fixée, sommer les probabilités des autres positions donne 1 : il reste la moyenne de la surprise d'un symbole. Les n positions contribuent donc chacune $H(S)$ :
+
+$$H(S^n)=nH(S).$$
+
+Cette identité utilise le modèle i.i.d. ; elle ne résulte pas simplement du nombre de lettres dans un bloc. Pour les paires précédentes, l'entropie du bloc vaut environ 1,8366 bits, soit 0,9183 bit par symbole.
+
+## 04 · Shannon : encadrer le coût par symbole
+
+Pour chaque n, construisons un code de Huffman sur les blocs. Sa moyenne optimale est $L_n$. La borne précédente appliquée à l'alphabet des blocs donne $L_n\ge H(S^n)$.
+
+Pour la borne supérieure, choisissons d'abord les longueurs de Shannon
+
+$$\ell(w)=\lceil-\log_2P(w)\rceil.$$
+
+Chaque probabilité de bloc est strictement entre 0 et 1 dans notre cadre ; les longueurs sont donc des entiers positifs. Comme l'arrondi se fait vers le haut, $2^{-\ell(w)}\le P(w)$. Leur somme est au plus 1 : Kraft garantit l'existence d'un code préfixe de ces longueurs. De plus, $\ell(w)<-\log_2P(w)+1$. En pondérant puis en sommant, sa longueur moyenne est strictement inférieure à $H(S^n)+1$. Huffman ne peut être plus coûteux que ce code, donc
+
+$$H(S^n)\le L_n<H(S^n)+1.$$
+
+Divisez par n, positif, et utilisez l'additivité :
+
+$$H(S)\le\frac{L_n}{n}<H(S)+\frac1n.$$
+
+L'écart garanti par symbole tend vers zéro. Pour une marge positive $\varepsilon$, choisir $n>1/\varepsilon$ suffit à garantir un écart strictement inférieur à cette marge. C'est une garantie générale, pas la taille minimale nécessaire pour une source particulière. La suite des coûts n'est pas nécessairement strictement décroissante à chaque n.
+
+## Expérimenter et expliquer
+
+**But.** Comparer des blocs et des symboles dans les bonnes unités. **Prédiction.** Passer de n = 1 à n = 2 améliore-t-il le coût pour une source uniforme ? Modifiez deux poids de 1 à 20 et n de 1 à 3. Le calcul est limité à huit blocs : probabilités i.i.d., fusions de Huffman, codes, entropies et coûts sont recalculés. La table peut différer du PDF en cas d'ex æquo ; le coût reste le même.
+
+<InformationTheoryLab mode="blocks" locale="fr" client:visible />
+
+## 05 · Le prix du dictionnaire et la conclusion du PDF
+
+L'alphabet passe de m symboles à $m^n$ blocs. Stocker, construire et partager ce dictionnaire coûte plus cher ; un message court peut ne pas amortir ces frais. Le théorème concerne le coût moyen idéal des mots codes, pas automatiquement la taille finale d'un fichier réel.
+
+La dernière page évoque brièvement les méthodes de compression par dictionnaire. **Correction historique :** elle associe « LZW (1977) » à ZIP. LZ77 date de 1977 ; LZW est la variante publiée par Welch en 1984. Le format DEFLATE couramment employé dans ZIP combine LZ77 et Huffman. Cette remarque situe les familles ; apprendre LZW n'est pas un objectif supplémentaire de ce chapitre.
+
+Références de cette précision : [Welch, 1984](https://courses.cs.duke.edu/spring03/cps296.5/papers/welch_1984_technique_for.pdf) ; [RFC 1951, DEFLATE](https://www.rfc-editor.org/rfc/rfc1951.html).
+
+## Exercices et solutions
+
+1. Une source binaire i.i.d. a des probabilités $(3/4,1/4)$. Calculez les probabilités des paires et leur coût de Huffman par symbole.
+2. Un code de blocs de taille 3 coûte en moyenne 7,2 bits par bloc. Quel est son coût par symbole ?
+3. Pourquoi ne pas choisir automatiquement un bloc de taille un million ?
+
+<details className="info-answer">
+<summary>Solutions justifiées</summary>
+
+1. Les probabilités sont $9/16,3/16,3/16,1/16$. Les fusions sur les poids sont $1+3=4$, $3+4=7$, $7+9=16$. La somme des poids fusionnés vaut 27 : $L_2=27/16$ bits par bloc et $L_2/2=27/32$ bit par symbole. L'entropie initiale vaut environ 0,8113 : la borne est respectée.
+2. $7{,}2/3=2{,}4$ bits par symbole. L'unité impose la division.
+3. Le dictionnaire compte un nombre exponentiel de blocs ; sa construction, sa mémoire et sa transmission deviennent impraticables. La petite marge théorique ne supprime pas ces coûts.
+
+</details>
+
+## À retenir
+
+Écrivez toujours les hypothèses et les unités : indépendance pour multiplier, loi identique pour l'additivité utilisée, bits par bloc avant de diviser par n. Shannon garantit l'approche de l'entropie par le haut, au prix d'un dictionnaire grandissant. Le parcours complet relie maintenant les codes de [L43](/fr/lessons/L43/) à leur limite mathématique.
