@@ -85,22 +85,36 @@ for (const locale of ['fr', 'en'] as const) {
       const overflowReport = await page.evaluate(() => {
         const viewport = window.innerWidth;
         const pageWidth = document.documentElement.scrollWidth;
-        const suspects = Array.from(document.querySelectorAll('body *'))
-          .map((element) => {
-            const rect = element.getBoundingClientRect();
-            const computed = window.getComputedStyle(element);
-            return {
-              node: element.tagName.toLowerCase(),
-              selector: element.getAttribute('class')?.slice(0, 90) ?? '',
-              left: Math.round(rect.left),
-              right: Math.round(rect.right),
-              width: Math.round(rect.width),
-              overflowX: computed.overflowX,
-            };
+        const wrappers = Array.from(
+          document.querySelectorAll('.cheat-sheet-table-scroll'),
+        ).map((element) => ({
+          width: element.clientWidth,
+          scrollWidth: element.scrollWidth,
+          right: Math.round(element.getBoundingClientRect().right),
+          overflowX: window.getComputedStyle(element).overflowX,
+          parent: element.parentElement?.id ?? '',
+        }));
+        const leakers = Array.from(document.querySelectorAll('body *'))
+          .filter((element) => {
+            if (element.getBoundingClientRect().right <= viewport + 2) {
+              return false;
+            }
+            let parent = element.parentElement;
+            while (parent && parent !== document.body) {
+              const overflowX = window.getComputedStyle(parent).overflowX;
+              if (/auto|scroll|hidden|clip/.test(overflowX)) return false;
+              parent = parent.parentElement;
+            }
+            return true;
           })
-          .filter((item) => item.right > viewport + 2 && item.width > 0)
-          .slice(0, 35);
-        return { viewport, pageWidth, suspects };
+          .map((element) => ({
+            node: element.tagName.toLowerCase(),
+            selector: element.getAttribute('class')?.slice(0, 90) ?? '',
+            right: Math.round(element.getBoundingClientRect().right),
+            width: Math.round(element.getBoundingClientRect().width),
+          }))
+          .slice(0, 25);
+        return { viewport, pageWidth, wrappers, leakers };
       });
       expect(
         overflowReport.pageWidth <= overflowReport.viewport,
