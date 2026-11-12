@@ -114,6 +114,23 @@ for (const locale of ['fr', 'en'] as const) {
             width: Math.round(element.getBoundingClientRect().width),
           }))
           .slice(0, 25);
+        const overflowChain = Array.from(
+          document.querySelectorAll('body, body *'),
+        )
+          .map((element) => {
+            const computed = window.getComputedStyle(element);
+            return {
+              node: element.tagName.toLowerCase(),
+              selector: element.getAttribute('class')?.slice(0, 90) ?? '',
+              id: element.id,
+              client: element.clientWidth,
+              scroll: element.scrollWidth,
+              overflow: computed.overflowX,
+            };
+          })
+          .filter((item) => item.scroll > item.client + 2)
+          .filter((item) => item.overflow !== 'auto')
+          .slice(0, 30);
         const scroller = document.scrollingElement;
         let rootScroll = 0;
         if (scroller) {
@@ -121,7 +138,7 @@ for (const locale of ['fr', 'en'] as const) {
           rootScroll = scroller.scrollLeft;
           scroller.scrollLeft = 0;
         }
-        return { viewport, pageWidth, wrappers, leakers, rootScroll };
+        return { viewport, pageWidth, wrappers, leakers, rootScroll, overflowChain };
       });
       expect(
         {
