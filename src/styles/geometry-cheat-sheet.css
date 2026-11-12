@@ -215,6 +215,40 @@
   line-height: 1.4;
 }
 
+.geometry-regression-read-title {
+  margin: 1.15rem 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.geometry-formula-readings {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
+}
+
+.geometry-formula-reading {
+  min-width: 0;
+  border: 1px solid var(--line);
+  background: var(--card);
+  padding: 0.8rem 1rem;
+  break-inside: avoid;
+}
+
+.geometry-reading-math {
+  overflow-x: auto;
+  padding: 0.25rem 0 0.5rem;
+}
+
+.geometry-reading-math .katex-display {
+  margin: 0;
+}
+
+.geometry-formula-reading p {
+  margin: 0.15rem 0;
+  line-height: 1.45;
+  font-size: 0.85rem;
+}
+
 .geometry-regression-example {
   margin: 0.9rem 0;
   line-height: 1.5;
@@ -357,6 +391,33 @@
 
   .geometry-regression li {
     padding: 0.3rem;
+  }
+
+  .geometry-regression-read-title {
+    font: 700 9pt Arial, Helvetica, sans-serif;
+    margin: 0.5rem 0 0.2rem;
+  }
+
+  .geometry-formula-readings {
+    gap: 0.25rem;
+  }
+
+  .geometry-formula-reading {
+    background: #fff !important;
+    border: 1px solid #aaa;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .geometry-reading-math {
+    font-size: 8pt;
+    padding: 0.1rem 0;
+    overflow: visible;
+  }
+
+  .geometry-formula-reading p {
+    font-size: 7.2pt;
+    line-height: 1.23;
+    margin: 0.1rem 0;
   }
 
   .geometry-regression-example {
