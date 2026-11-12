@@ -385,6 +385,7 @@ export const geometryCopy = {
       'Points A(0, 1) et B(2, 5). La pente vaut 4/2 = 2 et l’ordonnée à l’origine vaut 1.',
     exampleLabel: 'Exemple et piège à éviter',
     regressionTitle: 'Droite de régression (moindres carrés)',
+    regressionReadings: 'Comment lire les formules de régression',
     regressionIntro:
       'Pour ajuster une droite y = mx + p à des observations (xᵢ, yᵢ), on minimise la somme des carrés des écarts verticaux.',
     regressionExample:
@@ -417,6 +418,7 @@ export const geometryCopy = {
       'Points A(0, 1) and B(2, 5). The slope is 4/2 = 2, and the y-intercept is 1.',
     exampleLabel: 'Example and common trap',
     regressionTitle: 'Least-squares regression line',
+    regressionReadings: 'How to read the regression formulas',
     regressionIntro:
       'To fit y = mx + p to observed data (xᵢ, yᵢ), minimize the sum of squared vertical residuals.',
     regressionExample:
@@ -449,6 +451,7 @@ export const geometryCopy = {
     graphCaption: string;
     exampleLabel: string;
     regressionTitle: string;
+    regressionReadings: string;
     regressionIntro: string;
     regressionExample: string;
     regressionConstraint: string;
