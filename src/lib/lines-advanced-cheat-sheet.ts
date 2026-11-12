@@ -38,7 +38,8 @@ export const lineExtraCopy = {
     caseHeader: 'Situation',
     conditionHeader: 'Condition',
     resultHeader: 'Intersection',
-    intersectionHow: 'Si les pentes sont différentes, égaliser les deux équations :',
+    intersectionHow:
+      'Si les pentes sont différentes, égaliser les deux équations :',
     intersectionExample:
       'Exemple : D₁ : y = 2x + 1 et D₂ : y = −x + 7. On obtient x = 2 puis y = 5 : l’intersection est (2, 5).',
     verticalException:
@@ -48,7 +49,8 @@ export const lineExtraCopy = {
       'La droite y = mx + p sépare le plan en deux régions. Une inégalité indique de quel côté se situent les points autorisés.',
     above: 'Au-dessus de la droite',
     below: 'En dessous de la droite',
-    border: 'Avec ≥ ou ≤, la frontière est incluse ; avec > ou <, elle est exclue.',
+    border:
+      'Avec ≥ ou ≤, la frontière est incluse ; avec > ou <, elle est exclue.',
     shadeTitle: 'Astuce : choisir un point test',
     shadeInstructions:
       'Tester (0, 0) s’il n’est pas sur la droite. Si le calcul est vrai, garder le côté contenant l’origine ; sinon, choisir l’autre côté.',
@@ -75,7 +77,8 @@ export const lineExtraCopy = {
       'The line y = mx + p divides the plane into two regions. An inequality tells you which side contains the allowed points.',
     above: 'Above the line',
     below: 'Below the line',
-    border: 'With ≥ or ≤, the boundary is included; with > or <, it is excluded.',
+    border:
+      'With ≥ or ≤, the boundary is included; with > or <, it is excluded.',
     shadeTitle: 'Quick method: test a point',
     shadeInstructions:
       'Test (0, 0) if it is not on the line. If the inequality is true, keep the side containing the origin; otherwise shade the opposite side.',
@@ -121,8 +124,7 @@ export const pixelCopy = {
     originRead:
       'c vaut c zéro plus x. r vaut r zéro moins y : le signe moins inverse la direction verticale.',
     scalingTitle: 'Changer d’échelle : s pixels par unité',
-    scalingRead:
-      'c vaut c zéro plus s fois x ; r vaut r zéro moins s fois y.',
+    scalingRead: 'c vaut c zéro plus s fois x ; r vaut r zéro moins s fois y.',
     conversionExample:
       'Exemple : centre (100, 80), s = 10 et point (2, 3). Alors c = 120 et r = 50. Pour afficher un pixel, arrondir les coordonnées obtenues.',
     axesDiagram: 'Axes : y monte en mathématiques, r descend à l’écran',
@@ -131,13 +133,15 @@ export const pixelCopy = {
       'On calcule un point sur la droite puis on arrondit à un pixel entier. Il faut avancer sur le bon axe pour ne pas sauter de lignes ou de colonnes.',
     gentle: 'Si |m| ≤ 1 : avancer x de 1 puis calculer y = mx + p.',
     steep: 'Si |m| > 1 : avancer y de 1 puis calculer x = (y − p)/m.',
-    vertical: 'Pour une droite verticale, x reste constant et on fait varier y.',
+    vertical:
+      'Pour une droite verticale, x reste constant et on fait varier y.',
     naiveExample:
       'Exemple : de (0, 0) à (2, 5), m = 2,5. En avançant uniquement en x, les y arrondis sont 0, 3 et 5 : les lignes intermédiaires sont sautées.',
     bresTitle: 'Algorithme de Bresenham : uniquement des entiers',
     bresScope:
       'Version de base ci-dessous : pixels entiers, x₁ > x₀ et 0 ≤ Δy ≤ Δx, dans un repère mathématique où y monte. Les autres octants demandent une adaptation.',
-    bresChoices: 'À chaque colonne suivante, choisir E (x + 1, y) ou NE (x + 1, y + 1).',
+    bresChoices:
+      'À chaque colonne suivante, choisir E (x + 1, y) ou NE (x + 1, y + 1).',
     init: 'Initialiser les différences et la variable de décision :',
     algorithmLabel: 'Pseudo-code (sans flottants, additions dans la boucle)',
     traceTitle: 'Exemple guidé de (0, 0) à (5, 3)',
@@ -181,7 +185,8 @@ export const pixelCopy = {
     bresTitle: 'Bresenham’s line algorithm: integers only',
     bresScope:
       'Basic case below: integer pixels, x₁ > x₀ and 0 ≤ Δy ≤ Δx, in mathematical coordinates where y grows upward. Other octants need adaptations.',
-    bresChoices: 'At each next column, choose E (x + 1, y) or NE (x + 1, y + 1).',
+    bresChoices:
+      'At each next column, choose E (x + 1, y) or NE (x + 1, y + 1).',
     init: 'Initialize differences and the decision variable:',
     algorithmLabel: 'Pseudocode (no floating-point; additions inside the loop)',
     traceTitle: 'Worked example from (0, 0) to (5, 3)',
@@ -198,39 +203,42 @@ export const pixelCopy = {
     integerNote:
       'Multiplications by 2 are computed once before the loop; the loop then uses only comparisons and additions.',
   },
-} as const satisfies Record<Locale, {
-  title: string;
-  intro: string;
-  coordinatesTitle: string;
-  coordinatesExplain: string;
-  originTitle: string;
-  originRead: string;
-  scalingTitle: string;
-  scalingRead: string;
-  conversionExample: string;
-  axesDiagram: string;
-  naiveTitle: string;
-  naiveIntro: string;
-  gentle: string;
-  steep: string;
-  vertical: string;
-  naiveExample: string;
-  bresTitle: string;
-  bresScope: string;
-  bresChoices: string;
-  init: string;
-  algorithmLabel: string;
-  traceTitle: string;
-  traceIntro: string;
-  traceX: string;
-  traceD: string;
-  traceChoice: string;
-  traceNext: string;
-  last: string;
-  diagramTitle: string;
-  coordinateCaution: string;
-  integerNote: string;
-}>;
+} as const satisfies Record<
+  Locale,
+  {
+    title: string;
+    intro: string;
+    coordinatesTitle: string;
+    coordinatesExplain: string;
+    originTitle: string;
+    originRead: string;
+    scalingTitle: string;
+    scalingRead: string;
+    conversionExample: string;
+    axesDiagram: string;
+    naiveTitle: string;
+    naiveIntro: string;
+    gentle: string;
+    steep: string;
+    vertical: string;
+    naiveExample: string;
+    bresTitle: string;
+    bresScope: string;
+    bresChoices: string;
+    init: string;
+    algorithmLabel: string;
+    traceTitle: string;
+    traceIntro: string;
+    traceX: string;
+    traceD: string;
+    traceChoice: string;
+    traceNext: string;
+    last: string;
+    diagramTitle: string;
+    coordinateCaution: string;
+    integerNote: string;
+  }
+>;
 
 export type BresenhamTrace = {
   x: number;
@@ -248,8 +256,15 @@ export function bresenhamGentle(
 ): BresenhamTrace[] {
   const dx = x1 - x0;
   const dy = y1 - y0;
-  if (![x0, y0, x1, y1].every(Number.isInteger) || dx <= 0 || dy < 0 || dy > dx) {
-    throw new RangeError('Requires integer endpoints, dx > 0 and 0 <= dy <= dx');
+  if (
+    ![x0, y0, x1, y1].every(Number.isInteger) ||
+    dx <= 0 ||
+    dy < 0 ||
+    dy > dx
+  ) {
+    throw new RangeError(
+      'Requires integer endpoints, dx > 0 and 0 <= dy <= dx',
+    );
   }
   let x = x0;
   let y = y0;
@@ -284,18 +299,27 @@ export type RegressionRow = {
   residual: number;
 };
 
-export function regressionLeastSquares(points: readonly (readonly [number, number])[]) {
-  if (points.length < 2 || points.some(([x, y]) => !Number.isFinite(x) || !Number.isFinite(y))) {
+export function regressionLeastSquares(
+  points: readonly (readonly [number, number])[],
+) {
+  if (
+    points.length < 2 ||
+    points.some(([x, y]) => !Number.isFinite(x) || !Number.isFinite(y))
+  ) {
     throw new RangeError('At least two finite observations are needed');
   }
   const meanX = points.reduce((sum, [x]) => sum + x, 0) / points.length;
   const meanY = points.reduce((sum, [, y]) => sum + y, 0) / points.length;
   const centered = points.map(([x, y]) => ({
-    x, y, dx: x - meanX, dy: y - meanY,
+    x,
+    y,
+    dx: x - meanX,
+    dy: y - meanY,
   }));
   const numerator = centered.reduce((sum, row) => sum + row.dx * row.dy, 0);
   const denominator = centered.reduce((sum, row) => sum + row.dx * row.dx, 0);
-  if (denominator === 0) throw new RangeError('The x-values must not all be equal');
+  if (denominator === 0)
+    throw new RangeError('The x-values must not all be equal');
   const slope = numerator / denominator;
   const intercept = meanY - slope * meanX;
   const rows: RegressionRow[] = centered.map((row) => {
@@ -313,7 +337,11 @@ export function regressionLeastSquares(points: readonly (readonly [number, numbe
   return { meanX, meanY, numerator, denominator, slope, intercept, rows, ssr };
 }
 
-export const regressionExample = regressionLeastSquares([[1, 2], [2, 2], [3, 5]]);
+export const regressionExample = regressionLeastSquares([
+  [1, 2],
+  [2, 2],
+  [3, 5],
+]);
 
 export type RegressionLimit = {
   id: string;
@@ -382,8 +410,10 @@ export const regressionCopy = {
     actual: 'yᵢ : valeur réellement mesurée.',
     predicted: 'ŷᵢ : valeur calculée par la droite pour xᵢ (prédiction).',
     residualTitle: 'Résidu : mesurer l’erreur verticale',
-    residualPositive: 'eᵢ > 0 : point au-dessus de la droite ; le modèle sous-estime.',
-    residualNegative: 'eᵢ < 0 : point en dessous de la droite ; le modèle surestime.',
+    residualPositive:
+      'eᵢ > 0 : point au-dessus de la droite ; le modèle sous-estime.',
+    residualNegative:
+      'eᵢ < 0 : point en dessous de la droite ; le modèle surestime.',
     residualZero: 'eᵢ = 0 : le point est exactement sur la droite.',
     ssrTitle: 'Pourquoi additionner les carrés des erreurs ?',
     ssrExplain:
@@ -397,8 +427,10 @@ export const regressionCopy = {
     top: 'Somme numérateur de m',
     bottom: 'Somme dénominateur de m',
     sums: 'Sommes',
-    meansCheck: 'Vérification : les écarts des x et des y à leur moyenne s’additionnent chacun à zéro.',
-    formulaResult: 'Résultat pour cet exemple : m = 3/2 = 1,5 ; p = 0 ; ŷ = 1,5x.',
+    meansCheck:
+      'Vérification : les écarts des x et des y à leur moyenne s’additionnent chacun à zéro.',
+    formulaResult:
+      'Résultat pour cet exemple : m = 3/2 = 1,5 ; p = 0 ; ŷ = 1,5x.',
     centroid: 'La droite estimée passe toujours par le point moyen (x̄, ȳ).',
     predictionTitle: 'Prédiction et calcul en sens inverse',
     forward: 'Valeur x connue : remplacer x dans ŷ = mx + p.',
@@ -440,7 +472,8 @@ export const regressionCopy = {
     top: 'Sum in numerator of m',
     bottom: 'Sum in denominator of m',
     sums: 'Totals',
-    meansCheck: 'Check: the x-deviations and the y-deviations each add to zero.',
+    meansCheck:
+      'Check: the x-deviations and the y-deviations each add to zero.',
     formulaResult: 'Example result: m = 3/2 = 1.5; p = 0; ŷ = 1.5x.',
     centroid: 'The fitted line always passes through the mean point (x̄, ȳ).',
     predictionTitle: 'Forward prediction and reverse target',
@@ -460,13 +493,41 @@ export const regressionCopy = {
     plotCaption:
       'Observed points (1, 2), (2, 2), (3, 5); fitted line ŷ = 1.5x. Vertical segments represent residuals.',
   },
-} as const satisfies Record<Locale, {
-  title: string; intro: string; modelTitle: string; actual: string; predicted: string;
-  residualTitle: string; residualPositive: string; residualNegative: string; residualZero: string;
-  ssrTitle: string; ssrExplain: string; unique: string; procedureTitle: string;
-  procedureIntro: string; tableTitle: string; top: string; bottom: string; sums: string;
-  meansCheck: string; formulaResult: string; centroid: string; predictionTitle: string;
-  forward: string; backward: string; predictionsExample: string; flatCase: string;
-  residualExample: string; limitsTitle: string; limitHeader: string; meaningHeader: string;
-  warningHeader: string; plotTitle: string; plotCaption: string;
-}>;
+} as const satisfies Record<
+  Locale,
+  {
+    title: string;
+    intro: string;
+    modelTitle: string;
+    actual: string;
+    predicted: string;
+    residualTitle: string;
+    residualPositive: string;
+    residualNegative: string;
+    residualZero: string;
+    ssrTitle: string;
+    ssrExplain: string;
+    unique: string;
+    procedureTitle: string;
+    procedureIntro: string;
+    tableTitle: string;
+    top: string;
+    bottom: string;
+    sums: string;
+    meansCheck: string;
+    formulaResult: string;
+    centroid: string;
+    predictionTitle: string;
+    forward: string;
+    backward: string;
+    predictionsExample: string;
+    flatCase: string;
+    residualExample: string;
+    limitsTitle: string;
+    limitHeader: string;
+    meaningHeader: string;
+    warningHeader: string;
+    plotTitle: string;
+    plotCaption: string;
+  }
+>;
