@@ -304,7 +304,7 @@ export const cheatSheetCopy = {
     title: 'Fiche mémo : notations et méthodes',
     kicker: 'À GARDER SOUS LA MAIN',
     intro:
-      'Logique, ensembles, notation sigma, droites, pixels et régression : formules et méthodes en français et en anglais.',
+      'Logique, ensembles, notation sigma, droites, pixels, régression, fonctions et dérivées : méthodes bilingues avec exemples.',
     contents: 'Accès rapide',
     symbol: 'Symbole',
     english: 'Anglais',
@@ -357,7 +357,7 @@ export const cheatSheetCopy = {
     title: 'Math cheat sheet: symbols and methods',
     kicker: 'KEEP THIS HANDY',
     intro:
-      'Logic, sets, Sigma notation, straight lines, pixels and regression: a bilingual reference for methods and formulas.',
+      'Logic, sets, Sigma, lines, pixels, regression, functions and derivatives: bilingual formulas, methods and examples.',
     contents: 'Jump to a section',
     symbol: 'Symbol',
     english: 'English',
