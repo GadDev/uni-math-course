@@ -30,6 +30,9 @@ import {
   regressionCopy,
 } from '../../lib/lines-advanced-cheat-sheet';
 import '../../styles/lines-advanced-cheat-sheet.css';
+import Functions from '../../components/cheat-sheet/Functions.astro';
+import { functionChapterCopy } from '../../lib/functions-cheat-sheet';
+import '../../styles/functions-cheat-sheet.css';
 
 export function getStaticPaths() {
   return locales.map((locale) => ({ params: { locale }, props: { locale } }));
@@ -40,6 +43,7 @@ const sigmaText = sigmaCopy[locale];
 const geometryText = geometryCopy[locale];
 const pixelText = pixelCopy[locale];
 const regressionText = regressionCopy[locale];
+const functionsText = functionChapterCopy[locale];
 const truth = (value: boolean) => (value ? text.trueLabel : text.falseLabel);
 const nodeY = (count: number, index: number) =>
   count === 2 ? 73 + 68 * index : 47 + 48 * index;
@@ -108,6 +112,10 @@ const math = (value: string, displayMode = false) =>
         <span aria-hidden="true">08</span>
         {regressionText.title}
       </a>
+      <a href="#chapter-functions">
+        <span aria-hidden="true">09</span>
+        {functionsText.title}
+      </a>
     </nav>
 
     {symbolGroups.map((group, index) => (
@@ -116,7 +124,7 @@ const math = (value: string, displayMode = false) =>
         class="cheat-sheet-section"
         aria-labelledby={group.id + '-title'}
       >
-        <p class="eyebrow">0{index + 1} / 08</p>
+        <p class="eyebrow">0{index + 1} / 09</p>
         <h2 id={group.id + '-title'}>{group.title[locale]}</h2>
         <div
           class="cheat-sheet-table-scroll"
@@ -165,7 +173,7 @@ const math = (value: string, displayMode = false) =>
       class="cheat-sheet-section"
       aria-labelledby="truth-table-title"
     >
-      <p class="eyebrow">03 / 08</p>
+      <p class="eyebrow">03 / 09</p>
       <h2 id="truth-table-title">{text.truthTitle}</h2>
       <p class="cheat-sheet-section-intro">{text.truthIntro}</p>
       <div
@@ -239,7 +247,7 @@ const math = (value: string, displayMode = false) =>
       class="cheat-sheet-section"
       aria-labelledby="functions-title"
     >
-      <p class="eyebrow">04 / 08</p>
+      <p class="eyebrow">04 / 09</p>
       <h2 id="functions-title">{text.mappingTitle}</h2>
       <p class="cheat-sheet-section-intro">{text.mappingIntro}</p>
       <div
@@ -363,7 +371,7 @@ const math = (value: string, displayMode = false) =>
       class="cheat-sheet-section sigma-section"
       aria-labelledby="sigma-title"
     >
-      <p class="eyebrow">05 / 08</p>
+      <p class="eyebrow">05 / 09</p>
       <h2 id="sigma-title">{sigmaText.title}</h2>
       <p class="cheat-sheet-section-intro">{sigmaText.intro}</p>
 
@@ -660,6 +668,7 @@ const math = (value: string, displayMode = false) =>
 
     <PixelLines locale={locale} />
     <Regression locale={locale} />
+    <Functions locale={locale} />
 
     <aside class="cheat-sheet-tips" aria-labelledby="cheat-tips-title">
       <h2 id="cheat-tips-title">{text.tipsTitle}</h2>
