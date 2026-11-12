@@ -325,9 +325,10 @@ export function regressionLeastSquares(
   const rows: RegressionRow[] = centered.map((row) => {
     const prediction = slope * row.x + intercept;
     const residual = row.y - prediction;
+    const product = row.dx * row.dy;
     return {
       ...row,
-      product: row.dx * row.dy,
+      product: product === 0 ? 0 : product,
       squared: row.dx * row.dx,
       prediction,
       residual,
