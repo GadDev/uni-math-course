@@ -82,10 +82,31 @@ for (const locale of ['fr', 'en'] as const) {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(`/${locale}/cheat-sheet/`);
       await page.evaluate(() => document.fonts.ready);
+      const overflowReport = await page.evaluate(() => {
+        const viewport = window.innerWidth;
+        const pageWidth = document.documentElement.scrollWidth;
+        const suspects = Array.from(document.querySelectorAll('body *'))
+          .map((element) => {
+            const rect = element.getBoundingClientRect();
+            const computed = window.getComputedStyle(element);
+            return {
+              node: element.tagName.toLowerCase(),
+              selector: element.className instanceof SVGAnimatedString
+                ? element.className.baseVal
+                : String(element.className).slice(0, 90),
+              left: Math.round(rect.left),
+              right: Math.round(rect.right),
+              width: Math.round(rect.width),
+              overflowX: computed.overflowX,
+            };
+          })
+          .filter((item) => item.right > viewport + 2 && item.width > 0)
+          .slice(0, 35);
+        return { viewport, pageWidth, suspects };
+      });
       expect(
-        await page.evaluate(
-          () => document.documentElement.scrollWidth <= innerWidth,
-        ),
+        overflowReport.pageWidth <= overflowReport.viewport,
+        JSON.stringify(overflowReport, null, 2),
       ).toBeTruthy();
       await expect(
         page.locator('.cheat-sheet-table-scroll').first(),
