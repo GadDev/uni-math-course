@@ -114,12 +114,19 @@ for (const locale of ['fr', 'en'] as const) {
             width: Math.round(element.getBoundingClientRect().width),
           }))
           .slice(0, 25);
-        return { viewport, pageWidth, wrappers, leakers };
+        const scroller = document.scrollingElement;
+        let rootScroll = 0;
+        if (scroller) {
+          scroller.scrollLeft = 1000;
+          rootScroll = scroller.scrollLeft;
+          scroller.scrollLeft = 0;
+        }
+        return { viewport, pageWidth, wrappers, leakers, rootScroll };
       });
       expect(
-        overflowReport.pageWidth <= overflowReport.viewport,
+        { rootScroll: overflowReport.rootScroll, leakers: overflowReport.leakers },
         JSON.stringify(overflowReport, null, 2),
-      ).toBeTruthy();
+      ).toEqual({ rootScroll: 0, leakers: [] });
       await expect(
         page.locator('.cheat-sheet-table-scroll').first(),
       ).toBeVisible();
