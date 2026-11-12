@@ -197,6 +197,9 @@ test('integer Bresenham steps and regression hand table are printable', async ({
     page.locator('#regression .regression-hand-table'),
   ).toBeVisible();
   await expect(
+    page.locator('#regression .regression-blank-table tbody tr'),
+  ).toHaveCount(4);
+  await expect(
     page.locator('#regression .regression-limits-table tbody tr'),
   ).toHaveCount(4);
   await expect(
