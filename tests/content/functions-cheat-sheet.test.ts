@@ -12,9 +12,18 @@ test('Chapter 3 reference follows the six course topics in both languages', () =
   for (const locale of ['fr', 'en'] as const) {
     const text = functionChapterCopy[locale];
     for (const field of [
-      'basicsTitle', 'secantsTitle', 'rulesTitle', 'expTitle', 'growthTitle',
-      'basicsNotation', 'secantsReading', 'derivativeReading', 'tangentReading',
-      'baseReading', 'generalBaseReading', 'growthReminder',
+      'basicsTitle',
+      'secantsTitle',
+      'rulesTitle',
+      'expTitle',
+      'growthTitle',
+      'basicsNotation',
+      'secantsReading',
+      'derivativeReading',
+      'tangentReading',
+      'baseReading',
+      'generalBaseReading',
+      'growthReminder',
     ] as const) {
       assert.ok(text[field], field + ' missing in ' + locale);
     }
@@ -24,7 +33,10 @@ test('Chapter 3 reference follows the six course topics in both languages', () =
 });
 
 test('domain rules forbid zero denominator, negative even roots and nonpositive logarithms', () => {
-  assert.deepEqual(domainChecks.map((row) => row.id), ['fraction', 'root', 'log']);
+  assert.deepEqual(
+    domainChecks.map((row) => row.id),
+    ['fraction', 'root', 'log'],
+  );
   assert.equal(2 - 2, 0);
   assert.equal(-3 + 3, 0);
   assert.ok(1 - 1 <= 0);
@@ -38,7 +50,16 @@ test('domain rules forbid zero denominator, negative even roots and nonpositive 
 test('derivative rules include eight standard rules with explicit conditions', () => {
   assert.deepEqual(
     derivativeRules.map((row) => row.id),
-    ['constant', 'power', 'exponential', 'natural-log', 'linearity', 'product', 'quotient', 'chain'],
+    [
+      'constant',
+      'power',
+      'exponential',
+      'natural-log',
+      'linearity',
+      'product',
+      'quotient',
+      'chain',
+    ],
   );
   const power = derivativeRules.find((row) => row.id === 'power');
   assert.ok(power);
@@ -68,7 +89,15 @@ test('secant approaches derivative and tangent at x = 1 for x squared', () => {
 test('logarithm identities and domain conditions are complete', () => {
   assert.deepEqual(
     exponentialLogLaws.map((law) => law.id),
-    ['inverse', 'exp-add', 'exp-sub', 'exp-power', 'log-product', 'log-quotient', 'log-power'],
+    [
+      'inverse',
+      'exp-add',
+      'exp-sub',
+      'exp-power',
+      'log-product',
+      'log-quotient',
+      'log-power',
+    ],
   );
   for (const law of exponentialLogLaws) {
     assert.ok(law.reading.en && law.reading.fr);
@@ -87,8 +116,14 @@ test('growth examples calculate exact values and order for n equal to 8 or 16', 
   );
   const expectedAt8 = [1, 3, 8, 24, 64, 256];
   const expectedAt16 = [1, 4, 16, 64, 256, 65536];
-  assert.deepEqual(growthValues.map((row) => row.n8), expectedAt8);
-  assert.deepEqual(growthValues.map((row) => row.n16), expectedAt16);
+  assert.deepEqual(
+    growthValues.map((row) => row.n8),
+    expectedAt8,
+  );
+  assert.deepEqual(
+    growthValues.map((row) => row.n16),
+    expectedAt16,
+  );
   assert.match(functionChapterCopy.fr.hierarchy, /asymptotiquement/);
   assert.match(functionChapterCopy.en.hierarchy, /asymptotically/);
 });
