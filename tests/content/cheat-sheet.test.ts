@@ -5,7 +5,7 @@ import {
   mappingProperties,
   symbolGroups,
   truthTableRows,
-} from '../../src/lib/cheat-sheet';
+} from '../../src/lib/cheat-sheet.ts';
 
 test('cheat sheet lists all requested logic and set symbols', () => {
   const logic = symbolGroups.find((group) => group.id === 'logic');
