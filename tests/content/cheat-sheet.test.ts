@@ -3,6 +3,10 @@ import assert from 'node:assert/strict';
 import { symbolGroups, cheatSheetCopy } from '../../src/lib/cheat-sheet';
 
 test('cheat sheet lists all requested logic and set symbols', () => {
+  const logic = symbolGroups.find((group) => group.id === 'logic');
+  const sets = symbolGroups.find((group) => group.id === 'sets');
+  assert.ok(logic);
+  assert.ok(sets);
   assert.deepEqual(
     symbolGroups.map((group) => [group.id, group.rows.length]),
     [
@@ -11,11 +15,11 @@ test('cheat sheet lists all requested logic and set symbols', () => {
     ],
   );
   assert.deepEqual(
-    symbolGroups[0].rows.map((row) => row.notation),
+    logic.rows.map((row) => row.notation),
     ['∀', '∃', '∃!', '¬', '∧', '∨', '⇒', '⇔'],
   );
   assert.deepEqual(
-    symbolGroups[1].rows.map((row) => row.notation),
+    sets.rows.map((row) => row.notation),
     ['∈', '∉', '∅', '⊆', '⊈', '∪', '∩', 'A ∖ B', '𝒫(A)', '|A|', 'A × B'],
   );
 });
@@ -35,10 +39,28 @@ test('every reference item has a bilingual label and explanation', () => {
 });
 
 test('critical notation alternatives and distinctions are explicit', () => {
-  const sets = symbolGroups[1].rows;
-  assert.equal(symbolGroups[0].rows.find((row) => row.notation === '¬')?.alternative, '~');
-  assert.equal(sets.find((row) => row.notation === '∅')?.alternative, '{}');
-  assert.equal(sets.find((row) => row.notation === '|A|')?.alternative, 'Card(A)');
-  assert.match(sets.find((row) => row.notation === '⊆')!.meaning.fr, /égalité/);
-  assert.match(symbolGroups[0].rows.find((row) => row.notation === '∨')!.meaning.en, /inclusive/);
+  const logic = symbolGroups.find((group) => group.id === 'logic');
+  const sets = symbolGroups.find((group) => group.id === 'sets');
+  assert.ok(logic);
+  assert.ok(sets);
+  assert.equal(
+    logic.rows.find((row) => row.notation === '¬')?.alternative,
+    '~',
+  );
+  assert.equal(
+    sets.rows.find((row) => row.notation === '∅')?.alternative,
+    '{}',
+  );
+  assert.equal(
+    sets.rows.find((row) => row.notation === '|A|')?.alternative,
+    'Card(A)',
+  );
+  assert.match(
+    sets.rows.find((row) => row.notation === '⊆')!.meaning.fr,
+    /égalité/,
+  );
+  assert.match(
+    logic.rows.find((row) => row.notation === '∨')!.meaning.en,
+    /inclusive/,
+  );
 });
