@@ -191,9 +191,10 @@ export default function InformationTheoryLab({ mode, locale }: Props) {
         </legend>
         {mode === 'decisions' && (
           <>
-            <label>
-              {fr ? 'Source' : 'Source'}
+            <div className="theory-field">
+              <label htmlFor={`${id}-source`}>{fr ? 'Source' : 'Source'}</label>
               <select
+                id={`${id}-source`}
                 value={preset}
                 onChange={(e) => {
                   setPreset(e.target.value);
@@ -214,10 +215,13 @@ export default function InformationTheoryLab({ mode, locale }: Props) {
                     : 'Six faces (equal initial counts)'}
                 </option>
               </select>
-            </label>
-            <label>
-              {fr ? 'Stratégie' : 'Strategy'}
+            </div>
+            <div className="theory-field">
+              <label htmlFor={`${id}-strategy`}>
+                {fr ? 'Stratégie' : 'Strategy'}
+              </label>
               <select
+                id={`${id}-strategy`}
                 value={strategy}
                 onChange={(e) => setStrategy(e.target.value as typeof strategy)}
               >
@@ -233,7 +237,7 @@ export default function InformationTheoryLab({ mode, locale }: Props) {
                     : 'Test one symbol at a time'}
                 </option>
               </select>
-            </label>
+            </div>
           </>
         )}
         {mode !== 'kraft' && inputs(raw, setRaw, fr ? 'Effectif' : 'Count', 20)}
@@ -247,9 +251,12 @@ export default function InformationTheoryLab({ mode, locale }: Props) {
         {(mode === 'kraft' || mode === 'bound') &&
           inputs(lengthRaw, setLengthRaw, fr ? 'Longueur' : 'Length', 8)}
         {mode === 'blocks' && (
-          <label>
-            {fr ? 'Symboles par bloc n' : 'Symbols per block n'}
+          <div className="theory-field">
+            <label htmlFor={`${id}-block-size`}>
+              {fr ? 'Symboles par bloc n' : 'Symbols per block n'}
+            </label>
             <select
+              id={`${id}-block-size`}
               value={blockSize}
               onChange={(e) => {
                 setBlockSize(+e.target.value);
@@ -260,17 +267,23 @@ export default function InformationTheoryLab({ mode, locale }: Props) {
                 <option key={n}>{n}</option>
               ))}
             </select>
-          </label>
+          </div>
         )}
         {mode === 'decisions' && (
-          <label>
-            {fr ? 'Symbole à retrouver' : 'Symbol to identify'}
-            <select value={symbol} onChange={(e) => setSymbol(e.target.value)}>
+          <div className="theory-field">
+            <label htmlFor={`${id}-symbol`}>
+              {fr ? 'Symbole à retrouver' : 'Symbol to identify'}
+            </label>
+            <select
+              id={`${id}-symbol`}
+              value={symbol}
+              onChange={(e) => setSymbol(e.target.value)}
+            >
               {raw.map((_, i) => (
                 <option key={i}>{String.fromCharCode(65 + i)}</option>
               ))}
             </select>
-          </label>
+          </div>
         )}
         {mode === 'gibbs' && (
           <button type="button" onClick={() => setQRaw([...raw])}>
