@@ -300,8 +300,8 @@ export const geometryMethods: GeometryMethod[] = [
     ],
     exampleFormula: 'y=2x+1:\\quad x=3\\Rightarrow y=7;\\quad y=5\\Rightarrow x=2',
     example: {
-      fr: 'Exception : si m = 0, la droite est horizontale y = p. Elle ne coupe pas l’axe des x si p ≠ 0 ; si p = 0, elle coïncide avec cet axe.',
-      en: 'Exception: if m = 0, the line is horizontal y = p. It never crosses the x-axis if p ≠ 0; when p = 0, it is the x-axis.',
+      fr: 'Si m = 0, la droite est y = p : pour un y donné, tous les x conviennent si y = p, sinon aucun. Elle ne coupe pas l’axe des x si p ≠ 0 ; si p = 0, elle coïncide avec cet axe.',
+      en: 'If m = 0, the line is y = p: given a y, every x works if y = p, otherwise none. It never crosses the x-axis if p ≠ 0; when p = 0, it is the x-axis.',
     },
   },
   {
