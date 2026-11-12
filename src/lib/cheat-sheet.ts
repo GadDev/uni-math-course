@@ -304,7 +304,7 @@ export const cheatSheetCopy = {
     title: 'Fiche mémo : notations et méthodes',
     kicker: 'À GARDER SOUS LA MAIN',
     intro:
-      'Symboles de logique et d’ensembles, tables de vérité, applications et notation sigma : un aide-mémoire bilingue pour réviser.',
+      'Logique, ensembles, tables de vérité, applications, notation sigma et droites : formules et méthodes dans une fiche bilingue.',
     contents: 'Accès rapide',
     symbol: 'Symbole',
     english: 'Anglais',
@@ -357,7 +357,7 @@ export const cheatSheetCopy = {
     title: 'Math cheat sheet: symbols and methods',
     kicker: 'KEEP THIS HANDY',
     intro:
-      'Logic and set symbols, truth tables, mappings and Sigma notation: a bilingual quick-reference sheet for revision.',
+      'Logic and sets, truth tables, mappings, Sigma notation and straight lines: formulas and methods in a bilingual reference.',
     contents: 'Jump to a section',
     symbol: 'Symbol',
     english: 'English',
