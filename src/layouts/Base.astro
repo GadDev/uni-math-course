@@ -120,7 +120,10 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
           aria-label={examCopy[locale].nav}
           data-exams-nav
         >
-          {examCopy[locale].nav}
+          <span class="nav-full">{examCopy[locale].nav}</span>
+          <span class="nav-short" aria-hidden="true">
+            {locale === 'fr' ? 'Examens' : 'Exams'}
+          </span>
         </a>
       </nav>
       <div class="header-actions">

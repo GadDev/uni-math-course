@@ -40,9 +40,14 @@ for (const locale of ['fr', 'en']) {
       const nav = page.locator('[data-exams-nav]');
       await expect(nav).toBeVisible();
       await expect(nav).toHaveAttribute('href', `/${locale}/training-exams/`);
-      await expect(nav).toHaveText(
-        locale === 'fr' ? 'Examens blancs' : 'Practice exams',
-      );
+      const expectedLabel =
+        locale === 'fr' ? 'Examens blancs' : 'Practice exams';
+      const expectedVisibleLabel =
+        width <= 650 ? (locale === 'fr' ? 'Examens' : 'Exams') : expectedLabel;
+      await expect(nav).toHaveText(expectedVisibleLabel, {
+        useInnerText: true,
+      });
+      await expect(nav).toHaveAttribute('aria-label', expectedLabel);
       expect(
         await page.evaluate(() => document.documentElement.scrollWidth),
       ).toBeLessThanOrEqual(width);
