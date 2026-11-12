@@ -501,8 +501,12 @@ const math = (value: string, displayMode = false) =>
           <thead>
             <tr>
               <th scope="col">{geometryText.notation}</th>
-              <th scope="col" lang="fr">{geometryText.readingFr}</th>
-              <th scope="col" lang="en">{geometryText.readingEn}</th>
+              <th scope="col" lang="fr">
+                {geometryText.readingFr}
+              </th>
+              <th scope="col" lang="en">
+                {geometryText.readingEn}
+              </th>
               <th scope="col">{geometryText.meaning}</th>
             </tr>
           </thead>
@@ -544,18 +548,34 @@ const math = (value: string, displayMode = false) =>
           <g class="geometry-axes" aria-hidden="true">
             <line x1="35" y1="260" x2="374" y2="260" />
             <line x1="86" y1="281" x2="86" y2="5" />
-            <text x="374" y="281">x</text>
-            <text x="72" y="14">y</text>
-            <text x="71" y="277">0</text>
-            <text x="222" y="279" text-anchor="middle">2</text>
-            <text x="73" y="226" text-anchor="end">1</text>
-            <text x="73" y="82" text-anchor="end">5</text>
+            <text x="374" y="281">
+              x
+            </text>
+            <text x="72" y="14">
+              y
+            </text>
+            <text x="71" y="277">
+              0
+            </text>
+            <text x="222" y="279" text-anchor="middle">
+              2
+            </text>
+            <text x="73" y="226" text-anchor="end">
+              1
+            </text>
+            <text x="73" y="82" text-anchor="end">
+              5
+            </text>
           </g>
           <g class="geometry-slope-guides" aria-hidden="true">
             <line x1="86" y1="224" x2="222" y2="224" />
             <line x1="222" y1="224" x2="222" y2="80" />
-            <text x="154" y="241" text-anchor="middle">Δx = 2</text>
-            <text x="230" y="157">Δy = 4</text>
+            <text x="154" y="241" text-anchor="middle">
+              Δx = 2
+            </text>
+            <text x="230" y="157">
+              Δy = 4
+            </text>
           </g>
           <line
             class="geometry-plotted-line"
@@ -568,8 +588,12 @@ const math = (value: string, displayMode = false) =>
           <g class="geometry-points" aria-hidden="true">
             <circle cx="86" cy="224" r="5" />
             <circle cx="222" cy="80" r="5" />
-            <text x="100" y="214">A(0, 1)</text>
-            <text x="238" y="74">B(2, 5)</text>
+            <text x="100" y="214">
+              A(0, 1)
+            </text>
+            <text x="238" y="74">
+              B(2, 5)
+            </text>
           </g>
         </svg>
         <figcaption>{geometryText.graphCaption}</figcaption>
@@ -578,9 +602,13 @@ const math = (value: string, displayMode = false) =>
       <h3>{geometryText.methodsTitle}</h3>
       <div class="geometry-methods">
         {geometryMethods.map((method, index) => (
-          <section class="geometry-method" aria-labelledby={'geometry-' + method.id}>
+          <section
+            class="geometry-method"
+            aria-labelledby={'geometry-' + method.id}
+          >
             <h4 id={'geometry-' + method.id}>
-              <span aria-hidden="true">{index + 1}.</span> {method.title[locale]}
+              <span aria-hidden="true">{index + 1}.</span>{' '}
+              {method.title[locale]}
             </h4>
             <p>{method.intro[locale]}</p>
             <ol>
@@ -588,7 +616,10 @@ const math = (value: string, displayMode = false) =>
                 <li>
                   <span>{step.text[locale]}</span>
                   {step.formula && (
-                    <div class="geometry-step-formula" set:html={math(step.formula)} />
+                    <div
+                      class="geometry-step-formula"
+                      set:html={math(step.formula)}
+                    />
                   )}
                 </li>
               ))}
@@ -614,23 +645,37 @@ const math = (value: string, displayMode = false) =>
           <li>
             <p>{step.text[locale]}</p>
             {step.formula && (
-              <div class="geometry-step-formula" set:html={math(step.formula, true)} />
+              <div
+                class="geometry-step-formula"
+                set:html={math(step.formula, true)}
+              />
             )}
           </li>
         ))}
       </ol>
-      <h4 class="geometry-regression-read-title">{geometryText.regressionReadings}</h4>
+      <h4 class="geometry-regression-read-title">
+        {geometryText.regressionReadings}
+      </h4>
       <div class="geometry-formula-readings">
         {geometryFormulae.slice(5).map((item) => (
           <div class="geometry-formula-reading">
-            <div class="geometry-reading-math" set:html={math(item.formula, true)} />
-            <p lang="fr"><strong>FR :</strong> {item.reading.fr}</p>
-            <p lang="en"><strong>EN :</strong> {item.reading.en}</p>
+            <div
+              class="geometry-reading-math"
+              set:html={math(item.formula, true)}
+            />
+            <p lang="fr">
+              <strong>FR :</strong> {item.reading.fr}
+            </p>
+            <p lang="en">
+              <strong>EN :</strong> {item.reading.en}
+            </p>
             <p>{item.meaning[locale]}</p>
           </div>
         ))}
       </div>
-      <p class="geometry-regression-example">{geometryText.regressionExample}</p>
+      <p class="geometry-regression-example">
+        {geometryText.regressionExample}
+      </p>
       <p class="cheat-sheet-table-note">{geometryText.regressionConstraint}</p>
       <p class="cheat-sheet-table-note">{geometryText.warning}</p>
     </section>
