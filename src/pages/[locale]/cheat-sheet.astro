@@ -15,8 +15,7 @@ export function getStaticPaths() {
 }
 const { locale } = Astro.props;
 const text = cheatSheetCopy[locale];
-const truth = (value: boolean) =>
-  value ? text.trueLabel : text.falseLabel;
+const truth = (value: boolean) => (value ? text.trueLabel : text.falseLabel);
 const nodeY = (count: number, index: number) =>
   count === 2 ? 73 + 68 * index : 47 + 48 * index;
 const math = (value: string) =>
@@ -42,7 +41,10 @@ const math = (value: string) =>
 
     <header class="cheat-sheet-heading">
       <p class="eyebrow">{text.kicker}</p>
-      <h1>{text.title}<span class="signal-stop">.</span></h1>
+      <h1>
+        {text.title}
+        <span class="signal-stop">.</span>
+      </h1>
       <p class="lede">{text.intro}</p>
       <button type="button" class="cheat-sheet-print" data-print hidden>
         {text.print}
@@ -85,8 +87,12 @@ const math = (value: string) =>
             <thead>
               <tr>
                 <th scope="col">{text.symbol}</th>
-                <th scope="col" lang="en">{text.english}</th>
-                <th scope="col" lang="fr">{text.french}</th>
+                <th scope="col" lang="en">
+                  {text.english}
+                </th>
+                <th scope="col" lang="fr">
+                  {text.french}
+                </th>
                 <th scope="col">{text.meaning}</th>
               </tr>
             </thead>
@@ -163,11 +169,11 @@ const math = (value: string) =>
         </table>
       </div>
       <p class="cheat-sheet-table-note">
-        <strong>{text.implicationOnlyFalse} :</strong> P = {text.trueLabel},
-        Q = {text.falseLabel}.
+        <strong>{text.implicationOnlyFalse} :</strong> P = {text.trueLabel}, Q ={' '}
+        {text.falseLabel}.
         <span>
-          {text.falseImpliesAnything} : P = {text.falseLabel}
-          ⇒ P ⇒ Q = {text.trueLabel}.
+          {text.falseImpliesAnything} : P = {text.falseLabel}⇒ P ⇒ Q ={' '}
+          {text.trueLabel}.
         </span>
       </p>
       <div class="cheat-sheet-takeaways">
@@ -226,11 +232,13 @@ const math = (value: string) =>
                     <svg
                       viewBox="0 0 290 185"
                       role="img"
-                      aria-label={text.mappingDiagramLabel +
+                      aria-label={
+                        text.mappingDiagramLabel +
                         ' — ' +
                         property.title[locale] +
                         '. ' +
-                        property.arrows[locale]}
+                        property.arrows[locale]
+                      }
                     >
                       <defs>
                         <marker
@@ -245,8 +253,12 @@ const math = (value: string) =>
                           <path d="M0,0 L6,3 L0,6 Z" fill="currentColor" />
                         </marker>
                       </defs>
-                      <text x="65" y="16" text-anchor="middle">A</text>
-                      <text x="230" y="16" text-anchor="middle">B</text>
+                      <text x="65" y="16" text-anchor="middle">
+                        A
+                      </text>
+                      <text x="230" y="16" text-anchor="middle">
+                        B
+                      </text>
                       {property.diagram.pairs.map(([from, to]) => (
                         <line
                           x1="83"
@@ -307,7 +319,9 @@ const math = (value: string) =>
     <aside class="cheat-sheet-tips" aria-labelledby="cheat-tips-title">
       <h2 id="cheat-tips-title">{text.tipsTitle}</h2>
       <ol>
-        {text.tips.map((tip) => <li>{tip}</li>)}
+        {text.tips.map((tip) => (
+          <li>{tip}</li>
+        ))}
       </ol>
     </aside>
     <p class="cheat-sheet-note">{text.footnote}</p>
@@ -319,9 +333,7 @@ const math = (value: string) =>
 </Base>
 
 <script>
-  const printButton = document.querySelector<HTMLButtonElement>(
-    '[data-print]',
-  );
+  const printButton = document.querySelector<HTMLButtonElement>('[data-print]');
   if (printButton) {
     printButton.hidden = false;
     printButton.addEventListener('click', () => window.print());
