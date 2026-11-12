@@ -10,6 +10,7 @@ import ChapterSelector from '../components/ChapterSelector.astro';
 import { chapterForPath } from '../lib/chapters';
 import { copy, type Locale } from '../lib/i18n';
 import { glossaryCopy } from '../lib/glossary';
+import { cheatSheetCopy } from '../lib/cheat-sheet';
 import { printableCopy } from '../lib/printable-exercises';
 import { authCopy } from '../lib/auth/copy';
 import { examCopy } from '../lib/training-exams/copy';
@@ -90,6 +91,16 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
           <span class="nav-full">{glossaryCopy[locale].nav}</span>
           <span class="nav-short" aria-hidden="true">
             Glos.
+          </span>
+        </a>
+        <a
+          href={'/' + locale + '/cheat-sheet/'}
+          aria-current={path === 'cheat-sheet/' ? 'page' : undefined}
+          aria-label={cheatSheetCopy[locale].nav}
+        >
+          <span class="nav-full">{cheatSheetCopy[locale].nav}</span>
+          <span class="nav-short" aria-hidden="true">
+            Mémo
           </span>
         </a>
         <a
