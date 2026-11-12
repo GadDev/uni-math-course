@@ -1,0 +1,187 @@
+---
+import type { Locale } from '../../lib/i18n';
+import { geometryFormulae, regressionSteps } from '../../lib/geometry-cheat-sheet';
+import {
+  regressionCopy,
+  regressionExample,
+  regressionLimits,
+} from '../../lib/lines-advanced-cheat-sheet';
+import katex from 'katex';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const text = regressionCopy[locale];
+const math = (formula: string, displayMode = false) =>
+  katex.renderToString(formula, {
+    output: 'htmlAndMathml',
+    throwOnError: true,
+    trust: false,
+    displayMode,
+  });
+const numberText = (number: number) =>
+  Object.is(number, -0) ? '0' : String(number).replace('.', locale === 'fr' ? ',' : '.');
+const sum = (field: 'dx' | 'dy' | 'product' | 'squared') =>
+  regressionExample.rows.reduce((total, row) => total + row[field], 0);
+const formatResidual = (n: number) => numberText(n);
+---
+
+<section id="regression" class="cheat-sheet-section advanced-section regression-section" aria-labelledby="regression-title">
+  <p class="eyebrow">08 / 08 · CH 02 / 05</p>
+  <h2 id="regression-title">{text.title}</h2>
+  <p class="cheat-sheet-section-intro">{text.intro}</p>
+
+  <h3>{text.modelTitle}</h3>
+  <div class="advanced-formula advanced-main-formula" set:html={math('\\hat{y}=mx+p', true)} />
+  <ul class="advanced-action-list">
+    <li>{text.actual}</li>
+    <li>{text.predicted}</li>
+  </ul>
+  <figure class="regression-plot">
+    <svg viewBox="0 0 400 280" role="img" aria-labelledby="reg-plot-title reg-plot-desc">
+      <title id="reg-plot-title">{text.plotTitle}</title>
+      <desc id="reg-plot-desc">{text.plotCaption}</desc>
+      <g class="regression-axes" aria-hidden="true">
+        <line x1="70" y1="245" x2="390" y2="245" />
+        <line x1="70" y1="245" x2="70" y2="14" />
+        <text x="386" y="264">x</text>
+        <text x="54" y="18">y</text>
+        <text x="61" y="261">0</text>
+        {[1, 2, 3].map((n) => (
+          <text x={70 + 80 * n} y="262" text-anchor="middle">{n}</text>
+        ))}
+        {[2, 4].map((n) => (
+          <text x="59" y={248 - 39 * n} text-anchor="end">{n}</text>
+        ))}
+      </g>
+      <line class="regression-fitted-line" x1="70" y1="245" x2="384" y2="15.4" aria-hidden="true" />
+      <g class="regression-residuals" aria-hidden="true">
+        {regressionExample.rows.map((row) => (
+          <line
+            x1={70 + 80 * row.x}
+            y1={245 - 39 * row.y}
+            x2={70 + 80 * row.x}
+            y2={245 - 39 * row.prediction}
+          />
+        ))}
+      </g>
+      <g class="regression-points" aria-hidden="true">
+        {regressionExample.rows.map((row) => (
+          <circle cx={70 + 80 * row.x} cy={245 - 39 * row.y} r="5.5" />
+        ))}
+      </g>
+      <circle class="regression-mean-point" cx="230" cy="128" r="5" aria-hidden="true" />
+      <text class="regression-line-label" x="285" y="29">ŷ = 1.5x</text>
+    </svg>
+    <figcaption>{text.plotCaption}</figcaption>
+  </figure>
+
+  <h3>{text.residualTitle}</h3>
+  <div class="advanced-formula" set:html={math('e_i=y_i-\\hat{y}_i=y_i-(mx_i+p)', true)} />
+  <ul class="advanced-action-list">
+    <li>{text.residualPositive}</li>
+    <li>{text.residualNegative}</li>
+    <li>{text.residualZero}</li>
+  </ul>
+
+  <h3>{text.ssrTitle}</h3>
+  <p>{text.ssrExplain}</p>
+  <div class="advanced-formula" set:html={math('\\mathrm{SSR}=\\sum_{i=1}^{n}(y_i-\\hat{y}_i)^2=\\sum_{i=1}^{n} e_i^2', true)} />
+  <p>{text.unique}</p>
+  <p class="cheat-sheet-table-note">{text.residualExample}</p>
+
+  <h3>{text.procedureTitle}</h3>
+  <p>{text.procedureIntro}</p>
+  <ol class="advanced-procedure">
+    {regressionSteps.map((step) => (
+      <li>
+        <p>{step.text[locale]}</p>
+        {step.formula && (
+          <div class="advanced-formula" set:html={math(step.formula, true)} />
+        )}
+      </li>
+    ))}
+  </ol>
+
+  <h4>{text.tableTitle}</h4>
+  <div class="cheat-sheet-table-scroll" role="region" tabindex="0" aria-label={text.tableTitle}>
+    <table class="cheat-sheet-table regression-hand-table">
+      <caption class="visually-hidden">{text.tableTitle}</caption>
+      <thead>
+        <tr>
+          {['x_i', 'y_i', 'x_i-\\bar{x}', 'y_i-\\bar{y}',
+            '(x_i-\\bar{x})(y_i-\\bar{y})', '(x_i-\\bar{x})^2'].map((formula) => (
+            <th scope="col"><span set:html={math(formula)} /></th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {regressionExample.rows.map((row) => (
+          <tr>
+            <th scope="row">{numberText(row.x)}</th>
+            <td>{numberText(row.y)}</td>
+            <td>{numberText(row.dx)}</td>
+            <td>{numberText(row.dy)}</td>
+            <td>{numberText(row.product)}</td>
+            <td>{numberText(row.squared)}</td>
+          </tr>
+        ))}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row">{text.sums}</th>
+          <td>—</td>
+          <td>{numberText(sum('dx'))}</td>
+          <td>{numberText(sum('dy'))}</td>
+          <td>{numberText(sum('product'))}</td>
+          <td>{numberText(sum('squared'))}</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <p>{text.meansCheck}</p>
+  <div class="advanced-formula" set:html={math('\\bar{x}=2,\\quad\\bar{y}=3,\\quad m=\\frac{3}{2},\\quad p=3-\\frac32\\cdot 2=0', true)} />
+  <p>{text.formulaResult}</p>
+  <p class="cheat-sheet-table-note">{text.centroid}</p>
+
+  <h3>{text.predictionTitle}</h3>
+  <div class="advanced-two-col">
+    <div class="advanced-topic-card">
+      <h4>{text.forward}</h4>
+      <div class="advanced-formula" set:html={math('\\hat{y}=mx+p', true)} />
+    </div>
+    <div class="advanced-topic-card">
+      <h4>{text.backward}</h4>
+      <div class="advanced-formula" set:html={math('x=\\frac{\\hat{y}-p}{m}\\quad(m\\ne0)', true)} />
+    </div>
+  </div>
+  <div class="advanced-worked">
+    <div class="advanced-formula" set:html={math('\\hat{y}=1.5x:\\quad x=2\\Rightarrow\\hat{y}=3,\\quad\\hat{y}=3\\Rightarrow x=2', true)} />
+    <p>{text.predictionsExample}</p>
+    <p>{text.flatCase}</p>
+  </div>
+
+  <h3>{text.limitsTitle}</h3>
+  <div class="cheat-sheet-table-scroll" role="region" tabindex="0" aria-label={text.limitsTitle}>
+    <table class="cheat-sheet-table regression-limits-table">
+      <caption class="visually-hidden">{text.limitsTitle}</caption>
+      <thead>
+        <tr>
+          <th scope="col">{text.limitHeader}</th>
+          <th scope="col">{text.meaningHeader}</th>
+          <th scope="col">{text.warningHeader}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {regressionLimits.map((limit) => (
+          <tr>
+            <th scope="row">{limit.title[locale]}</th>
+            <td>{limit.meaning[locale]}</td>
+            <td>{limit.caution[locale]}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
