@@ -364,7 +364,7 @@ export const regressionSteps: GeometryStep[] = [
 
 export const geometryCopy = {
   fr: {
-    title: 'Droites, géométrie analytique et régression',
+    title: 'Droites et géométrie analytique',
     intro:
       'Du graphique à l’équation, puis de l’équation au graphique. Notation du cours : y = mx + p (et non y = mx + b).',
     coreTitle: 'La formule de la droite',
@@ -397,7 +397,7 @@ export const geometryCopy = {
       'Attention aux divisions par zéro : les formules contenant 1/m supposent m ≠ 0. Une droite verticale s’écrit x = c, pas y = mx + p.',
   },
   en: {
-    title: 'Analytic geometry, straight lines and regression',
+    title: 'Analytic geometry and straight lines',
     intro:
       'From chart to equation, then equation to chart. Course notation: y = mx + p (not y = mx + b).',
     coreTitle: 'The straight-line equation',
