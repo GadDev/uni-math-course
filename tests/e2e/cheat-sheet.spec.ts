@@ -91,9 +91,7 @@ for (const locale of ['fr', 'en'] as const) {
             const computed = window.getComputedStyle(element);
             return {
               node: element.tagName.toLowerCase(),
-              selector: element.className instanceof SVGAnimatedString
-                ? element.className.baseVal
-                : String(element.className).slice(0, 90),
+              selector: element.getAttribute('class')?.slice(0, 90) ?? '',
               left: Math.round(rect.left),
               right: Math.round(rect.right),
               width: Math.round(rect.width),
