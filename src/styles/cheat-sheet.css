@@ -365,3 +365,252 @@
     font-size: 7.5pt;
   }
 }
+
+.cheat-sheet-section-intro {
+  max-width: 72ch;
+  margin: 0 0 1.2rem;
+}
+
+.cheat-sheet-truth {
+  min-width: 650px;
+  text-align: center;
+}
+
+.cheat-sheet-truth th,
+.cheat-sheet-truth td {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.cheat-sheet-truth thead th:nth-child(n) {
+  width: auto;
+}
+
+.cheat-sheet-truth thead small {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: normal;
+}
+
+.cheat-truth-fail {
+  font-weight: bold;
+  background: var(--error-surface);
+  color: var(--ink);
+  box-shadow: inset 4px 0 var(--accent);
+}
+
+.cheat-sheet-table-note {
+  border-left: 3px solid var(--accent);
+  padding: 0.7rem 1rem;
+  background: var(--card);
+  margin: 1rem 0;
+  line-height: 1.6;
+  font-size: 0.93rem;
+}
+
+.cheat-sheet-table-note span {
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.cheat-sheet-takeaways {
+  margin-top: 1.3rem;
+}
+
+.cheat-sheet-takeaways h3 {
+  margin: 0.5rem 0 0.8rem;
+}
+
+.cheat-sheet-takeaway-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.cheat-sheet-takeaway-grid > div {
+  border: 1px solid var(--line);
+  background: var(--card);
+  padding: 1rem;
+}
+
+.cheat-sheet-takeaway-grid h4 {
+  margin: 0;
+}
+
+.cheat-sheet-takeaway-grid p {
+  margin: 0.5rem 0 0;
+}
+
+.cheat-sheet-equivalence-note {
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.cheat-sheet-mappings {
+  min-width: 1000px;
+}
+
+.cheat-sheet-mappings thead th:nth-child(1) {
+  width: 17%;
+}
+
+.cheat-sheet-mappings thead th:nth-child(2) {
+  width: 24%;
+}
+
+.cheat-sheet-mappings thead th:nth-child(3) {
+  width: 28%;
+}
+
+.cheat-sheet-mappings thead th:nth-child(4) {
+  width: 31%;
+}
+
+.cheat-sheet-mappings .katex {
+  font-size: 0.93em;
+}
+
+.cheat-sheet-math {
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  vertical-align: middle;
+}
+
+.cheat-sheet-diagram-cell {
+  padding-block: 0.6rem;
+}
+
+.cheat-sheet-diagram {
+  margin: 0;
+}
+
+.cheat-sheet-diagram svg {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  color: var(--accent);
+}
+
+.cheat-sheet-diagram circle {
+  fill: var(--card);
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+
+.cheat-sheet-diagram text {
+  fill: var(--ink);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.cheat-sheet-diagram figcaption {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 650px) {
+  .cheat-sheet-takeaway-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .cheat-sheet-section-intro {
+    margin: 0 0 0.35rem;
+    font-size: 8.2pt;
+    line-height: 1.3;
+  }
+
+  .cheat-sheet-truth,
+  .cheat-sheet-mappings {
+    min-width: 0;
+  }
+
+  .cheat-sheet-truth th,
+  .cheat-sheet-truth td {
+    font-size: 8.8pt;
+    padding: 0.3rem;
+  }
+
+  .cheat-sheet-truth thead small {
+    font-size: 6.8pt;
+  }
+
+  .cheat-truth-fail {
+    background: #fff !important;
+    color: #111 !important;
+    box-shadow: inset 3px 0 #111;
+  }
+
+  .cheat-sheet-table-note {
+    border-left: 2px solid #111;
+    background: #fff !important;
+    font-size: 7.8pt;
+    padding: 0.3rem 0.5rem;
+    margin: 0.45rem 0;
+  }
+
+  .cheat-sheet-takeaways {
+    margin-top: 0.5rem;
+  }
+
+  .cheat-sheet-takeaways h3 {
+    font: 700 10pt Arial, Helvetica, sans-serif;
+    margin: 0 0 0.3rem;
+  }
+
+  .cheat-sheet-takeaway-grid {
+    gap: 0.5rem;
+  }
+
+  .cheat-sheet-takeaway-grid > div {
+    background: #fff !important;
+    border-color: #aaa;
+    padding: 0.5rem;
+  }
+
+  .cheat-sheet-takeaway-grid h4,
+  .cheat-sheet-takeaway-grid p {
+    font-size: 7.7pt;
+    line-height: 1.25;
+  }
+
+  .cheat-sheet-equivalence-note {
+    color: #333 !important;
+    font-size: 7.5pt;
+    margin: 0.35rem 0;
+  }
+
+  .cheat-sheet-mappings th,
+  .cheat-sheet-mappings td {
+    font-size: 7.3pt;
+    padding: 0.25rem 0.35rem;
+  }
+
+  .cheat-sheet-mappings .katex {
+    font-size: 0.84em;
+  }
+
+  .cheat-sheet-diagram svg {
+    max-width: 150px;
+    color: #222 !important;
+  }
+
+  .cheat-sheet-diagram circle {
+    fill: #fff !important;
+    stroke: #111 !important;
+  }
+
+  .cheat-sheet-diagram text {
+    fill: #111 !important;
+  }
+
+  .cheat-sheet-diagram figcaption {
+    font-size: 7.1pt;
+    line-height: 1.2;
+  }
+}
