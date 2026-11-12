@@ -125,6 +125,17 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
             Exo.
           </span>
         </a>
+        <a
+          href={`/${locale}/training-exams/`}
+          aria-current={path.startsWith('training-exams/') ? 'page' : undefined}
+          aria-label={examCopy[locale].nav}
+          data-exams-nav
+        >
+          <span class="nav-full">{examCopy[locale].nav}</span>
+          <span class="nav-short" aria-hidden="true">
+            {locale === 'fr' ? 'Examens' : 'Exams'}
+          </span>
+        </a>
       </nav>
       <div class="header-actions">
         <ThemeToggle locale={locale} />
