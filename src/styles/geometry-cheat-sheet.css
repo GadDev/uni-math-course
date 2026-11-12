@@ -1,0 +1,365 @@
+.geometry-section h3 {
+  font-size: 1.42rem;
+  margin: 1.8rem 0 0.8rem;
+}
+
+.geometry-equation {
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.geometry-equation .katex-display {
+  margin: 0;
+}
+
+.geometry-core {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.geometry-core > div,
+.geometry-method,
+.geometry-regression li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 1rem;
+}
+
+.geometry-core h4,
+.geometry-method h4 {
+  font-size: 1.06rem;
+  margin: 0 0 0.65rem;
+}
+
+.geometry-core p,
+.geometry-core li {
+  line-height: 1.5;
+}
+
+.geometry-core ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.geometry-core li + li {
+  margin-top: 0.3rem;
+}
+
+.geometry-formula-table {
+  min-width: 920px;
+}
+
+.geometry-formula-table thead th:nth-child(1) {
+  width: 29%;
+}
+
+.geometry-formula-table thead th:nth-child(2),
+.geometry-formula-table thead th:nth-child(3) {
+  width: 23%;
+}
+
+.geometry-formula-table thead th:nth-child(4) {
+  width: 25%;
+}
+
+.geometry-math {
+  display: inline-block;
+  max-width: 100%;
+  overflow: auto hidden;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.geometry-math .katex {
+  font-size: 1.04em;
+}
+
+.geometry-chart {
+  margin: 0 auto 1.5rem;
+  padding: 0.8rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  max-width: 580px;
+}
+
+.geometry-chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.geometry-grid line {
+  stroke: var(--line);
+  stroke-width: 0.85;
+}
+
+.geometry-axes line {
+  stroke: var(--ink);
+  stroke-width: 1.6;
+}
+
+.geometry-axes text,
+.geometry-slope-guides text,
+.geometry-points text {
+  fill: var(--ink);
+  font-size: 11px;
+}
+
+.geometry-slope-guides line {
+  stroke: var(--accent);
+  stroke-width: 1.8;
+  stroke-dasharray: 6 4;
+}
+
+.geometry-plotted-line {
+  stroke: var(--accent);
+  stroke-width: 2.8;
+}
+
+.geometry-points circle {
+  fill: var(--ink);
+  stroke: var(--card);
+  stroke-width: 1.1;
+}
+
+.geometry-chart figcaption {
+  color: var(--muted);
+  line-height: 1.4;
+  font-size: 0.85rem;
+  margin-top: 0.7rem;
+}
+
+.geometry-methods {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.geometry-method {
+  min-width: 0;
+}
+
+.geometry-method h4 span {
+  color: var(--accent);
+}
+
+.geometry-method > p,
+.geometry-method li {
+  font-size: 0.89rem;
+  line-height: 1.5;
+}
+
+.geometry-method ol {
+  margin: 0.5rem 0 0.9rem;
+  padding-left: 1.3rem;
+}
+
+.geometry-method li + li {
+  margin-top: 0.7rem;
+}
+
+.geometry-step-formula {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.45rem 0;
+  max-width: 100%;
+}
+
+.geometry-example {
+  padding: 0.75rem;
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+}
+
+.geometry-example > strong {
+  font-size: 0.77rem;
+}
+
+.geometry-example p {
+  margin: 0.45rem 0 0;
+  font-size: 0.86rem;
+  line-height: 1.4;
+}
+
+.geometry-example-formula {
+  padding: 0.6rem 0 0.15rem;
+  overflow-x: auto;
+}
+
+.geometry-example-formula .katex-display,
+.geometry-step-formula .katex-display {
+  margin: 0;
+}
+
+.geometry-regression {
+  list-style: decimal;
+  padding: 0 0 0 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.geometry-regression li {
+  padding: 0.75rem 1rem;
+  min-width: 0;
+  break-inside: avoid;
+}
+
+.geometry-regression p {
+  margin: 0 0 0.4rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.geometry-regression-example {
+  margin: 0.9rem 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 750px) {
+  .geometry-core,
+  .geometry-methods {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .geometry-section h3 {
+    font: 700 10pt Arial, Helvetica, sans-serif;
+    margin: 0.8rem 0 0.35rem;
+    break-after: avoid;
+  }
+
+  .geometry-equation {
+    font-size: 11pt;
+    padding: 0.4rem 0;
+  }
+
+  .geometry-core {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 0.3rem;
+  }
+
+  .geometry-core > div,
+  .geometry-method,
+  .geometry-regression li {
+    background: #fff !important;
+    border: 1px solid #aaa;
+    padding: 0.45rem;
+    break-inside: avoid;
+  }
+
+  .geometry-core h4,
+  .geometry-method h4 {
+    font-size: 9pt;
+    margin-bottom: 0.3rem;
+  }
+
+  .geometry-core p,
+  .geometry-core li,
+  .geometry-method > p,
+  .geometry-method li {
+    font-size: 7.5pt;
+    line-height: 1.3;
+  }
+
+  .geometry-formula-table {
+    min-width: 0;
+    font-size: 7pt;
+  }
+
+  .geometry-formula-table th,
+  .geometry-formula-table td {
+    padding: 0.2rem 0.3rem;
+  }
+
+  .geometry-formula-table .katex {
+    font-size: 0.87em;
+  }
+
+  .geometry-chart {
+    border: 0;
+    background: #fff !important;
+    padding: 0;
+    max-width: 275px;
+    break-inside: avoid;
+  }
+
+  .geometry-chart figcaption {
+    font-size: 7pt;
+    color: #222 !important;
+  }
+
+  .geometry-axes line,
+  .geometry-plotted-line,
+  .geometry-slope-guides line {
+    stroke: #111 !important;
+  }
+
+  .geometry-grid line {
+    stroke: #bbb !important;
+  }
+
+  .geometry-axes text,
+  .geometry-slope-guides text,
+  .geometry-points text {
+    fill: #111 !important;
+  }
+
+  .geometry-points circle {
+    fill: #111 !important;
+  }
+
+  .geometry-methods {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.4rem;
+  }
+
+  .geometry-method ol {
+    margin: 0.25rem 0;
+  }
+
+  .geometry-method li + li {
+    margin-top: 0.25rem;
+  }
+
+  .geometry-step-formula {
+    padding: 0.15rem 0;
+    font-size: 7.5pt;
+  }
+
+  .geometry-example {
+    background: #fff !important;
+    padding: 0.25rem;
+    border-left: 2px solid #111;
+  }
+
+  .geometry-example > strong,
+  .geometry-example p,
+  .geometry-regression p,
+  .geometry-regression-example {
+    font-size: 7.2pt;
+    line-height: 1.28;
+  }
+
+  .geometry-example-formula {
+    padding: 0.1rem 0;
+    font-size: 7.5pt;
+  }
+
+  .geometry-regression {
+    gap: 0.25rem;
+  }
+
+  .geometry-regression li {
+    padding: 0.3rem;
+  }
+
+  .geometry-regression-example {
+    margin: 0.3rem 0;
+  }
+}
