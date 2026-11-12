@@ -81,3 +81,42 @@ The code does not edit a hosted Supabase project's settings. In **Authentication
 The GET landing does **not** redeem the recovery proof: email/link scanners cannot consume it by prefetching. The token is carried in an HttpOnly, SameSite=Strict, host-only, path-scoped, 15-minute cookie before redirecting to a clean URL. Only the same-origin POST verifies it with Supabase and changes the password. The recovery session uses an isolated server client and never reaches the browser; success clears old local credentials and requires a new sign-in. Provider OTP expiry and single-use semantics still apply. Do not put the reset token in logs, analytics, support screenshots or client storage. Configure reasonable **Authentication → Rate Limits** and SMTP deliverability and test with synthetic accounts.
 
 Security checks: anonymous account/progress/API requests remain protected by `verifiedUser()`; recovery pages are intentionally public, but mutations need both the recovery proof and the existing same-origin POST validation. Responses remain uncached and the PWA does not cache auth URLs. Test unknown emails, scanners that GET the email URL, replay/expired proofs, cross-site POSTs and after-reset login before enabling this for learners. These local checks are not hosted Supabase acceptance.
+
+## Recovery troubleshooting (reviewed 2026-11-12)
+
+**This app does not handle Supabase's default `ConfirmationURL` recovery link.**
+The server-only recovery flow requires the customized `TokenHash` link above.
+The default Supabase link redeems the token at Supabase before returning to the
+app, often supplying a fragment or an `otp_expired` error that the
+`/auth/recovery/` route cannot use. Link security scanners may also pre-open
+and consume default links. Do not introduce a browser-side access-token handler
+as a workaround.
+
+Verify **both** settings in the hosted Supabase dashboard, not just Vercel:
+
+1. Reset Password template uses the exact `{{ .RedirectTo }}&amp;token_hash={{ .TokenHash }}&amp;type=recovery` link instead of `{{ .ConfirmationURL }}`.
+2. Authentication → URL Configuration has the production Site URL set to
+   `https://uni-math-course.vercel.app` (or the actual production domain),
+   **not** `http://localhost:3000`. Allow the precise recovery redirect
+   URL(s): `https://uni-math-course.vercel.app/auth/recovery/?locale=fr`
+   and `https://uni-math-course.vercel.app/auth/recovery/?locale=en`.
+   Use the current production hostname if different and configure other
+   preview origins only when needed.
+3. Vercel's server-only `AUTH_SITE_URL` is the exact HTTPS production origin
+   and `AUTH_PROVIDER=password` is enabled for the target environment.
+   If `AUTH_ALLOWED_EMAILS` is set, the invitee's email must appear there.
+4. Issue a **new** reset email after saving the template. Confirm the link
+   points to the app's `/auth/recovery/` endpoint and has **both**
+   `token_hash` and `type=recovery`. Do not paste live token hashes in
+   issues or logs; report only the link's hostname/path and query-key names.
+5. If no email arrives, check **Supabase Authentication → Logs**, delivery
+   limits and SMTP configuration; the app only shows a generic response to
+   prevent account enumeration. Server warning logs include only a provider
+   status/code (never the email or token). Do not disable generic responses.
+6. Verify on the intended browser/device with a synthetic invited account:
+   fresh email, link GET, password submit, one-time replay rejected, and
+   new-password sign-in. Hosted success is unverified by source/fixture tests.
+
+The callback now sends malformed and default-template links to a localized,
+visible error page with a fresh-request action; it still cannot consume a
+default Supabase email's URL fragment or alter hosted dashboard configuration.

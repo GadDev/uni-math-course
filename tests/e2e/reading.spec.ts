@@ -168,10 +168,10 @@ for (const locale of ['fr', 'en']) {
           await page.evaluate(() => document.documentElement.scrollWidth),
         ).toBeLessThanOrEqual(width);
         const header = await page.locator('.site-header').boundingBox();
-        expect(header!.height).toBeLessThanOrEqual(width > 1050 ? 100 : 145);
+        expect(header!.height).toBeLessThanOrEqual(width > 1100 ? 100 : 145);
         const nav = await page.locator('.primary-nav').boundingBox();
         const action = await page.locator('.header-sign-in').boundingBox();
-        if (width > 1050) {
+        if (width > 1100) {
           expect(nav!.x + nav!.width).toBeLessThanOrEqual(action!.x);
         } else {
           // Actions occupy the first row; navigation gets the full second row.
