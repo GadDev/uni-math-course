@@ -1,6 +1,9 @@
 ---
 import type { Locale } from '../../lib/i18n';
-import { intersectionCases, lineExtraCopy } from '../../lib/lines-advanced-cheat-sheet';
+import {
+  intersectionCases,
+  lineExtraCopy,
+} from '../../lib/lines-advanced-cheat-sheet';
 import katex from 'katex';
 
 interface Props {
@@ -21,7 +24,12 @@ const math = (formula: string, displayMode = false) =>
 <div class="line-extras">
   <h3>{text.intersectionTitle}</h3>
   <p class="cheat-sheet-section-intro">{text.intersectionIntro}</p>
-  <div class="cheat-sheet-table-scroll" role="region" tabindex="0" aria-label={text.intersectionTitle}>
+  <div
+    class="cheat-sheet-table-scroll"
+    role="region"
+    tabindex="0"
+    aria-label={text.intersectionTitle}
+  >
     <table class="cheat-sheet-table line-case-table">
       <caption class="visually-hidden">{text.intersectionTitle}</caption>
       <thead>
@@ -35,7 +43,12 @@ const math = (formula: string, displayMode = false) =>
         {intersectionCases.map((item) => (
           <tr>
             <th scope="row">{item.name[locale]}</th>
-            <td><span class="advanced-inline-math" set:html={math(item.condition)} /></td>
+            <td>
+              <span
+                class="advanced-inline-math"
+                set:html={math(item.condition)}
+              />
+            </td>
             <td>{item.result[locale]}</td>
           </tr>
         ))}
@@ -43,9 +56,20 @@ const math = (formula: string, displayMode = false) =>
     </table>
   </div>
   <p>{text.intersectionHow}</p>
-  <div class="advanced-formula" set:html={math('m_1x+p_1=m_2x+p_2\\quad\\Rightarrow\\quad x=\\frac{p_2-p_1}{m_1-m_2}', true)} />
+  <div
+    class="advanced-formula"
+    set:html={math(
+      'm_1x+p_1=m_2x+p_2\\quad\\Rightarrow\\quad x=\\frac{p_2-p_1}{m_1-m_2}',
+      true,
+    )}
+  />
   <div class="advanced-worked">
-    <div set:html={math('2x+1=-x+7\\ \\Rightarrow\\ 3x=6\\ \\Rightarrow\\ x=2,\\ y=5', true)} />
+    <div
+      set:html={math(
+        '2x+1=-x+7\\ \\Rightarrow\\ 3x=6\\ \\Rightarrow\\ x=2,\\ y=5',
+        true,
+      )}
+    />
     <p>{text.intersectionExample}</p>
   </div>
   <p class="cheat-sheet-table-note">{text.verticalException}</p>
@@ -56,23 +80,40 @@ const math = (formula: string, displayMode = false) =>
     <div class="line-halfplane-formulas">
       <div>
         <h4>{text.above}</h4>
-        <div class="advanced-inline-math" set:html={math('y>mx+p\\quad\\lor\\quad y\\ge mx+p', true)} />
+        <div
+          class="advanced-inline-math"
+          set:html={math('y>mx+p\\quad\\lor\\quad y\\ge mx+p', true)}
+        />
       </div>
       <div>
         <h4>{text.below}</h4>
-        <div class="advanced-inline-math" set:html={math('y<mx+p\\quad\\lor\\quad y\\le mx+p', true)} />
+        <div
+          class="advanced-inline-math"
+          set:html={math('y<mx+p\\quad\\lor\\quad y\\le mx+p', true)}
+        />
       </div>
       <p>{text.border}</p>
     </div>
     <figure class="line-halfplane-figure">
-      <svg viewBox="0 0 360 210" role="img" aria-labelledby="halfplane-title halfplane-desc">
+      <svg
+        viewBox="0 0 360 210"
+        role="img"
+        aria-labelledby="halfplane-title halfplane-desc"
+      >
         <title id="halfplane-title">{text.halfPlaneDiagram}</title>
         <desc id="halfplane-desc">{text.halfPlaneIntro}</desc>
         <polygon points="0,0 360,0 360,6 0,150" class="line-upper-halfplane" />
-        <polygon points="0,150 360,6 360,210 0,210" class="line-lower-halfplane" />
+        <polygon
+          points="0,150 360,6 360,210 0,210"
+          class="line-lower-halfplane"
+        />
         <line x1="0" y1="150" x2="360" y2="6" class="line-halfplane-border" />
-        <text x="72" y="40">{text.above}</text>
-        <text x="178" y="185">{text.below}</text>
+        <text x="72" y="40">
+          {text.above}
+        </text>
+        <text x="178" y="185">
+          {text.below}
+        </text>
       </svg>
       <figcaption>{text.border}</figcaption>
     </figure>
@@ -80,7 +121,13 @@ const math = (formula: string, displayMode = false) =>
   <div class="advanced-worked">
     <h4>{text.shadeTitle}</h4>
     <p>{text.shadeInstructions}</p>
-    <div class="advanced-formula" set:html={math('y>2x+1:\\quad(0,0)\\Rightarrow 0>1\\;\\text{' + falseWord + '}', true)} />
+    <div
+      class="advanced-formula"
+      set:html={math(
+        'y>2x+1:\\quad(0,0)\\Rightarrow 0>1\\;\\text{' + falseWord + '}',
+        true,
+      )}
+    />
     <p>{text.shadeExample}</p>
     <p>{text.shadeOnLine}</p>
   </div>
