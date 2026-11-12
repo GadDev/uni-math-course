@@ -53,13 +53,13 @@ test('language switching retains the set-theory anchor', async ({ page }) => {
   await expect(page.locator('#sets')).toBeVisible();
 });
 
-test('print stylesheet removes site chrome but retains both symbol tables', async ({
+test('print stylesheet removes site chrome but retains all reference tables', async ({
   page,
 }) => {
   await page.goto('/fr/cheat-sheet/');
   await page.emulateMedia({ media: 'print' });
   await expect(page.locator('.site-header')).toBeHidden();
   await expect(page.locator('.site-footer')).toBeHidden();
-  await expect(page.locator('.cheat-sheet-table')).toHaveCount(2);
+  await expect(page.locator('.cheat-sheet-table')).toHaveCount(4);
   await expect(page.locator('.cheat-sheet-table').first()).toBeVisible();
 });
