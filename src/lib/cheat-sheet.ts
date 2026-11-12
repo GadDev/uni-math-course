@@ -301,10 +301,10 @@ export const mappingProperties: MappingProperty[] = [
 export const cheatSheetCopy = {
   fr: {
     nav: 'Fiche mémo',
-    title: 'Fiche mémo : logique et ensembles',
+    title: 'Fiche mémo : notations et méthodes',
     kicker: 'À GARDER SOUS LA MAIN',
     intro:
-      'Les 19 symboles essentiels du chapitre « Logique et ensembles » : leur nom en français, en anglais, et leur sens en une phrase.',
+      'Symboles de logique et d’ensembles, tables de vérité, applications et notation sigma : un aide-mémoire bilingue pour réviser.',
     contents: 'Accès rapide',
     symbol: 'Symbole',
     english: 'Anglais',
@@ -354,10 +354,10 @@ export const cheatSheetCopy = {
   },
   en: {
     nav: 'Cheat sheet',
-    title: 'Logic and sets cheat sheet',
+    title: 'Math cheat sheet: symbols and methods',
     kicker: 'KEEP THIS HANDY',
     intro:
-      'The 19 essential symbols from the Logic and Sets chapter: their names in French and English, plus a one-sentence explanation.',
+      'Logic and set symbols, truth tables, mappings and Sigma notation: a bilingual quick-reference sheet for revision.',
     contents: 'Jump to a section',
     symbol: 'Symbol',
     english: 'English',
