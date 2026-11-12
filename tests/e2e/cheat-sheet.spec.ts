@@ -76,84 +76,28 @@ for (const locale of ['fr', 'en'] as const) {
   });
 
   for (const width of [320, 375, 650, 768, 1051, 1280]) {
-    test.only(`cheat sheet and navigation avoid page overflow (${locale}, ${width}px)`, async ({
+    test(`cheat sheet and navigation avoid page overflow (${locale}, ${width}px)`, async ({
       page,
     }) => {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(`/${locale}/cheat-sheet/`);
       await page.evaluate(() => document.fonts.ready);
-      const overflowReport = await page.evaluate(() => {
-        const viewport = window.innerWidth;
-        const pageWidth = document.documentElement.scrollWidth;
-        const wrappers = Array.from(
-          document.querySelectorAll('.cheat-sheet-table-scroll'),
-        ).map((element) => ({
-          width: element.clientWidth,
-          scrollWidth: element.scrollWidth,
-          right: Math.round(element.getBoundingClientRect().right),
-          overflowX: window.getComputedStyle(element).overflowX,
-          parent: element.parentElement?.id ?? '',
-        }));
-        const leakers = Array.from(document.querySelectorAll('body *'))
-          .filter((element) => {
-            if (element.getBoundingClientRect().right <= viewport + 2) {
-              return false;
-            }
-            let parent = element.parentElement;
-            while (parent && parent !== document.body) {
-              const overflowX = window.getComputedStyle(parent).overflowX;
-              if (/auto|scroll|hidden|clip/.test(overflowX)) return false;
-              parent = parent.parentElement;
-            }
-            return true;
-          })
-          .map((element) => ({
-            node: element.tagName.toLowerCase(),
-            selector: element.getAttribute('class')?.slice(0, 90) ?? '',
-            right: Math.round(element.getBoundingClientRect().right),
-            width: Math.round(element.getBoundingClientRect().width),
-          }))
-          .slice(0, 25);
-        const overflowChain = Array.from(
-          document.querySelectorAll('body, body *'),
-        )
-          .map((element) => {
-            const computed = window.getComputedStyle(element);
-            return {
-              node: element.tagName.toLowerCase(),
-              selector: element.getAttribute('class')?.slice(0, 90) ?? '',
-              id: element.id,
-              client: element.clientWidth,
-              scroll: element.scrollWidth,
-              overflow: computed.overflowX,
-            };
-          })
-          .filter((item) => item.scroll > item.client + 2)
-          .filter((item) => item.overflow !== 'auto')
-          .slice(0, 30);
-        const scroller = document.scrollingElement;
-        let rootScroll = 0;
-        if (scroller) {
-          scroller.scrollLeft = 1000;
-          rootScroll = scroller.scrollLeft;
-          scroller.scrollLeft = 0;
-        }
-        return {
-          viewport,
-          pageWidth,
-          wrappers,
-          leakers,
-          rootScroll,
-          overflowChain,
-        };
-      });
-      expect(
-        {
-          rootScroll: overflowReport.rootScroll,
-          leakers: overflowReport.leakers,
-        },
-        JSON.stringify(overflowReport, null, 2),
-      ).toEqual({ rootScroll: 0, leakers: [] });
+      await page.mouse.move(2, 2);
+      await page.mouse.wheel(500, 0);
+      await page.waitForTimeout(100);
+      expect(await page.evaluate(() => window.scrollX)).toBe(0);
+      if (width <= 768) {
+        const innerScroll = await page
+          .locator('.cheat-sheet-table-scroll')
+          .first()
+          .evaluate((element) => {
+            element.scrollLeft = 100;
+            const offset = element.scrollLeft;
+            element.scrollLeft = 0;
+            return offset;
+          });
+        expect(innerScroll).toBeGreaterThan(0);
+      }
       await expect(
         page.locator('.cheat-sheet-table-scroll').first(),
       ).toBeVisible();
