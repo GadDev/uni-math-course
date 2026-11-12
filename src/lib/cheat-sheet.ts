@@ -238,8 +238,7 @@ export const mappingProperties: MappingProperty[] = [
       fr: 'Deux éléments distincts de A ne peuvent pas avoir la même image dans B.',
       en: 'Two different elements of A cannot have the same image in B.',
     },
-    formula:
-      '\\forall x_1,x_2\\in A,\\; f(x_1)=f(x_2)\\Rightarrow x_1=x_2',
+    formula: '\\forall x_1,x_2\\in A,\\; f(x_1)=f(x_2)\\Rightarrow x_1=x_2',
     arrows: {
       fr: 'Chaque élément de B reçoit au plus une flèche (zéro ou une).',
       en: 'Each element of B receives at most one arrow (zero or one).',
@@ -247,7 +246,10 @@ export const mappingProperties: MappingProperty[] = [
     diagram: {
       source: ['1', '2'],
       target: ['a', 'b', 'c'],
-      pairs: [[0, 0], [1, 1]],
+      pairs: [
+        [0, 0],
+        [1, 1],
+      ],
     },
   },
   {
@@ -265,7 +267,11 @@ export const mappingProperties: MappingProperty[] = [
     diagram: {
       source: ['1', '2', '3'],
       target: ['a', 'b'],
-      pairs: [[0, 0], [1, 1], [2, 1]],
+      pairs: [
+        [0, 0],
+        [1, 1],
+        [2, 1],
+      ],
     },
   },
   {
@@ -283,7 +289,11 @@ export const mappingProperties: MappingProperty[] = [
     diagram: {
       source: ['1', '2', '3'],
       target: ['a', 'b', 'c'],
-      pairs: [[0, 0], [1, 1], [2, 2]],
+      pairs: [
+        [0, 0],
+        [1, 1],
+        [2, 2],
+      ],
     },
   },
 ];
@@ -395,44 +405,47 @@ export const cheatSheetCopy = {
     glossary: 'Explore the full glossary',
     home: 'Back to the course',
   },
-} as const satisfies Record<Locale, {
-  nav: string;
-  title: string;
-  kicker: string;
-  intro: string;
-  contents: string;
-  symbol: string;
-  english: string;
-  french: string;
-  meaning: string;
-  alternatives: string;
-  print: string;
-  truthTitle: string;
-  truthIntro: string;
-  truthTableLabel: string;
-  trueLabel: string;
-  falseLabel: string;
-  implicationOnlyFalse: string;
-  falseImpliesAnything: string;
-  truthTakeawayTitle: string;
-  implicationTitle: string;
-  implicationTakeaway: string;
-  biconditionalTitle: string;
-  biconditionalTakeaway: string;
-  equivalenceNote: string;
-  mappingTitle: string;
-  mappingIntro: string;
-  mappingDiagramLabel: string;
-  mappingDefinition: string;
-  mappingFormula: string;
-  mappingArrows: string;
-  mappingProperty: string;
-  mappingSource: string;
-  mappingTarget: string;
-  mappingReminder: string;
-  tipsTitle: string;
-  tips: readonly string[];
-  footnote: string;
-  glossary: string;
-  home: string;
-}>;
+} as const satisfies Record<
+  Locale,
+  {
+    nav: string;
+    title: string;
+    kicker: string;
+    intro: string;
+    contents: string;
+    symbol: string;
+    english: string;
+    french: string;
+    meaning: string;
+    alternatives: string;
+    print: string;
+    truthTitle: string;
+    truthIntro: string;
+    truthTableLabel: string;
+    trueLabel: string;
+    falseLabel: string;
+    implicationOnlyFalse: string;
+    falseImpliesAnything: string;
+    truthTakeawayTitle: string;
+    implicationTitle: string;
+    implicationTakeaway: string;
+    biconditionalTitle: string;
+    biconditionalTakeaway: string;
+    equivalenceNote: string;
+    mappingTitle: string;
+    mappingIntro: string;
+    mappingDiagramLabel: string;
+    mappingDefinition: string;
+    mappingFormula: string;
+    mappingArrows: string;
+    mappingProperty: string;
+    mappingSource: string;
+    mappingTarget: string;
+    mappingReminder: string;
+    tipsTitle: string;
+    tips: readonly string[];
+    footnote: string;
+    glossary: string;
+    home: string;
+  }
+>;
