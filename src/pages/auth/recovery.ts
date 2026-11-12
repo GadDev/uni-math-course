@@ -25,7 +25,7 @@ export const GET: APIRoute = (context) => {
     !validRecoveryToken(token)
   ) {
     context.cookies.delete(RECOVERY_COOKIE, { path: RECOVERY_COOKIE_PATH });
-    return context.redirect(`/${locale}/forgot-password/?sent=0`, 303);
+    return context.redirect(`/${locale}/forgot-password/?error=invalid`, 303);
   }
   // Safe against email scanners: GET only transports proof, never verifies it.
   context.cookies.set(RECOVERY_COOKIE, token, {

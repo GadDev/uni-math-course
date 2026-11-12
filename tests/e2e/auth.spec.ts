@@ -491,3 +491,27 @@ test('recovery requires a proof, rejects cross-site mutation and hides account e
   expect(unknown.status()).toBe(303);
   expect(unknown.headers().location).toBe('/en/forgot-password/?sent=1');
 });
+
+// A default Supabase ConfirmationURL does not carry the required token_hash.
+// The app must not silently show a blank form or consume any recovery session.
+test('missing recovery hash shows an actionable localized error without changing sessions', async ({
+  page,
+  request,
+}) => {
+  const response = await request.get(
+    '/auth/recovery/?locale=fr&type=recovery',
+    { maxRedirects: 0 },
+  );
+  expect(response.status()).toBe(303);
+  expect(response.headers().location).toBe(
+    '/fr/forgot-password/?error=invalid',
+  );
+  expect(response.headers()['cache-control']).toBe('private, no-store');
+  await page.goto('/fr/forgot-password/?error=invalid');
+  await expect(page.getByRole('alert')).toContainText(
+    'Ce lien est invalide ou expiré',
+  );
+  await expect(
+    page.getByRole('button', { name: 'Envoyer le lien' }),
+  ).toBeVisible();
+});
