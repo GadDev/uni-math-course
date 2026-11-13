@@ -2,6 +2,13 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.19.0](https://github.com/GadDev/uni-math-course/compare/v0.18.0...v0.19.0) (2026-11-13)
+
+
+### Features
+
+* extend bilingual math cheat sheet through Chapter 3 functions ([#143](https://github.com/GadDev/uni-math-course/issues/143)) ([50d2643](https://github.com/GadDev/uni-math-course/commit/50d264370700fa92a0687414db85620ddc3399b7))
+
 ## [0.18.0](https://github.com/GadDev/uni-math-course/compare/v0.17.0...v0.18.0) (2026-11-12)
 
 
