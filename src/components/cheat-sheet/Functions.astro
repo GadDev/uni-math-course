@@ -1,0 +1,516 @@
+---
+import type { Locale } from '../../lib/i18n';
+import {
+  domainChecks,
+  derivativeRules,
+  exponentialLogLaws,
+  functionChapterCopy,
+  growthValues,
+} from '../../lib/functions-cheat-sheet';
+import katex from 'katex';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const text = functionChapterCopy[locale];
+const math = (formula: string, displayMode = false) =>
+  katex.renderToString(formula, {
+    output: 'htmlAndMathml',
+    displayMode,
+    throwOnError: true,
+    trust: false,
+  });
+const plotPath = (
+  from: number,
+  to: number,
+  steps: number,
+  fn: (x: number) => number,
+  px: (x: number) => number,
+  py: (y: number) => number,
+) =>
+  Array.from({ length: steps + 1 }, (_, i) => {
+    const x = from + ((to - from) * i) / steps;
+    return (
+      (i === 0 ? 'M' : 'L') + px(x).toFixed(1) + ',' + py(fn(x)).toFixed(1)
+    );
+  }).join(' ');
+const sx = (x: number) => 75 + (x + 0.5) * 128;
+const sy = (y: number) => 247 - y * 49;
+const parabola = plotPath(-0.5, 2.12, 70, (x) => x * x, sx, sy);
+const ix = (x: number) => 105 + 45 * x;
+const iy = (y: number) => 200 - 45 * y;
+const expCurve = plotPath(-2.0, 1.4, 80, (x) => Math.exp(x), ix, iy);
+const logCurve = plotPath(0.14, 4.0, 80, (x) => Math.log(x), ix, iy);
+---
+
+<section
+  id="chapter-functions"
+  class="cheat-sheet-section function-chapter"
+  aria-labelledby="chapter-functions-title"
+>
+  <p class="eyebrow">09 / 09 · CH 03 · L37–L42</p>
+  <h2 id="chapter-functions-title">{text.title}</h2>
+  <p class="cheat-sheet-section-intro">{text.intro}</p>
+  <nav class="function-chapter-toc" aria-label={text.title}>
+    <a href="#functions-basics">{text.basicsTitle}</a>
+    <a href="#functions-secants">{text.secantsTitle}</a>
+    <a href="#functions-rules">{text.rulesTitle}</a>
+    <a href="#functions-explog">{text.expTitle}</a>
+    <a href="#functions-growth">{text.growthTitle}</a>
+  </nav>
+
+  <section
+    id="functions-basics"
+    class="function-chapter-topic"
+    aria-labelledby="functions-basics-title"
+  >
+    <h3 id="functions-basics-title">{text.basicsTitle}</h3>
+    <p>{text.basicsIntro}</p>
+    <div
+      class="function-feature-formula"
+      set:html={math('f:A\\to\\mathbb{R},\\qquad x\\mapsto f(x)', true)}
+    />
+    <p>{text.basicsNotation}</p>
+    <div class="function-worked">
+      <div
+        class="function-feature-formula"
+        set:html={math('f(x)=x^2,\\quad f(3)=3^2=9', true)}
+      />
+      <p>{text.basicsExample}</p>
+    </div>
+    <p class="cheat-sheet-table-note">{text.vertical}</p>
+
+    <h4>{text.domainsTitle}</h4>
+    <div
+      class="cheat-sheet-table-scroll"
+      role="region"
+      tabindex="0"
+      aria-label={text.domainsTitle}
+    >
+      <table class="cheat-sheet-table function-domain-table">
+        <caption class="visually-hidden">{text.domainsTitle}</caption>
+        <thead>
+          <tr>
+            <th scope="col">{text.notation}</th>
+            <th scope="col">{text.reading}</th>
+            <th scope="col">{text.explanation}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {domainChecks.map((row) => (
+            <tr>
+              <th scope="row">
+                <span
+                  class="function-inline-math"
+                  set:html={math(row.formula)}
+                />
+              </th>
+              <td>{row.reading[locale]}</td>
+              <td>{row.explanation[locale]}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <h4>{text.symmetryTitle}</h4>
+    <div class="function-two-col">
+      <div class="function-mini-card">
+        <div
+          class="function-feature-formula"
+          set:html={math('f(-x)=f(x)', true)}
+        />
+        <p>{text.even}</p>
+      </div>
+      <div class="function-mini-card">
+        <div
+          class="function-feature-formula"
+          set:html={math('f(-x)=-f(x)', true)}
+        />
+        <p>{text.odd}</p>
+      </div>
+    </div>
+    <p class="cheat-sheet-table-note">{text.symmetryExample}</p>
+  </section>
+
+  <section
+    id="functions-secants"
+    class="function-chapter-topic"
+    aria-labelledby="functions-secants-title"
+  >
+    <h3 id="functions-secants-title">{text.secantsTitle}</h3>
+    <p>{text.secantsIntro}</p>
+    <div class="function-math-steps">
+      <div>
+        <div
+          class="function-feature-formula"
+          set:html={math('\\frac{f(x+h)-f(x)}{h}\\quad(h\\ne0)', true)}
+        />
+        <p>{text.secantsReading}</p>
+      </div>
+      <div>
+        <div
+          class="function-feature-formula"
+          set:html={math("f'(x)=\\lim_{h\\to0}\\frac{f(x+h)-f(x)}{h}", true)}
+        />
+        <p>{text.derivativeReading}</p>
+      </div>
+      <div>
+        <div
+          class="function-feature-formula"
+          set:html={math("y=f(a)+f'(a)(x-a)", true)}
+        />
+        <p>{text.tangentReading}</p>
+      </div>
+    </div>
+    <figure class="function-plot">
+      <svg
+        viewBox="0 0 460 300"
+        role="img"
+        aria-labelledby="functions-secant-title functions-secant-desc"
+      >
+        <title id="functions-secant-title">{text.secantPlot}</title>
+        <desc id="functions-secant-desc">{text.secantCaption}</desc>
+        <g class="function-plot-grid" aria-hidden="true">
+          {[0, 1, 2].map((x) => (
+            <line x1={sx(x)} x2={sx(x)} y1="18" y2="259" />
+          ))}
+          {[0, 1, 2, 3, 4].map((y) => (
+            <line x1="24" x2="438" y1={sy(y)} y2={sy(y)} />
+          ))}
+        </g>
+        <g class="function-plot-axes" aria-hidden="true">
+          <line x1="24" y1={sy(0)} x2="439" y2={sy(0)} />
+          <line x1={sx(0)} y1="17" x2={sx(0)} y2="268" />
+          <text x="434" y="265">
+            x
+          </text>
+          <text x={sx(0) - 14} y="23">
+            y
+          </text>
+          <text x={sx(1)} y="264" text-anchor="middle">
+            1
+          </text>
+          <text x={sx(2)} y="264" text-anchor="middle">
+            2
+          </text>
+        </g>
+        <path d={parabola} class="function-curve" />
+        <line
+          x1={sx(0.5)}
+          y1={sy(-0.25)}
+          x2={sx(2.05)}
+          y2={sy(3.625)}
+          class="function-secant"
+        />
+        <line
+          x1={sx(0.5)}
+          y1={sy(0)}
+          x2={sx(2.2)}
+          y2={sy(3.4)}
+          class="function-tangent"
+        />
+        <g class="function-markers" aria-hidden="true">
+          <circle cx={sx(1)} cy={sy(1)} r="5" />
+          <circle cx={sx(1.5)} cy={sy(2.25)} r="5" />
+          <text x={sx(1) + 9} y={sy(1) + 15}>
+            A(1, 1)
+          </text>
+          <text x={sx(1.5) + 7} y={sy(2.25) - 9}>
+            B(1.5, 2.25)
+          </text>
+          <text x="364" y="36">
+            y = x²
+          </text>
+        </g>
+      </svg>
+      <figcaption>{text.secantCaption}</figcaption>
+    </figure>
+    <div class="function-worked">
+      <div
+        class="function-feature-formula"
+        set:html={math('\\frac{(1+h)^2-1}{h}=2+h\\ \\longrightarrow\\ 2', true)}
+      />
+      <div
+        class="function-feature-formula"
+        set:html={math('y=1+2(x-1)=2x-1', true)}
+      />
+      <p>{text.secantExample}</p>
+    </div>
+    <p class="cheat-sheet-table-note">{text.derivativeSigns}</p>
+  </section>
+
+  <section
+    id="functions-rules"
+    class="function-chapter-topic"
+    aria-labelledby="functions-rules-title"
+  >
+    <h3 id="functions-rules-title">{text.rulesTitle}</h3>
+    <p>{text.rulesIntro}</p>
+    <div
+      class="cheat-sheet-table-scroll"
+      role="region"
+      tabindex="0"
+      aria-label={text.rulesTitle}
+    >
+      <table class="cheat-sheet-table function-derivative-table">
+        <caption class="visually-hidden">{text.rulesTitle}</caption>
+        <thead>
+          <tr>
+            <th scope="col">{text.rulesFunction}</th>
+            <th scope="col">{text.rulesDerivative}</th>
+            <th scope="col">{text.rulesExample}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {derivativeRules.map((rule) => (
+            <tr>
+              <th scope="row">
+                <span
+                  class="function-inline-math"
+                  set:html={math(rule.formula)}
+                />
+              </th>
+              <td>
+                <p>{rule.reading[locale]}</p>
+                <small>{rule.explanation[locale]}</small>
+              </td>
+              <td>
+                {rule.example && (
+                  <span
+                    class="function-inline-math"
+                    set:html={math(rule.example)}
+                  />
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div class="function-worked">
+      <h4>{text.workedTitle}</h4>
+      <div
+        class="function-feature-formula"
+        set:html={math(
+          "f(x)=(3x+1)^2\\ \\Longrightarrow\\ f'(x)=2(3x+1)\\cdot3=6(3x+1)",
+          true,
+        )}
+      />
+      <p>{text.workedText}</p>
+    </div>
+  </section>
+
+  <section
+    id="functions-explog"
+    class="function-chapter-topic"
+    aria-labelledby="functions-explog-title"
+  >
+    <h3 id="functions-explog-title">{text.expTitle}</h3>
+    <p>{text.expIntro}</p>
+    <div class="function-two-col">
+      <div class="function-mini-card">
+        <div
+          class="function-feature-formula"
+          set:html={math('e^x>0\\quad(x\\in\\mathbb{R})', true)}
+        />
+        <p>{text.keyValues}</p>
+      </div>
+      <div class="function-mini-card">
+        <div
+          class="function-feature-formula"
+          set:html={math('\\ln(e^x)=x,\\quad e^{\\ln x}=x\\ (x>0)', true)}
+        />
+        <p>{text.inverseCaption}</p>
+      </div>
+    </div>
+    <figure class="function-plot function-inverse-plot">
+      <svg
+        viewBox="0 0 410 310"
+        role="img"
+        aria-labelledby="functions-inverse-title functions-inverse-desc"
+      >
+        <title id="functions-inverse-title">{text.inversePlot}</title>
+        <desc id="functions-inverse-desc">{text.inverseCaption}</desc>
+        <g class="function-plot-grid" aria-hidden="true">
+          {[-2, -1, 0, 1, 2, 3, 4].map((x) => (
+            <line x1={ix(x)} y1="13" x2={ix(x)} y2="295" />
+          ))}
+          {[-2, -1, 0, 1, 2, 3, 4].map((y) => (
+            <line x1="10" y1={iy(y)} x2="306" y2={iy(y)} />
+          ))}
+        </g>
+        <g class="function-plot-axes" aria-hidden="true">
+          <line x1="10" y1={iy(0)} x2="321" y2={iy(0)} />
+          <line x1={ix(0)} y1="10" x2={ix(0)} y2="296" />
+          <text x="316" y={iy(0) + 15}>
+            x
+          </text>
+          <text x={ix(0) - 16} y="17">
+            y
+          </text>
+          <text x={ix(1)} y={iy(0) + 15}>
+            1
+          </text>
+          <text x={ix(0) - 12} y={iy(1) + 4}>
+            1
+          </text>
+        </g>
+        <line
+          x1={ix(-2)}
+          y1={iy(-2)}
+          x2={ix(4)}
+          y2={iy(4)}
+          class="function-reflection"
+        />
+        <path d={expCurve} class="function-curve" />
+        <path d={logCurve} class="function-tangent" />
+        <g class="function-markers" aria-hidden="true">
+          <circle cx={ix(0)} cy={iy(1)} r="4" />
+          <circle cx={ix(1)} cy={iy(0)} r="4" />
+          <text x="314" y="51">
+            eˣ
+          </text>
+          <text x="312" y="124">
+            ln(x)
+          </text>
+          <text x="215" y="106">
+            y = x
+          </text>
+        </g>
+      </svg>
+      <figcaption>{text.inverseCaption}</figcaption>
+    </figure>
+    <h4>{text.lawsTitle}</h4>
+    <div
+      class="cheat-sheet-table-scroll"
+      role="region"
+      tabindex="0"
+      aria-label={text.lawsTitle}
+    >
+      <table class="cheat-sheet-table function-law-table">
+        <caption class="visually-hidden">{text.lawsTitle}</caption>
+        <thead>
+          <tr>
+            <th scope="col">{text.notation}</th>
+            <th scope="col">{text.reading}</th>
+            <th scope="col">{text.rulesExample}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {exponentialLogLaws.map((law) => (
+            <tr>
+              <th scope="row">
+                <span
+                  class="function-inline-math"
+                  set:html={math(law.formula)}
+                />
+              </th>
+              <td>
+                <p>{law.reading[locale]}</p>
+                <small>{law.explanation[locale]}</small>
+              </td>
+              <td>
+                {law.example && (
+                  <span
+                    class="function-inline-math"
+                    set:html={math(law.example)}
+                  />
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="cheat-sheet-table-note">{text.logTraps}</p>
+  </section>
+
+  <section
+    id="functions-growth"
+    class="function-chapter-topic"
+    aria-labelledby="functions-growth-title"
+  >
+    <h3 id="functions-growth-title">{text.growthTitle}</h3>
+    <p>{text.growthIntro}</p>
+    <div class="function-math-steps">
+      <div>
+        <div
+          class="function-feature-formula"
+          set:html={math(
+            '\\log_b x=\\frac{\\ln x}{\\ln b},\\quad \\log_2 x=\\frac{\\ln x}{\\ln2}',
+            true,
+          )}
+        />
+        <p>{text.baseReading}</p>
+      </div>
+      <div>
+        <div
+          class="function-feature-formula"
+          set:html={math("b^x=e^{x\\ln b},\\quad (b^x)'=b^x\\ln b", true)}
+        />
+        <p>{text.generalBaseReading}</p>
+      </div>
+    </div>
+    <div class="function-worked">
+      <div
+        class="function-feature-formula"
+        set:html={math(
+          '\\log_2 8=3\\quad\\Longleftrightarrow\\quad 2^3=8',
+          true,
+        )}
+      />
+      <p>{text.baseExample}</p>
+    </div>
+    <div
+      class="function-feature-formula"
+      set:html={math(
+        '1\\ll\\log_2n\\ll n\\ll n\\log_2n\\ll n^2\\ll2^n\\quad(n\\to\\infty)',
+        true,
+      )}
+    />
+    <p>{text.hierarchy}</p>
+    <h4>{text.growthTable}</h4>
+    <div
+      class="cheat-sheet-table-scroll"
+      role="region"
+      tabindex="0"
+      aria-label={text.growthTable}
+    >
+      <table class="cheat-sheet-table function-growth-table">
+        <caption class="visually-hidden">{text.growthTable}</caption>
+        <thead>
+          <tr>
+            <th scope="col">{text.notation}</th>
+            <th scope="col">n = 8</th>
+            <th scope="col">n = 16</th>
+          </tr>
+        </thead>
+        <tbody>
+          {growthValues.map((row) => (
+            <tr>
+              <th scope="row">
+                <span set:html={math(row.formula)} />
+              </th>
+              <td>
+                {row.n8.toLocaleString(locale === 'fr' ? 'fr-FR' : 'en-US')}
+              </td>
+              <td>
+                {row.n16.toLocaleString(locale === 'fr' ? 'fr-FR' : 'en-US')}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="cheat-sheet-table-note">{text.growthReminder}</p>
+  </section>
+
+  <p class="function-lessons">
+    {text.lessons} :
+    {['L37', 'L38', 'L39', 'L40', 'L41', 'L42'].map((lesson) => (
+      <a href={'/' + locale + '/lessons/' + lesson + '/'}>{lesson}</a>
+    ))}
+  </p>
+</section>

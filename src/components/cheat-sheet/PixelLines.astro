@@ -1,0 +1,232 @@
+---
+import type { Locale } from '../../lib/i18n';
+import {
+  bresenhamExample,
+  pixelCopy,
+} from '../../lib/lines-advanced-cheat-sheet';
+import katex from 'katex';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const text = pixelCopy[locale];
+const math = (formula: string, displayMode = false) =>
+  katex.renderToString(formula, {
+    output: 'htmlAndMathml',
+    throwOnError: true,
+    trust: false,
+    displayMode,
+  });
+const algorithm = [
+  'dx = x1 - x0; dy = y1 - y0',
+  'D = 2*dy - dx',
+  'stepE = 2*dy; stepNE = 2*(dy - dx)',
+  'y = y0',
+  'for x from x0 to x1:',
+  '    plot(x, y)',
+  '    if x == x1: stop',
+  '    if D < 0:',
+  '        D = D + stepE       // E',
+  '    else:',
+  '        y = y + 1',
+  '        D = D + stepNE      // NE',
+].join('\n');
+---
+
+<section
+  id="pixels"
+  class="cheat-sheet-section advanced-section"
+  aria-labelledby="pixels-title"
+>
+  <p class="eyebrow">07 / 09 · CH 02 / 04</p>
+  <h2 id="pixels-title">{text.title}</h2>
+  <p class="cheat-sheet-section-intro">{text.intro}</p>
+
+  <h3>{text.coordinatesTitle}</h3>
+  <p>{text.coordinatesExplain}</p>
+  <div class="advanced-two-col">
+    <div class="advanced-topic-card">
+      <h4>{text.originTitle}</h4>
+      <div
+        class="advanced-formula"
+        set:html={math('c=c_0+x,\\qquad r=r_0-y', true)}
+      />
+      <p>{text.originRead}</p>
+    </div>
+    <div class="advanced-topic-card">
+      <h4>{text.scalingTitle}</h4>
+      <div
+        class="advanced-formula"
+        set:html={math('c=c_0+s\\,x,\\qquad r=r_0-s\\,y', true)}
+      />
+      <p>{text.scalingRead}</p>
+    </div>
+  </div>
+  <p class="cheat-sheet-table-note">{text.conversionExample}</p>
+  <figure class="pixel-axes-figure">
+    <svg
+      viewBox="0 0 470 178"
+      role="img"
+      aria-labelledby="pixel-axes-title pixel-axes-desc"
+    >
+      <title id="pixel-axes-title">{text.axesDiagram}</title>
+      <desc id="pixel-axes-desc">{text.coordinatesExplain}</desc>
+      <g class="pixel-math-axes">
+        <line x1="38" y1="148" x2="205" y2="148" />
+        <line x1="70" y1="166" x2="70" y2="16" />
+        <polygon points="205,148 194,144 194,152" />
+        <polygon points="70,16 65,27 75,27" />
+        <text x="192" y="167">
+          x →
+        </text>
+        <text x="78" y="20">
+          y ↑
+        </text>
+        <text x="42" y="165">
+          (0,0)
+        </text>
+      </g>
+      <g class="pixel-screen-axes">
+        <line x1="266" y1="36" x2="432" y2="36" />
+        <line x1="266" y1="36" x2="266" y2="160" />
+        <polygon points="432,36 421,32 421,40" />
+        <polygon points="266,160 261,149 271,149" />
+        <text x="400" y="29">
+          c →
+        </text>
+        <text x="276" y="150">
+          r ↓
+        </text>
+        <text x="276" y="25">
+          (0,0)
+        </text>
+      </g>
+    </svg>
+    <figcaption>{text.axesDiagram}</figcaption>
+  </figure>
+
+  <h3>{text.naiveTitle}</h3>
+  <p>{text.naiveIntro}</p>
+  <ul class="advanced-action-list">
+    <li>{text.gentle}</li>
+    <li>{text.steep}</li>
+    <li>{text.vertical}</li>
+  </ul>
+  <div class="advanced-worked">
+    <div
+      class="advanced-formula"
+      set:html={math(
+        'm=\\frac{5-0}{2-0}=2.5>1,\\quad y\\in\\{0,2.5,5\\}',
+        true,
+      )}
+    />
+    <p>{text.naiveExample}</p>
+  </div>
+
+  <h3>{text.bresTitle}</h3>
+  <p>{text.bresScope}</p>
+  <p>{text.bresChoices}</p>
+  <p>{text.init}</p>
+  <div
+    class="advanced-formula"
+    set:html={math(
+      '\\Delta x=x_1-x_0,\\;\\Delta y=y_1-y_0,\\; D_0=2\\Delta y-\\Delta x',
+      true,
+    )}
+  />
+  <div class="advanced-two-col">
+    <div class="advanced-topic-card">
+      <div
+        class="advanced-formula"
+        set:html={math(
+          'D<0:\\quad E=(x+1,y),\\quad D\\gets D+2\\Delta y',
+          true,
+        )}
+      />
+    </div>
+    <div class="advanced-topic-card">
+      <div
+        class="advanced-formula"
+        set:html={math(
+          'D\\ge0:\\quad NE=(x+1,y+1),\\quad D\\gets D+2(\\Delta y-\\Delta x)',
+          true,
+        )}
+      />
+    </div>
+  </div>
+  <h4>{text.algorithmLabel}</h4>
+  <pre class="advanced-code"><code>{algorithm}</code></pre>
+  <p class="cheat-sheet-table-note">{text.integerNote}</p>
+
+  <h3>{text.traceTitle}</h3>
+  <p>{text.traceIntro}</p>
+  <div
+    class="cheat-sheet-table-scroll"
+    role="region"
+    tabindex="0"
+    aria-label={text.traceTitle}
+  >
+    <table class="cheat-sheet-table bres-trace-table">
+      <caption class="visually-hidden">{text.traceTitle}</caption>
+      <thead>
+        <tr>
+          <th scope="col">{text.traceX}</th>
+          <th scope="col">{text.traceD}</th>
+          <th scope="col">{text.traceChoice}</th>
+          <th scope="col">{text.traceNext}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {bresenhamExample.map((step) => (
+          <tr>
+            <th scope="row">
+              ({step.x}, {step.y})
+            </th>
+            <td>{step.decision}</td>
+            <td>{step.move === 'END' ? text.last : step.move}</td>
+            <td>{step.nextDecision ?? '—'}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <figure class="pixel-grid-figure">
+    <svg
+      viewBox="0 0 390 280"
+      role="img"
+      aria-labelledby="bres-grid-title bres-grid-desc"
+    >
+      <title id="bres-grid-title">{text.diagramTitle}</title>
+      <desc id="bres-grid-desc">{text.traceIntro}</desc>
+      <g class="pixel-grid-lines" aria-hidden="true">
+        {[45, 93, 141, 189, 237, 285, 333, 381].map((x) => (
+          <line x1={x} y1="22" x2={x} y2="263" />
+        ))}
+        {[22, 70, 118, 166, 214, 262].map((y) => (
+          <line x1="45" y1={y} x2="381" y2={y} />
+        ))}
+      </g>
+      <g class="pixel-grid-selected" aria-hidden="true">
+        {bresenhamExample.map((step) => (
+          <rect
+            x={52 + 48 * step.x}
+            y={221 - 48 * step.y}
+            width="34"
+            height="34"
+            rx="2"
+          />
+        ))}
+      </g>
+      <g class="pixel-grid-labels" aria-hidden="true">
+        {bresenhamExample.map((step) => (
+          <text x={69 + 48 * step.x} y={243 - 48 * step.y} text-anchor="middle">
+            {step.x},{step.y}
+          </text>
+        ))}
+      </g>
+    </svg>
+    <figcaption>{text.diagramTitle}</figcaption>
+  </figure>
+  <p class="cheat-sheet-table-note">{text.coordinateCaution}</p>
+</section>

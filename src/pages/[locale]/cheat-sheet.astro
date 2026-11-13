@@ -16,6 +16,23 @@ import {
 } from '../../lib/sigma-cheat-sheet';
 import '../../styles/cheat-sheet.css';
 import '../../styles/sigma-cheat-sheet.css';
+import {
+  geometryCopy,
+  geometryFormulae,
+  geometryMethods,
+} from '../../lib/geometry-cheat-sheet';
+import '../../styles/geometry-cheat-sheet.css';
+import LineExtras from '../../components/cheat-sheet/LineExtras.astro';
+import PixelLines from '../../components/cheat-sheet/PixelLines.astro';
+import Regression from '../../components/cheat-sheet/Regression.astro';
+import {
+  pixelCopy,
+  regressionCopy,
+} from '../../lib/lines-advanced-cheat-sheet';
+import '../../styles/lines-advanced-cheat-sheet.css';
+import Functions from '../../components/cheat-sheet/Functions.astro';
+import { functionChapterCopy } from '../../lib/functions-cheat-sheet';
+import '../../styles/functions-cheat-sheet.css';
 
 export function getStaticPaths() {
   return locales.map((locale) => ({ params: { locale }, props: { locale } }));
@@ -23,6 +40,10 @@ export function getStaticPaths() {
 const { locale } = Astro.props;
 const text = cheatSheetCopy[locale];
 const sigmaText = sigmaCopy[locale];
+const geometryText = geometryCopy[locale];
+const pixelText = pixelCopy[locale];
+const regressionText = regressionCopy[locale];
+const functionsText = functionChapterCopy[locale];
 const truth = (value: boolean) => (value ? text.trueLabel : text.falseLabel);
 const nodeY = (count: number, index: number) =>
   count === 2 ? 73 + 68 * index : 47 + 48 * index;
@@ -79,6 +100,22 @@ const math = (value: string, displayMode = false) =>
         <span aria-hidden="true">05</span>
         {sigmaText.title}
       </a>
+      <a href="#geometry">
+        <span aria-hidden="true">06</span>
+        {geometryText.title}
+      </a>
+      <a href="#pixels">
+        <span aria-hidden="true">07</span>
+        {pixelText.title}
+      </a>
+      <a href="#regression">
+        <span aria-hidden="true">08</span>
+        {regressionText.title}
+      </a>
+      <a href="#chapter-functions">
+        <span aria-hidden="true">09</span>
+        {functionsText.title}
+      </a>
     </nav>
 
     {symbolGroups.map((group, index) => (
@@ -87,7 +124,7 @@ const math = (value: string, displayMode = false) =>
         class="cheat-sheet-section"
         aria-labelledby={group.id + '-title'}
       >
-        <p class="eyebrow">0{index + 1} / 05</p>
+        <p class="eyebrow">0{index + 1} / 09</p>
         <h2 id={group.id + '-title'}>{group.title[locale]}</h2>
         <div
           class="cheat-sheet-table-scroll"
@@ -136,7 +173,7 @@ const math = (value: string, displayMode = false) =>
       class="cheat-sheet-section"
       aria-labelledby="truth-table-title"
     >
-      <p class="eyebrow">03 / 05</p>
+      <p class="eyebrow">03 / 09</p>
       <h2 id="truth-table-title">{text.truthTitle}</h2>
       <p class="cheat-sheet-section-intro">{text.truthIntro}</p>
       <div
@@ -210,7 +247,7 @@ const math = (value: string, displayMode = false) =>
       class="cheat-sheet-section"
       aria-labelledby="functions-title"
     >
-      <p class="eyebrow">04 / 05</p>
+      <p class="eyebrow">04 / 09</p>
       <h2 id="functions-title">{text.mappingTitle}</h2>
       <p class="cheat-sheet-section-intro">{text.mappingIntro}</p>
       <div
@@ -334,7 +371,7 @@ const math = (value: string, displayMode = false) =>
       class="cheat-sheet-section sigma-section"
       aria-labelledby="sigma-title"
     >
-      <p class="eyebrow">05 / 05</p>
+      <p class="eyebrow">05 / 09</p>
       <h2 id="sigma-title">{sigmaText.title}</h2>
       <p class="cheat-sheet-section-intro">{sigmaText.intro}</p>
 
@@ -448,6 +485,190 @@ const math = (value: string, displayMode = false) =>
       </ol>
       <p class="cheat-sheet-table-note sigma-caution">{sigmaText.caution}</p>
     </section>
+
+    <section
+      id="geometry"
+      class="cheat-sheet-section geometry-section"
+      aria-labelledby="geometry-title"
+    >
+      <p class="eyebrow">06 / 08 · CH 02 / 03</p>
+      <h2 id="geometry-title">{geometryText.title}</h2>
+      <p class="cheat-sheet-section-intro">{geometryText.intro}</p>
+
+      <h3>{geometryText.coreTitle}</h3>
+      <div class="geometry-equation" set:html={math('y=mx+p', true)} />
+      <div class="geometry-core">
+        <div>
+          <h4>{geometryText.slopeTitle}</h4>
+          <ul>
+            <li>{geometryText.slopePositive}</li>
+            <li>{geometryText.slopeNegative}</li>
+            <li>{geometryText.slopeZero}</li>
+            <li>{geometryText.slopeVertical}</li>
+          </ul>
+        </div>
+        <div>
+          <h4>{geometryText.interceptTitle}</h4>
+          <p>{geometryText.interceptExplanation}</p>
+          <div set:html={math('(0,p)', true)} />
+        </div>
+      </div>
+
+      <h3>{geometryText.formulaTitle}</h3>
+      <div
+        class="cheat-sheet-table-scroll"
+        role="region"
+        tabindex="0"
+        aria-label={geometryText.formulaTitle}
+      >
+        <table class="cheat-sheet-table geometry-formula-table">
+          <caption class="visually-hidden">{geometryText.formulaTitle}</caption>
+          <thead>
+            <tr>
+              <th scope="col">{geometryText.notation}</th>
+              <th scope="col" lang="fr">
+                {geometryText.readingFr}
+              </th>
+              <th scope="col" lang="en">
+                {geometryText.readingEn}
+              </th>
+              <th scope="col">{geometryText.meaning}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {geometryFormulae.slice(0, 5).map((item) => (
+              <tr>
+                <th scope="row">
+                  <span class="geometry-math" set:html={math(item.formula)} />
+                </th>
+                <td lang="fr">{item.reading.fr}</td>
+                <td lang="en">{item.reading.en}</td>
+                <td>{item.meaning[locale]}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <h3>{geometryText.graphTitle}</h3>
+      <figure class="geometry-chart">
+        <svg
+          viewBox="0 0 390 295"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-labelledby="geometry-chart-title geometry-chart-description"
+        >
+          <title id="geometry-chart-title">{geometryText.graphTitle}</title>
+          <desc id="geometry-chart-description">
+            {geometryText.graphCaption}
+          </desc>
+          <g class="geometry-grid" aria-hidden="true">
+            {[86, 154, 222, 290, 358].map((x) => (
+              <line x1={x} x2={x} y1="8" y2="260" />
+            ))}
+            {[8, 44, 80, 116, 152, 188, 224, 260].map((y) => (
+              <line x1="35" x2="365" y1={y} y2={y} />
+            ))}
+          </g>
+          <g class="geometry-axes" aria-hidden="true">
+            <line x1="35" y1="260" x2="374" y2="260" />
+            <line x1="86" y1="281" x2="86" y2="5" />
+            <text x="374" y="281">
+              x
+            </text>
+            <text x="72" y="14">
+              y
+            </text>
+            <text x="71" y="277">
+              0
+            </text>
+            <text x="222" y="279" text-anchor="middle">
+              2
+            </text>
+            <text x="73" y="226" text-anchor="end">
+              1
+            </text>
+            <text x="73" y="82" text-anchor="end">
+              5
+            </text>
+          </g>
+          <g class="geometry-slope-guides" aria-hidden="true">
+            <line x1="86" y1="224" x2="222" y2="224" />
+            <line x1="222" y1="224" x2="222" y2="80" />
+            <text x="154" y="241" text-anchor="middle">
+              Δx = 2
+            </text>
+            <text x="230" y="157">
+              Δy = 4
+            </text>
+          </g>
+          <line
+            class="geometry-plotted-line"
+            x1="52"
+            y1="260"
+            x2="290"
+            y2="8"
+            aria-hidden="true"
+          />
+          <g class="geometry-points" aria-hidden="true">
+            <circle cx="86" cy="224" r="5" />
+            <circle cx="222" cy="80" r="5" />
+            <text x="100" y="214">
+              A(0, 1)
+            </text>
+            <text x="238" y="74">
+              B(2, 5)
+            </text>
+          </g>
+        </svg>
+        <figcaption>{geometryText.graphCaption}</figcaption>
+      </figure>
+
+      <h3>{geometryText.methodsTitle}</h3>
+      <div class="geometry-methods">
+        {geometryMethods.map((method, index) => (
+          <section
+            class="geometry-method"
+            aria-labelledby={'geometry-' + method.id}
+          >
+            <h4 id={'geometry-' + method.id}>
+              <span aria-hidden="true">{index + 1}.</span>{' '}
+              {method.title[locale]}
+            </h4>
+            <p>{method.intro[locale]}</p>
+            <ol>
+              {method.steps.map((step) => (
+                <li>
+                  <span>{step.text[locale]}</span>
+                  {step.formula && (
+                    <div
+                      class="geometry-step-formula"
+                      set:html={math(step.formula)}
+                    />
+                  )}
+                </li>
+              ))}
+            </ol>
+            <div class="geometry-example">
+              <strong>{geometryText.exampleLabel}</strong>
+              {method.exampleFormula && (
+                <div
+                  class="geometry-example-formula"
+                  set:html={math(method.exampleFormula, true)}
+                />
+              )}
+              <p>{method.example[locale]}</p>
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <LineExtras locale={locale} />
+    </section>
+
+    <PixelLines locale={locale} />
+    <Regression locale={locale} />
+    <Functions locale={locale} />
 
     <aside class="cheat-sheet-tips" aria-labelledby="cheat-tips-title">
       <h2 id="cheat-tips-title">{text.tipsTitle}</h2>
