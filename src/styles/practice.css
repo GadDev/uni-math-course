@@ -410,6 +410,31 @@ section.pp-feedback.is-right {
   font-size: 0.85rem;
   color: var(--muted);
 }
+.pp-summary-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+.pp-summary-stats > div {
+  padding: 1rem;
+  border-top: 3px solid var(--success);
+  background: var(--success-surface);
+}
+.pp-summary-stats dd {
+  margin: 0.25rem 0 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.pp-summary .pp-actions {
+  gap: 0.75rem;
+}
+.pp-summary .pp-actions .pp-button {
+  min-width: 0;
+  padding-inline: 1.2rem;
+  overflow-wrap: anywhere;
+}
 .pp-footnote {
   margin: 3rem 0 0;
   padding-top: 1.2rem;
