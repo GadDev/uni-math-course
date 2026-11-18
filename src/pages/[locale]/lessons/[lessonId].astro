@@ -195,6 +195,16 @@ const geometryVariant =
         <Content />
       </article>
       {lesson.data.lessonId === 'L05' && <ImplicationExplorers />}
+      {['L55', 'L56', 'L57'].includes(lesson.data.lessonId) && (
+        <p>
+          <a class="primary-link" href={`/${locale}/chapters/C04/lzw/`}>
+            {locale === 'fr'
+              ? 'Mettre en pratique dans l’atelier LZW'
+              : 'Practise in the LZW workshop'}{' '}
+            →
+          </a>
+        </p>
+      )}
       {lesson.data.lessonId === 'L10' && (
         <p>
           <a href={'/' + locale + '/numbers/'}>
