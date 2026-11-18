@@ -1,4 +1,5 @@
 ---
+import { workshopCopy } from '../../../lib/logic-workshop/copy';
 import { getCollection, render } from 'astro:content';
 import LessonCompletion from '../../../components/LessonCompletion.astro';
 import { completionCopy } from '../../../lib/completion-copy';
@@ -193,6 +194,13 @@ const geometryVariant =
       </div>
       <article class="lesson-prose" data-lesson-id={lesson.data.lessonId}>
         <Content />
+        {/^L0[1-8]$/.test(lesson.data.lessonId) && (
+          <p>
+            <a href={`/${locale}/logic-workshop/`}>
+              {workshopCopy.title[locale]} →
+            </a>
+          </p>
+        )}
       </article>
       {lesson.data.lessonId === 'L05' && <ImplicationExplorers />}
       {lesson.data.lessonId === 'L10' && (

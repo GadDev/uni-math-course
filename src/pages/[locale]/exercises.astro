@@ -1,4 +1,5 @@
 ---
+import { workshopCopy } from '../../lib/logic-workshop/copy';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import Base from '../../layouts/Base.astro';
@@ -80,6 +81,9 @@ const missingFiles = chapters.some((chapter) =>
     </nav>
 
     <RevisionDownloads locale={locale} />
+    <p>
+      <a href={`/${locale}/logic-workshop/`}>{workshopCopy.title[locale]} →</a>
+    </p>
 
     <p>
       <a class="primary-link" href={`/${locale}/training-exams/`}>
