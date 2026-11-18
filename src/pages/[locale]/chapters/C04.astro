@@ -1,6 +1,8 @@
 ---
 import Base from '../../../layouts/Base.astro';
 import SignalGeometry from '../../../components/SignalGeometry.astro';
+import ProgrammeDashboard from '../../../components/ProgrammeDashboard.astro';
+import { completionCopy } from '../../../lib/completion-copy';
 import { informationCopy } from '../../../lib/information';
 import { locales } from '../../../lib/i18n';
 import katex from 'katex';
@@ -12,6 +14,26 @@ export function getStaticPaths() {
 
 const { locale } = Astro.props;
 const text = informationCopy[locale];
+const lessonGroups = [
+  {
+    title: locale === 'fr' ? 'Codes et messages' : 'Codes and messages',
+    start: 1,
+    lessons: text.lessons.slice(0, 3),
+  },
+  {
+    title:
+      locale === 'fr'
+        ? 'Probabilités et compression'
+        : 'Probability and compression',
+    start: 4,
+    lessons: text.lessons.slice(3, 7),
+  },
+  {
+    title: locale === 'fr' ? 'Arbres, bornes et LZW' : 'Trees, bounds and LZW',
+    start: 8,
+    lessons: text.lessons.slice(7),
+  },
+];
 const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
   output: 'htmlAndMathml',
   throwOnError: true,
@@ -76,26 +98,69 @@ const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
 
     <section
       id="parcours"
-      class="planned-section"
+      class="planned-section programme-section"
       aria-labelledby="information-outline"
     >
-      <div class="chapter-section-heading">
-        <h2 id="information-outline">{text.outline}</h2>
-        <p>{text.outlineNote}</p>
-      </div>
-      <ol class="planned-list chapter-lessons">
-        {text.lessons.map((lesson, index) => (
-          <li class="available-topic">
-            <span class="planned-number" aria-hidden="true">
-              {String(index + 1).padStart(2, '0')}
-            </span>
-            <a href={`/${locale}/lessons/${lesson.id}/`}>{lesson.title}</a>
-            <small class="planned-label">
-              {text.pages} {lesson.pages} · {text.upcoming}
-            </small>
-          </li>
-        ))}
-      </ol>
+      <ProgrammeDashboard
+        locale={locale}
+        chapterNumber="04"
+        chapterTitle={text.title}
+        headingId="information-outline"
+        title={text.outline}
+        intro={
+          locale === 'fr'
+            ? `Des messages binaires à la compression LZW : ${text.lessons.length} leçons pour comprendre et mesurer la compression, étape par étape.`
+            : `From binary messages to LZW compression: ${text.lessons.length} lessons to understand and measure compression, step by step.`
+        }
+        lessons={text.lessons}
+        action={{
+          title: locale === 'fr' ? 'Coder avec Huffman' : 'Huffman coding',
+          description:
+            locale === 'fr'
+              ? 'Explorez un arbre de Huffman et comparez les longueurs des codes dans la leçon interactive.'
+              : 'Explore a Huffman tree and compare codeword lengths in the interactive lesson.',
+          href: `/${locale}/lessons/L49/`,
+          label: locale === 'fr' ? 'Explorer le codage' : 'Explore coding',
+        }}
+        jumps={lessonGroups.map((group, index) => ({
+          href: `#programme-C04-part-${index + 1}`,
+          label: group.title,
+        }))}
+      />
+      {lessonGroups.map((group, groupIndex) => (
+        <section
+          class="chapter-lesson-group programme-part"
+          id={`programme-C04-part-${groupIndex + 1}`}
+          aria-labelledby={`programme-C04-heading-${groupIndex + 1}`}
+        >
+          <h3 id={`programme-C04-heading-${groupIndex + 1}`}>{group.title}</h3>
+          <p class="programme-source">
+            {group.lessons.length} {locale === 'fr' ? 'leçons' : 'lessons'}
+          </p>
+          <ol class="planned-list chapter-lessons" start={group.start}>
+            {group.lessons.map((lesson, index) => (
+              <li class="available-topic">
+                <span class="planned-number" aria-hidden="true">
+                  {String(group.start + index).padStart(2, '0')}
+                </span>
+                <a href={`/${locale}/lessons/${lesson.id}/`}>
+                  {lesson.title}
+                  <span
+                    class="completion-badge"
+                    data-completion-badge={lesson.id}
+                    hidden
+                  >
+                    ✓ {completionCopy[locale].completed}
+                  </span>
+                </a>
+                <small class="planned-label">
+                  {text.pages} {lesson.pages} · {text.upcoming}
+                </small>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))}
     </section>
 
     <section class="practice-status" aria-labelledby="lzw-workshop-title">
