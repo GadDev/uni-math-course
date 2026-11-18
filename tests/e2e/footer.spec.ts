@@ -45,7 +45,7 @@ for (const locale of ['fr', 'en']) {
       );
     for (const href of links.filter((href) => href.startsWith('/'))) {
       expect(href.startsWith(`/${locale}/`)).toBe(true);
-      const [path, hash] = href.split('#');
+      const [path = href, hash] = href.split('#');
       const response = await request.get(path);
       expect(response.ok(), href).toBe(true);
       if (hash) {
