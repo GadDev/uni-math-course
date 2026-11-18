@@ -3,6 +3,7 @@ import 'katex/dist/katex.min.css';
 import '../styles/global.css';
 import '../styles/profile-menu.css';
 import '../styles/chapters.css';
+import Footer from '../components/Footer.astro';
 import ThemeInit from '../components/ThemeInit.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import '../styles/theme-toggle.css';
@@ -196,20 +197,7 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
     <div class="page">
       <slot />
     </div>
-    <footer class="site-footer">
-      <p>
-        <a href={`/${locale}/training-exams/`}>{examCopy[locale].nav}</a>
-      </p>
-      <p>{text.footer}</p>
-      <p>
-        <a href={'/' + locale + '/offline/'}>
-          {locale === 'fr' ? 'Étudier hors ligne' : 'Study offline'}
-        </a>
-      </p>
-      <p>
-        © 2026 · <a href="https://github.com/GadDev/uni-math-course">GadDev</a>
-      </p>
-    </footer>
+    <Footer locale={locale} />
     <script>
       import {
         clearPracticeDrafts,

@@ -1,0 +1,211 @@
+---
+import { copy, type Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const fr = locale === 'fr';
+const home = `/${locale}/`;
+const groups = [
+  {
+    title: fr ? 'Apprendre' : 'Learn',
+    links: [
+      { href: home, label: fr ? 'Programme et leçons' : 'Course and lessons' },
+      {
+        href: home + 'logic-workshop/',
+        label: fr ? 'Atelier de logique' : 'Logic workshop',
+      },
+      {
+        href: home + 'chapters/C04/lzw/',
+        label: fr ? 'Atelier LZW' : 'LZW workshop',
+      },
+      {
+        href: home + 'glossary/',
+        label: fr ? 'Glossaire des symboles' : 'Symbol glossary',
+      },
+    ],
+  },
+  {
+    title: fr ? 'Réviser et s’entraîner' : 'Revise and practise',
+    links: [
+      {
+        href: home + 'training-exams/',
+        label: fr ? 'Examens blancs' : 'Practice exams',
+      },
+      {
+        href: home + 'cheat-sheet/',
+        label: fr ? 'Fiche mémo' : 'Quick reference',
+      },
+      {
+        href: home + 'exercises/',
+        label: fr ? 'Cahiers d’exercices · PDF' : 'Exercise books · PDF',
+      },
+      {
+        href: home + 'exercises/#revision-pdfs',
+        label: fr
+          ? 'Guides pour l’examen · PDF'
+          : 'Exam guides · PDF in French',
+      },
+    ],
+  },
+  {
+    title: fr ? 'Aide et informations' : 'Help and information',
+    links: [
+      {
+        href: home + 'exercises/#how-to-use',
+        label: fr ? 'Utiliser les cahiers' : 'Using the exercise books',
+      },
+      {
+        href: home + 'offline/',
+        label: fr ? 'Étudier hors ligne' : 'Study offline',
+      },
+      {
+        href: 'https://github.com/GadDev/uni-math-course/issues',
+        label: fr
+          ? 'Signaler un problème (GitHub)'
+          : 'Report an issue (GitHub)',
+      },
+    ],
+  },
+];
+---
+
+<footer class="site-footer">
+  <div class="footer-intro">
+    <a class="footer-brand" href={home}>
+      Uni Math Course
+    </a>
+    <p>
+      {fr
+        ? 'Comprendre. Essayer. Progresser.'
+        : 'Understand. Try. Make progress.'}
+    </p>
+    <p>
+      {fr
+        ? 'Leçons, ateliers et révisions en français et en anglais.'
+        : 'Lessons, workshops and revision in French and English.'}
+    </p>
+  </div>
+  <nav
+    class="footer-resources"
+    aria-label={fr ? 'Ressources et aide' : 'Resources and help'}
+  >
+    {groups.map((group) => (
+      <div>
+        <h2>{group.title}</h2>
+        <ul>
+          {group.links.map((link) => (
+            <li>
+              <a href={link.href}>{link.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </nav>
+  <div class="footer-meta">
+    <p>{copy[locale].footer}</p>
+    <a href="https://github.com/GadDev/uni-math-course">
+      {fr ? 'Projet sur GitHub' : 'Project on GitHub'} · GadDev
+    </a>
+  </div>
+</footer>
+<style>
+  .site-footer {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: minmax(12rem, 1fr) 3fr;
+    gap: 2rem 3rem;
+    color: var(--ink);
+    font-size: 1rem;
+  }
+  .footer-intro p {
+    margin: 0.75rem 0 0;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .footer-brand {
+    font-family: 'Anton', sans-serif;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+  .footer-resources {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  h2 {
+    font: inherit;
+    font-weight: 700;
+    margin: 0 0 0.75rem;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    margin: 0;
+  }
+  li a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.5rem 0;
+    line-height: 1.5;
+  }
+  a {
+    color: inherit;
+    text-underline-offset: 0.2em;
+    overflow-wrap: anywhere;
+  }
+  a:hover {
+    color: var(--accent);
+  }
+  a:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+  .footer-meta {
+    grid-column: 1/-1;
+    border-top: 1px solid var(--soft-line);
+    padding-top: 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    color: var(--muted);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+  .footer-meta p {
+    margin: 0;
+    max-width: 42rem;
+  }
+  @media (max-width: 1000px) {
+    .site-footer {
+      grid-template-columns: 1fr;
+      padding: 2rem 1.5rem;
+    }
+  }
+  @media (max-width: 600px) {
+    .site-footer {
+      padding: 2rem 1rem;
+    }
+    .footer-resources {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+    .footer-meta {
+      flex-direction: column;
+    }
+  }
+  @media print {
+    .site-footer {
+      display: none !important;
+    }
+  }
+</style>
