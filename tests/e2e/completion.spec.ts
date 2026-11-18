@@ -48,8 +48,8 @@ for (const chapter of [
     id: 'C04',
     first: 'L43',
     next: 'L44',
-    total: 12,
-    percent: '8 %',
+    total: 15,
+    percent: '7 %',
     groups: 3,
   },
 ]) {

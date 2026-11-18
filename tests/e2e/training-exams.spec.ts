@@ -80,9 +80,14 @@ for (const locale of ['fr', 'en']) {
       await page.goto(
         chapter === 'C01' ? `/${locale}/` : `/${locale}/chapters/${chapter}/`,
       );
-      await expect(
-        page.locator(`a[href="/${locale}/training-exams/#${chapter}"]`),
-      ).toBeVisible();
+      const examLink = page.locator(
+        `section[aria-labelledby="mock-${chapter}"] a.primary-link`,
+      );
+      await expect(examLink).toHaveAttribute(
+        'href',
+        `/${locale}/training-exams/#${chapter}`,
+      );
+      await expect(examLink).toBeVisible();
     }
   });
 

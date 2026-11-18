@@ -29,8 +29,7 @@ const lessonGroups = [
     lessons: text.lessons.slice(3, 7),
   },
   {
-    title:
-      locale === 'fr' ? 'Arbres, bornes et blocs' : 'Trees, bounds and blocks',
+    title: locale === 'fr' ? 'Arbres, bornes et LZW' : 'Trees, bounds and LZW',
     start: 8,
     lessons: text.lessons.slice(7),
   },
@@ -110,8 +109,8 @@ const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
         title={text.outline}
         intro={
           locale === 'fr'
-            ? 'Des messages binaires aux bornes de Shannon : douze leçons pour comprendre et mesurer la compression, étape par étape.'
-            : 'From binary messages to Shannon’s bounds: twelve lessons to understand and measure compression, step by step.'
+            ? `Des messages binaires à la compression LZW : ${text.lessons.length} leçons pour comprendre et mesurer la compression, étape par étape.`
+            : `From binary messages to LZW compression: ${text.lessons.length} lessons to understand and measure compression, step by step.`
         }
         lessons={text.lessons}
         action={{
