@@ -166,7 +166,10 @@ for (const locale of ['fr', 'en']) {
   }) => {
     await page.setViewportSize({ width: 320, height: 850 });
     await page.goto(`/${locale}/chapters/C04/`);
-    await page.locator(`a[href="/${locale}/chapters/C04/lzw/"]`).click();
+    await page
+      .getByRole('main')
+      .locator(`a[href="/${locale}/chapters/C04/lzw/"]`)
+      .click();
     await expect(page.locator('.chapter-option[aria-current]')).toHaveAttribute(
       'data-chapter',
       'C04',
