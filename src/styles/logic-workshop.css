@@ -1,0 +1,327 @@
+.logic-page {
+  --logic-panel: light-dark(#fffefa, #222823);
+  --logic-tint: light-dark(#eaf0e8, #253a32);
+  --logic-rule: light-dark(#c4ccc2, #56665d);
+  padding: clamp(2.25rem, 6vw, 5rem) 0 4rem;
+}
+
+.logic-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  align-items: end;
+  gap: clamp(1.5rem, 5vw, 4rem);
+  padding-bottom: clamp(2rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.logic-hero h1 {
+  max-width: 16ch;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.03;
+  margin: 0.6rem 0 1rem;
+}
+
+.logic-course {
+  color: var(--muted);
+  text-underline-offset: 0.2em;
+}
+
+.logic-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.35rem;
+}
+
+.logic-sample {
+  padding: clamp(0.85rem, 3vw, 1.6rem);
+  background: var(--logic-tint);
+  border: 1px solid var(--logic-rule);
+  border-top: 3px solid var(--ink);
+}
+
+.logic-page table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.logic-sample caption {
+  padding-bottom: 0.7rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.logic-page td,
+.logic-page th {
+  text-align: center;
+  padding: 0.55rem 0.6rem;
+  border-bottom: 1px solid var(--logic-rule);
+}
+
+.logic-sample p {
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+.logic-emphasis {
+  background: var(--logic-panel);
+  font-weight: 700;
+}
+
+.logic-review,
+.logic-practice {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.logic-topics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.logic-topics article,
+.logic-practice {
+  border: 1px solid var(--logic-rule);
+  background: var(--logic-panel);
+  padding: clamp(1rem, 3.8vw, 2rem);
+}
+
+.logic-topics h3,
+.logic-practice h2 {
+  margin-top: 0;
+}
+
+.logic-page summary {
+  cursor: pointer;
+  font-weight: 650;
+  padding: 0.25rem 0;
+}
+
+.logic-page details > p {
+  margin-bottom: 0.5rem;
+}
+
+.logic-reference {
+  padding: 0.8rem 0;
+  margin-top: 0.75rem;
+}
+
+.logic-reference th {
+  text-align: left;
+  width: 42%;
+}
+
+.logic-reference td {
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.logic-reference small {
+  display: block;
+  color: var(--muted);
+}
+
+.logic-practice {
+  max-width: 54rem;
+  scroll-margin-top: 1rem;
+  margin-inline: auto;
+}
+
+.logic-setup {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 24rem);
+  align-items: center;
+  gap: 0.85rem 1rem;
+}
+
+.logic-setup button {
+  grid-column: 2;
+  justify-self: start;
+}
+
+.logic-page :is(button, input, select) {
+  font: inherit;
+  color: inherit;
+}
+
+.logic-page
+  :is(select, .logic-formula, .logic-symbols button, .logic-secondary) {
+  min-height: 2.65rem;
+  border: 1px solid var(--logic-rule);
+  border-radius: 0.15rem;
+  background: var(--logic-panel);
+  padding: 0.35rem 0.65rem;
+}
+
+.logic-page :is(select, .logic-formula) {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.logic-page :is(a, button, input, select, summary):focus-visible,
+.logic-page label:has(input:focus-visible) {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.logic-page button {
+  cursor: pointer;
+}
+
+.logic-page button:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.logic-page .logic-action {
+  min-height: 2.75rem;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  color: var(--paper);
+  padding: 0.45rem 0.9rem;
+  font-weight: 700;
+}
+
+.logic-practice form > .logic-action,
+.logic-feedback + .logic-action {
+  margin-top: 0.9rem;
+}
+
+.logic-progress {
+  display: flex;
+  gap: 0.5rem 1rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 0.93rem;
+}
+
+.logic-practice progress {
+  width: 100%;
+  height: 0.55rem;
+  accent-color: var(--accent);
+}
+
+.logic-practice h3 {
+  margin-bottom: 0.45rem;
+}
+
+.logic-practice fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.logic-detail {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.logic-options {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.logic-options label {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--logic-rule);
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+.logic-options label:has(:checked) {
+  background: var(--logic-tint);
+  border-color: var(--line);
+}
+
+.logic-options input {
+  margin: 0;
+  accent-color: var(--ink);
+  flex: none;
+}
+
+.logic-symbols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.logic-symbols button {
+  min-width: 2.5rem;
+}
+
+.logic-formula {
+  width: 100%;
+}
+
+.logic-table-scroll {
+  overflow-x: auto;
+}
+
+.logic-practice .logic-table-scroll th {
+  overflow-wrap: anywhere;
+}
+
+.logic-row-error {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.logic-page tr[data-review] {
+  background: var(--logic-tint);
+}
+
+.logic-feedback {
+  margin: 0.95rem 0;
+  padding: 0.8rem 1rem;
+  border-left: 3px solid var(--line);
+  background: var(--logic-tint);
+}
+
+.logic-feedback p:last-child {
+  margin-bottom: 0;
+}
+
+.logic-complete dl {
+  display: flex;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
+}
+
+.logic-complete dd {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.logic-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 44rem) {
+  .logic-hero,
+  .logic-topics,
+  .logic-setup {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .logic-setup button {
+    grid-column: auto;
+  }
+
+  .logic-practice td,
+  .logic-practice th {
+    padding-inline: 0.35rem;
+  }
+}
