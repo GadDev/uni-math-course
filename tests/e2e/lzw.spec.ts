@@ -208,7 +208,11 @@ test('LZW reading and workshop lesson links remain accessible without JavaScript
   const page = await context.newPage();
   try {
     await page.goto('http://127.0.0.1:4321/fr/chapters/C04/lzw/');
-    await expect(page.locator('noscript')).toContainText('Activez JavaScript');
+    // Playwright excludes NOSCRIPT wrappers from its text matcher. Assert the
+    // rendered fallback paragraph, including visibility with scripting disabled.
+    const fallback = page.locator('noscript p');
+    await expect(fallback).toBeVisible();
+    await expect(fallback).toContainText('Activez JavaScript');
     await page
       .getByRole('link', { name: '3. Cas particulier et bilan' })
       .click();
