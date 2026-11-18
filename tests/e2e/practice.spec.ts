@@ -42,6 +42,9 @@ test('practice sends skipped questions back into the flow, then ends with a bili
   await steps.last().click();
   await page.locator(`input[value="${bank.at(-1).answer}"]`).check();
   await submit.click();
+  await expect(
+    page.getByText(`${bank.length - 1} required exercises remain.`),
+  ).toBeVisible();
   await expect(finish).toHaveCount(0);
   await next.click();
   await expect(steps.first()).toHaveAttribute('aria-current', 'step');
@@ -79,6 +82,9 @@ test('practice sends skipped questions back into the flow, then ends with a bili
     page.getByRole('link', { name: 'View my progress' }),
   ).toHaveAttribute('href', '/en/progress/');
   await expect(
+    page.getByRole('link', { name: 'Review the lesson' }),
+  ).toHaveAttribute('href', '/en/lessons/L05/');
+  await expect(
     page.getByRole('link', { name: /^Next lesson/ }),
   ).toHaveAttribute('href', '/en/lessons/L06/');
   expect(
@@ -100,7 +106,7 @@ test('practice sends skipped questions back into the flow, then ends with a bili
   await expect(page.locator('.pp-feedback.is-wrong')).toBeVisible();
 });
 
-test('chapter-end practice offers optional work and a chapter exit', async ({
+test('chapter-end practice waits for save confirmation and offers optional work and a chapter exit', async ({
   page,
   context,
 }) => {
@@ -114,10 +120,29 @@ test('chapter-end practice offers optional work and a chapter exit', async ({
     }),
   );
   await page.goto('/en/lessons/L36/practice/');
+  const finish = page.getByRole('button', { name: 'View practice summary' });
+  // The server saves the final required answer, but the client loses the response.
+  await page.route(
+    '**/api/attempts/',
+    async (route) => {
+      await route.fetch();
+      await route.abort();
+    },
+    { times: 1 },
+  );
   for (const optional of [false, true]) {
     await page.locator('.pp-question input').first().check();
     await page.getByRole('button', { name: 'Check my answer' }).click();
-    await page.getByRole('button', { name: 'View practice summary' }).click();
+    if (!optional) {
+      await expect(page.getByRole('alert')).toContainText(
+        'We couldn’t confirm whether your answer was saved.',
+      );
+      await expect(page.locator('.pp-question input:checked')).toBeDisabled();
+      await expect(finish).toHaveCount(0);
+      await page.getByRole('button', { name: 'Check saved response' }).click();
+    }
+    await expect(page.locator('.pp-explanation')).toBeVisible();
+    await finish.click();
     await expect(
       page.getByRole('heading', { name: 'Practice complete' }),
     ).toBeFocused();

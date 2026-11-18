@@ -109,6 +109,10 @@ const text = {
     right: 'Correct',
     again: 'Réessayer cet exercice',
     next: 'Exercice suivant',
+    remaining: (count: number) =>
+      count === 1
+        ? 'Il reste 1 exercice requis.'
+        : `Il reste ${count} exercices requis.`,
     finish: 'Voir le bilan',
     summaryTitle: 'Pratique terminée',
     summarySubtitle: 'Bravo, vous avez répondu à tous les exercices requis.',
@@ -191,6 +195,10 @@ const text = {
     right: 'Correct',
     again: 'Try this exercise again',
     next: 'Next exercise',
+    remaining: (count: number) =>
+      count === 1
+        ? '1 required exercise remains.'
+        : `${count} required exercises remain.`,
     finish: 'View practice summary',
     summaryTitle: 'Practice complete',
     summarySubtitle: 'Nice work! You answered all the required exercises.',
@@ -475,7 +483,7 @@ export default function PracticeActivity({
           requested < 0 &&
           reloadExerciseId === undefined &&
           data.exercises.every(
-            (item) => item.scope === 'extension' || restored[item.id].result,
+            (item) => item.scope === 'extension' || restored[item.id]?.result,
           ),
       );
       setCurrent(
@@ -873,6 +881,12 @@ export default function PracticeActivity({
             >
               {t.progress}
             </a>
+            <a
+              className="pp-button pp-button-outline"
+              href={`/${locale}/lessons/${lessonId}/`}
+            >
+              {t.lesson}
+            </a>
           </div>
         </div>
       )}
@@ -1225,6 +1239,9 @@ export default function PracticeActivity({
                   <p className="pp-retry-hint">
                     <Tex text={exercise.hint[locale] ?? ''} />
                   </p>
+                )}
+                {nextCore && exercises.indexOf(nextCore) < current && (
+                  <p className="pp-note">{t.remaining(coreRemaining.length)}</p>
                 )}
                 <div className="pp-actions">
                   <button
