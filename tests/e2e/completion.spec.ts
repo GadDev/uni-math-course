@@ -27,6 +27,98 @@ async function revisit(page: Page) {
 }
 const toggle = (page: Page) => page.locator('[data-completion-toggle]');
 
+for (const chapter of [
+  {
+    id: 'C02',
+    first: 'L21',
+    next: 'L22',
+    total: 16,
+    percent: '6 %',
+    groups: 5,
+  },
+  {
+    id: 'C03',
+    first: 'L37',
+    next: 'L38',
+    total: 6,
+    percent: '17 %',
+    groups: 3,
+  },
+  {
+    id: 'C04',
+    first: 'L43',
+    next: 'L44',
+    total: 12,
+    percent: '8 %',
+    groups: 3,
+  },
+]) {
+  for (const locale of ['fr', 'en'] as const) {
+    test(`programme dashboard scopes progress and navigation (${chapter.id}, ${locale})`, async ({
+      page,
+      context,
+    }) => {
+      const owner = await identify(context);
+      for (const lessonId of ['L01', chapter.first]) {
+        const response = await context.request.post(
+          '/api/lesson-completions/',
+          {
+            headers: { Origin: app },
+            data: { expectedLearnerId: owner, lessonId, completed: true },
+          },
+        );
+        expect(response.ok()).toBe(true);
+      }
+      await page.goto(`/${locale}/chapters/${chapter.id}/`);
+      await expect(page.locator('[data-completion-status]')).toHaveText(
+        locale === 'fr'
+          ? `1 leçon terminée sur ${chapter.total}`
+          : `1 of ${chapter.total} lessons completed`,
+      );
+      await expect(page.locator('[data-completion-percent]')).toHaveText(
+        chapter.percent,
+      );
+      await expect(page.locator('progress')).toHaveAttribute(
+        'max',
+        String(chapter.total),
+      );
+      await expect(page.locator('[data-completion-continue]')).toHaveAttribute(
+        'href',
+        `/${locale}/lessons/${chapter.next}/`,
+      );
+      await expect(
+        page.locator(`[data-completion-badge="${chapter.first}"]`),
+      ).toBeVisible();
+      await expect(page.locator('.programme-jumps a')).toHaveCount(
+        chapter.groups,
+      );
+      for (const width of [320, 960, 1440]) {
+        await page.setViewportSize({ width, height: 900 });
+        for (const theme of ['light', 'dark']) {
+          await page.evaluate((theme) => {
+            document.documentElement.dataset.theme = theme;
+          }, theme);
+          expect(
+            await page.evaluate(
+              () => document.documentElement.scrollWidth <= innerWidth,
+            ),
+          ).toBe(true);
+        }
+      }
+      const jump = page.locator('.programme-jumps a').last();
+      const target = await jump.getAttribute('href');
+      await jump.click();
+      await expect(page.locator(target!)).toBeInViewport();
+      const action = page.locator('.programme-workshop');
+      const href = await action.getAttribute('href');
+      await action.click();
+      if (href!.startsWith('#'))
+        await expect(page.locator(href!)).toBeInViewport();
+      else await expect(page).toHaveURL(app + href!);
+    });
+  }
+}
+
 for (const locale of ['fr', 'en'] as const) {
   test(`manual completion, reload, language switch, chapter counter and undo (${locale})`, async ({
     page,

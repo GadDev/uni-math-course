@@ -1,7 +1,6 @@
 ---
 import { workshopCopy } from '../../lib/logic-workshop/copy';
-import '../../styles/programme.css';
-import LessonCompletion from '../../components/LessonCompletion.astro';
+import ProgrammeDashboard from '../../components/ProgrammeDashboard.astro';
 import { completionCopy } from '../../lib/completion-copy';
 import TrainingExamLink from '../../components/TrainingExamLink.astro';
 import Base from '../../layouts/Base.astro';
@@ -109,109 +108,43 @@ const implication = katex.renderToString('A \\Rightarrow B', {
       class="planned-section programme-section"
       aria-labelledby="planned-title"
     >
-      <div class="programme-heading">
-        <div>
-          <p class="eyebrow">
-            {locale === 'fr'
-              ? 'CHAPITRE 01 · LOGIQUE ET ENSEMBLES'
-              : 'CHAPTER 01 · LOGIC AND SETS'}
-          </p>
-          <h2 id="planned-title">
-            {text.future}
-            <span class="signal-stop">.</span>
-          </h2>
-        </div>
-        <p class="programme-intro">
-          {locale === 'fr'
-            ? 'Trois étapes pour passer des idées aux symboles. Des explications pas à pas, des exemples et des exercices pour avancer à votre rythme.'
-            : 'Three stages from ideas to symbols. Step-by-step explanations, examples and exercises to work through at your own pace.'}
-        </p>
-      </div>
-      <div class="programme-dashboard">
-        <LessonCompletion
-          locale={locale}
-          lessonIds={text.programme
-            .map((topic) => topic.id)
-            .filter((id) => releasedIds.has(id))}
-          overviewLessons={text.programme.filter((topic) =>
-            releasedIds.has(topic.id),
-          )}
-        />
-        <a class="programme-workshop" href={`/${locale}/logic-workshop/`}>
-          <div class="programme-workshop-top">
-            <span class="eyebrow">
-              {locale === 'fr' ? 'METTRE EN PRATIQUE' : 'PUT IT INTO PRACTICE'}
-            </span>
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 48 48"
-              fill="none"
-              aria-hidden="true"
-            >
-              <rect
-                x="5"
-                y="5"
-                width="38"
-                height="38"
-                rx="2"
-                stroke="currentColor"
-              />
-              <path
-                d="M5 18H43M19 5V43M26 27L30 31L37 24M10 27H14M12 25V29M10 36H14"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-            </svg>
-          </div>
-          <h3>{workshopCopy.title[locale]}</h3>
-          <p>
-            {locale === 'fr'
-              ? 'Manipulez les formules, construisez vos tables de vérité et testez votre raisonnement.'
-              : 'Explore formulas, build truth tables and test your reasoning.'}
-          </p>
-          <span class="programme-workshop-cta">
-            {locale === 'fr' ? 'Ouvrir l’atelier' : 'Open the workshop'}{' '}
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M5 19L19 5M5 5H19V19"
-                stroke="currentColor"
-                stroke-width="2"
-              />
-            </svg>
-          </span>
-        </a>
-      </div>
-      <nav
-        class="programme-jumps"
-        aria-label={
-          locale === 'fr'
-            ? 'Les trois parties du chapitre'
-            : 'The three parts of the chapter'
+      <ProgrammeDashboard
+        locale={locale}
+        chapterNumber="01"
+        chapterTitle={
+          locale === 'fr' ? 'Logique et ensembles' : 'Logic and sets'
         }
-      >
-        {programmeParts.map((part, index) => (
-          <a href={`#programme-part-${index + 1}`}>
-            <span aria-hidden="true">0{index + 1}</span>
-            {locale === 'fr'
-              ? [
+        headingId="planned-title"
+        title={text.future}
+        intro={
+          locale === 'fr'
+            ? 'Trois étapes pour passer des idées aux symboles. Des explications pas à pas, des exemples et des exercices pour avancer à votre rythme.'
+            : 'Three stages from ideas to symbols. Step-by-step explanations, examples and exercises to work through at your own pace.'
+        }
+        lessons={text.programme.filter((topic) => releasedIds.has(topic.id))}
+        action={{
+          title: workshopCopy.title[locale],
+          description:
+            locale === 'fr'
+              ? 'Manipulez les formules, construisez vos tables de vérité et testez votre raisonnement.'
+              : 'Explore formulas, build truth tables and test your reasoning.',
+          href: `/${locale}/logic-workshop/`,
+          label: locale === 'fr' ? 'Ouvrir l’atelier' : 'Open the workshop',
+        }}
+        jumps={programmeParts.map((part, index) => ({
+          href: `#programme-part-${index + 1}`,
+          label:
+            locale === 'fr'
+              ? ([
                   'Logique propositionnelle',
                   'Théorie des ensembles',
                   'Applications IT',
-                ][index]
-              : ['Propositional logic', 'Set theory', 'IT applications'][index]}
-            <span class="programme-jump-arrow" aria-hidden="true">
-              ↓
-            </span>
-          </a>
-        ))}
-      </nav>
+                ][index] ?? part.title)
+              : (['Propositional logic', 'Set theory', 'IT applications'][
+                  index
+                ] ?? part.title),
+        }))}
+      />
       {programmeParts.map((part, index) => (
         <section
           class="programme-part"

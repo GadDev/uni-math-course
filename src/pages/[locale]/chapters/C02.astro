@@ -1,5 +1,5 @@
 ---
-import LessonCompletion from '../../../components/LessonCompletion.astro';
+import ProgrammeDashboard from '../../../components/ProgrammeDashboard.astro';
 import { completionCopy } from '../../../lib/completion-copy';
 import TrainingExamLink from '../../../components/TrainingExamLink.astro';
 import Base from '../../../layouts/Base.astro';
@@ -88,21 +88,63 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
     </section>
     <DroitesSourcePath locale={locale} />
     <section
-      class="planned-section"
+      class="planned-section programme-section"
       id="parcours"
       aria-labelledby="outline-title"
     >
-      <div class="chapter-section-heading">
-        <h2 id="outline-title">{text.outline}</h2>
-        <p>{text.outlineNote}</p>
-      </div>
-      <LessonCompletion
+      <ProgrammeDashboard
         locale={locale}
-        lessonIds={droitesGroups.flatMap((group) => group.lessonIds)}
+        chapterNumber="02"
+        chapterTitle={text.title}
+        headingId="outline-title"
+        title={text.outline}
+        intro={
+          locale === 'fr'
+            ? 'Cinq étapes pour calculer, tracer et modéliser. Retrouvez les 16 leçons et avancez à votre rythme.'
+            : 'Five stages to calculate, plot and model. Explore all 16 lessons and work at your own pace.'
+        }
+        lessons={droitesGroups.flatMap((group) =>
+          group.lessonIds.map((id) => ({ id, title: lessonData(id).title })),
+        )}
+        action={{
+          title:
+            locale === 'fr'
+              ? 'Un examen blanc sur les droites'
+              : 'A straight-lines mock exam',
+          description:
+            locale === 'fr'
+              ? 'Reliez les méthodes du chapitre dans un sujet de 20 questions. Comptez environ 60 minutes ; connectez-vous pour répondre.'
+              : 'Bring the chapter’s methods together in a 20-question paper. Allow around 60 minutes; sign in to answer.',
+          href: `/${locale}/training-exams/#C02`,
+          label:
+            locale === 'fr'
+              ? 'Préparer un examen blanc'
+              : 'Prepare a mock exam',
+        }}
+        jumps={droitesGroups.map((group, index) => ({
+          href: `#programme-C02-part-${index + 1}`,
+          label: group.title[locale],
+        }))}
       />
-      {droitesGroups.map((group) => (
-        <section class="chapter-lesson-group">
-          <h3>{group.title[locale]}</h3>
+      {droitesGroups.map((group, index) => (
+        <section
+          class="chapter-lesson-group programme-part"
+          id={`programme-C02-part-${index + 1}`}
+          aria-labelledby={`programme-C02-heading-${index + 1}`}
+        >
+          <h3 id={`programme-C02-heading-${index + 1}`}>
+            {group.title[locale]}
+          </h3>
+          <p class="programme-source">
+            {group.lessonIds.length}{' '}
+            {locale === 'fr'
+              ? Number(group.lessonIds.length) === 1
+                ? 'leçon'
+                : 'leçons'
+              : Number(group.lessonIds.length) === 1
+                ? 'lesson'
+                : 'lessons'}
+          </p>
           <ol class="planned-list chapter-lessons">
             {group.lessonIds.map((id) => (
               <li class="available-topic">
