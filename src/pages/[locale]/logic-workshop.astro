@@ -1,0 +1,153 @@
+---
+import Base from '../../layouts/Base.astro';
+import LogicWorkshop from '../../components/LogicWorkshop';
+import { locales } from '../../lib/i18n';
+import { evaluate, assignments } from '../../lib/l04-boolean';
+import { readFormula, display } from '../../lib/logic-workshop/formulas';
+import { lawTitles, rules } from '../../lib/logic-workshop/laws';
+import { topicCopy, workshopCopy } from '../../lib/logic-workshop/copy';
+import {
+  lessonForTopic,
+  referencePath,
+  topics,
+} from '../../lib/logic-workshop/types';
+import '../../styles/logic-workshop.css';
+
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+
+const { locale } = Astro.props;
+const t = (key: keyof typeof workshopCopy) => workshopCopy[key][locale];
+const advancedRule = rules.find(({ id }) => id === 'consensus')!;
+const comparison = ['A', 'B', 'A ⇒ B', 'A ⇔ B'].map(readFormula);
+const sampleRows = assignments(['A', 'B']).map((row) =>
+  comparison.map((formula) => Number(evaluate(formula, row))),
+);
+---
+
+<Base
+  locale={locale}
+  title={t('title')}
+  description={t('intro')}
+  path="logic-workshop/"
+>
+  <main id="main" tabindex="-1" class="logic-page">
+    <header class="logic-hero">
+      <div>
+        <a class="logic-course" href={`/${locale}/#planned-title`}>
+          {t('course')}
+        </a>
+        <h1>
+          {t('title')}
+          <span class="signal-stop">.</span>
+        </h1>
+        <p class="lede">{t('intro')}</p>
+        <div class="logic-actions">
+          <a class="primary-link" href="#practice">
+            {t('practice')} ↓
+          </a>
+          <a href={referencePath} download type="application/pdf" hreflang="fr">
+            {t('pdf')}
+          </a>
+        </div>
+      </div>
+      <div class="logic-sample">
+        <table>
+          <caption>
+            {locale === 'fr'
+              ? 'Deux connecteurs, quatre cas'
+              : 'Two connectives, four cases'}
+          </caption>
+          <thead>
+            <tr>
+              {comparison.map((term) => (
+                <th scope="col">{display(term)}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {sampleRows.map((row, index) => (
+              <tr class:list={{ 'logic-emphasis': index === 2 }}>
+                {row.map((value) => (
+                  <td>{value}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p>
+          {locale === 'fr'
+            ? '1 ⇒ 0 est le seul cas où l’implication vaut 0.'
+            : '1 ⇒ 0 is the only case where implication is false.'}
+        </p>
+      </div>
+    </header>
+
+    <section class="logic-review" aria-labelledby="logic-review-title">
+      <h2 id="logic-review-title">{t('review')}</h2>
+      <div class="logic-topics">
+        {topics.map((topic) => (
+          <article>
+            <h3>{topicCopy[topic].title[locale]}</h3>
+            <p>{topicCopy[topic].summary[locale]}</p>
+            <details>
+              <summary>{t('example')}</summary>
+              <p>{topicCopy[topic].example[locale]}</p>
+              <a href={`/${locale}/lessons/${lessonForTopic[topic]}/`}>
+                {locale === 'fr' ? 'Lire la leçon' : 'Read the lesson'} →
+              </a>
+            </details>
+          </article>
+        ))}
+      </div>
+      <details class="logic-reference">
+        <summary>{t('laws')}</summary>
+        <p>
+          {locale === 'fr'
+            ? '∨ (OU) se note aussi +, ∧ (ET) se note ·, et ¬A (NON A) se note A′. ⊤ vaut 1, ¬⊤ vaut 0.'
+            : '∨ (OR) can be written +, ∧ (AND) as ·, and ¬A (NOT A) as A′. ⊤ is 1 and ¬⊤ is 0.'}
+        </p>
+        <div class="logic-table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">{t('lawName')}</th>
+                <th scope="col">{t('rule')}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rules
+                .filter(({ id }) => id !== 'consensus')
+                .map(({ id, left, right }) => (
+                  <tr>
+                    <th scope="row">{lawTitles[id][locale]}</th>
+                    <td>
+                      {display(left)} ≡ {display(right)}
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <details class="logic-reference">
+        <summary>
+          {t('advanced')} · {lawTitles.consensus[locale]}
+        </summary>
+        <p>
+          {display(advancedRule.left)} ≡ {display(advancedRule.right)}
+        </p>
+        <p>
+          {locale === 'fr'
+            ? 'Si B et C valent 1, l’un des deux premiers termes vaut déjà 1, que A soit vrai ou faux. Le troisième terme est donc redondant.'
+            : 'When B and C are both true, one of the first two terms is already true regardless of A. The third term is therefore redundant.'}
+        </p>
+      </details>
+    </section>
+    <LogicWorkshop locale={locale} client:load />
+    <noscript>
+      <p>{t('noJs')}</p>
+    </noscript>
+  </main>
+</Base>
