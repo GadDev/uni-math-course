@@ -164,6 +164,29 @@ const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
       ))}
     </section>
 
+    <section class="practice-status" aria-labelledby="lzw-workshop-title">
+      <div class="practice-copy">
+        <p class="eyebrow">
+          {locale === 'fr'
+            ? 'Laboratoire public · L55–L57'
+            : 'Public laboratory · L55–L57'}
+        </p>
+        <h2 id="lzw-workshop-title">
+          {locale === 'fr'
+            ? 'Construisez votre dictionnaire LZW'
+            : 'Build your LZW dictionary'}
+        </h2>
+        <p>
+          {locale === 'fr'
+            ? 'Explorez les exemples, complétez une étape à la fois, puis encodez et décodez des messages en autonomie.'
+            : 'Explore examples, complete one step at a time, then encode and decode messages independently.'}
+        </p>
+        <a class="primary-link" href={`/${locale}/chapters/C04/lzw/`}>
+          {locale === 'fr' ? 'Ouvrir l’atelier LZW' : 'Open the LZW workshop'} →
+        </a>
+      </div>
+    </section>
+
     <section class="chapter-objectives" aria-labelledby="information-goals">
       <h2 id="information-goals">{text.goals}</h2>
       <ol>

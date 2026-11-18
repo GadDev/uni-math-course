@@ -1,0 +1,56 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import LzwWorkshop from '../../../../components/LzwWorkshop';
+import { locales } from '../../../../lib/i18n';
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+const { locale } = Astro.props;
+const fr = locale === 'fr';
+const title = fr
+  ? 'Atelier LZW : encoder et décoder'
+  : 'LZW workshop: encode and decode';
+---
+
+<Base
+  locale={locale}
+  title={title}
+  description={
+    fr
+      ? 'Construire un dictionnaire LZW, lettre après lettre, puis pratiquer sur des messages reproductibles.'
+      : 'Build an LZW dictionary one letter at a time, then practise on reproducible messages.'
+  }
+  path="chapters/C04/lzw/"
+>
+  <main id="main" tabindex="-1" class="lzw-page" data-chapter="C04">
+    <a href={`/${locale}/chapters/C04/`}>← {fr ? 'Chapitre 4' : 'Chapter 4'}</a>
+    <p class="eyebrow">
+      {fr
+        ? 'Laboratoire de compression / L55–L57'
+        : 'Compression laboratory / L55–L57'}
+    </p>
+    <h1>{title}</h1>
+    <p>
+      {fr
+        ? 'Du premier symbole au dernier code : comprenez chaque décision du dictionnaire.'
+        : 'From the first symbol to the last code: understand every dictionary decision.'}
+    </p>
+    <nav aria-label={fr ? 'Leçons LZW' : 'LZW lessons'}>
+      <a href={`/${locale}/lessons/L55/`}>{fr ? '1. Encoder' : '1. Encode'}</a>{' '}
+      ·{' '}
+      <a href={`/${locale}/lessons/L56/`}>{fr ? '2. Décoder' : '2. Decode'}</a>{' '}
+      ·{' '}
+      <a href={`/${locale}/lessons/L57/`}>
+        {fr ? '3. Cas particulier et bilan' : '3. Special case and costs'}
+      </a>
+    </nav>
+    <LzwWorkshop locale={locale} client:load />
+    <noscript>
+      <p>
+        {fr
+          ? 'Activez JavaScript pour pratiquer. Les leçons ci-dessus restent lisibles et contiennent les exemples et corrigés complets.'
+          : 'Enable JavaScript to practise. The lessons above remain readable and contain complete examples and solutions.'}
+      </p>
+    </noscript>
+  </main>
+</Base>

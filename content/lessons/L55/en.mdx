@@ -1,0 +1,88 @@
+---
+lessonId: L55
+locale: en
+version: 1
+status: extended
+title: "LZW: build a dictionary and encode"
+summary: "Read the longest known phrase, emit its code and learn a new string."
+minutes: 25
+objectives: [L55-O01, L55-O02, L55-O03, L55-O04, L55-O05, L55-O06]
+prerequisites: [L43, L49, L54]
+sourcePages: [61, 62, 63, 64, 65, 66, 67, 68]
+---
+
+# A dictionary that learns while reading
+
+With Huffman, each symbol has a codeword built from probabilities. LZW instead learns **variable-length phrases** as it reads. Think of a notebook of shortcuts: an already learned string can be replaced by its number.
+
+**Source: `coding.pdf`, physical pages 61–68, “Algorithme LZW” section.** The supplied PDF has 93 pages; repeated pages are slide animation stages, not separate lessons. Page 60 bridges from Shannon.
+
+## Objectives and prerequisites
+
+You will distinguish alphabet from dictionary, read initial codes, choose the longest known phrase, decide when to emit, add an entry and finish correctly. Prerequisites: [L43](/en/lessons/L43/), [L49](/en/lessons/L49/) and [L54](/en/lessons/L54/).
+
+## 01 · The language of the method
+
+A **symbol** is a letter in the initial alphabet. A **string** is a sequence of symbols; it may have length greater than 1. The **dictionary** associates strings with **codes**, here positive integers. A code is an index, not yet a binary word.
+
+The alphabet and its code order are shared initially. For `BANANABANANA`, the professor uses `A=1, B=2, N=3`. The first new string gets 4, then 5, and so on. Changing the initial order changes the encoded sequence.
+
+Unlike the fixed-size blocks in L54, LZW does not choose all possible phrases in advance. It needs no letter probabilities.
+
+## 02 · A decision for each new letter
+
+Variable **w** contains the current known phrase. Variable **c** is the next letter read. **wc** means “concatenate w and c”: `AN` followed by `A` gives `ANA`, not a product.
+
+1. Start with the letter dictionary and put the first letter in w.
+2. Read c and look up wc in the dictionary.
+3. If wc exists, extend w to wc. **Emit nothing and add nothing.**
+4. Otherwise, emit the code of w, add wc at the next free index and restart with w := c.
+5. When no letters remain, emit the code of the final w. **Do not invent a final addition.**
+
+Why does this work? While wc exists, we can extend the known phrase. At the first failure, w is the longest known phrase at the current point. Emit its code before restarting from c, which has already been read but is not lost.
+
+## 03 · Complete example: BANANABANANA
+
+Initially: `A=1, B=2, N=3`, so w is B. “—” means no output or no addition.
+
+| w before | c | wc known? | Emitted code | Addition |
+| --- | --- | --- | --- | --- |
+| B | A | No | 2 | BA=4 |
+| A | N | No | 1 | AN=5 |
+| N | A | No | 3 | NA=6 |
+| A | N | Yes | — | — |
+| AN | A | No | 5 | ANA=7 |
+| A | B | No | 1 | AB=8 |
+| B | A | Yes | — | — |
+| BA | N | No | 4 | BAN=9 |
+| N | A | Yes | — | — |
+| NA | N | No | 6 | NAN=10 |
+| N | A | Yes | — | — |
+| NA | end | — | 6 | — |
+
+Result: **2 1 3 5 1 4 6 6**. Emitted chunks are `B · A · N · AN · A · BA · NA · NA`. Concatenating them reproduces the message exactly. Beware: 12 letters become 8 codes; this alone does not establish a gain in bits.
+
+## 04 · Predict, then experiment
+
+Before moving forward, ask: “Does wc already exist?” Also try `LALALALALA` with `A=1, L=2`. Phrases grow and the expected codes are `2 1 3 5 4 1`.
+
+[Open the LZW workshop: explore, get guidance, then practise for the exam](/en/chapters/C04/lzw/).
+
+## Progressive exercises and solutions
+
+1. **Starter.** With `A=1, B=2`, encode `AB`. Give the addition too.
+2. **Application.** With `A=1, N=2, S=3`, encode `ANANAS`, showing every decision.
+3. **Challenge.** With `A=1`, encode `AAAAAA`. Explain why some reads emit nothing.
+
+<details className="info-answer">
+<summary>Justified solutions</summary>
+
+1. `AB` is absent: emit 1 and add `AB=3`. At the end, emit 2. Result `1 2`; no addition after the end.
+2. `AN` absent: 1, add `AN=4`; `NA` absent: 2, add `NA=5`; `AN` known: no output; `ANA` absent: 4, add `ANA=6`; `AS` absent: 1, add `AS=7`; end: 3. Result `1 2 4 1 3`.
+3. Result `1 2 3`, chunks `A · AA · AAA`. The only additions are `AA=2` and `AAA=3`. When the extended string is known, continue reading instead of emitting too early.
+
+</details>
+
+## Remember and continue
+
+Emit the code of **w**, add **wc**, restart from **c**. When wc is known, extend without output. At the end, flush the final phrase. In [L56](/en/lessons/L56/), the decoder reconstructs this dictionary without receiving new entries.

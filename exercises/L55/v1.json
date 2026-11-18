@@ -1,0 +1,535 @@
+{
+  "lessonId": "L55",
+  "version": 1,
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L55-E01",
+      "lessonId": "L55",
+      "version": 1,
+      "objectiveId": "L55-O01",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Que représente le code 4 ajouté pour BA dans un dictionnaire LZW ?",
+        "en": "What does code 4 added for BA represent in an LZW dictionary?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Un numéro associé à la chaîne BA",
+            "en": "An index associated with string BA"
+          },
+          "feedback": {
+            "fr": "Le code est un entier qui désigne une chaîne. Sa largeur binaire dépend d’une convention séparée.",
+            "en": "The code is an integer identifying a string. Its binary width depends on a separate convention."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Quatre bits obligatoires",
+            "en": "Exactly four bits"
+          },
+          "feedback": {
+            "fr": "Le code est un entier qui désigne une chaîne. Sa largeur binaire dépend d’une convention séparée.",
+            "en": "The code is an integer identifying a string. Its binary width depends on a separate convention."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "La probabilité de BA",
+            "en": "The probability of BA"
+          },
+          "feedback": {
+            "fr": "Le code est un entier qui désigne une chaîne. Sa largeur binaire dépend d’une convention séparée.",
+            "en": "The code is an integer identifying a string. Its binary width depends on a separate convention."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le code est un entier qui désigne une chaîne. Sa largeur binaire dépend d’une convention séparée.",
+        "en": "The code is an integer identifying a string. Its binary width depends on a separate convention."
+      },
+      "prerequisites": [
+        "L43",
+        "L49",
+        "L54"
+      ],
+      "misconceptions": [
+        "lzw-55-objective-1"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; AI-assisted mathematical and bilingual author self-check documented in docs/content/LZW_REVIEW.md."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L55-E02",
+      "lessonId": "L55",
+      "version": 1,
+      "objectiveId": "L55-O02",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec A=1, B=2, quel code émet-on en premier pour BA ?",
+        "en": "With A=1, B=2, which code is emitted first for BA?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "3",
+            "en": "3"
+          },
+          "feedback": {
+            "fr": "w=B et c=A : BA est absent. On émet le code de B, soit 2, puis on ajoute BA=3.",
+            "en": "w=B and c=A: BA is absent. Emit the code of B, which is 2, then add BA=3."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "2",
+            "en": "2"
+          },
+          "feedback": {
+            "fr": "w=B et c=A : BA est absent. On émet le code de B, soit 2, puis on ajoute BA=3.",
+            "en": "w=B and c=A: BA is absent. Emit the code of B, which is 2, then add BA=3."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "1",
+            "en": "1"
+          },
+          "feedback": {
+            "fr": "w=B et c=A : BA est absent. On émet le code de B, soit 2, puis on ajoute BA=3.",
+            "en": "w=B and c=A: BA is absent. Emit the code of B, which is 2, then add BA=3."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "w=B et c=A : BA est absent. On émet le code de B, soit 2, puis on ajoute BA=3.",
+        "en": "w=B and c=A: BA is absent. Emit the code of B, which is 2, then add BA=3."
+      },
+      "prerequisites": [
+        "L43",
+        "L49",
+        "L54"
+      ],
+      "misconceptions": [
+        "lzw-55-objective-2"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; AI-assisted mathematical and bilingual author self-check documented in docs/content/LZW_REVIEW.md."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L55-E03",
+      "lessonId": "L55",
+      "version": 1,
+      "objectiveId": "L55-O03",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le dictionnaire contient A=1, B=2 et AB=3. Pour w=A et c=B, que faire ?",
+        "en": "The dictionary contains A=1, B=2 and AB=3. With w=A and c=B, what happens?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Émettre 3 immédiatement",
+            "en": "Emit 3 immediately"
+          },
+          "feedback": {
+            "fr": "AB est déjà connu. Prolonger le morceau permet de chercher le plus long morceau connu.",
+            "en": "AB is already known. Extending the phrase lets us seek the longest known phrase."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Ajouter AB sous un nouveau numéro",
+            "en": "Add AB at a new index"
+          },
+          "feedback": {
+            "fr": "AB est déjà connu. Prolonger le morceau permet de chercher le plus long morceau connu.",
+            "en": "AB is already known. Extending the phrase lets us seek the longest known phrase."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "w devient AB ; aucune sortie ni ajout",
+            "en": "w becomes AB; no output or addition"
+          },
+          "feedback": {
+            "fr": "AB est déjà connu. Prolonger le morceau permet de chercher le plus long morceau connu.",
+            "en": "AB is already known. Extending the phrase lets us seek the longest known phrase."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "AB est déjà connu. Prolonger le morceau permet de chercher le plus long morceau connu.",
+        "en": "AB is already known. Extending the phrase lets us seek the longest known phrase."
+      },
+      "prerequisites": [
+        "L43",
+        "L49",
+        "L54"
+      ],
+      "misconceptions": [
+        "lzw-55-objective-3"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; AI-assisted mathematical and bilingual author self-check documented in docs/content/LZW_REVIEW.md."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L55-E04",
+      "lessonId": "L55",
+      "version": 1,
+      "objectiveId": "L55-O04",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec A=1, B=2, w=AB et c=A, ABA est absent et le prochain numéro est 5. Quel ajout faire ?",
+        "en": "With A=1, B=2, w=AB and c=A, ABA is absent and the next index is 5. What is added?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "ABA=5",
+            "en": "ABA=5"
+          },
+          "feedback": {
+            "fr": "La nouvelle entrée est wc, donc AB suivi de A : ABA. On émet séparément le code existant de AB.",
+            "en": "The new entry is wc, hence AB followed by A: ABA. The existing code of AB is emitted separately."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "AB=5",
+            "en": "AB=5"
+          },
+          "feedback": {
+            "fr": "La nouvelle entrée est wc, donc AB suivi de A : ABA. On émet séparément le code existant de AB.",
+            "en": "The new entry is wc, hence AB followed by A: ABA. The existing code of AB is emitted separately."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "A=5",
+            "en": "A=5"
+          },
+          "feedback": {
+            "fr": "La nouvelle entrée est wc, donc AB suivi de A : ABA. On émet séparément le code existant de AB.",
+            "en": "The new entry is wc, hence AB followed by A: ABA. The existing code of AB is emitted separately."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "La nouvelle entrée est wc, donc AB suivi de A : ABA. On émet séparément le code existant de AB.",
+        "en": "The new entry is wc, hence AB followed by A: ABA. The existing code of AB is emitted separately."
+      },
+      "prerequisites": [
+        "L43",
+        "L49",
+        "L54"
+      ],
+      "misconceptions": [
+        "lzw-55-objective-4"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; AI-assisted mathematical and bilingual author self-check documented in docs/content/LZW_REVIEW.md."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L55-E05",
+      "lessonId": "L55",
+      "version": 1,
+      "objectiveId": "L55-O05",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec A=1, B=2, encoder le message d’une seule lettre B.",
+        "en": "With A=1, B=2, encode the single-letter message B."
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Sortie 2 et ajout BB=3",
+            "en": "Output 2 and addition BB=3"
+          },
+          "feedback": {
+            "fr": "Il n’y a pas de prochaine lettre. La règle de fin émet le code de w, sans nouvelle chaîne à ajouter.",
+            "en": "There is no next letter. The final rule emits the code of w, without a new string to add."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Sortie 2 ; aucun ajout",
+            "en": "Output 2; no addition"
+          },
+          "feedback": {
+            "fr": "Il n’y a pas de prochaine lettre. La règle de fin émet le code de w, sans nouvelle chaîne à ajouter.",
+            "en": "There is no next letter. The final rule emits the code of w, without a new string to add."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Aucune sortie",
+            "en": "No output"
+          },
+          "feedback": {
+            "fr": "Il n’y a pas de prochaine lettre. La règle de fin émet le code de w, sans nouvelle chaîne à ajouter.",
+            "en": "There is no next letter. The final rule emits the code of w, without a new string to add."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Il n’y a pas de prochaine lettre. La règle de fin émet le code de w, sans nouvelle chaîne à ajouter.",
+        "en": "There is no next letter. The final rule emits the code of w, without a new string to add."
+      },
+      "prerequisites": [
+        "L43",
+        "L49",
+        "L54"
+      ],
+      "misconceptions": [
+        "lzw-55-objective-5"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; AI-assisted mathematical and bilingual author self-check documented in docs/content/LZW_REVIEW.md."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L55-E06",
+      "lessonId": "L55",
+      "version": 1,
+      "objectiveId": "L55-O06",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec A=1, B=2, encoder ABA en respectant l’ajout final.",
+        "en": "With A=1, B=2, encode ABA with the correct final-addition rule."
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "1 2 3 ; ajout ABA=5 à la fin",
+            "en": "1 2 3; add ABA=5 at the end"
+          },
+          "feedback": {
+            "fr": "AB absent : 1, ajout AB=3. BA absent : 2, ajout BA=4. Dernier w=A : 1, sans ajout final.",
+            "en": "AB absent: 1, add AB=3. BA absent: 2, add BA=4. Final w=A: 1, with no final addition."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "1 3 ; aucun autre ajout",
+            "en": "1 3; no other addition"
+          },
+          "feedback": {
+            "fr": "AB absent : 1, ajout AB=3. BA absent : 2, ajout BA=4. Dernier w=A : 1, sans ajout final.",
+            "en": "AB absent: 1, add AB=3. BA absent: 2, add BA=4. Final w=A: 1, with no final addition."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "1 2 1 ; ajouts AB=3 et BA=4",
+            "en": "1 2 1; additions AB=3 and BA=4"
+          },
+          "feedback": {
+            "fr": "AB absent : 1, ajout AB=3. BA absent : 2, ajout BA=4. Dernier w=A : 1, sans ajout final.",
+            "en": "AB absent: 1, add AB=3. BA absent: 2, add BA=4. Final w=A: 1, with no final addition."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "AB absent : 1, ajout AB=3. BA absent : 2, ajout BA=4. Dernier w=A : 1, sans ajout final.",
+        "en": "AB absent: 1, add AB=3. BA absent: 2, add BA=4. Final w=A: 1, with no final addition."
+      },
+      "prerequisites": [
+        "L43",
+        "L49",
+        "L54"
+      ],
+      "misconceptions": [
+        "lzw-55-objective-6"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          61,
+          62,
+          63,
+          64,
+          65,
+          66,
+          67,
+          68
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; AI-assisted mathematical and bilingual author self-check documented in docs/content/LZW_REVIEW.md."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}
