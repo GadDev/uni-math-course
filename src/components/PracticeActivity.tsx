@@ -49,6 +49,7 @@ type Stored = {
   learner: string;
   currentExerciseId?: string;
   entries: Record<string, Entry>;
+  showSummary?: boolean;
 };
 type Phase = 'loading' | 'ready' | 'signin' | 'unavailable' | 'account-changed';
 
@@ -108,6 +109,16 @@ const text = {
     right: 'Correct',
     again: 'Réessayer cet exercice',
     next: 'Exercice suivant',
+    finish: 'Voir le bilan',
+    summaryTitle: 'Pratique terminée',
+    summarySubtitle: 'Bravo, vous avez répondu à tous les exercices requis.',
+    coreCorrect: 'Réponses justes sur le parcours principal',
+    coreReview: 'Exercices du parcours principal à revoir',
+    optionalProgress: 'Approfondissements facultatifs traités',
+    continueOptional: 'Faire les exercices facultatifs',
+    nextLesson: 'Leçon suivante',
+    chapter: 'Revenir au chapitre',
+    progress: 'Voir ma progression',
     reviews: 'Retrouver mes révisions',
     row: 'Ligne',
     result: 'Résultat',
@@ -180,6 +191,16 @@ const text = {
     right: 'Correct',
     again: 'Try this exercise again',
     next: 'Next exercise',
+    finish: 'View practice summary',
+    summaryTitle: 'Practice complete',
+    summarySubtitle: 'Nice work! You answered all the required exercises.',
+    coreCorrect: 'Correct answers in core practice',
+    coreReview: 'Core exercises to review',
+    optionalProgress: 'Optional exercises answered',
+    continueOptional: 'Do the optional exercises',
+    nextLesson: 'Next lesson',
+    chapter: 'Back to the chapter',
+    progress: 'View my progress',
     reviews: 'Find my reviews',
     row: 'Row',
     result: 'Result',
@@ -348,6 +369,8 @@ export default function PracticeActivity({
   exampleHref,
   hasExample,
   extended,
+  nextLesson,
+  chapterHref,
 }: {
   lessonId: string;
   initialData: { learner: string; exercises: Exercise[] };
@@ -357,6 +380,8 @@ export default function PracticeActivity({
   exampleHref: string;
   hasExample: boolean;
   extended: boolean;
+  nextLesson?: { href: string; title: string };
+  chapterHref: string;
 }) {
   const t = text[locale];
   const [phase, setPhase] = useState<Phase>('loading');
@@ -364,11 +389,14 @@ export default function PracticeActivity({
   const [exercises, setExercises] = useState<Exercise[]>([]);
   const [entries, setEntries] = useState<Record<string, Entry>>({});
   const [current, setCurrent] = useState(0);
+  const [showSummary, setShowSummary] = useState(false);
   const [busy, setBusy] = useState<string | null>(null);
   const [failed, setFailed] = useState<
     Record<string, 'error' | 'expired' | 'version'>
   >({});
   const feedbackHeading = useRef<HTMLHeadingElement>(null);
+  const activityHeading = useRef<HTMLHeadingElement>(null);
+  const focusActivity = useRef(false);
   const graded = useRef(false);
   const contextGeneration = useRef(0);
   const observedLearner = useRef<string | null | undefined>(undefined);
@@ -382,6 +410,7 @@ export default function PracticeActivity({
     setEntries({});
     setFailed({});
     setCurrent(0);
+    setShowSummary(false);
     graded.current = false;
     try {
       let data = initial;
@@ -413,21 +442,20 @@ export default function PracticeActivity({
       const mine = stored?.learner === data.learner ? stored.entries : {};
       if (stored && stored.learner !== data.learner)
         sessionStorage.removeItem(draftKey(lessonId));
+      const restored = Object.fromEntries(
+        data.exercises.map((exercise) => {
+          const previous = mine[exercise.id];
+          return [
+            exercise.id,
+            previous && previous.version === exercise.version
+              ? restoreEntry(exercise, previous)
+              : freshEntry(exercise.version),
+          ];
+        }),
+      );
       setLearner(data.learner);
       setExercises(data.exercises);
-      setEntries(
-        Object.fromEntries(
-          data.exercises.map((exercise) => {
-            const previous = mine[exercise.id];
-            return [
-              exercise.id,
-              previous && previous.version === exercise.version
-                ? restoreEntry(exercise, previous)
-                : freshEntry(exercise.version),
-            ];
-          }),
-        ),
-      );
+      setEntries(restored);
       const resumed = data.exercises.findIndex(
         (item) =>
           item.id === stored?.currentExerciseId &&
@@ -440,6 +468,15 @@ export default function PracticeActivity({
       );
       const reloaded = data.exercises.findIndex(
         (item) => item.id === reloadExerciseId,
+      );
+      setShowSummary(
+        stored?.learner === data.learner &&
+          stored.showSummary === true &&
+          requested < 0 &&
+          reloadExerciseId === undefined &&
+          data.exercises.every(
+            (item) => item.scope === 'extension' || restored[item.id].result,
+          ),
       );
       setCurrent(
         reloaded >= 0
@@ -479,10 +516,30 @@ export default function PracticeActivity({
         setFailed({});
         setBusy(null);
         setCurrent(0);
+        setShowSummary(false);
         graded.current = false;
       }),
     [learner],
   );
+
+  const coreExercises = exercises.filter((item) => item.scope !== 'extension');
+  const optionalExercises = exercises.filter(
+    (item) => item.scope === 'extension',
+  );
+  const coreRemaining = coreExercises.filter(
+    (item) => !entries[item.id]?.result,
+  );
+  const coreComplete = coreExercises.length > 0 && coreRemaining.length === 0;
+  const summary = phase === 'ready' && showSummary && coreComplete;
+  const nextOptional = optionalExercises.find(
+    (item) => !entries[item.id]?.result,
+  );
+  const coreCorrect = coreExercises.filter(
+    (item) => entries[item.id]?.result?.correct,
+  ).length;
+  const nextCore =
+    coreRemaining.find((item) => exercises.indexOf(item) > current) ??
+    coreRemaining[0];
 
   useEffect(() => {
     if (phase === 'ready' && learner)
@@ -490,11 +547,14 @@ export default function PracticeActivity({
         learner,
         entries,
         currentExerciseId: exercises[current]?.id,
+        showSummary: summary,
       });
-  }, [entries, learner, phase, current, exercises]);
+  }, [entries, learner, phase, current, exercises, summary]);
 
   const exercise = exercises[current];
   const entry = exercise ? entries[exercise.id] : undefined;
+  const nextExercise =
+    nextCore ?? (exercise?.scope === 'extension' ? nextOptional : undefined);
   const result = entry?.result ?? null;
   const awaitingSave = !!entry?.submission && !result;
   const shownAnswers =
@@ -506,9 +566,10 @@ export default function PracticeActivity({
   // its original target would override a newer selection on reload or translation.
   useEffect(() => {
     if (phase !== 'ready' || !exercise) return;
-    const target = requestedTarget
-      ? { exerciseId: exercise.id, version: exercise.version }
-      : null;
+    const target =
+      requestedTarget && !summary
+        ? { exerciseId: exercise.id, version: exercise.version }
+        : null;
     history.replaceState(
       history.state,
       '',
@@ -520,7 +581,12 @@ export default function PracticeActivity({
     );
     if (languageLink)
       languageLink.href = practiceHref(alternate, lessonId, target);
-  }, [phase, exercise, locale, lessonId, requestedTarget]);
+  }, [phase, exercise, locale, lessonId, requestedTarget, summary]);
+
+  useEffect(() => {
+    if (focusActivity.current) activityHeading.current?.focus();
+    focusActivity.current = false;
+  }, [summary, current]);
 
   // Announce the verdict by moving focus to the feedback heading.
   useEffect(() => {
@@ -532,9 +598,20 @@ export default function PracticeActivity({
   // surrounding page is server-rendered, so it is switched by a class.
   useEffect(() => {
     const page = document.querySelector('.practice-page');
-    page?.classList.toggle('is-feedback', !!result);
+    page?.classList.toggle('is-feedback', !!result && !summary);
     return () => page?.classList.remove('is-feedback');
-  }, [!!result]);
+  }, [!!result, summary]);
+
+  function openExercise(item: Exercise) {
+    focusActivity.current = true;
+    setCurrent(exercises.indexOf(item));
+    setShowSummary(false);
+  }
+
+  function finishPractice() {
+    focusActivity.current = true;
+    setShowSummary(true);
+  }
 
   const update = (id: string, change: (entry: Entry) => Entry) =>
     setEntries((all) => {
@@ -653,19 +730,23 @@ export default function PracticeActivity({
   })}`;
 
   const reviewing = result !== null && !result.correct;
-  const heading = !result
-    ? [t.title]
-    : result.correct
-      ? t.doneTitle
-      : t.reviewTitle;
-  const kicker = reviewing ? t.reviewKicker : t.kicker;
-  const subtitle = !result
-    ? exercise
-      ? `${difficultyLabels[locale][exercise.difficulty] ?? exercise.difficulty} · ${t.bankVersion} ${exercise.version}`
-      : t.subtitle
-    : result.correct
-      ? t.doneSubtitle
-      : t.reviewSubtitle;
+  const heading = summary
+    ? [t.summaryTitle]
+    : !result
+      ? [t.title]
+      : result.correct
+        ? t.doneTitle
+        : t.reviewTitle;
+  const kicker = reviewing && !summary ? t.reviewKicker : t.kicker;
+  const subtitle = summary
+    ? t.summarySubtitle
+    : !result
+      ? exercise
+        ? `${difficultyLabels[locale][exercise.difficulty] ?? exercise.difficulty} · ${t.bankVersion} ${exercise.version}`
+        : t.subtitle
+      : result.correct
+        ? t.doneSubtitle
+        : t.reviewSubtitle;
 
   const chosenOption =
     exercise?.type === 'single-choice'
@@ -674,7 +755,7 @@ export default function PracticeActivity({
 
   return (
     <section
-      className={`pp pp-state-${result ? 'feedback' : 'practice'}`}
+      className={`pp pp-state-${result && !summary ? 'feedback' : 'practice'}`}
       aria-labelledby="pp-title"
     >
       <header className="pp-header">
@@ -682,7 +763,13 @@ export default function PracticeActivity({
           <span className="pp-num">{lessonNumber}</span>
           <span className="pp-kicker-text"> / {kicker}</span>
         </p>
-        <h1 id="pp-title" className="pp-title">
+        <h1
+          id="pp-title"
+          className="pp-title"
+          ref={activityHeading}
+          tabIndex={-1}
+          aria-describedby={!result && exercise ? 'pp-count' : undefined}
+        >
           {heading.map((word, index) => (
             <span
               key={word}
@@ -737,7 +824,60 @@ export default function PracticeActivity({
         </div>
       )}
 
-      {phase === 'ready' && exercise && entry && (
+      {summary && (
+        <div className="pp-body pp-summary">
+          <dl className="pp-summary-stats">
+            <div>
+              <dt>{t.coreCorrect}</dt>
+              <dd>
+                {coreCorrect} / {coreExercises.length}
+              </dd>
+            </div>
+            <div>
+              <dt>{t.coreReview}</dt>
+              <dd>{coreExercises.length - coreCorrect}</dd>
+            </div>
+            {optionalExercises.length > 0 && (
+              <div>
+                <dt>{t.optionalProgress}</dt>
+                <dd>
+                  {
+                    optionalExercises.filter((item) => entries[item.id]?.result)
+                      .length
+                  }{' '}
+                  / {optionalExercises.length}
+                </dd>
+              </div>
+            )}
+          </dl>
+          <div className="pp-actions">
+            <a
+              className="pp-button pp-button-solid"
+              href={nextLesson?.href ?? chapterHref}
+            >
+              {nextLesson ? `${t.nextLesson} · ${nextLesson.title}` : t.chapter}{' '}
+              <span aria-hidden="true">→</span>
+            </a>
+            {nextOptional && (
+              <button
+                type="button"
+                className="pp-button pp-button-outline"
+                onClick={() => openExercise(nextOptional)}
+              >
+                {t.continueOptional}
+              </button>
+            )}
+            <a
+              className="pp-button pp-button-outline"
+              href={`/${locale}/progress/`}
+            >
+              {t.progress}
+            </a>
+          </div>
+        </div>
+      )}
+
+      {phase === 'ready' && !summary && exercise && entry && (
         <div className="pp-body">
           {exercises.some((item) => item.scope === 'extension') && (
             <div className="pp-scope">
@@ -791,7 +931,7 @@ export default function PracticeActivity({
                 );
               })}
             </ol>
-            <p className="pp-count">
+            <p id="pp-count" className="pp-count">
               {t.exercise} {current + 1} {t.of} {exercises.length}
             </p>
           </nav>
@@ -1087,10 +1227,33 @@ export default function PracticeActivity({
                   </p>
                 )}
                 <div className="pp-actions">
-                  {!result.correct || current === exercises.length - 1 ? (
+                  <button
+                    type="button"
+                    className="pp-button pp-button-solid"
+                    disabled={!!busy}
+                    onClick={() =>
+                      nextExercise
+                        ? openExercise(nextExercise)
+                        : finishPractice()
+                    }
+                  >
+                    {nextExercise ? t.next : t.finish}{' '}
+                    <span aria-hidden="true">→</span>
+                  </button>
+                  {nextExercise && coreComplete && (
                     <button
                       type="button"
-                      className="pp-button pp-button-solid"
+                      className="pp-button pp-button-outline"
+                      disabled={!!busy}
+                      onClick={finishPractice}
+                    >
+                      {t.finish}
+                    </button>
+                  )}
+                  {!result.correct && (
+                    <button
+                      type="button"
+                      className="pp-button pp-button-outline"
                       onClick={() =>
                         update(exercise.id, (value) => ({
                           ...freshEntry(value.version),
@@ -1101,24 +1264,13 @@ export default function PracticeActivity({
                     >
                       {t.again} <span aria-hidden="true">→</span>
                     </button>
-                  ) : null}
+                  )}
                   <a
                     className="pp-button pp-button-outline"
                     href={`/${locale}/progress/`}
                   >
                     {t.reviews}
                   </a>
-                  {current < exercises.length - 1 && (
-                    <button
-                      type="button"
-                      className={`pp-button ${
-                        result.correct ? 'pp-button-solid' : 'pp-button-outline'
-                      }`}
-                      onClick={() => setCurrent(current + 1)}
-                    >
-                      {t.next} <span aria-hidden="true">→</span>
-                    </button>
-                  )}
                 </div>
                 <p className="pp-note">
                   {t.saved}{' '}

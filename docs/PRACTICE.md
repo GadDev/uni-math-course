@@ -27,6 +27,12 @@ Review links carry an exercise ID and version (`?exercise=L05-E01&version=1`). A
 
 The bounded target survives anonymous redirects to sign-in, failed-login retries and language changes. Login return paths accept only existing route shapes and these two validated practice parameters; external, encoded, duplicate, cross-lesson and arbitrary query destinations remain rejected. Expired-session links identify the exercise currently open.
 
+## Finishing a practice set
+
+After the last required exercise has a confirmed saved result in the tab, the feedback card offers a practice summary. If required exercises were skipped, the primary action takes the learner to an unanswered one. Incorrect saved responses count as answered and appear in the summary's review count. Optional exercises can be continued from the summary. The primary exit opens the next published lesson in the chapter, or the chapter overview after its last lesson.
+
+The summary is restored from the learner's version-scoped tab draft on reload or language change. A valid review link still opens its requested exercise. The summary uses the draft's checked responses. Attempt history, independent mastery evidence and manual lesson completion keep their existing rules.
+
 ## Learner context
 
 Each submission includes `expectedLearnerId`, the learner returned when the activity loaded. The API requires this precondition (`400 invalid_learner_context` when missing/invalid) and rejects another learner with `409 learner_context_changed` before attempt lookup, duplicate replay or persistence. It always derives the saved owner from server-verified identity; the expected ID never authorizes access.
