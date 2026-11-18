@@ -7,21 +7,45 @@ interface Props {
   lessonId?: string;
   lessonIds: readonly string[];
   nextLesson?: { id: string; title: string };
+  overviewLessons?: readonly { id: string; title: string }[];
 }
-const { locale, lessonId, lessonIds, nextLesson } = Astro.props;
+const { locale, lessonId, lessonIds, nextLesson, overviewLessons } =
+  Astro.props;
 const text = completionCopy[locale];
 ---
 
 <section
-  class="lesson-completion"
+  class:list={['lesson-completion', { 'programme-progress': overviewLessons }]}
   data-completion
   data-lesson={lessonId}
   data-lessons={JSON.stringify(lessonIds)}
+  data-overview-lessons={overviewLessons && JSON.stringify(overviewLessons)}
   aria-label={text.title}
 >
+  {overviewLessons && (
+    <>
+      <p class="eyebrow">
+        {locale === 'fr' ? 'VOTRE PARCOURS' : 'YOUR LEARNING PATH'}
+      </p>
+      <h3>
+        {locale === 'fr' ? 'Une leçon à la fois.' : 'One lesson at a time.'}
+      </h3>
+      <p class="programme-progress-note">
+        {locale === 'fr'
+          ? 'Retrouvez vos leçons marquées comme terminées.'
+          : 'Keep track of the lessons you mark as completed.'}
+      </p>
+    </>
+  )}
   {lessonId && <h2>{text.title}</h2>}
   {lessonId && <p>{text.explanation}</p>}
   <p data-completion-status role="status" hidden></p>
+  {overviewLessons && (
+    <div class="programme-meter" data-completion-meter hidden>
+      <progress max={lessonIds.length} value="0" aria-label={text.title} />
+      <span data-completion-percent aria-hidden="true"></span>
+    </div>
+  )}
   <div class="completion-actions">
     {lessonId && (
       <button type="button" data-completion-toggle hidden>
@@ -44,6 +68,29 @@ const text = completionCopy[locale];
       </a>
     )}
   </div>
+  {overviewLessons?.[0] && (
+    <a
+      class="programme-continue"
+      data-completion-continue
+      href={`/${locale}/lessons/${overviewLessons[0].id}/`}
+    >
+      <span data-completion-continue-label>
+        {locale === 'fr' ? 'Commencer le chapitre' : 'Start the chapter'}
+      </span>
+      <span data-completion-continue-title>
+        {overviewLessons[0].id} · {overviewLessons[0].title}
+      </span>
+      <span class="programme-continue-arrow" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M5 19L19 5M5 5H19V19"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+        </svg>
+      </span>
+    </a>
+  )}
 </section>
 <script>
   import { initCompletion } from '../lib/lesson-completion';
