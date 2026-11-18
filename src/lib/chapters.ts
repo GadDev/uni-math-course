@@ -53,6 +53,9 @@ export const chapters = [
       'L52',
       'L53',
       'L54',
+      'L55',
+      'L56',
+      'L57',
     ],
   },
 ] as const;
@@ -69,6 +72,7 @@ export function chapterForPath(path: string) {
   return chapters.find(
     (chapter) =>
       path === chapter.path ||
+      (chapter.id === 'C04' && path === 'chapters/C04/lzw/') ||
       chapter.lessonIds.some(
         (id) => path === `lessons/${id}/` || path === `lessons/${id}/practice/`,
       ),

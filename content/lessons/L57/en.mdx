@@ -1,0 +1,82 @@
+---
+lessonId: L57
+locale: en
+version: 1
+status: extended
+title: "LZW: the special case and the real coding cost"
+summary: "Resolve an incomplete entry, reject impossible codes and compare costs in bits."
+minutes: 25
+objectives: [L57-O01, L57-O02, L57-O03, L57-O04, L57-O05, L57-O06]
+prerequisites: [L55, L56, L47]
+sourcePages: [82, 83, 84, 85, 86, 87, 88, 89, 90]
+---
+
+# The code that arrives just before its definition
+
+You receive a code missing from complete entries. Is it necessarily an error? Not if it is exactly the pending entry’s code: its first letter lets it finish its own definition.
+
+**Source: `coding.pdf`, physical pages 82–90.** ABABABA is revealed in stages, followed by the ANANAS exercise and the summary. Pages 91–93 contain an additional experimental comparison, outside the requested range.
+
+## Objectives and prerequisites
+
+You will recognise the only permitted missing code, justify its reconstruction, trace a complete example, reject an impossible code, check round trips and distinguish code count from binary cost. Prerequisites: [L55](/en/lessons/L55/), [L56](/en/lessons/L56/) and [L47](/en/lessons/L47/).
+
+## 01 · Why w + first letter of w?
+
+Let **w** be the previous chunk and **k** the newly received code. The pending entry is `w?`, at the next free index. If k refers to this entry, the new chunk is itself `w?`. It therefore starts with the first letter of w. That letter is exactly the one we were missing.
+
+**Rule: new chunk = w + first letter of w.** We can now complete the pending entry with this chunk. The rule requires a nonempty previous chunk and the exact pending index. It does not permit repairing any arbitrary missing code.
+
+## 02 · Complete example: ABABABA
+
+Encoding with `A=1, B=2` produces chunks `A · B · AB · ABA`, hence codes **1 2 3 5**. The encoder adds `AB=3`, `BA=4`, `ABA=5`.
+
+| Received code | Written chunk | Completed entry | New pending entry |
+| --- | --- | --- | --- |
+| 1 | A | — | A?=3 |
+| 2 | B | AB=3 | B?=4 |
+| 3 | AB | BA=4 | AB?=5 |
+| 5 | ABA | ABA=5 | ABA?=6 |
+
+Before the final code, `AB?=5` is incomplete. Code 5 refers precisely to this pending entry. The previous chunk is AB: its first letter is A. So `AB + A = ABA`. Write ABA, complete `ABA=5`, and leave the final pending entry `ABA?=6` incomplete.
+
+**Error test.** Receiving 6 at that point would be impossible: only 5 is the entry being created. The first code cannot be a new entry either: there is no previous chunk to reconstruct it from.
+
+## 03 · A three-question check
+
+1. Are the initial dictionaries and their order identical?
+2. Does each new entry receive the next index, without a fictitious final addition?
+3. Does decoding reproduce the exact original message, and does re-encoding that message return the same codes?
+
+This double check detects many errors. It does not prove a program correct for every message: known examples and edge cases remain useful.
+
+[Practise the special case in the LZW workshop](/en/chapters/C04/lzw/): choose ABABABA or an advanced challenge, then Decoding. Try before revealing the trace.
+
+## 04 · Eight codes do not mean eight bits
+
+The summary on page 90 distinguishes integer codes from their binary representation. For a fixed width of **b** bits and **q** emitted codes, the code cost is **q × b bits**, before headers and other overhead. b is the width of one code; q is the number of codes, not the number of letters.
+
+`BANANABANANA` yields 8 codes and uses indices up to 10. Those indices fit in 4 bits per code: cost 32 bits. A fixed 2-bit code for each letter in the 3-letter alphabet costs 24 bits for 12 letters. In this educational comparison without headers, LZW therefore costs **more** on this short message.
+
+Repetition can produce longer phrases on large messages, but a gain is not guaranteed for every message. The learned dictionary is not transmitted; the initial alphabet, its order and the format rules must still be shared.
+
+The workshop uses integer codes without bit packing, resets or saturation. A real format must specify these details. With indexing from 1, b bits allow codes 1 through 2ᵇ−1 when 0 is unused: do not confuse this classroom convention with an industrial format’s reserved codes.
+
+## Progressive exercises and solutions
+
+1. **Starter.** With `A=1`, decode `1 2`. Why is 2 allowed?
+2. **Application.** With `A=1, B=2`, can `1 4` be decoded? Justify at the exact step.
+3. **Challenge.** A 40-letter message, originally encoded with 2 bits per letter, produces 18 LZW codes of 5 bits each. Compare costs before overhead. What is the largest integer number of 5-bit codes permitting a strict gain?
+
+<details className="info-answer">
+<summary>Justified solutions</summary>
+
+1. First chunk A, pending `A?=2`. Code 2 refers to this entry: `A + A = AA`. Output **AAA**; complete entry `AA=2`, final pending entry `AA?=3`.
+2. No. After first code 1, the pending entry is `A?=3`. Code 4 is neither initial nor the pending entry’s code. The special rule does not apply.
+3. Baseline: 40 × 2 = 80 bits; LZW: 18 × 5 = 90 bits, an increase of 10 bits. Strict gain requires 5q < 80, hence q < 16: at most **15 codes**.
+
+</details>
+
+## Remember and continue
+
+Resolve the pending entry’s code using **w + first letter of w**. Any other unknown code is invalid. Then measure costs in the same unit. [Return to the workshop for a new challenge](/en/chapters/C04/lzw/), then revisit [Chapter 4](/en/chapters/C04/).

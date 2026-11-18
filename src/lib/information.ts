@@ -7,7 +7,7 @@ export const informationCopy = {
     subtitle: ['Des bits aux messages,', 'puis à l’entropie.'],
     intro:
       'Comment coder un message, le décoder sans ambiguïté et mesurer la quantité d’information qu’il transporte ?',
-    status: 'Douze leçons disponibles · exercices après connexion',
+    status: 'Quinze leçons disponibles · atelier LZW public',
     motto: 'Un message. Un code. Une idée.',
     start: 'Le point de départ',
     basics: 'Des symboles aux bits',
@@ -19,7 +19,7 @@ export const informationCopy = {
     explore: 'Explorer le parcours',
     outline: 'Les leçons du chapitre',
     outlineNote:
-      'Douze leçons bilingues, des alphabets aux blocs de Shannon, alignées sur le PDF actualisé de 60 pages. Connectez-vous pour pratiquer 15 exercices par leçon.',
+      'Quinze leçons bilingues, des alphabets à LZW. Les pages 61–90 du PDF de 93 pages prolongent le parcours avec L55–L57.',
     upcoming: 'Lecture disponible',
     pages: 'Pages du PDF',
     lessons: [
@@ -35,6 +35,9 @@ export const informationCopy = {
       { id: 'L52', title: 'Logarithme et lemme de Gibbs', pages: '46–48' },
       { id: 'L53', title: 'Démontrer la borne d’entropie', pages: '49–54' },
       { id: 'L54', title: 'Blocs et théorème de Shannon', pages: '55–60' },
+      { id: 'L55', title: 'LZW : construire et encoder', pages: '61–68' },
+      { id: 'L56', title: 'LZW : décoder et reconstruire', pages: '69–81' },
+      { id: 'L57', title: 'LZW : cas particulier et coût', pages: '82–90' },
     ],
     goals: 'Ce que vous apprendrez',
     objectives: [
@@ -42,13 +45,14 @@ export const informationCopy = {
       'Reconnaître une ambiguïté de décodage et calculer une longueur moyenne pondérée.',
       'Interpréter une probabilité et l’entropie de Shannon sans confondre les deux.',
       'Relier les arbres de questions aux codes, démontrer la borne d’entropie et comparer les coûts par bloc et par symbole.',
+      'Encoder et décoder avec LZW, reconstruire le dictionnaire et justifier le cas particulier.',
     ],
     practice: 'S’entraîner après connexion',
     practiceText:
-      'Chaque leçon propose 15 questions avec correction côté serveur après authentification. Les cahiers de 700 exercices et leurs corrigés sont disponibles séparément.',
+      'L43–L54 : 15 questions par leçon ; L55–L57 : six questions par leçon, avec correction après connexion. L’atelier LZW est public et propose des défis générés. Les cahiers existants restent séparés et ne couvrent pas LZW.',
     review: 'Une progression sans faux raccourcis',
     reviewText:
-      'Les nouvelles leçons L50–L54 et les révisions L48–L49 ont fait l’objet d’une auto-vérification de l’auteur, sans revue indépendante. Les autres banques conservent leur exception de revue documentée. Les exercices nécessitent une connexion.',
+      'Les nouvelles leçons L50–L57 et les révisions L48–L49 ont fait l’objet d’une auto-vérification de l’auteur, sans revue indépendante. Les autres banques conservent leur exception de revue documentée. Les exercices nécessitent une connexion.',
   },
   en: {
     title: 'Information theory',
@@ -57,7 +61,7 @@ export const informationCopy = {
     subtitle: ['From bits to messages,', 'then to entropy.'],
     intro:
       'How can we encode a message, decode it unambiguously and measure the information it carries?',
-    status: 'Twelve lessons available · sign in to practise',
+    status: 'Fifteen lessons available · public LZW workshop',
     motto: 'One message. One code. One idea.',
     start: 'Start with the basics',
     basics: 'From symbols to bits',
@@ -69,7 +73,7 @@ export const informationCopy = {
     explore: 'Explore the learning path',
     outline: 'Chapter lessons',
     outlineNote:
-      'Twelve bilingual lessons, from alphabets to Shannon blocks, aligned with the updated 60-page PDF. Sign in to practise 15 exercises per lesson.',
+      'Fifteen bilingual lessons, from alphabets to LZW. Pages 61–90 of the 93-page PDF extend the path with L55–L57.',
     upcoming: 'Read now',
     pages: 'PDF pages',
     lessons: [
@@ -85,6 +89,9 @@ export const informationCopy = {
       { id: 'L52', title: 'Logarithms and Gibbs’ lemma', pages: '46–48' },
       { id: 'L53', title: 'Proving the entropy bound', pages: '49–54' },
       { id: 'L54', title: 'Blocks and Shannon’s theorem', pages: '55–60' },
+      { id: 'L55', title: 'LZW: build and encode', pages: '61–68' },
+      { id: 'L56', title: 'LZW: decode and reconstruct', pages: '69–81' },
+      { id: 'L57', title: 'LZW: special case and cost', pages: '82–90' },
     ],
     goals: 'What you will learn',
     objectives: [
@@ -92,12 +99,13 @@ export const informationCopy = {
       'Recognise decoding ambiguity and calculate a weighted average length.',
       'Interpret probability and Shannon entropy without conflating them.',
       'Connect question trees to codes, prove the entropy bound and compare block and per-symbol costs.',
+      'Encode and decode with LZW, reconstruct the dictionary and justify the special case.',
     ],
     practice: 'Practise after signing in',
     practiceText:
-      'Each lesson has 15 signed-in questions, graded on the server. The separate A4 workbooks now cover 700 exercises and worked solutions.',
+      'L43–L54 have 15 questions per lesson; L55–L57 have six per lesson, graded after sign-in. The public LZW workshop offers generated challenges. Existing workbooks remain separate and do not cover LZW.',
     review: 'A learning path without shortcuts',
     reviewText:
-      'New lessons L50–L54 and revised L48–L49 have author self-checks, without independent review. Other banks retain their documented review exceptions. Exercises require sign-in.',
+      'New lessons L50–L57 and revised L48–L49 have author self-checks, without independent review. Other banks retain their documented review exceptions. Exercises require sign-in.',
   },
 } as const;

@@ -1,0 +1,82 @@
+---
+lessonId: L56
+locale: en
+version: 1
+status: extended
+title: "LZW: decode and reconstruct the dictionary"
+summary: "Complete pending entries with the first letter of the next chunk."
+minutes: 25
+objectives: [L56-O01, L56-O02, L56-O03, L56-O04, L56-O05, L56-O06]
+prerequisites: [L55]
+sourcePages: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81]
+---
+
+# Recover the notebook without receiving it
+
+The encoder and decoder share only the initial dictionary and the rules. New strings do not travel with the message: the decoder recovers them in the same order.
+
+**Source: `coding.pdf`, physical pages 69–81.** Repeated pages progressively reveal the same decoding trace.
+
+## Objectives and prerequisites
+
+You will read a code, concatenate chunks, reserve a pending entry, complete it with one letter, preserve addition order and handle the end of the message. Prerequisite: [L55](/en/lessons/L55/).
+
+## 01 · Why only one letter is missing
+
+Call **uᵢ** the i-th chunk emitted by the encoder: u₁ is the first, u₂ the second. The **+** sign here means string concatenation. When emitting uᵢ, the encoder has encountered an extra letter that could not extend this phrase. That letter starts the next chunk.
+
+The new entry is therefore **uᵢ + first letter of uᵢ₊₁**. The decoder knows uᵢ now but waits for the next code to discover that first letter. The professor writes this entry as **uᵢ?**. The question mark is not a message letter: it marks a place to complete.
+
+## 02 · The decoding recipe
+
+1. Read the first code in the initial dictionary and write its chunk. Reserve the next index for this chunk followed by `?`.
+2. Read the next code and look up its chunk in the reconstructed dictionary.
+3. Complete the previous pending entry with **only the first letter** of this new chunk.
+4. Reserve the next index for the new chunk followed by `?`, then continue.
+5. After the last code, leave the final pending entry incomplete. It does not become a complete usable entry.
+
+An incomplete entry can itself arrive as a code: this is the only special case, studied in [L57](/en/lessons/L57/). An absent code cannot be guessed arbitrarily.
+
+## 03 · Complete example: 2 1 3 5 1 4 6 6
+
+Initially: `A=1, B=2, N=3`. The table shows the state **after** each code.
+
+| Received code | Written chunk | Completed entry | New pending entry |
+| --- | --- | --- | --- |
+| 2 | B | — | B?=4 |
+| 1 | A | BA=4 | A?=5 |
+| 3 | N | AN=5 | N?=6 |
+| 5 | AN | NA=6 | AN?=7 |
+| 1 | A | ANA=7 | A?=8 |
+| 4 | BA | AB=8 | BA?=9 |
+| 6 | NA | BAN=9 | NA?=10 |
+| 6 | NA | NAN=10 | NA?=11 |
+
+At code 5, read **AN**, completed at the previous code. Its first letter is A: `N?` becomes **NA**, not NAN. The entire chunk AN is nevertheless written to the output.
+
+Output is `B · A · N · AN · A · BA · NA · NA`, giving **BANANABANANA**. Complete entries 4 through 10 exactly match the encoder’s. `NA?=11` remains an unfulfilled promise: do not add it to complete entries.
+
+## 04 · Check without losing your place
+
+Keep four distinct columns: received code, chunk, completed entry, new pending entry. Check the dictionary available **before** the code. Then verify that each added index follows the previous one without gaps. Finally, re-encode the text with the same alphabet: the original codes must return.
+
+[Open the LZW workshop and choose Decoding](/en/chapters/C04/lzw/). The dictionary visually distinguishes pending entries from usable entries.
+
+## Progressive exercises and solutions
+
+1. **Starter.** With `A=1, B=2`, decode `1 2`. Which pending entry remains at the end?
+2. **Application.** With `A=1, N=2, S=3`, decode `1 2 4 1 3` and list complete entries.
+3. **Challenge.** A received chunk is `BAN` and the previous pending entry is `NA?=10`. Which entry is completed? Why not `NABAN`?
+
+<details className="info-answer">
+<summary>Justified solutions</summary>
+
+1. Write A, pending `A?=3`; write B, complete `AB=3`, pending `B?=4`. Output **AB**. Final pending entry `B?=4` remains incomplete.
+2. Chunks `A · N · AN · A · S`, text **ANANAS**. Complete entries are `AN=4, NA=5, ANA=6, AS=7`. Final pending entry is `S?=8`.
+3. Complete **NAB=10**. Only the first letter B of BAN replaces the question mark; the whole chunk is written to the output.
+
+</details>
+
+## Remember and continue
+
+Read the whole chunk for output; take **only its first letter** to complete the previous pending entry. Order and indices stay synchronised with the encoder. Continue to [L57](/en/lessons/L57/) to decode an incomplete entry.

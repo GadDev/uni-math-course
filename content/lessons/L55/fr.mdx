@@ -1,0 +1,88 @@
+---
+lessonId: L55
+locale: fr
+version: 1
+status: extended
+title: "LZW : construire un dictionnaire et encoder"
+summary: "Lire le plus long morceau connu, émettre son code et apprendre une nouvelle chaîne."
+minutes: 25
+objectives: [L55-O01, L55-O02, L55-O03, L55-O04, L55-O05, L55-O06]
+prerequisites: [L43, L49, L54]
+sourcePages: [61, 62, 63, 64, 65, 66, 67, 68]
+---
+
+# Un dictionnaire qui apprend en lisant
+
+Avec Huffman, chaque symbole possède un mot code construit à partir de probabilités. LZW apprend plutôt des **morceaux de longueur variable** pendant la lecture. Imaginez un carnet de raccourcis : une suite déjà apprise peut être remplacée par son numéro.
+
+**Source : `coding.pdf`, pages physiques 61–68, section « Algorithme LZW ».** Le PDF fourni compte 93 pages ; les pages répétées sont des étapes d’apparition des diapositives, pas des leçons distinctes. La page 60 fait le pont depuis Shannon.
+
+## Objectifs et prérequis
+
+Vous saurez distinguer alphabet et dictionnaire, lire les codes initiaux, choisir le plus long morceau connu, décider quand émettre, ajouter une entrée et terminer correctement. Prérequis : [L43](/fr/lessons/L43/), [L49](/fr/lessons/L49/) et [L54](/fr/lessons/L54/).
+
+## 01 · Les mots de la méthode
+
+Un **symbole** est une lettre de l’alphabet de départ. Une **chaîne** est une suite de symboles ; sa longueur peut dépasser 1. Le **dictionnaire** associe des chaînes à des **codes**, ici des entiers strictement positifs. Un code est un numéro, pas encore un mot binaire.
+
+L’alphabet et l’ordre de ses codes sont partagés au départ. Pour `BANANABANANA`, le professeur choisit `A=1, B=2, N=3`. La première nouvelle chaîne reçoit 4, puis 5, etc. Changer l’ordre initial change la séquence codée.
+
+Contrairement aux blocs de taille fixée de L54, LZW ne choisit pas à l’avance tous les morceaux possibles. Il n’a pas besoin des probabilités des lettres.
+
+## 02 · Une décision à chaque nouvelle lettre
+
+La variable **w** contient le morceau courant déjà connu. La variable **c** est la prochaine lettre lue. L’écriture **wc** signifie « concaténer w et c » : `AN` suivi de `A` donne `ANA`, pas un produit.
+
+1. Commencer avec le dictionnaire des lettres et placer la première lettre dans w.
+2. Lire c et chercher wc dans le dictionnaire.
+3. Si wc existe, prolonger w en wc. **Ne rien émettre, ne rien ajouter.**
+4. Sinon, émettre le code de w, ajouter wc au prochain numéro libre et recommencer avec w := c.
+5. Quand il ne reste plus de lettre, émettre le code du dernier w. **Ne pas inventer un ajout final.**
+
+Pourquoi cela fonctionne-t-il ? Tant que wc existe, on peut prolonger le morceau connu. Au premier échec, w est le plus long morceau connu au point courant. On émet son code avant de repartir de la lettre c, déjà lue mais pas perdue.
+
+## 03 · Exemple complet : BANANABANANA
+
+Départ : `A=1, B=2, N=3`, donc w vaut B. « — » signifie aucune sortie ou aucun ajout.
+
+| w avant | c | wc connu ? | Code émis | Ajout |
+| --- | --- | --- | --- | --- |
+| B | A | Non | 2 | BA=4 |
+| A | N | Non | 1 | AN=5 |
+| N | A | Non | 3 | NA=6 |
+| A | N | Oui | — | — |
+| AN | A | Non | 5 | ANA=7 |
+| A | B | Non | 1 | AB=8 |
+| B | A | Oui | — | — |
+| BA | N | Non | 4 | BAN=9 |
+| N | A | Oui | — | — |
+| NA | N | Non | 6 | NAN=10 |
+| N | A | Oui | — | — |
+| NA | fin | — | 6 | — |
+
+Résultat : **2 1 3 5 1 4 6 6**. Les morceaux émis sont `B · A · N · AN · A · BA · NA · NA`. Leur concaténation redonne exactement le message. Attention : 12 lettres deviennent 8 codes ; cela ne suffit pas à conclure à un gain en bits.
+
+## 04 · Prédire puis expérimenter
+
+Avant d’avancer, demandez-vous : « wc existe-t-il déjà ? » Essayez aussi `LALALALALA` avec `A=1, L=2`. Les morceaux s’allongent et les codes attendus sont `2 1 3 5 4 1`.
+
+[Ouvrir l’atelier LZW : explorer, être guidé, puis s’entraîner en examen](/fr/chapters/C04/lzw/).
+
+## Exercices progressifs et corrigés
+
+1. **Démarrage.** Avec `A=1, B=2`, encoder `AB`. Donnez aussi l’ajout.
+2. **Application.** Avec `A=1, N=2, S=3`, encoder `ANANAS` en montrant chaque décision.
+3. **Défi.** Avec `A=1`, encoder `AAAAAA`. Expliquer pourquoi certaines lectures n’émettent rien.
+
+<details className="info-answer">
+<summary>Solutions justifiées</summary>
+
+1. `AB` est absent : émettre 1 et ajouter `AB=3`. À la fin, émettre 2. Résultat `1 2` ; aucun ajout après la fin.
+2. `AN` absent : 1, ajout `AN=4` ; `NA` absent : 2, ajout `NA=5` ; `AN` connu : aucune sortie ; `ANA` absent : 4, ajout `ANA=6` ; `AS` absent : 1, ajout `AS=7` ; fin : 3. Résultat `1 2 4 1 3`.
+3. Résultat `1 2 3`, morceaux `A · AA · AAA`. Les seuls ajouts sont `AA=2` et `AAA=3`. Quand la chaîne prolongée est connue, on continue sa lecture au lieu d’émettre trop tôt.
+
+</details>
+
+## À retenir et suite
+
+Émettre le code de **w**, ajouter **wc**, repartir de **c**. Quand wc est connu, prolonger sans sortie. À la fin, vider le dernier morceau. Dans [L56](/fr/lessons/L56/), le décodeur reconstruit ce dictionnaire sans recevoir les nouvelles entrées.

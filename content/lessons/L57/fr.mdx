@@ -1,0 +1,82 @@
+---
+lessonId: L57
+locale: fr
+version: 1
+status: extended
+title: "LZW : le cas particulier et le vrai coût du codage"
+summary: "Résoudre une entrée incomplète, rejeter un code impossible et comparer les coûts en bits."
+minutes: 25
+objectives: [L57-O01, L57-O02, L57-O03, L57-O04, L57-O05, L57-O06]
+prerequisites: [L55, L56, L47]
+sourcePages: [82, 83, 84, 85, 86, 87, 88, 89, 90]
+---
+
+# Le code qui arrive juste avant sa définition
+
+Vous recevez un code absent des entrées complètes. Est-ce forcément une erreur ? Pas si ce code est précisément celui de l’entrée en attente : sa première lettre permet de terminer sa propre définition.
+
+**Source : `coding.pdf`, pages physiques 82–90.** Le cas ABABABA apparaît en plusieurs étapes, suivi de l’exercice ANANAS et du bilan. Les pages 91–93 contiennent une comparaison expérimentale supplémentaire, hors de la plage demandée.
+
+## Objectifs et prérequis
+
+Vous saurez reconnaître le seul code absent autorisé, justifier sa reconstruction, dérouler un exemple complet, rejeter un code impossible, vérifier l’aller-retour et distinguer nombre de codes et coût binaire. Prérequis : [L55](/fr/lessons/L55/), [L56](/fr/lessons/L56/) et [L47](/fr/lessons/L47/).
+
+## 01 · Pourquoi w + première lettre de w ?
+
+Notons **w** le morceau précédent et **k** le nouveau code reçu. L’entrée en attente est `w?`, au prochain numéro libre. Si k désigne cette entrée, le nouveau morceau est lui-même `w?`. Il commence donc par la première lettre de w. Cette lettre est exactement celle qu’il nous manquait.
+
+**Règle : nouveau morceau = w + première lettre de w.** On peut alors compléter l’entrée en attente avec ce morceau. La règle exige un morceau précédent non vide et le code exact de l’attente. Elle ne donne pas le droit de réparer n’importe quel code absent.
+
+## 02 · Exemple complet : ABABABA
+
+Encoder avec `A=1, B=2` produit les morceaux `A · B · AB · ABA`, donc les codes **1 2 3 5**. Le dictionnaire de l’encodeur reçoit `AB=3`, `BA=4`, `ABA=5`.
+
+| Code reçu | Morceau écrit | Entrée complétée | Nouvelle attente |
+| --- | --- | --- | --- |
+| 1 | A | — | A?=3 |
+| 2 | B | AB=3 | B?=4 |
+| 3 | AB | BA=4 | AB?=5 |
+| 5 | ABA | ABA=5 | ABA?=6 |
+
+Avant le dernier code, `AB?=5` n’est pas complet. Le code 5 désigne justement cette attente. Le morceau précédent est AB : sa première lettre est A. Donc `AB + A = ABA`. On écrit ABA, on complète `ABA=5`, puis la dernière attente `ABA?=6` reste incomplète.
+
+**Test d’erreur.** Au même moment, recevoir 6 serait impossible : seul 5 est l’entrée en cours de création. Le premier code ne peut pas non plus être une nouvelle entrée : aucun morceau précédent ne permet de la reconstruire.
+
+## 03 · Le contrôle en trois questions
+
+1. Les dictionnaires initiaux et leur ordre sont-ils identiques ?
+2. Chaque nouvelle entrée reçoit-elle le prochain numéro, sans ajout final fictif ?
+3. Décoder les codes rend-il exactement le message initial, puis réencoder ce message rend-il les mêmes codes ?
+
+Ce double contrôle détecte beaucoup d’erreurs. Il ne suffit pas à prouver qu’un programme est correct pour tous les messages : les exemples connus et les cas limites restent utiles.
+
+[Pratiquer le cas particulier dans l’atelier LZW](/fr/chapters/C04/lzw/) : choisir ABABABA ou un défi avancé, puis Décodage. Essayez d’abord sans révéler la trace.
+
+## 04 · Huit codes ne signifient pas huit bits
+
+Le bilan de la page 90 distingue les codes entiers de leur représentation binaire. Pour une largeur fixe **b** bits et **q** codes émis, le coût des codes est **q × b bits**, avant les en-têtes et autres frais. b est la largeur d’un code ; q est le nombre de codes, pas le nombre de lettres.
+
+`BANANABANANA` donne 8 codes et emploie des numéros jusqu’à 10. Avec 4 bits par code, ces numéros tiennent : coût 32 bits. Un code fixe de 2 bits pour chaque lettre de l’alphabet de 3 lettres coûte 24 bits pour les 12 lettres. Dans cette comparaison pédagogique sans en-tête, LZW coûte donc **plus** sur ce message court.
+
+La répétition peut rendre les morceaux plus longs sur de grands messages, mais aucun gain n’est garanti pour chaque message. Le dictionnaire appris n’est pas transmis ; l’alphabet initial, son ordre et les règles du format doivent néanmoins être partagés.
+
+L’atelier utilise des codes entiers, sans empaquetage binaire, remise à zéro ni saturation. Les détails d’un format réel doivent préciser ces règles. Avec une numérotation depuis 1, b bits permettent les codes 1 à 2ᵇ−1 si 0 reste inutilisé : ne confondez pas cette convention scolaire avec les codes réservés d’un format industriel.
+
+## Exercices progressifs et corrigés
+
+1. **Démarrage.** Avec `A=1`, décoder `1 2`. Pourquoi 2 est-il autorisé ?
+2. **Application.** Avec `A=1, B=2`, peut-on décoder `1 4` ? Justifier à l’étape exacte.
+3. **Défi.** Un message de 40 lettres, codé initialement sur 2 bits par lettre, donne 18 codes LZW sur 5 bits. Comparer les coûts avant les frais. Quel est le plus grand nombre entier de codes de 5 bits permettant un gain strict ?
+
+<details className="info-answer">
+<summary>Solutions justifiées</summary>
+
+1. Premier morceau A, attente `A?=2`. Le code 2 désigne cette attente : `A + A = AA`. Sortie **AAA** ; entrée complète `AA=2`, attente finale `AA?=3`.
+2. Non. Après le premier code 1, l’attente est `A?=3`. Le code 4 n’est ni initial ni celui de cette attente. La règle spéciale ne s’applique pas.
+3. Référence : 40 × 2 = 80 bits ; LZW : 18 × 5 = 90 bits. C’est une augmentation de 10 bits. Pour un gain strict, il faut 5q < 80, donc q < 16 : au plus **15 codes**.
+
+</details>
+
+## À retenir et suite
+
+Le code de l’attente se résout avec **w + première lettre de w**. Tout autre code inconnu est invalide. Mesurez ensuite les coûts dans la même unité. [Retourner à l’atelier pour un nouveau défi](/fr/chapters/C04/lzw/), puis revenir au [chapitre 4](/fr/chapters/C04/).
