@@ -1,4 +1,5 @@
 ---
+import { workshopCopy } from '../../lib/logic-workshop/copy';
 import LessonCompletion from '../../components/LessonCompletion.astro';
 import { completionCopy } from '../../lib/completion-copy';
 import TrainingExamLink from '../../components/TrainingExamLink.astro';
@@ -105,6 +106,11 @@ const implication = katex.renderToString('A \\Rightarrow B', {
     </section>
     <section class="planned-section" aria-labelledby="planned-title">
       <h2 id="planned-title">{text.future}</h2>
+      <p>
+        <a href={`/${locale}/logic-workshop/`}>
+          {workshopCopy.title[locale]} →
+        </a>
+      </p>
       <p>
         {locale === 'fr'
           ? 'Le parcours suit les trois parties du PDF Logique et ensembles. Les leçons ajoutent des explications pas à pas, des schémas et des exemples ; les pages répétées du diaporama sont regroupées.'
