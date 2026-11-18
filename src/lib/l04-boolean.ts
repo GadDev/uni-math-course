@@ -1,3 +1,5 @@
+import { biconditional, bit, implies } from './l07-logic.ts';
+
 /** Public teaching examples only. No imports from the served exercise banks. */
 export type Variable = 'A' | 'B' | 'C';
 export type Assignment = Record<Variable, boolean>;
@@ -5,7 +7,7 @@ export type Formula =
   | Variable
   | boolean
   | { op: 'not'; term: Formula }
-  | { op: 'and' | 'or'; left: Formula; right: Formula };
+  | { op: 'and' | 'or' | 'implies' | 'iff'; left: Formula; right: Formula };
 export type LabKind = 'rewrite' | 'morgan' | 'distribute';
 type Bilingual = { fr: string; en: string };
 export type Law = {
@@ -236,16 +238,26 @@ export function evaluate(formula: Formula, env: Assignment): boolean {
   if (typeof formula === 'boolean') return formula;
   if (typeof formula === 'string') return env[formula];
   if (formula.op === 'not') return !evaluate(formula.term, env);
-  return formula.op === 'and'
-    ? evaluate(formula.left, env) && evaluate(formula.right, env)
-    : evaluate(formula.left, env) || evaluate(formula.right, env);
+  const left = evaluate(formula.left, env);
+  const right = evaluate(formula.right, env);
+  switch (formula.op) {
+    case 'and':
+      return left && right;
+    case 'or':
+      return left || right;
+    case 'implies':
+      return Boolean(implies(bit(left), bit(right)));
+    case 'iff':
+      return Boolean(biconditional(bit(left), bit(right)));
+  }
 }
 /** Explicit grouping keeps rewriting visible, including associative regrouping. */
 export function formulaText(formula: Formula): string {
   if (typeof formula === 'boolean') return formula ? '⊤' : '¬⊤';
   if (typeof formula === 'string') return formula;
   if (formula.op === 'not') return `¬${formulaText(formula.term)}`;
-  return `(${formulaText(formula.left)} ${formula.op === 'and' ? '∧' : '∨'} ${formulaText(formula.right)})`;
+  const symbol = { and: '∧', or: '∨', implies: '⇒', iff: '⇔' }[formula.op];
+  return `(${formulaText(formula.left)} ${symbol} ${formulaText(formula.right)})`;
 }
 export function assignments(variables: Variable[]): Assignment[] {
   return Array.from({ length: 2 ** variables.length }, (_, n) => {
