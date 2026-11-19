@@ -50,7 +50,7 @@ for (const chapter of [
     next: 'L44',
     total: 15,
     percent: '7 %',
-    groups: 3,
+    groups: 4,
   },
 ]) {
   for (const locale of ['fr', 'en'] as const) {
