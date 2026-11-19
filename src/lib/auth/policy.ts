@@ -116,6 +116,32 @@ export function safeReturn(value: unknown, locale: AuthLocale): string {
     : fallback;
 }
 
+// A signed-out escape route is separate from the protected post-login target.
+// Validate first, then map private activities to their public reading pages.
+export function publicReturn(
+  value: unknown,
+  locale: AuthLocale,
+): {
+  href: string;
+  label: 'backToLesson' | 'backToExams' | 'backToCourse' | 'back';
+} {
+  const next = safeReturn(value, locale);
+  const path = next.split(/[?#]/)[0]!;
+  const targetLocale = path.startsWith('/en/') ? 'en' : 'fr';
+  if (/^\/(fr|en)\/lessons\/L\d{2}\/(?:practice\/)?$/.test(path))
+    return {
+      href: path.endsWith('/practice/')
+        ? path.slice(0, -'practice/'.length)
+        : next,
+      label: 'backToLesson',
+    };
+  if (/^\/(fr|en)\/training-exams\//.test(path))
+    return { href: `/${targetLocale}/training-exams/`, label: 'backToExams' };
+  if (/^\/(fr|en)\/(account|progress)\/$/.test(path))
+    return { href: `/${targetLocale}/`, label: 'backToCourse' };
+  return { href: next, label: 'back' };
+}
+
 export function sameOriginPost(request: Request, config: AuthConfig): boolean {
   return (
     request.method === 'POST' &&

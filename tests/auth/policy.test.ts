@@ -5,6 +5,7 @@ import {
   authRoute,
   emailAllowed,
   safeReturn,
+  publicReturn,
   sameOriginPost,
   smallForm,
   validNewPassword,
@@ -178,4 +179,47 @@ test('recovery proof and new password validation are bounded', () => {
     assert.equal(validNewPassword(password), true);
   for (const password of ['', 'short', ' '.repeat(12), 'x'.repeat(129), null])
     assert.equal(validNewPassword(password), false);
+});
+
+test('signed-out return links always lead to public reading without changing login targets', () => {
+  for (const locale of ['fr', 'en'] as const) {
+    const lesson = `/${locale}/lessons/L29/`;
+    const practice = lesson + 'practice/?exercise=L29-E03&version=1#main';
+    assert.deepEqual(publicReturn(practice, locale), {
+      href: lesson,
+      label: 'backToLesson',
+    });
+    assert.equal(safeReturn(practice, locale), practice);
+    assert.deepEqual(publicReturn(lesson + '#main', locale), {
+      href: lesson + '#main',
+      label: 'backToLesson',
+    });
+    for (const paper of ['C01', 'C02', 'C03', 'final']) {
+      const exam = `/${locale}/training-exams/${paper}/`;
+      assert.deepEqual(publicReturn(exam, locale), {
+        href: `/${locale}/training-exams/`,
+        label: 'backToExams',
+      });
+      assert.equal(safeReturn(exam, locale), exam);
+    }
+    for (const target of [
+      null,
+      '//evil.example',
+      '/fr/lessons/L99/practice/',
+      `/${locale}/account/#main`,
+      `/${locale}/progress/`,
+    ])
+      assert.deepEqual(publicReturn(target, locale), {
+        href: `/${locale}/`,
+        label: 'backToCourse',
+      });
+    assert.deepEqual(publicReturn(`/${locale}/chapters/C02/#main`, locale), {
+      href: `/${locale}/chapters/C02/#main`,
+      label: 'back',
+    });
+  }
+  assert.deepEqual(publicReturn('/en/lessons/L29/practice/', 'fr'), {
+    href: '/en/lessons/L29/',
+    label: 'backToLesson',
+  });
 });
