@@ -37,21 +37,14 @@ for (const locale of ['fr', 'en']) {
     for (const width of [320, 375, 768, 1280]) {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(`/${locale}/`);
+      if (width <= 900) await page.locator('.course-menu > summary').click();
       const nav = page.locator('[data-exams-nav]');
       await expect(nav).toBeVisible();
       await expect(nav).toHaveAttribute('href', `/${locale}/training-exams/`);
       const expectedLabel =
         locale === 'fr' ? 'Examens blancs' : 'Practice exams';
-      const compactLabel = width <= 820 || (width >= 1051 && width <= 1370);
-      const expectedVisibleLabel = compactLabel
-        ? locale === 'fr'
-          ? 'Examens'
-          : 'Exams'
-        : expectedLabel;
-      await expect(nav).toHaveText(expectedVisibleLabel, {
-        useInnerText: true,
-      });
-      await expect(nav).toHaveAttribute('aria-label', expectedLabel);
+      await expect(nav).toHaveText(expectedLabel);
+      await expect(nav).toHaveAccessibleName(expectedLabel);
       expect(
         await page.evaluate(() => document.documentElement.scrollWidth),
       ).toBeLessThanOrEqual(width);

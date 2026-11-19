@@ -6,12 +6,23 @@ for (const locale of ['fr', 'en'] as const) {
   }) => {
     await page.goto(`/${locale}/`);
     const nav = page.locator('.primary-nav');
-    const label = locale === 'fr' ? 'Fiche mémo' : 'Cheat sheet';
-    const link = nav.getByRole('link', { name: label, exact: true });
+    await nav
+      .getByRole('link', {
+        name: locale === 'fr' ? 'Réviser' : 'Revise',
+        exact: true,
+      })
+      .click();
+    const link = page.locator('main').getByRole('link', {
+      name: locale === 'fr' ? 'Fiche mémo →' : 'Quick reference →',
+      exact: true,
+    });
     await expect(link).toHaveAttribute('href', `/${locale}/cheat-sheet/`);
     await link.click();
     await expect(page).toHaveURL(`/${locale}/cheat-sheet/`);
-    await expect(link).toHaveAttribute('aria-current', 'page');
+    await expect(nav.locator('[aria-current="location"]')).toHaveAttribute(
+      'href',
+      `/${locale}/revise/`,
+    );
     await expect(page.locator('.cheat-sheet-table')).toHaveCount(16);
     await expect(page.locator('#logic tbody tr')).toHaveCount(8);
     await expect(page.locator('#sets tbody tr')).toHaveCount(11);
@@ -101,7 +112,7 @@ for (const locale of ['fr', 'en'] as const) {
       await expect(
         page.locator('.cheat-sheet-table-scroll').first(),
       ).toBeVisible();
-      const nav = await page.locator('.primary-nav').boundingBox();
+      const nav = await page.locator('.header-navigation').boundingBox();
       expect(nav).not.toBeNull();
       expect(nav!.x + nav!.width).toBeLessThanOrEqual(width);
     });

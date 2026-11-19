@@ -49,8 +49,8 @@ for (const locale of ['fr', 'en'] as const) {
         }
       }
       await expect(
-        page.locator('.primary-nav > a[aria-current="page"]'),
-      ).toHaveAttribute('href', '/' + locale + '/exercises/');
+        page.locator('.primary-nav > a[aria-current="location"]'),
+      ).toHaveAttribute('href', '/' + locale + '/revise/');
     },
   );
 
