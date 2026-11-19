@@ -52,7 +52,7 @@ for (const locale of ['fr', 'en']) {
   }
 }
 
-test('Chapter 2 reading works without JavaScript and does not change Chapter 1', async ({
+test('Chapter 2 reading works without JavaScript and preserves the Chapter 1 entry', async ({
   browser,
   page,
 }) => {
@@ -70,8 +70,11 @@ test('Chapter 2 reading works without JavaScript and does not change Chapter 1',
   }
   await page.goto('/fr/');
   await expect(page.getByRole('heading', { level: 1 })).toContainText(
-    'Logique',
+    'Mathématiques',
   );
+  await expect(
+    page.locator('.course-cards [data-chapter="C01"] h3'),
+  ).toContainText('Logique');
   await expect(page.locator('.hero-art svg')).toHaveAttribute(
     'data-variant',
     'logic',

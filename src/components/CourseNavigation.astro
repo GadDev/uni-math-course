@@ -1,0 +1,79 @@
+---
+import type { Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+  path: string;
+}
+const { locale, path } = Astro.props;
+const fr = locale === 'fr';
+const course =
+  path === '' || path.startsWith('chapters/') || path.startsWith('lessons/');
+const practice =
+  path === 'practise/' ||
+  path === 'logic-workshop/' ||
+  path === 'chapters/C04/lzw/' ||
+  path.endsWith('/practice/');
+const revise = [
+  'revise/',
+  'glossary/',
+  'cheat-sheet/',
+  'numbers/',
+  'exercises/',
+].includes(path);
+const links = [
+  { href: '', label: fr ? 'Cours' : 'Course', active: course && !practice },
+  {
+    href: 'practise/',
+    label: fr ? 'S’entraîner' : 'Practise',
+    active: practice,
+  },
+  { href: 'revise/', label: fr ? 'Réviser' : 'Revise', active: revise },
+  {
+    href: 'training-exams/',
+    label: fr ? 'Examens blancs' : 'Practice exams',
+    active: path.startsWith('training-exams/'),
+  },
+  {
+    href: 'progress/',
+    label: fr ? 'Ma progression' : 'My progress',
+    active: path === 'progress/',
+  },
+];
+---
+
+<details class="course-menu" open>
+  <summary>{fr ? 'Menu de navigation' : 'Navigation menu'}</summary>
+  <nav
+    class="primary-nav"
+    aria-label={fr ? 'Navigation principale' : 'Main navigation'}
+  >
+    {links.map((link) => (
+      <a
+        href={`/${locale}/${link.href}`}
+        aria-current={
+          link.active ? (path === link.href ? 'page' : 'location') : undefined
+        }
+        data-exams-nav={link.href === 'training-exams/' ? '' : undefined}
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+</details>
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('.course-menu');
+  if (menu) {
+    const narrow = window.matchMedia('(max-width: 900px)');
+    const sync = () => {
+      menu.open = !narrow.matches;
+    };
+    sync();
+    narrow.addEventListener('change', sync);
+    menu.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && narrow.matches && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+      }
+    });
+  }
+</script>

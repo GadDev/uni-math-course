@@ -99,7 +99,11 @@ for (const width of [320, 375, 768, 1280]) {
     const language = await page.locator('.language-switch').boundingBox();
     expect(brand).not.toBeNull();
     expect(language).not.toBeNull();
-    expect(brand!.x + brand!.width).toBeLessThanOrEqual(language!.x);
+    if (width <= 500) {
+      expect(brand!.y + brand!.height).toBeLessThanOrEqual(language!.y);
+    } else {
+      expect(brand!.x + brand!.width).toBeLessThanOrEqual(language!.x);
+    }
   });
 }
 
@@ -168,24 +172,16 @@ for (const locale of ['fr', 'en']) {
           await page.evaluate(() => document.documentElement.scrollWidth),
         ).toBeLessThanOrEqual(width);
         const header = await page.locator('.site-header').boundingBox();
-        expect(header!.height).toBeLessThanOrEqual(width > 1100 ? 100 : 145);
-        const nav = await page.locator('.primary-nav').boundingBox();
-        const action = await page.locator('.header-sign-in').boundingBox();
-        if (width > 1100) {
-          expect(nav!.x + nav!.width).toBeLessThanOrEqual(action!.x);
-        } else {
-          // Actions occupy the first row; navigation gets the full second row.
-          expect(action!.y + action!.height).toBeLessThanOrEqual(nav!.y);
-        }
-        const brand = await page.locator('.brand').boundingBox();
-        const localeControl = await page
-          .locator('.language-switch')
+        expect(header!.height).toBeLessThanOrEqual(250);
+        const navigation = await page
+          .locator('.header-navigation')
           .boundingBox();
-        expect(brand!.x + brand!.width).toBeLessThanOrEqual(localeControl!.x);
-        for (const link of await page.locator('.primary-nav > a').all()) {
-          const size = await link.boundingBox();
-          expect(size!.height).toBeLessThanOrEqual(48);
-        }
+        const action = await page.locator('.header-actions').boundingBox();
+        expect(action!.y + action!.height).toBeLessThanOrEqual(navigation!.y);
+        const brand = await page.locator('.brand').boundingBox();
+        if (width > 500)
+          expect(brand!.x + brand!.width).toBeLessThanOrEqual(action!.x);
+        expect(navigation!.x + navigation!.width).toBeLessThanOrEqual(width);
         const chapterTrigger = await page
           .locator('.chapter-picker summary')
           .boundingBox();

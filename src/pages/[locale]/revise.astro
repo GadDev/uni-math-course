@@ -1,0 +1,101 @@
+---
+import Base from '../../layouts/Base.astro';
+import { locales } from '../../lib/i18n';
+import '../../styles/course-overview.css';
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+const { locale } = Astro.props;
+const fr = locale === 'fr';
+const title = fr ? 'Réviser' : 'Revise';
+const resources = [
+  {
+    path: 'cheat-sheet/',
+    title: fr ? 'Fiche mémo' : 'Quick reference',
+    description: fr
+      ? 'Notations, formules et méthodes, avec exemples.'
+      : 'Notation, formulas and methods with examples.',
+  },
+  {
+    path: 'glossary/',
+    title: fr ? 'Glossaire des symboles' : 'Symbol glossary',
+    description: fr
+      ? 'Lire les symboles et retrouver leur signification.'
+      : 'Read symbols and look up their meaning.',
+  },
+  {
+    path: 'numbers/',
+    title: fr ? 'Fondations : les nombres' : 'Number foundations',
+    description: fr
+      ? 'Naturels, entiers, rationnels, réels et complexes.'
+      : 'Natural, integer, rational, real and complex numbers.',
+  },
+  {
+    path: 'exercises/',
+    title: fr ? 'Cahiers à imprimer' : 'Printable workbooks',
+    description: fr
+      ? 'Exercices et corrigés PDF par chapitre, pour travailler sur papier.'
+      : 'PDF exercises and solutions by chapter, for practice on paper.',
+  },
+  {
+    path: 'exercises/#revision-pdfs',
+    title: fr ? 'Guides pour l’examen · PDF' : 'Exam guides · PDF in French',
+    description: fr
+      ? 'Aide-mémoire et compagnon d’examen en français.'
+      : 'French exam reference and companion guide.',
+  },
+  {
+    path: 'exercises/#how-to-use',
+    title: fr ? 'Utiliser les cahiers' : 'Using the workbooks',
+    description: fr
+      ? 'Organiser vos révisions et vérifier vos réponses.'
+      : 'Organise your revision and check your answers.',
+  },
+];
+---
+
+<Base
+  locale={locale}
+  path="revise/"
+  title={title}
+  description={
+    fr
+      ? 'Fiches, glossaire et cahiers à imprimer pour réviser les mathématiques.'
+      : 'References, glossary and printable workbooks for mathematics revision.'
+  }
+>
+  <main id="main" tabindex="-1" class="resource-hub">
+    <p class="eyebrow">{fr ? 'RETROUVER UNE MÉTHODE' : 'FIND A METHOD'}</p>
+    <h1>{title}</h1>
+    <p>
+      {fr
+        ? 'Retrouvez une notation, choisissez une méthode ou préparez vos exercices sur papier.'
+        : 'Look up notation, choose a method or prepare your practice on paper.'}
+    </p>
+    <p class="resource-access">
+      {fr
+        ? 'Toutes ces ressources sont en accès libre, sans compte. Téléchargez les PDF avec une connexion Internet avant de les utiliser hors ligne.'
+        : 'All these resources are public, with no account needed. Download PDFs with an Internet connection before using them offline.'}
+    </p>
+    <ul class="resource-grid">
+      {resources.map((resource) => (
+        <li>
+          <h2>
+            <a href={`/${locale}/${resource.path}`}>{resource.title} →</a>
+          </h2>
+          <p>{resource.description}</p>
+        </li>
+      ))}
+    </ul>
+    <p>
+      <a href={`/${locale}/practise/`}>
+        {fr ? 'S’entraîner en ligne' : 'Practise online'} →
+      </a>
+    </p>
+    <p>
+      <a href={`/${locale}/training-exams/`}>
+        {fr ? 'Examens blancs' : 'Practice exams'} →
+      </a>
+    </p>
+  </main>
+</Base>

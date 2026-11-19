@@ -1,0 +1,91 @@
+.course-overview,
+.resource-hub {
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 1rem;
+}
+.course-cards,
+.resource-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+.course-cards li,
+.resource-grid li {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  background: var(--card);
+  min-width: 0;
+}
+.course-cards li {
+  border-top: 4px solid var(--red-accent);
+}
+.course-cards li[data-chapter='C02'] {
+  border-top-color: var(--green-accent);
+}
+.course-cards li[data-chapter='C03'] {
+  border-top-color: var(--blue-accent);
+}
+.course-cards li[data-chapter='C04'] {
+  border-top-color: var(--orange-text);
+}
+.course-number {
+  font: 2rem var(--display);
+  color: var(--muted);
+}
+.course-cards h3,
+.resource-grid h2 {
+  margin: 0.5rem 0;
+}
+.course-cards a,
+.resource-grid a {
+  color: var(--ink);
+  text-underline-offset: 0.2em;
+}
+.course-cards h3 a,
+.course-start,
+.resource-grid h2 a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+.course-cards p,
+.resource-grid p {
+  line-height: 1.6;
+  color: var(--muted);
+}
+.study-destinations {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.study-destinations a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+}
+.study-destinations span {
+  color: var(--muted);
+  line-height: 1.6;
+}
+.resource-hub {
+  max-width: 64rem;
+  margin: auto;
+}
+.resource-access {
+  font-weight: bold;
+}
+@media (max-width: 650px) {
+  .course-cards,
+  .resource-grid,
+  .study-destinations {
+    grid-template-columns: 1fr;
+  }
+}

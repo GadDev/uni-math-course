@@ -4,18 +4,16 @@ import '../styles/global.css';
 import '../styles/profile-menu.css';
 import '../styles/chapters.css';
 import Footer from '../components/Footer.astro';
+import CourseNavigation from '../components/CourseNavigation.astro';
 import ThemeInit from '../components/ThemeInit.astro';
 import ThemeToggle from '../components/ThemeToggle.astro';
 import '../styles/theme-toggle.css';
 import ChapterSelector from '../components/ChapterSelector.astro';
 import { chapterForPath } from '../lib/chapters';
 import { copy, type Locale } from '../lib/i18n';
-import { glossaryCopy } from '../lib/glossary';
-import { cheatSheetCopy } from '../lib/cheat-sheet';
-import { printableCopy } from '../lib/printable-exercises';
 import { authCopy } from '../lib/auth/copy';
-import { examCopy } from '../lib/training-exams/copy';
 import { progressCopy } from '../lib/progress-copy';
+import '../styles/course-navigation.css';
 import { inject } from '@vercel/analytics';
 interface Props {
   locale: Locale;
@@ -82,62 +80,10 @@ const alternate = locale === 'fr' ? 'en' : 'fr';
       <a class="brand" href={'/' + locale + '/'}>
         <span>{text.brand}</span>
       </a>
-      <nav class="primary-nav" aria-label={text.navigation}>
+      <div class="header-navigation">
         <ChapterSelector locale={locale} path={path} />
-        <a
-          href={'/' + locale + '/glossary/'}
-          aria-current={path === 'glossary/' ? 'page' : undefined}
-          aria-label={glossaryCopy[locale].nav}
-        >
-          <span class="nav-full">{glossaryCopy[locale].nav}</span>
-          <span class="nav-short" aria-hidden="true">
-            Glos.
-          </span>
-        </a>
-        <a
-          href={'/' + locale + '/cheat-sheet/'}
-          aria-current={path === 'cheat-sheet/' ? 'page' : undefined}
-          aria-label={cheatSheetCopy[locale].nav}
-        >
-          <span class="nav-full">{cheatSheetCopy[locale].nav}</span>
-          <span class="nav-short" aria-hidden="true">
-            Mémo
-          </span>
-        </a>
-        <a
-          href={'/' + locale + '/numbers/'}
-          aria-current={path === 'numbers/' ? 'page' : undefined}
-          aria-label={locale === 'fr' ? 'Nombres' : 'Numbers'}
-        >
-          <span class="nav-full">
-            {locale === 'fr' ? 'Nombres' : 'Numbers'}
-          </span>
-          <span class="nav-short" aria-hidden="true">
-            N°
-          </span>
-        </a>
-        <a
-          href={'/' + locale + '/exercises/'}
-          aria-current={path === 'exercises/' ? 'page' : undefined}
-          aria-label={printableCopy[locale].nav}
-        >
-          <span class="nav-full">{printableCopy[locale].nav}</span>
-          <span class="nav-short" aria-hidden="true">
-            Exo.
-          </span>
-        </a>
-        <a
-          href={`/${locale}/training-exams/`}
-          aria-current={path.startsWith('training-exams/') ? 'page' : undefined}
-          aria-label={examCopy[locale].nav}
-          data-exams-nav
-        >
-          <span class="nav-full">{examCopy[locale].nav}</span>
-          <span class="nav-short" aria-hidden="true">
-            {locale === 'fr' ? 'Examens' : 'Exams'}
-          </span>
-        </a>
-      </nav>
+        <CourseNavigation locale={locale} path={path} />
+      </div>
       <div class="header-actions">
         <ThemeToggle locale={locale} />
         <nav aria-label={text.language} class="language-switch">

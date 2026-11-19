@@ -1,0 +1,82 @@
+---
+import { chapters, chapterHref } from '../lib/chapters';
+import type { Locale } from '../lib/i18n';
+import '../styles/course-overview.css';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const fr = locale === 'fr';
+const descriptions = fr
+  ? [
+      'Assertions, tables de vérité, ensembles et quantificateurs.',
+      'Calcul algébrique, équations, pente et modèles affines.',
+      'Fonctions, limites, dérivées et tangentes.',
+      'Codes binaires, probabilités, Huffman et compression LZW.',
+    ]
+  : [
+      'Assertions, truth tables, sets and quantifiers.',
+      'Algebra, equations, slope and affine models.',
+      'Functions, limits, derivatives and tangents.',
+      'Binary codes, probability, Huffman and LZW compression.',
+    ];
+---
+
+<section id="course" class="course-overview" aria-labelledby="course-title">
+  <p class="eyebrow">
+    {fr ? 'LE COURS · SEMESTRE 3' : 'THE COURSE · SEMESTER 3'}
+  </p>
+  <h2 id="course-title">
+    {fr ? 'Choisissez votre chapitre' : 'Choose your chapter'}
+  </h2>
+  <p>
+    {fr
+      ? 'Commencez par la logique, ou ouvrez le chapitre que vous révisez. Toutes les leçons sont en accès libre.'
+      : 'Start with logic, or open the chapter you are revising. All lessons are public.'}
+  </p>
+  <ol class="course-cards">
+    {chapters.map((chapter, i) => (
+      <li data-chapter={chapter.id}>
+        <span class="course-number" aria-hidden="true">
+          {chapter.number}
+        </span>
+        <h3>
+          <a
+            href={
+              chapter.id === 'C01'
+                ? '#chapter-01'
+                : chapterHref(locale, chapter)
+            }
+          >
+            {chapter.title[locale]}
+          </a>
+        </h3>
+        <p>{descriptions[i]}</p>
+        <a
+          class="course-start"
+          href={`/${locale}/lessons/${chapter.lessonIds[0]}/`}
+        >
+          {fr ? 'Première leçon' : 'First lesson'} · {chapter.lessonIds[0]} →
+        </a>
+      </li>
+    ))}
+  </ol>
+  <div class="study-destinations">
+    <a href={`/${locale}/practise/`}>
+      <strong>{fr ? 'S’entraîner en ligne' : 'Practise online'}</strong>
+      <span>
+        {fr
+          ? 'Ateliers publics et exercices avec compte invité'
+          : 'Public workshops and exercises with an invited account'}
+      </span>
+    </a>
+    <a href={`/${locale}/revise/`}>
+      <strong>{fr ? 'Réviser et imprimer' : 'Revise and print'}</strong>
+      <span>
+        {fr
+          ? 'Fiche mémo, glossaire et cahiers à imprimer · accès libre'
+          : 'Quick reference, glossary and printable workbooks · public access'}
+      </span>
+    </a>
+  </div>
+</section>
