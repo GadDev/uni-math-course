@@ -59,34 +59,6 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
         <SignalGeometry variant="decalage" />
       </div>
     </section>
-    <section class="lesson-feature" aria-labelledby="algebra-title">
-      <div class="lesson-index" aria-hidden="true">
-        01
-      </div>
-      <div class="featured-identity">
-        <p class="eyebrow">{text.start}</p>
-        <h2 id="algebra-title">{text.algebra}</h2>
-        <div class="feature-formula" set:html={formula} />
-        <p class="visually-hidden">{text.formulaReading}</p>
-        <p class="formula-reading">{text.rules}</p>
-      </div>
-      <div class="featured-description">
-        <p>{text.description}</p>
-        <div class="lesson-meta">
-          <span>
-            {lessonData('L21').minutes} min · 15{' '}
-            {locale === 'fr' ? 'exercices' : 'exercises'}
-          </span>
-        </div>
-      </div>
-      <div class="featured-action">
-        <a class="primary-link" href={`/${locale}/lessons/L21/`}>
-          {locale === 'fr' ? 'Lire la leçon' : 'Read the lesson'}
-          <span aria-hidden="true"> →</span>
-        </a>
-      </div>
-    </section>
-    <DroitesSourcePath locale={locale} />
     <section
       class="planned-section programme-section"
       id="parcours"
@@ -94,7 +66,9 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
     >
       <ProgrammeDashboard
         locale={locale}
-        chapterNumber="02"
+        chapterId="C02"
+        objectives={text.objectives}
+
         chapterTitle={text.title}
         headingId="outline-title"
         title={text.outline}
@@ -125,61 +99,55 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
           href: `#programme-C02-part-${index + 1}`,
           label: group.title[locale],
         }))}
-      />
-      {droitesGroups.map((group, index) => (
-        <section
-          class="chapter-lesson-group programme-part"
-          id={`programme-C02-part-${index + 1}`}
-          aria-labelledby={`programme-C02-heading-${index + 1}`}
-        >
-          <h3 id={`programme-C02-heading-${index + 1}`}>
-            {group.title[locale]}
-          </h3>
-          <p class="programme-source">
-            {group.lessonIds.length}{' '}
-            {locale === 'fr'
-              ? Number(group.lessonIds.length) === 1
-                ? 'leçon'
-                : 'leçons'
-              : Number(group.lessonIds.length) === 1
-                ? 'lesson'
-                : 'lessons'}
-          </p>
-          <ol class="planned-list chapter-lessons">
-            {group.lessonIds.map((id) => (
-              <li class="available-topic">
-                <span class="planned-number" aria-hidden="true">
-                  {Number(id.slice(1)) - 20 < 10 ? '0' : ''}
-                  {Number(id.slice(1)) - 20}
-                </span>
-                <a href={`/${locale}/lessons/${id}/`}>
-                  {lessonData(id).title}
-                  <span
-                    class="completion-badge"
-                    data-completion-badge={id}
-                    hidden
-                  >
-                    ✓ {completionCopy[locale].completed}
+      >
+        {droitesGroups.map((group, index) => (
+          <section
+            class="chapter-lesson-group programme-part"
+            id={`programme-C02-part-${index + 1}`}
+            aria-labelledby={`programme-C02-heading-${index + 1}`}
+          >
+            <h3 id={`programme-C02-heading-${index + 1}`}>
+              {group.title[locale]}
+            </h3>
+            <p class="programme-source">
+              {group.lessonIds.length}{' '}
+              {locale === 'fr'
+                ? Number(group.lessonIds.length) === 1
+                  ? 'leçon'
+                  : 'leçons'
+                : Number(group.lessonIds.length) === 1
+                  ? 'lesson'
+                  : 'lessons'}
+            </p>
+            <ol class="planned-list chapter-lessons">
+              {group.lessonIds.map((id) => (
+                <li class="available-topic">
+                  <span class="planned-number" aria-hidden="true">
+                    {Number(id.slice(1)) - 20 < 10 ? '0' : ''}
+                    {Number(id.slice(1)) - 20}
                   </span>
-                </a>
-                <small class="planned-label">
-                  {lessonData(id).minutes} min · 15{' '}
-                  {locale === 'fr' ? 'exercices' : 'exercises'}
-                </small>
-              </li>
-            ))}
-          </ol>
-        </section>
-      ))}
-    </section>
-    <section class="chapter-objectives" aria-labelledby="objectives-title">
-      <h2 id="objectives-title">{text.goals}</h2>
-      <ol>
-        {text.objectives.map((objective) => (
-          <li>{objective}</li>
+                  <a href={`/${locale}/lessons/${id}/`}>
+                    {lessonData(id).title}
+                    <span
+                      class="completion-badge"
+                      data-completion-badge={id}
+                      hidden
+                    >
+                      ✓ {completionCopy[locale].completed}
+                    </span>
+                  </a>
+                  <small class="planned-label">
+                    {lessonData(id).minutes} min · 15{' '}
+                    {locale === 'fr' ? 'exercices' : 'exercises'}
+                  </small>
+                </li>
+              ))}
+            </ol>
+          </section>
         ))}
-      </ol>
+      </ProgrammeDashboard>
     </section>
+    <DroitesSourcePath locale={locale} />
     <section class="practice-status" aria-labelledby="practice-title">
       <div class="practice-copy">
         <h2 id="practice-title">{text.practice}</h2>
@@ -199,5 +167,32 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
       </aside>
     </section>
     <TrainingExamLink locale={locale} chapterId="C02" />
+    <section class="lesson-feature" aria-labelledby="algebra-title">
+      <div class="lesson-index" aria-hidden="true">
+        01
+      </div>
+      <div class="featured-identity">
+        <p class="eyebrow">{text.start}</p>
+        <h2 id="algebra-title">{text.algebra}</h2>
+        <div class="feature-formula" set:html={formula} />
+        <p class="visually-hidden">{text.formulaReading}</p>
+        <p class="formula-reading">{text.rules}</p>
+      </div>
+      <div class="featured-description">
+        <p>{text.description}</p>
+        <div class="lesson-meta">
+          <span>
+            {lessonData('L21').minutes} min · 15{' '}
+            {locale === 'fr' ? 'exercices' : 'exercises'}
+          </span>
+        </div>
+      </div>
+      <div class="featured-action">
+        <a class="primary-link" href={`/${locale}/lessons/L21/`}>
+          {locale === 'fr' ? 'Lire la leçon' : 'Read the lesson'}
+          <span aria-hidden="true"> →</span>
+        </a>
+      </div>
+    </section>
   </main>
 </Base>

@@ -6,11 +6,9 @@ interface Props {
   locale: Locale;
   lessonId?: string;
   lessonIds: readonly string[];
-  nextLesson?: { id: string; title: string };
   overviewLessons?: readonly { id: string; title: string }[];
 }
-const { locale, lessonId, lessonIds, nextLesson, overviewLessons } =
-  Astro.props;
+const { locale, lessonId, lessonIds, overviewLessons } = Astro.props;
 const text = completionCopy[locale];
 ---
 
@@ -61,12 +59,6 @@ const text = completionCopy[locale];
     >
       {text.signIn}
     </a>
-    {nextLesson && (
-      <a href={`/${locale}/lessons/${nextLesson.id}/`}>
-        {locale === 'fr' ? 'Leçon suivante' : 'Next lesson'} :{' '}
-        {nextLesson.title} →
-      </a>
-    )}
   </div>
   {overviewLessons?.[0] && (
     <a
