@@ -99,7 +99,11 @@ for (const width of [320, 375, 768, 1280]) {
     const language = await page.locator('.language-switch').boundingBox();
     expect(brand).not.toBeNull();
     expect(language).not.toBeNull();
-    expect(brand!.x + brand!.width).toBeLessThanOrEqual(language!.x);
+    if (width <= 500) {
+      expect(brand!.y + brand!.height).toBeLessThanOrEqual(language!.y);
+    } else {
+      expect(brand!.x + brand!.width).toBeLessThanOrEqual(language!.x);
+    }
   });
 }
 
