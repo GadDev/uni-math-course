@@ -8,7 +8,13 @@ for (const locale of ['fr', 'en']) {
     const path = page.locator('.source-path');
     await expect(path.locator('details')).toHaveCount(5);
     await expect(path.locator('li')).toHaveCount(46);
-    await path.locator('a[href$="L23/#pdf-14"]').click();
+    await expect(path).not.toHaveAttribute('open');
+    await path.locator(':scope > summary').click();
+    const page14 = path
+      .locator('details')
+      .filter({ has: page.locator('a[href$="L23/#pdf-14"]') });
+    await page14.locator('summary').click();
+    await page14.locator('a[href$="L23/#pdf-14"]').click();
     await expect(page.locator('#pdf-14')).toBeInViewport();
     const next = page.locator('.source-next a[href$="L22/#pdf-15"]');
     await next.click();
@@ -91,7 +97,13 @@ test('PDF reading links, diagrams and examples work without JavaScript', async (
   const page = await context.newPage();
   try {
     await page.goto('http://127.0.0.1:4321/fr/chapters/C02/');
-    await page.locator('.source-path a[href$="L26/#pdf-25"]').click();
+    const path = page.locator('.source-path');
+    await path.locator(':scope > summary').click();
+    const page25 = path
+      .locator('details')
+      .filter({ has: page.locator('a[href$="L26/#pdf-25"]') });
+    await page25.locator('summary').click();
+    await page25.locator('a[href$="L26/#pdf-25"]').click();
     await expect(page.locator('#pdf-25')).toBeInViewport();
     await expect(page.locator('article')).toContainText(
       'indice, pas un exposant',

@@ -50,7 +50,7 @@ for (const chapter of [
     next: 'L44',
     total: 15,
     percent: '7 %',
-    groups: 3,
+    groups: 4,
   },
 ]) {
   for (const locale of ['fr', 'en'] as const) {
@@ -128,7 +128,7 @@ for (const locale of ['fr', 'en'] as const) {
     await page.goto(`/${locale}/lessons/L01/`);
     await expect(toggle(page)).toBeEnabled();
     await expect(
-      page.locator('[data-completion] a[href="/' + locale + '/lessons/L02/"]'),
+      page.locator('.lesson-next a[href="/' + locale + '/lessons/L02/"]'),
     ).toBeVisible();
     // Reading alone, including reaching the end, never completes a lesson.
     await toggle(page).scrollIntoViewIfNeeded();

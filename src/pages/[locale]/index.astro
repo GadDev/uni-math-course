@@ -106,7 +106,19 @@ const implication = katex.renderToString('A \\Rightarrow B', {
     >
       <ProgrammeDashboard
         locale={locale}
-        chapterNumber="01"
+        chapterId="C01"
+        objectives={
+          locale === 'fr'
+            ? [
+                'Construire des tables de vérité et raisonner avec les connecteurs logiques.',
+                'Manipuler les ensembles et utiliser les quantificateurs pour formaliser des énoncés.',
+              ]
+            : [
+                'Build truth tables and reason with logical connectives.',
+                'Work with sets and use quantifiers to formalise statements.',
+              ]
+        }
+
         chapterTitle={
           locale === 'fr' ? 'Logique et ensembles' : 'Logic and sets'
         }
@@ -144,50 +156,51 @@ const implication = katex.renderToString('A \\Rightarrow B', {
                   index
                 ] ?? part.title),
         }))}
-      />
-      {programmeParts.map((part, index) => (
-        <section
-          class="programme-part"
-          id={`programme-part-${index + 1}`}
-          aria-label={part.title}
-        >
-          <h3>{part.title}</h3>
-          <p class="programme-source">
-            {part.lessons.length} {locale === 'fr' ? 'leçons' : 'lessons'} ·{' '}
-            {locale === 'fr' ? 'Pages PDF' : 'PDF pages'} {part.pages}
-          </p>
-          <ul class="planned-list">
-            {part.lessons.map((topic) => (
-              <li
-                class={
-                  releasedIds.has(topic.id) ? 'available-topic' : undefined
-                }
-              >
-                <span class="planned-number" aria-hidden="true">
-                  {topic.id.slice(1)}
-                </span>
-                {releasedIds.has(topic.id) ? (
-                  <a href={'/' + locale + '/lessons/' + topic.id + '/'}>
-                    {topic.title}
-                    <span
-                      class="completion-badge"
-                      data-completion-badge={topic.id}
-                      hidden
-                    >
-                      ✓ {completionCopy[locale].completed}
-                    </span>
-                  </a>
-                ) : (
-                  <span>{topic.title}</span>
-                )}
-                <span class="planned-label">
-                  {releasedIds.has(topic.id) ? text.public : text.planned}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
+      >
+        {programmeParts.map((part, index) => (
+          <section
+            class="programme-part"
+            id={`programme-part-${index + 1}`}
+            aria-label={part.title}
+          >
+            <h3>{part.title}</h3>
+            <p class="programme-source">
+              {part.lessons.length} {locale === 'fr' ? 'leçons' : 'lessons'} ·{' '}
+              {locale === 'fr' ? 'Pages PDF' : 'PDF pages'} {part.pages}
+            </p>
+            <ul class="planned-list">
+              {part.lessons.map((topic) => (
+                <li
+                  class={
+                    releasedIds.has(topic.id) ? 'available-topic' : undefined
+                  }
+                >
+                  <span class="planned-number" aria-hidden="true">
+                    {topic.id.slice(1)}
+                  </span>
+                  {releasedIds.has(topic.id) ? (
+                    <a href={'/' + locale + '/lessons/' + topic.id + '/'}>
+                      {topic.title}
+                      <span
+                        class="completion-badge"
+                        data-completion-badge={topic.id}
+                        hidden
+                      >
+                        ✓ {completionCopy[locale].completed}
+                      </span>
+                    </a>
+                  ) : (
+                    <span>{topic.title}</span>
+                  )}
+                  <span class="planned-label">
+                    {releasedIds.has(topic.id) ? text.public : text.planned}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </ProgrammeDashboard>
     </section>
     <RevisionDownloads locale={locale} />
     <section class="lesson-feature" aria-labelledby="pilot-title">
