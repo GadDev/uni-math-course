@@ -29,7 +29,7 @@ export async function startAuthFixture(
 ) {
   const sessions = new Map<string, SessionRecord>();
   const attempts: AttemptDbRow[] = [];
-  const completions = new Map<string, Set<string>>();
+  const completions = new Map<string, Map<string, string>>();
   const knownUser = {
     id: randomUUID(),
     aud: 'authenticated',
@@ -269,14 +269,19 @@ export async function startAuthFixture(
           if (req.method === 'GET')
             return json(
               200,
-              [...(completions.get(owner) ?? [])].map((lesson_id) => ({
-                lesson_id,
-              })),
+              [...(completions.get(owner) ?? [])].map(
+                ([lesson_id, completed_at]) => ({
+                  user_id: owner,
+                  lesson_id,
+                  completed_at,
+                }),
+              ),
             );
           if (req.method === 'POST') {
             if (data.user_id !== owner) return failure(403);
-            const lessons = completions.get(owner) ?? new Set();
-            lessons.add(data.lesson_id);
+            const lessons = completions.get(owner) ?? new Map();
+            if (!lessons.has(data.lesson_id))
+              lessons.set(data.lesson_id, new Date().toISOString());
             completions.set(owner, lessons);
             return json(201, null);
           }
