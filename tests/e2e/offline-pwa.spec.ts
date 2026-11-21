@@ -66,7 +66,16 @@ test('PWA installs public resources and reads French and English lessons offline
       await expect(page.locator('html')).toHaveAttribute('lang', locale);
       await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
       await expect(page.locator('.offline-page')).toHaveCount(0);
-      await expect(page.locator('.katex-mathml math').first()).toBeAttached();
+      if (lesson === 'L50' || lesson === 'L54')
+        await expect(page.locator('.katex-mathml math').first()).toBeAttached();
+      else {
+        await expect(
+          page.locator('.lesson-prose table').first(),
+        ).toBeAttached();
+        await expect(page.locator('.lesson-prose')).toContainText(
+          lesson === 'L55' ? 'BANANABANANA' : 'ABABABA',
+        );
+      }
     }
   }
   await page.goto('/fr/offline/');
