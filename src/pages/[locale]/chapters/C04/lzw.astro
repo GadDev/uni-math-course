@@ -1,6 +1,7 @@
 ---
 import Base from '../../../../layouts/Base.astro';
 import LzwWorkshop from '../../../../components/LzwWorkshop';
+import ActivityStorageNotice from '../../../../components/ActivityStorageNotice.astro';
 import { locales } from '../../../../lib/i18n';
 export function getStaticPaths() {
   return locales.map((locale) => ({ params: { locale }, props: { locale } }));
@@ -44,6 +45,7 @@ const title = fr
         {fr ? '3. Cas particulier et bilan' : '3. Special case and costs'}
       </a>
     </nav>
+    <ActivityStorageNotice locale={locale} />
     <LzwWorkshop locale={locale} client:load />
     <noscript>
       <p>

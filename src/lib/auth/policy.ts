@@ -152,7 +152,7 @@ export function sameOriginPost(request: Request, config: AuthConfig): boolean {
 }
 
 export function authRoute(path: string): boolean {
-  return /^\/(?:auth\/(?:login|logout|forgot-password|recovery|reset-password)|api\/(?:auth\/session|attempts|lesson-completions|exercises\/L[0-9]{2}|training-exams\/(?:C0[123]|final))|(?:fr|en)\/(?:sign-in|forgot-password|reset-password|account|progress|training-exams\/(?:C0[123]|final)|lessons\/L[0-9]{2}\/practice))\/?$/.test(
+  return /^\/(?:auth\/(?:login|logout|forgot-password|recovery|reset-password)|api\/(?:auth\/session|attempts|lesson-completions|study-resume|exercises\/L[0-9]{2}|training-exams\/(?:C0[123]|final))|(?:fr|en)\/(?:sign-in|forgot-password|reset-password|account|progress|training-exams\/(?:C0[123]|final)|lessons\/L[0-9]{2}\/practice))\/?$/.test(
     path,
   );
 }
