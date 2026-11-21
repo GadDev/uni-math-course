@@ -96,6 +96,17 @@ for (const locale of ['fr', 'en']) {
       const html = await response!.text();
       expect(html).not.toContain('&quot;explanation&quot;');
       expect(html).not.toContain('&quot;answer&quot;');
+      await expect(page.locator('.exam-study-modes')).toContainText(
+        locale === 'fr'
+          ? 'En conditions d’examen — documents autorisés'
+          : 'Exam conditions — reference materials allowed',
+      );
+      await expect(page.locator('.exam-study-modes')).toContainText(
+        locale === 'fr' ? 'Rappel sans notes' : 'Closed-book recall',
+      );
+      await expect(page.locator('.exam-preparation')).toContainText(
+        locale === 'fr' ? 'Leçons évaluées' : 'Assessed lessons',
+      );
       await page
         .getByRole('button', { name: /Commencer l’examen|Start the exam/ })
         .click();
