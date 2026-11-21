@@ -175,10 +175,13 @@ for (const locale of ['fr', 'en']) {
       'C04',
     );
     await expect(page.locator('html')).toHaveAttribute('lang', locale);
+    await expect(
+      page.locator('astro-island:has(.lzw-workshop)'),
+    ).not.toHaveAttribute('ssr');
     const mode = page.getByLabel('Mode', { exact: true });
     await mode.focus();
-    await page.keyboard.press('ArrowDown');
-    await page.keyboard.press('Enter');
+    // Native-select type-ahead also works without opening an OS popup.
+    await page.keyboard.press(locale === 'fr' ? 'p' : 'g');
     await expect(mode).toHaveValue('guided');
     const overflow = await page.evaluate(
       () => document.documentElement.scrollWidth > window.innerWidth,

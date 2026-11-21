@@ -120,7 +120,12 @@ export function Plot({
           ? 'Repère cartésien, verticale vers le haut'
           : 'Cartesian coordinates, vertical axis upwards'}
       </title>
-      <desc id={`${id}-desc`}>{description}</desc>
+      <desc id={`${id}-desc`}>
+        {fr
+          ? `Axe horizontal ${pixel ? 'u' : 'x'}, axe vertical ${pixel ? 'v' : 'y'} : de ${format(min, fr)} à ${format(max, fr)} sur chaque axe ; graduations ${ticks.join(', ')}. `
+          : `Horizontal axis ${pixel ? 'u' : 'x'}, vertical axis ${pixel ? 'v' : 'y'}: ${min} to ${max} on each axis; ticks ${ticks.join(', ')}. `}
+        {description}
+      </desc>
       <defs>
         <clipPath id={`${id}-clip`}>
           <rect x="40" y="20" width="360" height="360" />

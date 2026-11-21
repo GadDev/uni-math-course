@@ -668,10 +668,13 @@ export default function LzwWorkshop({ locale }: { locale: Locale }) {
               aria-label={t('Table du dictionnaire', 'Dictionary table')}
             >
               <table>
+                <caption className="visually-hidden">
+                  {t('Dictionnaire à cette étape', 'Dictionary at this step')}
+                </caption>
                 <thead>
                   <tr>
-                    <th>{t('Code', 'Code')}</th>
-                    <th>{t('Chaîne', 'String')}</th>
+                    <th scope="col">{t('Code', 'Code')}</th>
+                    <th scope="col">{t('Chaîne', 'String')}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -682,13 +685,13 @@ export default function LzwWorkshop({ locale }: { locale: Locale }) {
                         last?.added?.code === item.code ? 'lzw-new' : ''
                       }
                     >
-                      <td>{item.code}</td>
+                      <th scope="row">{item.code}</th>
                       <td>{item.word}</td>
                     </tr>
                   ))}
                   {direction === 'decode' && last?.pending && (
                     <tr className="lzw-pending">
-                      <td>{last.pending.code}</td>
+                      <th scope="row">{last.pending.code}</th>
                       <td>
                         {last.pending.word} · {t('en attente', 'pending')}
                       </td>
@@ -716,28 +719,35 @@ export default function LzwWorkshop({ locale }: { locale: Locale }) {
               aria-label={t('Table des étapes', 'Step table')}
             >
               <table>
+                <caption className="visually-hidden">
+                  {t('Trace détaillée', 'Detailed trace')}
+                </caption>
                 <thead>
                   <tr>
-                    <th>#</th>
-                    <th>
+                    <th scope="col" aria-label={t('Étape', 'Step')}>
+                      #
+                    </th>
+                    <th scope="col">
                       {direction === 'encode'
                         ? 'w · c'
                         : t('Code reçu', 'Received code')}
                     </th>
-                    <th>{t('Sortie', 'Output')}</th>
-                    <th>{t('Ajout complété', 'Completed addition')}</th>
+                    <th scope="col">{t('Sortie', 'Output')}</th>
+                    <th scope="col">
+                      {t('Ajout complété', 'Completed addition')}
+                    </th>
                     {direction === 'decode' && (
-                      <th>{t('En attente', 'Pending')}</th>
+                      <th scope="col">{t('En attente', 'Pending')}</th>
                     )}
                   </tr>
                 </thead>
                 <tbody>
                   {visible.map((s, index) => (
                     <tr key={index} className={s.special ? 'lzw-special' : ''}>
-                      <td>
+                      <th scope="row">
                         {index + 1}
                         {s.special && ' ★'}
-                      </td>
+                      </th>
                       <td>
                         {direction === 'encode'
                           ? `${s.w} · ${s.c || t('(fin)', '(end)')}`

@@ -35,10 +35,9 @@ test('French mobile session advances to completion and retries only the missed i
   ).toBeVisible();
   await formula.fill('C <-> (A & B)');
   await formula.press('Enter');
-  await expect(
-    page.getByRole('button', { name: 'Question suivante' }),
-  ).toBeFocused();
-  await page.keyboard.press('Enter');
+  await expect(page.locator('.logic-feedback h3')).toBeFocused();
+  await expect(page.locator('.logic-feedback')).toContainText('C');
+  await page.getByRole('button', { name: 'Question suivante' }).press('Enter');
 
   await page.getByRole('radio', { name: '¬A ⇒ ¬B' }).press('Space');
   await page.getByRole('button', { name: 'Vérifier' }).press('Enter');
@@ -117,6 +116,9 @@ test('English truth table retains input and exposes a downloadable A4 reference'
   await seventhCell.selectOption('1');
   await page.getByRole('button', { name: 'Check answer' }).click();
   await expect(page.getByText('Well done!')).toBeVisible();
-  await page.getByText('Check with a truth table').click();
+  await page
+    .locator('summary')
+    .filter({ hasText: 'Check with a truth table' })
+    .click();
   await expect(page.getByRole('table').last()).toBeVisible();
 });

@@ -153,8 +153,8 @@ function Plot({
         <title id={`${id}-title`}>{title}</title>
         <desc id={`${id}-desc`}>
           {fr
-            ? 'Axes gradués. Les valeurs du point et de la pente sont aussi données en texte sous les commandes.'
-            : 'Numbered axes. Point values and slope also appear as text below the controls.'}
+            ? `Axe horizontal x : de −4 à 4, graduations de 2. Axe vertical y : de −${format(limit, locale)} à ${format(limit, locale)}, graduations de ${format(limit / 2, locale)}. Les valeurs du point et de la pente sont aussi données en texte sous les commandes.`
+            : `Horizontal x axis: −4 to 4, ticks every 2. Vertical y axis: −${format(limit, locale)} to ${format(limit, locale)}, ticks every ${format(limit / 2, locale)}. Point values and slope also appear as text below the controls.`}
         </desc>
         <defs>
           <clipPath id={`${id}-clip`}>

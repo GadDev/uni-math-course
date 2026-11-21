@@ -2,6 +2,10 @@
   :root:has(.cheat-sheet-page) {
     overflow-x: clip;
   }
+  .cheat-sheet-page {
+    /* Keep absolutely positioned accessible math inside this overflow boundary. */
+    position: relative;
+  }
 }
 
 .cheat-sheet-page {

@@ -108,8 +108,14 @@ const sampleRows = assignments(['A', 'B']).map((row) =>
             ? '∨ (OU) se note aussi +, ∧ (ET) se note ·, et ¬A (NON A) se note A′. ⊤ vaut 1, ¬⊤ vaut 0.'
             : '∨ (OR) can be written +, ∧ (AND) as ·, and ¬A (NOT A) as A′. ⊤ is 1 and ¬⊤ is 0.'}
         </p>
-        <div class="logic-table-scroll">
+        <div
+          class="logic-table-scroll"
+          role="region"
+          aria-label={t('laws')}
+          tabindex="0"
+        >
           <table>
+            <caption class="logic-sr">{t('laws')}</caption>
             <thead>
               <tr>
                 <th scope="col">{t('lawName')}</th>

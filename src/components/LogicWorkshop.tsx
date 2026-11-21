@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type SubmitEvent } from 'react';
+import { useEffect, useRef, useState, type Ref, type SubmitEvent } from 'react';
 import type { Locale } from '../lib/i18n';
 import {
   practiceCopy,
@@ -39,19 +39,31 @@ async function request<T>(
 function Feedback({
   result,
   locale,
+  headingRef,
 }: {
   result: Result['feedback'];
   locale: Locale;
+  headingRef?: Ref<HTMLHeadingElement>;
 }) {
   return (
     <div className="logic-feedback">
-      <strong>{result.message}</strong>
+      <h3 ref={headingRef} tabIndex={headingRef ? -1 : undefined}>
+        {result.message}
+      </h3>
       <p>{result.solution}</p>
       {result.table && (
         <details>
           <summary>{practiceCopy.tableCheck[locale]}</summary>
-          <div className="logic-table-scroll">
+          <div
+            className="logic-table-scroll"
+            role="region"
+            aria-label={practiceCopy.tableCheck[locale]}
+            tabIndex={0}
+          >
             <table>
+              <caption className="logic-sr">
+                {practiceCopy.tableCheck[locale]}
+              </caption>
               <thead>
                 <tr>
                   {result.table.columns.map((label) => (
@@ -95,6 +107,7 @@ export default function LogicWorkshop({ locale }: { locale: Locale }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
   const focus = useRef<HTMLHeadingElement>(null);
+  const feedbackFocus = useRef<HTMLHeadingElement>(null);
   const position =
     results.length -
     Number(feedback?.state === 'correct' || feedback?.state === 'revealed');
@@ -104,6 +117,10 @@ export default function LogicWorkshop({ locale }: { locale: Locale }) {
   useEffect(() => {
     focus.current?.focus();
   }, [current, finished]);
+
+  useEffect(() => {
+    if (final && !finished) feedbackFocus.current?.focus();
+  }, [feedback, final, finished]);
 
   function openQuestion(question: PublicQuestion) {
     setCurrent(question);
@@ -170,10 +187,6 @@ export default function LogicWorkshop({ locale }: { locale: Locale }) {
         ];
         setResults(updated);
         setFinished(updated.length === questions.length);
-        if (updated.length < questions.length)
-          requestAnimationFrame(() =>
-            document.getElementById('logic-next')?.focus(),
-          );
       }
     } catch {
       setError(true);
@@ -337,7 +350,12 @@ export default function LogicWorkshop({ locale }: { locale: Locale }) {
               {current.kind === 'table' && (
                 <>
                   <legend className="logic-sr">{t('table')}</legend>
-                  <div className="logic-table-scroll">
+                  <div
+                    className="logic-table-scroll"
+                    role="region"
+                    aria-label={t('table')}
+                    tabIndex={0}
+                  >
                     <table>
                       <caption className="logic-sr">{t('table')}</caption>
                       <thead>
@@ -417,7 +435,7 @@ export default function LogicWorkshop({ locale }: { locale: Locale }) {
               </button>
             )}
           </form>
-          <div role="status" aria-live="polite">
+          <div role={final ? undefined : 'status'}>
             {feedback?.state === 'incorrect' && (
               <div className="logic-feedback">
                 <p>{feedback.message}</p>
@@ -445,7 +463,13 @@ export default function LogicWorkshop({ locale }: { locale: Locale }) {
               </div>
             )}
             {feedback?.state === 'continue' && <p>{feedback.message}</p>}
-            {final && <Feedback result={feedback} locale={locale} />}
+            {final && (
+              <Feedback
+                result={feedback}
+                locale={locale}
+                headingRef={feedbackFocus}
+              />
+            )}
           </div>
           {final && (
             <button
