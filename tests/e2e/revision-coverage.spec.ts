@@ -21,9 +21,19 @@ for (const locale of ['fr', 'en']) {
           (await request.get((await link.getAttribute('href'))!)).ok(),
         ).toBe(true);
       }
-      expect(
-        await page.evaluate(() => document.documentElement.scrollWidth),
-      ).toBeLessThanOrEqual(320);
+      const bounds = await reference.boundingBox();
+      expect(bounds).not.toBeNull();
+      expect(bounds!.x).toBeGreaterThanOrEqual(0);
+      expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(320);
+      for (const formula of await reference
+        .locator('.information-formula')
+        .all()) {
+        const box = await formula.boundingBox();
+        expect(box!.x + box!.width).toBeLessThanOrEqual(320);
+      }
+      await page.mouse.move(2, 2);
+      await page.mouse.wheel(500, 0);
+      await expect.poll(() => page.evaluate(() => window.scrollX)).toBe(0);
       await page.screenshot({
         path: testInfo.outputPath(`chapter-4-${colorScheme}.png`),
       });

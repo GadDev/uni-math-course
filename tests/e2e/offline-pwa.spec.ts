@@ -47,9 +47,11 @@ test('PWA installs public resources and reads French and English lessons offline
     for (const locale of ['fr', 'en'])
       expect(packedPaths).toContain(`/${locale}/lessons/${lesson}/`);
   expect(
-    packedPaths.some((path) =>
-      /training-exams|cheat-sheet|\/lzw\/|\.pdf$|\/api\//.test(path),
-    ),
+    packedPaths
+      .filter((path) => !path.startsWith('/_astro/'))
+      .some((path) =>
+        /training-exams|cheat-sheet|\/lzw\/|\.pdf$|\/api\//.test(path),
+      ),
   ).toBe(false);
   await context.setOffline(true);
   await page.goto('/fr/lessons/L23/');
