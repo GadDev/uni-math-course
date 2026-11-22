@@ -47,9 +47,13 @@ function Feedback({
 }) {
   return (
     <div className="logic-feedback">
-      <h3 ref={headingRef} tabIndex={headingRef ? -1 : undefined}>
-        {result.message}
-      </h3>
+      {headingRef ? (
+        <h3 ref={headingRef} tabIndex={-1}>
+          {result.message}
+        </h3>
+      ) : (
+        <strong>{result.message}</strong>
+      )}
       <p>{result.solution}</p>
       {result.table && (
         <details>
