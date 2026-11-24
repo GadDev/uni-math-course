@@ -91,3 +91,41 @@ test('lesson reading links resolve to exactly one source without accepting missi
     await rm(root, { recursive: true, force: true });
   }
 });
+
+test('chapter and LZW links resolve only to existing locale-aware Astro sources', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'uni-math-chapter-links-'));
+  try {
+    await mkdir(join(root, 'src/pages/[locale]/chapters/C04'), {
+      recursive: true,
+    });
+    await writeFile(
+      join(root, 'src/pages/[locale]/chapters/C04.astro'),
+      '<main/>',
+    );
+    await writeFile(
+      join(root, 'src/pages/[locale]/chapters/C04/lzw.astro'),
+      '<main/>',
+    );
+    for (const target of ['/fr/chapters/C04/', '/en/chapters/C04/lzw/']) {
+      await writeFile(
+        join(root, 'README.md'),
+        `# Test\n\n[route](${target})\n`,
+      );
+      assert.equal(await validateRepository(root, []), 1);
+    }
+    for (const target of [
+      '/fr/chapters/C99/',
+      '/fr/chapters/C99/lzw/',
+      '/fr/chapters/C04/missing/',
+      '/de/chapters/C04/lzw/',
+    ]) {
+      await writeFile(
+        join(root, 'README.md'),
+        `# Test\n\n[missing](${target})\n`,
+      );
+      await assert.rejects(validateRepository(root, []));
+    }
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});

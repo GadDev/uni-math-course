@@ -28,25 +28,46 @@ const text = examCopy[locale];
       class="exam-card final-exam-card"
       aria-labelledby="final-exam-entry"
     >
-      <p class="eyebrow">TOUS LES CHAPITRES · EN FRANÇAIS</p>
-      <h2 id="final-exam-entry">Examen blanc final — Tous les chapitres</h2>
-      <p>
-        120 minutes · 18 questions · 180 questions dans la banque. Logique,
-        nombres, droites, fonctions, complexité et information.
+      <p class="eyebrow">
+        {locale === 'fr'
+          ? 'QUATRE CHAPITRES · COUVERTURE PARTIELLE · EN FRANÇAIS'
+          : 'FOUR CHAPTERS · PARTIAL COVERAGE · IN FRENCH'}
       </p>
+      <h2 id="final-exam-entry">
+        {locale === 'fr'
+          ? 'Examen blanc final — couverture partielle'
+          : 'Final mock exam — partial coverage (in French)'}
+      </h2>
       <p>
-        Un nouveau sujet équilibré à chaque tentative, avec correction
-        automatique et grilles d’autoévaluation après remise.
+        {locale === 'fr'
+          ? '120 minutes · 18 questions · banque de 180 questions. Logique, nombres, droites, fonctions, complexité et information (L43–L49).'
+          : '120 minutes · 18 questions · bank of 180 questions. Logic, numbers, lines, functions, complexity and information (L43–L49).'}
       </p>
       <p>
         {locale === 'fr'
-          ? 'La banque actuelle couvre les bases de l’information, Huffman et l’entropie. Les nouveaux objectifs L50–L54 du chapitre 4 se pratiquent séparément dans les leçons.'
-          : 'The current bank covers information basics, Huffman and entropy. New Chapter 4 objectives L50–L54 have separate lesson practice.'}
+          ? 'Un nouveau sujet équilibré à chaque tentative, avec correction automatique et grilles d’autoévaluation après remise.'
+          : 'A new balanced paper each attempt, with automatic marking and self-assessment rubrics after submission.'}
+      </p>
+      <p>
+        {locale === 'fr'
+          ? 'La banque actuelle couvre les bases de l’information, Huffman et l’entropie. Exclus : L50–L57 (arbres, Kraft–McMillan, Gibbs, preuve de la borne, blocs et LZW). Pas encore de sujet dédié au chapitre 4 ; utilisez les leçons et l’atelier LZW.'
+          : 'The current bank covers information basics, Huffman and entropy. Excluded: L50–L57 (trees, Kraft–McMillan, Gibbs, bound proof, blocks and LZW). No dedicated Chapter 4 paper yet; use the lessons and LZW workshop.'}
       </p>
       <a class="primary-link" href="/fr/training-exams/final/">
-        Préparer l’examen final →
+        {locale === 'fr'
+          ? 'Préparer l’examen final'
+          : 'Prepare the final exam (in French)'}{' '}
+        →
       </a>
     </section>
+    <p>
+      <a href={`/${locale}/cheat-sheet/#information`}>
+        {locale === 'fr'
+          ? 'Réviser le chapitre 4 et accéder aux leçons / atelier LZW'
+          : 'Review Chapter 4 and find lessons / LZW workshop'}{' '}
+        →
+      </a>
+    </p>
     <div class="exam-catalogue">
       {examChapters.map((chapter) => (
         <section

@@ -1,6 +1,9 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import SignalGeometry from '../../../components/SignalGeometry.astro';
+import ProgrammeDashboard from '../../../components/ProgrammeDashboard.astro';
+import { completionCopy } from '../../../lib/completion-copy';
 import { informationCopy } from '../../../lib/information';
 import { locales } from '../../../lib/i18n';
 import katex from 'katex';
@@ -12,6 +15,44 @@ export function getStaticPaths() {
 
 const { locale } = Astro.props;
 const text = informationCopy[locale];
+const entries = await getCollection(
+  'lessons',
+  (entry) => entry.data.locale === locale,
+);
+const lessons = text.lessons.filter(({ id }) =>
+  entries.some((entry) => entry.data.lessonId === id),
+);
+const lessonGroups = [
+  {
+    title: locale === 'fr' ? 'Codes et messages' : 'Codes and messages',
+    start: 1,
+    lessons: lessons.slice(0, 3),
+  },
+  {
+    title:
+      locale === 'fr'
+        ? 'Probabilités et compression'
+        : 'Probability and compression',
+    start: 4,
+    lessons: lessons.slice(3, 7),
+  },
+  {
+    title:
+      locale === 'fr'
+        ? 'Arbres et bornes de compression'
+        : 'Trees and compression bounds',
+    start: 8,
+    lessons: lessons.slice(7, 12),
+  },
+  {
+    title:
+      locale === 'fr'
+        ? 'Compression par dictionnaire (LZW)'
+        : 'Dictionary compression (LZW)',
+    start: 13,
+    lessons: lessons.slice(12),
+  },
+];
 const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
   output: 'htmlAndMathml',
   throwOnError: true,
@@ -49,6 +90,113 @@ const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
       </div>
     </section>
 
+    <section
+      id="parcours"
+      class="planned-section programme-section"
+      aria-labelledby="information-outline"
+    >
+      <ProgrammeDashboard
+        locale={locale}
+        chapterId="C04"
+        objectives={text.objectives}
+
+        chapterTitle={text.title}
+        headingId="information-outline"
+        title={text.outline}
+        intro={
+          locale === 'fr'
+            ? `Des messages binaires à la compression LZW : ${lessons.length} leçons pour comprendre et mesurer la compression, étape par étape.`
+            : `From binary messages to LZW compression: ${lessons.length} lessons to understand and measure compression, step by step.`
+        }
+        lessons={lessons}
+        action={{
+          title: locale === 'fr' ? 'Coder avec Huffman' : 'Huffman coding',
+          description:
+            locale === 'fr'
+              ? 'Explorez un arbre de Huffman et comparez les longueurs des codes dans la leçon interactive.'
+              : 'Explore a Huffman tree and compare codeword lengths in the interactive lesson.',
+          href: `/${locale}/lessons/L49/`,
+          label: locale === 'fr' ? 'Explorer le codage' : 'Explore coding',
+        }}
+        jumps={lessonGroups.map((group, index) => ({
+          href: `#programme-C04-part-${index + 1}`,
+          label: group.title,
+        }))}
+      >
+        {lessonGroups.map((group, groupIndex) => (
+          <section
+            class="chapter-lesson-group programme-part"
+            id={`programme-C04-part-${groupIndex + 1}`}
+            aria-labelledby={`programme-C04-heading-${groupIndex + 1}`}
+          >
+            <h3 id={`programme-C04-heading-${groupIndex + 1}`}>
+              {group.title}
+            </h3>
+            <p class="programme-source">
+              {group.lessons.length} {locale === 'fr' ? 'leçons' : 'lessons'}
+            </p>
+            <ol class="planned-list chapter-lessons" start={group.start}>
+              {group.lessons.map((lesson, index) => (
+                <li class="available-topic">
+                  <span class="planned-number" aria-hidden="true">
+                    {String(group.start + index).padStart(2, '0')}
+                  </span>
+                  <a href={`/${locale}/lessons/${lesson.id}/`}>
+                    {lesson.title}
+                    <span
+                      class="completion-badge"
+                      data-completion-badge={lesson.id}
+                      hidden
+                    >
+                      ✓ {completionCopy[locale].completed}
+                    </span>
+                  </a>
+                  <small class="planned-label">
+                    {text.pages} {lesson.pages} · {text.upcoming}
+                  </small>
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))}
+      </ProgrammeDashboard>
+    </section>
+
+    <section class="practice-status" aria-labelledby="lzw-workshop-title">
+      <div class="practice-copy">
+        <p class="eyebrow">
+          {locale === 'fr'
+            ? 'Laboratoire public · L55–L57'
+            : 'Public laboratory · L55–L57'}
+        </p>
+        <h2 id="lzw-workshop-title">
+          {locale === 'fr'
+            ? 'Construisez votre dictionnaire LZW'
+            : 'Build your LZW dictionary'}
+        </h2>
+        <p>
+          {locale === 'fr'
+            ? 'Explorez les exemples, complétez une étape à la fois, puis encodez et décodez des messages en autonomie.'
+            : 'Explore examples, complete one step at a time, then encode and decode messages independently.'}
+        </p>
+        <a class="primary-link" href={`/${locale}/chapters/C04/lzw/`}>
+          {locale === 'fr' ? 'Ouvrir l’atelier LZW' : 'Open the LZW workshop'} →
+        </a>
+      </div>
+    </section>
+
+    <section class="practice-status" aria-labelledby="information-practice">
+      <div class="practice-copy">
+        <h2 id="information-practice">{text.practice}</h2>
+        <p>{text.practiceText}</p>
+      </div>
+      <aside class="reading-notice" aria-labelledby="information-review">
+        <h2 id="information-review" class="reading-notice-title">
+          {text.review}
+        </h2>
+        <p>{text.reviewText}</p>
+      </aside>
+    </section>
     <section class="lesson-feature" aria-labelledby="information-basics-title">
       <div class="lesson-index" aria-hidden="true">
         01
@@ -72,52 +220,6 @@ const formula = katex.renderToString(String.raw`c:S\to\{0,1\}^{*}`, {
           <span aria-hidden="true">→</span>
         </a>
       </div>
-    </section>
-
-    <section
-      id="parcours"
-      class="planned-section"
-      aria-labelledby="information-outline"
-    >
-      <div class="chapter-section-heading">
-        <h2 id="information-outline">{text.outline}</h2>
-        <p>{text.outlineNote}</p>
-      </div>
-      <ol class="planned-list chapter-lessons">
-        {text.lessons.map((lesson, index) => (
-          <li class="available-topic">
-            <span class="planned-number" aria-hidden="true">
-              {String(index + 1).padStart(2, '0')}
-            </span>
-            <a href={`/${locale}/lessons/${lesson.id}/`}>{lesson.title}</a>
-            <small class="planned-label">
-              {text.pages} {lesson.pages} · {text.upcoming}
-            </small>
-          </li>
-        ))}
-      </ol>
-    </section>
-
-    <section class="chapter-objectives" aria-labelledby="information-goals">
-      <h2 id="information-goals">{text.goals}</h2>
-      <ol>
-        {text.objectives.map((objective) => (
-          <li>{objective}</li>
-        ))}
-      </ol>
-    </section>
-
-    <section class="practice-status" aria-labelledby="information-practice">
-      <div class="practice-copy">
-        <h2 id="information-practice">{text.practice}</h2>
-        <p>{text.practiceText}</p>
-      </div>
-      <aside class="reading-notice" aria-labelledby="information-review">
-        <h2 id="information-review" class="reading-notice-title">
-          {text.review}
-        </h2>
-        <p>{text.reviewText}</p>
-      </aside>
     </section>
   </main>
 </Base>

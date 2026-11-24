@@ -27,6 +27,12 @@ Review links carry an exercise ID and version (`?exercise=L05-E01&version=1`). A
 
 The bounded target survives anonymous redirects to sign-in, failed-login retries and language changes. Login return paths accept only existing route shapes and these two validated practice parameters; external, encoded, duplicate, cross-lesson and arbitrary query destinations remain rejected. Expired-session links identify the exercise currently open.
 
+## Finishing a practice set
+
+After the last required exercise has a confirmed saved result in the tab, the feedback card offers a practice summary. If required exercises were skipped, the primary action takes the learner to an unanswered one. Incorrect saved responses count as answered and appear in the summary's review count. Optional exercises can be continued from the summary. The primary exit opens the next published lesson in the chapter, or the chapter overview after its last lesson.
+
+The summary is restored from the learner's version-scoped tab draft on reload or language change. A valid review link still opens its requested exercise. The summary uses the draft's checked responses. Attempt history, independent mastery evidence and manual lesson completion keep their existing rules.
+
 ## Learner context
 
 Each submission includes `expectedLearnerId`, the learner returned when the activity loaded. The API requires this precondition (`400 invalid_learner_context` when missing/invalid) and rejects another learner with `409 learner_context_changed` before attempt lookup, duplicate replay or persistence. It always derives the saved owner from server-verified identity; the expected ID never authorizes access.
@@ -75,6 +81,18 @@ Local review: sign in, open L01, mark it completed, reload, switch language, che
 Run `pnpm build:test`, then `node tests/support/measure-practice.ts` with Chromium installed (or `PLAYWRIGHT_CHROMIUM_EXECUTABLE` set). Keep ports 4321 and 54329 free. The harness starts the production Node adapter and isolated Auth/Data API fixture, adds **150 ms to each upstream Auth/Data request**, and reports one first visit, five repeat visits, request counts, document bytes/timings, click-to-feedback DOM timings and the signed-out redirect. Browser/session state is reused, while tab drafts are cleared between visits. The first visit includes local process/browser warm-up; it is not a Vercel cold-start measurement.
 
 Use the same harness and conditions against the base and changed builds. These synthetic results expose avoidable round trips; they do not establish hosted Supabase query time, Vercel cold starts, deployment/database region alignment, or production percentiles. Existing indexes cover learner/submission lookup and learner/exercise eligibility checks; live query plans and hosted telemetry remain unverified. Grading feedback still waits for the authoritative saved attempt.
+
+## Saved study resume and reading history
+
+The course overview offers a resume link only after the shared session lifecycle verifies the learner and `GET /api/study-resume/` confirms a saved action. It selects the most recent explicit reading completion or attempt on a currently offered exercise version. It returns to that lesson or exact practice question; it does not track visits or claim to restore an unfinished exam/workshop. With no saved action, the existing public start links remain available. Chapter dashboards keep their separate first-unfinished-reading links.
+
+The resume endpoint and private progress page reuse `lesson_completions.completed_at` and the existing owner-scoped `read_attempt_history` RPC. No new table, migration, privileged key, browser progress store or mastery rule is introduced. Completion undo removes that reading record; repeated completion writes preserve its first timestamp. French and English use the same saved IDs. The progress page lists confirmed reading completions with dates alongside the existing attempt history and review panel. Reading completed, exercises attempted, needs review and activity completed have different meanings; finishing an activity is not mastery evidence.
+
+Resume responses contain only the verified learner ID and a bounded lesson/exercise destination with its timestamp, never answers or grades. Middleware applies private/no-store headers. The public page loads no private state for anonymous readers. Failed loads remove stale resume links and offer a retry; account changes, logout and late responses cannot reinstall the previous learner’s link. The private progress page retains its existing account-bound refresh handling.
+
+Exams and workshops remain outside saved progress. Chapter exams disclose tab-only drafts and unsaved scores before starting; the French final exam discloses its tab-only drafts/history and lack of synchronization. Public logic and LZW workshops disclose page-only results before the controls, including without JavaScript. Completion/correction/repeated supplied answers do not create new mastery evidence. Integrating saved exam/workshop history remains a separate decision; this change does not silently add retention of those results.
+
+Local regression coverage uses the existing synthetic Auth/Data API fixture for reading, attempts, return visits, FR/EN, undo, failed loads/retries, stale responses, account isolation and logout. It is not hosted Supabase/RLS acceptance. Invited-account production sign-in, persistence across real devices, and deployed schema/access-rule checks remain pending; no account credentials are included in this change.
 
 ## Chapter-wide mock exams
 

@@ -1,0 +1,26 @@
+---
+import type { Locale } from '../lib/i18n';
+import { progressCopy } from '../lib/progress-copy';
+import '../styles/study-resume.css';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const text = progressCopy[locale];
+---
+
+<section class="study-resume" data-study-resume hidden aria-label={text.resume}>
+  <h2>{text.resume}</h2>
+  <p data-study-resume-status role="status"></p>
+  <a class="primary-link" data-study-resume-link hidden></a>
+  <button type="button" data-study-resume-retry hidden>
+    {text.reload}
+  </button>
+  <p>
+    <a href={`/${locale}/progress/`}>{text.savedHistory}</a>
+  </p>
+</section>
+<script>
+  import { initStudyResume } from '../lib/study-resume';
+  initStudyResume();
+</script>

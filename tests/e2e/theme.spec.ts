@@ -174,7 +174,13 @@ for (const locale of ['fr', 'en']) {
               page.locator(signedIn ? '.profile-button' : '.header-sign-in'),
             ].map((locator) => locator.boundingBox()),
           );
-          for (let j = 1; j < boxes.length; j++) {
+          if (width <= 500) {
+            // Narrow headers put utilities on a separate row below the brand.
+            expect(boxes[0]!.y + boxes[0]!.height).toBeLessThanOrEqual(
+              boxes[1]!.y,
+            );
+          }
+          for (let j = width <= 500 ? 2 : 1; j < boxes.length; j++) {
             expect(boxes[j - 1]!.x + boxes[j - 1]!.width).toBeLessThanOrEqual(
               boxes[j]!.x,
             );

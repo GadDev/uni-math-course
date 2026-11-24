@@ -1,3 +1,4 @@
+import StudyModes from './StudyModes';
 import { useEffect, useRef, useState } from 'react';
 import Tex from './Tex';
 import { revalidateSession, subscribeSession } from '../lib/session-lifecycle';
@@ -325,9 +326,9 @@ export default function FinalExam({ learner }: { learner: string }) {
       <p className="exam-coverage-note">
         Le chapitre 4 a été enrichi : cet examen couvre le codage, Huffman et
         l’entropie, mais n’évalue pas encore les objectifs nouveaux de
-        <a href="/fr/lessons/L50/"> L50 à L54</a> (arbres de questions,
-        Kraft–McMillan, Gibbs, preuve de la borne et blocs de Shannon). Leurs
-        exercices sont accessibles depuis les leçons après connexion.
+        <a href="/fr/lessons/L50/"> L50 à L57</a> (arbres de questions,
+        Kraft–McMillan, Gibbs, preuve de la borne, blocs de Shannon et LZW).
+        Leurs exercices sont accessibles depuis les leçons après connexion.
       </p>
       {storageFailure && (
         <p role="status">
@@ -346,6 +347,7 @@ export default function FinalExam({ learner }: { learner: string }) {
       {!paper ? (
         <section className="exam-preparation">
           <h2>Préparer le sujet</h2>
+          <StudyModes locale="fr" />
           <p>
             120 minutes : 108 minutes de travail estimé et 12 minutes de
             relecture. Le sujet contient 18 questions, choisies dans une banque

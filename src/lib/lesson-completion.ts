@@ -18,6 +18,32 @@ export function initCompletion() {
   const signIn = root.querySelector<HTMLElement>('[data-completion-sign-in]')!;
   const lessonId = root.dataset.lesson;
   const lessonIds = JSON.parse(root.dataset.lessons ?? '[]') as string[];
+  const overviewLessons = JSON.parse(root.dataset.overviewLessons ?? '[]') as {
+    id: string;
+    title: string;
+  }[];
+  const meter = root.querySelector<HTMLElement>('[data-completion-meter]');
+  const progress = meter?.querySelector('progress');
+  const percent = root.querySelector<HTMLElement>('[data-completion-percent]');
+  const continueLink = root.querySelector<HTMLAnchorElement>(
+    '[data-completion-continue]',
+  );
+  const continueLabel = root.querySelector<HTMLElement>(
+    '[data-completion-continue-label]',
+  );
+  const continueTitle = root.querySelector<HTMLElement>(
+    '[data-completion-continue-title]',
+  );
+  const locale = document.documentElement.lang === 'en' ? 'en' : 'fr';
+  const resetOverview = () => {
+    if (meter) meter.hidden = true;
+    if (continueLink && continueLabel && continueTitle && overviewLessons[0]) {
+      continueLink.href = `/${locale}/lessons/${overviewLessons[0].id}/`;
+      continueLabel.textContent =
+        locale === 'fr' ? 'Commencer le chapitre' : 'Start the chapter';
+      continueTitle.textContent = `${overviewLessons[0].id} · ${overviewLessons[0].title}`;
+    }
+  };
   let learner: string | undefined;
   let completed = new Set<string>();
   let revision = 0;
@@ -32,6 +58,7 @@ export function initCompletion() {
     if (toggle) toggle.hidden = true;
     retry.hidden = true;
     status.hidden = true;
+    resetOverview();
   };
   const render = () => {
     ready = true;
@@ -50,9 +77,30 @@ export function initCompletion() {
       badge.hidden = !completed.has(badge.dataset.completionBadge!);
     retry.hidden = true;
     signIn.hidden = true;
+    if (meter && progress && percent) {
+      progress.value = count;
+      percent.textContent = `${Math.round((count / lessonIds.length) * 100)} %`;
+      meter.hidden = false;
+    }
+    if (continueLink && continueLabel && continueTitle) {
+      const next = overviewLessons.find((lesson) => !completed.has(lesson.id));
+      const target = next ?? overviewLessons[0];
+      if (target) {
+        continueLink.href = `/${locale}/lessons/${target.id}/`;
+        continueLabel.textContent = next
+          ? locale === 'fr'
+            ? 'Continuer le parcours'
+            : 'Continue learning'
+          : locale === 'fr'
+            ? 'Tout est terminé · Revoir les leçons'
+            : 'All completed · Revisit the lessons';
+        continueTitle.textContent = `${target.id} · ${target.title}`;
+      }
+    }
   };
   const fail = () => {
     ready = false;
+    resetOverview();
     if (toggle) toggle.disabled = true;
     status.hidden = false;
     status.textContent = text.error;

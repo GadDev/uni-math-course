@@ -1,7 +1,9 @@
+import StudyModes from './StudyModes';
 import { useEffect, useRef, useState } from 'react';
 import Tex from './Tex';
 import ExamGraph from './ExamGraph';
 import { revalidateSession, subscribeSession } from '../lib/session-lifecycle';
+import { progressCopy } from '../lib/progress-copy';
 import { examCopy } from '../lib/training-exams/copy';
 import { parseExamResponses } from '../lib/training-exams/responses';
 import type {
@@ -225,6 +227,21 @@ export default function TrainingExam({
         <section className="exam-preparation">
           <h2>{t.preparation}</h2>
           <p>{t.format}</p>
+          <p>
+            {locale === 'fr'
+              ? 'Leçons évaluées (thèmes sélectionnés) : '
+              : 'Assessed lessons (selected topics): '}
+            {[...new Set(exam.questions.map((q) => q.lessonId))]
+              .sort()
+              .join(', ')}
+            .
+          </p>
+          <p>
+            {locale === 'fr'
+              ? 'Ce sujet échantillonne le chapitre ; il ne vérifie pas tous les objectifs de chaque leçon.'
+              : 'This paper samples the chapter; it does not assess every objective of every lesson.'}
+          </p>
+          <StudyModes locale={locale} />
           <p>{t.rules}</p>
           <p>{t.marking}</p>
           <p>{t.privacy}</p>
@@ -273,6 +290,10 @@ export default function TrainingExam({
               <h2 id="exam-result-title" tabIndex={-1} ref={heading}>
                 {result.score} / {result.total}
               </h2>
+              <p>
+                {progressCopy[locale].activityCompleted} ·{' '}
+                {progressCopy[locale].activitySessionOnly}
+              </p>
               <h3>{t.reviewPlan}</h3>
               {result.score === result.total ? (
                 <p>{t.mastered}</p>

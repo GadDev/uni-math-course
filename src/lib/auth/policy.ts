@@ -116,6 +116,32 @@ export function safeReturn(value: unknown, locale: AuthLocale): string {
     : fallback;
 }
 
+// A signed-out escape route is separate from the protected post-login target.
+// Validate first, then map private activities to their public reading pages.
+export function publicReturn(
+  value: unknown,
+  locale: AuthLocale,
+): {
+  href: string;
+  label: 'backToLesson' | 'backToExams' | 'backToCourse' | 'back';
+} {
+  const next = safeReturn(value, locale);
+  const path = next.split(/[?#]/)[0]!;
+  const targetLocale = path.startsWith('/en/') ? 'en' : 'fr';
+  if (/^\/(fr|en)\/lessons\/L\d{2}\/(?:practice\/)?$/.test(path))
+    return {
+      href: path.endsWith('/practice/')
+        ? path.slice(0, -'practice/'.length)
+        : next,
+      label: 'backToLesson',
+    };
+  if (/^\/(fr|en)\/training-exams\//.test(path))
+    return { href: `/${targetLocale}/training-exams/`, label: 'backToExams' };
+  if (/^\/(fr|en)\/(account|progress)\/$/.test(path))
+    return { href: `/${targetLocale}/`, label: 'backToCourse' };
+  return { href: next, label: 'back' };
+}
+
 export function sameOriginPost(request: Request, config: AuthConfig): boolean {
   return (
     request.method === 'POST' &&
@@ -126,7 +152,7 @@ export function sameOriginPost(request: Request, config: AuthConfig): boolean {
 }
 
 export function authRoute(path: string): boolean {
-  return /^\/(?:auth\/(?:login|logout|forgot-password|recovery|reset-password)|api\/(?:auth\/session|attempts|lesson-completions|exercises\/L[0-9]{2}|training-exams\/(?:C0[123]|final))|(?:fr|en)\/(?:sign-in|forgot-password|reset-password|account|progress|training-exams\/(?:C0[123]|final)|lessons\/L[0-9]{2}\/practice))\/?$/.test(
+  return /^\/(?:auth\/(?:login|logout|forgot-password|recovery|reset-password)|api\/(?:auth\/session|attempts|lesson-completions|study-resume|exercises\/L[0-9]{2}|training-exams\/(?:C0[123]|final))|(?:fr|en)\/(?:sign-in|forgot-password|reset-password|account|progress|training-exams\/(?:C0[123]|final)|lessons\/L[0-9]{2}\/practice))\/?$/.test(
     path,
   );
 }

@@ -1,0 +1,115 @@
+---
+import type { Locale } from '../../lib/i18n';
+import katex from 'katex';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const fr = locale === 'fr';
+const title = fr
+  ? 'Chapitre 4 — Information et codage'
+  : 'Chapter 4 — Information and coding';
+const rows = [
+  {
+    lessons: ['L43', 'L44', 'L45'],
+    formula: 'c(uv)=c(u)c(v)',
+    fr: 'Pour deux mots u et v, c encode par concaténation. Des mots distincts par symbole ne garantissent pas le décodage des messages. Un code préfixe permet un décodage unique.',
+    en: 'For two words u and v, c encodes by concatenation. Distinct symbol words do not guarantee message decodability. A prefix code is uniquely decodable.',
+  },
+  {
+    lessons: ['L46', 'L47', 'L48'],
+    formula: 'L=\\sum_i p_i\\ell_i,\\qquad H(p)=-\\sum_i p_i\\log_2 p_i',
+    fr: 'Source finie de probabilités positives, de somme 1. ℓᵢ est la longueur du mot code binaire du symbole i ; L est le coût moyen en bits par symbole ; H est l’entropie, pas la surprise de chaque symbole.',
+    en: 'Finite source with positive probabilities summing to 1. ℓᵢ is the binary codeword length for symbol i; L is mean cost in bits per symbol; H is entropy, not each symbol’s surprise.',
+  },
+  {
+    lessons: ['L49', 'L50'],
+    formula: '\\mathbb{E}(Q)=\\sum_i p_i d_i',
+    fr: 'Huffman : fusionner les deux plus petits poids et réinsérer leur somme. Les chemins de l’arbre de questions donnent un code préfixe ; dᵢ est la profondeur de la feuille i, donc son nombre de questions. La profondeur moyenne diffère du maximum.',
+    en: 'Huffman: merge the two smallest weights and reinsert their sum. Question-tree paths give a prefix code; dᵢ is the depth of leaf i, hence its question count. Mean depth differs from maximum depth.',
+  },
+  {
+    lessons: ['L51'],
+    formula: 'K=\\sum_i 2^{-\\ell_i}\\leq 1',
+    fr: 'Nécessaire pour un code binaire uniquement décodable. La réciproque assure l’existence d’un code préfixe de ces longueurs, pas la validité d’une attribution donnée.',
+    en: 'Necessary for a uniquely decodable binary code. The converse guarantees a prefix code with these lengths, not the validity of a particular assignment.',
+  },
+  {
+    lessons: ['L52', 'L53'],
+    formula: 'q_i=2^{-\\ell_i}/K,\\qquad H(p)\\leq L+\\log_2 K\\leq L',
+    fr: 'Gibbs pour p et q strictement positifs et normalisés. Pour un code uniquement décodable, H=L si et seulement si pᵢ=2^(−ℓᵢ) pour tout i.',
+    en: 'Gibbs for strictly positive, normalised p and q. For a uniquely decodable code, H=L if and only if pᵢ=2^(−ℓᵢ) for every i.',
+  },
+  {
+    lessons: ['L54'],
+    formula: 'H\\leq L_n/n < H+1/n',
+    fr: 'Source finie iid positive sur m ≥ 2 symboles et code Huffman par blocs complets de n symboles (n entier ≥ 1). Lₙ compte les bits par bloc ; Lₙ/n les bits par symbole initial. Le dictionnaire contient mⁿ blocs.',
+    en: 'Finite positive iid source on m ≥ 2 symbols with Huffman coding of complete n-symbol blocks (integer n ≥ 1). Lₙ counts bits per block; Lₙ/n bits per original symbol. The codebook contains mⁿ blocks.',
+  },
+  {
+    lessons: ['L55', 'L56', 'L57'],
+    formula: 'w+\\operatorname{premier}(w)',
+    fr: 'LZW apprend des phrases sans probabilités. Le décodeur reconstruit le dictionnaire partagé ; seul le prochain code à créer admet le cas spécial ci-dessus, où w est le bloc précédent non vide et premier(w) sa première lettre. Le nombre de codes émis ne suffit pas pour comparer les coûts en bits.',
+    en: 'LZW learns phrases without probabilities. The decoder reconstructs the shared dictionary; only the next code to be created permits the special case above, where w is the previous nonempty chunk and premier(w) its first letter. Emitted code count alone does not determine bit cost.',
+  },
+];
+const math = (s: string) =>
+  katex.renderToString(s, {
+    output: 'htmlAndMathml',
+    throwOnError: true,
+    trust: false,
+  });
+---
+
+<section
+  id="information"
+  class="cheat-sheet-section"
+  aria-labelledby="information-title"
+>
+  <p class="eyebrow">10 / 10 · CH 04 · L43–L57</p>
+  <h2 id="information-title">{title}</h2>
+  <p>
+    {fr
+      ? 'Repères de révision : consultez les leçons pour les hypothèses complètes, preuves et exemples. Les examens et cahiers PDF ne couvrent pas encore L50–L57.'
+      : 'Revision pointers: consult the lessons for full assumptions, proofs and examples. Current exams and PDF workbooks do not yet cover L50–L57.'}
+  </p>
+  {rows.map((row) => (
+    <div class="information-reference-row">
+      <h3>{row.lessons.join(' · ')}</h3>
+      <p class="information-formula" set:html={math(row.formula)} />
+      <p>{fr ? row.fr : row.en}</p>
+      <p>
+        {row.lessons.map((id) => (
+          <a href={`/${locale}/lessons/${id}/`}>{id} → </a>
+        ))}
+      </p>
+    </div>
+  ))}
+  <p>
+    <a href={`/${locale}/chapters/C04/lzw/`}>
+      {fr
+        ? 'Atelier LZW — encodage et décodage guidés'
+        : 'LZW workshop — guided encoding and decoding'}{' '}
+      →
+    </a>
+  </p>
+  <p>
+    <a href={`/${locale}/chapters/C04/`}>
+      {fr ? 'Parcours complet du chapitre 4' : 'Full Chapter 4 pathway'} →
+    </a>
+  </p>
+</section>
+<style>
+  .information-reference-row {
+    margin-block: 1.5rem;
+  }
+  .information-formula {
+    overflow-x: auto;
+    padding-block: 0.5rem;
+  }
+  .information-reference-row a {
+    display: inline-block;
+    margin-inline-end: 0.75rem;
+    padding-block: 0.5rem;
+  }
+</style>

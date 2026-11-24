@@ -515,3 +515,120 @@ test('missing recovery hash shows an actionable localized error without changing
     page.getByRole('button', { name: 'Envoyer le lien' }),
   ).toBeVisible();
 });
+
+for (const locale of ['fr', 'en'] as const) {
+  const labels =
+    locale === 'fr'
+      ? {
+          lesson: 'Revenir à la leçon',
+          exams: 'Revenir aux examens blancs',
+          course: 'Revenir au cours',
+        }
+      : {
+          lesson: 'Return to lesson',
+          exams: 'Return to practice exams',
+          course: 'Return to course',
+        };
+  for (const [route, destination, label] of [
+    ['lessons/L29/practice/', 'lessons/L29/', labels.lesson],
+    [
+      'lessons/L29/practice/?exercise=L29-E03&version=1',
+      'lessons/L29/',
+      labels.lesson,
+    ],
+    ['training-exams/C02/', 'training-exams/', labels.exams],
+    ...(locale === 'fr'
+      ? [['training-exams/final/', 'training-exams/', labels.exams]]
+      : []),
+    ['progress/', '', labels.course],
+    ['account/', '', labels.course],
+  ]) {
+    test(`${locale} signed-out ${route} has a keyboard-accessible public escape`, async ({
+      page,
+    }) => {
+      const next = `/${locale}/${route}`;
+      await page.goto(next);
+      await expect(page).toHaveURL(new RegExp(`/${locale}/sign-in/`));
+      await expect(page.locator('input[name="next"]')).toHaveValue(next);
+      const back = page.getByRole('link', { name: label, exact: true });
+      await expect(back).toHaveAttribute('href', `/${locale}/${destination}`);
+      await back.focus();
+      await expect(back).toBeFocused();
+      await page.keyboard.press('Enter');
+      await expect(page).toHaveURL(`/${locale}/${destination}`);
+      await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+    });
+  }
+  test(`${locale} sign-in preserves protected practice after failure and language switching`, async ({
+    page,
+  }) => {
+    const next = `/${locale}/lessons/L29/practice/?exercise=L29-E03&version=1`;
+    await page.goto(next);
+    await page
+      .getByLabel(/Email address|Adresse e-mail/)
+      .fill('learner@example.invalid');
+    await page.getByLabel(/Password|Mot de passe/).fill('wrong-password');
+    await page
+      .getByRole('button', { name: /^(Sign in|Se connecter)$/ })
+      .click();
+    await expect(page.getByRole('alert')).toBeVisible();
+    await expect(page.locator('input[name="next"]')).toHaveValue(next);
+    await expect(
+      page.getByRole('link', { name: labels.lesson, exact: true }),
+    ).toHaveAttribute('href', `/${locale}/lessons/L29/`);
+    const alternate = locale === 'fr' ? 'en' : 'fr';
+    await page
+      .getByRole('link', { name: alternate.toUpperCase(), exact: true })
+      .click();
+    const alternateNext = next.replace(`/${locale}/`, `/${alternate}/`);
+    await expect(page.locator('input[name="next"]')).toHaveValue(alternateNext);
+    await signIn(page, alternate === 'fr' ? 'Se connecter' : 'Sign in');
+    await expect(page).toHaveURL(alternateNext);
+  });
+}
+
+for (const locale of ['fr', 'en'] as const) {
+  test(`${locale} public sign-in return routes work without client JavaScript`, async ({
+    request,
+  }) => {
+    for (const [route, publicPath] of [
+      ['lessons/L29/practice/?exercise=L29-E03&version=1', 'lessons/L29/'],
+      ['training-exams/C01/', 'training-exams/'],
+      ['training-exams/C02/', 'training-exams/'],
+      ['training-exams/C03/', 'training-exams/'],
+      ...(locale === 'fr'
+        ? [['training-exams/final/', 'training-exams/']]
+        : []),
+      ['progress/', ''],
+      ['account/', ''],
+    ]) {
+      const next = `/${locale}/${route}`;
+      const signIn = await request.get(next);
+      expect(new URL(signIn.url()).pathname).toBe(`/${locale}/sign-in/`);
+      const html = await signIn.text();
+      expect(html).toContain(
+        `class="back-link" href="/${locale}/${publicPath}"`,
+      );
+      const escape = await request.get(`/${locale}/${publicPath}`);
+      expect(escape.status()).toBe(200);
+      expect(new URL(escape.url()).pathname).toBe(`/${locale}/${publicPath}`);
+      // Each successful login still returns to the protected activity.
+      const login = await request.post('/auth/login/', {
+        headers: { Origin: appURL },
+        form: {
+          locale,
+          next,
+          email: 'learner@example.invalid',
+          password: 'correct-horse-battery',
+        },
+        maxRedirects: 0,
+      });
+      expect(login.status()).toBe(303);
+      expect(login.headers().location).toBe(next);
+      await request.post('/auth/logout/', {
+        headers: { Origin: appURL },
+        form: { locale },
+      });
+    }
+  });
+}

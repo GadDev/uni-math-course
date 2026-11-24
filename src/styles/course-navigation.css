@@ -1,0 +1,117 @@
+/* Full labels share a dedicated row; utilities remain beside the brand. */
+.site-header {
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: 'brand actions' 'navigation navigation';
+  gap: 1rem;
+}
+.site-header .header-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+.header-navigation {
+  grid-area: navigation;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  min-width: 0;
+}
+.course-menu {
+  min-width: 0;
+  flex: 1;
+}
+.course-menu > summary {
+  display: none;
+}
+.site-header .primary-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+.site-header .primary-nav > a {
+  font-size: 0.95rem;
+  white-space: normal;
+}
+.primary-nav a[aria-current='location'] {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.4em;
+}
+/* The chapter picker is independent of the collapsible primary navigation. */
+.chapter-panel .chapter-option {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr) 18px;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 80px;
+  padding: 0.875rem 0.625rem;
+  border-top: 1px solid var(--soft-line);
+  color: var(--ink);
+  text-decoration: none;
+}
+.chapter-panel .chapter-option[aria-current] {
+  border-left: 3px solid var(--chapter-accent);
+  background: var(--error-surface);
+}
+.chapter-panel .chapter-option[data-chapter='C02'][aria-current] {
+  background: var(--success-surface);
+}
+.chapter-panel .chapter-option[data-chapter='C03'][aria-current] {
+  background: light-dark(#e4efff, #1e304a);
+}
+.chapter-panel .chapter-option[data-chapter='C04'][aria-current] {
+  background: var(--orange-surface);
+}
+.course-title {
+  font-size: clamp(2.6rem, 6vw, 5.7rem);
+  overflow-wrap: anywhere;
+}
+@media (max-width: 900px) {
+  .header-navigation {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .course-menu {
+    flex: 1;
+  }
+  .course-menu > summary {
+    display: list-item;
+    min-height: 48px;
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .site-header .primary-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-top: 0.5rem;
+  }
+  .site-header .primary-nav > a {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 500px) {
+  .site-header {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'brand' 'actions' 'navigation';
+  }
+  .site-header .header-actions {
+    justify-content: flex-end;
+  }
+  .header-navigation {
+    gap: 0.5rem;
+  }
+  .course-menu > summary {
+    font-size: 0.875rem;
+  }
+  .course-title {
+    font-size: clamp(2.4rem, 10vw, 3.5rem);
+  }
+}
+@media print {
+  .header-navigation {
+    display: none;
+  }
+}

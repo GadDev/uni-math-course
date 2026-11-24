@@ -1,5 +1,7 @@
 ---
-import LessonCompletion from '../../components/LessonCompletion.astro';
+import { workshopCopy } from '../../lib/logic-workshop/copy';
+import CourseOverview from '../../components/CourseOverview.astro';
+import ProgrammeDashboard from '../../components/ProgrammeDashboard.astro';
 import { completionCopy } from '../../lib/completion-copy';
 import TrainingExamLink from '../../components/TrainingExamLink.astro';
 import Base from '../../layouts/Base.astro';
@@ -53,23 +55,41 @@ const implication = katex.renderToString('A \\Rightarrow B', {
 });
 ---
 
-<Base locale={locale} title={text.course} description={text.intro}>
+<Base
+  locale={locale}
+  title={
+    locale === 'fr' ? 'Mathématiques · Semestre 3' : 'Mathematics · Semester 3'
+  }
+  description={
+    locale === 'fr'
+      ? 'Quatre chapitres : logique, droites, fonctions et théorie de l’information. Leçons, ateliers et révisions.'
+      : 'Four chapters: logic, straight lines, functions and information theory. Lessons, workshops and revision.'
+  }
+>
   <main id="main" tabindex="-1" class="course-page">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">{text.label}</p>
-        <h1 class="signal-title">
+        <p class="eyebrow">
+          {locale === 'fr'
+            ? 'COURS UNIVERSITAIRE · FR / EN'
+            : 'UNIVERSITY COURSE · FR / EN'}
+        </p>
+        <h1 class="signal-title course-title">
+          <span>{locale === 'fr' ? 'Mathématiques' : 'Mathematics'}</span>
           <span>
-            {text.heroLines[0]}
-            <span class="hero-ampersand"> &amp;</span>
-          </span>
-          <span>
-            {text.heroLines[1]}
+            {locale === 'fr' ? 'Semestre 3' : 'Semester 3'}
             <span class="signal-stop">.</span>
           </span>
         </h1>
         <p class="hero-motto">{text.motto}</p>
-        <p class="lede">{text.intro}</p>
+        <p class="lede">
+          {locale === 'fr'
+            ? 'Quatre chapitres pour comprendre, s’entraîner et préparer l’examen, à votre rythme.'
+            : 'Four chapters to understand, practise and prepare for your exam at your own pace.'}
+        </p>
+        <a class="primary-link" href={`/${locale}/lessons/L01/`}>
+          {locale === 'fr' ? 'Commencer avec la logique' : 'Start with logic'} →
+        </a>
         <p class="status">
           <span aria-hidden="true">●</span> {text.pilot}
         </p>
@@ -77,6 +97,110 @@ const implication = katex.renderToString('A \\Rightarrow B', {
       <div class="hero-art">
         <SignalGeometry />
       </div>
+    </section>
+    <CourseOverview locale={locale} />
+    <section
+      id="chapter-01"
+      class="planned-section programme-section"
+      aria-labelledby="planned-title"
+    >
+      <ProgrammeDashboard
+        locale={locale}
+        chapterId="C01"
+        objectives={
+          locale === 'fr'
+            ? [
+                'Construire des tables de vérité et raisonner avec les connecteurs logiques.',
+                'Manipuler les ensembles et utiliser les quantificateurs pour formaliser des énoncés.',
+              ]
+            : [
+                'Build truth tables and reason with logical connectives.',
+                'Work with sets and use quantifiers to formalise statements.',
+              ]
+        }
+
+        chapterTitle={
+          locale === 'fr' ? 'Logique et ensembles' : 'Logic and sets'
+        }
+        headingId="planned-title"
+        title={
+          locale === 'fr'
+            ? 'Le parcours de logique et ensembles'
+            : 'The logic and sets pathway'
+        }
+        intro={
+          locale === 'fr'
+            ? 'Trois étapes pour passer des idées aux symboles. Des explications pas à pas, des exemples et des exercices pour avancer à votre rythme.'
+            : 'Three stages from ideas to symbols. Step-by-step explanations, examples and exercises to work through at your own pace.'
+        }
+        lessons={text.programme.filter((topic) => releasedIds.has(topic.id))}
+        action={{
+          title: workshopCopy.title[locale],
+          description:
+            locale === 'fr'
+              ? 'Manipulez les formules, construisez vos tables de vérité et testez votre raisonnement.'
+              : 'Explore formulas, build truth tables and test your reasoning.',
+          href: `/${locale}/logic-workshop/`,
+          label: locale === 'fr' ? 'Ouvrir l’atelier' : 'Open the workshop',
+        }}
+        jumps={programmeParts.map((part, index) => ({
+          href: `#programme-part-${index + 1}`,
+          label:
+            locale === 'fr'
+              ? ([
+                  'Logique propositionnelle',
+                  'Théorie des ensembles',
+                  'Applications IT',
+                ][index] ?? part.title)
+              : (['Propositional logic', 'Set theory', 'IT applications'][
+                  index
+                ] ?? part.title),
+        }))}
+      >
+        {programmeParts.map((part, index) => (
+          <section
+            class="programme-part"
+            id={`programme-part-${index + 1}`}
+            aria-label={part.title}
+          >
+            <h3>{part.title}</h3>
+            <p class="programme-source">
+              {part.lessons.length} {locale === 'fr' ? 'leçons' : 'lessons'} ·{' '}
+              {locale === 'fr' ? 'Pages PDF' : 'PDF pages'} {part.pages}
+            </p>
+            <ul class="planned-list">
+              {part.lessons.map((topic) => (
+                <li
+                  class={
+                    releasedIds.has(topic.id) ? 'available-topic' : undefined
+                  }
+                >
+                  <span class="planned-number" aria-hidden="true">
+                    {topic.id.slice(1)}
+                  </span>
+                  {releasedIds.has(topic.id) ? (
+                    <a href={'/' + locale + '/lessons/' + topic.id + '/'}>
+                      {topic.title}
+                      <span
+                        class="completion-badge"
+                        data-completion-badge={topic.id}
+                        hidden
+                      >
+                        ✓ {completionCopy[locale].completed}
+                      </span>
+                    </a>
+                  ) : (
+                    <span>{topic.title}</span>
+                  )}
+                  <span class="planned-label">
+                    {releasedIds.has(topic.id) ? text.public : text.planned}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </ProgrammeDashboard>
     </section>
     <RevisionDownloads locale={locale} />
     <section class="lesson-feature" aria-labelledby="pilot-title">
@@ -102,58 +226,6 @@ const implication = katex.renderToString('A \\Rightarrow B', {
           <span aria-hidden="true"> →</span>
         </a>
       </div>
-    </section>
-    <section class="planned-section" aria-labelledby="planned-title">
-      <h2 id="planned-title">{text.future}</h2>
-      <p>
-        {locale === 'fr'
-          ? 'Le parcours suit les trois parties du PDF Logique et ensembles. Les leçons ajoutent des explications pas à pas, des schémas et des exemples ; les pages répétées du diaporama sont regroupées.'
-          : 'The learning path follows the three parts of the Logic and sets PDF. Lessons add step-by-step explanations, diagrams and examples; repeated slide builds are grouped together.'}
-      </p>
-      <LessonCompletion
-        locale={locale}
-        lessonIds={text.programme
-          .map((topic) => topic.id)
-          .filter((id) => releasedIds.has(id))}
-      />
-      {programmeParts.map((part) => (
-        <section class="programme-part" aria-label={part.title}>
-          <h3>{part.title}</h3>
-          <p class="programme-source">
-            {locale === 'fr' ? 'Pages PDF' : 'PDF pages'} {part.pages}
-          </p>
-          <ul class="planned-list">
-            {part.lessons.map((topic) => (
-              <li
-                class={
-                  releasedIds.has(topic.id) ? 'available-topic' : undefined
-                }
-              >
-                <span class="planned-number" aria-hidden="true">
-                  {topic.id.slice(1)}
-                </span>
-                {releasedIds.has(topic.id) ? (
-                  <a href={'/' + locale + '/lessons/' + topic.id + '/'}>
-                    {topic.title}
-                    <span
-                      class="completion-badge"
-                      data-completion-badge={topic.id}
-                      hidden
-                    >
-                      ✓ {completionCopy[locale].completed}
-                    </span>
-                  </a>
-                ) : (
-                  <span>{topic.title}</span>
-                )}
-                <span class="planned-label">
-                  {releasedIds.has(topic.id) ? text.public : text.planned}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
     </section>
     <section class="planned-section" aria-labelledby="glossary-title">
       <h2 id="glossary-title">{glossaryCopy[locale].title}</h2>
@@ -190,8 +262,8 @@ const implication = katex.renderToString('A \\Rightarrow B', {
       </h2>
       <p>
         {locale === 'fr'
-          ? 'Installez ce site comme une application et téléchargez les 49 leçons pour les lire sans Internet.'
-          : 'Install this site as an app and download all 49 lessons to read without Internet.'}
+          ? 'Installez ce site comme une application et téléchargez les leçons publiques disponibles dans le pack pour les lire sans Internet.'
+          : 'Install this site as an app and download the public lessons available in the pack to read without Internet.'}
       </p>
       <a class="primary-link" href={'/' + locale + '/offline/'}>
         {locale === 'fr'

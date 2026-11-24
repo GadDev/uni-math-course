@@ -1,4 +1,5 @@
 ---
+import { workshopCopy } from '../../../lib/logic-workshop/copy';
 import { getCollection, render } from 'astro:content';
 import LessonCompletion from '../../../components/LessonCompletion.astro';
 import { completionCopy } from '../../../lib/completion-copy';
@@ -22,6 +23,15 @@ export async function getStaticPaths() {
 const { lesson } = Astro.props;
 const { Content, headings } = await render(lesson);
 const locale = lesson.data.locale;
+const fr = locale === 'fr';
+const changeLesson = fr ? 'Changer de leçon' : 'Change lesson';
+const localizedLessons = (await getCollection('lessons')).filter(
+  (entry) => entry.data.locale === locale,
+);
+const prerequisites = lesson.data.prerequisites.flatMap((id) => {
+  const entry = localizedLessons.find((entry) => entry.data.lessonId === id);
+  return entry ? [{ id, title: entry.data.title }] : [];
+});
 const text = copy[locale];
 const alternate = locale === 'fr' ? 'en' : 'fr';
 const counterpart = (await getCollection('lessons')).find(
@@ -42,23 +52,17 @@ const alternateAnchors = Object.fromEntries(
   }),
 );
 const sections = headings.filter((heading) => heading.depth === 2);
-const releasedIds = new Set(
-  (await getCollection('lessons'))
-    .filter((entry) => entry.data.locale === locale)
-    .map((entry) => entry.data.lessonId),
-);
 const lessonNumber = lesson.data.lessonId.slice(1);
 const chapter = chapterForPath(`lessons/${lesson.data.lessonId}/`);
 if (!chapter) throw new Error('Lesson has no chapter');
-const chapterLink = chapterHref(locale, chapter);
-const outline = (await getCollection('lessons'))
-  .filter(
-    (entry) =>
-      entry.data.locale === locale &&
-      chapter.lessonIds.some((id) => id === entry.data.lessonId),
-  )
+const chapterLink =
+  chapterHref(locale, chapter) + (chapter.id === 'C01' ? '#chapter-01' : '');
+const outline = localizedLessons
+  .filter((entry) => chapter.lessonIds.some((id) => id === entry.data.lessonId))
   .sort((a, b) => a.data.lessonId.localeCompare(b.data.lessonId))
   .map((entry) => ({ id: entry.data.lessonId, title: entry.data.title }));
+const nextLesson =
+  outline[outline.findIndex((topic) => topic.id === lesson.data.lessonId) + 1];
 // Lessons whose exercise bank is served by the API (no answers in this module).
 const practiceLessons = RELEASED_LESSONS;
 // One representative glossary entry per lesson, linked at the end of the page.
@@ -116,39 +120,6 @@ const geometryVariant =
 >
   <main id="main" tabindex="-1" class="lesson-page" data-chapter={chapter.id}>
     <aside class="course-outline">
-      <p class="eyebrow">{text.outline}</p>
-      <ol class="outline-topics">
-        {outline.map((topic) => (
-          <li
-            class={
-              topic.id === lesson.data.lessonId ? 'current-topic' : undefined
-            }
-            aria-current={
-              topic.id === lesson.data.lessonId ? 'page' : undefined
-            }
-          >
-            <span class="outline-number">{topic.id.slice(1)}</span>
-            <span>
-              {releasedIds.has(topic.id) &&
-              topic.id !== lesson.data.lessonId ? (
-                <a href={'/' + locale + '/lessons/' + topic.id + '/'}>
-                  {topic.title}
-                </a>
-              ) : (
-                topic.title
-              )}
-              <span
-                class="completion-badge"
-                data-completion-badge={topic.id}
-                hidden
-              >
-                ✓ {completionCopy[locale].completed}
-              </span>
-              {!releasedIds.has(topic.id) && <small>{text.planned}</small>}
-            </span>
-          </li>
-        ))}
-      </ol>
       <nav class="section-nav" aria-label={text.contents}>
         <h2>{text.contents}</h2>
         <ol>
@@ -188,31 +159,83 @@ const geometryVariant =
           </ol>
         </nav>
       </details>
+      <details class="lesson-switcher">
+        <summary>{changeLesson}</summary>
+        <nav aria-label={changeLesson}>
+          <ol class="outline-topics">
+            {outline.map((topic) => (
+              <li
+                class:list={{
+                  'current-topic': topic.id === lesson.data.lessonId,
+                }}
+              >
+                <span class="outline-number">{topic.id}</span>
+                <span>
+                  {topic.id === lesson.data.lessonId ? (
+                    <span aria-current="page">{topic.title}</span>
+                  ) : (
+                    <a href={`/${locale}/lessons/${topic.id}/`}>
+                      {topic.title}
+                    </a>
+                  )}
+                  <span
+                    class="completion-badge"
+                    data-completion-badge={topic.id}
+                    hidden
+                  >
+                    ✓ {completionCopy[locale].completed}
+                  </span>
+                </span>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </details>
+      {prerequisites.length > 0 && (
+        <nav
+          class="lesson-prerequisites"
+          aria-label={fr ? 'Prérequis' : 'Prerequisites'}
+        >
+          <strong>{fr ? 'Prérequis' : 'Prerequisites'}</strong>
+          <ul>
+            {prerequisites.map(({ id, title }) => (
+              <li>
+                <a href={`/${locale}/lessons/${id}/`}>{title}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
       <div class="reading-geometry">
         <SignalGeometry compact variant={geometryVariant} />
       </div>
       <article class="lesson-prose" data-lesson-id={lesson.data.lessonId}>
         <Content />
+        {/^L0[1-8]$/.test(lesson.data.lessonId) && (
+          <p>
+            <a href={`/${locale}/logic-workshop/`}>
+              {workshopCopy.title[locale]} →
+            </a>
+          </p>
+        )}
       </article>
       {lesson.data.lessonId === 'L05' && <ImplicationExplorers />}
+      {['L55', 'L56', 'L57'].includes(lesson.data.lessonId) && (
+        <p>
+          <a class="primary-link" href={`/${locale}/chapters/C04/lzw/`}>
+            {locale === 'fr'
+              ? 'Mettre en pratique dans l’atelier LZW'
+              : 'Practise in the LZW workshop'}{' '}
+            →
+          </a>
+        </p>
+      )}
       {lesson.data.lessonId === 'L10' && (
         <p>
           <a href={'/' + locale + '/numbers/'}>
             {locale === 'fr'
               ? 'Guide visuel : familles de nombres'
               : 'Visual guide: number families'}
-          </a>
-        </p>
-      )}
-      {practiceLessons.includes(lesson.data.lessonId) && (
-        <p>
-          <a
-            class="primary-link"
-            href={
-              '/' + locale + '/lessons/' + lesson.data.lessonId + '/practice/'
-            }
-          >
-            {locale === 'fr' ? 'S’exercer' : 'Practise'} →
           </a>
         </p>
       )}
@@ -231,16 +254,91 @@ const geometryVariant =
         locale={locale}
         lessonId={lesson.data.lessonId}
         lessonIds={outline.map((topic) => topic.id)}
-        nextLesson={
-          outline[
-            outline.findIndex((topic) => topic.id === lesson.data.lessonId) + 1
-          ]
-        }
       />
+      {practiceLessons.includes(lesson.data.lessonId) && (
+        <div class="lesson-practice-action">
+          <h2>{fr ? 'Exercices de la leçon' : 'Lesson practice'}</h2>
+          <p>
+            {fr
+              ? 'Un compte est nécessaire pour répondre et enregistrer vos résultats.'
+              : 'An account is required to answer and save your results.'}
+          </p>
+          <a
+            class="primary-link"
+            href={
+              '/' + locale + '/lessons/' + lesson.data.lessonId + '/practice/'
+            }
+          >
+            {locale === 'fr' ? 'S’exercer' : 'Practise'} →
+          </a>
+        </div>
+      )}
+      <nav
+        class="lesson-next"
+        aria-label={fr ? 'Suite du parcours' : 'Continue learning'}
+      >
+        {nextLesson && (
+          <a href={`/${locale}/lessons/${nextLesson.id}/`}>
+            {fr ? 'Leçon suivante' : 'Next lesson'} · {nextLesson.title} →
+          </a>
+        )}
+        <a class="back-link" href={chapterLink}>
+          ← {text.next}
+        </a>
+      </nav>
       <ReadingNotice locale={locale} />
-      <a class="back-link" href={chapterLink}>
-        ← {text.next}
-      </a>
     </div>
   </main>
 </Base>
+
+<style>
+  .lesson-switcher {
+    max-width: 42rem;
+    margin-block: 0 1rem;
+    border-block: 1px solid var(--soft-line);
+  }
+  .lesson-switcher summary {
+    min-height: 44px;
+    padding: 0.65rem 0.25rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .lesson-switcher ol {
+    max-height: 22rem;
+    margin: 0 0.25rem 0.25rem;
+    overflow: auto;
+  }
+  .lesson-prerequisites {
+    margin-block: 1rem;
+    max-width: 42rem;
+    font-size: 0.9rem;
+  }
+  .lesson-prerequisites ul {
+    padding-inline-start: 1.25rem;
+    margin-block: 0.35rem 0;
+  }
+  .lesson-practice-action {
+    border-top: 1px solid var(--soft-line);
+    margin-block: 1.5rem;
+  }
+  .lesson-next {
+    border-top: 1px solid var(--soft-line);
+    margin-block: 1.5rem;
+    padding-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.75rem 1.5rem;
+  }
+  .lesson-next .back-link {
+    margin: 0;
+  }
+  @media print {
+    .lesson-switcher,
+    .lesson-prerequisites,
+    .lesson-practice-action,
+    .lesson-next {
+      display: none;
+    }
+  }
+</style>

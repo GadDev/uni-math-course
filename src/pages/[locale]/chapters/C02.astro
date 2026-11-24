@@ -1,5 +1,5 @@
 ---
-import LessonCompletion from '../../../components/LessonCompletion.astro';
+import ProgrammeDashboard from '../../../components/ProgrammeDashboard.astro';
 import { completionCopy } from '../../../lib/completion-copy';
 import TrainingExamLink from '../../../components/TrainingExamLink.astro';
 import Base from '../../../layouts/Base.astro';
@@ -59,6 +59,114 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
         <SignalGeometry variant="decalage" />
       </div>
     </section>
+    <section
+      class="planned-section programme-section"
+      id="parcours"
+      aria-labelledby="outline-title"
+    >
+      <ProgrammeDashboard
+        locale={locale}
+        chapterId="C02"
+        objectives={text.objectives}
+
+        chapterTitle={text.title}
+        headingId="outline-title"
+        title={text.outline}
+        intro={
+          locale === 'fr'
+            ? 'Cinq étapes pour calculer, tracer et modéliser. Retrouvez les 16 leçons et avancez à votre rythme.'
+            : 'Five stages to calculate, plot and model. Explore all 16 lessons and work at your own pace.'
+        }
+        lessons={droitesGroups.flatMap((group) =>
+          group.lessonIds.map((id) => ({ id, title: lessonData(id).title })),
+        )}
+        action={{
+          title:
+            locale === 'fr'
+              ? 'Un examen blanc sur les droites'
+              : 'A straight-lines mock exam',
+          description:
+            locale === 'fr'
+              ? 'Reliez les méthodes du chapitre dans un sujet de 20 questions. Comptez environ 60 minutes ; connectez-vous pour répondre.'
+              : 'Bring the chapter’s methods together in a 20-question paper. Allow around 60 minutes; sign in to answer.',
+          href: `/${locale}/training-exams/#C02`,
+          label:
+            locale === 'fr'
+              ? 'Préparer un examen blanc'
+              : 'Prepare a mock exam',
+        }}
+        jumps={droitesGroups.map((group, index) => ({
+          href: `#programme-C02-part-${index + 1}`,
+          label: group.title[locale],
+        }))}
+      >
+        {droitesGroups.map((group, index) => (
+          <section
+            class="chapter-lesson-group programme-part"
+            id={`programme-C02-part-${index + 1}`}
+            aria-labelledby={`programme-C02-heading-${index + 1}`}
+          >
+            <h3 id={`programme-C02-heading-${index + 1}`}>
+              {group.title[locale]}
+            </h3>
+            <p class="programme-source">
+              {group.lessonIds.length}{' '}
+              {locale === 'fr'
+                ? Number(group.lessonIds.length) === 1
+                  ? 'leçon'
+                  : 'leçons'
+                : Number(group.lessonIds.length) === 1
+                  ? 'lesson'
+                  : 'lessons'}
+            </p>
+            <ol class="planned-list chapter-lessons">
+              {group.lessonIds.map((id) => (
+                <li class="available-topic">
+                  <span class="planned-number" aria-hidden="true">
+                    {Number(id.slice(1)) - 20 < 10 ? '0' : ''}
+                    {Number(id.slice(1)) - 20}
+                  </span>
+                  <a href={`/${locale}/lessons/${id}/`}>
+                    {lessonData(id).title}
+                    <span
+                      class="completion-badge"
+                      data-completion-badge={id}
+                      hidden
+                    >
+                      ✓ {completionCopy[locale].completed}
+                    </span>
+                  </a>
+                  <small class="planned-label">
+                    {lessonData(id).minutes} min · 15{' '}
+                    {locale === 'fr' ? 'exercices' : 'exercises'}
+                  </small>
+                </li>
+              ))}
+            </ol>
+          </section>
+        ))}
+      </ProgrammeDashboard>
+    </section>
+    <DroitesSourcePath locale={locale} />
+    <section class="practice-status" aria-labelledby="practice-title">
+      <div class="practice-copy">
+        <h2 id="practice-title">{text.practice}</h2>
+        <p>{text.practiceText}</p>
+        <a class="primary-link" href={`/${locale}/lessons/L21/practice/`}>
+          {text.exercises}
+        </a>
+      </div>
+      <aside class="reading-notice" aria-labelledby="chapter-progress-title">
+        <h2 id="chapter-progress-title" class="reading-notice-title">
+          {text.progress}
+        </h2>
+        <p>{text.progressText}</p>
+        <a href={`/${locale}/progress/#chapter-C02`}>
+          {locale === 'fr' ? 'Voir ma progression' : 'View my progress'} →
+        </a>
+      </aside>
+    </section>
+    <TrainingExamLink locale={locale} chapterId="C02" />
     <section class="lesson-feature" aria-labelledby="algebra-title">
       <div class="lesson-index" aria-hidden="true">
         01
@@ -86,76 +194,5 @@ const formula = katex.renderToString('a(b+c)=ab+ac', {
         </a>
       </div>
     </section>
-    <DroitesSourcePath locale={locale} />
-    <section
-      class="planned-section"
-      id="parcours"
-      aria-labelledby="outline-title"
-    >
-      <div class="chapter-section-heading">
-        <h2 id="outline-title">{text.outline}</h2>
-        <p>{text.outlineNote}</p>
-      </div>
-      <LessonCompletion
-        locale={locale}
-        lessonIds={droitesGroups.flatMap((group) => group.lessonIds)}
-      />
-      {droitesGroups.map((group) => (
-        <section class="chapter-lesson-group">
-          <h3>{group.title[locale]}</h3>
-          <ol class="planned-list chapter-lessons">
-            {group.lessonIds.map((id) => (
-              <li class="available-topic">
-                <span class="planned-number" aria-hidden="true">
-                  {Number(id.slice(1)) - 20 < 10 ? '0' : ''}
-                  {Number(id.slice(1)) - 20}
-                </span>
-                <a href={`/${locale}/lessons/${id}/`}>
-                  {lessonData(id).title}
-                  <span
-                    class="completion-badge"
-                    data-completion-badge={id}
-                    hidden
-                  >
-                    ✓ {completionCopy[locale].completed}
-                  </span>
-                </a>
-                <small class="planned-label">
-                  {lessonData(id).minutes} min · 15{' '}
-                  {locale === 'fr' ? 'exercices' : 'exercises'}
-                </small>
-              </li>
-            ))}
-          </ol>
-        </section>
-      ))}
-    </section>
-    <section class="chapter-objectives" aria-labelledby="objectives-title">
-      <h2 id="objectives-title">{text.goals}</h2>
-      <ol>
-        {text.objectives.map((objective) => (
-          <li>{objective}</li>
-        ))}
-      </ol>
-    </section>
-    <section class="practice-status" aria-labelledby="practice-title">
-      <div class="practice-copy">
-        <h2 id="practice-title">{text.practice}</h2>
-        <p>{text.practiceText}</p>
-        <a class="primary-link" href={`/${locale}/lessons/L21/practice/`}>
-          {text.exercises}
-        </a>
-      </div>
-      <aside class="reading-notice" aria-labelledby="chapter-progress-title">
-        <h2 id="chapter-progress-title" class="reading-notice-title">
-          {text.progress}
-        </h2>
-        <p>{text.progressText}</p>
-        <a href={`/${locale}/progress/#chapter-C02`}>
-          {locale === 'fr' ? 'Voir ma progression' : 'View my progress'} →
-        </a>
-      </aside>
-    </section>
-    <TrainingExamLink locale={locale} chapterId="C02" />
   </main>
 </Base>

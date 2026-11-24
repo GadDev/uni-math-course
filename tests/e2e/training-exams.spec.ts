@@ -37,21 +37,14 @@ for (const locale of ['fr', 'en']) {
     for (const width of [320, 375, 768, 1280]) {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(`/${locale}/`);
+      if (width <= 900) await page.locator('.course-menu > summary').click();
       const nav = page.locator('[data-exams-nav]');
       await expect(nav).toBeVisible();
       await expect(nav).toHaveAttribute('href', `/${locale}/training-exams/`);
       const expectedLabel =
         locale === 'fr' ? 'Examens blancs' : 'Practice exams';
-      const compactLabel = width <= 820 || (width >= 1051 && width <= 1370);
-      const expectedVisibleLabel = compactLabel
-        ? locale === 'fr'
-          ? 'Examens'
-          : 'Exams'
-        : expectedLabel;
-      await expect(nav).toHaveText(expectedVisibleLabel, {
-        useInnerText: true,
-      });
-      await expect(nav).toHaveAttribute('aria-label', expectedLabel);
+      await expect(nav).toHaveText(expectedLabel);
+      await expect(nav).toHaveAccessibleName(expectedLabel);
       expect(
         await page.evaluate(() => document.documentElement.scrollWidth),
       ).toBeLessThanOrEqual(width);
@@ -80,9 +73,14 @@ for (const locale of ['fr', 'en']) {
       await page.goto(
         chapter === 'C01' ? `/${locale}/` : `/${locale}/chapters/${chapter}/`,
       );
-      await expect(
-        page.locator(`a[href="/${locale}/training-exams/#${chapter}"]`),
-      ).toBeVisible();
+      const examLink = page.locator(
+        `section[aria-labelledby="mock-${chapter}"] a.primary-link`,
+      );
+      await expect(examLink).toHaveAttribute(
+        'href',
+        `/${locale}/training-exams/#${chapter}`,
+      );
+      await expect(examLink).toBeVisible();
     }
   });
 
@@ -98,6 +96,17 @@ for (const locale of ['fr', 'en']) {
       const html = await response!.text();
       expect(html).not.toContain('&quot;explanation&quot;');
       expect(html).not.toContain('&quot;answer&quot;');
+      await expect(page.locator('.exam-study-modes')).toContainText(
+        locale === 'fr'
+          ? 'En conditions d’examen — documents autorisés'
+          : 'Exam conditions — reference materials allowed',
+      );
+      await expect(page.locator('.exam-study-modes')).toContainText(
+        locale === 'fr' ? 'Rappel sans notes' : 'Closed-book recall',
+      );
+      await expect(page.locator('.exam-preparation')).toContainText(
+        locale === 'fr' ? 'Leçons évaluées' : 'Assessed lessons',
+      );
       await page
         .getByRole('button', { name: /Commencer l’examen|Start the exam/ })
         .click();

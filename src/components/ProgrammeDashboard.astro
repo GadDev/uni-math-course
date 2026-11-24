@@ -1,0 +1,176 @@
+---
+import { getCollection } from 'astro:content';
+import { printableChapters } from '../lib/printable-exercises';
+import LessonCompletion from './LessonCompletion.astro';
+import type { ChapterId } from '../lib/chapters';
+import type { Locale } from '../lib/i18n';
+import '../styles/programme.css';
+
+interface Props {
+  locale: Locale;
+  chapterId: ChapterId;
+  objectives: readonly string[];
+  chapterTitle: string;
+  headingId: string;
+  title: string;
+  intro: string;
+  lessons: readonly { id: string; title: string }[];
+  action: { title: string; description: string; href: string; label: string };
+  jumps: readonly { href: string; label: string }[];
+}
+
+const {
+  locale,
+  chapterId,
+  objectives,
+  chapterTitle,
+  headingId,
+  title,
+  intro,
+  lessons,
+  action,
+  jumps,
+} = Astro.props;
+const chapterNumber = chapterId.slice(1);
+const outcomesHeadingId = {
+  C01: 'logic-goals',
+  C02: 'objectives-title',
+  C03: 'functions-goals',
+  C04: 'information-goals',
+}[chapterId];
+const workbook = printableChapters.find(
+  (chapter) => chapter.number === chapterNumber,
+);
+if (!workbook)
+  throw new Error(`Missing printable catalogue entry for ${chapterId}`);
+const entries = await getCollection(
+  'lessons',
+  (entry) => entry.data.locale === locale,
+);
+const firstLesson = entries.find(
+  (entry) => entry.data.lessonId === lessons[0]?.id,
+);
+const prerequisites =
+  firstLesson?.data.prerequisites.map((prerequisite) => ({
+    prerequisite,
+    lesson: entries.find((entry) => entry.data.lessonId === prerequisite),
+  })) ?? [];
+---
+
+<div class="programme-heading">
+  <div>
+    <p class="eyebrow">
+      {locale === 'fr' ? 'CHAPITRE' : 'CHAPTER'} {chapterNumber} ·{' '}
+      {chapterTitle}
+    </p>
+    <h2 id={headingId}>
+      {title}
+      <span class="signal-stop">.</span>
+    </h2>
+  </div>
+  <p class="programme-intro">{intro}</p>
+</div>
+<div class="programme-dashboard">
+  <section class="programme-orientation" aria-labelledby={outcomesHeadingId}>
+    <h3 id={outcomesHeadingId}>
+      {locale === 'fr' ? 'Objectifs' : 'Learning outcomes'}
+    </h3>
+    <ul>
+      {objectives.map((objective) => (
+        <li>{objective}</li>
+      ))}
+    </ul>
+    {prerequisites.length > 0 && (
+      <>
+        <p>
+          <strong>{locale === 'fr' ? 'Prérequis' : 'Prerequisites'}</strong>
+        </p>
+        <ul>
+          {prerequisites.map(({ prerequisite, lesson }) => (
+            <li>
+              {lesson ? (
+                <a href={`/${locale}/lessons/${prerequisite}/`}>
+                  {lesson.data.title}
+                </a>
+              ) : (
+                prerequisite
+              )}
+            </li>
+          ))}
+        </ul>
+      </>
+    )}
+  </section>
+  <LessonCompletion
+    locale={locale}
+    lessonIds={lessons.map((lesson) => lesson.id)}
+    overviewLessons={lessons}
+  />
+</div>
+<nav
+  class="programme-jumps"
+  data-jump-count={jumps.length}
+  aria-label={locale === 'fr' ? 'Les parties du chapitre' : 'Chapter sections'}
+>
+  {jumps.map((jump, index) => (
+    <a href={jump.href}>
+      <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+      {jump.label}
+      <span class="programme-jump-arrow" aria-hidden="true">
+        ↓
+      </span>
+    </a>
+  ))}
+</nav>
+<slot />
+<div class="programme-dashboard programme-resources">
+  <a class="programme-workshop" href={action.href}>
+    <div class="programme-workshop-top">
+      <span class="eyebrow">
+        {locale === 'fr' ? 'METTRE EN PRATIQUE' : 'PUT IT INTO PRACTICE'}
+      </span>
+      <svg
+        width="48"
+        height="48"
+        viewBox="0 0 48 48"
+        fill="none"
+        aria-hidden="true"
+      >
+        <rect x="5" y="5" width="38" height="38" rx="2" stroke="currentColor" />
+        <path
+          d="M5 18H43M19 5V43M26 27L30 31L37 24M10 27H14M12 25V29M10 36H14"
+          stroke="currentColor"
+          stroke-width="2"
+        />
+      </svg>
+    </div>
+    <h3>{action.title}</h3>
+    <p>{action.description}</p>
+    <span class="programme-workshop-cta">
+      {action.label}
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path d="M5 19L19 5M5 5H19V19" stroke="currentColor" stroke-width="2" />
+      </svg>
+    </span>
+  </a>
+  <section class="programme-revision">
+    <h3>{locale === 'fr' ? 'Réviser' : 'Revise'}</h3>
+    <p>
+      {locale === 'fr'
+        ? `Exercices et corrigés à imprimer pour les leçons ${workbook.lessons}.`
+        : `Printable exercises and solutions for lessons ${workbook.lessons}.`}
+    </p>
+    <a href={`/${locale}/exercises/#${workbook.id}`}>
+      {locale === 'fr'
+        ? 'Voir les cahiers à imprimer'
+        : 'View printable workbooks'}{' '}
+      →
+    </a>
+  </section>
+</div>

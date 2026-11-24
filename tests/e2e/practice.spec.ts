@@ -26,6 +26,145 @@ async function identify(context: BrowserContext) {
   return issued.session;
 }
 
+test('practice sends skipped questions back into the flow, then ends with a bilingual summary', async ({
+  page,
+  context,
+}) => {
+  await identify(context);
+  await page.setViewportSize({ width: 320, height: 900 });
+  await page.goto('/en/lessons/L05/practice/');
+  const submit = page.getByRole('button', { name: 'Check my answer' });
+  const next = page.getByRole('button', { name: 'Next exercise', exact: true });
+  const finish = page.getByRole('button', { name: 'View practice summary' });
+  const steps = page.locator('.pp-step');
+
+  // A saved answer on the last listed question is insufficient on its own.
+  await steps.last().click();
+  await page.locator(`input[value="${bank.at(-1).answer}"]`).check();
+  await submit.click();
+  await expect(
+    page.getByText(`${bank.length - 1} required exercises remain.`),
+  ).toBeVisible();
+  await expect(finish).toHaveCount(0);
+  await next.click();
+  await expect(steps.first()).toHaveAttribute('aria-current', 'step');
+
+  for (const [index, exercise] of bank.slice(0, -1).entries()) {
+    await expect(steps.nth(index)).toHaveAttribute('aria-current', 'step');
+    if (exercise.type === 'single-choice') {
+      // Leave one wrong answer to show that finishing and mastery differ.
+      await page
+        .locator(`input[value="${index === 0 ? '00' : exercise.answer}"]`)
+        .check();
+    } else {
+      for (const [row, value] of Object.entries(exercise.answer)) {
+        await page
+          .locator(`input[name="${exercise.id}-${row}"][value="${value}"]`)
+          .check();
+      }
+    }
+    await submit.click();
+    if (index === 0)
+      await expect(page.locator('.pp-feedback.is-wrong')).toBeVisible();
+    if (index < bank.length - 2) await next.click();
+  }
+
+  await finish.focus();
+  await page.keyboard.press('Enter');
+  const summary = page.getByRole('heading', { name: 'Practice complete' });
+  await expect(summary).toBeFocused();
+  await expect(page.locator('.pp-question')).toHaveCount(0);
+  await expect(page.locator('.pp-summary dd').first()).toHaveText(
+    `${bank.length - 1} / ${bank.length}`,
+  );
+  await expect(page.locator('.pp-summary dd').nth(1)).toHaveText('1');
+  await expect(
+    page.getByRole('link', { name: 'View my progress' }),
+  ).toHaveAttribute('href', '/en/progress/');
+  await expect(
+    page.getByRole('link', { name: 'Review the lesson' }),
+  ).toHaveAttribute('href', '/en/lessons/L05/');
+  await expect(
+    page.getByRole('link', { name: /^Next lesson/ }),
+  ).toHaveAttribute('href', '/en/lessons/L06/');
+  expect(
+    await page.evaluate(() => document.documentElement.scrollWidth),
+  ).toBeLessThanOrEqual(320);
+  await page.reload();
+  await expect(summary).toBeVisible();
+  await page.getByRole('link', { name: 'FR', exact: true }).click();
+  await expect(
+    page.getByRole('heading', { name: 'Pratique terminée' }),
+  ).toBeVisible();
+  const nextLesson = page.getByRole('link', { name: /^Leçon suivante/ });
+  await expect(nextLesson).toHaveAttribute('href', '/fr/lessons/L06/');
+  await nextLesson.click();
+  await expect(page).toHaveURL('/fr/lessons/L06/');
+  await page.goto(
+    `/en/lessons/L05/practice/?exercise=L05-E01&version=${selectedL05Version}`,
+  );
+  await expect(page.locator('.pp-feedback.is-wrong')).toBeVisible();
+});
+
+test('chapter-end practice waits for save confirmation and offers optional work and a chapter exit', async ({
+  page,
+  context,
+}) => {
+  await identify(context);
+  // Keep one required L36 item and one real extension to isolate the transition.
+  await page.route('**/en/lessons/L36/practice/', (route) =>
+    rewritePracticePayload(route, (data) => {
+      data.exercises = data.exercises.filter((item) =>
+        ['L36-E02', 'L36-E01'].includes(item.id),
+      );
+    }),
+  );
+  await page.goto('/en/lessons/L36/practice/');
+  const finish = page.getByRole('button', { name: 'View practice summary' });
+  // The server saves the final required answer, but the client loses the response.
+  await page.route(
+    '**/api/attempts/',
+    async (route) => {
+      await route.fetch();
+      await route.abort();
+    },
+    { times: 1 },
+  );
+  for (const optional of [false, true]) {
+    await page.locator('.pp-question input').first().check();
+    await page.getByRole('button', { name: 'Check my answer' }).click();
+    if (!optional) {
+      await expect(page.getByRole('alert')).toContainText(
+        'We couldn’t confirm whether your answer was saved.',
+      );
+      await expect(page.locator('.pp-question input:checked')).toBeDisabled();
+      await expect(finish).toHaveCount(0);
+      await page.getByRole('button', { name: 'Check saved response' }).click();
+    }
+    await expect(page.locator('.pp-explanation')).toBeVisible();
+    await finish.click();
+    await expect(
+      page.getByRole('heading', { name: 'Practice complete' }),
+    ).toBeFocused();
+    await expect(
+      page.getByRole('link', { name: 'Back to the chapter' }),
+    ).toHaveAttribute('href', '/en/chapters/C02/');
+    await expect(page.locator('.pp-summary dd').last()).toHaveText(
+      optional ? '1 / 1' : '0 / 1',
+    );
+    const extension = page.getByRole('button', {
+      name: 'Do the optional exercises',
+    });
+    if (optional) await expect(extension).toHaveCount(0);
+    else {
+      await extension.click();
+      await expect(page.locator('.pp-scope strong')).toHaveText(
+        'Optional extension',
+      );
+    }
+  }
+});
+
 test('lifetime history keeps archived records and labels unavailable explanations', async ({
   page,
   context,

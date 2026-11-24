@@ -1,8 +1,8 @@
 export const completionCopy = {
   en: {
-    title: 'Your lesson progress',
+    title: 'Your reading progress',
     explanation:
-      'Finished for now? Mark this lesson as completed. You can revisit it and practise whenever you like.',
+      'Mark the reading as complete when you finish it. Your exercise results are saved separately.',
     mark: 'Mark as completed',
     undo: 'Mark as not completed',
     completed: 'Completed',
@@ -19,7 +19,7 @@ export const completionCopy = {
   fr: {
     title: 'Votre progression de lecture',
     explanation:
-      'Vous avez terminé pour le moment ? Marquez cette leçon comme terminée. Vous pourrez la relire et vous exercer à tout moment.',
+      'Marquez la lecture comme terminée lorsque vous l’avez finie. Les résultats des exercices sont enregistrés séparément.',
     mark: 'Marquer comme terminée',
     undo: 'Marquer comme non terminée',
     completed: 'Terminée',

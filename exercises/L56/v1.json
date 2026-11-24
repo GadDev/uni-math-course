@@ -1,0 +1,553 @@
+{
+  "lessonId": "L56",
+  "version": 1,
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L56-E01",
+      "lessonId": "L56",
+      "version": 1,
+      "objectiveId": "L56-O01",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec A=1, B=2, quel morceau donne le premier code 2 ?",
+        "en": "With A=1, B=2, which chunk does first code 2 give?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "B",
+            "en": "B"
+          },
+          "feedback": {
+            "fr": "Le premier code doit désigner une lettre du dictionnaire initial. Le code 2 est B.",
+            "en": "The first code must identify a letter in the initial dictionary. Code 2 is B."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "AB",
+            "en": "AB"
+          },
+          "feedback": {
+            "fr": "Le premier code doit désigner une lettre du dictionnaire initial. Le code 2 est B.",
+            "en": "The first code must identify a letter in the initial dictionary. Code 2 is B."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "BB",
+            "en": "BB"
+          },
+          "feedback": {
+            "fr": "Le premier code doit désigner une lettre du dictionnaire initial. Le code 2 est B.",
+            "en": "The first code must identify a letter in the initial dictionary. Code 2 is B."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le premier code doit désigner une lettre du dictionnaire initial. Le code 2 est B.",
+        "en": "The first code must identify a letter in the initial dictionary. Code 2 is B."
+      },
+      "prerequisites": [
+        "L55"
+      ],
+      "misconceptions": [
+        "lzw-56-objective-1"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; AI-assisted mathematical and bilingual author self-check documented in docs/content/LZW_REVIEW.md."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L56-E02",
+      "lessonId": "L56",
+      "version": 1,
+      "objectiveId": "L56-O02",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quels morceaux concaténer pour décoder les codes 1 2 avec A=1, B=2 ?",
+        "en": "Which chunks are concatenated to decode codes 1 2 with A=1, B=2?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Les chiffres 1 et 2, donnant 12",
+            "en": "Digits 1 and 2, giving 12"
+          },
+          "feedback": {
+            "fr": "Chaque code est remplacé par sa chaîne ; la sortie conserve toutes les lettres de chaque morceau.",
+            "en": "Replace each code with its string; the output retains all letters of every chunk."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "A puis B, donnant AB",
+            "en": "A then B, giving AB"
+          },
+          "feedback": {
+            "fr": "Chaque code est remplacé par sa chaîne ; la sortie conserve toutes les lettres de chaque morceau.",
+            "en": "Replace each code with its string; the output retains all letters of every chunk."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "A puis AB, donnant AAB",
+            "en": "A then AB, giving AAB"
+          },
+          "feedback": {
+            "fr": "Chaque code est remplacé par sa chaîne ; la sortie conserve toutes les lettres de chaque morceau.",
+            "en": "Replace each code with its string; the output retains all letters of every chunk."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Chaque code est remplacé par sa chaîne ; la sortie conserve toutes les lettres de chaque morceau.",
+        "en": "Replace each code with its string; the output retains all letters of every chunk."
+      },
+      "prerequisites": [
+        "L55"
+      ],
+      "misconceptions": [
+        "lzw-56-objective-2"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; AI-assisted mathematical and bilingual author self-check documented in docs/content/LZW_REVIEW.md."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L56-E03",
+      "lessonId": "L56",
+      "version": 1,
+      "objectiveId": "L56-O03",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec A=1, B=2, après le premier code 1, quelle entrée réserve-t-on ?",
+        "en": "With A=1, B=2, after first code 1, which entry is reserved?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "AA=3 obligatoirement",
+            "en": "Necessarily AA=3"
+          },
+          "feedback": {
+            "fr": "Le prochain numéro est 3. On connaît A, mais pas encore la première lettre du morceau suivant : A?=3.",
+            "en": "The next index is 3. A is known, but the first letter of the next chunk is not: A?=3."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "A?=4",
+            "en": "A?=4"
+          },
+          "feedback": {
+            "fr": "Le prochain numéro est 3. On connaît A, mais pas encore la première lettre du morceau suivant : A?=3.",
+            "en": "The next index is 3. A is known, but the first letter of the next chunk is not: A?=3."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "A?=3",
+            "en": "A?=3"
+          },
+          "feedback": {
+            "fr": "Le prochain numéro est 3. On connaît A, mais pas encore la première lettre du morceau suivant : A?=3.",
+            "en": "The next index is 3. A is known, but the first letter of the next chunk is not: A?=3."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Le prochain numéro est 3. On connaît A, mais pas encore la première lettre du morceau suivant : A?=3.",
+        "en": "The next index is 3. A is known, but the first letter of the next chunk is not: A?=3."
+      },
+      "prerequisites": [
+        "L55"
+      ],
+      "misconceptions": [
+        "lzw-56-objective-3"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; AI-assisted mathematical and bilingual author self-check documented in docs/content/LZW_REVIEW.md."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L56-E04",
+      "lessonId": "L56",
+      "version": 1,
+      "objectiveId": "L56-O04",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "L’attente vaut N?=6 et le nouveau morceau est AN. Quelle entrée complète-t-on ?",
+        "en": "The pending entry is N?=6 and the new chunk is AN. Which entry is completed?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "NA=6",
+            "en": "NA=6"
+          },
+          "feedback": {
+            "fr": "Seule la première lettre A de AN complète l’attente : N + A = NA. Le morceau AN entier va dans la sortie.",
+            "en": "Only the first letter A of AN completes the entry: N + A = NA. The whole AN chunk goes to output."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "NAN=6",
+            "en": "NAN=6"
+          },
+          "feedback": {
+            "fr": "Seule la première lettre A de AN complète l’attente : N + A = NA. Le morceau AN entier va dans la sortie.",
+            "en": "Only the first letter A of AN completes the entry: N + A = NA. The whole AN chunk goes to output."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "NN=6",
+            "en": "NN=6"
+          },
+          "feedback": {
+            "fr": "Seule la première lettre A de AN complète l’attente : N + A = NA. Le morceau AN entier va dans la sortie.",
+            "en": "Only the first letter A of AN completes the entry: N + A = NA. The whole AN chunk goes to output."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Seule la première lettre A de AN complète l’attente : N + A = NA. Le morceau AN entier va dans la sortie.",
+        "en": "Only the first letter A of AN completes the entry: N + A = NA. The whole AN chunk goes to output."
+      },
+      "prerequisites": [
+        "L55"
+      ],
+      "misconceptions": [
+        "lzw-56-objective-4"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; AI-assisted mathematical and bilingual author self-check documented in docs/content/LZW_REVIEW.md."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L56-E05",
+      "lessonId": "L56",
+      "version": 1,
+      "objectiveId": "L56-O05",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec A=1, B=2, après avoir décodé 1 2, quelles sont l’entrée complète et l’attente ?",
+        "en": "With A=1, B=2, after decoding 1 2, what are the complete and pending entries?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "BA=3 complète ; A?=4 en attente",
+            "en": "BA=3 complete; A?=4 pending"
+          },
+          "feedback": {
+            "fr": "Le code 1 réserve A?=3. Le code 2 donne B : on complète AB=3, puis réserve B?=4.",
+            "en": "Code 1 reserves A?=3. Code 2 gives B: complete AB=3, then reserve B?=4."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "AB=3 complète ; B?=4 en attente",
+            "en": "AB=3 complete; B?=4 pending"
+          },
+          "feedback": {
+            "fr": "Le code 1 réserve A?=3. Le code 2 donne B : on complète AB=3, puis réserve B?=4.",
+            "en": "Code 1 reserves A?=3. Code 2 gives B: complete AB=3, then reserve B?=4."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "AB=4 complète ; B?=5 en attente",
+            "en": "AB=4 complete; B?=5 pending"
+          },
+          "feedback": {
+            "fr": "Le code 1 réserve A?=3. Le code 2 donne B : on complète AB=3, puis réserve B?=4.",
+            "en": "Code 1 reserves A?=3. Code 2 gives B: complete AB=3, then reserve B?=4."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le code 1 réserve A?=3. Le code 2 donne B : on complète AB=3, puis réserve B?=4.",
+        "en": "Code 1 reserves A?=3. Code 2 gives B: complete AB=3, then reserve B?=4."
+      },
+      "prerequisites": [
+        "L55"
+      ],
+      "misconceptions": [
+        "lzw-56-objective-5"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; AI-assisted mathematical and bilingual author self-check documented in docs/content/LZW_REVIEW.md."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L56-E06",
+      "lessonId": "L56",
+      "version": 1,
+      "objectiveId": "L56-O06",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Après le dernier code de BANANABANANA, NA?=11 reste en attente. Que faire ?",
+        "en": "After the final code of BANANABANANA, NA?=11 remains pending. What happens?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Remplacer ? par A automatiquement",
+            "en": "Automatically replace ? with A"
+          },
+          "feedback": {
+            "fr": "Il n’y a plus de morceau suivant pour fournir la lettre. L’encodeur n’a pas ajouté cette entrée après sa sortie finale.",
+            "en": "There is no next chunk to supply a letter. The encoder did not add this entry after its final output."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Transmettre tout le dictionnaire pour finir",
+            "en": "Transmit the full dictionary to finish"
+          },
+          "feedback": {
+            "fr": "Il n’y a plus de morceau suivant pour fournir la lettre. L’encodeur n’a pas ajouté cette entrée après sa sortie finale.",
+            "en": "There is no next chunk to supply a letter. The encoder did not add this entry after its final output."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "La laisser incomplète, hors des entrées complètes",
+            "en": "Leave it incomplete, outside complete entries"
+          },
+          "feedback": {
+            "fr": "Il n’y a plus de morceau suivant pour fournir la lettre. L’encodeur n’a pas ajouté cette entrée après sa sortie finale.",
+            "en": "There is no next chunk to supply a letter. The encoder did not add this entry after its final output."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Il n’y a plus de morceau suivant pour fournir la lettre. L’encodeur n’a pas ajouté cette entrée après sa sortie finale.",
+        "en": "There is no next chunk to supply a letter. The encoder did not add this entry after its final output."
+      },
+      "prerequisites": [
+        "L55"
+      ],
+      "misconceptions": [
+        "lzw-56-objective-6"
+      ],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81
+        ],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; AI-assisted mathematical and bilingual author self-check documented in docs/content/LZW_REVIEW.md."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

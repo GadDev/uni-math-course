@@ -14,7 +14,14 @@ import { exerciseBank, exerciseArchive } from '../../lib/exercises/bank';
 import { PILOT_LESSON } from '../../lib/released-lessons';
 import { summarise, type Progress } from '../../lib/exercises/progress';
 import { loadAttempts } from '../../lib/exercises/history';
+import {
+  loadReadingCompletions,
+  studyResume,
+  type ReadingCompletion,
+  type StudyResume,
+} from '../../lib/study-progress';
 import '../../styles/progress.css';
+import '../../styles/study-resume.css';
 // On demand and server-only: it reads the answer-bearing bank to explain mistakes.
 export const prerender = false;
 if (!['fr', 'en'].includes(Astro.params.locale ?? ''))
@@ -38,10 +45,17 @@ if (!unavailable && !user)
   );
 let progress: Progress | null = null;
 let aidedAttempts = 0;
+let reading: ReadingCompletion[] = [];
+let resume: StudyResume | null = null;
 if (auth && user && !unavailable) {
   // The signed-in session client: row-level security limits it to own rows.
   try {
-    const rows = await loadAttempts(auth.client, user.id);
+    const [rows, completed] = await Promise.all([
+      loadAttempts(auth.client, user.id),
+      loadReadingCompletions(auth.client, user.id),
+    ]);
+    reading = completed;
+    resume = studyResume(reading, rows, exerciseBank);
     progress = summarise(rows, exerciseBank, 20, exerciseArchive);
     aidedAttempts = rows.filter((row) => row.hintUsed).length;
   } catch {
@@ -122,9 +136,33 @@ const recent = progress?.history.slice(0, 3) ?? [];
     {unavailable || !progress || !totals ? (
       <p role="alert" class="progress-alert">
         {text.unavailable}
+        <a href={`/${locale}/progress/`}>{text.reload}</a>
       </p>
     ) : (
       <>
+        <section class="study-resume" aria-labelledby="resume-title">
+          <h2 id="resume-title">{text.resume}</h2>
+          <p>{resume ? text.resumeHint : text.noSavedActivity}</p>
+          {resume && (
+            <a
+              class="primary-link"
+              data-saved-resume
+              href={
+                resume.kind === 'reading'
+                  ? `/${locale}/lessons/${resume.lessonId}/`
+                  : lessonLink(resume.lessonId, {
+                      exerciseId: resume.exerciseId!,
+                      version: resume.version!,
+                    })
+              }
+            >
+              {resume.kind === 'reading'
+                ? text.readingCompleted
+                : text.attempted}{' '}
+              · {resume.lessonId} · {lessonTitles.get(resume.lessonId)} →
+            </a>
+          )}
+        </section>
         <dl class="progress-stats">
           <div>
             <dt>{text.attempted}</dt>
@@ -154,6 +192,27 @@ const recent = progress?.history.slice(0, 3) ?? [];
             <dd class="progress-caption">{text.masteryCaption}</dd>
           </div>
         </dl>
+
+        <section class="progress-detail" aria-labelledby="reading-history">
+          <h2 id="reading-history">
+            {text.readingHistory} · {reading.length} / {lessonTitles.size}
+          </h2>
+          <p>{text.readingHint}</p>
+          <ul class="reading-history">
+            {reading.map((item) => (
+              <li>
+                <time datetime={item.at}>{when(item.at)}</time> ·{' '}
+                {text.readingCompleted} ·{' '}
+                <a href={`/${locale}/lessons/${item.lessonId}/`}>
+                  {item.lessonId} · {lessonTitles.get(item.lessonId)}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p>
+            <strong>{text.activityCompleted} :</strong> {text.activityHint}
+          </p>
+        </section>
 
         <section class="progress-focus" aria-label={text.revisit}>
           {focusLessonId ? (

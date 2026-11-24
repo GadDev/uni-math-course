@@ -4,7 +4,7 @@ import katex from 'katex';
 import TrainingExamLink from '../../../components/TrainingExamLink.astro';
 import Base from '../../../layouts/Base.astro';
 import SignalGeometry from '../../../components/SignalGeometry.astro';
-import LessonCompletion from '../../../components/LessonCompletion.astro';
+import ProgrammeDashboard from '../../../components/ProgrammeDashboard.astro';
 import { completionCopy } from '../../../lib/completion-copy';
 import { locales } from '../../../lib/i18n';
 import { functionsCopy } from '../../../lib/functions';
@@ -61,77 +61,85 @@ const formula = katex.renderToString('f:A\\to\\mathbb R,\\;x\\mapsto f(x)', {
         <SignalGeometry variant="functions-mosaic" />
       </div>
     </section>
-    <section class="lesson-feature" aria-labelledby="functions-title">
-      <div class="lesson-index" aria-hidden="true">
-        01
-      </div>
-      <div class="featured-identity">
-        <p class="eyebrow">{text.start}</p>
-        <h2 id="functions-title">{text.feature}</h2>
-        <div class="feature-formula" set:html={formula} />
-        <p class="visually-hidden">{text.formulaReading}</p>
-      </div>
-      <div class="featured-description">
-        <p>{text.reading}</p>
-        <div class="lesson-meta">
-          <span>
-            {lessonData('L37').minutes} min · 15{' '}
-            {locale === 'fr' ? 'exercices' : 'exercises'}
-          </span>
-        </div>
-      </div>
-      <div class="featured-action">
-        <a class="primary-link" href={`/${locale}/lessons/L37/`}>
-          {locale === 'fr' ? 'Lire la leçon' : 'Read the lesson'} →
-        </a>
-      </div>
-    </section>
     <section
-      class="planned-section"
+      class="planned-section programme-section"
       id="parcours"
       aria-labelledby="functions-outline"
     >
-      <div class="chapter-section-heading">
-        <h2 id="functions-outline">{text.outline}</h2>
-        <p>{text.outlineNote}</p>
-      </div>
-      <LessonCompletion locale={locale} lessonIds={functionsLessonIds} />
-      {functionsGroups.map((group) => (
-        <section class="chapter-lesson-group">
-          <h3>{group.title[locale]}</h3>
-          <ol class="planned-list chapter-lessons">
-            {group.lessonIds.map((id) => (
-              <li class="available-topic">
-                <span class="planned-number" aria-hidden="true">
-                  0{Number(id.slice(1)) - 36}
-                </span>
-                <a href={`/${locale}/lessons/${id}/`}>
-                  {lessonData(id).title}
-                  <span
-                    class="completion-badge"
-                    data-completion-badge={id}
-                    hidden
-                  >
-                    ✓ {completionCopy[locale].completed}
+      <ProgrammeDashboard
+        locale={locale}
+        chapterId="C03"
+        objectives={text.objectives}
+
+        chapterTitle={text.title}
+        headingId="functions-outline"
+        title={text.outline}
+        intro={
+          locale === 'fr'
+            ? 'Six leçons pour comprendre les fonctions, leurs variations et leurs applications. Explorez une idée, puis testez-la.'
+            : 'Six lessons to understand functions, their changes and their applications. Explore an idea, then test it.'
+        }
+        lessons={functionsLessonIds.map((id) => ({
+          id,
+          title: lessonData(id).title,
+        }))}
+        action={{
+          title: text.tool,
+          description: text.toolText,
+          href: '#secant',
+          label:
+            locale === 'fr' ? 'Explorer la tangente' : 'Explore the tangent',
+        }}
+        jumps={functionsGroups.map((group, index) => ({
+          href: `#programme-C03-part-${index + 1}`,
+          label: group.title[locale],
+        }))}
+      >
+        {functionsGroups.map((group, index) => (
+          <section
+            class="chapter-lesson-group programme-part"
+            id={`programme-C03-part-${index + 1}`}
+            aria-labelledby={`programme-C03-heading-${index + 1}`}
+          >
+            <h3 id={`programme-C03-heading-${index + 1}`}>
+              {group.title[locale]}
+            </h3>
+            <p class="programme-source">
+              {group.lessonIds.length}{' '}
+              {locale === 'fr'
+                ? group.lessonIds.length === 1
+                  ? 'leçon'
+                  : 'leçons'
+                : group.lessonIds.length === 1
+                  ? 'lesson'
+                  : 'lessons'}
+            </p>
+            <ol class="planned-list chapter-lessons">
+              {group.lessonIds.map((id) => (
+                <li class="available-topic">
+                  <span class="planned-number" aria-hidden="true">
+                    {String(Number(id.slice(1)) - 36).padStart(2, '0')}
                   </span>
-                </a>
-                <small class="planned-label">
-                  {lessonData(id).minutes} min · 15{' '}
-                  {locale === 'fr' ? 'exercices' : 'exercises'}
-                </small>
-              </li>
-            ))}
-          </ol>
-        </section>
-      ))}
-    </section>
-    <section class="chapter-objectives" aria-labelledby="functions-goals">
-      <h2 id="functions-goals">{text.goals}</h2>
-      <ol>
-        {text.objectives.map((objective) => (
-          <li>{objective}</li>
+                  <a href={`/${locale}/lessons/${id}/`}>
+                    {lessonData(id).title}
+                    <span
+                      class="completion-badge"
+                      data-completion-badge={id}
+                      hidden
+                    >
+                      ✓ {completionCopy[locale].completed}
+                    </span>
+                  </a>
+                  <small class="planned-label">
+                    {lessonData(id).minutes} min · 15{' '}
+                    {locale === 'fr' ? 'exercices' : 'exercises'}
+                  </small>
+                </li>
+              ))}
+            </ol>
+          </section>
         ))}
-      </ol>
+      </ProgrammeDashboard>
     </section>
     <section class="planned-section" id="secant" aria-labelledby="secant-title">
       <p class="eyebrow">
@@ -160,5 +168,30 @@ const formula = katex.renderToString('f:A\\to\\mathbb R,\\;x\\mapsto f(x)', {
       </aside>
     </section>
     <TrainingExamLink locale={locale} chapterId="C03" />
+    <section class="lesson-feature" aria-labelledby="functions-title">
+      <div class="lesson-index" aria-hidden="true">
+        01
+      </div>
+      <div class="featured-identity">
+        <p class="eyebrow">{text.start}</p>
+        <h2 id="functions-title">{text.feature}</h2>
+        <div class="feature-formula" set:html={formula} />
+        <p class="visually-hidden">{text.formulaReading}</p>
+      </div>
+      <div class="featured-description">
+        <p>{text.reading}</p>
+        <div class="lesson-meta">
+          <span>
+            {lessonData('L37').minutes} min · 15{' '}
+            {locale === 'fr' ? 'exercices' : 'exercises'}
+          </span>
+        </div>
+      </div>
+      <div class="featured-action">
+        <a class="primary-link" href={`/${locale}/lessons/L37/`}>
+          {locale === 'fr' ? 'Lire la leçon' : 'Read the lesson'} →
+        </a>
+      </div>
+    </section>
   </main>
 </Base>
