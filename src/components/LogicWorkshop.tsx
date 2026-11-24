@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type SubmitEvent } from 'react';
 import type { Locale } from '../lib/i18n';
+import { progressCopy } from '../lib/progress-copy';
 import {
   practiceCopy,
   topicCopy,
@@ -464,6 +465,10 @@ export default function LogicWorkshop({ locale }: { locale: Locale }) {
           <h3 ref={focus} tabIndex={-1}>
             {t('finish')}
           </h3>
+          <p>
+            {progressCopy[locale].activityCompleted} ·{' '}
+            {progressCopy[locale].activitySessionOnly}
+          </p>
           <dl>
             <div>
               <dt>{t('firstTry')}</dt>

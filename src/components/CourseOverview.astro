@@ -1,5 +1,6 @@
 ---
 import { chapters, chapterHref } from '../lib/chapters';
+import StudyResume from './StudyResume.astro';
 import type { Locale } from '../lib/i18n';
 import '../styles/course-overview.css';
 interface Props {
@@ -22,6 +23,7 @@ const descriptions = fr
     ];
 ---
 
+<StudyResume locale={locale} />
 <section id="course" class="course-overview" aria-labelledby="course-title">
   <p class="eyebrow">
     {fr ? 'LE COURS · SEMESTRE 3' : 'THE COURSE · SEMESTER 3'}

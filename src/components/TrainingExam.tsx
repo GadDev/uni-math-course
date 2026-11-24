@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import Tex from './Tex';
 import ExamGraph from './ExamGraph';
 import { revalidateSession, subscribeSession } from '../lib/session-lifecycle';
+import { progressCopy } from '../lib/progress-copy';
 import { examCopy } from '../lib/training-exams/copy';
 import { parseExamResponses } from '../lib/training-exams/responses';
 import type {
@@ -289,6 +290,10 @@ export default function TrainingExam({
               <h2 id="exam-result-title" tabIndex={-1} ref={heading}>
                 {result.score} / {result.total}
               </h2>
+              <p>
+                {progressCopy[locale].activityCompleted} ·{' '}
+                {progressCopy[locale].activitySessionOnly}
+              </p>
               <h3>{t.reviewPlan}</h3>
               {result.score === result.total ? (
                 <p>{t.mastered}</p>

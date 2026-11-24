@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import LogicWorkshop from '../../components/LogicWorkshop';
+import ActivityStorageNotice from '../../components/ActivityStorageNotice.astro';
 import { locales } from '../../lib/i18n';
 import { evaluate, assignments } from '../../lib/l04-boolean';
 import { readFormula, display } from '../../lib/logic-workshop/formulas';
@@ -145,6 +146,7 @@ const sampleRows = assignments(['A', 'B']).map((row) =>
         </p>
       </details>
     </section>
+    <ActivityStorageNotice locale={locale} />
     <LogicWorkshop locale={locale} client:load />
     <noscript>
       <p>{t('noJs')}</p>
