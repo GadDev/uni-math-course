@@ -43,7 +43,7 @@ pnpm test:e2e tests/e2e/mathematical-accessibility.spec.ts tests/e2e/logic-works
 
 The new sample writes per-page contrast measurements and narrow LZW screenshots to the ignored `test-results/` directory.
 
-## Follow-up review — 2026-11-21
+## Follow-up review — 2026-11-21–22
 
 Fetched `main` again before PR preparation; its head remained `8b5a425`, and the branch required no integration changes. A code self-review retained the focused feedback heading for an active question and restored the original strong-text message in completion summaries, avoiding an unrelated summary heading-level change. This is an author review, not independent accessibility or mathematical review.
 
@@ -52,7 +52,7 @@ Fetched `main` again before PR preparation; its head remained `8b5a425`, and the
 | Screen-reader formula/table speech | Native Chrome access through Computer Use returned “Computer Use permissions are not granted”. No VoiceOver/Safari or NVDA session was operated. | Pending actual speech and table-navigation evidence. |
 | Real browser zoom / text resizing | The same permission failure prevented operating the live browser zoom controls. Existing 320px browser tests remain reflow evidence only. | Pending real 200% text resizing and 400% browser zoom. |
 | Physical touch spacing | No physical phone interaction was available through the tools. Selected control bounds passed automated checks; this does not verify actual touch use. | Pending device/browser identification and real-phone observations. |
-| Invited hosted practice | Requested availability of a dedicated signed-in synthetic account. Browser permissions currently prevent inspecting or operating its session; no hosted attempt was submitted. | Pending an accessible invited test session and sanitized results. |
+| Invited hosted practice | On 2026-11-22 the maintainer confirmed that no test account is available. Browser permissions also prevent inspecting or operating a hosted session; no hosted attempt was submitted. | Pending an accessible invited test session and sanitized results. |
 
 The PR references #167 and #160 without closing #167. Its current `docs` check and review discussion are the authority for merge readiness; this table does not approve or merge the PR.
 
