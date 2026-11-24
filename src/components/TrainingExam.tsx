@@ -1,3 +1,4 @@
+import StudyModes from './StudyModes';
 import { useEffect, useRef, useState } from 'react';
 import Tex from './Tex';
 import ExamGraph from './ExamGraph';
@@ -225,6 +226,21 @@ export default function TrainingExam({
         <section className="exam-preparation">
           <h2>{t.preparation}</h2>
           <p>{t.format}</p>
+          <p>
+            {locale === 'fr'
+              ? 'Leçons évaluées (thèmes sélectionnés) : '
+              : 'Assessed lessons (selected topics): '}
+            {[...new Set(exam.questions.map((q) => q.lessonId))]
+              .sort()
+              .join(', ')}
+            .
+          </p>
+          <p>
+            {locale === 'fr'
+              ? 'Ce sujet échantillonne le chapitre ; il ne vérifie pas tous les objectifs de chaque leçon.'
+              : 'This paper samples the chapter; it does not assess every objective of every lesson.'}
+          </p>
+          <StudyModes locale={locale} />
           <p>{t.rules}</p>
           <p>{t.marking}</p>
           <p>{t.privacy}</p>
