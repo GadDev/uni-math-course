@@ -131,6 +131,14 @@ test('French final exam supports keyboard, mobile, stable reload, marking, self-
   await session(request, context);
   await page.goto('/fr/training-exams/');
   await page.getByRole('link', { name: 'Préparer l’examen final →' }).click();
+  await expect(page.locator('.exam-coverage-note')).toContainText('L50 à L57');
+  await expect(page.locator('.exam-coverage-note')).toContainText('LZW');
+  await expect(page.locator('.exam-study-modes')).toContainText(
+    'En conditions d’examen — documents autorisés',
+  );
+  await expect(page.locator('.exam-study-modes')).toContainText(
+    'Rappel sans notes',
+  );
   const start = page.getByRole('button', {
     name: 'Commencer les 120 minutes',
     exact: true,

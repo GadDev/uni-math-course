@@ -177,7 +177,7 @@ test('exam preparation discloses the new-topic coverage gap and new glossary sym
 }) => {
   await page.goto('/fr/training-exams/');
   await expect(page.locator('.final-exam-card')).toContainText(
-    'Les nouveaux objectifs L50–L57',
+    'Exclus : L50–L57',
   );
   const issued = await (
     await request.post('http://127.0.0.1:54329/__fixture/session', { data: {} })

@@ -43,9 +43,10 @@ const title = fr ? 'Étudier hors ligne' : 'Study offline';
       </h2>
       <p>
         {fr
-          ? 'Télécharge les 49 leçons en français et en anglais, les pages des chapitres, le glossaire, les schémas et les ressources React.'
-          : 'Download all 49 French and English lessons, chapter pages, the glossary, diagrams and React resources.'}
+          ? 'Télécharge les leçons publiques disponibles dans le pack en français et en anglais, les pages des chapitres, le glossaire, les schémas et les ressources React.'
+          : 'Download the public French and English lessons available in the pack, chapter pages, the glossary, diagrams and React resources.'}
       </p>
+      <p id="offline-coverage"></p>
       <p class="offline-note">
         {fr
           ? 'Wi-Fi conseillé. Les PDF, les exercices corrigés par serveur, la connexion au compte et la progression synchronisée restent en ligne.'
@@ -166,6 +167,26 @@ const title = fr ? 'Étudier hors ligne' : 'Study offline';
       }
     }
 
+    function showCoverage(index: OfflineIndex): void {
+      const coverage = document.querySelector<HTMLElement>('#offline-coverage');
+      const lessonIds = (language: string) =>
+        new Set(
+          index.pages.flatMap((path) => {
+            const match = path.match(
+              new RegExp('^/' + language + '/lessons/(L\\d{2})/$'),
+            );
+            return match ? [match[1]] : [];
+          }),
+        );
+      const french = lessonIds('fr');
+      const english = lessonIds('en');
+      const bilingual = [...french].filter((id) => english.has(id)).sort();
+      if (coverage)
+        coverage.textContent = fr
+          ? `Pack disponible : ${bilingual.length} leçons bilingues (${bilingual[0] ?? '—'}–${bilingual.at(-1) ?? '—'}). Seul un téléchargement terminé confirme leur présence sur cet appareil. Examens, ateliers, fiche mémo et PDF exclus.`
+          : `Available pack: ${bilingual.length} bilingual lessons (${bilingual[0] ?? '—'}–${bilingual.at(-1) ?? '—'}). Only a completed download confirms storage on this device. Exams, workshops, quick reference and PDFs excluded.`;
+    }
+
     async function initialStatus(): Promise<void> {
       if (
         !('caches' in window) ||
@@ -183,6 +204,7 @@ const title = fr ? 'Étudier hors ligne' : 'Study offline';
         download.disabled = true;
         return;
       }
+      showCoverage(index);
       const urls = [...new Set([...index.pages, ...index.assets])];
       const keys = await (await caches.open(CACHE)).keys();
       const saved = new Set(keys.map((key) => new URL(key.url).pathname));
@@ -202,6 +224,7 @@ const title = fr ? 'Étudier hors ligne' : 'Study offline';
         clear.disabled = false;
         return;
       }
+      showCoverage(index);
       const urls = [...new Set([...index.pages, ...index.assets])];
       const pages = new Set(index.pages);
       const cache = await caches.open(CACHE);
