@@ -402,7 +402,13 @@ function LabView({
                 ? 'u augmente vers la droite, v vers le bas. Le centre O est en (200 ; 150). Les coordonnées du point P figurent sous le dessin.'
                 : 'u increases rightwards, v downwards. Centre O is at (200; 150). Point P coordinates are written below.'}
             </desc>
-            <rect className="geo-screen" x="30" y="30" width="400" height="300" />
+            <rect
+              className="geo-screen"
+              x="30"
+              y="30"
+              width="400"
+              height="300"
+            />
             <path
               className="geo-axes"
               d="M30,30H440 M30,30V345 M230,30V330 M30,180H430"
@@ -434,7 +440,12 @@ function LabView({
                   className="geo-dashed"
                   d={`M230,180H${30 + s.u}V${30 + s.v}`}
                 />
-                <circle className="geo-point" cx={30 + s.u} cy={30 + s.v} r="5" />
+                <circle
+                  className="geo-point"
+                  cx={30 + s.u}
+                  cy={30 + s.v}
+                  r="5"
+                />
                 <text
                   x={s.u > 365 ? 15 + s.u : 38 + s.u}
                   y={s.v < 20 ? 55 + s.v : 20 + s.v}
@@ -449,26 +460,25 @@ function LabView({
     );
     result = (
       <>
-        <p data-screen-input>
-          P = {pt(v[0]!, v[1]!)} ; O = (200 ; 150).
-        </p>
+        <p data-screen-input>P = {pt(v[0]!, v[1]!)} ; O = (200 ; 150).</p>
         <p data-screen-offset>
-          Δu = {f(v[2]!)} × ({f(v[0]!)}) = {f(v[2]! * v[0]!)} ; Δv = −
-          {f(v[3]!)} × ({f(v[1]!)}) = {f(-v[3]! * v[1]!)}.
+          Δu = {f(v[2]!)} × ({f(v[0]!)}) = {f(v[2]! * v[0]!)} ; Δv = −{f(v[3]!)}{' '}
+          × ({f(v[1]!)}) = {f(-v[3]! * v[1]!)}.
         </p>
         <p data-screen-forward>
           u = 200 + {f(v[2]!)} × ({f(v[0]!)}) = {f(s.u)} ; v = 150 − {f(v[3]!)}{' '}
           × ({f(v[1]!)}) = {f(s.v)}.
         </p>
         <p data-screen-inverse>
-          {fr ? 'Retour continu' : 'Continuous inverse'} : x = ({f(s.u)} − 200)/{f(v[2]!)} ={' '}
-          {f(back.x)} ; y = (150 − {f(s.v)})/{f(v[3]!)} = {f(back.y)}.
+          {fr ? 'Retour continu' : 'Continuous inverse'} : x = ({f(s.u)} − 200)/
+          {f(v[2]!)} = {f(back.x)} ; y = (150 − {f(s.v)})/{f(v[3]!)} ={' '}
+          {f(back.y)}.
         </p>
         <p data-screen-slope>
           {fr
             ? 'Exemple : droite de pente mathématique 2'
-            : 'Example: line with mathematical slope 2'}.{' '}
-          Δv/Δu = −({f(v[3]!)} / {f(v[2]!)}) × 2 ≈ {f(-2 * v[3]! / v[2]!)}.
+            : 'Example: line with mathematical slope 2'}
+          . Δv/Δu = −({f(v[3]!)} / {f(v[2]!)}) × 2 ≈ {f((-2 * v[3]!) / v[2]!)}.
         </p>
         <p data-visibility>
           {visible
