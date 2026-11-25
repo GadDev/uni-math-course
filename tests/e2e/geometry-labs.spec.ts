@@ -163,7 +163,7 @@ for (let lesson = 28; lesson <= 34; lesson++)
   }) => {
     await page.setViewportSize({ width: 320, height: 740 });
     await page.goto(`/fr/lessons/L${lesson}/`);
-    const labs = page.locator('.geo-lab');
+    const labs = page.locator('[data-geometry-lab]');
     for (const lab of await labs.all()) {
       await lab.scrollIntoViewIfNeeded();
       await expect(lab.locator('fieldset')).toBeVisible();

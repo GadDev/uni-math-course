@@ -370,3 +370,9 @@
   outline: 3px solid var(--focus);
   outline-offset: 3px;
 }
+
+@media print {
+  [data-temperature-lab] fieldset {
+    display: none;
+  }
+}

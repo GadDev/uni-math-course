@@ -88,7 +88,11 @@ export default function TemperatureLab({
     </figure>
   );
   return (
-    <section className="geo-lab" aria-label={fr ? 'Conversion' : 'Conversion'}>
+    <section
+      className="geo-lab"
+      data-temperature-lab={interactive ? 'interactive' : 'static'}
+      aria-label="Conversion"
+    >
       {plot(interactive)}
       {interactive && (
         <>
@@ -97,15 +101,25 @@ export default function TemperatureLab({
           </p>
           <p>
             {inverse
-              ? `C = (${fmt(f)} − 32) / 1.8 ≈ ${fmt(c)}`
-              : `F = 1.8 × (${fmt(c)}) + 32 ≈ ${fmt(f)}`}
+              ? `C = (${fmt(f)} − 32) / ${fmt(1.8)} ≈ ${fmt(c)}`
+              : `F = ${fmt(1.8)} × (${fmt(c)}) + 32 ≈ ${fmt(f)}`}
           </p>
           <fieldset hidden={!ready}>
-            <legend>{fr ? 'Sens de conversion' : 'Conversion direction'}</legend>
-            <button type="button" onClick={() => setInverse(false)}>
+            <legend>
+              {fr ? 'Sens de conversion' : 'Conversion direction'}
+            </legend>
+            <button
+              type="button"
+              aria-pressed={!inverse}
+              onClick={() => setInverse(false)}
+            >
               °C → °F
             </button>
-            <button type="button" onClick={() => setInverse(true)}>
+            <button
+              type="button"
+              aria-pressed={inverse}
+              onClick={() => setInverse(true)}
+            >
               °F → °C
             </button>
             <label>
@@ -116,6 +130,7 @@ export default function TemperatureLab({
                 max={inverse ? 212 : 100}
                 step={inverse ? 0.2 : 1}
                 value={inverse ? f : c}
+                aria-valuetext={`${fmt(inverse ? f : c)} ${inverse ? '°F' : '°C'}`}
                 onChange={(event) => {
                   const value = Number(event.currentTarget.value);
                   setC(inverse ? (value - 32) / 1.8 : value);
