@@ -108,19 +108,15 @@ function View({
               {f(n)}
             </text>
           ))}
-          <text x="15" y="25">S</text>
-          <text x="414" y="257">m</text>
+          <text x="15" y="25">
+            S
+          </text>
+          <text x="414" y="257">
+            m
+          </text>
           <path className="geo-line" d={curve} />
-          <path
-            className="geo-dashed"
-            d={`M${X(bestM)},40V260`}
-          />
-          <circle
-            className="geo-point"
-            cx={X(bestM)}
-            cy={Y(bestLoss)}
-            r="6"
-          />
+          <path className="geo-dashed" d={`M${X(bestM)},40V260`} />
+          <circle className="geo-point" cx={X(bestM)} cy={Y(bestLoss)} r="6" />
           {anchored && (
             <rect
               className="geo-prediction"
@@ -181,7 +177,9 @@ export default function RegressionExplorer({ locale }: { locale: Locale }) {
     <section
       className="geo-lab"
       data-regression-explorer
-      aria-label={fr ? 'Explorer la droite de régression' : 'Explore regression'}
+      aria-label={
+        fr ? 'Explorer la droite de régression' : 'Explore regression'
+      }
     >
       <p className="geo-title">
         {fr ? 'Trouver la perte minimale' : 'Find the minimum loss'}
@@ -190,7 +188,9 @@ export default function RegressionExplorer({ locale }: { locale: Locale }) {
         <div className="geo-visual">
           <View m={m} p={activeP} anchored={anchored} fr={fr} id={id} />
           <p hidden={ready} data-static-note>
-            {fr ? 'Exemple fixe sans JavaScript.' : 'Fixed example without JavaScript.'}
+            {fr
+              ? 'Exemple fixe sans JavaScript.'
+              : 'Fixed example without JavaScript.'}
           </p>
         </div>
         <fieldset hidden={!ready}>
@@ -227,7 +227,9 @@ export default function RegressionExplorer({ locale }: { locale: Locale }) {
             {fr ? 'Ancrer la droite en G' : 'Anchor the line at G'}
           </label>
           <button type="button" onClick={() => setAnchored(true)}>
-            {fr ? 'Choisir le meilleur p à cette pente' : 'Choose best p at this slope'}
+            {fr
+              ? 'Choisir le meilleur p à cette pente'
+              : 'Choose best p at this slope'}
           </button>
           <button
             type="button"
@@ -257,14 +259,12 @@ export default function RegressionExplorer({ locale }: { locale: Locale }) {
         </fieldset>
       </div>
       <div className="geo-print">
-        <p>{fr ? 'Exemple fixe : droite optimale' : 'Fixed example: optimal line'}</p>
-        <View
-          m={bestM}
-          p={bestP}
-          anchored
-          fr={fr}
-          id={`${id}-print`}
-        />
+        <p>
+          {fr
+            ? 'Exemple fixe : droite optimale'
+            : 'Fixed example: optimal line'}
+        </p>
+        <View m={bestM} p={bestP} anchored fr={fr} id={`${id}-print`} />
       </div>
     </section>
   );

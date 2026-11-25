@@ -1,7 +1,9 @@
 import { expect, test } from '@playwright/test';
 
 for (const locale of ['fr', 'en']) {
-  test(`${locale}: regression anchors then minimises loss`, async ({ page }) => {
+  test(`${locale}: regression anchors then minimises loss`, async ({
+    page,
+  }) => {
     const fr = locale === 'fr';
     await page.goto(`/${locale}/lessons/L35/`);
     const lab = page.locator('[data-regression-explorer]');
@@ -9,7 +11,9 @@ for (const locale of ['fr', 'en']) {
     await lab.scrollIntoViewIfNeeded();
     await expect(lab.locator('fieldset')).toBeVisible();
     await expect(live.locator('[data-regression-loss]')).toContainText('S ≈ 1');
-    await lab.getByRole('button', { name: /Choisir le meilleur p|Choose best p/ }).click();
+    await lab
+      .getByRole('button', { name: /Choisir le meilleur p|Choose best p/ })
+      .click();
     await expect(live.locator('[data-regression-loss]')).toContainText(
       fr ? 'S ≈ 0,6667' : 'S ≈ 0.6667',
     );
@@ -20,7 +24,11 @@ for (const locale of ['fr', 'en']) {
     await expect(live.locator('[data-regression-loss]')).toContainText(
       fr ? 'S ≈ 0,6667' : 'S ≈ 0.6667',
     );
-    await lab.getByRole('button', { name: /Afficher la droite optimale|Show the optimal line/ }).click();
+    await lab
+      .getByRole('button', {
+        name: /Afficher la droite optimale|Show the optimal line/,
+      })
+      .click();
     await expect(live.locator('[data-regression-loss]')).toContainText(
       fr ? 'S ≈ 0,1667' : 'S ≈ 0.1667',
     );
@@ -29,7 +37,9 @@ for (const locale of ['fr', 'en']) {
     await expect(live.locator('[data-regression-loss]')).toContainText('S ≈ 1');
     await expect(page.locator('.katex-error')).toHaveCount(0);
     await page.setViewportSize({ width: 320, height: 740 });
-    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
+    expect(
+      await page.evaluate(() => document.documentElement.scrollWidth),
+    ).toBeLessThanOrEqual(320);
     await page.emulateMedia({ media: 'print' });
     await expect(lab.locator('.geo-live')).toBeHidden();
     await expect(lab.locator('.geo-print')).toBeVisible();
