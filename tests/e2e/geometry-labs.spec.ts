@@ -172,11 +172,13 @@ for (let lesson = 28; lesson <= 34; lesson++)
       await page.evaluate(() => document.documentElement.scrollWidth),
     ).toBeLessThanOrEqual(321);
     await expect(page.locator('.geometry-revision')).toBeVisible();
-    await expect(page.locator('article details')).not.toHaveAttribute('open');
+    for (const detail of await page.locator('article details').all())
+      await expect(detail).not.toHaveAttribute('open');
     await page.emulateMedia({ media: 'print' });
     await expect(page.locator('.geo-live').first()).toBeHidden();
     await expect(page.locator('.geo-print').first()).toBeVisible();
-    await expect(page.locator('article details > p')).toBeVisible();
+    for (const solution of await page.locator('article details > p').all())
+      await expect(solution).toBeVisible();
     await expect(page.locator('.course-outline')).toBeHidden();
     for (const svg of await page.locator('.geo-print svg').all())
       await expect(svg).toBeVisible();
@@ -191,8 +193,10 @@ for (let lesson = 28; lesson <= 34; lesson++)
       staticPage.locator('[data-static-note]').first(),
     ).toBeVisible();
     await expect(staticPage.locator('.geo-lab fieldset').first()).toBeHidden();
-    await staticPage.locator('article details summary').click();
-    await expect(staticPage.locator('article details > p')).toBeVisible();
+    await staticPage.locator('article details summary').first().click();
+    await expect(
+      staticPage.locator('article details').first().locator('p'),
+    ).toBeVisible();
     for (const img of await staticPage.locator('article img').all()) {
       await img.scrollIntoViewIfNeeded();
       await expect(img).toHaveJSProperty('complete', true);
@@ -223,14 +227,56 @@ test('touch controls, dark theme and paired section anchors', async ({
   await lab.getByRole('button', { name: 'Réinitialiser' }).tap();
   await expect(numbers(lab).first()).toHaveValue('2');
   const heading = page.getByRole('heading', {
-    name: 'D’où vient la pente ?',
+    name: '3. Calculer — Une opération à la fois',
     exact: true,
   });
   const id = await heading.getAttribute('id');
   await page.goto(`/fr/lessons/L29/#${id}`);
   await page.locator('a[hreflang="en"]').click();
-  await expect(page).toHaveURL(
-    /\/en\/lessons\/L29\/#where-does-slope-come-from/,
+  await expect(page).toHaveURL(/\/en\/lessons\/L29\/#.+/);
+  const englishHeading = page.getByRole('heading', {
+    name: '3. Calculate — One operation at a time',
+    exact: true,
+  });
+  const englishId = await englishHeading.getAttribute('id');
+  expect(decodeURIComponent(new URL(page.url()).hash.slice(1))).toBe(
+    englishId,
   );
   await context.close();
 });
+
+for (const locale of ['fr', 'en']) {
+  test(`${locale}: L29 separates slope, intercept and signed displacement`, async ({
+    page,
+  }) => {
+    await page.goto(`/${locale}/lessons/L29/`);
+    const lab = page.locator('[data-geometry-lab="slope"]');
+    const live = lab.locator('.geo-live');
+    const reference = live.locator('[data-slope-reference]');
+    await lab.scrollIntoViewIfNeeded();
+    await expect(lab.locator('fieldset')).toBeVisible();
+    await lab
+      .getByRole('button', { name: /Changer seulement m|Change only m/ })
+      .click();
+    await expect(reference).toContainText(
+      locale === 'fr' ? 'Même départ' : 'Same start',
+    );
+    await expect(live.locator('[data-slope-change]')).toContainText('= -1');
+    await lab
+      .getByRole('button', { name: /Changer seulement p|Change only p/ })
+      .click();
+    await expect(reference).toContainText(
+      locale === 'fr' ? 'parallèles distinctes' : 'distinct parallel lines',
+    );
+    await expect(live.locator('[data-slope-intercept]')).toContainText('(0 ; 3)');
+    await values(lab, [-0.5, 2, -2]);
+    await expect(live.locator('[data-slope-change]')).toContainText('= 1');
+    await values(lab, [0, 2, 2]);
+    await expect(live.locator('[data-slope-change]')).toContainText('= 0');
+    await values(lab, [2, 1, 0]);
+    await expect(live.locator('[data-results]')).toContainText('0/0');
+    await lab.getByRole('button', { name: /Réinitialiser|Reset/ }).click();
+    await expect(reference).toHaveCount(0);
+    await expect(numbers(lab).first()).toHaveValue('2');
+  });
+}
