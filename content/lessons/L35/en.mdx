@@ -1,7 +1,7 @@
 ---
 lessonId: L35
 locale: en
-version: 4
+version: 5
 status: extended
 title: "Calculating the regression line"
 summary: "Apply the formula, organise sums and interpret a prediction; optional proof."
@@ -10,6 +10,10 @@ objectives: [L35-O01, L35-O02, L35-O03, L35-O04, L35-O05, L35-O06]
 prerequisites: [L22, L26, L34]
 sourcePages: [71, 72, 73, 74, 75, 76, 77, 84, 85, 86, 87, 88, 89, 90, 91]
 ---
+import RegressionExplorer from '../../../src/components/RegressionExplorer';
+
+<div className="geometry-study">
+
 # Calculating the regression line
 
 ## Objectives and prerequisites
@@ -25,19 +29,67 @@ Prerequisites: L22, L26, L34. Domains and restrictions stated below are part of 
 
 <span id="pdf-71" class="source-topic-marker"></span>
 
-## The formula: what we want to calculate
+## 1. Understand — Choose the line with the smallest error
 
-**PDF, page 71.** If horizontal coordinates are not all equal, $S_{xx}>0$ and the best line predicting $y$ from $x$ has $m=S_{xy}/S_{xx}$, then $p=\bar y-m\bar x$. Calculate means first, then deviations, then sums: the symbols do not replace these steps.
+In L34 our service had three fictional observations: $(0,1),(1,2),(2,2)$. No line passes through all three. Models $\hat y=x+1$ and $\hat y=2$ each have squared loss 1. Can we do better? We seek a slope m and intercept p that minimise the sum of squared vertical residuals.
 
-The line passes through mean point $(\bar x,\bar y)$: replacing $x$ with $\bar x$ gives $m\bar x+(\bar y-m\bar x)=\bar y$. **The revised PDF, page 71, states the theorem without proof.** The main path proceeds directly to the four-year calculation. Proof and code remain below as optional supplements.
+The theorem in the supplied PDF (p. 68) gives optimal parameters provided the horizontal coordinates are not all equal. First we see why there are two decisions, then calculate the line by hand.
 
-<p class="source-next"><a href="/en/lessons/L35/#pdf-72">Next in the PDF: By hand, using four years →</a></p>
+## 2. Visualise — Shift, then tilt
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l35-mean-fit.svg" alt="Three points, an initial line, a parallel line through G, and the optimal line through G." width="640" height="320" loading="lazy" />
+<figcaption>First choose the best height at fixed slope, then rotate the line about the mean point G.</figcaption>
+</figure>
+
+Mean point G is the centre of the data cloud: $G=(\bar x,\bar y)$. For each slope, the best intercept makes the line pass through G. But that alone does not make it the best line among all slopes!
+
+On the three points, line $\hat y=x+2/3$ passes through G but has loss $2/3$. The optimal line $\hat y=(1/2)x+7/6$ has loss $1/6$. In both cases the residuals sum to zero.
+
+## 3. Calculate — The same table, step by step
+
+### A. Three observations: reuse L34 then fit
+
+Step 1: calculate the means.
+
+$$\bar x=(0+1+2)/3=1,\qquad \bar y=(1+2+2)/3=5/3.$$
+
+Step 2: subtract the means, then calculate products and squares.
+
+| $x_i$ | $y_i$ | $x_i-\bar x$ | $y_i-\bar y$ | $(x_i-\bar x)^2$ | $(x_i-\bar x)(y_i-\bar y)$ |
+| --- | --- | --- | --- | --- | --- |
+| 0 | 1 | −1 | −2/3 | 1 | 2/3 |
+| 1 | 2 | 0 | 1/3 | 0 | 0 |
+| 2 | 2 | 1 | 1/3 | 1 | 1/3 |
+| Sums | | 0 | 0 | 2 | 1 |
+
+Step 3: add the final two columns separately: $S_{xx}=2$, $S_{xy}=1$. Since $S_{xx}>0$, the slope is defined.
+
+Step 4: apply the theorem. The slope is a quotient; the intercept depends on the slope. Keep exact fractions.
+
+$$m=\frac{S_{xy}}{S_{xx}}=\frac12.$$
+
+$$p=\bar y-m\bar x=\frac53-\frac12=\frac76.$$
+
+$$\hat y=\frac12x+\frac76.$$
+
+Step 5: check the mean point by substituting the mean of x: $\hat y(1)=1/2+7/6=5/3$. Step 6: calculate predictions and residuals, as in L34.
+
+| x | y | $\hat y$ | e | $e^2$ |
+| --- | --- | --- | --- | --- |
+| 0 | 1 | 7/6 | −1/6 | 1/36 |
+| 1 | 2 | 5/3 | 1/3 | 1/9 |
+| 2 | 2 | 13/6 | −1/6 | 1/36 |
+
+$$S=1/36+1/9+1/36=1/6.$$
+
+The proof below establishes that no other affine line has lower loss. To predict at x = 3: $\hat y(3)=3/2+7/6=8/3$. This extrapolates beyond the range 0 to 2, not an actual measurement.
 
 <span id="pdf-72" class="source-topic-marker"></span>
 
-## By hand, using four years: the PDF calculation table
+### B. By hand, using four years: the PDF calculation table
 
-**PDF example, pages 72–75.** Keep 2000, 2003, 2005 and 2009. Data are $(8{,}2;5{,}0)$, $(5{,}3;4{,}4)$, $(4{,}0;4{,}1)$ and $(3{,}7;4{,}1)$. Means are $\bar x=(8{,}2+5{,}3+4{,}0+3{,}7)/4=5{,}3$ and $\bar y=(5{,}0+4{,}4+4{,}1+4{,}1)/4=4{,}4$.
+**Supplied PDF, pages 73–76.** Keep 2000, 2003, 2005 and 2009. Data are $(8{,}2;5{,}0)$, $(5{,}3;4{,}4)$, $(4{,}0;4{,}1)$ and $(3{,}7;4{,}1)$. Means are $\bar x=(8{,}2+5{,}3+4{,}0+3{,}7)/4=5{,}3$ and $\bar y=(5{,}0+4{,}4+4{,}1+4{,}1)/4=4{,}4$.
 
 | Year | $x_i$ | $y_i$ | $x_i-\bar x$ | $y_i-\bar y$ |
 | --- | --- | --- | --- | --- |
@@ -60,9 +112,9 @@ Read one row: $2{,}9\cdot0{,}6=1{,}74$ and $2{,}9^2=8{,}41$. Then add each colum
 
 <span id="pdf-76" class="source-topic-marker"></span>
 
-## Result and prediction: reading the fitted line
+### C. Result and prediction: reading the fitted line
 
-**PDF, pages 76–77.** The line fitted using four years is approximately $\hat y=0{,}206x+3{,}31$. The plot distinguishes the four fitting observations from the remaining six. Before coefficient rounding, it passes through mean point $(5{,}3;4{,}4)$.
+**Supplied PDF, pages 77–78.** The line fitted using four years is approximately $\hat y=0{,}206x+3{,}31$. The plot distinguishes the four fitting observations from the remaining six. Before coefficient rounding, it passes through mean point $(5{,}3;4{,}4)$.
 
 At $x=2$ pounds of margarine per person per year, displayed coefficients give $\hat y=0{,}206\cdot2+3{,}31\approx3{,}72$ divorces per thousand residents. This is a **numerical model prediction**, outside observed range $[3{,}7;8{,}2]$. It establishes neither causality nor reliable forecasting. We study these limits next.
 
@@ -73,17 +125,43 @@ At $x=2$ pounds of margarine per person per year, displayed coefficients give $\
 <figcaption>Four points for calculation; six others for visual comparison. <a class="figure-full-size" href="/diagrams/droites/en/regression-four.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
 </figure>
 
-## Guided example: three original observations
+## 4. Experiment — Find the minimum
 
-For $(0,1),(1,2),(2,2)$, we have $\bar x=1$, $\bar y=5/3$, $S_{xx}=2$, $S_{xy}=1$ and $S_{yy}=2/3$. Thus $m=1/2$ and $p=7/6$. Residuals are $-1/6,1/3,-1/6$: their sum is zero and squared sum is $1/6$. At $x=3$, the model predicts $8/3$. This calculation is a model prediction, not certainty about a future observation.
+Start with m = 1 and p = 1. Then choose the best p at this slope: the line passes through G and the loss falls. Keep the line anchored at G, change slope, then compare with the exact minimum. The loss plot represents lines through G; its moving marker appears only in that mode.
 
-<p class="source-next"><a href="/en/lessons/L36/#pdf-78">Next in the PDF: You have just done machine learning →</a></p>
+<RegressionExplorer locale="en" client:visible />
+
+Why does it work? The supplied PDF (pp. 69–72) proves the theorem by completing a square, without differentiation. At fixed slope choose p to pass through G; then minimise a quadratic in m. For our dataset the loss among lines through G is
+
+$$S(m,\bar y-m\bar x)=2(m-1/2)^2+1/6.$$
+
+The square cannot be negative. The minimum is 1/6, attained at slope 1/2. The complete proof and code remain available below.
+
+## 5. Practise — Calculate, check, interpret
+
+**Easy.** For the three points, if m is 0, which p minimises loss?
+
+<details>
+<summary>Check the answer</summary>
+
+$p=\bar y-0\bar x=5/3$. The line is horizontal and passes through G; its loss is $2/3$, not the global minimum.
+
+</details>
+
+**Intermediate.** For points $(0,3),(2,1)$, calculate the optimal line and check loss.
+
+<details>
+<summary>Check the answer</summary>
+
+$\bar x=1$, $\bar y=2$, $S_{xx}=2$, $S_{xy}=-2$. Hence $m=-1$, $p=2-(-1)\cdot1=3$. Both points lie on the line $\hat y=-x+3$, $S=0$.
+
+</details>
 
 <span id="pdf-84" class="source-topic-marker"></span>
 
-## PDF exercise: study hours and exam score
+### Challenge — Study hours and exam score (project extension)
 
-**PDF, pages 84–91.** Five students report study hours $x$ and exam score $y$ out of 20. Finding a line summarising these observations does not prove that an additional hour always produces the same gain.
+**Original project example; absent from the supplied PDF.** Five students report study hours $x$ and exam score $y$ out of 20. Finding a line summarising these observations does not prove that an additional hour always produces the same gain.
 
 | $x_i$ | $y_i$ |
 | --- | --- |
@@ -94,8 +172,6 @@ For $(0,1),(1,2),(2,2)$, we have $\bar x=1$, $\bar y=5/3$, $S_{xx}=2$, $S_{xy}=1
 | 5 | 17 |
 
 **Try first.** Calculate the means, the two sums and the line. Then predict the score for 3.5 hours and for 10 hours. Is the second answer possible?
-
-<p class="source-next"><a href="/en/lessons/L36/#pdf-92">Next in the PDF: What comes next? →</a></p>
 
 <details>
 <summary>Show the explained solution</summary>
@@ -122,14 +198,17 @@ At $x=10$, obtain $\hat y=2{,}3\cdot10+5{,}1=28{,}1$. A score above 20 is imposs
 <img src="/diagrams/droites/en/study-score.svg" alt="Five observed scores, fitted line over 1 to 5 hours, dashed extension to 10 hours above the maximum score of 20." width="440" height="360" loading="lazy" />
 <figcaption>The line exceeds the score ceiling when extended too far. <a class="figure-full-size" href="/diagrams/droites/en/study-score.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
 </figure>
+
+**Boundary case to know.** If every x equals c, then $S_{xx}=0$. Every line satisfying $mc+p=\bar y$ minimises loss; the slope is not unique. Never divide by zero.
+
 <details>
 <summary>Go further: proof and Python (optional)</summary>
 
 <span id="supplement-square" class="source-topic-marker"></span>
 
-## Completing the square: building the rewriting
+### Completing the square: building the rewriting
 
-**Optional project supplement, outside the revised PDF.** To transform $x^2+6x+1$, seek a square $(x+a)^2=x^2+2ax+a^2$. Coefficient $6$ requires $2a=6$, so $a=3$.
+**Proof in the supplied PDF, pp. 69–72, expanded here.** To transform $x^2+6x+1$, seek a square $(x+a)^2=x^2+2ax+a^2$. Coefficient $6$ requires $2a=6$, so $a=3$.
 
 1. Add and subtract the same number: $x^2+6x+1=x^2+6x+9-9+1$.
 2. Recognise the square: $(x+3)^2-8$.
@@ -143,15 +222,15 @@ The general recipe is $x^2+bx=(x+b/2)^2-b^2/4$. **Additional example:** $x^2-4x+
 <figcaption>The square is zero at the vertex and nonnegative elsewhere. <a class="figure-full-size" href="/diagrams/droites/en/complete-square.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
 </figure>
 
-## Additional example: another minimum
+### Additional example: another minimum
 
 Identity $m^2-6m+11=(m-3)^2+2$ shows a minimum of $2$, attained only at $m=3$. More generally, $Am^2-2Bm+C=A(m-B/A)^2+C-B^2/A$ for $A>0$. This method finds the minimum without derivatives because the square is nonnegative.
 
 <span id="supplement-proof-p" class="source-topic-marker"></span>
 
-## Proof, first part: the best p
+### Proof, first part: the best p
 
-**Optional project supplement, outside the revised PDF.** Fixing $m$ means provisionally choosing a slope and varying only intercept $p$. Put $r_i=y_i-mx_i$, so $e_i=r_i-p$. Expand with the standard identity:
+**Proof in the supplied PDF, pp. 69–72, expanded here.** Fixing $m$ means provisionally choosing a slope and varying only intercept $p$. Put $r_i=y_i-mx_i$, so $e_i=r_i-p$. Expand with the standard identity:
 
 $$S(m,p)=\sum_i(r_i-p)^2=\sum_i r_i^2-2p\sum_i r_i+np^2.$$
 
@@ -161,19 +240,19 @@ Finally, linearity gives $\bar r=\bar y-m\bar x$. This is precisely the announce
 
 <span id="supplement-proof-m" class="source-topic-marker"></span>
 
-## Proof, second part: the best m
+### Proof, second part: the best m
 
-**Optional project supplement, outside the revised PDF.** Once $p=\bar y-m\bar x$ is chosen, residuals become $(y_i-\bar y)-m(x_i-\bar x)$. Expand each square with $(a-b)^2=a^2-2ab+b^2$, then add: three columns result, $S_{yy}$, $-2mS_{xy}$ and $m^2S_{xx}$.
+**Proof in the supplied PDF, pp. 69–72, expanded here.** Once $p=\bar y-m\bar x$ is chosen, residuals become $(y_i-\bar y)-m(x_i-\bar x)$. Expand each square with $(a-b)^2=a^2-2ab+b^2$, then add: three columns result, $S_{yy}$, $-2mS_{xy}$ and $m^2S_{xx}$.
 
 Loss is therefore a quadratic in $m$ with positive leading coefficient $S_{xx}>0$. Completing the square gives $S_{xx}(m-S_{xy}/S_{xx})^2+S_{yy}-S_{xy}^2/S_{xx}$. Only the first square varies with $m$: making it zero gives $m=S_{xy}/S_{xx}$. Sum of squared deviations $S_{xx}$ is zero only when all horizontal coordinates are equal; handle that case separately.
 
 <span id="supplement-python" class="source-topic-marker"></span>
 
-## Optional supplement: repeating the calculations in Python
+### Optional supplement: repeating the calculations in Python
 
-This supplement uses all ten observations, rather than just the four in the hand calculation, so the result differs slightly. Function `fit` below implements centred sums with input checks. First define it, then call it on the ten observations.
+The supplied PDF, p. 79, uses all ten observations, rather than just the four in the hand calculation, so the result differs slightly. Function `fit` below implements centred sums with input checks. First define it, then call it on the ten observations.
 
-## Guided example: implementing the calculation
+### Guided example: implementing the calculation
 
 The following code uses centred sums and rejects empty data or constant inputs. For very close floating-point values, a production version must also handle numerical precision. Check passage through the mean point and compare residuals with a small exact example.
 
@@ -201,14 +280,30 @@ print(round(m, 4), round(p, 4))  # 0.2014 3.3086
 
 `zip` pairs values at the same position into data points. `sum` adds values; `** 2` squares a value. Empty data and constant horizontal coordinates are rejected because the formula cannot then identify a unique slope. Another possible implementation is `numpy.polyfit(x, y, 1)`; the detailed version keeps each step visible without another library.
 
-## What if inputs are constant?
+### What if inputs are constant?
 
 If every $x_i$ equals $c$, only value $mc+p$ is observed. Every pair satisfying $mc+p=\bar y$ minimises loss; slope is not identifiable. Do not divide by $S_{xx}=0$. Constant outputs with varying inputs are a different case: the best slope is zero and the intercept is the common output.
 
 </details>
 
-## Practice and recap
-
 The bank also includes questions about the optional proof above. It contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
-Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. The supplied PDF covers the formula, proof, worked example and Python on pages 68–79. Legacy anchors and metadata remain unchanged for link and bank compatibility; their pagination differs from the supplied file.
+
+
+<section className="geometry-revision">
+
+## 6. Remember — Printable revision sheet
+
+- Means, centred deviations, products and squares; sum each column.
+- $m=S_{xy}/S_{xx}$ if $S_{xx}>0$ ; $p=\bar y-m\bar x$.
+- Check the mean point $\hat y(\bar x)=\bar y$ and residuals $\sum e_i=0$.
+- Check loss $S=\sum e_i^2$ ; a zero signed sum proves neither quality nor optimality.
+- Round at the end; distinguish interpolation, extrapolation and causation.
+- If $S_{xx}=0$, the slope is not identifiable.
+
+</section>
+
+<p class="source-next"><a href="/en/lessons/L36/#pdf-78">Continue: correlation and limitations →</a></p>
+
+</div>
