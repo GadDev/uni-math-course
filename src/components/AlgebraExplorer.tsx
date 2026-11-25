@@ -178,10 +178,12 @@ function LabView({
   kind,
   values: v,
   locale,
+  showCircle = false,
 }: {
   kind: AlgebraKind;
   values: number[];
   locale: Locale;
+  showCircle?: boolean;
 }) {
   const fr = locale === 'fr';
   const t = (a: string, b: string) => (fr ? a : b);
@@ -697,6 +699,7 @@ function LabView({
     );
   }
   const g = pointGeometry(a, b, c, d);
+  const squared = g.dx * g.dx + g.dy * g.dy;
   return (
     <>
       <Grid
@@ -705,6 +708,15 @@ function LabView({
           'Orthonormal coordinates: A, B, midpoint M and right triangle; same unit on both axes',
         )}
       >
+        {showCircle && a === 0 && b === 0 && (
+          <circle
+            className="algebra-guide"
+            cx={px(0)}
+            cy={py(0)}
+            r={150}
+            fill="none"
+          />
+        )}
         <path
           className="algebra-guide"
           d={`M${px(a)} ${py(b)}H${px(c)}V${py(d)}`}
@@ -743,9 +755,26 @@ function LabView({
         Δx = {f(c)} − ({f(a)}) = {f(g.dx)} ; Δy = {f(d)} − ({f(b)}) = {f(g.dy)}.
       </p>
       <p data-distance aria-live="polite" aria-atomic="true">
-        d² = ({f(g.dx)})² + ({f(g.dy)})² = {f(g.dx * g.dx + g.dy * g.dy)} ; d ≈{' '}
+        d² = ({f(g.dx)})² + ({f(g.dy)})² = {f(squared)} ; d ≈{' '}
         <strong>{f(g.distance)}</strong>.
       </p>
+      <p>
+        d = √{f(squared)} ; |Δx| + |Δy| = {f(Math.abs(g.dx) + Math.abs(g.dy))}.
+      </p>
+      {showCircle && (
+        <p data-circle role="status">
+          {a !== 0 || b !== 0
+            ? t(
+                'Placez A à l’origine pour comparer OB au rayon 5.',
+                'Place A at the origin to compare OB with radius 5.',
+              )
+            : squared === 25
+              ? t('B est sur le cercle.', 'B is on the circle.')
+              : squared < 25
+                ? t('B est à l’intérieur du cercle.', 'B is inside the circle.')
+                : t('B est à l’extérieur du cercle.', 'B is outside the circle.')}
+        </p>
+      )}
       <p>
         {t(
           'A : disque ; B : carré ; M : losange. Le trajet en pointillés a pour longueur |Δx| + |Δy| ; le segment direct a pour longueur d.',
@@ -778,6 +807,7 @@ export default function AlgebraExplorer({
     ...initialAlgebraState[kind],
   ]);
   const [raw, setRaw] = useState('2');
+  const [showCircle, setShowCircle] = useState(false);
   const [ready, setReady] = useState(false);
   useEffect(() => setReady(true), []);
   const input = realInput(raw, -5, 5);
@@ -788,6 +818,7 @@ export default function AlgebraExplorer({
   const reset = () => {
     setValues([...initialAlgebraState[kind]]);
     setRaw('2');
+    setShowCircle(false);
   };
   const range = (label: string, i: number, min: number, max: number) => (
     <label key={i} htmlFor={`${id}-${i}`}>
@@ -899,10 +930,56 @@ export default function AlgebraExplorer({
           )}
           {kind === 'distance' && (
             <>
-              {range(t('Abscisse de A', 'A horizontal coordinate'), 0, -4, 4)}
-              {range(t('Ordonnée de A', 'A vertical coordinate'), 1, -4, 4)}
-              {range(t('Abscisse de B', 'B horizontal coordinate'), 2, -4, 4)}
-              {range(t('Ordonnée de B', 'B vertical coordinate'), 3, -4, 4)}
+              <label>
+                {t('Exemple à explorer', 'Example to explore')}
+                <select
+                  value=""
+                  onChange={(event) => {
+                    const choice = event.currentTarget.value;
+                    const presets: Record<string, number[]> = {
+                      pdf: [1, 1, 4, 5],
+                      reverse: [4, 5, 1, 1],
+                      same: [1, 1, 1, 1],
+                      vertical: [2, -1, 2, 4],
+                      circle: [0, 0, -3, 4],
+                    };
+                    const preset = presets[choice];
+                    if (preset) {
+                      setValues(preset);
+                      setShowCircle(choice === 'circle');
+                    }
+                  }}
+                >
+                  <option value="">
+                    {t('Choisir un exemple', 'Choose an example')}
+                  </option>
+                  <option value="pdf">{t('Exemple du PDF', 'PDF example')}</option>
+                  <option value="reverse">
+                    {t('Retour de B vers A', 'Return from B to A')}
+                  </option>
+                  <option value="same">
+                    {t('Points confondus', 'Coincident points')}
+                  </option>
+                  <option value="vertical">
+                    {t('Segment vertical', 'Vertical segment')}
+                  </option>
+                  <option value="circle">
+                    {t('Cercle de rayon 5', 'Circle of radius 5')}
+                  </option>
+                </select>
+              </label>
+              {range(t('Abscisse de A', 'A horizontal coordinate'), 0, -5, 5)}
+              {range(t('Ordonnée de A', 'A vertical coordinate'), 1, -5, 5)}
+              {range(t('Abscisse de B', 'B horizontal coordinate'), 2, -5, 5)}
+              {range(t('Ordonnée de B', 'B vertical coordinate'), 3, -5, 5)}
+              <label>
+                <input
+                  type="checkbox"
+                  checked={showCircle}
+                  onChange={(event) => setShowCircle(event.currentTarget.checked)}
+                />{' '}
+                {t('Cercle centré en O, rayon 5', 'Circle centred at O, radius 5')}
+              </label>
             </>
           )}
           <button type="button" onClick={reset}>
@@ -923,7 +1000,14 @@ export default function AlgebraExplorer({
               )
             : ''}
         </p>
-        {!invalid && <LabView kind={kind} values={values} locale={locale} />}
+        {!invalid && (
+          <LabView
+            kind={kind}
+            values={values}
+            locale={locale}
+            showCircle={showCircle}
+          />
+        )}
       </div>
       <div className="algebra-print">
         <p>

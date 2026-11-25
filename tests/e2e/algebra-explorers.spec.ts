@@ -239,3 +239,39 @@ test('touch controls work at 375px and the explorer island is absent from unrela
     page.locator('astro-island[component-url*="AlgebraExplorer"]'),
   ).toHaveCount(0);
 });
+
+test('L27 presets connect the PDF, reversed movement and circle membership', async ({
+  page,
+}) => {
+  for (const locale of ['fr', 'en']) {
+    const lab = await open(page, locale, 'L27');
+    const preset = lab.getByRole('combobox');
+    await preset.selectOption('pdf');
+    await expect(lab.locator('[data-distance]')).toContainText('d ≈ 5');
+    await expect(lab.getByRole('slider').nth(3)).toHaveValue('5');
+    await preset.selectOption('reverse');
+    await expect(lab.locator('[data-displacement]')).toContainText('= -3');
+    await expect(lab.locator('[data-distance]')).toContainText('d ≈ 5');
+    await preset.selectOption('same');
+    await expect(lab.locator('[data-distance]')).toContainText('d ≈ 0');
+    await preset.selectOption('circle');
+    await expect(lab.locator('[data-circle]')).toHaveText(
+      locale === 'fr' ? 'B est sur le cercle.' : 'B is on the circle.',
+    );
+    await slide(lab, 2, 0);
+    await expect(lab.locator('[data-circle]')).toHaveText(
+      locale === 'fr'
+        ? 'B est à l’intérieur du cercle.'
+        : 'B is inside the circle.',
+    );
+    await slide(lab, 2, 5);
+    await expect(lab.locator('[data-circle]')).toHaveText(
+      locale === 'fr'
+        ? 'B est à l’extérieur du cercle.'
+        : 'B is outside the circle.',
+    );
+    await lab.getByRole('button').click();
+    await expect(lab.locator('[data-circle]')).toHaveCount(0);
+    await expect(lab.locator('[data-distance]')).toContainText('d ≈ 5');
+  }
+});

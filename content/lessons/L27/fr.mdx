@@ -1,7 +1,7 @@
 ---
 lessonId: L27
 locale: fr
-version: 4
+version: 5
 status: extended
 title: "Repères et distances"
 summary: "Placer des points et mesurer une distance dans un repère orthonormé."
@@ -34,82 +34,97 @@ Prérequis : L23. Les domaines et restrictions précisés ci-dessous font partie
 
 <span id="pdf-28" class="source-topic-marker"></span>
 
-## Le repère cartésien : placer et lire un point
+## 1. Comprendre — Une adresse et un trajet
 
-Un **repère** donne une adresse à chaque point. L’origine $O=(0,0)$ est le croisement des deux axes. Une graduation marque une unité. On lit d’abord l’abscisse $x$ sur l’axe horizontal, puis l’ordonnée $y$ sur l’axe vertical : l’ordre compte.
+Imaginez un plan de ville quadrillé. Une rue vers la droite représente une unité, une rue vers le haut une unité. Pour retrouver un ami, il faut connaître son adresse ; pour connaître le trajet direct, il faut mesurer une distance. Ces deux questions sont différentes.
 
-**Points du PDF, page 28.** Pour placer $A=(3,2)$, partir de l’origine, avancer de trois unités à droite puis monter de deux. Pour $B=(2,3)$, les déplacements sont différents : les deux points ne sont pas confondus. $C=(-2,1)$ est à gauche et au-dessus ; $D=(-1,-2)$ est à gauche et en dessous. Le plan $\mathbb R^2$ est l’ensemble de tous les couples de réels.
+Un **repère cartésien** est formé de deux axes gradués perpendiculaires. Leur intersection est l'origine $O=(0,0)$. Un point est repéré par un couple **ordonné** $(x,y)$ : l'abscisse x indique la position horizontale, l'ordonnée y la position verticale.
 
-**Exemple supplémentaire.** Le point $(0,-3)$ est sur l’axe vertical car son déplacement horizontal est nul. Le point $(4,0)$ est sur l’axe horizontal. Pour relire un point sur un dessin, projeter vers les deux axes avant d’écrire le couple.
+| Signe | Horizontal (x) | Vertical (y) |
+| --- | --- | --- |
+| Positif | Droite | Haut |
+| Négatif | Gauche | Bas |
+| Zéro | Sur l'axe vertical | Sur l'axe horizontal |
+
+Pour placer $A=(3,2)$, partez de O, avancez de 3 unités à droite et montez de 2. Le point $B=(2,3)$ n'est pas au même endroit : l'ordre compte. Le plan $\mathbb R^2=\mathbb R\times\mathbb R$ contient tous les couples de réels, pas seulement les points entiers de la grille.
+
+**La question du jour :** si l'on va de $A=(1,1)$ à $B=(4,5)$, quelle est la longueur du trajet direct ? On ne cherche ni l'adresse de B ni la longueur d'un détour le long des rues.
+
+## 2. Visualiser — Les quatre quadrants et le triangle
+
+Les points de la page 28 du PDF se lisent d'abord horizontalement, puis verticalement.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/coordinates.svg" alt="Repère gradué avec A en 3,2, B en 2,3, C en moins 2,1 et D en moins 1,moins 2." width="440" height="360" loading="lazy" />
 <figcaption>L’abscisse se lit horizontalement, puis l’ordonnée verticalement.</figcaption>
 </figure>
 
-## Deux nombres ordonnés
-
-Un point $A=(x_A,y_A)$ possède une abscisse horizontale et une ordonnée verticale. Dans le repère mathématique usuel, x augmente vers la droite et y augmente vers le haut. Le point $(-2,3)$ se situe donc deux unités à gauche et trois au-dessus de l’origine. Échanger les coordonnées change généralement le point.
-
-<p class="source-next"><a href="/fr/lessons/L27/#pdf-29">Suite du PDF : Distance entre deux points →</a></p>
+Les quadrants se numérotent à partir du haut à droite, dans le sens inverse des aiguilles d'une montre : I (+,+), II (−,+), III (−,−), IV (+,−). Un point sur un axe n'est dans aucun quadrant. Par exemple, $(0,-3)$ est sur l'axe vertical et $(4,0)$ sur l'axe horizontal.
 
 <span id="pdf-29" class="source-topic-marker"></span>
 
-## Distance entre deux points : voir le triangle rectangle
-
-**Exemple du PDF, pages 29–30.** Dans un repère orthonormé, prendre $A=(1,1)$ et $B=(4,5)$. Le mot **orthonormé** signifie ici deux axes perpendiculaires avec la même unité de longueur. Le déplacement horizontal vaut $4-1=3$ et le déplacement vertical $5-1=4$.
-
-Le segment $AB$ est l’hypoténuse d’un triangle rectangle. Pythagore donne $d^2=3^2+4^2=25$, puis $d=\sqrt{25}=5$. On choisit la racine non négative parce qu’il s’agit d’une longueur.
-
-La formule générale est $d(A,B)=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2}$. Le symbole $\Delta$ se lit « delta » et note une variation : $\Delta x=x_B-x_A$. **Exemple supplémentaire :** entre $(2,-1)$ et $(2,4)$, $\Delta x=0$ et $\Delta y=5$ ; la distance vaut $5$, comme le montre le segment vertical.
+**Du point A au point B (PDF, p. 29–30).** Le triangle rectangle montre trois longueurs : 3 horizontalement, 4 verticalement et le segment direct AB. Le trajet par les deux côtés vaut 7, mais ce n'est pas la distance directe.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/distance.svg" alt="Triangle rectangle entre A en 1,1 et B en 4,5, de côtés 3 et 4 et d’hypoténuse 5." width="440" height="360" loading="lazy" />
 <figcaption>La formule de distance est Pythagore appliqué aux deux déplacements.</figcaption>
 </figure>
 
+L'hypoténuse est le côté opposé à l'angle droit. Un repère **orthonormé** a deux axes perpendiculaires et la même unité de longueur sur les deux axes. Ce sont les conditions qui permettent de lire directement les deux côtés dans les différences de coordonnées.
+
+## 3. Calculer — Une opération à la fois
+
+**Exemple du PDF :** $A=(1,1)$ et $B=(4,5)$.
+
+La lettre grecque $\Delta$ (delta) signifie « variation ». On fait toujours arrivée moins départ. Les indices A et B indiquent le point concerné, pas une multiplication.
+
+| Étape | Calcul | Pourquoi ? |
+| --- | --- | --- |
+| 1. Horizontal | $\Delta x=x_B-x_A=4-1=3$ | Aller de 1 à 4 |
+| 2. Vertical | $\Delta y=y_B-y_A=5-1=4$ | Aller de 1 à 5 |
+| 3. Carrés | $3^2=9,\quad 4^2=16$ | Appliquer Pythagore |
+| 4. Somme | $d^2=9+16=25$ | Calculer le carré de la longueur |
+| 5. Racine | $d=\sqrt{25}=5$ | Retrouver la longueur non négative |
+
+La méthode générale du PDF est :
+
+$$d(A,B)=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2}=\sqrt{(\Delta x)^2+(\Delta y)^2}.$$
+
+**Et si on revient de B vers A ?** Les déplacements sont $(-3,-4)$. Les longueurs des côtés sont 3 et 4, mais les déplacements signés sont négatifs. On garde les signes jusqu'au carré :
+
+$$d(B,A)=\sqrt{(-3)^2+(-4)^2}=\sqrt{9+16}=5.$$
+
+La distance est symétrique et toujours non négative. Elle vaut zéro si et seulement si les points coïncident. Pour $(2,-1)$ et $(2,4)$, le déplacement est $(0,5)$ : le segment est vertical et sa longueur vaut 5.
+
+**Milieu — le point à mi-chemin.** Pour $A=(0,2)$ et $B=(6,4)$, on moyenne les abscisses puis les ordonnées, jamais une abscisse avec une ordonnée.
+
+$$M=\left(\frac{0+6}{2},\frac{2+4}{2}\right)=(3,3).$$
+
+En général, $M=((x_A+x_B)/2;(y_A+y_B)/2)$.
+
+**Cercle — un lieu de points (complément du projet).** Un cercle de centre O et de rayon 5 contient exactement les points à distance 5 de O. Le point $P=(-3,4)$ est-il dessus ?
+
+$$OP=\sqrt{(-3)^2+4^2}=\sqrt{9+16}=5.$$
+
+Oui. Il est dans le quadrant II, et pourtant sa distance à O est positive. Pour un point de coordonnées $(x,y)$, le cercle de rayon 5 vérifie $x^2+y^2=25$. Le disque inclut aussi l'intérieur : $x^2+y^2\le25$. Le centre et le rayon sont des données, et le rayon d'un cercle non dégénéré est strictement positif.
+
+**Attention aux échelles — convertir avant de mesurer.** Avec des axes perpendiculaires, si une unité horizontale vaut 2 m et une verticale 1 m, le déplacement de coordonnées $(3,4)$ représente des côtés physiques de 6 m et 4 m.
+
+$$D=\sqrt{6^2+4^2}=\sqrt{52}\ \mathrm m.$$
+
+Notons $s_x>0$ et $s_y>0$ les mètres par unité de chaque axe. Les déplacements en mètres sont $X=s_x\Delta x$ et $Y=s_y\Delta y$. La formule générale en unités physiques est $D=\sqrt{(s_x\Delta x)^2+(s_y\Delta y)^2}$. Modifier les mètres par unité change la situation physique ; un simple zoom de l'image ne change pas les distances mathématiques.
+
+## 4. Expérimenter — Déplacer les points et expliquer
+
+Commencez avec A à l'origine et B à droite et en haut. Avant de toucher aux curseurs, prédisez la distance. Choisissez ensuite les exemples proposés dans l'atelier : le cas du PDF, le retour vers A, les points confondus et le cercle de rayon 5. Le dessin, le déplacement, le calcul de Pythagore et le milieu se mettent à jour ensemble. Les curseurs sont bornés pour garder le repère lisible ; les coordonnées réelles ne sont pas limitées à ces entiers.
+
 <AlgebraExplorer kind="distance" locale="fr" client:visible />
 
-## Déplacement et longueur
-
-De $A$ vers $B$, les écarts sont $\Delta x=x_B-x_A$ et $\Delta y=y_B-y_A$. Ils peuvent être négatifs. Dans un repère orthonormé, les axes sont perpendiculaires et une unité représente la même longueur sur les deux axes. Alors $d(A,B)=\sqrt{(\Delta x)^2+(\Delta y)^2}$. Une distance est positive ou nulle ; elle vaut zéro exactement lorsque les deux points coïncident.
-
-## Exemple guidé : un triangle rectangle
-
-Pour $A=(-1,2)$ et $B=(2,6)$, le déplacement vaut $(3,4)$. Pythagore donne $d(A,B)=\sqrt{9+16}=5$. Dans l’autre sens, le déplacement devient $(-3,-4)$, mais la distance reste $5$. Les signes disparaissent au carré, pas avant de calculer les écarts.
-
-## Exemple guidé : milieu et lieu
-
-Le milieu de $A=(0,2)$ et $B=(6,4)$ est $M=(3,3)$ : on moyenne séparément les coordonnées. Les points à distance $2$ de l’origine vérifient $x^2+y^2=4$ ; ils forment un cercle. Ceux à distance au plus $2$ forment le disque $x^2+y^2\le4$. La frontière seule et la région intérieure sont deux objets différents.
-
-## Attention aux échelles
-
-Des axes perpendiculaires ne suffisent pas pour utiliser directement la formule précédente. Si une unité horizontale représente $2$ mètres et une unité verticale $1$ mètre, un écart de coordonnées $(3,4)$ représente un déplacement physique $(6,4)$ mètres, de longueur $\sqrt{52}$ mètres. Un dessin étiré à l’écran ne change pas les coordonnées mathématiques, mais ses longueurs visuelles peuvent être trompeuses.
-
-## Convertir les unités avant de mesurer
-
-Une coordonnée compte des unités du repère ; une longueur physique s’exprime en mètres, centimètres, etc. Notons $s_x>0$ le nombre de mètres par unité horizontale et $s_y>0$ celui par unité verticale. Les déplacements physiques sont $X=s_x\Delta x$ et $Y=s_y\Delta y$, en mètres.
-
-Avec des axes perpendiculaires, Pythagore s’applique à ces deux déplacements exprimés dans la même unité : $D=\sqrt{(s_x\Delta x)^2+(s_y\Delta y)^2}$. Pour un écart $(3;4)$, prendre $s_x=2$ et $s_y=1$ donne un triangle physique de côtés $6$ m et $4$ m.
-
-Changer le nombre de mètres par unité change ici la situation physique représentée. Cela diffère d’un simple zoom sur l’écran. Le graphique de l’atelier montre les déplacements **en mètres**, avec la même échelle physique sur les deux axes ; les coordonnées d’entrée restent affichées dans les commandes.
+Dans le second atelier, gardez les écarts 3 et 4. Faites passer l'unité horizontale de 1 à 2 m et expliquez pourquoi le résultat change. Le graphique représente les déplacements en mètres, avec la même échelle physique sur les deux axes.
 
 <AlgebraMethodLab kind="scales" locale="fr" client:visible />
 
-<p class="source-next"><a href="/fr/lessons/L28/#pdf-31">Suite du PDF : Équation cartésienne →</a></p>
-
-## Comment faire ? Une méthode réutilisable
-
-1. Écrivez les deux couples dans le même ordre : abscisse, ordonnée.
-2. Vérifiez que les axes sont perpendiculaires et utilisent la même unité physique ; sinon convertissez les déplacements avant Pythagore.
-3. Calculez arrivée moins départ pour chaque coordonnée, puis élevez ces deux différences au carré.
-4. Additionnez et prenez la racine non négative. Contrôlez : la distance doit rester la même en échangeant les points.
-
-Pour un milieu, calculez séparément les moyennes des deux abscisses et des deux ordonnées : $M=((x_A+x_B)/2;(y_A+y_B)/2)$.
-
-**Erreur fréquente.** Additionner les déplacements absolus mesure un trajet en angle droit. Pour un triangle de côtés $3$ et $4$, ce trajet mesure $7$, mais son hypoténuse mesure $5$.
-
-## S’entraîner pas à pas
+## 5. Pratiquer — Du simple au raisonnement
 
 <div className="algebra-exercise">
 
@@ -150,7 +165,7 @@ Conserver les signes jusqu’aux carrés ; moyenner les coordonnées séparémen
 <details>
 <summary>Solution expliquée</summary>
 
-Le déplacement vaut $(3;4)$, la distance $\sqrt{3^2+4^2}=5$ et le milieu $M=(-1/2;3)$. En sens inverse, les écarts changent de signe, pas la distance.
+Horizontal : $1-(-2)=3$. Vertical : $5-1=4$. Le déplacement vaut $(3;4)$. La distance est $\sqrt{3^2+4^2}=\sqrt{25}=5$. Le milieu est $M=((-2+1)/2;(1+5)/2)=(-1/2;3)$. En sens inverse, les écarts changent de signe, pas la distance.
 
 </details>
 
@@ -179,7 +194,14 @@ Les déplacements physiques sont $6$ m et $4$ m. La longueur vaut $\sqrt{6^2+4^2
 
 </div>
 
-## Pratique et bilan
+**Défi supplémentaire — cercle.** Sans regarder l'exemple, décidez si le point $Q=(4,-3)$ est sur le cercle de centre O et rayon 5.
+
+<details>
+<summary>Vérifier ma réponse</summary>
+
+$OQ=\sqrt{4^2+(-3)^2}=\sqrt{25}=5$. Oui : le carré de la coordonnée négative vaut 9, et non −9. Le point est dans le quadrant IV.
+
+</details>
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
@@ -187,16 +209,22 @@ Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours
 
 <div className="algebra-revision">
 
-## À retenir et auto-évaluation
+## 6. Retenir — Fiche de révision à imprimer
 
-- Un couple est ordonné ; le déplacement utilise arrivée moins départ.
-- Une distance est non négative, symétrique et s’annule uniquement pour des points confondus.
-- Pythagore exige des directions perpendiculaires et des longueurs exprimées dans la même unité.
+- Coordonnées : x horizontal, y vertical ; lire les signes et garder l'ordre.
+- Déplacement de A vers B : $\Delta x=x_B-x_A,\quad\Delta y=y_B-y_A$.
+- Distance dans un repère orthonormé : $d(A,B)=\sqrt{(\Delta x)^2+(\Delta y)^2}$.
+- Milieu : $M=((x_A+x_B)/2;(y_A+y_B)/2)$.
+- Cercle de centre O, rayon r positif : $x^2+y^2=r^2$ ; disque : $x^2+y^2\le r^2$.
+- Échelles physiques différentes, axes perpendiculaires : $D=\sqrt{(s_x\Delta x)^2+(s_y\Delta y)^2}$.
+- Pièges : inverser les coordonnées, oublier les parenthèses d'un nombre négatif, confondre le détour et le segment direct, oublier la racine ou les unités.
 
-**Auto-évaluation.** Placer un point sans inverser les coordonnées ; refaire le calcul du deuxième exercice ; expliquer pourquoi le troisième n’utilise pas directement les coordonnées. Reprendre « Attention aux échelles » si nécessaire. [L28](../L28/) décrira une droite par une équation.
+**Auto-évaluation :** placez un point dans le quadrant II, refaites le calcul de distance en inversant les points, puis expliquez pourquoi le trajet en angle droit est différent du segment direct.
 
-**Pour imprimer :** utilisez la commande Imprimer du navigateur. Les activités montrent un exemple fixe et les indices et solutions sont développés sur papier.
+**Pour imprimer :** utilisez la commande Imprimer du navigateur. Les activités montrent leur exemple de référence et les solutions sont développées sur papier.
 
 </div>
+
+<p class="source-next"><a href="/fr/lessons/L28/#pdf-31">Suite du PDF : Équation cartésienne →</a></p>
 
 </div>
