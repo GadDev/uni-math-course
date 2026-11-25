@@ -1,7 +1,7 @@
 ---
 lessonId: L27
 locale: en
-version: 4
+version: 5
 status: extended
 title: "Coordinates and distances"
 summary: "Locate points and measure distance in an orthonormal coordinate system."
@@ -34,82 +34,99 @@ Prerequisites: L23. Domains and restrictions stated below are part of every rule
 
 <span id="pdf-28" class="source-topic-marker"></span>
 
-## The Cartesian frame: plotting and reading a point
+## 1. Understand — An address and a route
 
-A **coordinate frame** gives every point an address. Origin $O=(0,0)$ is where the axes cross. A tick marks one unit. First read horizontal coordinate $x$, then vertical coordinate $y$: their order matters.
+Imagine a city map drawn on a grid. One street to the right represents one unit, one street upwards one unit. To find a friend, you need their address; to know the direct route, you need a distance. These are different questions.
 
-**PDF points, page 28.** To plot $A=(3,2)$, start at the origin, move three units right, then two up. For $B=(2,3)$, the movements differ: the points are distinct. $C=(-2,1)$ is left and above; $D=(-1,-2)$ is left and below. The plane $\mathbb R^2$ is the set of all pairs of real numbers.
+A **Cartesian coordinate frame** consists of two perpendicular graduated axes. Their intersection is the origin $O=(0,0)$. A point is located by an **ordered** pair $(x,y)$: the horizontal coordinate x indicates horizontal position, the vertical coordinate y indicates vertical position.
 
-**Additional example.** Point $(0,-3)$ lies on the vertical axis because its horizontal displacement is zero. Point $(4,0)$ lies on the horizontal axis. To read a point from a drawing, project onto both axes before writing the pair.
+| Sign | Horizontal (x) | Vertical (y) |
+| --- | --- | --- |
+| Positive | Right | Up |
+| Negative | Left | Down |
+| Zero | On the vertical axis | On the horizontal axis |
+
+To plot $A=(3,2)$, start at O, move 3 units right and 2 up. Point $B=(2,3)$ is not at the same location: order matters. The plane $\mathbb R^2=\mathbb R\times\mathbb R$ contains every pair of real numbers, not only the integer grid points.
+
+**Today's question:** if you go from $A=(1,1)$ to $B=(4,5)$, how long is the direct route? We are not looking for B's address or the length of a detour along the streets.
+
+## 2. Visualise — The four quadrants and the triangle
+
+Read the points from PDF page 28 horizontally first, then vertically.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/coordinates.svg" alt="Graduated axes with A at 3,2, B at 2,3, C at minus 2,1 and D at minus 1,minus 2." width="440" height="360" loading="lazy" />
 <figcaption>Read the horizontal coordinate first, then the vertical coordinate.</figcaption>
 </figure>
 
-## Two ordered numbers
-
-A point $A=(x_A,y_A)$ has a horizontal coordinate and a vertical coordinate. In the usual mathematical system, right is positive and up is positive. The point $(-2,3)$ is therefore two units left and three above the origin. Exchanging coordinates generally changes the point.
+The quadrants are numbered from the top right, anticlockwise: I (+,+), II (−,+), III (−,−), IV (+,−). A point on an axis belongs to no quadrant. For example, $(0,-3)$ is on the vertical axis and $(4,0)$ on the horizontal axis.
 
 <p class="source-next"><a href="/en/lessons/L27/#pdf-29">Next in the PDF : Distance between two points →</a></p>
 
 <span id="pdf-29" class="source-topic-marker"></span>
 
-## Distance between points: seeing the right triangle
-
-**PDF example, pages 29–30.** In an orthonormal frame, take $A=(1,1)$ and $B=(4,5)$. Here **orthonormal** means perpendicular axes with the same length unit. The horizontal displacement is $4-1=3$ and the vertical displacement is $5-1=4$.
-
-Segment $AB$ is the hypotenuse of a right triangle. Pythagoras gives $d^2=3^2+4^2=25$, then $d=\sqrt{25}=5$. Choose the nonnegative root because this is a length.
-
-The general formula is $d(A,B)=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2}$. Symbol $\Delta$, read “delta”, denotes a change: $\Delta x=x_B-x_A$. **Additional example:** between $(2,-1)$ and $(2,4)$, $\Delta x=0$ and $\Delta y=5$; distance is $5$, as the vertical segment shows.
+**From A to B (PDF pp. 29–30).** The right triangle shows three lengths: 3 horizontally, 4 vertically and the direct segment AB. The route along the two legs is 7, but that is not the direct distance.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/distance.svg" alt="Right triangle between A at 1,1 and B at 4,5, with legs 3 and 4 and hypotenuse 5." width="440" height="360" loading="lazy" />
 <figcaption>The distance formula applies Pythagoras to the two displacements.</figcaption>
 </figure>
 
+The hypotenuse is the side opposite the right angle. An **orthonormal** frame has two perpendicular axes with the same length unit on both axes. These are the conditions that allow us to read the two legs directly from coordinate differences.
+
+## 3. Calculate — One operation at a time
+
+**PDF example:** $A=(1,1)$ and $B=(4,5)$.
+
+The Greek letter $\Delta$ (delta) means “change”. Always subtract departure from arrival. Subscripts A and B identify the point concerned, not multiplication.
+
+| Step | Calculation | Why? |
+| --- | --- | --- |
+| 1. Horizontal | $\Delta x=x_B-x_A=4-1=3$ | Go from 1 to 4 |
+| 2. Vertical | $\Delta y=y_B-y_A=5-1=4$ | Go from 1 to 5 |
+| 3. Squares | $3^2=9,\quad 4^2=16$ | Apply Pythagoras |
+| 4. Sum | $d^2=9+16=25$ | Calculate the square of the length |
+| 5. Root | $d=\sqrt{25}=5$ | Recover the nonnegative length |
+
+The general method from the PDF is:
+
+$$d(A,B)=\sqrt{(x_B-x_A)^2+(y_B-y_A)^2}=\sqrt{(\Delta x)^2+(\Delta y)^2}.$$
+
+**What if we return from B to A?** The displacements are $(-3,-4)$. The lengths of the legs are 3 and 4, but the signed displacements are negative. Retain the signs until squaring:
+
+$$d(B,A)=\sqrt{(-3)^2+(-4)^2}=\sqrt{9+16}=5.$$
+
+Distance is symmetric and always nonnegative. It is zero if and only if the points coincide. For $(2,-1)$ and $(2,4)$, the displacement is $(0,5)$: the segment is vertical and its length is 5.
+
+**Midpoint — the point halfway along.** For $A=(0,2)$ and $B=(6,4)$, average the horizontal coordinates and then the vertical coordinates, never a horizontal coordinate with a vertical one.
+
+$$M=\left(\frac{0+6}{2},\frac{2+4}{2}\right)=(3,3).$$
+
+In general, $M=((x_A+x_B)/2;(y_A+y_B)/2)$.
+
+**Circle — a locus of points (project extension).** A circle centred at O with radius 5 contains exactly the points at distance 5 from O. Is point $P=(-3,4)$ on it?
+
+$$OP=\sqrt{(-3)^2+4^2}=\sqrt{9+16}=5.$$
+
+Yes. It is in quadrant II, yet its distance from O is positive. For a point with coordinates $(x,y)$, the circle of radius 5 satisfies $x^2+y^2=25$. The disk also includes the interior: $x^2+y^2\le25$. Centre and radius are given, and the radius of a nondegenerate circle is strictly positive.
+
+**Watch the scales — convert before measuring.** With perpendicular axes, if one horizontal unit is 2 m and one vertical unit is 1 m, the coordinate displacement $(3,4)$ represents physical legs of 6 m and 4 m.
+
+$$D=\sqrt{6^2+4^2}=\sqrt{52}\ \mathrm m.$$
+
+Let $s_x>0$ and $s_y>0$ be metres per unit of each axis. The displacements in metres are $X=s_x\Delta x$ and $Y=s_y\Delta y$. The general physical-unit formula is $D=\sqrt{(s_x\Delta x)^2+(s_y\Delta y)^2}$. Changing metres per unit changes the physical situation; merely zooming the image does not change mathematical distances.
+
+## 4. Experiment — Move the points and explain
+
+Start with A at the origin and B to the right and above. Before touching the sliders, predict the distance. Then choose the examples in the workshop: the PDF case, the return towards A, coincident points and the circle of radius 5. The drawing, displacement, Pythagorean calculation and midpoint update together. Sliders are bounded to keep the plot readable; real coordinates are not limited to these integers.
+
 <AlgebraExplorer kind="distance" locale="en" client:visible />
 
-## Displacement and length
-
-From $A$ to $B$, differences are $\Delta x=x_B-x_A$ and $\Delta y=y_B-y_A$. They may be negative. In an orthonormal system, axes are perpendicular and a unit represents the same length on both axes. Then $d(A,B)=\sqrt{(\Delta x)^2+(\Delta y)^2}$. A distance is nonnegative; it is zero exactly when the two points coincide.
-
-## Guided example: a right triangle
-
-For $A=(-1,2)$ and $B=(2,6)$, the displacement is $(3,4)$. Pythagoras gives $d(A,B)=\sqrt{9+16}=5$. In the reverse direction the displacement becomes $(-3,-4)$, but the distance remains $5$. Signs disappear upon squaring, not before calculating the differences.
-
-## Guided example: midpoint and locus
-
-The midpoint of $A=(0,2)$ and $B=(6,4)$ is $M=(3,3)$: average coordinates separately. Points at distance $2$ from the origin satisfy $x^2+y^2=4$; they form a circle. Those at distance at most $2$ form the disk $x^2+y^2\le4$. The boundary alone and the interior region are different objects.
-
-## Watch the scales
-
-Perpendicular axes alone are insufficient to apply the previous formula directly. If one horizontal unit represents $2$ metres and one vertical unit $1$ metre, a coordinate difference $(3,4)$ represents a physical displacement $(6,4)$ metres, of length $\sqrt{52}$ metres. Stretching a drawing on screen does not change mathematical coordinates, but its visual lengths may mislead.
-
-## Convert units before measuring
-
-A coordinate counts coordinate-system units; a physical length is expressed in metres, centimetres, etc. Let $s_x>0$ be the metres per horizontal unit and $s_y>0$ the metres per vertical unit. Physical displacements are $X=s_x\Delta x$ and $Y=s_y\Delta y$, in metres.
-
-With perpendicular axes, Pythagoras applies to displacements expressed in the same unit: $D=\sqrt{(s_x\Delta x)^2+(s_y\Delta y)^2}$. For a change $(3;4)$, choosing $s_x=2$ and $s_y=1$ gives a physical triangle with legs $6$ m and $4$ m.
-
-Changing metres per unit here changes the represented physical situation. This differs from merely zooming the screen. The workshop graph shows displacements **in metres**, using the same physical scale on both axes; input coordinates remain displayed in the controls.
+In the second workshop, keep differences 3 and 4. Change the horizontal unit from 1 to 2 m and explain why the result changes. The graph represents displacements in metres, with the same physical scale on both axes.
 
 <AlgebraMethodLab kind="scales" locale="en" client:visible />
 
-<p class="source-next"><a href="/en/lessons/L28/#pdf-31">Next in the PDF : Cartesian equation →</a></p>
-
-## How to: a reusable method
-
-1. Write both pairs in the same order: horizontal, vertical.
-2. Check that axes are perpendicular and use the same physical unit; otherwise convert displacements before Pythagoras.
-3. Calculate arrival minus departure for each coordinate, then square both differences.
-4. Add and take the nonnegative root. Check: exchanging the points must preserve distance.
-
-For a midpoint, separately average the two horizontal and the two vertical coordinates: $M=((x_A+x_B)/2;(y_A+y_B)/2)$.
-
-**Common mistake.** Adding absolute displacements measures a right-angled route. For legs $3$ and $4$, that route has length $7$, but the hypotenuse has length $5$.
-
-## Practise step by step
+## 5. Practise — From easy to reasoning
 
 <div className="algebra-exercise">
 
@@ -150,7 +167,7 @@ Retain signs until squaring; average coordinates separately.
 <details>
 <summary>Explained solution</summary>
 
-Displacement is $(3;4)$, distance is $\sqrt{3^2+4^2}=5$ and midpoint is $M=(-1/2;3)$. In reverse, differences change sign but distance does not.
+Horizontal: $1-(-2)=3$. Vertical: $5-1=4$. Displacement is $(3;4)$. Distance is $\sqrt{3^2+4^2}=\sqrt{25}=5$. The midpoint is $M=((-2+1)/2;(1+5)/2)=(-1/2;3)$. In reverse, differences change sign but distance does not.
 
 </details>
 
@@ -179,7 +196,14 @@ Physical displacements are $6$ m and $4$ m. The length is $\sqrt{6^2+4^2}=\sqrt{
 
 </div>
 
-## Practice and recap
+**Additional challenge — circle.** Without looking at the example, decide whether point $Q=(4,-3)$ is on the circle centred at O with radius 5.
+
+<details>
+<summary>Check my answer</summary>
+
+$OQ=\sqrt{4^2+(-3)^2}=\sqrt{25}=5$. Yes: the square of the negative coordinate is 9, not −9. The point is in quadrant IV.
+
+</details>
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
@@ -187,16 +211,22 @@ Original project text, examples and solutions; concepts follow Bruno Teheux’s 
 
 <div className="algebra-revision">
 
-## Essentials and self-check
+## 6. Remember — Printable revision sheet
 
-- A pair is ordered; displacement uses arrival minus departure.
-- Distance is nonnegative, symmetric and zero only for coincident points.
-- Pythagoras requires perpendicular directions and lengths expressed in the same unit.
+- Coordinates: x horizontal, y vertical; read the signs and preserve the order.
+- Displacement from A to B: $\Delta x=x_B-x_A,\quad\Delta y=y_B-y_A$.
+- Distance in an orthonormal frame: $d(A,B)=\sqrt{(\Delta x)^2+(\Delta y)^2}$.
+- Midpoint: $M=((x_A+x_B)/2;(y_A+y_B)/2)$.
+- Circle centred at O, positive radius r: $x^2+y^2=r^2$; disk: $x^2+y^2\le r^2$.
+- Different physical scales, perpendicular axes: $D=\sqrt{(s_x\Delta x)^2+(s_y\Delta y)^2}$.
+- Traps: swapping coordinates, omitting parentheses around a negative number, confusing detour with direct segment, forgetting the square root or units.
 
-**Self-check.** Plot a point without swapping coordinates; redo the second exercise; explain why the third cannot use raw coordinates directly. Revisit “Watch the scales” if needed. [L28](../L28/) describes a line using an equation.
+**Self-check:** plot a point in quadrant II, redo the distance calculation with the points swapped, then explain why the right-angled route differs from the direct segment.
 
-**To print:** use the browser’s Print command. Activities show a fixed example and hints and solutions are expanded on paper.
+**To print:** use the browser’s Print command. Activities show their reference example and solutions are expanded on paper.
 
 </div>
+
+<p class="source-next"><a href="/en/lessons/L28/#pdf-31">Next in the PDF: Cartesian equation →</a></p>
 
 </div>
