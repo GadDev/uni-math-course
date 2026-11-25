@@ -772,7 +772,10 @@ function LabView({
               ? t('B est sur le cercle.', 'B is on the circle.')
               : squared < 25
                 ? t('B est à l’intérieur du cercle.', 'B is inside the circle.')
-                : t('B est à l’extérieur du cercle.', 'B is outside the circle.')}
+                : t(
+                    'B est à l’extérieur du cercle.',
+                    'B is outside the circle.',
+                  )}
         </p>
       )}
       <p>
@@ -953,7 +956,9 @@ export default function AlgebraExplorer({
                   <option value="">
                     {t('Choisir un exemple', 'Choose an example')}
                   </option>
-                  <option value="pdf">{t('Exemple du PDF', 'PDF example')}</option>
+                  <option value="pdf">
+                    {t('Exemple du PDF', 'PDF example')}
+                  </option>
                   <option value="reverse">
                     {t('Retour de B vers A', 'Return from B to A')}
                   </option>
@@ -976,7 +981,9 @@ export default function AlgebraExplorer({
                 <input
                   type="checkbox"
                   checked={showCircle}
-                  onChange={(event) => setShowCircle(event.currentTarget.checked)}
+                  onChange={(event) =>
+                    setShowCircle(event.currentTarget.checked)
+                  }
                 />{' '}
                 {t('Cercle centré en O, rayon 5', 'Circle centred at O, radius 5')}
               </label>
