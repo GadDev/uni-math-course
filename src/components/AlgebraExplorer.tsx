@@ -457,6 +457,22 @@ function LabView({
               )
             : `(${f(a)})x ${rel} ${f(-b)} → ${condition}`}
         </p>
+        <p data-inequality-reason>
+          {a === 0
+            ? t(
+                'Coefficient nul : comparer la constante à zéro.',
+                'Zero coefficient: compare the constant with zero.',
+              )
+            : a < 0
+              ? t(
+                  'Diviseur négatif : inverser le sens de l’inégalité.',
+                  'Negative divisor: reverse the inequality.',
+                )
+              : t(
+                  'Diviseur positif : conserver le sens de l’inégalité.',
+                  'Positive divisor: preserve the inequality.',
+                )}
+        </p>
         <p data-solution aria-live="polite" aria-atomic="true">
           <strong>{condition}</strong>
           {solved.kind === 'left' || solved.kind === 'right'
