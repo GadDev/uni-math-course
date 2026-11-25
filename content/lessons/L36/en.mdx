@@ -1,0 +1,304 @@
+---
+lessonId: L36
+locale: en
+version: 5
+status: extended
+title: "Correlation and model limits"
+summary: "Interpret correlation, avoid causal conclusions and locate machine learning in the workflow."
+minutes: 45
+objectives: [L36-O01, L36-O02, L36-O03, L36-O04, L36-O05, L36-O06]
+prerequisites: [L34, L35]
+sourcePages: [65, 78, 79, 80, 81, 82, 83, 92]
+---
+import ModelLimitsExplorer from '../../../src/components/ModelLimitsExplorer';
+
+<div className="geometry-study">
+
+# Correlation and model limits
+
+## Objectives and prerequisites
+
+- Calculate correlation when both variables vary.
+- Interpret sign and strength.
+- Distinguish association and causality.
+- Identify extrapolation and outliers.
+- Distinguish training and inference.
+- Assess limitations of numerical summaries.
+
+Prerequisites: L34, L35. Domains and restrictions stated below are part of every rule.
+
+## 1. Understand — A good score is not proof
+
+In L35 we found the line minimising loss. Three questions remain: do the points really follow a line? Does one variable explain the other? Is the model useful for a new input? Correlation addresses only the first question, and only in terms of linear association.
+
+<span id="pdf-65" class="source-topic-marker"></span>
+
+### A puzzling discovery: the PDF dataset
+
+**Supplied PDF, page 62 — historical data retained, original explanation.** Each row describes one year. $x_i$ is annual US margarine consumption in pounds per person; $y_i$ is divorces per thousand residents in Maine. Units and populations differ: similar trends do not prove a cause.
+
+| Year | $x_i$ | $y_i$ |
+| --- | --- | --- |
+| 2000 | 8.2 | 5.0 |
+| 2001 | 7.0 | 4.7 |
+| 2002 | 6.5 | 4.6 |
+| 2003 | 5.3 | 4.4 |
+| 2004 | 5.2 | 4.3 |
+| 2005 | 4.0 | 4.1 |
+| 2006 | 4.6 | 4.2 |
+| 2007 | 4.5 | 4.2 |
+| 2008 | 4.2 | 4.2 |
+| 2009 | 3.7 | 4.1 |
+
+The PDF attributes this illustration to Tyler Vigen using USDA and CDC data. We use it as a course example, without claiming a causal relationship or updating these historical statistics. The cloud appears close to a line: this motivates a model without yet justifying it.
+
+To revisit the calculations: [The model](../L34/#pdf-66), then residuals, least squares and its calculation. Return afterwards to [machine-learning vocabulary](#pdf-78).
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/margarine.svg" alt="Scatterplot of the ten historical margarine and divorce pairs, with units on the axes." width="440" height="360" loading="lazy" />
+<figcaption>Two series moving together do not establish causality. <a class="figure-full-size" href="/diagrams/droites/en/margarine.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
+</figure>
+
+
+
+<span id="pdf-78" class="source-topic-marker"></span>
+
+### From calculation to machine learning
+
+In this supervised model, $x$ is an input or feature, $y$ a target and $(m,p)$ the learned parameters. Training selects parameters by minimising loss on training data. Inference uses the fixed parameters to produce a prediction. Low training error does not guarantee low error on new data: holding out validation data helps assess generalisation.
+
+| ML vocabulary | In this regression |
+| --- | --- |
+| Training data | The pairs $(x_i,y_i)$. |
+| Model | The family $y=mx+p$. |
+| Parameters: weight and bias | $m$ and $p$. |
+| Loss function | $S(m,p)$. |
+| Training | Select parameters that minimise loss. |
+| Inference | Calculate $\hat y=mx+p$ for a new input. |
+
+**Quick check.** Is using an already fitted slope to predict a score training? No: it is inference. Recalculating the slope from data is training.
+
+
+
+## 2. Visualise — Read the scatterplot before the number
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l36-correlation-patterns.svg" alt="Three scatterplots: an increasing line, a decreasing line and a symmetric parabola. Correlations are 1, −1 and 0 respectively." width="640" height="260" loading="lazy" />
+<figcaption>The sign indicates the direction of linear association; the magnitude indicates its strength. A curved relationship can have zero correlation.</figcaption>
+</figure>
+
+| Coefficient | Interpretation |
+| --- | --- |
+| $r=1$ | Exact increasing alignment. |
+| $r=-1$ | Exact decreasing alignment. |
+| $r\approx0$ | Little linear association; another pattern remains possible. |
+| Undefined | At least one variable is constant. |
+
+Do not confuse slope with correlation: slope has y units per x unit, while r is dimensionless. A small slope can accompany perfect alignment. Strong correlation does not guarantee small residuals in absolute units.
+
+<span id="pdf-79" class="source-topic-marker"></span>
+
+### Limit 1: correlation is not causation
+
+**Supplied PDF, page 82.** Margarine consumption and divorces both decrease over the period; their correlation is close to $0{,}99$. This does not show that changing consumption of a food changes divorces. Year is a common variable to examine, and a statistical association does not supply a causal mechanism.
+
+The PDF also mentions an association between chocolate and Nobel prizes across countries. Such a comparison raises the same question: what other factors could explain both measurements? It is not an experiment changing only one variable.
+
+**Retained additional example.** Ice-cream sales and swimming-pool attendance can both rise with warm weather. A **hidden variable** is a factor omitted from the model that could contribute to both trends. Looking for such a factor is more useful than turning a coefficient into practical advice.
+
+
+
+<span id="pdf-80" class="source-topic-marker"></span>
+
+### Limit 2: Anscombe’s quartet
+
+**Supplied PDF, page 83.** Four datasets can have almost the same means, fitted line and correlation while telling very different stories. The following drawings replot the classical quartet data rather than copying the PDF’s figures.
+
+Each line is approximately $\hat y=0{,}5x+3$ and correlation is near $0{,}82$. These equalities are approximate with the published decimal data. The first cloud resembles a noisy affine relationship; the second is curved; the third has an atypical point; the fourth is almost vertical, with an isolated point strongly influencing the fit.
+
+**Additional guided question.** Why is the second plot’s line inadequate despite its correlation coefficient? A systematic curve remains visible: a linear summary does not tell the whole story. Look at the points before calculating, and look again afterwards.
+
+Data reference: [official documentation for R’s anscombe dataset](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/anscombe.html).
+
+<div className="l36-quartet">
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/anscombe-1.svg" alt="Approximately affine cloud." width="440" height="360" loading="lazy" />
+<figcaption>Anscombe 1 — Approximately affine cloud. <a class="figure-full-size" href="/diagrams/droites/en/anscombe-1.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/anscombe-2.svg" alt="Cloud with clear curvature." width="440" height="360" loading="lazy" />
+<figcaption>Anscombe 2 — Cloud with clear curvature. <a class="figure-full-size" href="/diagrams/droites/en/anscombe-2.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/anscombe-3.svg" alt="Cloud with one atypical point." width="440" height="360" loading="lazy" />
+<figcaption>Anscombe 3 — Cloud with one atypical point. <a class="figure-full-size" href="/diagrams/droites/en/anscombe-3.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/anscombe-4.svg" alt="Almost vertical cloud and one isolated point." width="440" height="360" loading="lazy" />
+<figcaption>Anscombe 4 — Almost vertical cloud and one isolated point. <a class="figure-full-size" href="/diagrams/droites/en/anscombe-4.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
+</figure>
+
+</div>
+
+
+
+<span id="pdf-81" class="source-topic-marker"></span>
+
+### Limit 3: an outlier can tilt the line
+
+**Principle in the supplied PDF, page 84; original project data below.** Squaring gives a large error considerable weight. Six points $(0,0),(1,1),(2,2),(3,3),(4,4),(5,5)$ lie perfectly on $y=x$. Adding $(6,-2)$ changes the fit to $\hat y=x/7+10/7$: slope falls from $1$ to about $0{,}143$.
+
+The added point is marked with a cross and the two models use different line styles. An outlier can be a typing error, a real phenomenon or a sign of an incomplete model. Check its provenance before removing it; do not erase it merely to make a line look nicer.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/outlier.svg" alt="Six points on y equals x and an added point at 6,minus 2; two lines show the fit before and after." width="440" height="360" loading="lazy" />
+<figcaption>The same criterion can give a very different line after adding one point. <a class="figure-full-size" href="/diagrams/droites/en/outlier.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
+</figure>
+
+
+
+<span id="pdf-82" class="source-topic-marker"></span>
+
+### Limit 4: extrapolation — when the formula leaves reality
+
+Supplied PDF, pp. 85–86: this time the input is time since 2000, and the output is margarine consumption. This is no longer the divorce model. Observations cover 2000 to 2009, or t from 0 to 9. The line displayed in the course is:
+
+$$\hat y=-0{,}445t+7{,}32.$$
+
+In 2017, t is 17. Predicted consumption is $-0{,}445\cdot17+7{,}32=-0{,}245$. Negative consumption is impossible. The arithmetic is correct; the model extension is not justified. With these rounded coefficients, zero is reached around t = 16.45 (about 16.5 as in the course). Predictions inside the observed range also need evaluation.
+
+#### Another example: extrapolating height to age 30
+
+**Project extension, absent from the supplied PDF.** The example’s data describe boys aged 2 to 10:
+
+| Age (years) | 2 | 4 | 6 | 8 | 10 |
+| --- | --- | --- | --- | --- | --- |
+| Height (cm) | 87 | 103 | 116 | 128 | 139 |
+
+The fitted line is $\widehat{\text{taille}}=6{,}45\cdot\text{âge}+75{,}9$. In this formula, “taille” means height and “âge” means age. Its slope represents an adjusted average gain of $6{,}45$ cm per year in this example. Intercept $75{,}9$ is not a measurement at birth: no age-zero observation is supplied.
+
+**Guided calculation.** At age 30, the formula gives $6{,}45\cdot30+75{,}9=269{,}4$ cm, approximately 270 cm. The calculation is correct; extending this growth rate for another twenty years is not justified. The observed range is $[2;10]$ years.
+
+**Quick check.** Is a prediction at age 6 automatically reliable? No. It lies inside the observed range, but data, assumptions and fit quality still need checking. Being inside the range is not a guarantee.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/height-extrapolation.svg" alt="Heights observed from age 2 to 10 and line extended to age 30, predicting 269.4 cm." width="440" height="360" loading="lazy" />
+<figcaption>The hatched region lies beyond observed ages. <a class="figure-full-size" href="/diagrams/droites/en/height-extrapolation.svg" target="_blank" rel="noopener">Open the full-size figure (new tab)</a></figcaption>
+</figure>
+### Association, causality and domain
+
+Before trusting the model, ask three questions: what other variable could explain the association? Is the new input within the studied domain? Have the cloud and atypical points been inspected? The four limits above explain why these checks matter.
+
+
+
+## 3. Calculate — Reuse the sums from L34 and L35
+
+<span id="supplement-correlation" class="source-topic-marker"></span>
+
+The supplied PDF, p. 81, defines Pearson's coefficient. Both variables must vary: $S_{xx}>0$, $S_{yy}>0$.
+
+$$r=\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}}.$$
+
+The numerator contains centred products (their sign indicates direction). The positive denominator normalises these products by the spread of both variables. We have $-1\le r\le1$. Under the definition's conditions, its sign is that of the slope and $|r|=1$ is equivalent to a perfect affine alignment.
+
+### A. The same example as L34 and L35
+
+Take the three observations $(0,1),(1,2),(2,2)$. The means are $\bar x=1$, $\bar y=5/3$.
+
+| $x_i-\bar x$ | $y_i-\bar y$ | $(x_i-\bar x)^2$ | $(x_i-\bar x)(y_i-\bar y)$ | $(y_i-\bar y)^2$ |
+| --- | --- | --- | --- | --- |
+| −1 | −2/3 | 1 | 2/3 | 4/9 |
+| 0 | 1/3 | 0 | 0 | 1/9 |
+| 1 | 1/3 | 1 | 1/3 | 1/9 |
+| Sums | | 2 | 1 | 2/3 |
+
+Step 1: read the three sums. $S_{xx}=2$, $S_{xy}=1$, $S_{yy}=2/3$.
+
+Step 2: multiply then take the square root. $\sqrt{2\cdot2/3}=\sqrt{4/3}=2/\sqrt3$.
+
+Step 3: divide.
+
+$$r=\frac{1}{2/\sqrt3}=\frac{\sqrt3}{2}\approx0{,}866.$$
+
+The sign is positive and linear association is fairly strong, but the three points are not aligned. This number is not a percentage of correct predictions.
+
+### B. Negative, zero or undefined correlation
+
+For $(0,3),(1,2),(2,1)$, $\bar x=1$, $\bar y=2$, $S_{xx}=S_{yy}=2$, $S_{xy}=-2$. Thus $r=-2/\sqrt{2\cdot2}=-1$ : the line decreases and fit is perfect.
+
+For $(-1,1),(0,0),(1,1)$, $\bar x=0$, $\bar y=2/3$. Centred products are $-1/3,0,1/3$. Their sum is zero, so $r=0$. Yet the points follow $y=x^2$.
+
+For $(1,0),(1,1),(1,2)$, $S_{xx}=0$. Correlation is undefined and regression slope is not unique. If y is constant but x varies, correlation is also undefined, but the horizontal line is a valid regression.
+
+## 4. Experiment — Put the model to the test
+
+Choose positive, negative, curved and constant scatterplots. Predict the sign of r before reading the results. Then switch to the six aligned points, add the outlier and move it: observe how r and slope change. Finally extend the PDF's line to 2017; compare the numerical prediction with the observed year range.
+
+<ModelLimitsExplorer locale="en" client:visible />
+
+## 5. Practise — Calculate, then critique
+
+**Easy.** We obtain $S_{xx}=4$, $S_{yy}=9$, $S_{xy}=-3$. Calculate r and interpret its sign.
+
+<details>
+<summary>Check the answer</summary>
+
+$r=-3/\sqrt{4\cdot9}=-1/2$. Linear association is negative; this does not prove causation.
+
+</details>
+
+**Intermediate.** A symmetric U-shaped cloud gives r = 0. Can we conclude that the variables are unrelated?
+
+<details>
+<summary>Check the answer</summary>
+
+No. The coefficient measures linear association. The parabola example shows an exact but non-affine relationship.
+
+</details>
+
+**Challenge.** Two models give r near 0.82. One has residuals scattered around zero; the other has a curved residual pattern. Which appears more suitable for a line? What still needs checking?
+
+<details>
+<summary>Show the worked solution</summary>
+
+The first seems more suitable because the second leaves unexplained structure. Inspect influential points, input range, data quality and errors on new data. Neither coefficient demonstrates causation.
+
+</details>
+
+<span id="pdf-92" class="source-topic-marker"></span>
+
+### What this introduction prepares
+
+Several features will lead to models with several parameters. Perceptrons, nonlinear networks and gradient descent are later directions previewed by the source. Their calculations are not required here: this chapter supplies algebraic foundations, the notion of loss and the distinction between fitting and evaluating a model.
+
+**Examples in the supplied PDF, page 87.** An apartment price can depend on floor area $x_1$ and storey $x_2$: $y\approx m_1x_1+m_2x_2+p$. There are more parameters, but the loss idea remains. For classification, the sign of $ax+by-c$ can select between two labels such as “spam” and “not spam”: this connects with half-planes. For example, fictional rule $x+y-3>0$ places $(2,2)$ on one side and $(0,1)$ on the other. A real application requires data and evaluation.
+
+When no direct formula gives the parameters, gradient descent seeks to reduce loss through small adjustments. This is a preview: derivatives and neural networks are not hidden prerequisites for this chapter.
+
+
+
+The bank also includes questions about calculating correlation. It contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
+
+Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. The supplied PDF covers these topics on pages 62 and 80–87. Legacy anchors and page metadata remain unchanged for links and the bank; they use different pagination.
+
+
+<section className="geometry-revision">
+
+## 6. Remember — Printable revision sheet
+
+- $r=S_{xy}/\sqrt{S_{xx}S_{yy}}$ if $S_{xx}>0$, $S_{yy}>0$.
+- $-1\le r\le1$ ; sign = direction, magnitude = strength of linear association.
+- Zero correlation does not mean no relationship; undefined correlation does not mean zero.
+- Four limits: causation, scatterplot shape (Anscombe), outliers, extrapolation.
+- Before: plot data. During: calculate and check. After: inspect residuals, domain and new data.
+- Training = choose parameters; inference = predict using fixed parameters.
+
+</section>
+
+<p class="source-next"><a href="/en/chapters/C02/">Review the chapter outline →</a></p>
+
+</div>
