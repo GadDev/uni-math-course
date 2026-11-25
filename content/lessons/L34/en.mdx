@@ -1,7 +1,7 @@
 ---
 lessonId: L34
 locale: en
-version: 6
+version: 7
 status: extended
 title: "Affine models and residuals"
 summary: "Measure a model’s vertical error and build a squared loss."
@@ -32,137 +32,167 @@ Prerequisites: L26, L29. Domains and restrictions stated below are part of every
 
 <span id="pdf-66" class="source-topic-marker"></span>
 
-## The model: why compare several lines?
+## 1. Understand — Predicting is not observing
 
-**PDF situation, pages 65–67.** The ten margarine/divorce observations form a scatterplot; no line passes through all of them. The [starting data table](../L36/#pdf-65) opens this part in the PDF path. Seek an approximate relationship $y\approx mx+p$, rather than an equality for every observation.
+Imagine a program predicting service waiting time from load. Three fictional observations will guide the entire lesson: $(0,1),(1,2),(2,2)$. Model $\hat y=x+1$ predicts 3 at load 2, but we measure 2. How do we measure the gap?
 
-A line can pass near one point and far from others. To compare models fairly, apply the **same criterion** to every observation. The green line is fitted to all ten points; the dashed line is another candidate. The drawing poses the question, then residuals let us measure the answer.
-
-**Additional example.** For $(0,1),(1,2),(2,2)$, compare $\hat y=x+1$ and $\hat y=2$. The first misses the last point by one unit; the second misses the first by one. Here they have equal sums of squared errors despite making different predictions.
+In the supplied PDF, pp. 62–64, ten observations associate margarine consumption and divorce rates. No line passes through every point; a criterion is needed to compare candidates. We seek $y\approx mx+p$. Association does not prove causation. The [original table](../L36/#pdf-65) returns in L36.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/regression-models.svg" alt="Ten observations and two candidate lines, one fitted to the data and one flatter." width="440" height="360" loading="lazy" />
 <figcaption>Compare a line with the whole cloud, rather than one point.</figcaption>
 </figure>
 
-## A model need not equal the data
-
-At each input $x_i$, the model predicts $\hat y_i=mx_i+p$. Observation $y_i$ may differ. The residual is $e_i=y_i-\hat y_i$. A positive residual means the observed point is above the line, so the model underestimates that observation. We fit vertical errors, not perpendicular distances from the line.
-
-<p class="source-next"><a href="/en/lessons/L34/#pdf-68">Next in the PDF: Measuring error →</a></p>
+## 2. Visualise — Observed, predicted, residual
 
 <span id="pdf-68" class="source-topic-marker"></span>
 
-## Measuring error: observation, prediction and residual
+Index i numbers the observations. Symbol $x_i$ is the input, $y_i$ is the measured value, and $\hat y_i$ is read “y hat subscript i”: the prediction. Compare two heights at the same horizontal coordinate.
 
-The hat in $\hat y_i$, read “y hat subscript i”, marks the **prediction** for observation number $i$. Value $y_i$ without the hat is **observed**. The PDF defines residual $e_i=y_i-\hat y_i=y_i-(mx_i+p)$.
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l34-signed-residuals.svg" alt="Horizontal model 1.5: residuals −0.5, +0.5, +0.5; arrows from prediction to observation." width="440" height="300" loading="lazy" />
+<figcaption>Moving up from the prediction gives a positive residual; moving down gives a negative residual.</figcaption>
+</figure>
 
-**Additional detailed example.** With $x_i=2$, $y_i=6$, $m=2$ and $p=1$, the model predicts $\hat y_i=2\cdot2+1=5$. Residual $e_i=6-5=1$: the observed point is one unit above the line. With observation $y_i=4$, the same model would give $e_i=-1$. The drawing’s segments are vertical because input $x_i$ stays fixed.
-
-**The residual is defined on page 68; the criterion comparison below is supplemental.** Adding signed residuals can conceal errors: $-2+2=0$. Adding absolute values is another possible criterion: $|-2|+|2|=4$. Least squares chooses $(-2)^2+2^2=8$; errors no longer cancel and large errors weigh more. This is a choice of criterion, rather than the only way to measure error.
+| Observation | Residual | Interpretation |
+| --- | --- | --- |
+| Above | + | Underestimate |
+| On the line | 0 | Exact prediction |
+| Below | − | Overestimate |
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/residuals.svg" alt="Three observations and line y equals x plus 1; vertical segments labelled e1, e2 and e3." width="440" height="360" loading="lazy" />
 <figcaption>A residual compares observation and prediction at the same horizontal coordinate.</figcaption>
 </figure>
 
-## Guided example: calculating residuals
+A residual is vertical, not perpendicular distance: x does not change.
 
-For data $(0,1),(1,2),(2,2)$ and model $\hat y=x+1$, predictions are $1,2,3$. Residuals are $0,0,-1$ and their squared sum is $1$. The final negative residual indicates overestimation. Reversing the sign convention would not change the squares, but would change sign interpretation.
+## 3. Calculate — One operation at a time
 
-## How to build an error measure
+### A. Predict, subtract, square
 
-Subscript $i$ numbers observations; $n$ is their count. Symbol $\sum_{i=1}^n$ asks us to add terms for indices 1 through $n$. Start with concrete calculations before compressing them into a formula:
+Definition in the supplied PDF, pp. 65–66:
 
-1. At each observed horizontal coordinate, calculate prediction $\hat y_i=mx_i+p$.
-2. Subtract **prediction from observation**: $e_i=y_i-\hat y_i$.
-3. Square each residual before adding: $S=\sum_{i=1}^n e_i^2$.
-4. For an average per observation, divide by $n>0$: $\mathrm{MSE}=S/n$.
+$$\hat y_i=mx_i+p,\qquad e_i=y_i-\hat y_i=y_i-(mx_i+p).$$
 
-Why squares? They are nonnegative, so opposite errors no longer cancel. Doubling a residual makes its contribution four times larger. This choice favours small errors and strongly penalises large ones; absolute error is another possible criterion.
+For model $\hat y=x+1$, the last observation is $(2,2)$. Prediction is $1\cdot2+1=3$. Residual is $2-3=-1$. The model overestimates; the square is $(-1)^2=1$.
 
-**Check:** $S=0$ implies every square is zero, so every observation equals its prediction. In contrast, $\sum e_i=0$ only says signed errors cancel. The drawing uses vertical segments because the two heights are compared at the same horizontal coordinate.
+| i | x | Observed | Predicted | Residual | Square |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 0 | 1 | $0+1=1$ | $1-1=0$ | 0 |
+| 2 | 1 | 2 | $1+1=2$ | $2-2=0$ | 0 |
+| 3 | 2 | 2 | $2+1=3$ | $2-3=-1$ | 1 |
 
-<GeometryLab kind="residuals" locale="en" client:visible />
+The sum of squares is 0 + 0 + 1 = 1. Sigma means repeat and add the terms. Here n is 3.
 
-## A loss that cannot cancel
+$$S=e_1^2+e_2^2+e_3^2=\sum_{i=1}^3e_i^2=1.$$
 
-Least-squares loss is $S(m,p)=\sum_{i=1}^n(y_i-mx_i-p)^2$, with $n\ge1$. It is nonnegative and equals zero exactly when every prediction is exact on the data. Mean squared error is $\mathrm{MSE}=S/n$. For the same dataset, minimising either gives the same parameters. Squaring amplifies large residuals.
+Careful: squaring each residual before adding is not squaring the sum.
 
-## Guided example: a misleading sum
+### B. Why squares? Three criteria
 
-Residuals $-2,2$ sum to zero but have loss $8$. Residuals $1,1$ sum to $2$ but have loss $2$. Choosing only the smallest signed sum would wrongly favour the first model; very large negative residuals could even make that criterion arbitrarily negative.
+The supplied PDF (p. 66) compares signed sum, absolute sum and squared sum. Apply them to the same three observations.
 
-<p class="source-next"><a href="/en/lessons/L34/#pdf-69">Next in the PDF: The least-squares method →</a></p>
+| Model | Residuals | Signed | Absolute | Squared |
+| --- | --- | --- | --- | --- |
+| $\hat y=x+1$ | 0, 0, −1 | −1 | 1 | 1 |
+| $\hat y=2$ | −1, 0, 0 | −1 | 1 | 1 |
+| $\hat y=(1/2)x+7/6$ | −1/6, 1/3, −1/6 | 0 | 2/3 | 1/6 |
+
+For the third model, predictions are $7/6,5/3,13/6$. Signed errors cancel, but $1/36+1/9+1/36=1/6$. This is not perfect prediction. More simply, residuals −2 and +2 give signed sum 0, absolute sum 4 and squared sum 8. The signed sum can become arbitrarily negative as p increases. Absolute error is possible; squares are convenient algebraically and penalise larger deviations more.
 
 <span id="pdf-69" class="source-topic-marker"></span>
 
-## Centring: subtract a mean before multiplying
+### C. Least squares: one global loss
 
-A bar denotes an **arithmetic mean**: $\bar x=(x_1+\cdots+x_n)/n$ and $\bar y=(y_1+\cdots+y_n)/n$. Centring means subtracting this mean from each value. Positions are then measured relative to the cloud’s centre, rather than zero.
+The supplied PDF, p. 67, defines regression by minimising
 
-For the activity’s three data points, $\bar x=1$ and $\bar y=5/3$. Here is the exact calculation before rounding:
+$$S(m,p)=\sum_{i=1}^n(y_i-mx_i-p)^2,\qquad n\ge1.$$
 
-| $x_i$ | $y_i$ | $x_i-\bar x$ | $y_i-\bar y$ | $(x_i-\bar x)^2$ | $(x_i-\bar x)(y_i-\bar y)$ |
-| --- | --- | --- | --- | --- | --- |
-| $0$ | $1$ | $-1$ | $-2/3$ | $1$ | $2/3$ |
-| $1$ | $2$ | $0$ | $1/3$ | $0$ | $0$ |
-| $2$ | $2$ | $1$ | $1/3$ | $1$ | $1/3$ |
+Project extension: mean squared error is $\mathrm{MSE}=S/n$. For the first two models it is $1/3$ ; for the third, $1/18$. On the same data, minimising S or MSE is equivalent. If $S=0$, every prediction is exact. A zero signed sum is insufficient. Doubling a residual quadruples its square. The third model beats the other two according to S, but this does not prove optimality.
 
-The last two columns give $S_{xx}=2$ and $S_{xy}=1$. Squaring vertical deviations also gives $S_{yy}=4/9+1/9+1/9=2/3$. Centred deviations sum to zero; their squares can still have a positive sum. These calculations prepare the next lesson’s formula without assuming it is already known.
+### D. Centring: move the origin to the data cloud
 
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l34-centering.svg" alt="Three points are translated so G(1,5/3) becomes the origin." width="640" height="300" loading="lazy" />
+<figcaption>Centring preserves the cloud's shape; only the origin changes.</figcaption>
+</figure>
 
+A bar denotes a mean. Calculate $\bar x=(0+1+2)/3=1$ and $\bar y=(1+2+2)/3=5/3$. Then subtract these means from each point.
 
-## Least squares and the three centred sums
+| $x_i$ | $y_i$ | $x_i-\bar x$ | $y_i-\bar y$ | $(x_i-\bar x)^2$ | $(x_i-\bar x)(y_i-\bar y)$ | $(y_i-\bar y)^2$ |
+| --- | --- | --- | --- | --- | --- | --- |
+| 0 | 1 | −1 | −2/3 | 1 | 2/3 | 4/9 |
+| 1 | 2 | 0 | 1/3 | 0 | 0 | 1/9 |
+| 2 | 2 | 1 | 1/3 | 1 | 1/3 | 1/9 |
+| Sums | | 0 | 0 | 2 | 1 | 2/3 |
 
-**PDF definition, pages 69–70.** Choose parameters $m,p$ to make $S(m,p)=\sum_{i=1}^n e_i^2$ as small as possible. The name means “smallest sum of squares”, rather than choosing the smallest points.
+The last three columns give the notation from the supplied PDF, p. 67:
 
-The page-70 notation abbreviates repeated calculations; $S_{yy}$ is supplemental support for the proof and correlation:
+$$S_{xx}=\sum_{i=1}^n(x_i-\bar x)^2$$
 
-| Notation | Calculation | Reading |
-| --- | --- | --- |
-| $S_{xx}$ | $\sum_{i=1}^n(x_i-\bar x)^2$ | Sum of squared horizontal deviations. |
-| $S_{xy}$ | $\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)$ | Sum of products of deviations. |
-| $S_{yy}$ | $\sum_{i=1}^n(y_i-\bar y)^2$ | Sum of squared vertical deviations. |
+$$S_{xy}=\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)$$
 
-**Additional example.** For $(0,1)$ and $(2,3)$, means are $\bar x=1$, $\bar y=2$. Horizontal deviations are $-1,1$, as are vertical deviations. Hence $S_{xx}=1+1=2$, $S_{xy}=1+1=2$ and $S_{yy}=1+1=2$. The next lesson keeps these columns visible in a four-observation table.
+$$S_{yy}=\sum_{i=1}^n(y_i-\bar y)^2$$
 
-Change one observation at a time and watch the means and table columns. Then switch to centred coordinates: the cloud’s centre moves to the origin. A zero sum of deviations must not be confused with a zero sum of squares.
+Squared sums are never negative; the sum of products can be negative. If all x are equal, $S_{xx}=0$. The slope formula in L35 requires separate treatment of this case.
+
+## 4. Experiment — Compare then centre
+
+Try the three models using the buttons. Compare residuals, signed sum, absolute sum and S. Before changing m or p, predict the sign of the errors. The table explains each residual.
+
+<GeometryLab kind="residuals" locale="en" client:visible />
+
+In the second workshop, keep the three observations, switch to centred coordinates, then move a point. Centred deviations sum to zero, but their squares need not.
 
 <GeometryExtensions kind="centering" locale="en" client:visible />
 
-## Three useful sums
+## 5. Practise — From residual to centred sums
 
-The squared sums $S_{xx}$ and $S_{yy}$ are never negative, but the cross sum $S_{xy}$ can be negative. The table above will be reused for the regression line.
+**Easy.** For $\hat y=x+1$ and observation $(2,2)$, calculate prediction, residual and square.
 
-<p class="source-next"><a href="/en/lessons/L35/#pdf-71">Next in the PDF: The formula →</a></p>
+<details>
+<summary>Check the answer</summary>
 
-## Your turn on paper
+Prediction $3$, residual $2-3=-1$, square $1$. The model overestimates.
 
-For $(0,1),(1,2),(2,2)$, calculate residuals, $S$ and MSE for horizontal model $\hat y=2$. Compare with $\hat y=x+1$ without claiming that the best possible model has been found.
+</details>
+
+**Intermediate.** Calculate S and MSE for $\hat y=2$ on the three observations. Compare to $\hat y=x+1$.
+
+<details>
+<summary>Check the answer</summary>
+
+Residuals are $-1,0,0$. Hence $S=1$, MSE = $1/3$. Both candidates tie according to S.
+
+</details>
+
+**Challenge.** For points $(0,3),(2,1)$, calculate means and the three centred sums.
 
 <details>
 <summary>Show the worked solution</summary>
 
-Predictions are $2,2,2$; residuals are $-1,0,0$. Thus $S=1$ and MSE is $1/3$, as for model $\hat y=x+1$. This only establishes a tie between these two candidates. Setting $m=1/2$, $p=7/6$ gives residuals $-1/6,1/3,-1/6$, hence $S=1/6<1$. A good numerical fit proves no causation.
+$\bar x=1$, $\bar y=2$. Deviations: $(-1,1),(1,-1)$. Hence $S_{xx}=2$, $S_{xy}=-2$, $S_{yy}=2$. The cross sum can be negative.
 
 </details>
 
+The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
+
+Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. The supplied PDF covers these concepts on pages 62–67. Legacy page identifiers and metadata remain for compatibility; their pagination differs from the supplied file.
+
 <section className="geometry-revision">
 
-## Printable revision sheet
+## 6. Remember — Printable revision sheet
 
-- **Prediction and residual:** $\hat y_i=mx_i+p$, $e_i=y_i-\hat y_i$; positive means observation above the model.
-- **Loss:** $S=\sum e_i^2\ge0$, MSE is $S/n$ for $n>0$; compare on the same observations.
-- **Centring:** calculate means, subtract, then form squares and products.
-- **Traps:** zero signed sum is not zero loss; vertical residual is not perpendicular distance; fit is not causation.
+- Prediction: $\hat y_i=mx_i+p$ ; residual: $e_i=y_i-\hat y_i$.
+- Positive: underestimate; negative: overestimate.
+- Loss: $S=\sum e_i^2\ge0$ ; MSE = $S/n$ for $n>0$.
+- Centring: calculate means, subtract, form squares and products.
+- $S_{xx}=\sum(x_i-\bar x)^2$, $S_{xy}=\sum(x_i-\bar x)(y_i-\bar y)$, $S_{yy}=\sum(y_i-\bar y)^2$.
+- Traps: reverse residual, square the entire sum, confuse cancellation with perfect fit, confuse fit with causation.
 
 </section>
 
-## Practice and recap
-
-The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
-
-Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+<p class="source-next"><a href="/en/lessons/L35/#pdf-71">Continue: The regression line →</a></p>
 
 </div>
