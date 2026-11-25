@@ -48,6 +48,8 @@ La suite utilise une verticale vers le haut, comme dans l'explication de Bresenh
 
 Le trait idéal traverse les cases ; on ne peut pas simplement allumer chaque point réel. À pente forte, un pixel par colonne peut laisser des trous.
 
+<p class="source-next"><a href="/fr/lessons/L33/#pdf-59">Suite du PDF : Corriger les trous →</a></p>
+
 <span id="pdf-59" class="source-topic-marker"></span>
 
 ### Changer d'axe
@@ -63,6 +65,8 @@ Le trait idéal traverse les cases ; on ne peut pas simplement allumer chaque po
 </figure>
 
 Pour le segment de $(0,0)$ à $(3,8)$, parcourir quatre colonnes laisse des sauts verticaux. Parcourir neuf lignes corrige ce problème (PDF fourni, p. 58). Les pixels voisins peuvent se toucher par un côté ou un coin.
+
+<p class="source-next"><a href="/fr/lessons/L33/#pdf-60">Suite du PDF : L’idée de Bresenham →</a></p>
 
 <span id="pdf-60" class="source-topic-marker"></span>
 
@@ -105,6 +109,8 @@ En notation écran, $v=v_1+m(u-u_1)$ devient $u=u_1+(v-v_1)/m$ si $m\ne0$. Chois
 
 Dans l'atelier d'échantillonnage, les égalités d'arrondi sont départagées vers l'entier supérieur, contrairement à la convention E de l'atelier Bresenham.
 
+<p class="source-next"><a href="/fr/lessons/L33/#pdf-61">Suite du PDF : Adieu les arrondis ! →</a></p>
+
 <span id="pdf-61" class="source-topic-marker"></span>
 
 ### B. Comprendre le signe de d (développement du projet)
@@ -120,6 +126,8 @@ Multiplier les deux membres par $2u_2>0$ ne change pas le sens de l'inégalité.
 $$d=2v_2(u+1)-u_2(2v+1).$$
 
 Cette valeur mesure le signe de l'écart droite moins milieu, multiplié par $2u_2$. Elle n'est pas une distance en pixels. Si $d\le0$, choisir E ; si $d>0$, choisir NE. Dans les exercices, D et d désignent cette même décision.
+
+<p class="source-next"><a href="/fr/lessons/L33/#pdf-62">Suite du PDF : Bresenham : tout par incréments →</a></p>
 
 <span id="pdf-62" class="source-topic-marker"></span>
 
@@ -144,6 +152,8 @@ Le premier pixel est déjà $(0,0)$. La décision est celle **avant** le déplac
 Exemple du deuxième pas : d vaut 3, donc NE. On augmente les deux coordonnées de 1, puis $d=3-6=-3$. Au dernier pixel, on s'arrête : la valeur de d obtenue n'appelle aucune décision supplémentaire.
 
 **Égalité.** Pour $u_2=2$, $v_2=1$, la décision initiale vaut 0 : E mène à $(1,0)$, puis NE à $(2,1)$. L'arrondi à l'entier supérieur choisirait $(1,1)$ au premier pas. Les deux conventions sont possibles, mais il ne faut pas les mélanger.
+
+<p class="source-next"><a href="/fr/lessons/L33/#pdf-63">Suite du PDF : Adieu les multiplications →</a></p>
 
 <span id="pdf-63" class="source-topic-marker"></span>
 
@@ -242,6 +252,6 @@ Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours
 
 </section>
 
-<p class="source-next"><a href="/fr/lessons/L34/">Continuer : Modèles affines et résidus →</a></p>
+<p class="source-next"><a href="/fr/lessons/L36/#pdf-65">Suite du PDF : Une découverte troublante →</a></p>
 
 </div>

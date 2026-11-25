@@ -48,6 +48,8 @@ The following uses an upward vertical axis, as in the PDF's Bresenham explanatio
 
 The ideal line crosses cells; we cannot simply light every real point. With a steep slope, one pixel per column can leave gaps.
 
+<p class="source-next"><a href="/en/lessons/L33/#pdf-59">Next in the PDF: Fixing gaps →</a></p>
+
 <span id="pdf-59" class="source-topic-marker"></span>
 
 ### Change the traversal axis
@@ -63,6 +65,8 @@ The ideal line crosses cells; we cannot simply light every real point. With a st
 </figure>
 
 For the segment from $(0,0)$ to $(3,8)$, traversing four columns leaves vertical jumps. Traversing nine rows fixes this problem (supplied PDF, p. 58). Neighbouring pixels may touch at an edge or a corner.
+
+<p class="source-next"><a href="/en/lessons/L33/#pdf-60">Next in the PDF: Bresenham’s idea →</a></p>
 
 <span id="pdf-60" class="source-topic-marker"></span>
 
@@ -105,6 +109,8 @@ In screen notation, $v=v_1+m(u-u_1)$ becomes $u=u_1+(v-v_1)/m$ if $m\ne0$. Choos
 
 In the sampling workshop, halfway ties round to the greater integer, unlike the Bresenham workshop's E convention.
 
+<p class="source-next"><a href="/en/lessons/L33/#pdf-61">Next in the PDF: No more rounding! →</a></p>
+
 <span id="pdf-61" class="source-topic-marker"></span>
 
 ### B. Understand the sign of d (project extension)
@@ -120,6 +126,8 @@ Multiplying both sides by $2u_2>0$ preserves the inequality direction. We obtain
 $$d=2v_2(u+1)-u_2(2v+1).$$
 
 This value gives the sign of line-minus-midpoint height difference, multiplied by $2u_2$. It is not a distance in pixels. If $d\le0$, choose E; if $d>0$, choose NE. In exercises, D and d name the same decision.
+
+<p class="source-next"><a href="/en/lessons/L33/#pdf-62">Next in the PDF: Bresenham: incremental updates →</a></p>
 
 <span id="pdf-62" class="source-topic-marker"></span>
 
@@ -144,6 +152,8 @@ The first pixel is already $(0,0)$. The decision is the value **before** moving.
 Example of the second step: d is 3, so NE. Increase both coordinates by 1, then $d=3-6=-3$. At the final pixel, stop: the resulting d requires no further decision.
 
 **Tie.** For $u_2=2$, $v_2=1$, the initial decision is 0: E leads to $(1,0)$, then NE to $(2,1)$. Rounding to the greater integer would choose $(1,1)$ at the first step. Both conventions are possible, but do not mix them.
+
+<p class="source-next"><a href="/en/lessons/L33/#pdf-63">Next in the PDF: No more multiplications →</a></p>
 
 <span id="pdf-63" class="source-topic-marker"></span>
 
@@ -242,6 +252,6 @@ Original project text, examples and solutions; concepts follow Bruno Teheux’s 
 
 </section>
 
-<p class="source-next"><a href="/en/lessons/L34/">Continue: Affine models and residuals →</a></p>
+<p class="source-next"><a href="/en/lessons/L36/#pdf-65">Next in the PDF: A puzzling discovery →</a></p>
 
 </div>

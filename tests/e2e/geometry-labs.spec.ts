@@ -293,15 +293,30 @@ for (const locale of ['fr', 'en']) {
     await expect(rows).toHaveCount(0);
     await expect(live.locator('[data-decision]')).toContainText('d = -1');
     await lab.locator('select').selectOption('E');
-    await lab.getByRole('button', { name: /Vérifier le défi|Check challenge/ }).click();
+    await lab
+      .getByRole('button', { name: /Vérifier le défi|Check challenge/ })
+      .click();
     await expect(rows).toHaveCount(1);
     await expect(rows.first().locator('td')).toHaveText([
-      '(0 ; 0)', '-1', 'E', '4', '(1 ; 0)', '3',
+      '(0 ; 0)',
+      '-1',
+      'E',
+      '4',
+      '(1 ; 0)',
+      '3',
     ]);
-    await lab.getByRole('button', { name: /Passer au pixel suivant|Advance to the next pixel/ }).click();
+    await lab
+      .getByRole('button', {
+        name: /Passer au pixel suivant|Advance to the next pixel/,
+      })
+      .click();
     await expect(live.locator('[data-decision]')).toContainText('d = 3');
     await expect(rows).toHaveCount(1);
-    await lab.getByRole('button', { name: /Revenir au pixel précédent|Return to the previous pixel/ }).click();
+    await lab
+      .getByRole('button', {
+        name: /Revenir au pixel précédent|Return to the previous pixel/,
+      })
+      .click();
     await expect(rows).toHaveCount(0);
     await expect(live.locator('[data-decision]')).toContainText('d = -1');
   });
