@@ -541,10 +541,24 @@ function LabView({
                   className="geo-region"
                   points={(choice === 'triangle'
                     ? regionStage === 1
-                      ? [[0, -4], [8, -4], [8, 8], [0, 8]]
+                      ? [
+                          [0, -4],
+                          [8, -4],
+                          [8, 8],
+                          [0, 8],
+                        ]
                       : regionStage === 2
-                        ? [[0, 0], [8, 0], [8, 8], [0, 8]]
-                        : [[0, 0], [4, 0], [0, 3]]
+                        ? [
+                            [0, 0],
+                            [8, 0],
+                            [8, 8],
+                            [0, 8],
+                          ]
+                        : [
+                            [0, 0],
+                            [4, 0],
+                            [0, 3],
+                          ]
                     : [
                         [-4, -4],
                         [8, -4],
@@ -829,33 +843,51 @@ function LabView({
           {choice === 'triangle' ? (
             <div data-region-steps>
               <p>
-                {fr ? 'Contraintes actives' : 'Active constraints'} : {regionStage}/3.
+                {fr ? 'Contraintes actives' : 'Active constraints'} :{' '}
+                {regionStage}/3.
               </p>
               <ol>
                 {[
                   `x = ${f(v[0]!)} ≥ 0`,
                   `y = ${f(v[1]!)} ≥ 0`,
                   `3 × (${f(v[0]!)}) + 4 × (${f(v[1]!)}) = ${f(3 * v[0]! + 4 * v[1]!)} ≤ 12`,
-                ].slice(0, regionStage).map((expression, i) => (
-                  <li key={i}>
-                    {expression} : {activeValues[i]! >= 0
-                      ? fr ? 'vrai' : 'true'
-                      : fr ? 'faux' : 'false'}
-                  </li>
-                ))}
+                ]
+                  .slice(0, regionStage)
+                  .map((expression, i) => (
+                    <li key={i}>
+                      {expression} :{' '}
+                      {activeValues[i]! >= 0
+                        ? fr
+                          ? 'vrai'
+                          : 'true'
+                        : fr
+                          ? 'faux'
+                          : 'false'}
+                    </li>
+                  ))}
               </ol>
               {regionStage < 3 && (
-                <p>{fr ? 'Région intermédiaire : le triangle complet n’est pas encore testé.' : 'Intermediate region: the full triangle has not yet been tested.'}</p>
+                <p>
+                  {fr
+                    ? 'Région intermédiaire : le triangle complet n’est pas encore testé.'
+                    : 'Intermediate region: the full triangle has not yet been tested.'}
+                </p>
               )}
             </div>
           ) : (
             <p data-region-substitution>
               {f(v[0]!)} + 2 × ({f(v[1]!)}) = {f(v[0]! + 2 * v[1]!)}.{' '}
               {r.values[0] === 0
-                ? fr ? 'P est sur la frontière.' : 'P is on the boundary.'
+                ? fr
+                  ? 'P est sur la frontière.'
+                  : 'P is on the boundary.'
                 : r.values[0]! < 0
-                  ? fr ? 'P est du côté négatif.' : 'P is on the negative side.'
-                  : fr ? 'P est du côté positif.' : 'P is on the positive side.'}
+                  ? fr
+                    ? 'P est du côté négatif.'
+                    : 'P is on the negative side.'
+                  : fr
+                    ? 'P est du côté positif.'
+                    : 'P is on the positive side.'}
             </p>
           )}
           <p data-region-decision>
