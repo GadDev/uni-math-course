@@ -985,7 +985,10 @@ export default function AlgebraExplorer({
                     setShowCircle(event.currentTarget.checked)
                   }
                 />{' '}
-                {t('Cercle centré en O, rayon 5', 'Circle centred at O, radius 5')}
+                {t(
+                  'Cercle centré en O, rayon 5',
+                  'Circle centred at O, radius 5',
+                )}
               </label>
             </>
           )}
