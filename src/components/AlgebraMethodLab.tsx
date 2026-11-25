@@ -542,10 +542,12 @@ export default function AlgebraMethodLab({
   const [ready, setReady] = useState(false);
   const [values, setValues] = useState<number[]>([...methodDefaults[kind]]);
   const [step, setStep] = useState(0);
+  const [factorGuess, setFactorGuess] = useState<number | null>(null);
   useEffect(() => setReady(true), []);
   const update = (i: number, n: number) => {
     setValues((v) => v.map((x, j) => (i === j ? n : x)));
     setStep(0);
+    if (kind === 'factor' && i === 0) setFactorGuess(null);
   };
   const id = `method-${kind}`;
   const range = (label: string, i: number, min: number, max: number) => (
@@ -619,6 +621,38 @@ export default function AlgebraMethodLab({
                 ['6x² − 9x', 'x² − 9', 'x² + 6x + 9'],
               )}
               {range(t('Valeur test x', 'Test value x'), 1, -4, 4)}
+              <p>
+                {t(
+                  'Quelle méthode reconnaître en premier ?',
+                  'Which method should you recognise first?',
+                )}
+              </p>
+              <div className="method-actions">
+                {[
+                  t('Facteur commun', 'Common factor'),
+                  t('Différence de carrés', 'Difference of squares'),
+                  t('Carré parfait', 'Perfect square'),
+                ].map((name, index) => (
+                  <button
+                    key={name}
+                    type="button"
+                    aria-pressed={factorGuess === index}
+                    onClick={() => setFactorGuess(index)}
+                  >
+                    {name}
+                  </button>
+                ))}
+              </div>
+              <p data-factor-feedback aria-live="polite">
+                {factorGuess === null
+                  ? t('Choisissez une méthode.', 'Choose a method.')
+                  : factorGuess === values[0]
+                    ? t('Bonne méthode !', 'Correct method!')
+                    : t(
+                        'Réessayez : cherchez un facteur commun ou vérifiez les carrés et le terme croisé.',
+                        'Try again: look for a common factor or check the squares and cross term.',
+                      )}
+              </p>
             </>
           )}
           {kind === 'equation' && (
@@ -690,6 +724,7 @@ export default function AlgebraMethodLab({
               onClick={() => {
                 setValues([...methodDefaults[kind]]);
                 setStep(0);
+                setFactorGuess(null);
               }}
             >
               {t('Réinitialiser', 'Reset')}
