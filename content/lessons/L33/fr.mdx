@@ -1,7 +1,7 @@
 ---
 lessonId: L33
 locale: fr
-version: 6
+version: 7
 status: extended
 title: "Rastérisation et idée de Bresenham"
 summary: "Échantillonner un segment et suivre un algorithme entier dans un octant explicite."
@@ -31,123 +31,147 @@ Prérequis : L31, L32. Les domaines et restrictions précisés ci-dessous font p
 
 <span id="pdf-56" class="source-topic-marker"></span>
 
-Trois étapes : choisir l’axe de parcours, comparer au milieu, puis mettre à jour un entier. Faites une pause à chaque étape ; le code final réunit ces idées.
+## 1. Comprendre — Transformer une droite en pixels
 
-## Rastériser : choisir des pixels
+Imaginez que vous dessinez une diagonale dans un jeu en pixel art. Une droite mathématique est continue, mais l'écran ne peut allumer que des cases entières. **Rastériser** signifie choisir les pixels qui représentent au mieux le segment.
 
-Une droite contient une infinité de points ; une image ne propose que des cases. **Rastériser**, c’est choisir les pixels qui représentent un segment. Pour une pente modérée et un parcours de gauche à droite, calculer une hauteur par colonne puis arrondir au pixel le plus proche.
+Dans le PDF fourni (p. 56–57), l'algorithme naïf calcule une hauteur par colonne et l'arrondit. Notre fil conducteur est le segment de $(0,0)$ à $(5,2)$, de pente $m=2/5$. Deux questions : quels pixels choisir, puis comment éviter une multiplication, une division et un arrondi à chaque pas ?
 
-**PDF, pages 56–57.** Pour le segment de $(0,0)$ à $(5,2)$, la pente vaut $m=2/5=0{,}4$. Aux colonnes $0,1,2,3,4,5$, les hauteurs idéales sont $0;0{,}4;0{,}8;1{,}2;1{,}6;2$. Les hauteurs arrondies sont $0,0,1,1,2,2$. Il n’y a pas d’égalité à mi-chemin dans cet exemple.
+La suite utilise une verticale vers le haut, comme dans l'explication de Bresenham du PDF. Ne la confondez pas avec l'axe v descendant de L32.
 
-**Convention supplémentaire pour les exemples d’arrondi :** à mi-chemin, choisir l’entier supérieur. Ce choix n’est pas celui de toutes les fonctions `round` ; ce n’est pas non plus la règle d’égalité de Bresenham ci-dessous.
+## 2. Visualiser — Des cases, des trous et deux candidats
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/raster-gentle.svg" alt="Segment de pente 0,4, six pixels aux hauteurs 0,0,1,1,2,2." width="440" height="360" loading="lazy" />
 <figcaption>Une case par colonne.</figcaption>
 </figure>
-<p class="source-next"><a href="/fr/lessons/L33/#pdf-59">Suite du PDF : Corriger les trous →</a></p>
+
+Le trait idéal traverse les cases ; on ne peut pas simplement allumer chaque point réel. À pente forte, un pixel par colonne peut laisser des trous.
 
 <span id="pdf-59" class="source-topic-marker"></span>
 
-## Corriger les trous : parcourir le bon axe
-
-**PDF, pages 57 et 59.** De $(0,0)$ à $(3,8)$, la pente vaut $m=8/3$. Un pixel par colonne ne donne que quatre pixels : le segment présente de grands sauts verticaux. Parcourir les lignes donne $x=(3/8)y$. Pour $y=0,1,2,3,4,5,6,7,8$, les abscisses arrondies sont $0,0,1,1,2,2,2,3,3$ selon la convention précédente.
-
-Dans la notation écran du PDF, $v=v_1+m(u-u_1)$ se réécrit $u=u_1+(v-v_1)/m$ lorsque $m\ne0$. On parcourt les lignes si $|m|>1$. Pour une verticale, fixer la colonne et parcourir les lignes sans calculer une pente infinie. La page 58 est une illustration de jeu vidéo, pas une étape algébrique supplémentaire.
-
-**À vérifier.** De $(4,1)$ à $(4,5)$, quelles cases choisir ? Garder la colonne $4$ et les lignes $1,2,3,4,5$, extrémités incluses.
+### Changer d'axe
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/raster-holes.svg" alt="Quatre pixels laissent de grands sauts." width="440" height="360" loading="lazy" />
 <figcaption>Quatre pixels laissent de grands sauts.</figcaption>
 </figure>
+
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/raster-fixed.svg" alt="Un pixel par ligne représente mieux la pente forte." width="440" height="360" loading="lazy" />
 <figcaption>Un pixel par ligne représente mieux la pente forte.</figcaption>
 </figure>
-<p class="source-next"><a href="/fr/lessons/L33/#pdf-60">Suite du PDF : L’idée de Bresenham →</a></p>
+
+Pour le segment de $(0,0)$ à $(3,8)$, parcourir quatre colonnes laisse des sauts verticaux. Parcourir neuf lignes corrige ce problème (PDF fourni, p. 58). Les pixels voisins peuvent se toucher par un côté ou un coin.
 
 <span id="pdf-60" class="source-topic-marker"></span>
 
-**Pause — axe.** Pour une pente $8/3$, faut-il parcourir les colonnes ou les lignes ? Les lignes : elles évitent les grands sauts verticaux.
+### Choisir E ou NE : le jeu du prochain pixel
 
-## Comment choisir l’axe avant de calculer ?
+Dans la présentation de Bresenham (PDF fourni, p. 59), l'axe vertical monte. Les extrémités sont $(0,0)$ et $(u_2,v_2)$, entières, avec $u_2>0$ et $0\le v_2\le u_2$. Le PDF note aussi ces déplacements $\Delta x=u_2$ et $\Delta y=v_2$. On travaille dans un seul octant.
 
-Comparez les valeurs absolues des déplacements entre extrémités. Si $|\Delta x|\ge|\Delta y|$ et $\Delta x\ne0$, parcourez les colonnes ; sinon, si $\Delta y\ne0$, parcourez les lignes. L’axe principal avance alors d’un pixel à chaque étape et l’autre coordonnée varie au plus d’une unité avant arrondi. Si les deux déplacements sont nuls, il n’y a qu’un pixel à afficher.
-
-Pour $(0,0)$ vers $(3,8)$, les lignes sont l’axe principal : à chaque ligne, l’abscisse idéale avance seulement de $3/8$. À l’inverse, avancer d’une colonne ferait sauter de $8/3$ lignes. L’activité suivante compare les deux parcours, avec un arrondi au plus proche et les égalités vers l’entier supérieur. Elle utilise des axes vers le haut ; un écran à verticale descendante exige la transformation vue en L32.
-
-<GeometryLab kind="sampling" locale="fr" client:visible />
-
-## L’idée de Bresenham : E, NE et le milieu
-
-**PDF, page 60.** On utilise maintenant des axes cartésiens avec la verticale **vers le haut**. Le segment va de $(0,0)$ à $(u_2,v_2)$, où les coordonnées sont entières, $u_2>0$ et $0\le v_2\le u_2$. C’est un seul **octant**, une des huit zones de direction ; l’algorithme présenté ne couvre pas directement toutes les directions.
-
-Depuis $(u,v)$, les candidats sont $E=(u+1,v)$ et $NE=(u+1,v+1)$. Leur milieu est $M=(u+1,v+1/2)$. Si le milieu est au-dessus de la droite ou sur elle, choisir E ; si la droite passe au-dessus du milieu, choisir NE. Les deux pixels sont aussi proches en cas d’égalité : **la convention de la page 62 choisit E**.
+Depuis le pixel courant $(u,v)$, il faut avancer d'une colonne. Deux candidats : $E=(u+1,v)$, vers la droite, et $NE=(u+1,v+1)$, en diagonale vers le haut. Leur milieu est $M=(u+1,v+1/2)$.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/bresenham.svg" alt="Pixel courant, candidats E et NE, milieu M et droite au-dessus du milieu." width="440" height="360" loading="lazy" />
 <figcaption>Comparer au milieu avant de choisir.</figcaption>
 </figure>
-<p class="source-next"><a href="/fr/lessons/L33/#pdf-61">Suite du PDF : Adieu les arrondis ! →</a></p>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l33-first-steps.svg" alt="Pour le segment de 0,0 à 5,2 : à la colonne 1 la droite passe à 0,4 sous le milieu 0,5 et E est choisi ; à la colonne 2 elle passe à 0,8 au-dessus du milieu 0,5 et NE est choisi." width="640" height="280" loading="lazy" />
+<figcaption>Deux décisions successives du même segment : comparer la hauteur idéale à la hauteur du milieu.</figcaption>
+</figure>
+
+Si la droite passe sous M, choisir E ; si elle passe au-dessus de M, choisir NE. En cas d'égalité, les deux candidats sont aussi proches. La variante utilisée dans l'application choisit E. Ce départage explicite est une convention de l'application ; le PDF fourni ne précise pas l'égalité sur cette page.
+
+## 3. Calculer — De l'arrondi à une décision entière
+
+### A. Échantillonner et choisir l'axe
+
+Pour notre segment, la hauteur idéale est $v=(2/5)u$.
+
+| Colonne u | Hauteur idéale | Hauteur arrondie |
+| ---: | ---: | ---: |
+| 0 | 0 | 0 |
+| 1 | 0,4 | 0 |
+| 2 | 0,8 | 1 |
+| 3 | 1,2 | 1 |
+| 4 | 1,6 | 2 |
+| 5 | 2 | 2 |
+
+On obtient six pixels, extrémités comprises. Pour la pente $8/3$, les hauteurs arrondies par colonne sont $0,3,5,8$ : il y a des trous. En parcourant les lignes, on calcule $x=(3/8)y$ et les abscisses deviennent $0,0,1,1,2,2,2,3,3$.
+
+En notation écran, $v=v_1+m(u-u_1)$ devient $u=u_1+(v-v_1)/m$ si $m\ne0$. Choisir les colonnes si $|\Delta x|\ge|\Delta y|$ et $\Delta x\ne0$ ; sinon choisir les lignes si $\Delta y\ne0$. Une verticale garde sa colonne ; un point isolé donne un seul pixel. De $(4,1)$ à $(4,5)$, garder la colonne 4 et les lignes 1 à 5. Pour un déplacement négatif, parcourir l'axe dans le sens correspondant.
+
+Dans l'atelier d'échantillonnage, les égalités d'arrondi sont départagées vers l'entier supérieur, contrairement à la convention E de l'atelier Bresenham.
 
 <span id="pdf-61" class="source-topic-marker"></span>
 
-**Pause — milieu.** Si le milieu M est sur la droite, quel pixel choisir ? E, selon la convention du cours ; on conserve cette égalité dans le test entier.
+### B. Comprendre le signe de d (développement du projet)
 
-## Adieu les arrondis : un test entier
+Le PDF fourni introduit le signe de l'expression affine $\Delta y x-\Delta x y$ (p. 59), comme en L31. Nous développons ce test en entier.
 
-**PDF, page 61.** La droite a pour équation $v=(v_2/u_2)u$. Pour savoir si M est au-dessus ou sur la droite, tester $v+1/2\ge(v_2/u_2)(u+1)$. Multiplier par $2u_2>0$ conserve le sens de l’inégalité. Déplacer les termes donne $2v_2(u+1)-u_2(2v+1)\le0$.
+La hauteur de la droite à la prochaine colonne est $(v_2/u_2)(u+1)$ ; celle de M vaut $v+1/2$. E est choisi si la hauteur du milieu est supérieure ou égale à la hauteur idéale.
 
-Nommons cette expression $d=2v_2(u+1)-u_2(2v+1)$. Alors E correspond à $d\le0$ et NE à $d>0$. **Piège fréquent :** remplacer le second test par une inégalité large change les pixels à mi-chemin. Ce choix est permis dans une autre variante, mais ne reproduit pas ce PDF.
+$$v+1/2\ge(v_2/u_2)(u+1).$$
 
-Les exercices emploient aussi la lettre majuscule $D=d$ pour cette même décision entière.
+Multiplier les deux membres par $2u_2>0$ ne change pas le sens de l'inégalité. On obtient $u_2(2v+1)\ge2v_2(u+1)$. En regroupant :
 
-<p class="source-next"><a href="/fr/lessons/L33/#pdf-62">Suite du PDF : Bresenham : tout par incréments →</a></p>
+$$d=2v_2(u+1)-u_2(2v+1).$$
+
+Cette valeur mesure le signe de l'écart droite moins milieu, multiplié par $2u_2$. Elle n'est pas une distance en pixels. Si $d\le0$, choisir E ; si $d>0$, choisir NE. Dans les exercices, D et d désignent cette même décision.
 
 <span id="pdf-62" class="source-topic-marker"></span>
 
-## Bresenham : mettre à jour plutôt que recalculer
+### C. Initialiser, décider, mettre à jour
 
-**PDF, page 62.** Au départ, $u=v=0$ donne $d=2v_2-u_2$. Après E, seule la colonne augmente : ajouter $2v_2$ à d. Après NE, colonne et ligne augmentent : ajouter $2v_2-2u_2$.
+Au départ $u=v=0$, donc $d=2v_2-u_2$. Pour notre exemple, $u_2=5$, $v_2=2$ :
 
-**Exemple supplémentaire,** $u_2=5$ et $v_2=2$ :
+- Décision initiale : $d=2\cdot2-5=-1$.
+- Après E : ajouter $2v_2=4$.
+- Après NE : ajouter $2v_2-2u_2=-6$.
 
-| Pixel courant | d avant le pas | Choix | Pixel suivant |
-| --- | --- | --- | --- |
-| $(0,0)$ | $-1$ | E | $(1,0)$ |
-| $(1,0)$ | $3$ | NE | $(2,1)$ |
-| $(2,1)$ | $-3$ | E | $(3,1)$ |
-| $(3,1)$ | $1$ | NE | $(4,2)$ |
-| $(4,2)$ | $-5$ | E | $(5,2)$ |
+Le premier pixel est déjà $(0,0)$. La décision est celle **avant** le déplacement.
 
-**À vérifier :** pour $u_2=2$, $v_2=1$, la décision initiale vaut $0$. Choisir E donne $(1,0)$, puis NE donne $(2,1)$. L’ancienne variante du chapitre choisissait $(1,1)$ ; la distance est la même, mais le choix discret diffère.
+| Courant | d avant | Choix | Incrément | Suivant | d après |
+| --- | ---: | --- | ---: | --- | ---: |
+| (0,0) | −1 | E | +4 | (1,0) | 3 |
+| (1,0) | 3 | NE | −6 | (2,1) | −3 |
+| (2,1) | −3 | E | +4 | (3,1) | 1 |
+| (3,1) | 1 | NE | −6 | (4,2) | −5 |
+| (4,2) | −5 | E | +4 | (5,2) | −1 |
 
-<p class="source-next"><a href="/fr/lessons/L33/#pdf-63">Suite du PDF : Adieu les multiplications →</a></p>
+Exemple du deuxième pas : d vaut 3, donc NE. On augmente les deux coordonnées de 1, puis $d=3-6=-3$. Au dernier pixel, on s'arrête : la valeur de d obtenue n'appelle aucune décision supplémentaire.
+
+**Égalité.** Pour $u_2=2$, $v_2=1$, la décision initiale vaut 0 : E mène à $(1,0)$, puis NE à $(2,1)$. L'arrondi à l'entier supérieur choisirait $(1,1)$ au premier pas. Les deux conventions sont possibles, mais il ne faut pas les mélanger.
 
 <span id="pdf-63" class="source-topic-marker"></span>
 
-## D’où viennent les deux incréments ?
+### D. Pour aller plus loin — Pourquoi les incréments fonctionnent-ils ?
 
-La décision $d$ est évaluée **avant** de choisir le prochain pixel. Pour éviter une nouvelle multiplication à chaque pas, comparons la nouvelle expression à l’ancienne.
-
-Après E, le point courant devient $(u+1,v)$ :
+Après E, seul u augmente de 1 :
 
 $$d_E=2v_2(u+2)-u_2(2v+1)=d+2v_2.$$
 
-Après NE, il devient $(u+1,v+1)$ :
+Après NE, u et v augmentent de 1 :
 
 $$d_{NE}=2v_2(u+2)-u_2(2v+3)=d+2v_2-2u_2.$$
 
-Les termes communs s’annulent : c’est toute l’astuce. On calcule les deux doubles une fois, puis on ajoute. **Comment suivre une trace ?** Notez le pixel courant, la décision avant le pas, le choix, le pixel suivant et la nouvelle décision. À l’extrémité finale, arrêtez-vous : aucun prochain choix n’est nécessaire. Si $d=0$, E reste le choix du cours, même si un autre algorithme d’arrondi pourrait départager autrement.
+Les termes communs s'annulent. C'est l'idée du PDF : remplacer les calculs répétés par des additions entières.
 
-Le zoom montre E, NE et leur milieu M. Faites votre prévision avant de révéler le pixel suivant et la nouvelle décision ; chaque déplacement remet la prévision à zéro.
+## 4. Expérimenter — Prédire avant de révéler
+
+Dans l'atelier d'échantillonnage, commencez par le segment (5,2), puis essayez (3,8) avec les colonnes et les lignes. Comparez le nombre de pixels et les trous. Essayez (0,5) pour la verticale.
+
+<GeometryLab kind="sampling" locale="fr" client:visible />
+
+Dans l'atelier Bresenham, gardez (5,2). À chaque étape, regardez les candidats et le milieu, choisissez E ou NE, vérifiez, puis avancez. Le tableau de trace ne révèle que les décisions déjà construites ou vérifiées. Revenez au pixel précédent si nécessaire. Reproduisez ensuite l'égalité (2,1), puis testez un octant non pris en charge, par exemple (3,8).
 
 <GeometryLab kind="raster" locale="fr" client:visible />
 
-## Adieu les multiplications dans la boucle
+### Pour les développeurs — Du tableau au code Python
 
-**PDF, page 63 — transcription exécutable du pseudocode.** Cette fonction supplémentaire renvoie les pixels au lieu de les allumer. Elle exige des entiers dans l’octant annoncé.
+Cette implémentation originale du projet reprend la convention E en cas d'égalité. Elle renvoie les pixels au lieu de les allumer. Les deux doubles sont calculés avant la boucle.
 
 ```python
 def raster(u2, v2):
@@ -169,37 +193,55 @@ def raster(u2, v2):
     return pixels
 ```
 
-Les deux doubles sont calculés avant la boucle ; chaque pas utilise des additions et une comparaison d’entiers. Les deux extrémités sont incluses. Pour un segment réduit à un point, afficher ce point directement. Pour une pente négative ou forte, un parcours inversé ou un écran à verticale descendante, adapter le repère ou utiliser une version générale : ne pas appliquer cette fonction aveuglément.
+Chaque itération ajoute un pixel. Si la décision est strictement positive, elle monte d'une unité et soustrait le double horizontal ; dans tous les cas, elle ajoute le double vertical. Cette fonction n'est pas une version tous octants. Pour un point isolé, afficher le point directement ; pour d'autres directions, adapter le repère ou utiliser une version générale.
 
-<p class="source-next"><a href="/fr/lessons/L36/#pdf-65">Suite du PDF : Une découverte troublante →</a></p>
+## 5. Pratiquer — Du pixel à la trace
 
-## À vous de jouer sur papier
+**Facile.** Pour $(0,0)$ vers $(2,1)$, calculer la décision initiale, le premier choix et la décision suivante.
 
-À la main, tracez le segment $(0,0)$ vers $(4,2)$ avec le test du cours. Notez chaque décision avant le pas. Pourquoi la première hauteur diffère-t-elle de l’arrondi des égalités vers le haut ?
+<details>
+<summary>Vérifier la réponse</summary>
+
+$d=2\cdot1-2=0$. On choisit E, donc $(1,0)$, puis $d=0+2=2$. L'égalité n'impose pas NE dans cette variante.
+
+</details>
+
+**Intermédiaire.** Tracer $(0,0)$ vers $(4,2)$ à la main, sans oublier les deux extrémités.
+
+<details>
+<summary>Vérifier la réponse</summary>
+
+Initialement $d=2\cdot2-4=0$. E donne $(1,0)$ et d vaut 4 ; NE donne $(2,1)$ et d vaut 0 ; E donne $(3,1)$ et d vaut 4 ; NE donne $(4,2)$. Les hauteurs sont $0,0,1,1,2$.
+
+</details>
+
+**Défi.** Pour $(0,0)$ vers $(3,8)$, expliquer pourquoi la variante entière présentée ne s'applique pas directement. Quel axe choisir pour l'échantillonnage et combien de pixels obtient-on ?
 
 <details>
 <summary>Afficher la correction expliquée</summary>
 
-Initialement $d=2\cdot2-4=0$ : E donne $(1,0)$ et la nouvelle décision vaut $4$. Puis NE donne $(2,1)$ avec $d=0$, E donne $(3,1)$ avec $d=4$, et NE donne $(4,2)$. On obtient les hauteurs $0,0,1,1,2$. À la colonne 1, la hauteur idéale vaut $1/2$ : les deux pixels sont aussi proches, mais notre convention choisit celui du bas. Ce n’est pas une erreur de distance.
+$8>3$ : la pente est trop forte pour cette variante. Il faut parcourir les lignes pour l'échantillonnage, de 0 à 8 inclus, donc neuf pixels. Une version de Bresenham adaptée peut échanger les axes ; il ne suffit pas d'utiliser les mêmes formules sans transformation.
 
 </details>
 
+La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
+
+Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages 56–59 du PDF fourni soutiennent la rastérisation et l'idée du milieu. Les anciennes ancres pdf-59 à pdf-63 sont conservées pour les liens existants ; elles correspondent à une autre pagination de cours non vérifiée ici. La trace, le départage E et le code détaillé sont des développements du projet.
+
 <section className="geometry-revision">
 
-## Fiche de révision à imprimer
+## 6. Retenir — Fiche de révision à imprimer
 
-- **Domaine de cette variante :** coordonnées entières, départ $(0,0)$, $u_2>0$ et $0\le v_2\le u_2$, verticale vers le haut.
-- **Initialisation :** $d=2v_2-u_2$ ; E si $d\le0$, NE si $d>0$.
-- **Mise à jour :** E ajoute $2v_2$ ; NE ajoute $2v_2-2u_2$.
-- **Méthode :** vérifier l’octant, conserver les deux extrémités, comparer avant le pas, mettre à jour après.
-- **Pièges :** changer la règle d’égalité ; utiliser cette variante directement pour une verticale, une pente forte ou négative ; confondre les deux orientations des axes.
+- Domaine : entiers, départ $(0,0)$, $u_2>0$, $0\le v_2\le u_2$, verticale vers le haut.
+- Initialiser : $d=2v_2-u_2$. Choisir E si $d\le0$, NE si $d>0$.
+- E : augmenter u de 1, conserver v, ajouter $2v_2$ à d.
+- NE : augmenter u et v de 1, ajouter $2v_2-2u_2$ à d.
+- Inclure les deux extrémités ; comparer avant le pas, mettre à jour après, s'arrêter au dernier pixel.
+- Échantillonnage : choisir l'axe au plus grand déplacement absolu ; traiter la verticale et le point isolé séparément.
+- Pièges : confondre d et une distance, changer le départage, oublier l'orientation des axes ou appliquer cette variante hors octant.
 
 </section>
 
-## Pratique et bilan
-
-La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
-
-Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+<p class="source-next"><a href="/fr/lessons/L34/">Continuer : Modèles affines et résidus →</a></p>
 
 </div>

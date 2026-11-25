@@ -1,7 +1,7 @@
 ---
 lessonId: L33
 locale: en
-version: 6
+version: 7
 status: extended
 title: "Rasterisation and Bresenham’s idea"
 summary: "Sample a segment and trace an integer algorithm in an explicit octant."
@@ -31,123 +31,147 @@ Prerequisites: L31, L32. Domains and restrictions stated below are part of every
 
 <span id="pdf-56" class="source-topic-marker"></span>
 
-Three stages: choose the traversal axis, compare against the midpoint, then update an integer. Pause after each stage; the final code combines these ideas.
+## 1. Understand — Turn a line into pixels
 
-## Rasterising: selecting pixels
+Imagine drawing a diagonal in a pixel-art game. A mathematical line is continuous, but the screen can only light whole cells. **Rasterising** means selecting pixels to represent the segment as closely as possible.
 
-A line contains infinitely many points; an image offers only cells. **Rasterising** means selecting pixels to represent a segment. For a moderate slope and a left-to-right traversal, calculate one height per column and round to the nearest pixel.
+In the supplied PDF (pp. 56–57), the naive algorithm calculates one height per column and rounds it. Our running example is the segment from $(0,0)$ to $(5,2)$, with slope $m=2/5$. Two questions: which pixels should we select, and how can we avoid multiplication, division and rounding at each step?
 
-**PDF, pages 56–57.** For the segment from $(0,0)$ to $(5,2)$, slope is $m=2/5=0{,}4$. At columns $0,1,2,3,4,5$, ideal heights are $0;0{,}4;0{,}8;1{,}2;1{,}6;2$. Rounded heights are $0,0,1,1,2,2$. There is no halfway tie in this example.
+The following uses an upward vertical axis, as in the PDF's Bresenham explanation. Do not confuse it with the downward v axis in L32.
 
-**Additional convention for rounding examples:** halfway ties choose the greater integer. This differs from some `round` functions and from the Bresenham tie rule below.
+## 2. Visualise — Cells, gaps and two candidates
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/raster-gentle.svg" alt="Segment of slope 0.4, six pixels at heights 0,0,1,1,2,2." width="440" height="360" loading="lazy" />
 <figcaption>One cell per column.</figcaption>
 </figure>
-<p class="source-next"><a href="/en/lessons/L33/#pdf-59">Next in the PDF: Fixing gaps →</a></p>
+
+The ideal line crosses cells; we cannot simply light every real point. With a steep slope, one pixel per column can leave gaps.
 
 <span id="pdf-59" class="source-topic-marker"></span>
 
-## Fixing gaps: traverse the appropriate axis
-
-**PDF, pages 57 and 59.** From $(0,0)$ to $(3,8)$, slope is $m=8/3$. One pixel per column gives only four pixels, leaving large vertical jumps. Visiting rows gives $x=(3/8)y$. For $y=0,1,2,3,4,5,6,7,8$, rounded horizontal coordinates are $0,0,1,1,2,2,2,3,3$ under the preceding convention.
-
-In the PDF’s screen notation, $v=v_1+m(u-u_1)$ becomes $u=u_1+(v-v_1)/m$ when $m\ne0$. Traverse rows if $|m|>1$. For a vertical segment, fix the column and traverse rows without calculating an infinite slope. Page 58 is a video-game illustration, not another algebraic step.
-
-**Quick check.** Which cells represent $(4,1)$ to $(4,5)$? Keep column $4$ and rows $1,2,3,4,5$, including both endpoints.
+### Change the traversal axis
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/raster-holes.svg" alt="Four pixels leave large jumps." width="440" height="360" loading="lazy" />
 <figcaption>Four pixels leave large jumps.</figcaption>
 </figure>
+
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/raster-fixed.svg" alt="One pixel per row better represents the steep slope." width="440" height="360" loading="lazy" />
 <figcaption>One pixel per row better represents the steep slope.</figcaption>
 </figure>
-<p class="source-next"><a href="/en/lessons/L33/#pdf-60">Next in the PDF: Bresenham’s idea →</a></p>
+
+For the segment from $(0,0)$ to $(3,8)$, traversing four columns leaves vertical jumps. Traversing nine rows fixes this problem (supplied PDF, p. 58). Neighbouring pixels may touch at an edge or a corner.
 
 <span id="pdf-60" class="source-topic-marker"></span>
 
-**Pause — axis.** For slope $8/3$, should we traverse columns or rows? Rows: they avoid large vertical gaps.
+### Choose E or NE: the next-pixel game
 
-## How to choose the axis before calculating
+In the Bresenham explanation (supplied PDF, p. 59), the vertical axis points up. Endpoints are $(0,0)$ and $(u_2,v_2)$, integers with $u_2>0$ and $0\le v_2\le u_2$. The PDF also denotes these displacements by $\Delta x=u_2$ and $\Delta y=v_2$. We work in one octant.
 
-Compare absolute endpoint displacements. If $|\Delta x|\ge|\Delta y|$ and $\Delta x\ne0$, traverse columns; otherwise, if $\Delta y\ne0$, traverse rows. The main axis then advances one pixel per step and the other coordinate changes by at most one unit before rounding. If both displacements are zero, display a single pixel.
-
-For $(0,0)$ to $(3,8)$, rows are the main axis: each row changes ideal horizontal position by only $3/8$. Advancing by one column instead jumps $8/3$ rows. The following activity compares both traversals, rounding to nearest with ties towards the greater integer. Its vertical axis points up; a downward screen requires the L32 transformation.
-
-<GeometryLab kind="sampling" locale="en" client:visible />
-
-## Bresenham’s idea: E, NE and the midpoint
-
-**PDF, page 60.** We now use Cartesian axes with the vertical axis pointing **upwards**. The segment runs from $(0,0)$ to $(u_2,v_2)$, with integer coordinates, $u_2>0$ and $0\le v_2\le u_2$. This is one **octant**, one of eight direction regions; this algorithm does not directly cover every direction.
-
-From $(u,v)$, candidates are $E=(u+1,v)$ and $NE=(u+1,v+1)$. Their midpoint is $M=(u+1,v+1/2)$. If the midpoint is above or on the line, choose E; if the line passes above the midpoint, choose NE. Both pixels are equally close in a tie: **the convention on page 62 chooses E**.
+From the current pixel $(u,v)$, advance one column. Two candidates: $E=(u+1,v)$, to the right, and $NE=(u+1,v+1)$, diagonally upwards. Their midpoint is $M=(u+1,v+1/2)$.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/bresenham.svg" alt="Current pixel, candidates E and NE, midpoint M and line above the midpoint." width="440" height="360" loading="lazy" />
 <figcaption>Compare with the midpoint before choosing.</figcaption>
 </figure>
-<p class="source-next"><a href="/en/lessons/L33/#pdf-61">Next in the PDF: No more rounding! →</a></p>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l33-first-steps.svg" alt="For the segment from 0,0 to 5,2: at column 1 the line is at 0.4 below midpoint 0.5 and E is chosen; at column 2 it is at 0.8 above midpoint 0.5 and NE is chosen." width="640" height="280" loading="lazy" />
+<figcaption>Two successive decisions on the same segment: compare the ideal height with the midpoint height.</figcaption>
+</figure>
+
+If the line passes below M, choose E; if it passes above M, choose NE. In a tie, both candidates are equally close. The application variant chooses E. This explicit tie rule belongs to the application; the supplied PDF does not specify equality on this page.
+
+## 3. Calculate — From rounding to an integer decision
+
+### A. Sample and choose the axis
+
+For our segment the ideal height is $v=(2/5)u$.
+
+| Column u | Ideal height | Rounded height |
+| ---: | ---: | ---: |
+| 0 | 0 | 0 |
+| 1 | 0.4 | 0 |
+| 2 | 0.8 | 1 |
+| 3 | 1.2 | 1 |
+| 4 | 1.6 | 2 |
+| 5 | 2 | 2 |
+
+We obtain six pixels, including endpoints. For slope $8/3$, the heights rounded by column are $0,3,5,8$: there are gaps. Traversing rows, calculate $x=(3/8)y$ and the horizontal coordinates become $0,0,1,1,2,2,2,3,3$.
+
+In screen notation, $v=v_1+m(u-u_1)$ becomes $u=u_1+(v-v_1)/m$ if $m\ne0$. Choose columns if $|\Delta x|\ge|\Delta y|$ and $\Delta x\ne0$; otherwise choose rows if $\Delta y\ne0$. A vertical keeps its column; an isolated point gives one pixel. From $(4,1)$ to $(4,5)$, keep column 4 and rows 1 to 5. For negative displacement, traverse the axis in the corresponding direction.
+
+In the sampling workshop, halfway ties round to the greater integer, unlike the Bresenham workshop's E convention.
 
 <span id="pdf-61" class="source-topic-marker"></span>
 
-**Pause — midpoint.** If midpoint M lies on the line, which pixel is selected? E, under the course convention; retain this equality in the integer test.
+### B. Understand the sign of d (project extension)
 
-## No more rounding: an integer test
+The supplied PDF introduces the sign of affine expression $\Delta y x-\Delta x y$ (p. 59), as in L31. We develop this into an integer test.
 
-**PDF, page 61.** The line has equation $v=(v_2/u_2)u$. To check whether M is above or on it, test $v+1/2\ge(v_2/u_2)(u+1)$. Multiplying by $2u_2>0$ preserves the inequality direction. Rearranging gives $2v_2(u+1)-u_2(2v+1)\le0$.
+The line's height at the next column is $(v_2/u_2)(u+1)$; M's height is $v+1/2$. Choose E when the midpoint height is greater than or equal to the ideal height.
 
-Name this expression $d=2v_2(u+1)-u_2(2v+1)$. Then E corresponds to $d\le0$ and NE to $d>0$. **Common trap:** making the second inequality inclusive changes halfway pixels. That is allowed in another variant, but does not reproduce this PDF.
+$$v+1/2\ge(v_2/u_2)(u+1).$$
 
-The exercises also use uppercase $D=d$ for this same integer decision.
+Multiplying both sides by $2u_2>0$ preserves the inequality direction. We obtain $u_2(2v+1)\ge2v_2(u+1)$. Rearranging:
 
-<p class="source-next"><a href="/en/lessons/L33/#pdf-62">Next in the PDF: Bresenham: incremental updates →</a></p>
+$$d=2v_2(u+1)-u_2(2v+1).$$
+
+This value gives the sign of line-minus-midpoint height difference, multiplied by $2u_2$. It is not a distance in pixels. If $d\le0$, choose E; if $d>0$, choose NE. In exercises, D and d name the same decision.
 
 <span id="pdf-62" class="source-topic-marker"></span>
 
-## Bresenham: update rather than recalculate
+### C. Initialise, decide, update
 
-**PDF, page 62.** Initially, $u=v=0$ gives $d=2v_2-u_2$. After E, only the column increases: add $2v_2$ to d. After NE, both column and row increase: add $2v_2-2u_2$.
+Initially $u=v=0$, so $d=2v_2-u_2$. For our example, $u_2=5$, $v_2=2$:
 
-**Additional example,** $u_2=5$ and $v_2=2$:
+- Initial decision: $d=2\cdot2-5=-1$.
+- After E: add $2v_2=4$.
+- After NE: add $2v_2-2u_2=-6$.
 
-| Current pixel | d before the step | Choice | Next pixel |
-| --- | --- | --- | --- |
-| $(0,0)$ | $-1$ | E | $(1,0)$ |
-| $(1,0)$ | $3$ | NE | $(2,1)$ |
-| $(2,1)$ | $-3$ | E | $(3,1)$ |
-| $(3,1)$ | $1$ | NE | $(4,2)$ |
-| $(4,2)$ | $-5$ | E | $(5,2)$ |
+The first pixel is already $(0,0)$. The decision is the value **before** moving.
 
-**Quick check:** for $u_2=2$, $v_2=1$, the initial decision is $0$. Choosing E gives $(1,0)$, then NE gives $(2,1)$. The chapter’s former variant chose $(1,1)$; distance is the same, but the discrete choice differs.
+| Current | d before | Choice | Increment | Next | d after |
+| --- | ---: | --- | ---: | --- | ---: |
+| (0,0) | −1 | E | +4 | (1,0) | 3 |
+| (1,0) | 3 | NE | −6 | (2,1) | −3 |
+| (2,1) | −3 | E | +4 | (3,1) | 1 |
+| (3,1) | 1 | NE | −6 | (4,2) | −5 |
+| (4,2) | −5 | E | +4 | (5,2) | −1 |
 
-<p class="source-next"><a href="/en/lessons/L33/#pdf-63">Next in the PDF: No more multiplications →</a></p>
+Example of the second step: d is 3, so NE. Increase both coordinates by 1, then $d=3-6=-3$. At the final pixel, stop: the resulting d requires no further decision.
+
+**Tie.** For $u_2=2$, $v_2=1$, the initial decision is 0: E leads to $(1,0)$, then NE to $(2,1)$. Rounding to the greater integer would choose $(1,1)$ at the first step. Both conventions are possible, but do not mix them.
 
 <span id="pdf-63" class="source-topic-marker"></span>
 
-## Where do the two increments come from?
+### D. Go further — Why do the increments work?
 
-Decision $d$ is evaluated **before** choosing the next pixel. To avoid another multiplication at each step, compare the new expression with the old one.
-
-After E, the current point becomes $(u+1,v)$:
+After E, only u increases by 1:
 
 $$d_E=2v_2(u+2)-u_2(2v+1)=d+2v_2.$$
 
-After NE, it becomes $(u+1,v+1)$:
+After NE, u and v increase by 1:
 
 $$d_{NE}=2v_2(u+2)-u_2(2v+3)=d+2v_2-2u_2.$$
 
-Common terms cancel: that is the trick. Calculate both doubled values once, then add. **How to follow a trace?** Record the current pixel, decision before the step, choice, next pixel and new decision. Stop at the final endpoint: no further choice is needed. If $d=0$, E remains the course choice, even if another rounding algorithm breaks ties differently.
+The common terms cancel. This is the PDF's idea: replace repeated calculations with integer additions.
 
-The zoom shows E, NE and midpoint M. Predict before revealing the next pixel and updated decision; each move clears the prediction.
+## 4. Experiment — Predict before revealing
+
+In the sampling workshop, start with segment (5,2), then try (3,8) using columns and rows. Compare pixel counts and gaps. Try (0,5) for a vertical.
+
+<GeometryLab kind="sampling" locale="en" client:visible />
+
+In the Bresenham workshop, keep (5,2). At each stage, look at the candidates and midpoint, choose E or NE, check, then advance. The trace table reveals only decisions already built or checked. Return to the previous pixel if needed. Then reproduce the tie (2,1), and try an unsupported octant, for example (3,8).
 
 <GeometryLab kind="raster" locale="en" client:visible />
 
-## No more multiplications inside the loop
+### For developers — From table to Python code
 
-**PDF, page 63 — executable transcription of the pseudocode.** This additional function returns pixels instead of lighting them. It requires integers in the stated octant.
+This original project implementation uses the E tie convention. It returns pixels instead of lighting them. Both doubled values are calculated before the loop.
 
 ```python
 def raster(u2, v2):
@@ -169,37 +193,55 @@ def raster(u2, v2):
     return pixels
 ```
 
-Both doubled values are calculated before the loop; each step uses integer additions and a comparison. Both endpoints are included. Display a point segment directly. Negative or steep slopes, reverse traversal and downward screen axes need a coordinate transformation or a general algorithm: do not apply this function blindly.
+Each iteration adds one pixel. If the decision is strictly positive, it moves up one unit and subtracts the horizontal double; in every case, it adds the vertical double. This is not an all-octant implementation. For an isolated point, display it directly; for other directions, transform coordinates or use a general implementation.
 
-<p class="source-next"><a href="/en/lessons/L36/#pdf-65">Next in the PDF: A puzzling discovery →</a></p>
+## 5. Practise — From pixel to trace
 
-## Your turn on paper
+**Easy.** For $(0,0)$ to $(2,1)$, calculate the initial decision, the first choice and the next decision.
 
-Trace $(0,0)$ to $(4,2)$ by hand using the course test. Record each decision before the step. Why does the first intermediate height differ from rounding ties upwards?
+<details>
+<summary>Check the answer</summary>
+
+$d=2\cdot1-2=0$. Choose E, giving $(1,0)$, then $d=0+2=2$. Equality does not require NE in this variant.
+
+</details>
+
+**Intermediate.** Trace $(0,0)$ to $(4,2)$ by hand, including both endpoints.
+
+<details>
+<summary>Check the answer</summary>
+
+Initially $d=2\cdot2-4=0$. E gives $(1,0)$ and d is 4; NE gives $(2,1)$ and d is 0; E gives $(3,1)$ and d is 4; NE gives $(4,2)$. Heights are $0,0,1,1,2$.
+
+</details>
+
+**Challenge.** For $(0,0)$ to $(3,8)$, explain why the integer variant presented does not apply directly. Which sampling axis should be chosen and how many pixels result?
 
 <details>
 <summary>Show the worked solution</summary>
 
-Initially $d=2\cdot2-4=0$: E gives $(1,0)$ and the new decision is $4$. Then NE gives $(2,1)$ with $d=0$, E gives $(3,1)$ with $d=4$, and NE gives $(4,2)$. Heights are $0,0,1,1,2$. At column 1, ideal height is $1/2$: both pixels are equally close, but our convention selects the lower one. This is not a distance error.
+$8>3$: the slope is too steep for this variant. Sampling must traverse rows, from 0 to 8 inclusive, giving nine pixels. An adapted Bresenham implementation may swap axes; simply using the same formulas without transformation is insufficient.
 
 </details>
 
+The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
+
+Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Pages 56–59 of the supplied PDF support rasterisation and the midpoint idea. Legacy anchors pdf-59 to pdf-63 remain for existing links; they correspond to another course pagination not verified here. The trace, E tie rule and detailed code are project extensions.
+
 <section className="geometry-revision">
 
-## Printable revision sheet
+## 6. Remember — Printable revision sheet
 
-- **This variant’s domain:** integer coordinates, start $(0,0)$, $u_2>0$ and $0\le v_2\le u_2$, upward vertical axis.
-- **Initialisation:** $d=2v_2-u_2$; E if $d\le0$, NE if $d>0$.
-- **Update:** E adds $2v_2$; NE adds $2v_2-2u_2$.
-- **Method:** check the octant, retain both endpoints, compare before stepping, update afterwards.
-- **Traps:** changing the tie rule; applying this variant directly to vertical, steep or negative slopes; confusing vertical orientations.
+- Domain: integers, start $(0,0)$, $u_2>0$, $0\le v_2\le u_2$, vertical upwards.
+- Initialise: $d=2v_2-u_2$. Choose E if $d\le0$, NE if $d>0$.
+- E: increment u by 1, keep v, add $2v_2$ to d.
+- NE: increment u and v by 1, add $2v_2-2u_2$ to d.
+- Include both endpoints; compare before moving, update after, stop at the final pixel.
+- Sampling: choose the axis with greater absolute displacement; handle vertical and isolated point separately.
+- Traps: confuse d with a distance, change tie rule, forget axis orientation or apply this variant outside its octant.
 
 </section>
 
-## Practice and recap
-
-The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
-
-Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+<p class="source-next"><a href="/en/lessons/L34/">Continue: Affine models and residuals →</a></p>
 
 </div>
