@@ -24,21 +24,31 @@ for (const locale of ['fr', 'en']) {
     await difference.click();
     await expect(feedback).toContainText(fr ? 'Réessayez' : 'Try again');
     await common.click();
-    await expect(feedback).toContainText(fr ? 'Bonne méthode' : 'Correct method');
+    await expect(feedback).toContainText(
+      fr ? 'Bonne méthode' : 'Correct method',
+    );
     await lab.getByRole('combobox').selectOption('1');
     await expect(common).toHaveAttribute('aria-pressed', 'false');
     await difference.click();
-    await expect(feedback).toContainText(fr ? 'Bonne méthode' : 'Correct method');
+    await expect(feedback).toContainText(
+      fr ? 'Bonne méthode' : 'Correct method',
+    );
     await lab.getByRole('combobox').selectOption('2');
-    await lab.getByRole('button', {
-      name: fr ? 'Carré parfait' : 'Perfect square',
-      exact: true,
-    }).click();
-    await expect(feedback).toContainText(fr ? 'Bonne méthode' : 'Correct method');
-    await lab.getByRole('button', {
-      name: fr ? 'Réinitialiser' : 'Reset',
-      exact: true,
-    }).click();
+    await lab
+      .getByRole('button', {
+        name: fr ? 'Carré parfait' : 'Perfect square',
+        exact: true,
+      })
+      .click();
+    await expect(feedback).toContainText(
+      fr ? 'Bonne méthode' : 'Correct method',
+    );
+    await lab
+      .getByRole('button', {
+        name: fr ? 'Réinitialiser' : 'Reset',
+        exact: true,
+      })
+      .click();
     await expect(feedback).toContainText(fr ? 'Choisissez' : 'Choose');
     await expect(page.locator('.katex-error')).toHaveCount(0);
   });
