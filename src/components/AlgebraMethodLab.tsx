@@ -144,7 +144,7 @@ function methodWork(
             'Sans parenthèses : calculer la puissance positive, puis prendre son opposé.',
             'Without parentheses: calculate the positive power, then take its opposite.',
           ),
-          tex: String.raw`-${a}^{${b}}=-(${a}^{${b}})=${p.outside}`,
+          tex: String.raw`-${a}^{${b}}=-(${Array.from({ length: b }, () => a).join(String.raw`\times`)})=${p.outside}`,
         },
         {
           note: t(
