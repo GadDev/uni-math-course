@@ -172,11 +172,13 @@ for (let lesson = 28; lesson <= 34; lesson++)
       await page.evaluate(() => document.documentElement.scrollWidth),
     ).toBeLessThanOrEqual(321);
     await expect(page.locator('.geometry-revision')).toBeVisible();
-    await expect(page.locator('article details')).not.toHaveAttribute('open');
+    for (const detail of await page.locator('article details').all())
+      await expect(detail).not.toHaveAttribute('open');
     await page.emulateMedia({ media: 'print' });
     await expect(page.locator('.geo-live').first()).toBeHidden();
     await expect(page.locator('.geo-print').first()).toBeVisible();
-    await expect(page.locator('article details > p')).toBeVisible();
+    for (const solution of await page.locator('article details > p').all())
+      await expect(solution).toBeVisible();
     await expect(page.locator('.course-outline')).toBeHidden();
     for (const svg of await page.locator('.geo-print svg').all())
       await expect(svg).toBeVisible();
@@ -191,8 +193,10 @@ for (let lesson = 28; lesson <= 34; lesson++)
       staticPage.locator('[data-static-note]').first(),
     ).toBeVisible();
     await expect(staticPage.locator('.geo-lab fieldset').first()).toBeHidden();
-    await staticPage.locator('article details summary').click();
-    await expect(staticPage.locator('article details > p')).toBeVisible();
+    await staticPage.locator('article details summary').first().click();
+    await expect(
+      staticPage.locator('article details').first().locator('p'),
+    ).toBeVisible();
     for (const img of await staticPage.locator('article img').all()) {
       await img.scrollIntoViewIfNeeded();
       await expect(img).toHaveJSProperty('complete', true);
@@ -234,3 +238,43 @@ test('touch controls, dark theme and paired section anchors', async ({
   );
   await context.close();
 });
+
+for (const locale of ['fr', 'en']) {
+  test(`${locale}: L28 substitutions and added solutions are explicit`, async ({
+    page,
+  }) => {
+    await page.goto(`/${locale}/lessons/L28/`);
+    const lab = page.locator('[data-geometry-lab="membership"]');
+    const live = lab.locator('.geo-live');
+    const comparison = live.locator('[data-membership-comparison]');
+    const original = live.locator('[data-original-comparison]');
+    await lab.scrollIntoViewIfNeeded();
+    await expect(lab.locator('fieldset')).toBeVisible();
+    await expect(comparison).toHaveText('3 = 3');
+    await values(lab, [2, 4]);
+    await expect(comparison).toHaveText('4 ≠ 5');
+    await expect(live.locator('[data-membership-substitution]')).toContainText(
+      '2 × (2) + 1 = 5',
+    );
+    await lab.locator('select').selectOption('squared');
+    await values(lab, [1, -1]);
+    await expect(comparison).toHaveText('1 = 1');
+    await expect(original).toContainText('-1 ≠ 1');
+    await expect(original).toContainText(
+      locale === 'fr' ? 'solution ajoutée' : 'added solution',
+    );
+    await values(lab, [1, 1]);
+    await expect(original).not.toContainText(
+      locale === 'fr' ? 'solution ajoutée' : 'added solution',
+    );
+    await lab.locator('select').selectOption('multiplied');
+    await values(lab, [0, 2]);
+    await expect(comparison).toHaveText('0 = 0');
+    await expect(original).toContainText('2 ≠ 0');
+    await expect(original).toContainText(
+      locale === 'fr' ? 'solution ajoutée' : 'added solution',
+    );
+    await lab.getByRole('button', { name: /Réinitialiser|Reset/ }).click();
+    await expect(comparison).toHaveText('3 = 3');
+  });
+}
