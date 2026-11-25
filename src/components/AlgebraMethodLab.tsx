@@ -450,25 +450,51 @@ function EquationBalance({
       <svg viewBox="0 0 400 170" role="img" aria-label={label}>
         <title>{label}</title>
         <path className="algebra-axis" d="M65 45H335M200 45V140M178 140H222" />
-        <path className="algebra-axis" d="M85 45L25 110H145ZM315 45L255 110H375Z" />
+        <path
+          className="algebra-axis"
+          d="M85 45L25 110H145ZM315 45L255 110H375Z"
+        />
         <rect x="20" y="110" width="130" height="8" fill="currentColor" />
         <rect x="250" y="110" width="130" height="8" fill="currentColor" />
         {Array.from({ length: count }, (_, i) => (
           <g key={i}>
-            <rect x={28 + i * 28} y="82" width="24" height="24" rx="3" className="algebra-hole" />
-            <text x={40 + i * 28} y="99" textAnchor="middle">x</text>
+            <rect
+              x={28 + i * 28}
+              y="82"
+              width="24"
+              height="24"
+              rx="3"
+              className="algebra-hole"
+            />
+            <text x={40 + i * 28} y="99" textAnchor="middle">
+              x
+            </text>
           </g>
         ))}
-        {extra > 0 && <text x="85" y="77" textAnchor="middle">+ {extra}</text>}
-        <text x="315" y="99" textAnchor="middle">{right}</text>
-        <text x="200" y="163" textAnchor="middle">{label}</text>
+        {extra > 0 && (
+          <text x="85" y="77" textAnchor="middle">
+            + {extra}
+          </text>
+        )}
+        <text x="315" y="99" textAnchor="middle">
+          {right}
+        </text>
+        <text x="200" y="163" textAnchor="middle">
+          {label}
+        </text>
       </svg>
       <figcaption>
         {step === 0
-          ? fr ? 'Équilibre initial.' : 'Initial balance.'
+          ? fr
+            ? 'Équilibre initial.'
+            : 'Initial balance.'
           : step < 3
-            ? fr ? 'Même quantité retirée des deux membres.' : 'Same amount removed from both sides.'
-            : fr ? 'Deux membres partagés en parts égales.' : 'Both sides divided into equal shares.'}
+            ? fr
+              ? 'Même quantité retirée des deux membres.'
+              : 'Same amount removed from both sides.'
+            : fr
+              ? 'Deux membres partagés en parts égales.'
+              : 'Both sides divided into equal shares.'}
       </figcaption>
     </figure>
   );
