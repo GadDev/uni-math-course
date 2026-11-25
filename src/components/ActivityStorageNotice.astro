@@ -1,0 +1,13 @@
+---
+import type { Locale } from '../lib/i18n';
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<p class="status" data-activity-storage>
+  {locale === 'fr'
+    ? 'Avant de commencer : les résultats de cet atelier restent uniquement sur cette page et sont perdus au rechargement ou en la quittant. Ils ne sont pas enregistrés dans votre progression. Terminer une activité ou afficher une solution ne constitue pas une preuve de maîtrise.'
+    : 'Before starting: this workshop’s results stay on this page only and are lost when you reload or leave. They are not saved to your progress. Completing an activity or revealing a solution is not mastery evidence.'}
+</p>

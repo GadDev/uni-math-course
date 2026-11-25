@@ -57,7 +57,7 @@ for (const locale of ['fr', 'en']) {
           'C02',
         );
         await expect(
-          page.locator('.course-outline .outline-topics li'),
+          page.locator('.lesson-switcher .outline-topics li'),
         ).toHaveCount(16);
         await expect(page.locator('.breadcrumb a')).toHaveAttribute(
           'href',

@@ -272,8 +272,8 @@ export const printableChapters: readonly PrintableChapter[] = [
     count: 700,
     title: { fr: 'Théorie de l’information', en: 'Information theory' },
     description: {
-      fr: 'Sept leçons, dont Huffman en extension : 700 exercices bilingues et leurs corrigés détaillés.',
-      en: 'Seven lessons, including a Huffman extension: 700 bilingual exercises and worked solutions.',
+      fr: 'L43–L49 uniquement : codage, longueur moyenne, entropie et Huffman. 700 exercices bilingues et corrigés. L50–L57 (arbres, Kraft–McMillan, Gibbs, borne, blocs et LZW) exclus ; utilisez les leçons en ligne.',
+      en: 'L43–L49 only: coding, mean length, entropy and Huffman. 700 bilingual exercises and solutions. Excludes L50–L57 (trees, Kraft–McMillan, Gibbs, bound, blocks and LZW); use the online lessons.',
     },
     documents: [
       {

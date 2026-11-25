@@ -1,13 +1,14 @@
 ---
 import Base from '../../layouts/Base.astro';
 import { authCopy } from '../../lib/auth/copy';
-import { localeOf, safeReturn } from '../../lib/auth/policy';
+import { localeOf, publicReturn, safeReturn } from '../../lib/auth/policy';
 export const prerender = false;
 if (!['fr', 'en'].includes(Astro.params.locale ?? ''))
   return new Response('Not found', { status: 404 });
 const locale = localeOf(Astro.params.locale);
 const text = authCopy[locale];
 const next = safeReturn(Astro.url.searchParams.get('next'), locale);
+const back = publicReturn(next, locale);
 const alternate = locale === 'fr' ? 'en' : 'fr';
 const alternateNext = next.replace(/^\/(fr|en)\//, `/${alternate}/`);
 const alternateHref = `/${alternate}/sign-in/?${new URLSearchParams({ next: alternateNext })}`;
@@ -91,11 +92,8 @@ if (auth) {
       </p>
       <p class="auth-note">{text.note}</p>
     </section>
-    <a
-      class="back-link"
-      href={next.includes('/account/') ? `/${locale}/` : next}
-    >
-      {text.back}
+    <a class="back-link" href={back.href}>
+      {text[back.label]}
     </a>
   </main>
 </Base>

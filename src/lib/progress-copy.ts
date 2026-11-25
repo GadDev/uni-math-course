@@ -1,5 +1,22 @@
 export const progressCopy = {
   fr: {
+    resume: 'Reprendre mon activité',
+    resumeHint:
+      'Votre dernière action enregistrée : lecture terminée ou exercice tenté. Les simples visites ne sont pas enregistrées.',
+    noSavedActivity:
+      'Aucune activité enregistrée. Choisissez une leçon pour commencer.',
+    savedHistory: 'Voir ma progression et mon historique',
+    readingCompleted: 'Lecture terminée',
+    activityCompleted: 'Activité terminée',
+    activitySessionOnly:
+      'Résultats de cette séance uniquement, sans enregistrement dans la progression ni preuve de maîtrise.',
+    readingHistory: 'Lectures terminées',
+    readingHint:
+      'Votre choix explicite de terminer une lecture, réversible depuis la leçon. Il ne prouve pas la maîtrise.',
+    activityHint:
+      'Les examens blancs et les ateliers ne sont pas enregistrés ici. « Activité terminée » décrit une fin de séance, sans preuve de maîtrise.',
+    loading: 'Chargement de votre dernière activité…',
+    reload: 'Réessayer',
     nav: 'Mon parcours',
     eyebrow: 'Mon parcours',
     heroLines: ['Avancer', 'Revenir', 'Comprendre'],
@@ -17,7 +34,7 @@ export const progressCopy = {
     historyFeedback: 'Revoir l’explication de cette version',
     feedbackUnavailable:
       'L’explication de cette version n’est pas disponible. La réponse enregistrée est conservée.',
-    revisit: 'À revisiter',
+    revisit: 'À retravailler',
     continueLabel: 'À poursuivre',
     revisitHint: 'Relire l’explication, puis vérifier avec une autre question.',
     continueHint: 'Reprenez la pratique là où vous l’avez laissée.',
@@ -56,7 +73,7 @@ export const progressCopy = {
     wrong: 'À revoir',
     yes: 'Oui',
     no: 'Non',
-    review: 'À revoir',
+    review: 'À retravailler',
     reviewIntro:
       'Exercices dont la dernière tentative est incorrecte. Reprenez-les depuis la leçon.',
     noMistakes: 'Aucune erreur en suspens. Bien joué.',
@@ -70,6 +87,22 @@ export const progressCopy = {
     back: 'Revenir à mon compte',
   },
   en: {
+    resume: 'Resume my activity',
+    resumeHint:
+      'Your latest saved action: reading completed or exercise attempted. Page visits are not recorded.',
+    noSavedActivity: 'No saved activity yet. Choose a lesson to start.',
+    savedHistory: 'View my progress and history',
+    readingCompleted: 'Reading completed',
+    activityCompleted: 'Activity completed',
+    activitySessionOnly:
+      'Results for this session only, without saved progress or mastery evidence.',
+    readingHistory: 'Completed reading',
+    readingHint:
+      'Your explicit choice to finish reading, reversible from the lesson. It is not mastery evidence.',
+    activityHint:
+      'Practice exams and workshops are not saved here. “Activity completed” describes the end of a session, without mastery evidence.',
+    loading: 'Loading your latest activity…',
+    reload: 'Try again',
     nav: 'My journey',
     eyebrow: 'My journey',
     heroLines: ['Advance', 'Revisit', 'Understand'],
@@ -84,7 +117,7 @@ export const progressCopy = {
     historyFeedback: 'Review this version’s explanation',
     feedbackUnavailable:
       'This version’s explanation is unavailable. The recorded result is preserved.',
-    revisit: 'To revisit',
+    revisit: 'Needs review',
     continueLabel: 'Keep going',
     revisitHint: 'Reread the explanation, then check with another question.',
     continueHint: 'Pick the practice up where you left it.',
@@ -122,7 +155,7 @@ export const progressCopy = {
     wrong: 'To review',
     yes: 'Yes',
     no: 'No',
-    review: 'To review',
+    review: 'Needs review',
     reviewIntro:
       'Exercises whose latest attempt is incorrect. Try them again from the lesson.',
     noMistakes: 'No open mistakes. Well done.',

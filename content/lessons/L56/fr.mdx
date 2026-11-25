@@ -1,0 +1,82 @@
+---
+lessonId: L56
+locale: fr
+version: 1
+status: extended
+title: "LZW : décoder et reconstruire le dictionnaire"
+summary: "Compléter les entrées en attente avec la première lettre du morceau suivant."
+minutes: 25
+objectives: [L56-O01, L56-O02, L56-O03, L56-O04, L56-O05, L56-O06]
+prerequisites: [L55]
+sourcePages: [69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81]
+---
+
+# Retrouver le carnet sans qu’on vous l’envoie
+
+L’encodeur et le décodeur partagent seulement le dictionnaire initial et les règles. Les nouvelles chaînes ne voyagent pas avec le message : le décodeur les retrouve, dans le même ordre.
+
+**Source : `coding.pdf`, pages physiques 69–81.** Les répétitions montrent progressivement la même trace de décodage.
+
+## Objectifs et prérequis
+
+Vous saurez lire un code, concaténer les morceaux, réserver une entrée en attente, la compléter avec une seule lettre, respecter l’ordre des ajouts et traiter la fin du message. Prérequis : [L55](/fr/lessons/L55/).
+
+## 01 · Pourquoi une seule lettre manque
+
+Appelons **uᵢ** le i-ème morceau émis par l’encodeur : u₁ est le premier, u₂ le deuxième. Le signe **+** désigne ici une concaténation de chaînes. Au moment d’émettre uᵢ, l’encodeur a rencontré une lettre supplémentaire qui n’a pas permis de prolonger ce morceau. Cette lettre démarre le morceau suivant.
+
+La nouvelle entrée est donc **uᵢ + première lettre de uᵢ₊₁**. Le décodeur connaît uᵢ maintenant, mais attend le code suivant pour connaître cette première lettre. Le professeur note cette entrée **uᵢ?**. Le point d’interrogation n’est pas une lettre du message : c’est une place à compléter.
+
+## 02 · La recette de décodage
+
+1. Lire le premier code dans le dictionnaire initial et écrire son morceau. Réserver le prochain numéro pour ce morceau suivi de `?`.
+2. Lire le code suivant et trouver son morceau dans le dictionnaire déjà reconstruit.
+3. Compléter l’ancienne entrée en attente avec la **première lettre seulement** de ce nouveau morceau.
+4. Réserver le numéro suivant pour le nouveau morceau suivi de `?`, puis continuer.
+5. Après le dernier code, laisser la dernière entrée en attente incomplète. Elle ne devient pas une entrée complète utilisable.
+
+Une entrée encore incomplète peut elle-même être reçue comme code : c’est le seul cas spécial, étudié dans [L57](/fr/lessons/L57/). On ne devine pas arbitrairement un code absent.
+
+## 03 · Exemple complet : 2 1 3 5 1 4 6 6
+
+Départ : `A=1, B=2, N=3`. Le tableau montre l’état **après** chaque code.
+
+| Code reçu | Morceau écrit | Entrée complétée | Nouvelle attente |
+| --- | --- | --- | --- |
+| 2 | B | — | B?=4 |
+| 1 | A | BA=4 | A?=5 |
+| 3 | N | AN=5 | N?=6 |
+| 5 | AN | NA=6 | AN?=7 |
+| 1 | A | ANA=7 | A?=8 |
+| 4 | BA | AB=8 | BA?=9 |
+| 6 | NA | BAN=9 | NA?=10 |
+| 6 | NA | NAN=10 | NA?=11 |
+
+Au code 5, on lit **AN**, déjà complété au code précédent. Sa première lettre est A : `N?` devient **NA**, et non NAN. On écrit pourtant tout le morceau AN dans la sortie.
+
+La sortie est `B · A · N · AN · A · BA · NA · NA`, soit **BANANABANANA**. Les entrées complètes 4 à 10 correspondent exactement à celles de l’encodeur. `NA?=11` reste une promesse sans suite : on ne l’ajoute pas aux entrées complètes.
+
+## 04 · Vérifier sans se perdre
+
+Gardez quatre colonnes distinctes : code reçu, morceau, entrée complétée, nouvelle attente. Relisez le dictionnaire disponible **avant** le code. Puis vérifiez que chaque numéro ajouté suit le précédent, sans trou. Enfin, réencodez le texte avec le même alphabet : vous devez retrouver les codes d’origine.
+
+[Ouvrir l’atelier LZW et choisir Décodage](/fr/chapters/C04/lzw/). Le dictionnaire distingue visuellement l’entrée en attente des entrées utilisables.
+
+## Exercices progressifs et corrigés
+
+1. **Démarrage.** Avec `A=1, B=2`, décoder `1 2`. Quelle attente reste à la fin ?
+2. **Application.** Avec `A=1, N=2, S=3`, décoder `1 2 4 1 3` et donner les entrées complètes.
+3. **Défi.** Un morceau reçu est `BAN` et l’attente précédente vaut `NA?=10`. Quelle entrée complète-t-on ? Pourquoi pas `NABAN` ?
+
+<details className="info-answer">
+<summary>Solutions justifiées</summary>
+
+1. Écrire A, attendre `A?=3` ; écrire B, compléter `AB=3`, attendre `B?=4`. Sortie **AB**. La dernière attente `B?=4` reste incomplète.
+2. Morceaux `A · N · AN · A · S`, texte **ANANAS**. Les entrées complètes sont `AN=4, NA=5, ANA=6, AS=7`. L’attente finale est `S?=8`.
+3. On complète **NAB=10**. Seule la première lettre B du morceau BAN remplace le point d’interrogation ; le morceau entier est écrit dans la sortie.
+
+</details>
+
+## À retenir et suite
+
+Lire tout le morceau pour la sortie ; prendre **seulement sa première lettre** pour compléter l’ancienne attente. L’ordre et les numéros se synchronisent avec l’encodeur. Passez à [L57](/fr/lessons/L57/) pour décoder une entrée encore incomplète.

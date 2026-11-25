@@ -1,0 +1,135 @@
+---
+import Base from '../../layouts/Base.astro';
+import { locales } from '../../lib/i18n';
+import { chapters } from '../../lib/chapters';
+import { getCollection } from 'astro:content';
+import '../../styles/course-overview.css';
+export function getStaticPaths() {
+  return locales.map((locale) => ({ params: { locale }, props: { locale } }));
+}
+const { locale } = Astro.props;
+const fr = locale === 'fr';
+const title = fr ? 'S’entraîner' : 'Practise';
+const lessons = (await getCollection('lessons')).filter(
+  (entry) => entry.data.locale === locale,
+);
+---
+
+<Base
+  locale={locale}
+  path="practise/"
+  title={title}
+  description={
+    fr
+      ? 'Ateliers publics et exercices interactifs par chapitre.'
+      : 'Public workshops and interactive exercises by chapter.'
+  }
+>
+  <main id="main" tabindex="-1" class="resource-hub">
+    <p class="eyebrow">{fr ? 'METTRE EN PRATIQUE' : 'PUT IT INTO PRACTICE'}</p>
+    <h1>{title}</h1>
+    <p>
+      {fr
+        ? 'Choisissez un atelier pour explorer une méthode, ou des exercices de leçon pour recevoir une correction et enregistrer vos réponses.'
+        : 'Choose a workshop to explore a method, or lesson exercises for feedback and saved attempts.'}
+    </p>
+    <h2>{fr ? 'Ateliers publics' : 'Public workshops'}</h2>
+    <p class="resource-access">
+      {fr
+        ? 'Sans compte · les ateliers ne sauvegardent pas votre progression sur votre compte.'
+        : 'No account needed · workshops do not save progress to your account.'}
+    </p>
+    <ul class="resource-grid">
+      <li>
+        <h3>
+          <a href={`/${locale}/logic-workshop/`}>
+            {fr ? 'Atelier de logique' : 'Logic workshop'} →
+          </a>
+        </h3>
+        <p>
+          {fr
+            ? 'Formules, tables de vérité, implication et démonstrations.'
+            : 'Formulas, truth tables, implication and proofs.'}
+        </p>
+      </li>
+      <li>
+        <h3>
+          <a href={`/${locale}/chapters/C04/lzw/`}>
+            {fr ? 'Atelier LZW' : 'LZW workshop'} →
+          </a>
+        </h3>
+        <p>
+          {fr
+            ? 'Pratiquez le codage et le décodage avec un dictionnaire, pas à pas.'
+            : 'Practise encoding and decoding with a dictionary, step by step.'}
+        </p>
+      </li>
+    </ul>
+    <h2>
+      {fr ? 'Exercices interactifs par leçon' : 'Interactive lesson exercises'}
+    </h2>
+    <p class="resource-access">
+      {fr
+        ? 'Connexion et compte invité requis · correction et tentatives enregistrées · connexion Internet nécessaire.'
+        : 'Sign-in and an invited account required · feedback and saved attempts · Internet connection needed.'}
+    </p>
+    {chapters.map((chapter) => (
+      <details class="practice-chapter">
+        <summary>
+          {chapter.number} · {chapter.title[locale]}
+        </summary>
+        <ul>
+          {chapter.lessonIds.map((id) => {
+            const lesson = lessons.find((entry) => entry.data.lessonId === id);
+            return (
+              lesson && (
+                <li>
+                  <a href={`/${locale}/lessons/${id}/practice/`}>
+                    {id} · {lesson.data.title}
+                  </a>
+                </li>
+              )
+            );
+          })}
+        </ul>
+      </details>
+    ))}
+    <p>
+      <a href={`/${locale}/training-exams/`}>
+        {fr
+          ? 'Préparer une épreuve avec les examens blancs'
+          : 'Prepare for a paper with practice exams'}{' '}
+        →
+      </a>
+    </p>
+    <p>
+      <a href={`/${locale}/exercises/`}>
+        {fr
+          ? 'Cahiers à imprimer · PDF · accès libre'
+          : 'Printable workbooks · PDF · public access'}{' '}
+        →
+      </a>
+    </p>
+  </main>
+</Base>
+<style>
+  .practice-chapter {
+    border-top: 1px solid var(--line);
+    padding: 0.5rem 0;
+  }
+  .practice-chapter summary {
+    cursor: pointer;
+    min-height: 44px;
+    padding: 0.75rem 0;
+    font-weight: bold;
+  }
+  .practice-chapter a,
+  .resource-grid h3 a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .practice-chapter li {
+    margin-bottom: 0.5rem;
+  }
+</style>

@@ -3,7 +3,7 @@ import { getCollection, render } from 'astro:content';
 import Base from '../../../../layouts/Base.astro';
 import PracticeActivity from '../../../../components/PracticeActivity';
 import SignalGeometry from '../../../../components/SignalGeometry.astro';
-import { chapterForPath } from '../../../../lib/chapters';
+import { chapterForPath, chapterHref } from '../../../../lib/chapters';
 import { copy } from '../../../../lib/i18n';
 import {
   practiceHref,
@@ -69,6 +69,7 @@ const outline = lessons
   .sort((a, b) => a.data.lessonId.localeCompare(b.data.lessonId))
   .map((entry) => ({ id: entry.data.lessonId, title: entry.data.title }));
 const lessonNumber = lessonId.slice(1);
+const next = outline[outline.findIndex((item) => item.id === lessonId) + 1];
 ---
 
 <Base
@@ -134,6 +135,10 @@ const lessonNumber = lessonId.slice(1);
         exampleHref={example ? `${lessonHref}#${example.slug}` : lessonHref}
         hasExample={!!example}
         extended={!isReviewed(lessonId)}
+        nextLesson={
+          next && { href: `/${locale}/lessons/${next.id}/`, title: next.title }
+        }
+        chapterHref={chapterHref(locale, chapter)}
       />
     </div>
   </main>

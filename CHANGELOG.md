@@ -2,6 +2,35 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.21.0](https://github.com/GadDev/uni-math-course/compare/v0.20.0...v0.21.0) (2026-11-25)
+
+
+### Features
+
+* add Chapter 4 revision reference and clarify exam coverage ([#174](https://github.com/GadDev/uni-math-course/issues/174)) ([411373a](https://github.com/GadDev/uni-math-course/commit/411373a87c398ae83c86987475c151d336b3446a))
+* **learning:** guide L27 coordinates and distances in six stages ([#181](https://github.com/GadDev/uni-math-course/issues/181)) ([a4a81c1](https://github.com/GadDev/uni-math-course/commit/a4a81c12994d3f7d99aec818b16514bf1dd7233d))
+* **learning:** teach Cartesian equations and curves in six stages ([#182](https://github.com/GadDev/uni-math-course/issues/182)) ([ed84814](https://github.com/GadDev/uni-math-course/commit/ed848149ae1886e07f8ddf598f2b2908f10611fb))
+* resume saved study activity and show reading history ([#175](https://github.com/GadDev/uni-math-course/issues/175)) ([aa9ff21](https://github.com/GadDev/uni-math-course/commit/aa9ff21d1de1ca61a66b4879a644a04cae23803c))
+
+## [0.20.0](https://github.com/GadDev/uni-math-course/compare/v0.19.0...v0.20.0) (2026-11-19)
+
+
+### Features
+
+* add a bilingual learning resources footer ([#159](https://github.com/GadDev/uni-math-course/issues/159)) ([d7ad30a](https://github.com/GadDev/uni-math-course/commit/d7ad30a8cd0a0f8a9175335549d53707f882d30e))
+* add a bilingual propositional logic workshop ([#154](https://github.com/GadDev/uni-math-course/issues/154)) ([f7bb056](https://github.com/GadDev/uni-math-course/commit/f7bb0568f377edff3aef3726da4a95b60a0200b1))
+* add a four-chapter course overview and bilingual navigation ([#172](https://github.com/GadDev/uni-math-course/issues/172)) ([14d121f](https://github.com/GadDev/uni-math-course/commit/14d121f7922fbc4f07e32a0d3252640cfd78c1e2))
+* **chapter-four:** add bilingual LZW lessons and interactive practice ([#155](https://github.com/GadDev/uni-math-course/issues/155)) ([4d72bbe](https://github.com/GadDev/uni-math-course/commit/4d72bbea6e11dc2a5869dd72aec5da4ded69a0ad))
+* extend programme dashboards to chapters two through four ([#158](https://github.com/GadDev/uni-math-course/issues/158)) ([f047898](https://github.com/GadDev/uni-math-course/commit/f0478985247577da417be8fe22ec9c29eaba8d03))
+* redesign the chapter one programme overview ([#157](https://github.com/GadDev/uni-math-course/issues/157)) ([5307735](https://github.com/GadDev/uni-math-course/commit/5307735a7d6f7d467161c402689600863db1c439))
+* standardise chapter pathways and lesson navigation ([#173](https://github.com/GadDev/uni-math-course/issues/173)) ([21043d3](https://github.com/GadDev/uni-math-course/commit/21043d3528ce62471ec0735bad7586363ce6a3a1))
+
+
+### Bug Fixes
+
+* add a completion screen for lesson practice ([#153](https://github.com/GadDev/uni-math-course/issues/153)) ([47e188f](https://github.com/GadDev/uni-math-course/commit/47e188f928f8df46bf457eee5ccb4cab1ef0bb15))
+* **auth:** return signed-out learners to public pages ([#171](https://github.com/GadDev/uni-math-course/issues/171)) ([461050a](https://github.com/GadDev/uni-math-course/commit/461050a9653276b81412b32d488456da339c1664)), closes [#160](https://github.com/GadDev/uni-math-course/issues/160) [#161](https://github.com/GadDev/uni-math-course/issues/161)
+
 ## [0.19.0](https://github.com/GadDev/uni-math-course/compare/v0.18.0...v0.19.0) (2026-11-13)
 
 

@@ -6,7 +6,11 @@ test('public glossary searches both languages and glyphs, filters categories and
   await page.goto('/fr/');
   await page
     .locator('.primary-nav')
-    .getByRole('link', { name: 'Glossaire' })
+    .getByRole('link', { name: 'Réviser', exact: true })
+    .click();
+  await page
+    .locator('main')
+    .getByRole('link', { name: 'Glossaire des symboles →', exact: true })
     .click();
   await expect(page).toHaveURL('/fr/glossary/');
   await expect(page.locator('[data-entry]')).toHaveCount(153);
@@ -79,13 +83,14 @@ for (const locale of ['fr', 'en']) {
       ).toBeLessThanOrEqual(width);
       await page.locator('#E28 .glossary-formula').focus();
       await expect(page.locator('#E28 .glossary-formula')).toBeFocused();
-      // Responsive labels change DOM text, not the accessible link name.
+      // Shared resources identify their parent navigation destination.
+      if (width <= 900) await page.locator('.course-menu > summary').click();
       await expect(
-        page.locator('.primary-nav [aria-current="page"]'),
-      ).toHaveAccessibleName(locale === 'fr' ? 'Glossaire' : 'Glossary');
+        page.locator('.primary-nav [aria-current="location"]'),
+      ).toHaveAccessibleName(locale === 'fr' ? 'Réviser' : 'Revise');
       await expect(
-        page.locator('.primary-nav [aria-current="page"]'),
-      ).toHaveAttribute('href', `/${locale}/glossary/`);
+        page.locator('.primary-nav [aria-current="location"]'),
+      ).toHaveAttribute('href', `/${locale}/revise/`);
       await expect(page.locator('.katex-error')).toHaveCount(0);
     });
   }

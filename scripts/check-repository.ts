@@ -199,6 +199,23 @@ export async function validateRepository(
         present = found[0]!.info;
       }
     }
+    // Locale-prefixed chapter pages and their LZW workshop are real Astro
+    // sources. Do not treat arbitrary application URLs as valid links.
+    const chapterRoute = urlPath.match(
+      /^\/(fr|en)\/chapters\/(C\d{2})(\/lzw)?\/$/,
+    );
+    if (!present && chapterRoute) {
+      const source = resolve(
+        directory,
+        'src/pages/[locale]/chapters',
+        `${chapterRoute[2]}${chapterRoute[3] ?? ''}.astro`,
+      );
+      const info = await exists(source);
+      if (info?.isFile()) {
+        dest = source;
+        present = info;
+      }
+    }
     // Astro serves files in public/ at root-relative URLs. Resolve only real
     // static files here; missing routes and traversal still fail below.
     if (!present && urlPath.startsWith('/')) {

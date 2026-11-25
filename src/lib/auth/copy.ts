@@ -44,6 +44,9 @@ export const authCopy = {
     signOut: 'Se déconnecter de ce navigateur',
     signOutShort: 'Se déconnecter',
     back: 'Revenir à la lecture',
+    backToLesson: 'Revenir à la leçon',
+    backToExams: 'Revenir aux examens blancs',
+    backToCourse: 'Revenir au cours',
   },
   en: {
     signIn: 'Sign in',
@@ -89,5 +92,8 @@ export const authCopy = {
     signOut: 'Sign out of this browser',
     signOutShort: 'Sign out',
     back: 'Back to reading',
+    backToLesson: 'Return to lesson',
+    backToExams: 'Return to practice exams',
+    backToCourse: 'Return to course',
   },
 } as const;

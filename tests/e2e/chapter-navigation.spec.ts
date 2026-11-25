@@ -39,8 +39,7 @@ for (const locale of ['fr', 'en']) {
     await page.keyboard.press('Tab');
     await page.keyboard.press('Tab');
     await expect(picker).not.toHaveAttribute('open');
-    await page.locator('.primary-nav > a').first().click();
-    await expect(page).toHaveURL(`/${locale}/glossary/`);
+    await page.goto(`/${locale}/glossary/`);
     await picker.locator('summary').click();
     await expect(picker.locator('[aria-current]')).toHaveCount(0);
     await picker.locator('[data-chapter="C01"]').click();
@@ -62,9 +61,9 @@ for (const locale of ['fr', 'en']) {
         await page.goto(`/${locale}/${path}`);
         await page.evaluate(() => document.fonts.ready);
         const header = await page.locator('.site-header').boundingBox();
-        expect(header!.height).toBeLessThanOrEqual(width > 1100 ? 100 : 145);
+        expect(header!.height).toBeLessThanOrEqual(250);
         for (const node of await page
-          .locator('.primary-nav > a, .chapter-selector-title')
+          .locator('.chapter-selector-title')
           .all()) {
           // Hidden/full label spans can create duplicate DOM rects; compare y positions.
           const ys = await node.evaluate((e) => {

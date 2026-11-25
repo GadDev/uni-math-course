@@ -11,7 +11,7 @@ export const examCopy = {
       'Vérification mathématique et bilingue par l’auteur, avec contrôles complémentaires. Sans relecture indépendante.',
     format: '20 questions · 60 min conseillées · note sur 20',
     rules:
-      'Sans calculatrice ni notes pour simuler une épreuve. Travaillez vos calculs sur papier. La durée est indicative : aucune réponse n’est envoyée automatiquement.',
+      'Pour le rappel sans notes, entraînez-vous sans calculatrice ni documents. Confirmez les règles officielles sur la calculatrice et les documents auprès de l’enseignant. Travaillez sur papier. Durée indicative ; aucun envoi automatique.',
     marking:
       '1 point par question entièrement correcte, 0 sinon. Pour un QCM multiple, cochez toutes les bonnes réponses et aucune autre. Pour une question à plusieurs champs, tous doivent être corrects. Aucun point négatif.',
     privacy:
@@ -83,7 +83,7 @@ export const examCopy = {
       'Mathematics and translations checked by the author, with additional cross-checks. No independent review.',
     format: '20 questions · suggested 60 min · score out of 20',
     rules:
-      'Use no calculator or notes to simulate an exam. Work your calculations on paper. Timing is advisory: answers are never submitted automatically.',
+      'For closed-book recall, practise without a calculator or reference materials. Confirm official calculator and reference-material rules with your teacher. Work on paper. Timing is advisory; answers are never submitted automatically.',
     marking:
       '1 point for a fully correct question, otherwise 0. For multiple choice, select every correct option and no others. For a question with several fields, all must be correct. No negative marking.',
     privacy:
