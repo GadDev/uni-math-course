@@ -621,15 +621,31 @@ function LabView({
       </Plot>
     );
     if (kind === 'membership') {
-      const r = equationTest(choice as Curve, { x: v[0]!, y: v[1]! });
+      const x = v[0]!,
+        y = v[1]!,
+        r = equationTest(choice as Curve, { x, y });
+      const sx = `(${f(x)})`,
+        sy = `(${f(y)})`;
+      const substitutions: Record<Curve, [string, string]> = {
+        line: [f(y), `2 × ${sx} + 1`],
+        circle: [`${sx}² + ${sy}²`, '4'],
+        parabola: [f(y), `${sx}²`],
+        sideways: [f(x), `${sy}²`],
+        squared: [`${sy}²`, `${sx}²`],
+        multiplied: [`${sx} × ${sy}`, `${sx}²`],
+      };
+      const [left, right] = substitutions[choice as Curve];
       result = (
         <>
           <p>
             {equations[choice as Curve]} ; P = {pt(v[0]!, v[1]!)}.
           </p>
-          <p>
-            {fr ? 'Membre gauche' : 'Left side'} = {f(r.left)} ;{' '}
-            {fr ? 'membre droit' : 'right side'} = {f(r.right)}.
+          <p data-membership-substitution>
+            {fr ? 'Membre gauche' : 'Left side'} : {left} = {f(r.left)} ;{' '}
+            {fr ? 'membre droit' : 'right side'} : {right} = {f(r.right)}.
+          </p>
+          <p data-membership-comparison>
+            {f(r.left)} {r.left === r.right ? '=' : '≠'} {f(r.right)}
           </p>
           <p>
             {r.left === r.right
@@ -641,11 +657,24 @@ function LabView({
                 : 'False equality: P does not lie on the curve.'}
           </p>
           {['squared', 'multiplied'].includes(choice) && (
-            <p>
-              {fr
-                ? 'Le trait continu est y = x ; les tirets montrent les points supplémentaires. Testez P dans les deux équations pour conclure.'
-                : 'The solid line is y = x; dashes show additional points. Test P in both equations to conclude.'}
-            </p>
+            <>
+              <p data-original-comparison>
+                {fr ? 'Équation initiale' : 'Original equation'} : y = x ;{' '}
+                {f(y)} {y === x ? '=' : '≠'} {f(x)}.{' '}
+                {y !== x && r.left === r.right
+                  ? fr
+                    ? 'P est une solution ajoutée : contre-exemple.'
+                    : 'P is an added solution: counterexample.'
+                  : fr
+                    ? 'P n’est pas un contre-exemple à cette transformation.'
+                    : 'P is not a counterexample to this transformation.'}
+              </p>
+              <p>
+                {fr
+                  ? 'Le trait continu est y = x ; les tirets montrent la branche ajoutée (sauf leur point commun).'
+                  : 'The solid line is y = x; dashes show the added branch (except their shared point).'}
+              </p>
+            </>
           )}
         </>
       );
