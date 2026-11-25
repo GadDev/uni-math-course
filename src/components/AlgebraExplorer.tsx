@@ -377,6 +377,40 @@ function LabView({
             />
           )}
         </svg>
+        <figure>
+          <svg
+            viewBox="0 0 400 115"
+            role="img"
+            aria-label={t(
+              `Distance de ${a} à zéro : ${Math.abs(a)}`,
+              `Distance from ${a} to zero: ${Math.abs(a)}`,
+            )}
+          >
+            <path className="algebra-axis" d="M20 70H380" />
+            {Array.from({ length: 11 }, (_, i) => i - 5).map((n) => (
+              <g key={n}>
+                <path
+                  className="algebra-axis"
+                  d={`M${200 + 32 * n} 65v10`}
+                />
+                <text x={200 + 32 * n} y="96" textAnchor="middle">
+                  {n}
+                </text>
+              </g>
+            ))}
+            <path
+              className="algebra-line"
+              d={`M200 38H${200 + 32 * a}V65`}
+            />
+            <circle cx={200 + 32 * a} cy="70" r="5" fill="currentColor" />
+            <text x="200" y="23" textAnchor="middle">
+              |x| = {f(Math.abs(a))}
+            </text>
+          </svg>
+          <figcaption data-root-distance>
+            √(x²) = |x| = {f(Math.abs(a))}
+          </figcaption>
+        </figure>
         <table>
           <caption>
             {t(
