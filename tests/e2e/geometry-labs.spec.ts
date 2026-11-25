@@ -278,3 +278,35 @@ for (const locale of ['fr', 'en']) {
     await expect(comparison).toHaveText('3 = 3');
   });
 }
+
+for (const locale of ['fr', 'en']) {
+  test(`${locale}: L32 links mathematical and screen frames`, async ({
+    page,
+  }) => {
+    await page.goto(`/${locale}/lessons/L32/`);
+    const lab = page.locator('[data-geometry-lab="screen"]');
+    const live = lab.locator('.geo-live');
+    await lab.scrollIntoViewIfNeeded();
+    await expect(lab.locator('fieldset')).toBeVisible();
+    await expect(live.locator('.geo-screen-pair svg')).toHaveCount(2);
+    await values(lab, [2, 1, 50, 50]);
+    await expect(live.locator('[data-screen-forward]')).toContainText('= 300');
+    await expect(live.locator('[data-screen-forward]')).toContainText('= 100');
+    await expect(live.locator('[data-screen-offset]')).toContainText('= -50');
+    await values(lab, [-2, -1, 50, 30]);
+    await expect(live.locator('[data-screen-forward]')).toContainText('= 100');
+    await expect(live.locator('[data-screen-forward]')).toContainText('= 180');
+    await expect(live.locator('[data-screen-inverse]')).toContainText('= -2');
+    await expect(live.locator('[data-screen-offset]')).toContainText('= 30');
+    await expect(live.locator('[data-screen-slope]')).toContainText(
+      locale === 'fr' ? '≈ -1,2' : '≈ -1.2',
+    );
+    await values(lab, [6, 6, 60, 60]);
+    await expect(live.locator('[data-visibility]')).toContainText(
+      locale === 'fr' ? 'hors image' : 'outside the image',
+    );
+    await lab.getByRole('button', { name: /Réinitialiser|Reset/ }).click();
+    await expect(live.locator('[data-screen-forward]')).toContainText('= 280');
+    await expect(live.locator('[data-screen-forward]')).toContainText('= 110');
+  });
+}
