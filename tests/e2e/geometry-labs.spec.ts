@@ -239,9 +239,7 @@ test('touch controls, dark theme and paired section anchors', async ({
     exact: true,
   });
   const englishId = await englishHeading.getAttribute('id');
-  expect(decodeURIComponent(new URL(page.url()).hash.slice(1))).toBe(
-    englishId,
-  );
+  expect(decodeURIComponent(new URL(page.url()).hash.slice(1))).toBe(englishId);
   await context.close();
 });
 
@@ -308,7 +306,9 @@ for (const locale of ['fr', 'en']) {
     await expect(reference).toContainText(
       locale === 'fr' ? 'parallèles distinctes' : 'distinct parallel lines',
     );
-    await expect(live.locator('[data-slope-intercept]')).toContainText('(0 ; 3)');
+    await expect(live.locator('[data-slope-intercept]')).toContainText(
+      '(0 ; 3)',
+    );
     await values(lab, [-0.5, 2, -2]);
     await expect(live.locator('[data-slope-change]')).toContainText('= 1');
     await values(lab, [0, 2, 2]);

@@ -493,8 +493,7 @@ function LabView({
                   d={`M${X(0)},${Y(v[1]!)}H${X(v[2]!)}V${Y(v[2]! * v[0]! + v[1]!)}`}
                 />
                 {point(X, Y, 0, v[1]!, v[2] === 0 ? 'A = B' : 'A')}
-                {v[2] !== 0 &&
-                  point(X, Y, v[2]!, v[2]! * v[0]! + v[1]!, 'B')}
+                {v[2] !== 0 && point(X, Y, v[2]!, v[2]! * v[0]! + v[1]!, 'B')}
               </>
             );
           if (kind === 'points') {
@@ -688,16 +687,14 @@ function LabView({
             y = ({f(v[0]!)})x + ({f(v[1]!)}).
           </p>
           <p data-slope-intercept>
-            A = {pt(0, v[1]!)} ; B = {pt(v[2]!, v[2]! * v[0]! + v[1]!)}.
-            {' '}
+            A = {pt(0, v[1]!)} ; B = {pt(v[2]!, v[2]! * v[0]! + v[1]!)}.{' '}
             {fr ? 'Départ p' : 'Starting value p'} = {f(v[1]!)}.
           </p>
           <p>
             Δx = {f(v[2]!)} ; Δy = {f(v[2]! * v[0]!)}.
           </p>
           <p data-slope-change>
-            Δy = m × Δx = ({f(v[0]!)}) × ({f(v[2]!)}) ={' '}
-            {f(v[2]! * v[0]!)}.
+            Δy = m × Δx = ({f(v[0]!)}) × ({f(v[2]!)}) = {f(v[2]! * v[0]!)}.
           </p>
           <p>
             {v[0]! > 0
@@ -732,8 +729,7 @@ function LabView({
                       : 'Both slope and starting value have changed.'}
             </p>
           )}
-          {(v[2]! * v[0]! + v[1]! < -4 ||
-            v[2]! * v[0]! + v[1]! > 8) && (
+          {(v[2]! * v[0]! + v[1]! < -4 || v[2]! * v[0]! + v[1]! > 8) && (
             <p>
               {fr
                 ? 'B est hors de la fenêtre ; son calcul reste valable.'
