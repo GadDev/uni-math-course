@@ -142,14 +142,16 @@ for (const locale of ['fr', 'en']) {
       ).toBeVisible();
       await page.locator('.source-next a[href$="L35/#pdf-84"]').click();
       await expect(page.locator('#pdf-84')).toBeInViewport();
-      const solution = page.locator('article details').first();
+      const solution = page.locator('#pdf-84 ~ details').first();
       await expect(solution).not.toHaveAttribute('open');
       await solution.locator('summary').click();
       await expect(solution).toContainText('28');
       await expect(solution.locator('.katex')).not.toHaveCount(0);
-      await expect(
-        page.locator('article > details').nth(1),
-      ).not.toHaveAttribute('open');
+      const proof = page.locator('article details').filter({
+        has: page.locator('#supplement-square'),
+      });
+      await expect(proof).toHaveCount(1);
+      await expect(proof).not.toHaveAttribute('open');
       await page.locator('.source-next a[href$="L36/#pdf-92"]').click();
       await expect(page.locator('#pdf-92')).toBeInViewport();
     } finally {
