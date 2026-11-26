@@ -1,7 +1,7 @@
 ---
 lessonId: L48
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Surprise, information et entropie de Shannon"
 summary: "Comprendre le codage de l'information, avec des exemples guidés."
@@ -12,6 +12,7 @@ sourcePages: [22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
 ---
 
 import InformationExplorer from '../../../src/components/InformationExplorer';
+import '../../../src/styles/information-guides.css';
 
 # Surprise, information et entropie de Shannon
 
@@ -44,12 +45,16 @@ s'exprime en **bits d'information**. Le logarithme en base $2$ répond à la que
 
 **Vocabulaire.** La diapositive parle d'« entropie d'un caractère ». Pour distinguer la valeur individuelle de la moyenne, nous l'appelons aussi **information propre** ou **surprise** $I(s)$ ; l'entropie de la source sera notée $H(S)$.
 
+<div className="info-table-scroll" role="region" aria-label="Tableau de calcul" tabIndex={0}>
+
 | Probabilité | Information $I(s)$ | Lecture |
 | --- | --- | --- |
 | $1$ | $0$ | événement certain |
 | $1/2$ | $1$ | un bit |
 | $1/4$ | $2$ | deux bits |
 | $1/8$ | $3$ | trois bits |
+
+</div>
 
 **Attention au domaine.** Le PDF suppose des probabilités strictement positives. La limite du cas $p=0$ n'est donc pas un calcul de $\log_2(0)$ dans le cours. Si une extension autorise $p=0$, le terme $p\log_2p$ est traité par limite et vaut $0$ dans le calcul de l'entropie.
 
@@ -70,6 +75,44 @@ Pour $(3/4,1/4)$ :
 $$H(S)=-\frac34\log_2(3/4)-\frac14\log_2(1/4)\approx0{,}811.$$
 
 La deuxième distribution est plus prévisible ; son entropie est inférieure. Les valeurs approchées sont en bits par symbole source.
+
+## Lire la formule sans deviner
+
+**L’essentiel.** $i$ est le numéro d’un symbole ; $p_i$ est sa probabilité ; $I(s_i)$ est sa surprise. Le signe $\sum$ demande d’additionner **un produit par symbole**. Pour trois symboles :
+
+$$H(S)=p_1I(s_1)+p_2I(s_2)+p_3I(s_3).$$
+
+Avec les probabilités $(1/2,1/4,1/4)$, calculons d’abord chaque colonne. Le logarithme donne un exposant : $2^{-2}=1/4$, donc $\log_2(1/4)=-2$ et $-\log_2(1/4)=2$.
+
+<div className="info-table-scroll" role="region" aria-label="Tableau de calcul" tabIndex={0}>
+
+| Symbole | $p_i$ | $\log_2(p_i)$ | $I(s_i)$ | $p_iI(s_i)$ |
+| --- | --- | --- | --- | --- |
+| x | $1/2$ | $-1$ | $1$ | $1/2$ |
+| y | $1/4$ | $-2$ | $2$ | $1/2$ |
+| z | $1/4$ | $-2$ | $2$ | $1/2$ |
+
+</div>
+
+<figure className="info-concept-figure">
+<div className="info-figure-scroll" role="region" aria-label="Schéma : défiler horizontalement si nécessaire" tabIndex={0}>
+<img src="/diagrams/information/l48-weighted-fr.svg" width="480" height="445" alt="Les surprises 1, 2, 2 sont pondérées par 1/2, 1/4, 1/4 : les trois contributions valent 1/2, total 3/2." loading="lazy" />
+</div>
+<figcaption>Les segments ont la même largeur parce que les contributions sont égales, même si les surprises diffèrent. On additionne la dernière colonne : H = 3/2 bits par symbole.</figcaption>
+</figure>
+
+<div className="info-guided">
+
+**Prédire avant le curseur.** Le symbole x devient rare : sa surprise augmente-t-elle ? L’entropie binaire augmente-t-elle aussi quand sa probabilité passe de 1/2 à 1/4 ?
+
+<details className="info-answer">
+<summary>Vérifier et comprendre</summary>
+
+La surprise de x passe de $1$ à $2$ bits. Mais l’entropie de la source binaire passe de $1$ à environ $0{,}811$ bit par symbole. Une surprise plus grande pour un événement rare peut accompagner une moyenne plus petite. Dans le laboratoire ci-dessous, tester ces deux probabilités puis comparer la surprise, sa contribution pondérée et H.
+
+</details>
+
+</div>
 
 ## Comment s’en servir ?
 
@@ -111,11 +154,18 @@ Pour deux symboles de probabilités $p$ et $1-p$, avec $0<p<1$ :
 
 $$H_2(p)=-p\log_2p-(1-p)\log_2(1-p).$$
 
-La page 27 trace cette courbe. Échanger les deux symboles remplace p par 1 − p sans changer la somme : la courbe est symétrique. Pour vérifier son sommet, on peut dériver :
+La page 27 trace cette courbe. Échanger les deux symboles remplace p par 1 − p sans changer la somme : la courbe est symétrique. Le graphique et les calculs suffisent pour lire son maximum. La justification analytique suivante utilise la dérivée du logarithme ([L39](/fr/lessons/L39/) et [L41](/fr/lessons/L41/)).
+
+<details className="info-answer">
+<summary>Maîtriser : justifier le sommet par une dérivée</summary>
+
+On dérive sur 0 &lt; p &lt; 1 :
 
 $$H_2'(p)=\log_2\left(\frac{1-p}{p}\right).$$
 
 Cette dérivée est positive avant un demi et négative après ; le maximum vaut un bit lorsque les deux symboles sont équiprobables. Aux extrémités, la convention explicite $0\log_2 0=0$ par limite donne une entropie nulle. Elle n'attribue pas une information propre finie à un événement impossible.
+
+</details>
 
 ## Expérimenter et expliquer
 

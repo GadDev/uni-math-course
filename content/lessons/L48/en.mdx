@@ -1,7 +1,7 @@
 ---
 lessonId: L48
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Surprise, self-information and Shannon entropy"
 summary: "Understand source coding with guided examples."
@@ -12,6 +12,7 @@ sourcePages: [22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
 ---
 
 import InformationExplorer from '../../../src/components/InformationExplorer';
+import '../../../src/styles/information-guides.css';
 
 # Surprise, self-information and Shannon entropy
 
@@ -44,12 +45,16 @@ is measured in **bits of information**. The base-$2$ logarithm asks “which exp
 
 **Terminology.** The slide calls this “entropy of a character”. To distinguish an individual value from the average, we also use **self-information** or **surprisal** $I(s)$; source entropy is $H(S)$.
 
+<div className="info-table-scroll" role="region" aria-label="Calculation table" tabIndex={0}>
+
 | Probability | Information $I(s)$ | Interpretation |
 | --- | --- | --- |
 | $1$ | $0$ | certain event |
 | $1/2$ | $1$ | one bit |
 | $1/4$ | $2$ | two bits |
 | $1/8$ | $3$ | three bits |
+
+</div>
 
 **Domain warning.** The PDF assumes strictly positive probabilities. The case $p=0$ therefore does not call for calculating $\log_2(0)$ in this course. If an extension permits $p=0$, the term $p\log_2p$ is defined by its limit as $0$ in the entropy sum.
 
@@ -70,6 +75,44 @@ For $(3/4,1/4)$:
 $$H(S)=-\frac34\log_2(3/4)-\frac14\log_2(1/4)\approx0{,}811.$$
 
 The latter distribution is more predictable and has less entropy. Approximate values are in bits per source symbol.
+
+## Read the formula without guessing
+
+**Essentials.** $i$ numbers a symbol; $p_i$ is its probability; $I(s_i)$ is its surprisal. The $\sum$ sign asks us to add **one product per symbol**. For three symbols:
+
+$$H(S)=p_1I(s_1)+p_2I(s_2)+p_3I(s_3).$$
+
+For probabilities $(1/2,1/4,1/4)$, calculate each column first. A logarithm gives an exponent: $2^{-2}=1/4$, so $\log_2(1/4)=-2$ and $-\log_2(1/4)=2$.
+
+<div className="info-table-scroll" role="region" aria-label="Calculation table" tabIndex={0}>
+
+| Symbol | $p_i$ | $\log_2(p_i)$ | $I(s_i)$ | $p_iI(s_i)$ |
+| --- | --- | --- | --- | --- |
+| x | $1/2$ | $-1$ | $1$ | $1/2$ |
+| y | $1/4$ | $-2$ | $2$ | $1/2$ |
+| z | $1/4$ | $-2$ | $2$ | $1/2$ |
+
+</div>
+
+<figure className="info-concept-figure">
+<div className="info-figure-scroll" role="region" aria-label="Diagram: scroll horizontally if needed" tabIndex={0}>
+<img src="/diagrams/information/l48-weighted-en.svg" width="480" height="445" alt="Surprisals 1, 2, 2 are weighted by 1/2, 1/4, 1/4: three contributions of 1/2, totaling 3/2." loading="lazy" />
+</div>
+<figcaption>Segments have equal width because the contributions are equal even though the surprisals differ. Add the last column: H = 3/2 bits per symbol.</figcaption>
+</figure>
+
+<div className="info-guided">
+
+**Predict before using the slider.** Symbol x becomes rare: does its surprisal increase? Does binary entropy also increase when its probability changes from 1/2 to 1/4?
+
+<details className="info-answer">
+<summary>Check and understand</summary>
+
+The surprisal of x rises from $1$ to $2$ bits. But binary-source entropy falls from $1$ to about $0{,}811$ bits per symbol. A larger surprisal for a rare event can accompany a smaller mean. In the lab below, test both probabilities and compare surprisal, its weighted contribution and H.
+
+</details>
+
+</div>
 
 ## How to use it
 
@@ -111,11 +154,18 @@ For two symbols of probabilities $p$ and $1-p$, with $0<p<1$:
 
 $$H_2(p)=-p\log_2p-(1-p)\log_2(1-p).$$
 
-Page 27 plots this curve. Exchanging the symbols replaces p by 1 − p without changing the sum: the curve is symmetric. To verify its peak, differentiate:
+Page 27 plots this curve. Exchanging the symbols replaces p by 1 − p without changing the sum: the curve is symmetric. The graph and calculations let us read its maximum. The following analytic justification uses the logarithm derivative ([L39](/en/lessons/L39/) and [L41](/en/lessons/L41/)).
+
+<details className="info-answer">
+<summary>Mastery: justify the peak using a derivative</summary>
+
+Differentiate on 0 &lt; p &lt; 1:
 
 $$H_2'(p)=\log_2\left(\frac{1-p}{p}\right).$$
 
 This derivative is positive before one half and negative afterwards; the maximum is one bit when the symbols are equally likely. At endpoints, the explicit limiting convention $0\log_2 0=0$ gives zero entropy. It does not assign finite self-information to an impossible event.
+
+</details>
 
 ## Experiment and explain
 

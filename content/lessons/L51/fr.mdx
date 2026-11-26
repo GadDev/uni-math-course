@@ -1,7 +1,7 @@
 ---
 lessonId: L51
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Kraft–McMillan : quelles longueurs sont possibles ?"
 summary: "Calculer la somme de Kraft et distinguer existence et décodabilité."
@@ -12,6 +12,7 @@ sourcePages: [44, 45]
 ---
 
 import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+import '../../../src/styles/information-guides.css';
 
 # Peut-on donner des mots courts à tout le monde ?
 
@@ -32,6 +33,30 @@ $$K(c)=\sum_{i=1}^m2^{-\ell_i}.$$
 **Kraft–McMillan.** Si le code est à décodage unique pour les messages finis sans séparateurs, alors $K(c)\le1$. Ce théorème n'utilise pas les probabilités de la source. En particulier, $K(c)>1$ prouve l'impossibilité du décodage unique.
 
 Exemples : pour les longueurs $(1,2,2)$, $K=1/2+1/4+1/4=1$. Pour $(1,1,2)$, $K=1/2+1/2+1/4=5/4>1$ : aucune attribution ne convient.
+
+## Visualiser la place avant la preuve
+
+L’exposant négatif est un raccourci : $2^{-\ell}=1/2^{\ell}$. Avec $\ell=3$, cela donne $1/8$ de la place disponible. Le nombre $M$ est la plus grande longueur ; pour $M=3$, on dessine les huit positions de longueur 3.
+
+<figure className="info-concept-figure">
+<div className="info-figure-scroll" role="region" aria-label="Schéma : défiler horizontalement si nécessaire" tabIndex={0}>
+<img src="/diagrams/information/l51-prefix-space-fr.svg" width="480" height="490" alt="0 réserve 000 à 011 ; 10 réserve 100 et 101 ; 11 réserve 110 et 111. En bas, 0 et 01 réservent tous deux 010 et 011." loading="lazy" />
+</div>
+<figcaption>Une feuille de longueur 1 réserve 4 positions sur 8 ; une feuille de longueur 2 en réserve 2. Les groupes sont disjoints pour le code préfixe 0, 10, 11. Le chevauchement en bas montre pourquoi une table particulière demande aussi une vérification.</figcaption>
+</figure>
+
+<div className="info-guided">
+
+**À compléter.** Avec les mots 00, 01, 10 et M = 3, combien de positions sont réservées ? Quelle fraction reste libre ?
+
+<details className="info-answer">
+<summary>Vérifier et comprendre</summary>
+
+Chaque mot réserve $2^{3-2}=2$ positions. Les trois mots réservent $6$ positions distinctes sur $8$ : $K=6/8=3/4$. Il reste $2/8=1/4$. Une somme strictement inférieure à 1 n’empêche pas le décodage unique. Dans le laboratoire, essayer les quatre longueurs 2, 3, 3, 3 : prédire d’abord pourquoi une place reste libre.
+
+</details>
+
+</div>
 
 ## 02 · Pourquoi un arbre préfixe satisfait l'inégalité
 

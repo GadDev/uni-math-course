@@ -1,7 +1,7 @@
 ---
 lessonId: L54
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Source extensions and Shannon’s theorem"
 summary: "Code independent blocks and compare efficiency with codebook size."
@@ -12,6 +12,7 @@ sourcePages: [55, 56, 57, 58, 59, 60]
 ---
 
 import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+import '../../../src/styles/information-guides.css';
 
 # Group symbols to approach the limit
 
@@ -35,9 +36,39 @@ Without independence, this multiplication is unjustified. For example, a sequenc
 
 Block length n is known to the decoder. A finite message whose size is not a multiple of n needs an agreed remainder rule; the formulas below describe complete blocks and exclude headers, a transmitted dictionary or final padding.
 
+## Read the product and form pairs
+
+The $\prod$ symbol asks us to **multiply** one factor per position; $\sum$ asked us to add. For example, for three independent positions:
+
+$$P(aba)=p(a)\,p(b)\,p(a)=\frac23\cdot\frac13\cdot\frac23=\frac4{27}.$$
+
+For two positions, each grid cell multiplies its row probability by its column probability.
+
+<figure className="info-concept-figure">
+<div className="info-figure-scroll" role="region" aria-label="Diagram: scroll horizontally if needed" tabIndex={0}>
+<img src="/diagrams/information/l54-pair-grid-en.svg" width="480" height="480" alt="Independent pair probabilities are 4/9, 2/9, 2/9 and 1/9. A block contains two symbols: divide cost per block by two." loading="lazy" />
+</div>
+<figcaption>Message aaba splits into two blocks, aa and ba. Using the table below, it takes four bits. This individual cost is not the source mean of 17/18 per symbol.</figcaption>
+</figure>
+
+<div className="info-guided">
+
+**Predict the units.** If a two-letter block costs 17/9 bits on average, should we multiply or divide by two to get cost per letter?
+
+<details className="info-answer">
+<summary>Check and understand</summary>
+
+Divide: $L_2/2=17/18$ bits per original symbol. Check: two symbols cost $2\cdot17/18=17/9$ bits on average. The number 2 is the source-block size, not a codeword bit length.
+
+</details>
+
+</div>
+
 ## 02 · The PDF example with explicit units
 
 Take $p(a)=2/3$, $p(b)=1/3$. Coding individual symbols as `0` and `1` gives mean 1 bit per symbol. For independent pairs:
+
+<div className="info-table-scroll" role="region" aria-label="Calculation table" tabIndex={0}>
 
 | Block | Probability | Codeword | Length |
 | --- | --- | --- | --- |
@@ -45,6 +76,8 @@ Take $p(a)=2/3$, $p(b)=1/3$. Coding individual symbols as `0` and `1` gives mean
 | ab | 2/9 | 10 | 2 |
 | ba | 2/9 | 110 | 3 |
 | bb | 1/9 | 111 | 3 |
+
+</div>
 
 Huffman merges weights $1+2=3$, then $2+3=5$, then $4+5=9$. Ties allow ab and ba to exchange roles without changing optimal cost.
 
@@ -57,6 +90,14 @@ A block represents two symbols:
 $$\frac{L_2}{2}=\frac{17}{18}\approx0{,}9444\text{ bit/symbole}.$$
 
 This improves on 1, but original entropy remains $H(S)\approx0{,}9183$. Page 58 reports cost already converted per character; we separate the two units to avoid comparing 17/9 directly with 1.
+
+## Expand additivity for a pair
+
+For each pair uv, independence gives $P(uv)=p(u)p(v)$; the logarithm turns this product into a sum. After grouping all four pairs, the first position contributes:
+
+$$-p(a)\log_2p(a)\,[p(a)+p(b)]-p(b)\log_2p(b)\,[p(a)+p(b)]=H(S).$$
+
+The brackets equal 1. The second position contributes in the same way: $H(S^2)=H(S)+H(S)=2H(S)$. The general proof below repeats this grouping for each of the n positions.
 
 ## 03 · Why block entropy is multiplied by n
 
@@ -74,6 +115,15 @@ This identity uses the iid model; it does not follow merely from a block's lette
 
 For every n, construct a Huffman code on blocks. Its optimal mean is $L_n$. The previous bound applied to the block alphabet gives $L_n\ge H(S^n)$.
 
+**Result to use (Huffman, iid source).**
+
+$$H(S)\le\frac{L_n}{n}<H(S)+\frac1n.$$
+
+The PDF states the approximation theorem. The quantitative derivation below is a teaching addition; it does not replace the assumptions and units to remember.
+
+<details className="info-answer">
+<summary>Go further: construct the upper bound</summary>
+
 For the upper bound, first choose Shannon lengths
 
 $$\ell(w)=\lceil-\log_2P(w)\rceil.$$
@@ -87,6 +137,8 @@ Divide by positive n and use additivity:
 $$H(S)\le\frac{L_n}{n}<H(S)+\frac1n.$$
 
 The guaranteed per-symbol gap tends to zero. For a positive margin $\varepsilon$, choosing $n>1/\varepsilon$ guarantees a gap strictly below that margin. This is a general guarantee, not the smallest block size needed for a specific source. Costs need not decrease strictly at every n.
+
+</details>
 
 ## Experiment and explain
 

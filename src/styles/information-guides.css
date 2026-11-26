@@ -1,0 +1,90 @@
+/* Scoped original concept figures: fixed mathematical geometry, fluid reading. */
+.lesson-prose .info-concept-figure {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  break-inside: avoid;
+}
+.info-concept-figure img {
+  display: block;
+  width: 100%;
+  max-width: 30rem;
+  height: auto;
+  margin: auto;
+  background: white;
+}
+.info-concept-figure figcaption {
+  margin-top: 0.8rem;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+.lesson-prose .info-guided {
+  padding: 1rem;
+  border-left: 3px solid currentColor;
+  margin: 1.5rem 0;
+}
+.info-guided summary {
+  cursor: pointer;
+  padding-block: 0.5rem;
+}
+.info-guided :focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+@media print {
+  .lesson-prose .info-concept-figure {
+    padding: 0.4rem;
+    border-color: #777;
+  }
+  .info-concept-figure img {
+    max-height: 12cm;
+    width: auto;
+    max-width: 100%;
+  }
+  .lesson-prose .info-guided {
+    padding: 0.5rem;
+    break-inside: auto;
+  }
+}
+.info-figure-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.info-figure-scroll:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .lesson-prose .info-concept-figure {
+    padding: 0.5rem;
+  }
+  .info-concept-figure img {
+    min-width: 420px;
+  }
+}
+@media print {
+  .info-figure-scroll {
+    overflow: visible;
+  }
+  .info-concept-figure img {
+    min-width: 0;
+  }
+}
+.info-table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  margin-block: 1rem;
+}
+.info-table-scroll:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 3px;
+}
+.info-table-scroll table {
+  margin-block: 0;
+}
+@media print {
+  .info-table-scroll {
+    overflow: visible;
+  }
+}

@@ -1,7 +1,7 @@
 ---
 lessonId: L53
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Pourquoi l’entropie est une borne inférieure de la longueur moyenne"
 summary: "Assembler McMillan et Gibbs pour démontrer la borne et son cas d’égalité."
@@ -12,6 +12,7 @@ sourcePages: [49, 50, 51, 52, 53, 54]
 ---
 
 import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+import '../../../src/styles/information-guides.css';
 
 # Une limite que le code ne peut pas franchir
 
@@ -30,6 +31,69 @@ Une source possède un alphabet fini d'au moins deux symboles avec $p_i>0$ et $\
 $$L(c)=\sum_i p_i\ell_i,\qquad H(S)=-\sum_i p_i\log_2p_i.$$
 
 Aucune indépendance temporelle n'est nécessaire pour cette borne symbole par symbole. En revanche, le décodage unique est indispensable : le code impossible qui donnerait le même mot court à tous les symboles pourrait avoir une petite moyenne, mais ne transmettrait pas l'information.
+
+## Donner un rôle à chaque symbole
+
+<div className="info-table-scroll" role="region" aria-label="Tableau de calcul" tabIndex={0}>
+
+| Objet | Ce qu’il représente |
+| --- | --- |
+| $p_i$ | probabilité donnée du symbole i |
+| $\ell_i$ | longueur entière de son mot code |
+| $K$ | somme des poids $2^{-\ell_i}$, pas forcément 1 |
+| $q_i$ | poids normalisé construit pour Gibbs |
+| $H(S)$ | surprise moyenne de la source |
+| $L(c)$ | longueur moyenne du code choisi |
+
+</div>
+
+<figure className="info-concept-figure">
+<div className="info-figure-scroll" role="region" aria-label="Schéma : défiler horizontalement si nécessaire" tabIndex={0}>
+<img src="/diagrams/information/l53-proof-map-fr.svg" width="480" height="475" alt="McMillan borne K, puis on normalise les poids pour appliquer Gibbs. On obtient H ≤ L + log2 K ≤ L." loading="lazy" />
+</div>
+<figcaption>Les deux outils ont des rôles différents : McMillan contrôle les longueurs ; Gibbs compare des distributions. La normalisation relie les deux.</figcaption>
+</figure>
+
+**Exemple à suivre.** Gardons $p=(1/2,1/4,1/4)$ et les mots préfixes `00`, `010`, `011`, de longueurs $(2,3,3)$. Avant la preuve générale, faire les trois étapes ci-dessous.
+
+<div className="info-guided">
+
+**1 · Peser.** Calculer les trois poids binaires et leur somme K.
+
+<details className="info-answer">
+<summary>Vérifier et comprendre</summary>
+
+$2^{-2}=1/4$, $2^{-3}=1/8$, $2^{-3}=1/8$ ; $K=1/4+1/8+1/8=1/2$.
+
+</details>
+
+</div>
+
+<div className="info-guided">
+
+**2 · Normaliser.** Peut-on utiliser ces poids directement comme q dans Gibbs ?
+
+<details className="info-answer">
+<summary>Vérifier et comprendre</summary>
+
+Non, leur somme vaut $1/2$. Diviser chacun par $K=1/2$ donne $q=(1/2,1/4,1/4)$ et $\sum_iq_i=1$. Les probabilités p étaient déjà données ; q vient des longueurs.
+
+</details>
+
+</div>
+
+<div className="info-guided">
+
+**3 · Comparer.** Calculer L, puis trouver quelle inégalité est stricte.
+
+<details className="info-answer">
+<summary>Vérifier et comprendre</summary>
+
+$L=\frac12\cdot2+\frac14\cdot3+\frac14\cdot3=5/2$. Ici $H=3/2$ et $\log_2K=-1$, donc $3/2=5/2-1<5/2$. Gibbs donne une égalité car p = q ; la seconde inégalité est stricte car K &lt; 1. Dans le laboratoire, utiliser les effectifs 2, 1, 1 et les longueurs 2, 3, 3 pour vérifier.
+
+</details>
+
+</div>
 
 ## 02 · Construire une distribution à partir des longueurs
 
@@ -78,6 +142,19 @@ Une longueur individuelle peut être plus petite que la surprise du symbole : la
 **But.** Voir séparément les deux inégalités. **Prédiction.** Si vous ajoutez un bit à tous les mots sans changer p, quelle inégalité devient stricte ? Modifiez trois effectifs de 1 à 20 et trois longueurs de 1 à 8. Le panneau construit un code préfixe lorsque la somme le permet, normalise q et affiche les trois termes de la preuve. Il refuse d'appliquer la chaîne lorsque la somme dépasse 1.
 
 <InformationTheoryLab mode="bound" locale="fr" client:visible />
+
+<div className="info-guided">
+
+**Reconstruire sans la formule.** Un camarade écrit H ≤ L − log₂ K. Repérer la première transformation à vérifier et expliquer le rôle du signe de log₂ K.
+
+<details className="info-answer">
+<summary>Vérifier et comprendre</summary>
+
+Développer d’abord $\log_2q_i=-\ell_i-\log_2K$. L’opposé pondéré devient $L+\log_2K$ : les deux signes moins se compensent devant le logarithme de K. Comme $\log_2K\le0$, ce terme est inférieur ou égal à L. Avec le mauvais signe, l’étape finale ne prouverait pas la borne demandée.
+
+</details>
+
+</div>
 
 ## Exercices et solutions
 
