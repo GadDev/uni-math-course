@@ -1,7 +1,7 @@
 ---
 lessonId: L30
 locale: en
-version: 4
+version: 5
 status: extended
 title: "Two points and intersections"
 summary: "Construct a line and distinguish unique intersection, parallelism and coincidence."
@@ -11,6 +11,7 @@ prerequisites: [L25, L29]
 sourcePages: [40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
 ---
 import GeometryLab from '../../../src/components/GeometryLab';
+import TemperatureLab from '../../../src/components/TemperatureLab';
 
 <div className="geometry-study">
 
@@ -29,70 +30,51 @@ Two distinct points determine a line; two lines pose another question: which poi
 
 Prerequisites: L25, L29. Domains and restrictions stated below are part of every rule.
 
+## 1. Understand — Two measurements, one relationship
+
 <span id="pdf-40" class="source-topic-marker"></span>
 
-## Two points: finding the Celsius–Fahrenheit conversion
+### Two points: finding the Celsius–Fahrenheit conversion
 
-**PDF example, pages 40–43.** Assume the conversion is affine. The observations are $(C,F)=(0,32)$ and $(100,212)$. Fahrenheit changes by $212-32=180$ while Celsius changes by $100-0=100$.
+It is 50 °F in Belval: do you need a coat? To answer, recover the temperature in Celsius. The PDF (pp. 40–43) gives two reference temperatures for water at normal atmospheric pressure:
 
-1. Slope: $m=(212-32)/(100-0)=1{,}8$.
-2. Intercept: $p=32-1{,}8\cdot0=32$.
-3. Conversion: $F=1{,}8C+32$.
-4. For $F=50$, solving $50=1{,}8C+32$ gives $C=(50-32)/1{,}8=10$.
+| Situation | Celsius $C$ (input) | Fahrenheit $F$ (output) | Point $(C,F)$ |
+| --- | ---: | ---: | --- |
+| Water freezes | 0 | 32 | $(0,32)$ |
+| Water boils | 100 | 212 | $(100,212)$ |
 
-The letters change, not the method: input $C$ replaces $x$ and output $F$ replaces $y$. **Additional example:** at $C=20$, the formula gives $F=68$. Substituting into the inverse formula recovers $20$.
+The conversion is **affine**: each increase of 1 °C causes the same increase in °F, but 0 °C does not correspond to 0 °F. A line of the form $y=mx+p$ describes this rule. Here $x$ becomes $C$ and $y$ becomes $F$:
 
-## Two distinct points
+$$F=mC+p.$$
 
-For $A=(x_1,y_1)$ and $B=(x_2,y_2)$ with $x_1\ne x_2$, slope is $m=(y_2-y_1)/(x_2-x_1)$. Then $p=y_1-mx_1$. Reversing point order changes both quotient signs and preserves slope. If horizontal coordinates agree and points are distinct, the line is vertical. Repeating a single point does not determine a unique line.
+Our mission: determine the two numbers $m$ (change per degree) and $p$ (starting value when $C=0$). Then we can convert in both directions.
 
-## How to recover the equation and check boundary cases
+## 2. Visualise — Read the line and its changes
 
-State that both points lie on the line: $y_1=mx_1+p$ and $y_2=mx_2+p$. Subtraction gives $y_2-y_1=m(x_2-x_1)$. For $x_2\ne x_1$, this yields:
+<TemperatureLab locale="en" />
 
-$$m=\frac{y_2-y_1}{x_2-x_1},\qquad p=y_1-mx_1.$$
+The horizontal change $\Delta C=100$ measures the increase in Celsius. The vertical change $\Delta F=180$ measures the increase in Fahrenheit. Slope is the vertical/horizontal ratio, not a temperature. Point $A$ is at height 32 on the vertical axis: this is already the intercept.
 
-The second formula simply isolates $p$ in the first equation. These are connected steps: first eliminate the constant, then recover it.
-
-1. Compare the points. Identical points do not determine a unique line.
-2. Distinct points with the same horizontal coordinate give vertical line $x=x_1$.
-3. Otherwise calculate slope, subtracting in **the same order** in numerator and denominator.
-4. Calculate the intercept, then substitute **both** points into the resulting equation.
-
-<GeometryLab kind="points" locale="en" client:visible />
-
-## Guided example: construct, then check
-
-For $(1,4)$ and $(3,10)$, slope is $(10-4)/(3-1)=3$ and intercept is $4-3\cdot1=1$. The line is $y=3x+1$. Checking both points is quick and detects sign errors. Form $y-y_1=m(x-x_1)$ also gives the equation without immediately calculating the intercept.
-
-<p class="source-next"><a href="/en/lessons/L30/#pdf-44">Next in the PDF : Intersection of two lines →</a></p>
+<p class="source-next"><a href="/en/lessons/L30/#pdf-44">Next in the PDF: Intersection of two lines →</a></p>
 
 <span id="pdf-44" class="source-topic-marker"></span>
 
-## Intersection: the same temperature in both units
+### Intersection: the same temperature in both units
 
-**PDF example, pages 44–45.** Seek a number expressed identically in Celsius and Fahrenheit: require $F=C$ as well as $F=1{,}8C+32$. Replace $F$ with $C$: $C=1{,}8C+32$, then $-0{,}8C=32$ and $C=-40$. The intersection is $(C,F)=(-40,-40)$.
-
-In the drawing, the intersection is the point shared by both lines. Algebra gives its exact coordinates. Give both coordinates and check both equations, rather than solving only for the first unknown.
+An intersection is a point belonging to both lines. To obtain the same **number** in both units, add condition $F=C$ to the conversion rule. The diagram for PDF pp. 44–45 illustrates the two constraints; we calculate the exact point in the next stage.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/temperature.svg" alt="Lines F equals C and F equals 1.8C plus 32 intersect at minus 40,minus 40." width="440" height="360" loading="lazy" />
 <figcaption>The shared point satisfies both equations at once.</figcaption>
 </figure>
 
-## Guided example: intersection
-
-Lines $y=2x+1$ and $y=-x+7$ meet when $2x+1=-x+7$. We obtain $x=2$, then $y=5$. The result is point $(2,5)$, not merely its horizontal coordinate. Both substitutions indeed give $5$.
-
-<p class="source-next"><a href="/en/lessons/L30/#pdf-46">Next in the PDF : Three situations →</a></p>
+<p class="source-next"><a href="/en/lessons/L30/#pdf-46">Next in the PDF: Three situations →</a></p>
 
 <span id="pdf-46" class="source-topic-marker"></span>
 
-## Three situations: one, no or infinitely many solutions
+### Three situations: one, no or infinitely many solutions
 
-**PDF examples, pages 46–49.** For $y=2x+1$ and $y=-x+4$, solve $2x+1=-x+4$, hence $3x=3$ and intersection $(1,3)$. For $y=2x+1$ and $y=2x+5$, eliminating $2x$ gives $1=5$: no solution. For $y=2x+1$ and $2y=4x+2$, the second equation doubles the first: every point on the line is shared.
-
-These cases explain the three outcomes of a system. A single equation with two unknowns can describe infinitely many pairs: the expression $0=0$ does not mean zero is the only possible coordinate.
+These diagrams illustrate the three cases in PDF pp. 46–49: intersecting lines, distinct parallel lines, and two equations for the same line.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/intersection-one.svg" alt="Two lines intersect at point 1,3." width="440" height="360" loading="lazy" />
@@ -109,7 +91,72 @@ These cases explain the three outcomes of a system. A single equation with two u
 <figcaption>Infinitely many shared points.</figcaption>
 </figure>
 
-## How to solve an intersection
+## 3. Calculate — One operation at a time
+
+### Conversion: find m, then p
+
+**Step A — Calculate slope.** From point A to point B:
+
+$$\Delta C=100-0=100,\qquad \Delta F=212-32=180.$$
+
+$$m=\frac{\Delta F}{\Delta C}=\frac{180}{100}=1{,}8.$$
+
+Each additional degree Celsius therefore represents an increase of 1.8 °F.
+
+**Step B — Calculate the intercept.** Point A belongs to the line: substitute 0 for C and 32 for F.
+
+$$32=1{,}8\cdot0+p=0+p.$$
+
+Thus $p=32$ and the full rule is $F=1{,}8C+32$.
+
+**Step C — Check both observations.** At $C=0$, $F=32$. At $C=100$, $F=180+32=212$. Both points fit.
+
+**Step D — Convert 20 °C.**
+
+$$F=1{,}8\cdot20+32=36+32=68.$$
+
+**Step E — Reverse the conversion: 50 °F.**
+
+| Operation | Equality |
+| --- | --- |
+| Substitute 50 for F | $50=1{,}8C+32$ |
+| Subtract 32 from both sides | $18=1{,}8C$ |
+| Divide both sides by 1.8 | $10=C$ |
+
+It is therefore 10 °C. Check: $1{,}8\cdot10+32=50$. In general $C=(F-32)/1{,}8$: undo the operations in reverse order.
+
+### Two distinct points
+
+For $A=(x_1,y_1)$ and $B=(x_2,y_2)$ with $x_1\ne x_2$, slope is $m=(y_2-y_1)/(x_2-x_1)$. Then $p=y_1-mx_1$. Reversing point order changes both quotient signs and preserves slope. If horizontal coordinates agree and points are distinct, the line is vertical. Repeating a single point does not determine a unique line.
+
+### How to recover the equation and check boundary cases
+
+State that both points lie on the line: $y_1=mx_1+p$ and $y_2=mx_2+p$. Subtraction gives $y_2-y_1=m(x_2-x_1)$. For $x_2\ne x_1$, this yields:
+
+$$m=\frac{y_2-y_1}{x_2-x_1},\qquad p=y_1-mx_1.$$
+
+The second formula simply isolates $p$ in the first equation. These are connected steps: first eliminate the constant, then recover it.
+
+1. Compare the points. Identical points do not determine a unique line.
+2. Distinct points with the same horizontal coordinate give vertical line $x=x_1$.
+3. Otherwise calculate slope, subtracting in **the same order** in numerator and denominator.
+4. Calculate the intercept, then substitute **both** points into the resulting equation.
+
+### Guided example: construct, then check
+
+For $A=(1,4)$ and $B=(3,10)$, the two changes are $10-4=6$ and $3-1=2$. Thus $m=6/2=3$. Substituting A in $y=mx+p$ gives $4=3\cdot1+p$, then $p=4-3=1$. The line is $y=3x+1$. Check: $3\cdot1+1=4$ and $3\cdot3+1=10$. An equivalent form is $y-y_1=m(x-x_1)$.
+
+### Guided example: intersection
+
+At the intersection of $y=2x+1$ and $y=-x+7$, the two y values agree.
+
+$$2x+1=-x+7$$
+
+Add x to both sides: $3x+1=7$. Subtract 1: $3x=6$. Divide by 3: $x=2$. Then $y=2\cdot2+1=5$. The other line also gives $-2+7=5$. The answer is the pair $(2,5)$.
+
+For temperature, $F=C$ gives $C=1{,}8C+32$. Subtract $1{,}8C$: $-0{,}8C=32$. Divide by $-0{,}8$: $C=-40$. Then $F=-40$ and $1{,}8(-40)+32=-40$.
+
+### How to solve an intersection
 
 A common point satisfies both equations **at once**. For $y=m_1x+p_1$ and $y=m_2x+p_2$, equating the two expressions for the same vertical coordinate gives:
 
@@ -119,44 +166,74 @@ Before dividing, examine $m_1-m_2$. If nonzero, calculate $x$, then $y$, and che
 
 In the activity, advance one step at a time: write both constraints, equate or substitute, collect without dividing too soon, then check the resulting point.
 
+### The three cases and vertical lines
+
+- $y=2x+1$ and $y=-x+4$: $3x=3$, giving $(1,3)$.
+- $y=2x+1$ and $y=2x+5$: subtract $2x$ to get $1=5$, impossible.
+- $y=2x+1$ and $2y=4x+2$: dividing the second by 2 gives the first. Every point on this line fits, not just $(0,0)$.
+- $x=4$ and $y=-x+6$: substitute 4 for x to get $(4,2)$. Distinct verticals do not meet; identical verticals coincide.
+
+In an application, also check the domain: a negative quantity or extrapolation may not have practical meaning.
+
+## 4. Experiment — Change the data
+
+Predict what happens to F when C increases by 10 °C. Move the slider to check; switch to inverse mode to recover C from F.
+
+<TemperatureLab locale="en" interactive client:visible />
+
+In the first geometry lab, reproduce A = (1,4) and B = (3,10), then make their horizontal coordinates equal. In the second, reproduce intersection $(1,3)$, then find parallel and coincident cases.
+
+<GeometryLab kind="points" locale="en" client:visible />
+
 <GeometryLab kind="intersection" locale="en" client:visible />
 
-## One, none or infinitely many
+## 5. Practise — From easy to transfer
 
-For two nonvertical lines, different slopes give one intersection. Equal slopes and different intercepts give no intersection. Identical parameters describe the same line and therefore infinitely many common points. After elimination, a false equality such as $0=3$ indicates no solution; an identity such as $0=0$ requires retaining the remaining equation.
+**Easy.** Convert 30 °C to Fahrenheit.
 
-## Verticals and application domain
+<details>
+<summary>Check my answer</summary>
 
-To intersect $x=4$ and $y=-x+6$, directly substitute the fixed horizontal coordinate to obtain $(4,2)$. Two distinct vertical lines do not intersect. In a cost or conversion model, an algebraic intersection may lie outside the usable domain. A negative quantity or extrapolation does not acquire practical meaning merely because it solves the equations.
+$F=1{,}8\cdot30+32=54+32=86$. If you got 54, the starting value 32 is missing.
 
-<p class="source-next"><a href="/en/lessons/L31/#pdf-50">Next in the PDF : The two half-planes →</a></p>
+</details>
 
-## Your turn on paper
-
-Build the line through $(0,2)$ and $(2,0)$, then find its intersection with $y=x$. Check both coordinates.
+**Intermediate.** Find the line through $(0,2)$ and $(2,0)$, then its intersection with $y=x$.
 
 <details>
 <summary>Show the worked solution</summary>
 
-Slope is $(0-2)/(2-0)=-1$ and intercept is $2$, hence $y=-x+2$. Intersection requires $x=-x+2$, then $2x=2$ and $x=1$. Thus $y=1$; $(1,1)$ satisfies both equations. The constructed line also recovers both initial points.
+$m=(0-2)/(2-0)=-1$; $p=2$ because $(0,2)$ lies on the line. Thus $y=-x+2$. Intersection requires $x=-x+2$, so $2x=2$, then $x=1$ and $y=1$. Check: $-1+2=1$. The two original points also give 2 and 0.
 
 </details>
 
-<section className="geometry-revision">
+**Challenge.** For which real values of k do $y=2x+1$ and $y=kx+5$ have exactly one intersection?
 
-## Printable revision sheet
+<details>
+<summary>Check the reasoning</summary>
 
-- **Two points:** first handle repeated points and vertical lines; otherwise calculate $m$ then $p$.
-- **Intersection:** solve $(m_1-m_2)x=p_2-p_1$, separating the zero-coefficient case.
-- **Check:** a result is a pair, to substitute in both equations.
-- **Traps:** dividing by zero; interpreting “no visible intersection” as “no solution”; ignoring the model’s domain.
+Equating gives $(2-k)x=4$. If $k\ne2$, divide to obtain $x=4/(2-k)$, then $y=2x+1$. If $k=2$, we get $0=4$, impossible. Coincidence is excluded because the intercepts differ.
 
-</section>
+</details>
 
-## Practice and recap
+### Practice and recap
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+<section className="geometry-revision">
+
+## 6. Remember — Printable revision sheet
+
+- Distinct points with $x_A\ne x_B$: $m=(y_B-y_A)/(x_B-x_A)$, then $p=y_A-mx_A$. Check both points.
+- Same horizontal coordinate, distinct points: $x=x_A$; identical points: no unique line.
+- Two nonvertical lines: $(m_1-m_2)x=p_2-p_1$. Divide only if $m_1\ne m_2$; otherwise compare intercepts.
+- Intersection: give both coordinates and verify both equations. An intersection outside the plot can exist.
+- Conversion: $F=1{,}8C+32$ and $C=(F-32)/1{,}8$.
+
+</section>
+
+<p class="source-next"><a href="/en/lessons/L31/#pdf-50">Next in the PDF: The two half-planes →</a></p>
 
 </div>
