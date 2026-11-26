@@ -430,9 +430,10 @@ export default function DerivativeExplorer({
                 min={name === 'a' ? -2 : -3}
                 max={name === 'a' ? 2 : 3}
                 value={model[name]}
-                onChange={(value) =>
-                  setModel((previous) => ({ ...previous, [name]: value }))
-                }
+                onChange={(value) => {
+                  setPrediction(null);
+                  setModel((previous) => ({ ...previous, [name]: value }));
+                }}
                 locale={locale}
               />
             ))}
@@ -446,7 +447,10 @@ export default function DerivativeExplorer({
               min={-3}
               max={3}
               value={x0}
-              onChange={setX0}
+              onChange={(value) => {
+                setPrediction(null);
+                setX0(value);
+              }}
               locale={locale}
             />
           </div>
