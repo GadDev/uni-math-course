@@ -130,7 +130,7 @@ for (const locale of ['fr', 'en']) {
         .scrollIntoViewIfNeeded();
       await expect(page.locator('#l37-graph-x')).toBeEnabled();
       await expect(page.locator('.content-provenance')).toContainText(
-        'Version 2',
+        'Version 3',
       );
       expect(
         await page.evaluate(() => document.documentElement.scrollWidth),
@@ -278,3 +278,40 @@ test('L37 section language switch stays aligned', async ({ page }) => {
   await page.getByRole('link', { name: 'EN', exact: true }).click();
   await expect(page).toHaveURL('/en/lessons/L37/#from-formulas-to-graphs');
 });
+
+for (const locale of ['fr', 'en']) {
+  test(`${locale}: L37 six stages and prediction feedback follow the example`, async ({
+    page,
+  }) => {
+    await page.goto(`/${locale}/lessons/L37/`);
+    await expect(
+      page.locator('article h2').filter({ hasText: /^[1-6]\. / }),
+    ).toHaveCount(6);
+    for (const kind of ['mapping', 'domain', 'graph']) {
+      const activity = page.locator(`[data-l37-activity="${kind}"]`);
+      await activity.scrollIntoViewIfNeeded();
+      await expect(activity.locator('fieldset')).toBeVisible();
+      const correct = kind === 'graph' ? 'true' : 'false';
+      const wrong = kind === 'graph' ? 'false' : 'true';
+      await activity.locator(`[data-prediction="${wrong}"]`).click();
+      await expect(activity.locator('[data-prediction-feedback]')).toContainText(
+        locale === 'fr' ? 'À revoir' : 'Try again',
+      );
+      await activity.locator(`[data-prediction="${correct}"]`).click();
+      await expect(activity.locator('[data-prediction-feedback]')).toContainText(
+        'Correct',
+      );
+      if (kind === 'domain') {
+        await expect(activity.locator('output')).toContainText(
+          locale === 'fr' ? 'n’est pas défini' : 'is undefined',
+        );
+      }
+      if (kind === 'graph') {
+        await expect(activity.locator('[data-current-y]')).toHaveText('15');
+      }
+      await activity.locator('[data-prediction-reset]').click();
+      await expect(activity.locator('[data-prediction-feedback]')).toHaveCount(0);
+    }
+    await expect(page.locator('.katex-error')).toHaveCount(0);
+  });
+}

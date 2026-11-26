@@ -1,7 +1,7 @@
 ---
 lessonId: L37
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Functions, domains and graphs"
 summary: "Understand functions, determine domains and read points from graphs."
@@ -16,7 +16,9 @@ import FunctionPanel from '../../../src/components/FunctionPanel';
 
 *Original course explanations based on* Bruno Teheux, Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026, pages 2, 3, 4. The diagrams and activities below are original project additions.
 
-## Goals and prerequisites
+## 1. Understand — One input, one output
+
+### Goals and prerequisites
 
 A function connects an **input** to an **output**. In this lesson, you will learn to check whether an input is allowed, calculate its output and plot the corresponding point.
 
@@ -28,7 +30,7 @@ Before starting, check these three skills:
 
 <p>Need a reminder? See <a href="/en/lessons/L23/">L23 — fractions and powers</a> and <a href="/en/lessons/L27/">L27 — coordinate systems</a>.</p>
 
-## What is a function?
+### What is a function?
 
 Imagine a calculation box: choose an allowed input, the box applies a rule and returns **exactly one output**. The same input always gives the same output.
 
@@ -45,15 +47,45 @@ $$f:A\longrightarrow\mathbb R,\qquad x\longmapsto f(x)$$
 
 Different inputs may have the same image. For example, for the square function $g(x)=x^2$ defined on $A=\{-1,0,1\}$, the braces list the three allowed inputs and we have $g(-1)=g(1)=1$. However, one input cannot have two distinct images.
 
-<FunctionPanel kind="mapping" locale="en" client:visible />
-
 Our main example will be:
 
 $$f(x)=x^3+2x+3,\qquad A=\mathbb R$$
 
 This is a **polynomial** function: its expression uses only sums and products of nonnegative integer powers of $x$. Here, no real input is forbidden. For example, input 2 gives output 15; we will work through that calculation.
 
-## The domain matters
+The PDF (page 2) also gives the exponential example $x\mapsto3^x$, defined over the reals. We will study it further in L42. Think of a pure programming function: an allowed input determines an output. A stateful or random procedure need not follow this model.
+
+## 2. Visualise — Connect representations
+
+<figure class="teaching-figure"><img src="/diagrams/functions/l37-machine-en.svg" alt="Input 2, box x³ + 2x + 3, output 15, then point (2; 15)." width="560" height="180" /><figcaption>The same information in four forms: input, formula, output and point.</figcaption></figure>
+
+### From formulas to graphs
+
+For every allowed input $x$, take the point $(x,f(x))$. The first coordinate is the input (**abscissa**, horizontal axis); the second is its image (**ordinate**, vertical axis).
+
+For example, $f(2)=15$ gives the point $(2,15)$. To plot it, locate 2 on the horizontal axis, then move up to height 15. Similarly:
+
+$$f(0)=3\quad\Longleftrightarrow\quad (0,3)\in G_f$$
+
+$G_f$ denotes the **graph** of $f$, and $\in$ means “belongs to”. The double arrow reads “if and only if”: the calculation and point membership say the same thing.
+
+A few points provide reference values, but are not the entire graph. For domain $A=\mathbb R$, the graph contains a point for **every** real input, including between table values and beyond the displayed window.
+
+We write this idea as:
+
+$$G_f=\{(x,f(x))\mid x\in A\}\subseteq\mathbb R^2$$
+
+Braces denote a set; the bar $\mid$ reads “such that”; $\subseteq$ means “is a subset of”. Finally, $\mathbb R^2$ is the set of pairs of real numbers, represented in the plane. The formula therefore says: “the graph collects every input–image pair, for inputs in the domain”.
+
+**Vertical line test.** A vertical line fixes a horizontal coordinate. If it meets a drawing at two points, that input would have two images: the drawing is not the graph of a function of x. A vertical line may meet no points when its horizontal coordinate is outside the domain.
+
+<figure class="teaching-figure"><img src="/diagrams/functions/l37-vertical-en.svg" alt="A circle is intersected by the vertical line x = 0 at (0; 1) and (0; −1): two vertical coordinates for one horizontal coordinate." width="360" height="260" /><figcaption>The circle fails the test: input 0 would have two outputs, 1 and −1. For the square function, however, two inputs may share one output.</figcaption></figure>
+
+Reading backwards: a preimage of an output is an input that produces it. For the square function, $g(-1)=g(1)=1$. Output 1 therefore has two preimages in the stated domain. A zero of a function is a preimage of 0: its point lies on the horizontal axis.
+
+## 3. Calculate — Domain, output, then point
+
+### The domain matters
 
 Before calculating an image, ask: “Am I allowed to use this input?” A domain may be specified in the problem. If only a formula is given and its **natural real domain** is requested, find all real inputs for which that formula makes sense.
 
@@ -77,11 +109,24 @@ $$D_r=\mathbb R\setminus\{0,2\}$$
 
 $D_r$ denotes the domain of $r$. The symbol $\setminus$ means “without”: read “all real numbers except 0 and 2”. The value 1 is therefore allowed and gives $r(1)=-1$.
 
-<FunctionPanel kind="domain" locale="en" client:visible />
-
 The natural domain depends on the formula: for a real square root, the expression under the root must be nonnegative. Here, we mainly work with polynomials and their quotients.
 
-## Worked example: evaluating a function
+**Choose restrictions (project extension)**
+
+| Expression type | Condition to check |
+| --- | --- |
+| Polynomial | No natural real restriction |
+| Quotient | Nonzero denominator |
+| Square root | Nonnegative radicand |
+| Multiple operations | All conditions simultaneously |
+
+Example: $u(x)=\frac{\sqrt{x+1}}{x-2}$. The root requires $x+1\ge0$, so $x\ge-1$. The denominator requires $x\ne2$. Take the intersection, not the union:
+
+$$D_u=[-1;2[\ \cup\ ]2;+\infty[.$$
+
+<figure class="teaching-figure"><img src="/diagrams/functions/l37-combined-domain-en.svg" alt="Ray starting at negative 1 included, with an open circle at 2." width="560" height="150" /><figcaption>−1 is allowed: the root equals zero. 2 remains forbidden.</figcaption></figure>
+
+### Worked example: evaluating a function
 
 Return to $f(x)=x^3+2x+3$. Its domain is $\mathbb R$: all three inputs below are allowed.
 
@@ -102,31 +147,17 @@ $$f(0)=0^3+2\times0+3=3$$
 
 In $f(2)=15$, **2 is the input and 15 is its image**. Asking for “the image of 2” means asking for the value of $f(2)$. The table and slider in the next section connect these calculations to their points.
 
-## From formulas to graphs
+| x | f(x) | Point |
+| --- | --- | --- |
+| −2 | −9 | (−2 ; −9) |
+| −1 | 0 | (−1 ; 0) |
+| 0 | 3 | (0 ; 3) |
+| 1 | 6 | (1 ; 6) |
+| 2 | 15 | (2 ; 15) |
 
-For every allowed input $x$, take the point $(x,f(x))$. The first coordinate is the input (**abscissa**, horizontal axis); the second is its image (**ordinate**, vertical axis).
+To check a proposed point, first check its horizontal coordinate, then its vertical coordinate. For example, $(2,14)\notin G_f$ because $f(2)=15\ne14$.
 
-For example, $f(2)=15$ gives the point $(2,15)$. To plot it, locate 2 on the horizontal axis, then move up to height 15. Similarly:
-
-$$f(0)=3\quad\Longleftrightarrow\quad (0,3)\in G_f$$
-
-$G_f$ denotes the **graph** of $f$, and $\in$ means “belongs to”. The double arrow reads “if and only if”: the calculation and point membership say the same thing.
-
-<FunctionPanel kind="graph" locale="en" client:visible />
-
-A few points provide reference values, but are not the entire graph. For domain $A=\mathbb R$, the graph contains a point for **every** real input, including between table values and beyond the displayed window.
-
-We write this idea as:
-
-$$G_f=\{(x,f(x))\mid x\in A\}\subseteq\mathbb R^2$$
-
-Braces denote a set; the bar $\mid$ reads “such that”; $\subseteq$ means “is a subset of”. Finally, $\mathbb R^2$ is the set of pairs of real numbers, represented in the plane. The formula therefore says: “the graph collects every input–image pair, for inputs in the domain”.
-
-**Vertical line test.** A vertical line fixes a horizontal coordinate. If it meets a drawing at two points, that input would have two images: the drawing is not the graph of a function of x. A vertical line may meet no points when its horizontal coordinate is outside the domain.
-
-<figure class="teaching-figure"><img src="/diagrams/functions/l37-vertical-en.svg" alt="A circle is intersected by the vertical line x = 0 at (0; 1) and (0; −1): two vertical coordinates for one horizontal coordinate." width="360" height="260" /><figcaption>The circle fails the test: input 0 would have two outputs, 1 and −1. For the square function, however, two inputs may share one output.</figcaption></figure>
-
-## Two common traps
+### Two common traps
 
 **1. Simplifying without preserving the original domain.** Consider:
 
@@ -142,7 +173,27 @@ $$0\notin D_r,\qquad 2\notin D_r$$
 
 The symbol $\notin$ means “does not belong to”: neither $r(0)$ nor $r(2)$ is defined. Division by zero does not provide an image equal to infinity.
 
-## Quick check
+<figure class="teaching-figure"><img src="/diagrams/functions/l37-hole-en.svg" alt="Line y = x with an open circle at (2; 2), which remains excluded from the graph of h." width="360" height="250" /><figcaption>Simplifying a formula does not fill a hole in its original domain.</figcaption></figure>
+
+## 4. Experiment — Predict, manipulate and explain
+
+Before changing each diagram, state your prediction. The new challenges let you check a choice against the corresponding diagram or calculation. The controls do not restrict the mathematical domain.
+
+**A — One output per input**
+
+<FunctionPanel kind="mapping" locale="en" client:visible />
+
+**B — Domain before division**
+
+<FunctionPanel kind="domain" locale="en" client:visible />
+
+**C — Calculation and reading a graph backwards**
+
+<FunctionPanel kind="graph" locale="en" client:visible />
+
+## 5. Practise — Justify without controls
+
+### Quick check
 
 Try without moving the sliders or opening the answers:
 
@@ -160,3 +211,34 @@ Try without moving the sliders or opening the answers:
 </details>
 
 You are ready to continue when you can explain, in this order: **allowed input → image calculation → graph point**.
+
+**Two additional challenges (outside the graded bank)**
+
+1. Determine the natural domain of $v(x)=\frac{\sqrt{4-x}}{x+1}$. Test x = 4 and x = −1.
+2. For the function $w(x)=x^2-4$, find all preimages of 0 and give their corresponding graph points.
+
+<details>
+<summary>Challenge answers</summary>
+
+1. $4-x\ge0\Leftrightarrow x\le4$, $x\ne-1$. Therefore $D_v=]-\infty;-1[\ \cup\ ]-1;4]$. Input 4 is allowed and gives 0; −1 is forbidden.
+2. $x^2-4=(x-2)(x+2)=0\Leftrightarrow x\in\{-2,2\}$. The two points are $(-2,0)$ and $(2,0)$.
+
+</details>
+
+## 6. Remember — Revision sheet
+
+<div className="l37-revision">
+
+- $f:A\to\mathbb R$ : exactly one output per input in A; multiple inputs may share an output.
+- Natural domain: impose every restriction of the original formula.
+- $G_f=\{(x,f(x))\mid x\in A\}$ ; Cartesian equation: $y=f(x)$.
+- Output: substitute the input. Preimage: solve $f(x)=y$ on the domain.
+- Zero: point on the horizontal axis. Vertical test: one vertical coordinate per input in the domain.
+- Method: domain → substitution → calculation → pair → check. Preserve exclusions after simplification.
+
+Use the browser Print command. Static diagrams remain available without JavaScript.
+
+</div>
+
+Next: use two graph points to calculate a secant slope, then approach a tangent. [L38](/en/lessons/L38/).
+
