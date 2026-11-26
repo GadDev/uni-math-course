@@ -111,7 +111,7 @@ for (const locale of ['fr', 'en']) {
         width === 320 ? '.mobile-contents' : '.section-nav',
       );
       await links
-        .getByRole('link', { name: /^(Exemple guidé|Guided example)/ })
+        .getByRole('link', { name: /^3\. (Calculer|Calculate)/ })
         .first()
         .click();
       const alternate = locale === 'fr' ? 'en' : 'fr';
@@ -120,7 +120,7 @@ for (const locale of ['fr', 'en']) {
         .click();
       expect(new URL(page.url()).pathname).toBe(`/${alternate}/lessons/L35/`);
       expect(decodeURIComponent(new URL(page.url()).hash)).toMatch(
-        /^#(exemple-guidé|guided-example)/,
+        /^#3-(calculer|calculate)/,
       );
     });
   }
