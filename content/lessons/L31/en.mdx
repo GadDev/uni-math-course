@@ -1,7 +1,7 @@
 ---
 lessonId: L31
 locale: en
-version: 6
+version: 7
 status: extended
 title: "Half-planes and triangles"
 summary: "Use the sign of an affine expression to describe and test a region."
@@ -32,98 +32,175 @@ Prerequisites: L24, L28, L30. Domains and restrictions stated below are part of 
 
 <span id="pdf-50" class="source-topic-marker"></span>
 
-## The two half-planes: testing which side contains a point
+## 1. Understand — One boundary, two regions
 
-A line splits the plane into two regions. **PDF example, page 50:** boundary $y=2x+1$. For $(0,3)$, compare $3$ with $2\cdot0+1=1$: $3>1$, so the point is above. For $(2,0)$, $0<2\cdot2+1=5$: the point is below.
+Imagine a map where a straight line separates two zones. To decide whether a point is on the correct side, we can look at the map or perform an exact calculation.
 
-Difference $f(x,y)=y-2x-1$ is respectively $2$ and $-5$. Its sign distinguishes the sides. A strict inequality excludes the boundary, drawn dashed; a non-strict inequality includes it, drawn solid. For a vertical line, speak of left and right instead.
+In L28, equation $y=2x+1$ selected only the points on the line. Now an inequality selects all points on one side: $y>2x+1$ means the point's height exceeds the line's height at the same horizontal coordinate.
 
-In the PDF path, continue with [pixels](../L32/#pdf-52). The triangle below is a project supplement, absent from the revised PDF.
+**PDF, p. 50.** Line $ax+by=c$, with $(a,b)\ne(0,0)$, divides the plane into two open half-planes: $ax+by>c$ and $ax+by<c$. The line itself belongs to neither. Closed versions include their boundary.
+
+Our mission: decide which side contains $A=(0,3)$ and $B=(2,0)$ relative to the PDF line. We also add $D=(0,1)$, on the boundary.
+
+## 2. Visualise — Read the sign and build a region
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/halfplanes.svg" alt="Dashed line y equals 2x plus 1 separates a hatched upper region from an unhatched lower region." width="440" height="360" loading="lazy" />
 <figcaption>Signs and hatching identify the sides without relying on colour alone.</figcaption>
 </figure>
 
-## A line separates the plane
+For this line, compare the point's height with the line's height at the same horizontal coordinate. Above, the result is positive; below, negative; on the line, zero.
 
-For $f(x,y)=ax+by-c$ with $(a,b)\ne(0,0)$, the boundary is $f=0$. The two open half-planes are $f>0$ and $f<0$; closed versions include the boundary. The sign is constant on either side of the line. Saying “above” is not always appropriate: a vertical line separates left and right.
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l31-boundaries.svg" alt="Same upper half-plane in two drawings: dashed boundary for y strictly greater than 2x plus 1 and solid boundary for y greater than or equal to 2x plus 1. D(0,1) is excluded on the left, included on the right." width="440" height="240" loading="lazy" />
+<figcaption>The selected side is the same. Only membership of points on the boundary changes.</figcaption>
+</figure>
 
-## Why does sign select a side?
+| Symbol | Boundary | Point on the line |
+| --- | --- | --- |
+| Strict: $<$ or $>$ | Dashed | Excluded |
+| Inclusive: $\le$ or $\ge$ | Solid | Included |
 
-Consider $f(x,y)=ax+by-c$, with $(a,b)\ne(0,0)$. Writing $f(P)$ means substituting point $P$’s coordinates. The line is the set where the result is zero.
-
-If points $P$ and $Q$ give opposite signs, values of $f$ along their connecting segment move between them without a jump: they must reach zero. The segment crosses the boundary. If both values are strictly positive, their weighted averages remain positive: the segment stays on that side. This explains the sign test geometrically.
-
-**How to draw an inequality?** Draw its boundary, choose a point off that line, then substitute its coordinates. A true inequality retains that point’s side; a false inequality retains the other. Finish by deciding whether the boundary is included.
-
-For $x+2y\le6$, use $f=x+2y-6$. The origin gives $f(0,0)=-6<0$: retain the negative side and the boundary. For $f(R)\ne0$, product $f(P)f(R)$ is positive for matching signs, negative for opposite signs and zero when $P$ is on the boundary. This explains the same-side test below.
-
-## Guided example: a test point
-
-For $x+2y\le6$, the origin gives $0\le6$: retain the side containing the origin and the boundary. Point $(4,2)$ gives $8>6$ and is excluded. A boundary point cannot choose the side because its value is zero for both non-strict inequalities.
+For a vertical line, such as $x=2$, the sides are left and right rather than above and below.
 
 <p class="source-next"><a href="/en/lessons/L32/#pdf-52">Next in the PDF: The screen is a pixel grid →</a></p>
 
 <span id="supplement-triangle" class="source-topic-marker"></span>
 
-## Filling a triangle: combining three tests
+### Three half-planes, one triangle
 
-**Project supplement, outside the revised PDF.** A nondegenerate triangle is the intersection of three half-planes: for each side, keep the one containing the opposite vertex. This turns a drawing into three algebraic tests.
+**Project supplement, outside the revised PDF.** We want to fill the triangle with vertices $A=(0,0)$, $B=(4,0)$ and $C=(0,3)$. Each edge imposes a rule. First keep the right side of the vertical axis, then the area above the horizontal axis, then the area below BC.
 
-Take $A=(0,0)$, $B=(4,0)$ and $C=(0,3)$. The horizontal and vertical sides give $y\ge0$ and $x\ge0$. The third side satisfies $3x+4y=12$, passing through $B$ and $C$. The origin gives $0\le12$: keep $3x+4y\le12$.
-
-Point $(1,1)$ satisfies all three conditions, whereas $(3,2)$ fails the third because $3\cdot3+4\cdot2=17>12$. Here the boundary is included. To fill an image, test each pixel’s centre; these are the same half-plane ideas applied to a grid.
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l31-triangle-steps.svg" alt="Three cumulative stages: x greater than or equal to zero, then y greater than or equal to zero, then 3x plus 4y less than or equal to 12. Only the triangle remains at stage three." width="440" height="190" loading="lazy" />
+<figcaption>Each new condition reduces the region. In the end, only points satisfying all three tests remain.</figcaption>
+</figure>
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/triangle.svg" alt="Triangle with vertices 0,0, 4,0 and 0,3, an interior point at 1,1 and exterior point at 3,2." width="440" height="360" loading="lazy" />
 <figcaption>A point must satisfy all three constraints at once.</figcaption>
 </figure>
 
+A point can satisfy two rules and fail the third. As in logic, “and” requires **all** conditions to be true.
+
+## 3. Calculate — One condition at a time
+
+### The points from the PDF
+
+Let $f(x,y)=y-2x-1$. This means calculating the point's height minus the line's height.
+
+| Point | Point height | Line height | Difference | Conclusion |
+| --- | --- | --- | --- | --- |
+| $A=(0,3)$ | 3 | $2\cdot0+1=1$ | $3-1=2$ | Above |
+| $B=(2,0)$ | 0 | $2\cdot2+1=5$ | $0-5=-5$ | Below |
+| $D=(0,1)$ | 1 | $2\cdot0+1=1$ | $1-1=0$ | On the line |
+
+In general, for $f(x,y)=ax+by-c$, with $(a,b)\ne(0,0)$, the boundary is $f=0$. The sign of f determines the half-plane.
+
+If two points give opposite signs, f passes through zero on the segment joining them: the segment crosses the line. If the values have the same strict sign, their weighted averages retain that sign. The segment stays on the same side.
+
+### Choose the correct side: a test point
+
+To draw $x+2y\le6$:
+
+1. Draw boundary $x+2y=6$, for example by joining $(0,3)$ and $(6,0)$.
+2. Choose a point off the boundary: here the origin.
+3. Substitute: $0+2\cdot0=0\le6$. The origin is accepted.
+4. Shade the side containing the origin; draw the boundary solid.
+
+Point $(4,2)$ gives $4+2\cdot2=8>6$: it is excluded. Point $(2,2)$ gives $2+2\cdot2=6$: included for the inclusive inequality but excluded for the strict inequality. A boundary point cannot select a side.
+
+### Build the three triangle constraints
+
+Edges AB and AC are the axes. For AB, keep $y\ge0$ because C is above; for AC, keep $x\ge0$ because B is to the right.
+
+Edge BC passes through $(4,0)$ and $(0,3)$. Equation $3x+4y=12$ is true at both vertices: $3\cdot4+4\cdot0=12$ and $3\cdot0+4\cdot3=12$. The origin, the opposite vertex, gives $0\le12$; hence retain $3x+4y\le12$.
+
+All three rules must be true simultaneously:
+
+$$x\ge0,\qquad y\ge0,\qquad 3x+4y\le12.$$
+
+| Test | $P=(1,1)$ | $Q=(3,2)$ |
+| --- | --- | --- |
+| $x\ge0$ | $1\ge0$: yes | $3\ge0$: yes |
+| $y\ge0$ | $1\ge0$: yes | $2\ge0$: yes |
+| $3x+4y\le12$ | $3+4=7\le12$: yes | $9+8=17>12$: no |
+| Conclusion | Inside | Outside |
+
+Point $(2,3/2)$ is on BC because $3\cdot2+4\cdot(3/2)=12$: the boundary is included. Another example: $x\ge0$, $y\ge0$, $x+y\le4$ describes the closed triangle with vertices $(0,0)$, $(4,0)$ and $(0,4)$.
+
+### General triangle: compare signs
+
+For each edge of a nondegenerate triangle, take the opposite vertex as reference R. It is off the line, so $f(R)\ne0$. We want to know whether P lies on the same side as R.
+
+| Sign of f(P) | Sign of f(R) | Product | Decision |
+| --- | --- | --- | --- |
+| + | + | + | Same side |
+| − | − | + | Same side |
+| + or − | Opposite | − | Opposite side |
+| 0 | Nonzero | 0 | On the boundary |
+
+The closed test is $f(P)f(R)\ge0$; the strict test is $f(P)f(R)>0$.
+
+Example for BC: choose $f(x,y)=3x+4y-12$. At vertex A, $f(A)=-12$. For P, $f(P)=-5$; the product is $(-5)(-12)=60>0$. For Q, $f(Q)=5$; the product is $5(-12)=-60<0$. Repeat the test for the other two edges.
+
+Multiplying f by a negative number reverses both signs but not the same-side decision. In contrast, multiplying an inequality by a negative number requires reversing its direction. Aligned or repeated vertices give zero area: filling must stop because there is no triangle with nonempty interior.
+
+## 4. Experiment — Watch the region shrink
+
+In the first workshop, test boundary point (2,2) in both versions of the inequality. Then choose “Closed triangle”, return to the first constraint and add the others one at a time. Predict whether (3,2) will remain accepted. The results distinguish the intermediate region and the final triangle.
+
 <GeometryLab kind="region" locale="en" client:visible />
 
-## Intersection of constraints
-
-The region $x\ge0$, $y\ge0$, $x+y\le4$ is a closed triangle. A point belongs only if it passes all three tests. Checking just one constraint is insufficient. Vertices are $(0,0)$, $(4,0)$ and $(0,4)$; edges are included.
-
-## Guided example: a general triangle
-
-For three noncollinear vertices, each side defines a line. For each line, keep the closed half-plane containing the third vertex. Their intersection is exactly the filled triangle, including its boundary.
-
-Now build your own triangle. For each edge, compare the sign at the opposite vertex with the test point. Swapping two vertices changes the signs used, but not the region; aligned vertices require filling to stop.
+In the second workshop, move the triangle vertices and point P. Compare signs for each edge, then swap B and C. Finally, align all three vertices: explain why filling stops. To fill an image, we can apply these tests to the centre of each pixel.
 
 <GeometryExtensions kind="triangle" locale="en" client:visible />
 
-## A same-side test
+## 5. Practise — From sign to reasoning
 
-If $R$ is a reference point off the line, $P$ lies on the same side or boundary when $f(P)f(R)\ge0$. For the same strict side, use $>0$. Multiplying a boundary equation by a negative number preserves the line but reverses signs. Three collinear vertices do not define a triangle with nonempty interior; the test must detect this case before filling.
+**Easy.** Does point $(1,3)$ satisfy $y>2x+1$? What about $y\ge2x+1$?
 
-## Your turn on paper
+<details>
+<summary>Check the answer</summary>
 
-Does $(2,2)$ lie in $x+2y<6$? And in $x+2y\le6$? Does $(3,2)$ lie in the triangle with vertices $(0,0),(4,0),(0,3)$?
+The line's height is $2\cdot1+1=3$. The point is on the boundary: the strict inequality is false and the inclusive inequality is true.
+
+</details>
+
+**Intermediate.** Does point $(3,2)$ belong to the triangle with vertices $(0,0),(4,0),(0,3)$?
+
+<details>
+<summary>Check the answer</summary>
+
+Constraints $x\ge0$ and $y\ge0$ are true, but $3\cdot3+4\cdot2=17>12$. The point is excluded: passing two of three tests is not sufficient.
+
+</details>
+
+**Challenge.** The boundary is $x-y=0$. Point $R=(2,0)$ is the reference. Is point $P=(1,3)$ on the same side as R? What if we use $y-x=0$?
 
 <details>
 <summary>Show the worked solution</summary>
 
-For $(2,2)$, $x+2y=6$: the point is excluded from the open half-plane and included in the closed half-plane. For $(3,2)$, constraints $x\ge0$ and $y\ge0$ hold, but $3x+4y=17>12$: the point is outside the triangle. Passing two of three tests is insufficient.
+With $f(x,y)=x-y$, we get $f(R)=2$ and $f(P)=-2$, so the product is $-4<0$. The points lie on opposite sides. Reversing f reverses the signs but leaves the product unchanged: the decision does not change.
 
 </details>
-
-<section className="geometry-revision">
-
-## Printable revision sheet
-
-- **Boundary:** $ax+by-c=0$, with $(a,b)\ne(0,0)$; sign selects a side.
-- **Boundary inclusion:** $<$ or $>$ excludes it; $\le$ or $\ge$ includes it.
-- **Triangle:** for each side retain the half-plane containing the opposite vertex; check all three constraints.
-- **Traps:** choosing a test point on the line; failing to reverse an inequality when multiplying by a negative; treating three aligned vertices as a triangle with nonempty interior.
-
-</section>
-
-## Practice and recap
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
+
+<section className="geometry-revision">
+
+## 6. Remember — Printable revision sheet
+
+- Boundary: $f(x,y)=ax+by-c=0$, with $(a,b)\ne(0,0)$.
+- Positive, negative or zero sign: two sides or boundary.
+- Excluded boundary: $<$ or $>$; included boundary: $\le$ or $\ge$.
+- Test point: choose a point off the line, substitute, retain the correct side.
+- Same closed side: $f(P)f(R)\ge0$ if $f(R)\ne0$.
+- Closed triangle: retain the half-plane of the opposite vertex for each of the three edges; all tests must pass.
+- Traps: test point on the boundary, reversed sign after negative multiplication, confusing “and” with “or”, aligned or repeated vertices.
+
+</section>
 
 </div>
