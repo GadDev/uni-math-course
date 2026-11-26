@@ -485,6 +485,22 @@ function LabView({
               )
             : `(${f(a)})x ${rel} ${f(-b)} → ${condition}`}
         </p>
+        <p data-inequality-reason>
+          {a === 0
+            ? t(
+                'Coefficient nul : comparer la constante à zéro.',
+                'Zero coefficient: compare the constant with zero.',
+              )
+            : a < 0
+              ? t(
+                  'Diviseur négatif : inverser le sens de l’inégalité.',
+                  'Negative divisor: reverse the inequality.',
+                )
+              : t(
+                  'Diviseur positif : conserver le sens de l’inégalité.',
+                  'Positive divisor: preserve the inequality.',
+                )}
+        </p>
         <p data-solution aria-live="polite" aria-atomic="true">
           <strong>{condition}</strong>
           {solved.kind === 'left' || solved.kind === 'right'
@@ -609,6 +625,22 @@ function LabView({
         <p>
           {t('Éliminer y donne', 'Eliminating y gives')} : ({f(1 - a)})x ={' '}
           {f(b - 1)}.
+        </p>
+        <p data-system-reason>
+          {data.kind === 'unique'
+            ? t(
+                'Coefficient non nul : une seule valeur de x, puis une seule valeur de y.',
+                'Nonzero coefficient: one value of x, then one value of y.',
+              )
+            : data.kind === 'same'
+              ? t(
+                  '0 = 0 : une condition reste ; x est libre, y = x + 1.',
+                  '0 = 0: one condition remains; x is free, y = x + 1.',
+                )
+              : t(
+                  'Contradiction : 0 ne peut pas être égal à une constante non nulle.',
+                  'Contradiction: 0 cannot equal a nonzero constant.',
+                )}
         </p>
         <p data-solution aria-live="polite" aria-atomic="true">
           {data.kind === 'unique'

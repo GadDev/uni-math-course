@@ -1,7 +1,7 @@
 ---
 lessonId: L22
 locale: en
-version: 5
+version: 6
 status: extended
 title: "Expanding and factorising"
 summary: "Change the form of an expression without changing its value."
@@ -34,33 +34,66 @@ Prerequisites: L21. Domains and restrictions stated below are part of every rule
 
 <span id="pdf-7" class="source-topic-marker"></span>
 
-## Expanding and factorising: the PDF examples
+## 1. Understand — Two forms, one value
 
-A **term** is a piece separated by addition or subtraction at the expression’s outermost level. A **factor** is a piece multiplied by another. In $3x+6$, the terms are $3x$ and $6$; in $3(x+2)$, the factors are $3$ and $x+2$. Expanding exposes terms; factorising exposes factors.
+Three bags each contain x items and two extra items. Count by bag, $3(x+2)$, or by item type, $3x+6$. The total is unchanged. Expanding turns a product into a sum; factorising gathers a sum into a product.
 
-**PDF, pages 7–12 — calculations revisited and explained.**
+A term is a piece separated by addition or subtraction at the outermost level; a factor is a piece multiplied by another. In $3x+6$, the terms are $3x$ and $6$ ; in $3(x+2)$, the factors are $3$ and $x+2$.
 
-- Expand: $3(x-2)-2(x+1)=3x-6-2x-2=x-8$. Factor $-2$ multiplies **both** $x$ and $1$.
-- Factorise: $6x^2-9x=3x(2x-3)$. Both terms contain factor $3x$; expand again to check.
-- Remove a group: $5-(2x-3)=5-2x+3=8-2x$.
+## 2. Visualise — Distribute, then regroup
 
-Double distributivity is $(a+b)(c+d)=ac+ad+bc+bd$. Every term in the first group meets every term in the second. **Additional example:** $(x+2)(x+3)=x^2+3x+2x+6=x^2+5x+6$. Coefficient $5$ comes from $3+2$.
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l22-distribution.svg" alt="Three rows of x and two units; then the three x pieces and six units are regrouped." width="600" height="250" loading="lazy" />
+<figcaption>Each bag contributes one x and two units. Regrouping preserves the total.</figcaption>
+</figure>
 
-To follow the PDF strictly, read [fractions, powers and roots](../L23/#pdf-13) next, then return to the [standard algebraic identities](#pdf-15).
+The drawing represents positive quantities. Distributivity is valid for all real numbers, including negative numbers:
 
-## One value, several forms
+$$a(b+c)=ab+ac.$$
 
-For $a,b,c\in\mathbb{R}$, $a(b+c)=ab+ac$. Expanding reads this equality to the right; factorising reads it to the left. The factor multiplies every term including its sign. An identity holds for every stated value, not just a favourable example. Keep this distinction when using a calculator to check a result.
+Left to right: expand. Right to left: factorise. The factor must multiply every term with its sign. With two groups, each term in the first meets every term in the second.
 
-## Guided example: expand and collect
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l22-double-distribution.svg" alt="Four-product table: x times x, x times 3, 2 times x, 2 times 3." width="480" height="250" loading="lazy" />
+<figcaption>Four products before collecting: no term should be missed.</figcaption>
+</figure>
 
-For $x\in\mathbb{R}$, $5(x-2)-3(x+4)=5x-10-3x-12=2x-22$. Collect terms of the same kind. At $x=2$, both expressions give $-18$: this is a local check. The general justification remains distributivity, valid for every real number. A minus sign before a group changes all its terms, not only the first.
+## 3. Calculate — Recognise, transform, check
+
+### A. Expand and collect (PDF, pages 7–12)
+
+Professor's example:
+
+$$3(x-2)-2(x+1)$$
+
+| Action | Expression |
+| --- | --- |
+| Distribute 3 to both terms | $3x-6-2(x+1)$ |
+| Distribute −2 to both terms | $3x-6-2x-2$ |
+| Collect x terms and constants | $(3-2)x+(-6-2)$ |
+| Collect | $x-8$ |
+
+The sign of factor −2 belongs to both products. In the other PDF example, $5-(2x-3)=5-2x+3=8-2x$. The minus before parentheses means multiplication by −1.
+
+For two groups, the general formula is $(a+b)(c+d)=ac+ad+bc+bd$. In our additional example, $(x+2)(x+3)=x^2+3x+2x+6=x^2+5x+6$. Like terms have the same variable part: add their coefficients, but do not mix x and x squared.
+
+Another check: $5(x-2)-3(x+4)=5x-10-3x-12=2x-22$. At x = 2, both forms equal −18; this local check is not a universal proof.
+
+### B. Factorise: find what repeats (PDF, pages 9–10)
+
+In the professor's example, $6x^2-9x$, write each term as a product:
+
+$$6x^2=(3x)(2x),\qquad -9x=(3x)(-3).$$
+
+$$6x^2-9x=3x(2x-3).$$
+
+We factored out a term, not divided by x. The identity still holds at x = 0. To verify, expand back: $3x(2x-3)=6x^2-9x$.
 
 <p class="source-next"><a href="/en/lessons/L23/#pdf-13">Next in the PDF : Fractions →</a></p>
 
 <span id="pdf-15" class="source-topic-marker"></span>
 
-## Standard algebraic identities: understanding all three formulas
+### Standard algebraic identities: understanding all three formulas
 
 An **identity** is an equality true for every value in its domain. For all real $a,b$:
 
@@ -83,40 +116,39 @@ Expand the first: $(a+b)^2=(a+b)(a+b)=a^2+ab+ba+b^2$. Since $ab=ba$, the two pie
 <figcaption>The four areas add up: a², ab, ab and b².</figcaption>
 </figure>
 
+### Recognise the right identity: three clues
+
+To factorise a perfect-square trinomial, do not stop at the first and last squares: check the middle term.
+
+| Expression | Clues | Factors |
+| --- | --- | --- |
+| $x^2+6x+9$ | $a=x,\ b=3,\ 2ab=6x$ | $(x+3)^2$ |
+| $x^2-6x+9$ | $a=x,\ b=3,\ -2ab=-6x$ | $(x-3)^2$ |
+| $x^2-9$ | $a=x,\ b=3$ | $(x-3)(x+3)$ |
+| $x^2+4$ | No cross term; sum of squares. | None of the three identities in this form. |
+
+### D. Choose a factorisation method
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l22-factor-guide.svg" alt="Look for a common factor and extract it if present; seek a difference of squares or perfect square, repeat if possible and expand to check." width="600" height="340" loading="lazy" />
+<figcaption>If no pattern fits, these methods are insufficient: do not invent a factorisation.</figcaption>
+</figure>
+
+Two-stage example: $3x^3-12x=3x(x^2-4)=3x(x-2)(x+2)$. Step 1: common factor 3x; step 2: difference of squares; step 3: verify by expanding. The factorised form reveals zeros without dividing by x.
+
+Expanded form helps collect terms, factorised form reveals zeros, square form reveals a sign: $x^2+10x+25=(x+5)^2\ge0$. One counterexample refutes an identity: at a = 2 and b = 3, $(a+b)^2=25$ but $a^2+b^2=13$.
+
+## 4. Experiment — Predict before calculating
+
+In the area workshop, take a = 2 and b = 3. Before checking the result, calculate all four areas, then compare their sum with the square of the whole side. Change a and b. The drawing uses positive lengths, while the algebraic proof is general.
+
 <AlgebraExplorer kind="area" locale="en" client:visible />
 
-## Reconstruct the identities
-
-Before choosing an identity from the table, write the square as a product. This recovers the two cross terms instead of relying on an isolated memorised formula.
-
-## Guided example: factorise in two stages
-
-For $x\in\mathbb{R}$, $3x^3-12x=3x(x^2-4)=3x(x-2)(x+2)$. Extract the common factor first, then recognise the difference of squares. Expanding back checks the result. Factorised form reveals zeros without dividing by a factor that might itself be zero.
-
-## How do you recognise a factorisation?
-
-First look for what repeats **in every term**. In $6x^2-9x$, recognise $6x^2=(3x)(2x)$ and $9x=(3x)3$. Reading distributivity backwards therefore gives $6x^2-9x=3x(2x-3)$. We have not divided by $x$: the identity remains true at $x=0$.
-
-Without a useful common factor, look for a structure: two squares separated by subtraction, or two squares accompanied by twice their product. **Checking then means expanding back**, not merely trying a number. The workshop distinguishes this algebraic proof from a numerical check at one chosen value.
+In the factorisation workshop, select an expression and first identify the method. Check your choice, then walk through the steps. At x = 0 the common-factor example remains equal in both forms: no division by x has been introduced.
 
 <AlgebraMethodLab kind="factor" locale="en" client:visible />
 
-## Choose a form for a question
-
-Expanded form helps with addition. Factorised form helps study zeros. A square can reveal a sign: $x^2+10x+25=(x+5)^2\ge0$. To refute $(a+b)^2=a^2+b^2$, choose for example $a=2$ and $b=3$; the missing cross term explains the difference. One counterexample refutes a universal identity.
-
-<p class="source-next"><a href="/en/lessons/L24/#pdf-19">Next in the PDF : Solving an equation →</a></p>
-
-## How to: a reusable method
-
-1. Ask what you need: add, calculate quickly, find zeros or study a sign?
-2. To expand, distribute every factor with its sign, then collect only like terms.
-3. To factorise, first seek a common factor, then a standard identity. Do not introduce division by an expression that could be zero.
-4. Expand back to check factorisation. A numerical test detects some mistakes but does not prove an identity.
-
-**Common mistake.** $x^2+4$ is not $(x+2)^2$: at $x=1$, the values are $5$ and $9$.
-
-## Practise step by step
+## 5. Practise — Recognise without hints
 
 <div className="algebra-exercise">
 
@@ -186,24 +218,29 @@ $x^2-6x+9=(x-3)^2\ge0$. A square is nonnegative. It is zero exactly when $x=3$.
 
 </div>
 
-## Practice and recap
+### Practice and recap
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
 
+## 6. Remember — Printable revision sheet
+
 <div className="algebra-revision">
 
-## Essentials and self-check
+- $a(b+c)=ab+ac$ ; $(a+b)(c+d)=ac+ad+bc+bd$.
+- $(a+b)^2=a^2+2ab+b^2$.
+- $(a-b)^2=a^2-2ab+b^2$.
+- $(a+b)(a-b)=a^2-b^2$.
+- Factorise: common factor, then identity; repeat if possible; expand back to verify.
+- Respect signs and collect only like terms. A numerical example does not prove an identity; one counterexample refutes it.
 
-- Expanding changes a product into a sum; factorisation reverses this.
-- Both cross products remain in a squared sum.
-- The useful form depends on the question; distributivity justifies equality throughout the domain.
+**Self-check.** Explain the square's four areas, factorise the second exercise without hints, then give a counterexample to a false identity.
 
-**Self-check.** Explain the drawing’s four areas; factorise the second exercise without looking; refute a false identity with a counterexample. If needed, revisit “Reconstruct the identities”. Next: [L23](../L23/) applies factors to fractions and domain restrictions.
-
-**To print:** use the browser’s Print command. Activities show a fixed example and hints and solutions are expanded on paper.
+**To print:** use the browser's Print command. Activities show a fixed example; hints and solutions are expanded on paper.
 
 </div>
+
+<p class="source-next"><a href="/en/lessons/L24/#pdf-19">Next in the PDF : Solving an equation →</a></p>
 
 </div>

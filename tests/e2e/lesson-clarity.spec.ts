@@ -82,12 +82,21 @@ for (const locale of ['fr', 'en']) {
       await expect(page.locator('.pp-options input').first()).toBeChecked();
       const link = page.locator('.pp-scope a');
       await link.click();
-      const supplement = page.locator('article details').filter({
-        has: page.locator(
-          id === 'L35' ? '#supplement-square' : '#supplement-correlation',
-        ),
-      });
-      await expect(supplement).toHaveAttribute('open', '');
+      if (id === 'L35') {
+        const supplement = page.locator('article details').filter({
+          has: page.locator('#supplement-square'),
+        });
+        await expect(supplement).toHaveAttribute('open', '');
+      } else {
+        await expect(page).toHaveURL(
+          new RegExp(`/${locale}/lessons/L36/#supplement-correlation$`),
+        );
+        await expect(page.locator('#supplement-correlation')).toHaveCount(1);
+        await expect(
+          page.locator('article details #supplement-correlation'),
+        ).toHaveCount(0);
+        await expect(page.locator('#supplement-correlation + p')).toBeVisible();
+      }
     }
   });
   test(`${locale}: new lesson tables fit mobile and full-size figures have keyboard links`, async ({

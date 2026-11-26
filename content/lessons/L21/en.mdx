@@ -1,7 +1,7 @@
 ---
 lessonId: L21
 locale: en
-version: 4
+version: 5
 status: extended
 title: "Calculating with real numbers"
 summary: "Precedence, signs and reversible operations: a dependable foundation for equations."
@@ -34,70 +34,120 @@ Prerequisites: L10. Domains and restrictions stated below are part of every rule
 
 <span id="pdf-4" class="source-topic-marker"></span>
 
-## Order of operations: one calculation, one step
+## 1. Understand — Read an instruction before calculating
 
-**PDF example, pages 4–5 — rewritten explanation.** In $2+3\cdot4^2$, the square applies to $4$, not to $3\cdot4$.
+Imagine two purchases: an item costing 2 euros and three items whose price is the square of 4 (16 euros each in this fictional example). Expression $2+3\cdot4^2$ describes the total. Reading left to right is not enough: identify which operation applies to which group. Pages 4–5 of the PDF give this numerical example.
 
-1. Power: $4^2=16$.
-2. Multiplication: $3\cdot16=48$.
-3. Addition: $2+48=50$.
+A minus sign can have three roles: subtraction between numbers, the opposite of a number or group, and the sign of a negative number. Before calculating, identify its role.
 
-Read this as “two plus three times the square of four”. In contrast, $(2+3)\cdot4^2=80$: parentheses change the instruction. For $8\div2(2+2)$, this course’s stated convention gives multiplication and division equal priority, working left to right: $8\div2\cdot4=16$. Write $8/(2(2+2))$ if you intend $1$; make the grouping visible.
+## 2. Visualise — Precedence, groups and signs
 
-**Additional example.** $-3^2+(-3)^2=-9+9=0$. The first term takes the opposite of a square; the second squares the negative number itself. A power’s base is the number or group receiving the exponent.
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l21-priority-ladder.svg" alt="Four levels: parentheses, powers, products and quotients, sums and differences. Work left to right within the last two levels." width="480" height="250" loading="lazy" />
+<figcaption>Parentheses and fraction bars define groups; the same rules apply inside them.</figcaption>
+</figure>
 
-<AlgebraExplorer kind="precedence" locale="en" client:visible />
+On a number line, the opposite lies the same distance from zero on the other side. Adding a negative moves left; subtracting a negative means adding its opposite.
 
-## The calculation contract
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l21-negative-subtraction.svg" alt="Two number lines: 2 plus negative 3 moves from 2 to negative 1; 2 minus negative 3 moves from 2 to 5." width="480" height="240" loading="lazy" />
+<figcaption>Same start, two different operations. Subtracting −3 is a displacement of +3.</figcaption>
+</figure>
 
-Work in $\mathbb{R}$. An expression is a calculation instruction, not simply a sequence to read from left to right. Parentheses, powers, products and quotients, then sums and differences determine the order. At equal precedence, process products and quotients from left to right, as with sums and differences. Write the grouping: a fraction bar groups its whole numerator and denominator.
+For a power, mentally box its base: in $-3^2$ the base is 3; in $(-3)^2$ the base is −3. The sign does not disappear: it either participates in multiplication or does not.
+
+## 3. Calculate — One operation at a time
+
+### A. Precedence from the PDF, pages 4–5
+
+| Expression | Operation performed |
+| --- | --- |
+| $2+3\cdot4^2$ | Start: identify base 4. |
+| $2+3\cdot16$ | Power. |
+| $2+48$ | Multiplication. |
+| $50$ | Addition. |
+
+Copy the unchanged parts on each line. With parentheses, $(2+3)\cdot4^2=5\cdot16=80$. Another example: $18-2(3+1)^2/4=18-2\cdot16/4=18-8=10$.
+
+At equal priority, multiplication and division proceed left to right, as do addition and subtraction. The PDF resolves its example $8\div2(2+2)=8\div2\cdot4=16$ using this convention. To avoid ambiguous implicit multiplication, write $(8/2)(2+2)$ or $8/(2(2+2))=1$ as intended. A fraction bar groups its entire numerator and denominator.
 
 <p class="source-next"><a href="/en/lessons/L21/#pdf-6">Next in the PDF : Basic rules →</a></p>
 
 <span id="pdf-6" class="source-topic-marker"></span>
 
-## Basic rules: opposite and reciprocal
+### B. Opposite, reciprocal and identities (PDF, page 6)
 
-The opposite of $a$ is $-a$: together they sum to zero, $a+(-a)=0$. For $a\ne0$, its reciprocal is $1/a$: their product is one, $a(1/a)=1$. Thus the opposite of $4$ is $-4$, whereas its reciprocal is $1/4$. Subtraction and division use these different ideas: $a-b=a+(-b)$ and $a/b=a(1/b)$ for $b\ne0$.
+| Concept | Example for 4 | Check |
+| --- | --- | --- |
+| Opposite | $-4$ | $4+(-4)=0$ |
+| Reciprocal | $1/4$ | $4\cdot(1/4)=1$ |
 
-The numbers $0$ and $1$ have specific roles: $a+0=a$, $a\cdot1=a$ and $a\cdot0=0$. A minus before a group multiplies the **whole** group by $-1$: $-(a+b)=-a-b$ and $a-(b-c)=a-b+c$. For example, $7-(2-5)=7-2+5=10$. Calculating $2-5=-3$ first gives the same result.
+The opposite of $a$ is $-a$ ; it exists even for zero. The reciprocal is $1/a$ only if $a\ne0$. Subtracting means adding the opposite; dividing means multiplying by the reciprocal:
 
-## Signs and operations
+$$a-b=a+(-b),\qquad a/b=a(1/b)\quad(b\ne0).$$
 
-Subtracting $b$ means adding $-b$. Thus $a-b=a+(-b)$ and $a-(-b)=a+b$. A minus sign before a power does not automatically belong to its base: $-4^2=-16$, whereas $(-4)^2=16$. A product of two negative numbers is positive; this does not make a sum of two negative numbers positive.
+Zero is the additive identity, one the multiplicative identity and zero annihilates a product: $a+0=a$, $a\cdot1=a$, $a\cdot0=0$.
 
-## Understand: sign, base and exponent
+### C. Why do signs work?
 
-For a power, first ask: **which number is multiplied by itself?** If $a\ge0$ and $n$ is a positive integer, $-a^n=-(a^n)$ means calculate the power of $a$, then its opposite. In contrast, $(-a)^n$ multiplies the number $-a$ by itself $n$ times.
+Be careful with the rule “two negatives make a positive”: the operation matters.
 
-For $a=3$ and $n=2$: $-3^2=-(3\cdot3)=-9$, but $(-3)^2=(-3)(-3)=9$. For $n=3$, both expressions equal $-27$: this agreement does not make the instructions identical. Each pair of negative factors has positive product; with an odd count, one minus sign remains.
+| Operation | Calculation |
+| --- | --- |
+| Adding two negatives | $(-2)+(-3)=-5$ |
+| Subtracting a negative | $2-(-3)=2+3=5$ |
+| Product of two negatives | $(-2)(-3)=6$ |
+
+The PDF states the general rule $(-a)(-b)=ab$. Here is an original explanation using distributivity:
+
+$$0=(-3)(2+(-2))$$
+
+$$0=(-3)\cdot2+(-3)(-2)=-6+(-3)(-2)$$
+
+$$6=(-3)(-2).$$
+
+The required product must cancel −6. Signs are not erased by convention: the result follows from arithmetic rules. In particular, a minus before a group multiplies every term by −1: $-(a+b)=-a-b$, $a-(b-c)=a-b+c$.
+
+Example: $7-(2-5)=7-2+5=10$. We obtain the same result by first calculating $2-5=-3$.
+
+### D. Sign, base and exponent
+
+| Expression | Factors and sign | Result |
+| --- | --- | --- |
+| $-3^2$ | $-(3\cdot3)$ | $-9$ |
+| $(-3)^2$ | $(-3)(-3)$ | $9$ |
+| $-3^3$ | $-(3\cdot3\cdot3)$ | $-27$ |
+| $(-3)^3$ | $(-3)(-3)(-3)$ | $-27$ |
+
+For strictly positive a, an even power of −a is positive and an odd power is negative. If a is zero, both expressions are zero for every positive integer exponent. Agreement in the odd case does not let us remove parentheses in general.
+
+### E. Change the expression without changing its value
+
+The PDF, page 6, gives three properties. For all real numbers:
+
+| Property | Rule | Example |
+| --- | --- | --- |
+| Commutativity: swap | $a+b=b+a$, $ab=ba$ | $2+3=3+2$ |
+| Associativity: regroup | $(a+b)+c=a+(b+c)$, $(ab)c=a(bc)$ | $(2+3)+4=2+(3+4)$ |
+| Distributivity: multiply each term | $a(b+c)=ab+ac$ | $2(3+4)=6+8$ |
+
+Subtraction and division are generally neither commutative nor associative. For example $12/(3/2)=8$, but $(12/3)/2=2$. Do not change groups arbitrarily.
+
+### F. Why can't we divide by zero?
+
+Division finds the number that, multiplied by the divisor, gives the dividend. For $6/0$, no real u satisfies $0u=6$. For $0/0$, every real u satisfies $0u=0$. In both cases there is no unique quotient. Thus $a/a=1$ only if $a\ne0$. We cannot conclude $u=v$ from $0u=0v$.
+
+## 4. Experiment — Predict, manipulate, explain
+
+In the first workshop, predict the result before changing the grouping. Compare parentheses and justify each operation.
+
+<AlgebraExplorer kind="precedence" locale="en" client:visible />
+
+In the second, keep a = 3 and choose n = 2. Walk through the steps: positive base then opposite, and product of negative factors. Try n = 3, then a = 0. Explain why the results can coincide.
 
 <AlgebraMethodLab kind="powers" locale="en" client:visible />
 
-## Guided example: preserve the structure
-
-Calculate $18-2(3+1)^2/4$. First $3+1=4$, then $4^2=16$. The product and quotient give $2\cdot16/4=8$. Finally $18-8=10$. Check using another form: $2/4=1/2$, so subtract half of $16$. This regrouping concerns products here, not an addition that could be moved arbitrarily.
-
-## What changes and what stays
-
-Addition and multiplication are **commutative** (swap the two numbers: $a+b=b+a$, $ab=ba$) and **associative** (change the groups: $(a+b)+c=a+(b+c)$, $(ab)c=a(bc)$). The values remain unchanged. Subtraction and division are not. For example, $12/(3/2)=8$, but $(12/3)/2=2$. Distributivity connects the two operations: $a(b+c)=ab+ac$. Changing a form is useful only when its value and domain are preserved.
-
-## Guided example: zero is not permission
-
-For $a\ne0$, $a/a=1$. At $a=0$, this expression is undefined. The equality $0\cdot u=0$ holds for every real $u$: it therefore cannot determine a quotient $0/0$. Likewise, $0u=0v$ does not imply $u=v$. Before cancelling, name the factor you divide by and check that it is nonzero.
-
-<p class="source-next"><a href="/en/lessons/L22/#pdf-7">Next in the PDF : Expanding and factorising →</a></p>
-
-## How to: a reusable method
-
-1. Identify groups and the base of each power.
-2. Evaluate parentheses, powers, products and quotients, then sums and differences. At equal priority, work left to right.
-3. Copy unchanged parts: each line must remain equal to the preceding line.
-4. Before dividing, check that the denominator is nonzero. Check the result with another permitted grouping.
-
-**Spot the mistake.** “Two negatives make a positive” concerns a product or subtraction of a negative: $(-2)+(-3)=-5$, whereas $(-2)(-3)=6$.
-
-## Practise step by step
+## 5. Practise — From calculation to reasoning
 
 <div className="algebra-exercise">
 
@@ -167,24 +217,29 @@ No: $u=1$ and $v=2$ give $0=0$ without being equal. Division by zero is undefine
 
 </div>
 
-## Practice and recap
+### Practice and recap
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
 
+## 6. Remember — Printable revision sheet
+
 <div className="algebra-revision">
 
-## Essentials and self-check
+- Precedence: groups, powers, products/quotients, sums/differences; at the last two levels, left to right.
+- Opposite: sum equals zero; reciprocal: product equals one, for a nonzero number.
+- $a-(-b)=a+b$ ; $(-a)(-b)=ab$ ; $-(a+b)=-a-b$.
+- Identify the base: $-3^2=-9$, $(-3)^2=9$.
+- Addition and multiplication: commutativity, associativity; distributivity: every term receives the factor.
+- Never divide by zero. Check the domain and copy each unchanged part.
 
-- Read an expression by grouping and precedence, not only left to right.
-- The opposite undoes addition; the reciprocal undoes multiplication and requires a nonzero number.
-- A sign before a group affects the entire group.
+**Self-check.** Without looking, distinguish opposite and reciprocal of 4, explain the sign of each power and give a counterexample to cancellation by zero. If unsure, revisit the corresponding Calculate section.
 
-**Self-check.** Without looking: explain the difference between $-3^2$ and $(-3)^2$; redo the first exercise; give a counterexample to cancellation by zero. If unsure, return to “Signs and operations” or “Zero is not permission”.
-
-**To print:** use the browser’s Print command. Activities show a fixed example and hints and solutions are expanded on paper.
+**To print:** use the browser's Print command. Workshops show a fixed example; hints and solutions are expanded on paper.
 
 </div>
+
+<p class="source-next"><a href="/en/lessons/L22/#pdf-7">Next in the PDF : Expanding and factorising →</a></p>
 
 </div>

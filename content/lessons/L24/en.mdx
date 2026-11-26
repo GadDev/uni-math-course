@@ -1,7 +1,7 @@
 ---
 lessonId: L24
 locale: en
-version: 4
+version: 5
 status: extended
 title: "Equations and inequalities"
 summary: "Transform a condition without losing solutions or adding forbidden values."
@@ -34,73 +34,132 @@ Prerequisites: L21, L22, L23. Domains and restrictions stated below are part of 
 
 <span id="pdf-19" class="source-topic-marker"></span>
 
-## Solving an equation: preserve the same solutions
+## 1. Understand — Find every allowed input
 
-An unknown is a value to find. The two **sides** are the expressions on either side of the equals sign. Solving means finding all solutions, rather than guessing one number. Here $\Leftrightarrow$ means “these equations have the same solutions on the stated domain”.
+Three identical tickets and a fixed fee of 5 euros cost 11 euros. What does one ticket cost? If x is the price, equation $3x+5=11$ describes an equality to satisfy. If the budget is at most 11 euros, we instead get $3x+5\le11$. In this context the price is nonnegative; the following PDF exercises are solved over the reals.
 
-**PDF example, pages 19–20.** $3x+5=11\Leftrightarrow3x=6\Leftrightarrow x=2$. First subtract $5$ from both sides, then divide both by $3$. Check: $3\cdot2+5=11$.
+An equation asks for every value making equality true; an inequality asks for every value satisfying an order. Symbol $\Leftrightarrow$ means both conditions have exactly the same solutions on the stated domain. Testing one candidate does not prove that all solutions have been found.
 
-The PDF’s trap is $x^2=x$. Checking the sign of $x$ is not the main issue when dividing by it: we must check it is **nonzero**. The correct transformation is $x^2-x=0\Leftrightarrow x(x-1)=0$; solutions are $0$ and $1$. A product is zero when at least one of its factors is zero.
+## 2. Visualise — Balance and order
 
-## An equation describes a set
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l24-balance.svg" alt="Three successive balances: 3x plus 5 equals 11, then 3x equals 6, then x equals 2." width="640" height="220" loading="lazy" />
+<figcaption>Removing 5 from both pans, then sharing both sides into three equal parts, preserves balance. The drawing represents this positive example.</figcaption>
+</figure>
 
-Solving a real equation means finding every value making it true. Adding the same real number to both sides or multiplying by a nonzero constant preserves solutions. Dividing by an expression involving the unknown needs an additional restriction. Equivalence must concern the same domain in both steps; a shorter formula is not automatically an equivalent condition.
+A term does not cross the equals sign: apply an operation to both sides. For an inequality, adding the same number preserves order; multiplying by a negative reverses the number line.
 
-## Guided example: isolate then check
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l24-order-reversal.svg" alt="Two number lines: 2 lies left of 3; after multiplying by negative 1, negative 2 lies right of negative 3." width="480" height="210" loading="lazy" />
+<figcaption>Order reverses, not just the signs of the numbers.</figcaption>
+</figure>
 
-For $x\in\mathbb{R}$, $4(x-1)+2=14$ gives $4x-2=14$, then $4x=16$ and $x=4$. Substituting into the statement gives $4(4-1)+2=14$. Substitution checks the candidate; reversible operations show that no other solution exists. These are distinct roles.
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l24-intervals.svg" alt="Four rays with boundary 2: open left, closed left, open right, closed right, and their intervals." width="540" height="300" loading="lazy" />
+<figcaption>Open circle: excluded. Filled disk: included. Infinity is never an included value.</figcaption>
+</figure>
 
-## Why does a term appear to change sign?
+## 3. Calculate — One transformation at a time
 
-In $3x+5=11$, number $5$ does not “cross” the equals sign. Subtract $5$ **from both sides**: $3x+5-5=11-5$, hence $3x=6$. Then divide both sides by the same nonzero number: $3x/3=6/3$, hence $x=2$.
+**A — Equation: isolate and check (PDF, pages 19–20).**
 
-The transformation remains reversible: multiply by $3$, then add $5$ to return to the start. For a general equation $ax+b=c$, handle $a=0$ before dividing: the condition then reduces to $b=c$, true for every real number or false for every real number. Unlike an inequality, an equality needs no direction reversal when dividing by a negative number.
+| Operation | Equation |
+| --- | --- |
+| Start | $3x+5=11$ |
+| Subtract 5 from both sides | $3x+5-5=11-5$ |
+| Simplify | $3x=6$ |
+| Divide both sides by 3 | $3x/3=6/3$ |
+| Write the solution | $x=2,\quad S=\{2\}$ |
 
-<AlgebraMethodLab kind="equation" locale="en" client:visible />
+Check in the original equation: $3\cdot2+5=11$. The transformations are reversible: multiply by 3 then add 5 to return to the start. That ensures no solution has been lost.
+
+Additional example with parentheses: $4(x-1)+2=14\Leftrightarrow4x-2=14\Leftrightarrow4x=16\Leftrightarrow x=4$. Check: $4(4-1)+2=14$.
+
+For $ax+b=c$, never divide before checking a:
+
+| Case | Result |
+| --- | --- |
+| $a\ne0$ | $S=\{(c-b)/a\}$ |
+| $a=0,\ b=c$ | $S=\mathbb R$ |
+| $a=0,\ b\ne c$ | $S=\varnothing$ |
+
+Dividing an equality by a negative constant does not change the equals sign.
+
+**B — Do not lose a solution (PDF, page 20).**
+
+The professor's trap: $x^2=x$. Dividing by x assumes x is nonzero and loses the zero solution. Factorise instead:
+
+$$x^2=x\Leftrightarrow x^2-x=0\Leftrightarrow x(x-1)=0.$$
+
+$$x=0\quad\lor\quad x=1,\qquad S=\{0,1\}.$$
+
+Both candidates satisfy the original equation. Use the same method for $x^2=3x\Leftrightarrow x(x-3)=0$, $S=\{0,3\}$.
 
 <p class="source-next"><a href="/en/lessons/L24/#pdf-21">Next in the PDF : Inequalities →</a></p>
 
 <span id="pdf-21" class="source-topic-marker"></span>
 
-## Inequalities: why the direction reverses
+**C — Inequalities: check the divisor sign (PDF, pages 21–22).**
 
-**PDF example, pages 21–22.** $-2x+4>0\Leftrightarrow-2x>-4\Leftrightarrow x<2$. The last step divides by $-2$, reversing the direction. On a number line, multiplication by a negative reverses order: $2<3$ but $-2>-3$.
+The PDF shows $2<3$ but $-2>-3$. Multiplying by a negative reverses order; dividing by a negative amounts to multiplying by its negative reciprocal.
 
-Write the solution as $]-\infty;2[$. The open bracket at $2$ excludes $2$: the left side would be zero, whereas we require strictly greater than zero. Point $0$ works; point $3$ does not. An interval never includes infinity as an endpoint: infinity is not a real number.
+| Operation | Effect on order |
+| --- | --- |
+| Add or subtract the same amount | Preserve |
+| Multiply or divide by a positive | Preserve |
+| Multiply or divide by a negative | Reverse |
+| Multiply by zero | Information lost, not an equivalence |
+| Divide by zero | Undefined |
 
-**Additional example.** $3x-6\ge0\Leftrightarrow x\ge2$. This time the boundary is included, so the solution is $[2;+\infty[$.
+Professor's example:
+
+$$-2x+4>0\Leftrightarrow-2x>-4\Leftrightarrow x<2.$$
+
+The last step divides by −2. The solution is $S=]-\infty;2[$. Test three values in the original condition:
+
+| x | $-2x+4$ | Satisfies the condition? |
+| --- | --- | --- |
+| 0 | 4 | Yes |
+| 2 | 0 | No: strict |
+| 3 | −2 | No |
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/en/inequality.svg" alt="A ray pointing left with an open circle at 2 represents x less than 2." width="440" height="360" loading="lazy" />
 <figcaption>The open circle excludes endpoint 2.</figcaption>
 </figure>
 
+Tests help catch errors; equivalence justifies the whole ray. For an included boundary, $3x-6\ge0\Leftrightarrow x\ge2$, $S=[2;+\infty[$. Another example: $-4x+3\le11\Leftrightarrow-4x\le8\Leftrightarrow x\ge-2$, $S=[-2;+\infty[$.
+
+| Inequality | Interval | Boundary 2 |
+| --- | --- | --- |
+| $x<2$ | $]-\infty;2[$ | Excluded |
+| $x\le2$ | $]-\infty;2]$ | Included |
+| $x>2$ | $]2;+\infty[$ | Excluded |
+| $x\ge2$ | $[2;+\infty[$ | Included |
+
+We retain French interval notation in both languages. For a coefficient of unknown sign, split cases. For example, for $ax>2$ :
+
+- $a>0$ : $x>2/a$.
+- $a<0$ : $x<2/a$.
+- $a=0$ : $0>2$ is false, so $S=\varnothing$.
+
+**D — Domain and extra candidates (project extensions).**
+
+Before simplifying $(x^2-4)/(x-2)=4$, write $x\ne2$. Factorisation gives $x+2=4$, so x = 2 would be the only candidate. It is excluded, hence $S=\varnothing$.
+
+Squaring can introduce candidates: $x=2\Rightarrow x^2=4$ but the second condition also allows −2. For a root equation, state domain and sign restrictions before squaring; check in the original. The third exercise applies this method.
+
+## 4. Experiment — Change both sides, then order
+
+In the equation workshop, keep the initial values and walk through the steps. The balance follows the positive example; for negative coefficients or results the display remains symbolic. Then try a = 0 with equal and unequal constants. Predict the number of solutions before reading the result.
+
+<AlgebraMethodLab kind="equation" locale="en" client:visible />
+
+In the inequality workshop, keep a = −2 and c = 4. Test x = 2, then include equality. Change a to +2 then 0: observe the direction, boundary and explanation of the transformation.
+
 <AlgebraExplorer kind="inequality" locale="en" client:visible />
 
-## Inequalities and intervals
-
-Adding a real number preserves order. Multiplying by a positive real also preserves it; multiplying by a negative real reverses it. Thus $-4x+3\le11$ is equivalent to $-4x\le8$, then $x\ge-2$. The set is $[-2;+\infty[$: the endpoint is included. We use this French interval notation in English too. A factor of unknown sign does not let us choose a direction without separating cases.
-
-## Guided example: do not lose zero
-
-The equation $x^2=3x$ over the reals becomes $x(x-3)=0$. Its solutions are $0$ and $3$. Dividing directly by $x$ would lose zero. A zero product has at least one zero factor. Conversely, squaring may add candidates: after a nonreversible step, check each candidate in the original equation.
-
-## Domain before simplification
-
-In $(x^2-4)/(x-2)=4$, the domain excludes $2$. Simplification gives $x+2=4$, whose only candidate is excluded: the solution set is empty. This is not an arithmetic mistake; it follows from the original restriction. Pay equal attention to strict or inclusive endpoints when the unknown must subsequently be an integer.
-
-<p class="source-next"><a href="/en/lessons/L25/#pdf-23">Next in the PDF : Systems of two equations →</a></p>
-
-## How to: a reusable method
-
-1. State the domain. Expand or factorise according to the useful form.
-2. Apply the same operation to both sides and explain why it is reversible.
-3. Before dividing, require a nonzero divisor. For an inequality, also check its sign; if a parameter determines the sign, separate cases.
-4. Write the solution set, then test candidates and boundaries in the original condition.
-
-**Read an interval.** $]-\infty;2[$ means “all real numbers strictly below two”. An outward-facing bracket excludes the finite boundary; a filled point represents it when included.
-
-## Practise step by step
+## 5. Practise — Isolate, reverse, check
 
 <div className="algebra-exercise">
 
@@ -170,24 +229,28 @@ We require $x\ge-2$ and, from the root’s sign, $x\ge0$. Squaring gives $x+2=x^
 
 </div>
 
-## Practice and recap
+**Practice and recap**
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
 
+## 6. Remember — Printable revision sheet
+
 <div className="algebra-revision">
 
-## Essentials and self-check
+- Write the domain, expand or factorise, transform both sides, write S, check.
+- $ax+b=c$ : $x=(c-b)/a$ if $a\ne0$. If a = 0, compare b and c.
+- Inequality: positive preserves order; negative reverses order; handle zero coefficient separately.
+- Strict boundary: open circle; inclusive boundary: filled disk. Always exclude infinity.
+- Do not divide by the unknown without handling zero. Squaring may add candidates; check in the original. Forbidden values stay forbidden.
 
-- Equivalence preserves all solutions on the same domain.
-- Dividing by a negative reverses an inequality; division by zero is forbidden.
-- Squaring can add candidates; division by the unknown can lose them.
+**Self-check.** Redo the balance example, explain order reversal, write the four intervals, then justify why a candidate can be rejected.
 
-**Self-check.** Isolate an unknown while justifying each operation; write the second exercise as an interval; explain why the negative candidate in the third is rejected. Revisit “Domain before simplification” if needed. [L25](../L25/) requires satisfying two conditions together.
-
-**To print:** use the browser’s Print command. Activities show a fixed example and hints and solutions are expanded on paper.
+**To print:** use the browser's Print command. Workshops show a fixed example; hints and solutions are expanded on paper.
 
 </div>
+
+<p class="source-next"><a href="/en/lessons/L25/#pdf-23">Next in the PDF : Systems of two equations →</a></p>
 
 </div>
