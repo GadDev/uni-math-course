@@ -1,7 +1,7 @@
 ---
 lessonId: L30
 locale: fr
-version: 4
+version: 5
 status: extended
 title: "Deux points et intersections"
 summary: "Construire une droite et distinguer intersection unique, parallélisme et coïncidence."
@@ -11,6 +11,7 @@ prerequisites: [L25, L29]
 sourcePages: [40, 41, 42, 43, 44, 45, 46, 47, 48, 49]
 ---
 import GeometryLab from '../../../src/components/GeometryLab';
+import TemperatureLab from '../../../src/components/TemperatureLab';
 
 <div className="geometry-study">
 
@@ -29,70 +30,51 @@ Deux points distincts fixent une droite ; deux droites posent une autre question
 
 Prérequis : L25, L29. Les domaines et restrictions précisés ci-dessous font partie de chaque règle.
 
+## 1. Comprendre — Deux mesures, une relation
+
 <span id="pdf-40" class="source-topic-marker"></span>
 
-## Deux points : retrouver la conversion Celsius–Fahrenheit
+### Deux points : retrouver la conversion Celsius–Fahrenheit
 
-**Exemple du PDF, pages 40–43.** On suppose la conversion affine. Les deux observations sont $(C,F)=(0,32)$ et $(100,212)$. La variation de Fahrenheit vaut $212-32=180$ pour une variation de Celsius de $100-0=100$.
+Il fait 50 °F à Belval : faut-il prendre un manteau ? Pour répondre, retrouvons la température en Celsius. Le PDF (p. 40–43) donne deux repères pour l'eau à pression atmosphérique normale :
 
-1. Pente : $m=(212-32)/(100-0)=1{,}8$.
-2. Intercept : $p=32-1{,}8\cdot0=32$.
-3. Conversion : $F=1{,}8C+32$.
-4. Pour $F=50$, résoudre $50=1{,}8C+32$ donne $C=(50-32)/1{,}8=10$.
+| Situation | Celsius $C$ (entrée) | Fahrenheit $F$ (sortie) | Point $(C,F)$ |
+| --- | ---: | ---: | --- |
+| L'eau gèle | 0 | 32 | $(0,32)$ |
+| L'eau bout | 100 | 212 | $(100,212)$ |
 
-Les lettres changent, pas la méthode : l’entrée $C$ remplace $x$ et la sortie $F$ remplace $y$. **Exemple supplémentaire :** à $C=20$, la formule donne $F=68$. Remplacer ce résultat dans la formule inverse retrouve $20$.
+La conversion est **affine** : chaque augmentation de 1 °C entraîne la même augmentation en °F, mais 0 °C ne correspond pas à 0 °F. Une droite de la forme $y=mx+p$ décrit cette règle. Ici $x$ devient $C$ et $y$ devient $F$ :
 
-## Deux points distincts
+$$F=mC+p.$$
 
-Pour $A=(x_1,y_1)$ et $B=(x_2,y_2)$ avec $x_1\ne x_2$, la pente est $m=(y_2-y_1)/(x_2-x_1)$. Ensuite $p=y_1-mx_1$. Inverser l’ordre des deux points change les deux signes du quotient et conserve la pente. Si les abscisses sont égales et les points distincts, la droite est verticale. Un seul point répété ne détermine pas une droite unique.
+Notre mission : déterminer les deux nombres $m$ (variation par degré) et $p$ (valeur de départ quand $C=0$). Ensuite, nous pourrons convertir dans les deux sens.
 
-## Comment retrouver l’équation et vérifier les cas limites ?
+## 2. Visualiser — Lire la droite et ses variations
 
-Écrivons que les deux points appartiennent à la droite : $y_1=mx_1+p$ et $y_2=mx_2+p$. En soustrayant, on obtient $y_2-y_1=m(x_2-x_1)$. Pour $x_2\ne x_1$, on en déduit :
+<TemperatureLab locale="fr" />
 
-$$m=\frac{y_2-y_1}{x_2-x_1},\qquad p=y_1-mx_1.$$
-
-La seconde formule vient simplement de la première équation, dans laquelle on isole $p$. Ne mémorisez pas deux recettes sans lien : on élimine d’abord la constante, puis on la retrouve.
-
-1. Comparez les deux points. S’ils sont identiques, les données ne déterminent pas une droite unique.
-2. S’ils sont distincts avec la même abscisse, écrivez la verticale $x=x_1$.
-3. Sinon, calculez la pente en soustrayant dans **le même ordre** au numérateur et au dénominateur.
-4. Calculez la constante, puis remplacez les coordonnées des **deux** points dans l’équation obtenue.
-
-<GeometryLab kind="points" locale="fr" client:visible />
-
-## Exemple guidé : construire puis vérifier
-
-Pour $(1,4)$ et $(3,10)$, la pente vaut $(10-4)/(3-1)=3$ et la constante vaut $4-3\cdot1=1$. La droite est $y=3x+1$. Vérifier les deux points est rapide et détecte une erreur de signe. La forme $y-y_1=m(x-x_1)$ fournit aussi l’équation sans calculer immédiatement la constante.
+Le déplacement horizontal $\Delta C=100$ mesure l'augmentation en Celsius. Le déplacement vertical $\Delta F=180$ mesure l'augmentation en Fahrenheit. La pente est le rapport vertical/horizontal, pas une température. Le point $A$ se trouve à la hauteur 32 sur l'axe vertical : c'est déjà l'ordonnée à l'origine.
 
 <p class="source-next"><a href="/fr/lessons/L30/#pdf-44">Suite du PDF : Intersection de deux droites →</a></p>
 
 <span id="pdf-44" class="source-topic-marker"></span>
 
-## Intersection : la même température dans les deux unités
+### Intersection : la même température dans les deux unités
 
-**Exemple du PDF, pages 44–45.** On cherche un nombre dont l’expression en Celsius et Fahrenheit est la même : cela impose $F=C$ en plus de $F=1{,}8C+32$. Remplacer $F$ par $C$ donne $C=1{,}8C+32$, puis $-0{,}8C=32$ et $C=-40$. L’intersection est $(C,F)=(-40,-40)$.
-
-Sur le dessin, l’intersection est le point commun aux deux droites. L’algèbre en fournit les coordonnées exactes. Il faut donner les deux coordonnées et vérifier les deux équations, pas seulement résoudre pour la première inconnue.
+Une intersection est un point qui appartient aux deux droites. Pour obtenir le même **nombre** dans les deux unités, on ajoute la condition $F=C$ à la règle de conversion. Le dessin du PDF p. 44–45 est expliqué par les deux contraintes ; nous calculerons le point exact à l'étape suivante.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/temperature.svg" alt="Les droites F égale C et F égale 1,8C plus 32 se croisent en moins 40,moins 40." width="440" height="360" loading="lazy" />
 <figcaption>Le point commun satisfait simultanément les deux équations.</figcaption>
 </figure>
 
-## Exemple guidé : intersection
-
-Les droites $y=2x+1$ et $y=-x+7$ se rencontrent lorsque $2x+1=-x+7$. On obtient $x=2$, puis $y=5$. Le résultat est le point $(2,5)$, pas seulement son abscisse. Les deux substitutions valent bien $5$.
-
 <p class="source-next"><a href="/fr/lessons/L30/#pdf-46">Suite du PDF : Trois situations →</a></p>
 
 <span id="pdf-46" class="source-topic-marker"></span>
 
-## Trois situations : une, aucune ou une infinité de solutions
+### Trois situations : une, aucune ou une infinité de solutions
 
-**Exemples du PDF, pages 46–49.** Pour $y=2x+1$ et $y=-x+4$, on obtient $2x+1=-x+4$, donc $3x=3$ et l’intersection $(1,3)$. Pour $y=2x+1$ et $y=2x+5$, éliminer $2x$ donnerait $1=5$ : aucune solution. Pour $y=2x+1$ et $2y=4x+2$, la seconde équation est deux fois la première : chaque point de la droite est commun.
-
-Ces cas expliquent les trois résultats rencontrés dans les systèmes. Une seule équation à deux inconnues peut décrire une infinité de couples : l’expression $0=0$ ne signifie pas que les seules coordonnées possibles sont zéro.
+Les dessins illustrent les trois cas du PDF p. 46–49 : des droites qui se croisent, deux parallèles distinctes, puis deux équations de la même droite.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/intersection-one.svg" alt="Deux droites se croisent au point 1,3." width="440" height="360" loading="lazy" />
@@ -109,7 +91,72 @@ Ces cas expliquent les trois résultats rencontrés dans les systèmes. Une seul
 <figcaption>Une infinité de points communs.</figcaption>
 </figure>
 
-## Comment résoudre une intersection ?
+## 3. Calculer — Une opération à la fois
+
+### Conversion : trouver m, puis p
+
+**Étape A — Calculer la pente.** Du point A au point B :
+
+$$\Delta C=100-0=100,\qquad \Delta F=212-32=180.$$
+
+$$m=\frac{\Delta F}{\Delta C}=\frac{180}{100}=1{,}8.$$
+
+Chaque degré Celsius supplémentaire représente donc une augmentation de 1,8 °F.
+
+**Étape B — Calculer l'ordonnée à l'origine.** Le point A appartient à la droite : remplaçons C par 0 et F par 32.
+
+$$32=1{,}8\cdot0+p=0+p.$$
+
+Ainsi $p=32$ et la règle complète est $F=1{,}8C+32$.
+
+**Étape C — Vérifier les deux données.** Pour $C=0$, $F=32$. Pour $C=100$, $F=180+32=212$. Les deux points conviennent.
+
+**Étape D — Convertir 20 °C.**
+
+$$F=1{,}8\cdot20+32=36+32=68.$$
+
+**Étape E — Inverser la conversion : 50 °F.**
+
+| Opération | Égalité |
+| --- | --- |
+| Remplacer F par 50 | $50=1{,}8C+32$ |
+| Soustraire 32 des deux membres | $18=1{,}8C$ |
+| Diviser les deux membres par 1,8 | $10=C$ |
+
+Il fait donc 10 °C. Vérification : $1{,}8\cdot10+32=50$. En général $C=(F-32)/1{,}8$ : on annule les opérations dans l'ordre inverse.
+
+### Deux points distincts
+
+Pour $A=(x_1,y_1)$ et $B=(x_2,y_2)$ avec $x_1\ne x_2$, la pente est $m=(y_2-y_1)/(x_2-x_1)$. Ensuite $p=y_1-mx_1$. Inverser l’ordre des deux points change les deux signes du quotient et conserve la pente. Si les abscisses sont égales et les points distincts, la droite est verticale. Un seul point répété ne détermine pas une droite unique.
+
+### Comment retrouver l’équation et vérifier les cas limites ?
+
+Écrivons que les deux points appartiennent à la droite : $y_1=mx_1+p$ et $y_2=mx_2+p$. En soustrayant, on obtient $y_2-y_1=m(x_2-x_1)$. Pour $x_2\ne x_1$, on en déduit :
+
+$$m=\frac{y_2-y_1}{x_2-x_1},\qquad p=y_1-mx_1.$$
+
+La seconde formule vient simplement de la première équation, dans laquelle on isole $p$. Ne mémorisez pas deux recettes sans lien : on élimine d’abord la constante, puis on la retrouve.
+
+1. Comparez les deux points. S’ils sont identiques, les données ne déterminent pas une droite unique.
+2. S’ils sont distincts avec la même abscisse, écrivez la verticale $x=x_1$.
+3. Sinon, calculez la pente en soustrayant dans **le même ordre** au numérateur et au dénominateur.
+4. Calculez la constante, puis remplacez les coordonnées des **deux** points dans l’équation obtenue.
+
+### Exemple guidé : construire puis vérifier
+
+Avec $A=(1,4)$ et $B=(3,10)$, les deux variations valent $10-4=6$ et $3-1=2$. Donc $m=6/2=3$. En remplaçant A dans $y=mx+p$, on obtient $4=3\cdot1+p$, puis $p=4-3=1$. La droite est $y=3x+1$. Vérification : $3\cdot1+1=4$ et $3\cdot3+1=10$. Autre écriture équivalente : $y-y_1=m(x-x_1)$.
+
+### Exemple guidé : intersection
+
+À l'intersection de $y=2x+1$ et $y=-x+7$, les deux valeurs de y sont égales.
+
+$$2x+1=-x+7$$
+
+Ajouter x aux deux membres : $3x+1=7$. Soustraire 1 : $3x=6$. Diviser par 3 : $x=2$. Puis $y=2\cdot2+1=5$. L'autre droite donne aussi $-2+7=5$. Le résultat est le couple $(2,5)$.
+
+Pour la température, $F=C$ donne $C=1{,}8C+32$. Soustraire $1{,}8C$ : $-0{,}8C=32$. Diviser par $-0{,}8$ : $C=-40$. Alors $F=-40$ et $1{,}8(-40)+32=-40$.
+
+### Comment résoudre une intersection ?
 
 Un point commun satisfait les deux équations **à la fois**. Pour $y=m_1x+p_1$ et $y=m_2x+p_2$, égaliser les deux expressions de la même ordonnée donne :
 
@@ -119,44 +166,74 @@ Avant de diviser, examinez $m_1-m_2$. S’il est non nul, calculez $x$, puis $y$
 
 Dans l’activité, avancez une étape à la fois : écrire les deux contraintes, égaliser ou substituer, regrouper sans diviser trop tôt, puis vérifier le point obtenu.
 
+### Les trois cas et les verticales
+
+- $y=2x+1$ et $y=-x+4$ : $3x=3$, donc $(1,3)$.
+- $y=2x+1$ et $y=2x+5$ : soustraire $2x$ donne $1=5$, impossible.
+- $y=2x+1$ et $2y=4x+2$ : diviser la seconde par 2 redonne la première. Tous les points de cette droite conviennent, et non seulement $(0,0)$.
+- $x=4$ et $y=-x+6$ : remplacer x par 4 donne $(4,2)$. Deux verticales distinctes ne se croisent pas ; deux verticales identiques coïncident.
+
+Dans une application, vérifier aussi le domaine : une quantité négative ou une extrapolation peut ne pas avoir de sens pratique.
+
+## 4. Expérimenter — Faire varier les données
+
+Prévoyez ce qui arrive à F si C augmente de 10 °C. Déplacez ensuite le curseur pour vérifier ; passez en mode inverse pour retrouver C à partir de F.
+
+<TemperatureLab locale="fr" interactive client:visible />
+
+Dans le premier laboratoire géométrique, commencez par reproduire A = (1,4) et B = (3,10), puis rendez les abscisses égales. Dans le second, reproduisez l'intersection $(1,3)$, puis cherchez les cas parallèle et confondu.
+
+<GeometryLab kind="points" locale="fr" client:visible />
+
 <GeometryLab kind="intersection" locale="fr" client:visible />
 
-## Une, aucune ou une infinité
+## 5. Pratiquer — Du simple au transfert
 
-Pour deux droites non verticales, des pentes différentes donnent une intersection unique. Des pentes égales et des constantes différentes donnent aucune intersection. Des paramètres identiques décrivent la même droite et donc une infinité de points communs. Après élimination, une égalité fausse comme $0=3$ indique l’absence de solution ; une identité comme $0=0$ exige de conserver l’équation restante.
+**Facile.** Convertir 30 °C en Fahrenheit.
 
-## Verticales et domaine d’application
+<details>
+<summary>Vérifier ma réponse</summary>
 
-Pour croiser $x=4$ et $y=-x+6$, substituer directement l’abscisse fixée donne $(4,2)$. Deux verticales distinctes ne se croisent pas. Dans un modèle de coûts ou de conversion, une intersection algébrique peut être hors du domaine utilisable. Une quantité négative ou une extrapolation n’acquiert pas un sens pratique uniquement parce qu’elle résout les équations.
+$F=1{,}8\cdot30+32=54+32=86$. Si vous avez trouvé 54, il manque la valeur de départ 32.
 
-<p class="source-next"><a href="/fr/lessons/L31/#pdf-50">Suite du PDF : Les deux demi-plans →</a></p>
+</details>
 
-## À vous de jouer sur papier
-
-Construisez la droite passant par $(0,2)$ et $(2,0)$, puis trouvez son intersection avec $y=x$. Vérifiez vos deux coordonnées.
+**Intermédiaire.** Trouver la droite passant par $(0,2)$ et $(2,0)$, puis son intersection avec $y=x$.
 
 <details>
 <summary>Afficher la correction expliquée</summary>
 
-La pente vaut $(0-2)/(2-0)=-1$ et la constante vaut $2$, donc $y=-x+2$. L’intersection impose $x=-x+2$, puis $2x=2$ et $x=1$. On trouve $y=1$ ; $(1,1)$ satisfait bien les deux équations. La droite construite redonne aussi les deux points initiaux.
+$m=(0-2)/(2-0)=-1$ ; $p=2$ puisque $(0,2)$ est sur la droite. Ainsi $y=-x+2$. L'intersection impose $x=-x+2$, donc $2x=2$, puis $x=1$ et $y=1$. Vérification : $-1+2=1$. Les deux points de départ donnent aussi 2 et 0.
 
 </details>
 
-<section className="geometry-revision">
+**Défi.** Pour quelles valeurs réelles de k les droites $y=2x+1$ et $y=kx+5$ ont-elles une intersection unique ?
 
-## Fiche de révision à imprimer
+<details>
+<summary>Vérifier le raisonnement</summary>
 
-- **Deux points :** traiter d’abord les points confondus et les verticales ; sinon calculer $m$ puis $p$.
-- **Intersection :** résoudre $(m_1-m_2)x=p_2-p_1$ en séparant le cas du coefficient nul.
-- **Vérification :** un résultat est un couple, à substituer dans les deux équations.
-- **Pièges :** diviser par zéro ; lire « aucun point visible » comme « aucune solution » ; oublier le domaine du modèle.
+Égaliser donne $(2-k)x=4$. Si $k\ne2$, on peut diviser et obtenir $x=4/(2-k)$, puis $y=2x+1$. Si $k=2$, on obtient $0=4$, impossible. Le cas confondu est exclu car les ordonnées à l'origine sont différentes.
 
-</section>
+</details>
 
-## Pratique et bilan
+### Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+<section className="geometry-revision">
+
+## 6. Retenir — Fiche de révision à imprimer
+
+- Deux points distincts avec $x_A\ne x_B$ : $m=(y_B-y_A)/(x_B-x_A)$, puis $p=y_A-mx_A$. Vérifier les deux points.
+- Même abscisse, points distincts : $x=x_A$ ; points identiques : pas de droite unique.
+- Deux droites non verticales : $(m_1-m_2)x=p_2-p_1$. Ne diviser que si $m_1\ne m_2$ ; sinon comparer les constantes.
+- Intersection : donner les deux coordonnées et vérifier les deux équations. Une intersection hors du dessin peut exister.
+- Conversion : $F=1{,}8C+32$ et $C=(F-32)/1{,}8$.
+
+</section>
+
+<p class="source-next"><a href="/fr/lessons/L31/#pdf-50">Suite du PDF : Les deux demi-plans →</a></p>
 
 </div>
