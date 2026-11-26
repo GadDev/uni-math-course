@@ -159,7 +159,9 @@ for (const locale of ['fr', 'en']) {
     for (const width of [320, 375, 768, 1440]) {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(`/${locale}/lessons/L40/`);
-      await expect(page.locator('astro-island')).toHaveCount(3);
+      await expect(
+        page.locator('astro-island[component-url*="L40DerivativeExplorer"]'),
+      ).toHaveCount(3);
       await expect(page.locator('.katex-error')).toHaveCount(0);
       if (fr && (width === 320 || width === 1440)) {
         await page.locator('#l40-secant-a').scrollIntoViewIfNeeded();
@@ -176,7 +178,7 @@ for (const locale of ['fr', 'en']) {
         await page.evaluate(() => document.documentElement.scrollWidth),
       ).toBeLessThanOrEqual(width);
       await expect(page.locator('.content-provenance')).toContainText(
-        'Version 2',
+        'Version 3',
       );
     }
     const correction = page.locator('.l40-correction');
