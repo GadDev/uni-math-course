@@ -284,6 +284,51 @@ for (const locale of ['fr', 'en']) {
 }
 
 for (const locale of ['fr', 'en']) {
+  test(`${locale}: L31 boundary and cumulative triangle constraints`, async ({
+    page,
+  }) => {
+    const fr = locale === 'fr';
+    await page.goto(`/${locale}/lessons/L31/`);
+    const lab = page.locator('[data-geometry-lab="region"]');
+    const live = lab.locator('.geo-live');
+    const decision = live.locator('[data-region-decision]');
+    await lab.scrollIntoViewIfNeeded();
+    await expect(lab.locator('fieldset')).toBeVisible();
+    await values(lab, [2, 2]);
+    await lab.locator('select').selectOption('open');
+    await expect(live.locator('[data-region-substitution]')).toContainText(
+      fr ? 'sur la frontière' : 'on the boundary',
+    );
+    await expect(decision).toContainText(fr ? 'exclu' : 'excluded');
+    await lab.locator('select').selectOption('closed');
+    await expect(decision).toContainText(fr ? 'accepté' : 'accepted');
+    await lab.locator('select').selectOption('triangle');
+    await values(lab, [3, 2]);
+    await expect(decision).toContainText(fr ? 'exclu' : 'excluded');
+    const remove = lab.getByRole('button', {
+      name: /Retirer une contrainte|Remove a constraint/,
+    });
+    const add = lab.getByRole('button', {
+      name: /Ajouter une contrainte|Add a constraint/,
+    });
+    await remove.click();
+    await remove.click();
+    await expect(live.locator('[data-region-steps] li')).toHaveCount(1);
+    await expect(decision).toContainText(fr ? 'accepté' : 'accepted');
+    await add.click();
+    await expect(live.locator('[data-region-steps] li')).toHaveCount(2);
+    await expect(decision).toContainText(fr ? 'accepté' : 'accepted');
+    await add.click();
+    await expect(live.locator('[data-region-steps] li')).toHaveCount(3);
+    await expect(decision).toContainText(fr ? 'exclu' : 'excluded');
+    await values(lab, [1, 1]);
+    await expect(decision).toContainText(fr ? 'accepté' : 'accepted');
+    await lab.getByRole('button', { name: /Réinitialiser|Reset/ }).click();
+    await expect(live.locator('[data-region-steps]')).toHaveCount(0);
+  });
+}
+
+for (const locale of ['fr', 'en']) {
   test(`${locale}: L29 separates slope, intercept and signed displacement`, async ({
     page,
   }) => {
