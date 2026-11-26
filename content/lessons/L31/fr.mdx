@@ -1,7 +1,7 @@
 ---
 lessonId: L31
 locale: fr
-version: 6
+version: 7
 status: extended
 title: "Demi-plans et triangles"
 summary: "Utiliser le signe d’une expression affine pour décrire et tester une région."
@@ -32,98 +32,175 @@ Prérequis : L24, L28, L30. Les domaines et restrictions précisés ci-dessous f
 
 <span id="pdf-50" class="source-topic-marker"></span>
 
-## Les deux demi-plans : tester de quel côté se trouve un point
+## 1. Comprendre — Une frontière, deux régions
 
-Une droite coupe le plan en deux régions. **Exemple du PDF, page 50 :** la frontière est $y=2x+1$. Pour $(0,3)$, comparer $3$ à $2\cdot0+1=1$ donne $3>1$ : le point est au-dessus. Pour $(2,0)$, $0<2\cdot2+1=5$ : le point est en dessous.
+Imaginez une carte sur laquelle une ligne droite sépare deux zones. Pour savoir si un point est du bon côté, on peut regarder la carte ou effectuer un calcul exact.
 
-La différence $f(x,y)=y-2x-1$ vaut respectivement $2$ et $-5$. Son signe suffit donc à distinguer les côtés. Une inégalité stricte exclut la frontière, dessinée en pointillés ; une inégalité large l’inclut, avec un trait continu. Pour une droite verticale, parler plutôt de gauche et de droite.
+Dans L28, l'équation $y=2x+1$ sélectionnait uniquement les points sur la droite. Maintenant, une inégalité sélectionne tous les points d'un côté : $y>2x+1$ signifie que la hauteur du point est supérieure à celle de la droite pour la même abscisse.
 
-Dans le parcours du PDF, poursuivre avec [les pixels](../L32/#pdf-52). Le triangle ci-dessous est un complément du projet, absent du PDF révisé.
+**PDF, p. 50.** La droite $ax+by=c$, avec $(a,b)\ne(0,0)$, partage le plan en deux demi-plans ouverts : $ax+by>c$ et $ax+by<c$. La droite elle-même n'appartient à aucun des deux. Les versions fermées incluent leur frontière.
+
+Notre mission : décider de quel côté se trouvent $A=(0,3)$ et $B=(2,0)$ par rapport à la droite du PDF. Nous ajouterons aussi $D=(0,1)$, situé sur la frontière.
+
+## 2. Visualiser — Lire le signe et construire une région
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/halfplanes.svg" alt="La droite pointillée y égale 2x plus 1 sépare une région hachurée au-dessus et une région non hachurée en dessous." width="440" height="360" loading="lazy" />
 <figcaption>Les signes et les hachures identifient les côtés sans dépendre seulement des couleurs.</figcaption>
 </figure>
 
-## Une droite sépare le plan
+Pour cette droite, on compare la hauteur du point à la hauteur de la droite à la même abscisse. Au-dessus, le résultat est positif ; en dessous, négatif ; sur la droite, nul.
 
-Pour $f(x,y)=ax+by-c$ avec $(a,b)\ne(0,0)$, la frontière est $f=0$. Les deux demi-plans ouverts sont $f>0$ et $f<0$ ; les versions fermées incluent le bord. Le signe est constant d’un côté de la droite. Il n’est pas toujours pertinent de dire « au-dessus » : une verticale sépare gauche et droite.
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l31-boundaries.svg" alt="Même demi-plan supérieur dans deux dessins : frontière en tirets pour y supérieur strictement à 2x plus 1 et frontière continue pour y supérieur ou égal à 2x plus 1. D(0,1) est exclu à gauche, inclus à droite." width="440" height="240" loading="lazy" />
+<figcaption>Le côté retenu est le même. Seule l'appartenance des points sur la frontière change.</figcaption>
+</figure>
 
-## Pourquoi le signe choisit-il un côté ?
+| Symbole | Frontière | Point sur la droite |
+| --- | --- | --- |
+| Strict : $<$ ou $>$ | Tirets | Exclu |
+| Large : $\le$ ou $\ge$ | Trait continu | Inclus |
 
-Considérons $f(x,y)=ax+by-c$, avec $(a,b)\ne(0,0)$. L’écriture $f(P)$ signifie qu’on remplace les coordonnées par celles du point $P$. La droite est l’ensemble où le résultat vaut zéro.
-
-Si deux points $P$ et $Q$ donnent des signes opposés, les valeurs de $f$ sur le segment qui les relie passent de l’un à l’autre sans saut : elles prennent donc la valeur zéro. Le segment traverse la frontière. Si les deux valeurs sont strictement positives, leurs moyennes pondérées restent positives : le segment reste de ce côté. C’est la raison géométrique du test par signe.
-
-**Comment dessiner une inégalité ?** Tracez sa frontière, choisissez un point hors de cette droite, puis substituez ses coordonnées. Une inégalité vraie retient son côté ; une inégalité fausse retient l’autre. Terminez en décidant si le bord est inclus.
-
-Pour $x+2y\le6$, utilisez $f=x+2y-6$. L’origine donne $f(0,0)=-6<0$ : on garde le côté négatif et le bord. Pour $f(R)\ne0$, le produit $f(P)f(R)$ est positif si les signes sont identiques, négatif s’ils sont opposés et nul si $P$ est sur le bord. Cela explique le test de même côté donné plus bas.
-
-## Exemple guidé : point test
-
-Pour $x+2y\le6$, l’origine donne $0\le6$ : on retient le côté contenant l’origine et la frontière. Le point $(4,2)$ donne $8>6$ et est exclu. Un point de la frontière ne permet pas de choisir le côté, puisque sa valeur est zéro pour les deux inégalités larges.
+Pour une verticale, par exemple $x=2$, les côtés sont gauche et droite, et non au-dessus et en dessous.
 
 <p class="source-next"><a href="/fr/lessons/L32/#pdf-52">Suite du PDF : L’écran est une grille de pixels →</a></p>
 
 <span id="supplement-triangle" class="source-topic-marker"></span>
 
-## Remplir un triangle : combiner trois tests
+### Trois demi-plans, un triangle
 
-**Complément du projet, hors du PDF révisé.** Un triangle non aplati est l’intersection de trois demi-plans : pour chaque côté, garder celui qui contient le sommet opposé. Cela transforme un dessin en trois tests algébriques.
+**Complément du projet, hors du PDF révisé.** On cherche à remplir le triangle de sommets $A=(0,0)$, $B=(4,0)$ et $C=(0,3)$. Chaque côté impose une règle. On garde d'abord le côté droit de l'axe vertical, puis la partie au-dessus de l'axe horizontal, puis la partie sous la droite BC.
 
-Prenons $A=(0,0)$, $B=(4,0)$ et $C=(0,3)$. Les côtés horizontaux et verticaux donnent $y\ge0$ et $x\ge0$. Le troisième côté vérifie $3x+4y=12$, car il passe par $B$ et $C$. L’origine donne $0\le12$ : garder $3x+4y\le12$.
-
-Le point $(1,1)$ satisfait les trois conditions, tandis que $(3,2)$ échoue au troisième test car $3\cdot3+4\cdot2=17>12$. Le bord est inclus ici. Pour remplir une image, tester le centre de chaque pixel ; ce sont les mêmes idées de demi-plan, appliquées à une grille.
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l31-triangle-steps.svg" alt="Trois étapes cumulatives : x supérieur ou égal à zéro, puis y supérieur ou égal à zéro, puis 3x plus 4y inférieur ou égal à 12. Seul le triangle reste à la troisième étape." width="440" height="190" loading="lazy" />
+<figcaption>Chaque nouvelle condition réduit la région. À la fin, seuls les points satisfaisant les trois tests sont retenus.</figcaption>
+</figure>
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/triangle.svg" alt="Triangle de sommets 0,0, 4,0 et 0,3, avec un point intérieur en 1,1 et un point extérieur en 3,2." width="440" height="360" loading="lazy" />
 <figcaption>Un point doit satisfaire les trois contraintes à la fois.</figcaption>
 </figure>
 
+Un point peut satisfaire deux règles et échouer à la troisième. Comme en logique, « et » exige que **toutes** les conditions soient vraies.
+
+## 3. Calculer — Une condition à la fois
+
+### Les points du PDF
+
+Posons $f(x,y)=y-2x-1$. Cela revient à calculer hauteur du point moins hauteur de la droite.
+
+| Point | Hauteur du point | Hauteur de la droite | Différence | Conclusion |
+| --- | --- | --- | --- | --- |
+| $A=(0,3)$ | 3 | $2\cdot0+1=1$ | $3-1=2$ | Au-dessus |
+| $B=(2,0)$ | 0 | $2\cdot2+1=5$ | $0-5=-5$ | En dessous |
+| $D=(0,1)$ | 1 | $2\cdot0+1=1$ | $1-1=0$ | Sur la droite |
+
+En général, pour $f(x,y)=ax+by-c$, avec $(a,b)\ne(0,0)$, la frontière est $f=0$. Le signe de f détermine le demi-plan.
+
+Si deux points donnent des signes opposés, f passe par zéro sur le segment qui les relie : le segment traverse la droite. Si les valeurs ont le même signe strict, leurs moyennes pondérées conservent ce signe. Le segment reste du même côté.
+
+### Choisir le bon côté : un point test
+
+Pour dessiner $x+2y\le6$ :
+
+1. Tracer la frontière $x+2y=6$, par exemple en reliant $(0,3)$ et $(6,0)$.
+2. Choisir un point hors de la frontière : ici l'origine.
+3. Substituer : $0+2\cdot0=0\le6$. L'origine est acceptée.
+4. Hachurer le côté contenant l'origine ; tracer la frontière en continu.
+
+Le point $(4,2)$ donne $4+2\cdot2=8>6$ : il est exclu. Le point $(2,2)$ donne $2+2\cdot2=6$ : il est inclus pour l'inégalité large, mais exclu pour l'inégalité stricte. Un point de la frontière ne permet pas de choisir un côté.
+
+### Construire les trois contraintes du triangle
+
+Les côtés AB et AC sont les axes. Pour AB, garder $y\ge0$ car C est au-dessus ; pour AC, garder $x\ge0$ car B est à droite.
+
+Le côté BC passe par $(4,0)$ et $(0,3)$. L'équation $3x+4y=12$ est vraie aux deux sommets : $3\cdot4+4\cdot0=12$ et $3\cdot0+4\cdot3=12$. L'origine, sommet opposé, donne $0\le12$ ; on retient donc $3x+4y\le12$.
+
+Les trois règles doivent être vraies simultanément :
+
+$$x\ge0,\qquad y\ge0,\qquad 3x+4y\le12.$$
+
+| Test | $P=(1,1)$ | $Q=(3,2)$ |
+| --- | --- | --- |
+| $x\ge0$ | $1\ge0$ : oui | $3\ge0$ : oui |
+| $y\ge0$ | $1\ge0$ : oui | $2\ge0$ : oui |
+| $3x+4y\le12$ | $3+4=7\le12$ : oui | $9+8=17>12$ : non |
+| Conclusion | Intérieur | Extérieur |
+
+Le point $(2,3/2)$ est sur BC car $3\cdot2+4\cdot(3/2)=12$ : le bord est inclus. Autre exemple : $x\ge0$, $y\ge0$, $x+y\le4$ décrit le triangle fermé de sommets $(0,0)$, $(4,0)$ et $(0,4)$.
+
+### Triangle quelconque : comparer les signes
+
+Pour chaque côté d'un triangle non aplati, prendre comme référence R le sommet opposé. Il est hors de la droite, donc $f(R)\ne0$. On veut savoir si P est du même côté que R.
+
+| Signe de f(P) | Signe de f(R) | Produit | Décision |
+| --- | --- | --- | --- |
+| + | + | + | Même côté |
+| − | − | + | Même côté |
+| + ou − | Opposé | − | Côté opposé |
+| 0 | Non nul | 0 | Sur le bord |
+
+Le test fermé est $f(P)f(R)\ge0$ ; le test strict est $f(P)f(R)>0$.
+
+Exemple pour BC : choisir $f(x,y)=3x+4y-12$. Au sommet A, $f(A)=-12$. Pour P, $f(P)=-5$ ; le produit vaut $(-5)(-12)=60>0$. Pour Q, $f(Q)=5$ ; le produit vaut $5(-12)=-60<0$. On doit refaire le test pour les deux autres côtés.
+
+Multiplier f par un nombre négatif inverse les deux signes mais pas la décision de même côté. En revanche, multiplier une inégalité par un nombre négatif exige d'inverser son sens. Des sommets alignés ou répétés donnent une aire nulle : le test de remplissage doit s'arrêter, car il n'y a pas de triangle d'intérieur non vide.
+
+## 4. Expérimenter — Voir la région se réduire
+
+Dans le premier atelier, testez le point frontière (2,2) dans les deux versions de l'inégalité. Puis choisissez « Triangle fermé », revenez à la première contrainte et ajoutez les autres une par une. Prévoyez si (3,2) restera accepté. Les résultats distinguent la région intermédiaire et le triangle final.
+
 <GeometryLab kind="region" locale="fr" client:visible />
 
-## Intersection de contraintes
-
-La région $x\ge0$, $y\ge0$, $x+y\le4$ est un triangle fermé. Un point appartient à la région seulement s’il satisfait les trois tests. Vérifier une seule contrainte ne suffit pas. Les sommets sont $(0,0)$, $(4,0)$ et $(0,4)$ ; les arêtes sont incluses.
-
-## Exemple guidé : triangle général
-
-Pour trois sommets non alignés, chaque côté définit une droite. Pour chaque droite, garder le demi-plan fermé contenant le troisième sommet. Leur intersection est exactement le triangle rempli, bord compris.
-
-Construisez maintenant votre propre triangle. Pour chaque côté, comparez le signe obtenu au sommet opposé et au point testé. Inverser deux sommets change les signes utilisés, mais pas la région ; des sommets alignés imposent d’arrêter le remplissage.
+Dans le second atelier, déplacez les sommets du triangle et le point P. Comparez les signes pour chaque côté, puis inversez B et C. Enfin, alignez les trois sommets : expliquez pourquoi le remplissage s'arrête. Pour remplir une image, on peut appliquer ces tests au centre de chaque pixel.
 
 <GeometryExtensions kind="triangle" locale="fr" client:visible />
 
-## Un test de même côté
+## 5. Pratiquer — Du signe au raisonnement
 
-Si $R$ est un point de référence hors de la droite, $P$ est du même côté ou sur le bord lorsque $f(P)f(R)\ge0$. Pour le même côté strict, utiliser $>0$. Multiplier une équation de frontière par un nombre négatif conserve la droite mais inverse les signes. Trois sommets alignés ne définissent pas un triangle d’intérieur non vide ; le test doit signaler ce cas avant le remplissage.
+**Facile.** Le point $(1,3)$ vérifie-t-il $y>2x+1$ ? Et $y\ge2x+1$ ?
 
-## À vous de jouer sur papier
+<details>
+<summary>Vérifier la réponse</summary>
 
-Le point $(2,2)$ est-il dans $x+2y<6$ ? Et dans $x+2y\le6$ ? Le point $(3,2)$ appartient-il au triangle de sommets $(0,0),(4,0),(0,3)$ ?
+La hauteur de la droite est $2\cdot1+1=3$. Le point est sur la frontière : l'inégalité stricte est fausse et l'inégalité large est vraie.
+
+</details>
+
+**Intermédiaire.** Le point $(3,2)$ appartient-il au triangle de sommets $(0,0),(4,0),(0,3)$ ?
+
+<details>
+<summary>Vérifier la réponse</summary>
+
+Les contraintes $x\ge0$ et $y\ge0$ sont vraies, mais $3\cdot3+4\cdot2=17>12$. Le point est exclu : deux tests réussis sur trois ne suffisent pas.
+
+</details>
+
+**Défi.** La frontière est $x-y=0$. Le point $R=(2,0)$ sert de référence. Le point $P=(1,3)$ est-il du même côté que R ? Et si l'on utilise $y-x=0$ ?
 
 <details>
 <summary>Afficher la correction expliquée</summary>
 
-Pour $(2,2)$, $x+2y=6$ : le point est exclu du demi-plan ouvert et inclus dans le demi-plan fermé. Pour $(3,2)$, les contraintes $x\ge0$ et $y\ge0$ sont vraies, mais $3x+4y=17>12$ : le point est hors du triangle. Deux tests réussis sur trois ne suffisent pas.
+Avec $f(x,y)=x-y$, on obtient $f(R)=2$ et $f(P)=-2$, donc le produit vaut $-4<0$. Les points sont de côtés opposés. Inverser f donne les signes inversés, mais le même produit : la décision ne change pas.
 
 </details>
-
-<section className="geometry-revision">
-
-## Fiche de révision à imprimer
-
-- **Frontière :** $ax+by-c=0$, avec $(a,b)\ne(0,0)$ ; le signe choisit un côté.
-- **Bord :** $<$ ou $>$ l’exclut ; $\le$ ou $\ge$ l’inclut.
-- **Triangle :** choisir pour chaque côté le demi-plan contenant le sommet opposé ; vérifier les trois contraintes.
-- **Pièges :** prendre un point test sur la droite ; oublier d’inverser le sens en multipliant par un négatif ; accepter trois sommets alignés comme un triangle d’intérieur non vide.
-
-</section>
-
-## Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+
+<section className="geometry-revision">
+
+## 6. Retenir — Fiche de révision à imprimer
+
+- Frontière : $f(x,y)=ax+by-c=0$, avec $(a,b)\ne(0,0)$.
+- Signe positif, négatif ou nul : deux côtés ou frontière.
+- Bord exclu : $<$ ou $>$ ; bord inclus : $\le$ ou $\ge$.
+- Point test : choisir un point hors de la droite, substituer, garder le bon côté.
+- Même côté fermé : $f(P)f(R)\ge0$ si $f(R)\ne0$.
+- Triangle fermé : conserver le demi-plan du sommet opposé pour chacun des trois côtés ; tous les tests doivent réussir.
+- Pièges : point test sur le bord, signe inversé après multiplication négative, confusion entre « et » et « ou », sommets alignés ou répétés.
+
+</section>
 
 </div>
