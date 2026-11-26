@@ -424,6 +424,58 @@ function methodWork(
   };
 }
 
+function SystemComparison({
+  values,
+  locale,
+}: {
+  values: number[];
+  locale: Locale;
+}) {
+  const [s = 0, d = 0] = values;
+  const fr = locale === 'fr';
+  const elimination = methodWork('elimination', [s, d, 0], locale);
+  const substitution = methodWork('elimination', [s, d, 1], locale);
+  return (
+    <details data-system-comparison>
+      <summary>
+        {fr
+          ? 'Comparer les deux méthodes pour ces mêmes valeurs'
+          : 'Compare both methods for these same values'}
+      </summary>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">{fr ? 'Élimination' : 'Elimination'}</th>
+            <th scope="col">Substitution</th>
+          </tr>
+        </thead>
+        <tbody>
+          {[1, 2, 3, 4].map((index) => (
+            <tr key={index}>
+              {[elimination, substitution].map((work, column) => (
+                <td key={column}>
+                  <p>{work.steps[index]!.note}</p>
+                  <div className="method-math" tabIndex={0}>
+                    <Tex
+                      text={String.raw`$\displaystyle ${work.steps[index]!.tex}$`}
+                    />
+                  </div>
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p data-comparison-result>{elimination.summary}</p>
+      <p>
+        {fr
+          ? 'Les deux chemins vérifient les mêmes conditions initiales.'
+          : 'Both paths satisfy the same original conditions.'}
+      </p>
+    </details>
+  );
+}
+
 function EquationBalance({
   values,
   step,
@@ -591,6 +643,9 @@ function WorkView({
             Y (m)
           </text>
         </svg>
+      )}
+      {kind === 'elimination' && (
+        <SystemComparison values={values} locale={locale} />
       )}
       {showSummary && (
         <p data-method-result role="status">
