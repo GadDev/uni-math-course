@@ -686,6 +686,12 @@ function LabView({
             ))}
           </tbody>
         </table>
+        <p data-absolute-deviations>
+          Σ |xᵢ − x̄| ≈ {f(data.deviations.reduce((total, value) => total + Math.abs(value), 0))}.
+        </p>
+        <p data-squared-deviations>
+          Σ (xᵢ − x̄)² ≈ {f(data.deviations.reduce((total, value) => total + value * value, 0))}.
+        </p>
         <p data-centered>
           Σᵢ₌₁ⁿ (xᵢ − x̄) = {f(data.total)} − {a} × ({f(data.total)}/{a}) = 0.
         </p>

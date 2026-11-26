@@ -424,6 +424,35 @@ function methodWork(
   };
 }
 
+function SigmaTrace({ values, fr }: { values: number[]; fr: boolean }) {
+  const [lower = 0, upper = 0, mode = 0, constant = 0] = values;
+  const sum = indexedSum(lower, upper, mode === 0 ? null : constant);
+  if (!sum) return null;
+  return (
+    <table data-sigma-trace>
+      <caption>{fr ? 'Total cumulé par itération' : 'Running total by iteration'}</caption>
+      <thead>
+        <tr>
+          <th scope="col">i</th>
+          <th scope="col">{fr ? 'Terme' : 'Term'}</th>
+          <th scope="col">{fr ? 'Total' : 'Total'}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {sum.terms.map((term, index) => (
+          <tr key={term.index}>
+            <th scope="row">{term.index}</th>
+            <td>{term.value}</td>
+            <td>
+              {sum.terms.slice(0, index + 1).reduce((total, item) => total + item.value, 0)}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
 function WorkView({
   kind,
   values,
@@ -512,6 +541,9 @@ function WorkView({
             Y (m)
           </text>
         </svg>
+      )}
+      {kind === 'sigma' && (
+        <SigmaTrace values={values} fr={fr} />
       )}
       {showSummary && (
         <p data-method-result role="status">
