@@ -265,9 +265,10 @@ test('L40 section language links stay aligned and L39 does not hydrate these act
   page,
 }) => {
   await page.goto('/fr/lessons/L40/');
-  const heading = page
-    .locator('h2')
-    .filter({ hasText: 'Construire l’équation de la tangente' });
+  const heading = page.getByRole('heading', {
+    name: 'Construire l’équation de la tangente',
+    exact: true,
+  });
   const slug = await heading.getAttribute('id');
   await page.goto(`/fr/lessons/L40/#${slug}`);
   await page.getByRole('link', { name: 'EN', exact: true }).click();

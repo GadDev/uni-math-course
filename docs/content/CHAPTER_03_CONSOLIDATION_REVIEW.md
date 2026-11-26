@@ -10,7 +10,7 @@ The reviewable candidate is main **75b656965c4156c061a1ec5d0f97d89a3a7bda6f** pl
 | --- | --- | --- |
 | L37 | [PR 198](https://github.com/GadDev/uni-math-course/pull/198), 303084fa64bb0ea0ce016729b70b44f2de5e21dc | Draft; six stages, diagnostics, range and printable recap |
 | L38 | [PR 200](https://github.com/GadDev/uni-math-course/pull/200), ed989c55ecc0f826d3183aa75402e0df6c4412f6 | Draft; original parabola retained, signed slope/error and prediction additions |
-| L39 | branch feat/l39-six-stage-learning, 2020136eee4f508ffb730cb6901bb0c2f5193018 | Branch inspected; no PR returned by the repository's recent-PR listing |
+| L39 | [PR 202](https://github.com/GadDev/uni-math-course/pull/202), 215e848ec5cf495f7066389710d632db3ae3c56d | Draft; initial reading snapshot and subsequent component/test delta inspected |
 | L40–L42 | This PR, reading v3 | Six stages, public equation practice and compact revision sections |
 
 An assembled six-redesign branch has not been merged or tested here. After the earlier lesson branches are reviewed and integrated, repeat the cross-lesson browser checks on that exact combined commit. Individual branch checks do not establish integration acceptance.
@@ -53,7 +53,7 @@ The equal-weight chapter estimate rises from **7.0 to 7.6/10** for this candidat
 
 ## Remaining priorities
 
-1. **Integrate and verify the earlier lesson work.** Review L37/L38 drafts and the L39 branch, resolve against current main, then run the complete chapter journey on the combined commit. L39's method-selection lab and L38's consolidation remain dependencies for the intended full chapter redesign.
+1. **Integrate and verify the earlier lesson work.** Review the L37/L38/L39 draft PRs, resolve against current main, then run the complete chapter journey on the combined commit. L39's method-selection lab and L38's consolidation remain dependencies for the intended full chapter redesign.
 2. **Renew assessment in a separate versioned increment.** Fresh inspection confirms all six 15-question v1 banks retain the repeating key sequence `bacbacbacbacbac`; the two wrong-option feedback texts are identical within each of the 90 items. New public practice provides targeted recovery, but does not repair that graded-bank limitation. Preserve historical v1 and introduce independently reviewed fresh items if a new bank release is authorized.
 3. **Finish the reference/assessment bridge.** Keep the corrected 72-question English booklet and separate solutions. The PDF correction was visually reviewed in PR 201; this review does not recertify all 600 workbook solutions. A smaller fresh mixed graded assessment and precise per-lesson PDF page mappings remain useful future work.
 4. **Observe actual independent work.** Use the mixed review with a learner, recording hints and first errors separately from repeated practice. No tutoring session or progress update occurred here. Manual screen-reader, physical-device and hosted-commit acceptance remain separate verification tasks.
