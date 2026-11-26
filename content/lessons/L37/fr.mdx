@@ -22,7 +22,32 @@ import FunctionPanel from '../../../src/components/FunctionPanel';
 
 Une fonction relie une **entrée** à une **sortie**. Dans cette leçon, vous apprendrez à vérifier si une entrée est autorisée, à calculer sa sortie et à placer le point correspondant sur un graphique.
 
-Avant de commencer, vérifiez ces trois gestes :
+Un billet coûte 4 €. Pour $n\in\mathbb N$ billets, le prix total est $p(n)=4n$ euros : choisir 3 billets donne un prix de 12 €. Ici, le contexte impose des entrées entières positives ou nulles ; la formule seule pourrait accepter davantage de nombres.
+
+<aside className="l37-depths" aria-label="Choisir sa profondeur de lecture">
+
+- **L’essentiel :** relier une entrée, une image et un point ; suivre l’exemple polynomial et les premières questions.
+- **Maîtriser :** déterminer le domaine rationnel, retrouver des antécédents et conserver les exclusions après simplification.
+- **Aller plus loin :** ouvrir le complément sur les racines et essayer le premier défi supplémentaire. Ce complément est une extension du projet.
+
+</aside>
+
+Avant de commencer, essayez sans lire les réponses :
+
+1. Calculez $(-2)^2$.
+2. Peut-on calculer $1/0$ ? Justifiez avec une multiplication.
+3. Si un point est $(2,15)$, quelle coordonnée donne l’entrée ?
+
+<details className="l37-correction">
+<summary>Vérifier mes prérequis</summary>
+
+1. $(-2)^2=(-2)\times(-2)=4$. Pour revoir les signes : [L21](/fr/lessons/L21/).
+2. Non : aucun réel $q$ ne satisfait $0q=1$. Pour revoir les quotients : [L23](/fr/lessons/L23/).
+3. L’entrée est 2, la première coordonnée. Pour revoir les coordonnées : [L27](/fr/lessons/L27/).
+
+</details>
+
+Les trois gestes à garder sous la main :
 
 - Calculer une puissance avec un nombre négatif : $(-1)^3=-1$.
 - Reconnaître qu’une division par zéro n’est pas définie.
@@ -83,6 +108,18 @@ Les accolades désignent un ensemble ; la barre $\mid$ se lit « tels que » ; $
 
 Lecture inverse : un antécédent d'une image est une entrée qui la produit. Pour la fonction carré, $g(-1)=g(1)=1$. L'image 1 possède donc deux antécédents dans le domaine donné. Un zéro de la fonction est un antécédent de 0 : le point correspondant est sur l'axe horizontal.
 
+Le **domaine**, l’**ensemble d’arrivée** et les **valeurs effectivement atteintes** répondent à trois questions différentes. Pour notre fonction carré sur le domaine fini :
+
+| Question | Ensemble |
+| --- | --- |
+| Quelles entrées sont autorisées ? | $A=\{-1,0,1\}$ |
+| Dans quel ensemble déclare-t-on les sorties ? | $\mathbb R$ |
+| Quelles sorties obtient-on vraiment ? | $g(A)=\{0,1\}$ |
+
+$g(A)$ se lit « image de l’ensemble A par g » : c’est l’ensemble de toutes les sorties obtenues. Le nombre 2 appartient à l’ensemble d’arrivée mais n’est atteint par aucune entrée de A.
+
+Pour retrouver un antécédent, on résout une équation sur le domaine : [L24 — équations](/fr/lessons/L24/). Pour vérifier un point sur une courbe : [L28 — appartenance](/fr/lessons/L28/).
+
 ## 3. Calculer — Domaine, image, puis point
 
 ### Le domaine n’est pas facultatif
@@ -111,7 +148,10 @@ $D_r$ désigne le domaine de $r$. Le symbole $\setminus$ signifie « privé de �
 
 Le domaine naturel dépend de la formule : pour une racine carrée réelle, l’expression sous la racine doit être positive ou nulle. Ici, nous travaillons surtout avec les polynômes et leurs quotients.
 
-**Choisir les restrictions (complément du projet)**
+<details className="l37-extension">
+<summary>Aller plus loin — Combiner des restrictions (complément du projet)</summary>
+
+**Choisir les restrictions**
 
 | Type d'expression | Condition à vérifier |
 | --- | --- |
@@ -125,6 +165,8 @@ Exemple : $u(x)=\frac{\sqrt{x+1}}{x-2}$. La racine exige $x+1\ge0$, donc $x\ge-1
 $$D_u=[-1;2[\ \cup\ ]2;+\infty[.$$
 
 <figure class="teaching-figure"><img src="/diagrams/functions/l37-combined-domain-fr.svg" alt="Demi-droite à partir de moins 1 inclus, avec un cercle ouvert en 2." width="560" height="150" /><figcaption>−1 est autorisé : la racine vaut zéro. 2 reste interdit.</figcaption></figure>
+
+</details>
 
 ### Exemple détaillé : calculer des images
 
@@ -214,10 +256,10 @@ Vous êtes prêt pour la suite si vous pouvez expliquer, dans cet ordre : **entr
 
 **Deux défis supplémentaires (hors banque notée)**
 
-1. Déterminer le domaine naturel de $v(x)=\frac{\sqrt{4-x}}{x+1}$. Tester x = 4 et x = −1.
+1. **Aller plus loin — racines :** déterminer le domaine naturel de $v(x)=\frac{\sqrt{4-x}}{x+1}$. Tester x = 4 et x = −1.
 2. Pour la fonction $w(x)=x^2-4$, trouver tous les antécédents de 0 et donner les points du graphe associés.
 
-<details>
+<details className="l37-correction">
 <summary>Corrections des défis</summary>
 
 1. $4-x\ge0\Leftrightarrow x\le4$, $x\ne-1$. Donc $D_v=]-\infty;-1[\ \cup\ ]-1;4]$. L'entrée 4 est autorisée et donne 0 ; −1 est interdite.
@@ -225,20 +267,23 @@ Vous êtes prêt pour la suite si vous pouvez expliquer, dans cet ordre : **entr
 
 </details>
 
-## 6. Retenir — Fiche de révision
+<section className="l37-revision">
 
-<div className="l37-revision">
+## 6. Retenir — Fiche de révision
 
 - $f:A\to\mathbb R$ : exactement une image par entrée de A ; plusieurs entrées peuvent partager une image.
 - Domaine naturel : imposer toutes les restrictions de la formule initiale.
 - $G_f=\{(x,f(x))\mid x\in A\}$ ; équation cartésienne : $y=f(x)$.
 - Image : substituer l'entrée. Antécédent : résoudre $f(x)=y$ sur le domaine.
-- Zéro : point sur l'axe des abscisses. Test vertical : une seule ordonnée par abscisse du domaine.
+- Valeurs atteintes : $g(A)=\{0,1\}$ pour le carré sur $A=\{-1,0,1\}$ ; l’ensemble d’arrivée reste $\mathbb R$.
+- Zéro : une entrée où $f(x)=0$ ; le point correspondant est sur l’axe des abscisses. Test vertical : une seule ordonnée par abscisse du domaine.
 - Méthode : domaine → substitution → calcul → couple → vérification. Conserver les exclusions après simplification.
 
 Pour imprimer, utilisez la commande Imprimer du navigateur. Les figures fixes restent disponibles sans JavaScript.
 
-</div>
+Retrouvez aussi les [formules du chapitre dans la fiche mémo](https://uni-math-course.vercel.app/fr/cheat-sheet/#chapter-functions).
+
+</section>
 
 Étape suivante : à partir de deux points du graphe, calculer une pente de sécante puis approcher une tangente. [L38](/fr/lessons/L38/).
 

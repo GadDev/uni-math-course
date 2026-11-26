@@ -530,7 +530,9 @@ export default function FunctionPanel({
           {prediction !== null && (
             <p data-prediction-feedback role="status">
               {prediction === (kind === 'graph')
-                ? 'Correct. '
+                ? fr
+                  ? 'Exact. '
+                  : 'Correct. '
                 : fr
                   ? 'À revoir. '
                   : 'Try again. '}

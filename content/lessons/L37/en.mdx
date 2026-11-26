@@ -22,7 +22,32 @@ import FunctionPanel from '../../../src/components/FunctionPanel';
 
 A function connects an **input** to an **output**. In this lesson, you will learn to check whether an input is allowed, calculate its output and plot the corresponding point.
 
-Before starting, check these three skills:
+A ticket costs €4. For $n\in\mathbb N$ tickets, the total price is $p(n)=4n$ euros: choosing 3 tickets gives a price of €12. Here, the context requires nonnegative integer inputs; the formula alone could accept more numbers.
+
+<aside className="l37-depths" aria-label="Choose your reading depth">
+
+- **Essentials:** connect an input, an output and a point; follow the polynomial example and the first questions.
+- **Mastery:** find the rational domain, recover preimages and keep exclusions after simplifying.
+- **Go further:** open the square-root extension and try the first additional challenge. This material is a project extension.
+
+</aside>
+
+Before starting, try without reading the answers:
+
+1. Calculate $(-2)^2$.
+2. Can $1/0$ be calculated? Justify using multiplication.
+3. If a point is $(2,15)$, which coordinate gives the input?
+
+<details className="l37-correction">
+<summary>Check my prerequisites</summary>
+
+1. $(-2)^2=(-2)\times(-2)=4$. Revisit signs in [L21](/en/lessons/L21/).
+2. No: no real $q$ satisfies $0q=1$. Revisit quotients in [L23](/en/lessons/L23/).
+3. The input is 2, the first coordinate. Revisit coordinates in [L27](/en/lessons/L27/).
+
+</details>
+
+Keep these three skills nearby:
 
 - Evaluate a power of a negative number: $(-1)^3=-1$.
 - Recognise that division by zero is undefined.
@@ -83,6 +108,18 @@ Braces denote a set; the bar $\mid$ reads “such that”; $\subseteq$ means “
 
 Reading backwards: a preimage of an output is an input that produces it. For the square function, $g(-1)=g(1)=1$. Output 1 therefore has two preimages in the stated domain. A zero of a function is a preimage of 0: its point lies on the horizontal axis.
 
+The **domain**, **codomain** and **attained range** answer three different questions. For our square function on the finite domain:
+
+| Question | Set |
+| --- | --- |
+| Which inputs are allowed? | $A=\{-1,0,1\}$ |
+| In which set are the outputs declared? | $\mathbb R$ |
+| Which outputs are actually attained? | $g(A)=\{0,1\}$ |
+
+Read $g(A)$ as “the image of set A under g”: the set of all attained outputs. The number 2 belongs to the codomain but is not attained by any input in A.
+
+To find a preimage, solve an equation on the domain: [L24 — equations](/en/lessons/L24/). To check whether a point lies on a curve: [L28 — membership](/en/lessons/L28/).
+
 ## 3. Calculate — Domain, output, then point
 
 ### The domain matters
@@ -111,7 +148,10 @@ $D_r$ denotes the domain of $r$. The symbol $\setminus$ means “without”: rea
 
 The natural domain depends on the formula: for a real square root, the expression under the root must be nonnegative. Here, we mainly work with polynomials and their quotients.
 
-**Choose restrictions (project extension)**
+<details className="l37-extension">
+<summary>Go further — Combine restrictions (project extension)</summary>
+
+**Choose restrictions**
 
 | Expression type | Condition to check |
 | --- | --- |
@@ -125,6 +165,8 @@ Example: $u(x)=\frac{\sqrt{x+1}}{x-2}$. The root requires $x+1\ge0$, so $x\ge-1$
 $$D_u=[-1;2[\ \cup\ ]2;+\infty[.$$
 
 <figure class="teaching-figure"><img src="/diagrams/functions/l37-combined-domain-en.svg" alt="Ray starting at negative 1 included, with an open circle at 2." width="560" height="150" /><figcaption>−1 is allowed: the root equals zero. 2 remains forbidden.</figcaption></figure>
+
+</details>
 
 ### Worked example: evaluating a function
 
@@ -214,10 +256,10 @@ You are ready to continue when you can explain, in this order: **allowed input �
 
 **Two additional challenges (outside the graded bank)**
 
-1. Determine the natural domain of $v(x)=\frac{\sqrt{4-x}}{x+1}$. Test x = 4 and x = −1.
+1. **Go further — square roots:** determine the natural domain of $v(x)=\frac{\sqrt{4-x}}{x+1}$. Test x = 4 and x = −1.
 2. For the function $w(x)=x^2-4$, find all preimages of 0 and give their corresponding graph points.
 
-<details>
+<details className="l37-correction">
 <summary>Challenge answers</summary>
 
 1. $4-x\ge0\Leftrightarrow x\le4$, $x\ne-1$. Therefore $D_v=]-\infty;-1[\ \cup\ ]-1;4]$. Input 4 is allowed and gives 0; −1 is forbidden.
@@ -225,20 +267,23 @@ You are ready to continue when you can explain, in this order: **allowed input �
 
 </details>
 
-## 6. Remember — Revision sheet
+<section className="l37-revision">
 
-<div className="l37-revision">
+## 6. Remember — Revision sheet
 
 - $f:A\to\mathbb R$ : exactly one output per input in A; multiple inputs may share an output.
 - Natural domain: impose every restriction of the original formula.
 - $G_f=\{(x,f(x))\mid x\in A\}$ ; Cartesian equation: $y=f(x)$.
 - Output: substitute the input. Preimage: solve $f(x)=y$ on the domain.
-- Zero: point on the horizontal axis. Vertical test: one vertical coordinate per input in the domain.
+- Attained range: $g(A)=\{0,1\}$ for the square function on $A=\{-1,0,1\}$; the codomain remains $\mathbb R$.
+- Zero: an input where $f(x)=0$; the corresponding point lies on the horizontal axis. Vertical test: one vertical coordinate per input in the domain.
 - Method: domain → substitution → calculation → pair → check. Preserve exclusions after simplification.
 
 Use the browser Print command. Static diagrams remain available without JavaScript.
 
-</div>
+You can also find the [chapter formulas in the reference sheet](https://uni-math-course.vercel.app/en/cheat-sheet/#chapter-functions).
+
+</section>
 
 Next: use two graph points to calculate a secant slope, then approach a tangent. [L38](/en/lessons/L38/).
 
