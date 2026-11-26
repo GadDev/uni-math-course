@@ -1,9 +1,9 @@
 ---
 lessonId: L53
 locale: en
-version: 1
+version: 2
 status: extended
-title: "Why average length is bounded by entropy"
+title: "Why entropy is a lower bound on average codeword length"
 summary: "Combine McMillan and Gibbs to prove the bound and its equality case."
 minutes: 40
 objectives: [L53-O01, L53-O02, L53-O03, L53-O04, L53-O05, L53-O06]
@@ -15,7 +15,7 @@ import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
 
 # A limit a code cannot cross
 
-Could an even cleverer code beat Huffman and go below entropy? For a binary uniquely decodable code and a fixed source, no. Here is why, without skipping the PDF's normalisation factor.
+Could an even cleverer code beat Huffman and go below entropy? For a binary uniquely decodable symbol-by-symbol code and a fixed source, no. Here is why, without skipping the PDF's normalisation factor.
 
 **Source: PDF, pp. 49–54**, using the tools from pp. 45–48. The result concerns average length, not each isolated symbol.
 

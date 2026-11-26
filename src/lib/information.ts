@@ -19,7 +19,7 @@ export const informationCopy = {
     explore: 'Explorer le parcours',
     outline: 'Les leçons du chapitre',
     outlineNote:
-      'Quinze leçons bilingues, des alphabets à LZW. Les pages 61–90 du PDF de 93 pages prolongent le parcours avec L55–L57.',
+      'Quinze leçons bilingues, des alphabets à LZW. Les pages 61–93 du PDF de 93 pages prolongent le parcours avec L55–L57.',
     upcoming: 'Lecture disponible',
     pages: 'Pages du PDF',
     lessons: [
@@ -33,11 +33,11 @@ export const informationCopy = {
       { id: 'L50', title: 'Questions oui/non et arbres', pages: '33–44' },
       { id: 'L51', title: 'Kraft–McMillan', pages: '44–45' },
       { id: 'L52', title: 'Logarithme et lemme de Gibbs', pages: '46–48' },
-      { id: 'L53', title: 'Démontrer la borne d’entropie', pages: '49–54' },
+      { id: 'L53', title: 'L’entropie : une borne inférieure', pages: '49–54' },
       { id: 'L54', title: 'Blocs et théorème de Shannon', pages: '55–60' },
       { id: 'L55', title: 'LZW : construire et encoder', pages: '61–68' },
       { id: 'L56', title: 'LZW : décoder et reconstruire', pages: '69–81' },
-      { id: 'L57', title: 'LZW : cas particulier et coût', pages: '82–90' },
+      { id: 'L57', title: 'LZW : cas particulier et coût', pages: '82–93' },
     ],
     goals: 'Ce que vous apprendrez',
     objectives: [
@@ -52,7 +52,7 @@ export const informationCopy = {
       'L43–L54 : 15 questions par leçon ; L55–L57 : six questions par leçon, avec correction après connexion. L’atelier LZW est public et propose des défis générés. Les cahiers existants restent séparés et ne couvrent pas LZW.',
     review: 'Une progression sans faux raccourcis',
     reviewText:
-      'Les nouvelles leçons L50–L57 et les révisions L48–L49 ont fait l’objet d’une auto-vérification de l’auteur, sans revue indépendante. Les autres banques conservent leur exception de revue documentée. Les exercices nécessitent une connexion.',
+      'Les leçons L44 et L48–L57 ont fait l’objet d’une auto-vérification de l’auteur, sans revue indépendante. Les autres banques conservent leur exception de revue documentée. Les exercices nécessitent une connexion.',
   },
   en: {
     title: 'Information theory',
@@ -73,7 +73,7 @@ export const informationCopy = {
     explore: 'Explore the learning path',
     outline: 'Chapter lessons',
     outlineNote:
-      'Fifteen bilingual lessons, from alphabets to LZW. Pages 61–90 of the 93-page PDF extend the path with L55–L57.',
+      'Fifteen bilingual lessons, from alphabets to LZW. Pages 61–93 of the 93-page PDF extend the path with L55–L57.',
     upcoming: 'Read now',
     pages: 'PDF pages',
     lessons: [
@@ -87,11 +87,11 @@ export const informationCopy = {
       { id: 'L50', title: 'Yes/no questions and trees', pages: '33–44' },
       { id: 'L51', title: 'Kraft–McMillan', pages: '44–45' },
       { id: 'L52', title: 'Logarithms and Gibbs’ lemma', pages: '46–48' },
-      { id: 'L53', title: 'Proving the entropy bound', pages: '49–54' },
+      { id: 'L53', title: 'Entropy as a lower bound', pages: '49–54' },
       { id: 'L54', title: 'Blocks and Shannon’s theorem', pages: '55–60' },
       { id: 'L55', title: 'LZW: build and encode', pages: '61–68' },
       { id: 'L56', title: 'LZW: decode and reconstruct', pages: '69–81' },
-      { id: 'L57', title: 'LZW: special case and cost', pages: '82–90' },
+      { id: 'L57', title: 'LZW: special case and cost', pages: '82–93' },
     ],
     goals: 'What you will learn',
     objectives: [
@@ -106,6 +106,6 @@ export const informationCopy = {
       'L43–L54 have 15 questions per lesson; L55–L57 have six per lesson, graded after sign-in. The public LZW workshop offers generated challenges. Existing workbooks remain separate and do not cover LZW.',
     review: 'A learning path without shortcuts',
     reviewText:
-      'New lessons L50–L57 and revised L48–L49 have author self-checks, without independent review. Other banks retain their documented review exceptions. Exercises require sign-in.',
+      'Lessons L44 and L48–L57 have author self-checks, without independent review. Other banks retain their documented review exceptions. Exercises require sign-in.',
   },
 } as const;
