@@ -78,13 +78,18 @@ for (const locale of ['fr', 'en']) {
                 ? number === 29
                   ? 1
                   : 2
-                : number === 35
+                : number === 35 || number === 36
                   ? 1
                   : 0;
         await expect(page.locator('astro-island')).toHaveCount(activityCount);
         if (number === 35) {
           await expect(
             page.locator('astro-island[component-url*="RegressionExplorer"]'),
+          ).toHaveCount(1);
+        }
+        if (number === 36) {
+          await expect(
+            page.locator('astro-island[component-url*="ModelLimitsExplorer"]'),
           ).toHaveCount(1);
         }
         for (const island of await page.locator('astro-island').all()) {

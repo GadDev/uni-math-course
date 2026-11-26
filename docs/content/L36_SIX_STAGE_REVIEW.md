@@ -1,0 +1,11 @@
+# L36 six-stage review
+
+AI-assisted implementing-author self-check; not independent review or hosted acceptance. Base a4a81c12994d3f7d99aec818b16514bf1dd7233d.
+
+Supplied Droites_01.pdf physical p. 62: margarine/divorce data; p. 80: machine learning and MSE; p. 81: Pearson coefficient; p. 82: causality; p. 83: Anscombe; p. 84: outliers; pp. 85–86: extrapolated margarine consumption versus year; p. 87: next topics. The existing height example is not present in this supplied 87-page revision; label it a project extension. Restore Pearson to the core lesson and the original time extrapolation. Preserve legacy sourcePages and anchors to avoid changing immutable bank provenance and navigation. Original chart datasets, exercises and references retained.
+
+Reading v4 → v5, convert Markdown pair to MDX, renew reading and translation fingerprints. Immutable bank v3 and earlier evidence docs/content/LESSON_CLARITY_REVIEW_2026-10-23.md preserved by reference. Six stages, new correlation pattern diagram, existing Anscombe figures arranged for comparison, detailed L34/L35 dataset calculation, constant-variable cases, separate signed correlation and slope, two interactive explorations (correlation/outlier and extrapolation), three paper exercises and printable summary. No dependencies, grading or database changes.
+
+Math self-check: Sxx=2, Sxy=1, Syy=2/3 gives r=sqrt(3)/2≈0.8660. Negative exact line r=-1; symmetric parabola r=0; constant x or y gives undefined r. Six aligned points plus (6,-2) gives slope 1/7 and intercept 10/7; removing the point restores slope 1. At t=17, displayed PDF model 7.32−0.445t gives −0.245; root≈16.45. Observed range t=0..9. Exercise r=-3/sqrt(36)=-1/2. Exact paired math strings and heading counts checked; bilingual browser tests added. Full pnpm check and pnpm test:e2e not executed through connector. CI and manual mobile, keyboard, print and visual checks required.
+
+Follow-up repair: restored the six missing paired source-path continuations, including the visits to L34 pdf-66 and L35 pdf-84, while retaining the final chapter-outline link. Checked bilingual labels and destinations and preserved all mathematical wording. Deliberately renewed the reading and translation-source fingerprints for this navigation-only repair. Formatted the explorer and browser tests with the pinned formatter.
