@@ -246,9 +246,9 @@ export const printableChapters: readonly PrintableChapter[] = [
           en: 'Math Ninja challenges',
         },
         path: 'pdfs/exercises/chapter-03-challenge-exercises-en.pdf',
-        pages: 6,
+        pages: 22,
         sha256:
-          'dd004978822734e198523a727bf8334942c28e918b50ed3dd36491f60c3afff8',
+          '3e124e239c912be994ec51b01eeba7b4926a72a9f49d03349827273449da7fad',
       },
       {
         id: 'chapter-03-challenge-solutions-en',
