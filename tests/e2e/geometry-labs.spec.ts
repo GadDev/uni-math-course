@@ -163,7 +163,7 @@ for (let lesson = 28; lesson <= 34; lesson++)
   }) => {
     await page.setViewportSize({ width: 320, height: 740 });
     await page.goto(`/fr/lessons/L${lesson}/`);
-    const labs = page.locator('.geo-lab');
+    const labs = page.locator('[data-geometry-lab]');
     for (const lab of await labs.all()) {
       await lab.scrollIntoViewIfNeeded();
       await expect(lab.locator('fieldset')).toBeVisible();
@@ -321,5 +321,39 @@ for (const locale of ['fr', 'en']) {
     await expect(decision).toContainText(fr ? 'accepté' : 'accepted');
     await lab.getByRole('button', { name: /Réinitialiser|Reset/ }).click();
     await expect(live.locator('[data-region-steps]')).toHaveCount(0);
+  });
+}
+
+for (const locale of ['fr', 'en']) {
+  test(`${locale}: L34 compares models on identical observations`, async ({
+    page,
+  }) => {
+    await page.goto(`/${locale}/lessons/L34/`);
+    const lab = page.locator('[data-geometry-lab="residuals"]');
+    const live = lab.locator('.geo-live');
+    const result = live.locator('[data-results]');
+    const criteria = live.locator('[data-residual-criteria]');
+    await lab.scrollIntoViewIfNeeded();
+    await expect(lab.locator('fieldset')).toBeVisible();
+    await lab.getByRole('button', { name: /Essayer y = 2|Try y = 2/ }).click();
+    await expect(result).toContainText('S ≈ 1');
+    await expect(criteria).toContainText('Σ|eᵢ| ≈ 1');
+    await expect(live.locator('tbody tr').first()).toContainText(
+      locale === 'fr' ? 'Surestimation' : 'Overestimate',
+    );
+    await lab.getByRole('button', { name: /Essayer y = x|Try y = x/ }).click();
+    await expect(result).toContainText('S ≈ 1');
+    await lab.getByRole('button', { name: /Essayer m|Try m/ }).click();
+    await expect(result).toContainText('Σe ≈ 0');
+    await expect(result).toContainText(
+      locale === 'fr' ? 'S ≈ 0,1667' : 'S ≈ 0.1667',
+    );
+    await expect(criteria).toContainText(
+      locale === 'fr' ? 'Σ|eᵢ| ≈ 0,6667' : 'Σ|eᵢ| ≈ 0.6667',
+    );
+    await expect(live.locator('[data-residual-interpretation]')).toContainText(
+      locale === 'fr' ? 'se compensent' : 'cancel',
+    );
+    await expect(live.locator('tbody tr')).toHaveCount(3);
   });
 }

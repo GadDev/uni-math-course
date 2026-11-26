@@ -2,6 +2,16 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.21.0](https://github.com/GadDev/uni-math-course/compare/v0.20.0...v0.21.0) (2026-11-25)
+
+
+### Features
+
+* add Chapter 4 revision reference and clarify exam coverage ([#174](https://github.com/GadDev/uni-math-course/issues/174)) ([411373a](https://github.com/GadDev/uni-math-course/commit/411373a87c398ae83c86987475c151d336b3446a))
+* **learning:** guide L27 coordinates and distances in six stages ([#181](https://github.com/GadDev/uni-math-course/issues/181)) ([a4a81c1](https://github.com/GadDev/uni-math-course/commit/a4a81c12994d3f7d99aec818b16514bf1dd7233d))
+* **learning:** teach Cartesian equations and curves in six stages ([#182](https://github.com/GadDev/uni-math-course/issues/182)) ([ed84814](https://github.com/GadDev/uni-math-course/commit/ed848149ae1886e07f8ddf598f2b2908f10611fb))
+* resume saved study activity and show reading history ([#175](https://github.com/GadDev/uni-math-course/issues/175)) ([aa9ff21](https://github.com/GadDev/uni-math-course/commit/aa9ff21d1de1ca61a66b4879a644a04cae23803c))
+
 ## [0.20.0](https://github.com/GadDev/uni-math-course/compare/v0.19.0...v0.20.0) (2026-11-19)
 
 
