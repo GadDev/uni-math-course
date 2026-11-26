@@ -305,6 +305,7 @@ function LabView({
   fr,
   id,
   stage = 3,
+  regionStage = 3,
   reveal = true,
 }: {
   kind: Kind;
@@ -313,6 +314,7 @@ function LabView({
   fr: boolean;
   id: string;
   stage?: number;
+  regionStage?: number;
   reveal?: boolean;
 }) {
   const f = (n: number) => format(n, fr),
@@ -486,13 +488,14 @@ function LabView({
           if (kind === 'slope')
             return (
               <>
+                {choice === 'reference' && line(X, Y, 2, 1, true)}
                 {line(X, Y, v[0]!, v[1]!)}
                 <path
                   className="geo-dashed"
                   d={`M${X(0)},${Y(v[1]!)}H${X(v[2]!)}V${Y(v[2]! * v[0]! + v[1]!)}`}
                 />
-                {point(X, Y, 0, v[1]!, 'A')}
-                {point(X, Y, v[2]!, v[2]! * v[0]! + v[1]!, 'B')}
+                {point(X, Y, 0, v[1]!, v[2] === 0 ? 'A = B' : 'A')}
+                {v[2] !== 0 && point(X, Y, v[2]!, v[2]! * v[0]! + v[1]!, 'B')}
               </>
             );
           if (kind === 'points') {
@@ -538,11 +541,25 @@ function LabView({
                 <polygon
                   className="geo-region"
                   points={(choice === 'triangle'
-                    ? [
-                        [0, 0],
-                        [4, 0],
-                        [0, 3],
-                      ]
+                    ? regionStage === 1
+                      ? [
+                          [0, -4],
+                          [8, -4],
+                          [8, 8],
+                          [0, 8],
+                        ]
+                      : regionStage === 2
+                        ? [
+                            [0, 0],
+                            [8, 0],
+                            [8, 8],
+                            [0, 8],
+                          ]
+                        : [
+                            [0, 0],
+                            [4, 0],
+                            [0, 3],
+                          ]
                     : [
                         [-4, -4],
                         [8, -4],
@@ -554,10 +571,13 @@ function LabView({
                     .join(' ')}
                 />
                 {choice === 'triangle' ? (
-                  <path
-                    className="geo-line"
-                    d={`M${X(0)},${Y(0)}L${X(4)},${Y(0)}L${X(0)},${Y(3)}Z`}
-                  />
+                  <>
+                    <path className="geo-line" d={`M${X(0)},20V380`} />
+                    {regionStage >= 2 && (
+                      <path className="geo-line" d={`M40,${Y(0)}H400`} />
+                    )}
+                    {regionStage >= 3 && line(X, Y, -0.75, 3)}
+                  </>
                 ) : (
                   line(X, Y, -0.5, 3, choice === 'open')
                 )}
@@ -685,12 +705,56 @@ function LabView({
           <p>
             y = ({f(v[0]!)})x + ({f(v[1]!)}).
           </p>
-          <p>
-            A = {pt(0, v[1]!)} ; B = {pt(v[2]!, v[2]! * v[0]! + v[1]!)}.
+          <p data-slope-intercept>
+            A = {pt(0, v[1]!)} ; B = {pt(v[2]!, v[2]! * v[0]! + v[1]!)}.{' '}
+            {fr ? 'Départ p' : 'Starting value p'} = {f(v[1]!)}.
           </p>
           <p>
             Δx = {f(v[2]!)} ; Δy = {f(v[2]! * v[0]!)}.
           </p>
+          <p data-slope-change>
+            Δy = m × Δx = ({f(v[0]!)}) × ({f(v[2]!)}) = {f(v[2]! * v[0]!)}.
+          </p>
+          <p>
+            {v[0]! > 0
+              ? fr
+                ? 'La droite monte vers la droite.'
+                : 'The line rises to the right.'
+              : v[0]! < 0
+                ? fr
+                  ? 'La droite descend vers la droite.'
+                  : 'The line falls to the right.'
+                : fr
+                  ? 'La droite est horizontale.'
+                  : 'The line is horizontal.'}
+          </p>
+          {choice === 'reference' && (
+            <p data-slope-reference>
+              {fr ? 'Référence en tirets' : 'Dashed reference'} : y = 2x + 1.{' '}
+              {v[0] === 2 && v[1] === 1
+                ? fr
+                  ? 'Les droites coïncident.'
+                  : 'The lines coincide.'
+                : v[1] === 1
+                  ? fr
+                    ? 'Même départ (0 ; 1), pente différente.'
+                    : 'Same start (0 ; 1), different slope.'
+                  : v[0] === 2
+                    ? fr
+                      ? 'Même pente, départ différent : parallèles distinctes.'
+                      : 'Same slope, different start: distinct parallel lines.'
+                    : fr
+                      ? 'La pente et le départ ont tous deux changé.'
+                      : 'Both slope and starting value have changed.'}
+            </p>
+          )}
+          {(v[2]! * v[0]! + v[1]! < -4 || v[2]! * v[0]! + v[1]! > 8) && (
+            <p>
+              {fr
+                ? 'B est hors de la fenêtre ; son calcul reste valable.'
+                : 'B is outside the window; its calculation remains valid.'}
+            </p>
+          )}
           <p>
             {v[2] === 0
               ? fr
@@ -794,27 +858,85 @@ function LabView({
         { x: v[0]!, y: v[1]! },
         choice as 'closed' | 'open' | 'triangle',
       );
+      const activeValues =
+        choice === 'triangle' ? r.values.slice(0, regionStage) : r.values;
+      const accepted =
+        choice === 'triangle'
+          ? activeValues.every((value) => value >= 0)
+          : r.inside;
       result = (
         <>
           <p>
             {choice === 'triangle'
-              ? 'x ≥ 0 ; y ≥ 0 ; 12 − 3x − 4y ≥ 0'
+              ? ['x ≥ 0', 'y ≥ 0', '3x + 4y ≤ 12']
+                  .slice(0, regionStage)
+                  .join(' ; ')
               : `x + 2y ${choice === 'open' ? '<' : '≤'} 6`}
             .
           </p>
           <p>
             {fr ? 'Valeurs des tests' : 'Test values'} :{' '}
-            {r.values.map(f).join(' ; ')}.{' '}
+            {activeValues.map(f).join(' ; ')}.{' '}
             {choice === 'triangle'
               ? fr
-                ? 'Il faut trois valeurs positives ou nulles.'
-                : 'All three must be nonnegative.'
+                ? 'Les valeurs des contraintes actives doivent être positives ou nulles.'
+                : 'Active constraint values must be nonnegative.'
               : fr
                 ? 'On teste le signe de f = x + 2y − 6.'
                 : 'Test the sign of f = x + 2y − 6.'}
           </p>
-          <p>
-            {r.inside
+          {choice === 'triangle' ? (
+            <div data-region-steps>
+              <p>
+                {fr ? 'Contraintes actives' : 'Active constraints'} :{' '}
+                {regionStage}/3.
+              </p>
+              <ol>
+                {[
+                  `x = ${f(v[0]!)} ≥ 0`,
+                  `y = ${f(v[1]!)} ≥ 0`,
+                  `3 × (${f(v[0]!)}) + 4 × (${f(v[1]!)}) = ${f(3 * v[0]! + 4 * v[1]!)} ≤ 12`,
+                ]
+                  .slice(0, regionStage)
+                  .map((expression, i) => (
+                    <li key={i}>
+                      {expression} :{' '}
+                      {activeValues[i]! >= 0
+                        ? fr
+                          ? 'vrai'
+                          : 'true'
+                        : fr
+                          ? 'faux'
+                          : 'false'}
+                    </li>
+                  ))}
+              </ol>
+              {regionStage < 3 && (
+                <p>
+                  {fr
+                    ? 'Région intermédiaire : le triangle complet n’est pas encore testé.'
+                    : 'Intermediate region: the full triangle has not yet been tested.'}
+                </p>
+              )}
+            </div>
+          ) : (
+            <p data-region-substitution>
+              {f(v[0]!)} + 2 × ({f(v[1]!)}) = {f(v[0]! + 2 * v[1]!)}.{' '}
+              {r.values[0] === 0
+                ? fr
+                  ? 'P est sur la frontière.'
+                  : 'P is on the boundary.'
+                : r.values[0]! < 0
+                  ? fr
+                    ? 'P est du côté négatif.'
+                    : 'P is on the negative side.'
+                  : fr
+                    ? 'P est du côté positif.'
+                    : 'P is on the positive side.'}
+            </p>
+          )}
+          <p data-region-decision>
+            {accepted
               ? fr
                 ? 'P est accepté.'
                 : 'P is accepted.'
@@ -1044,7 +1166,8 @@ export default function GeometryLab({
     [choice, setChoice] = useState(spec.choice),
     [feedback, setFeedback] = useState(''),
     [epoch, setEpoch] = useState(0),
-    [stage, setStage] = useState(0);
+    [stage, setStage] = useState(0),
+    [regionStage, setRegionStage] = useState(3);
   useEffect(() => setReady(true), []);
   const set = (i: number, n: number) => {
     setV((old) =>
@@ -1079,6 +1202,7 @@ export default function GeometryLab({
         value={choice}
         onChange={(e) => {
           setChoice(e.target.value);
+          setRegionStage(3);
           setStage(0);
           setFeedback('');
         }}
@@ -1187,6 +1311,7 @@ export default function GeometryLab({
             fr={fr}
             id={id}
             stage={ready ? stage : 3}
+            regionStage={regionStage}
             reveal={kind !== 'raster' || !ready || feedback !== ''}
           />
           <p hidden={ready} data-static-note>
@@ -1218,6 +1343,47 @@ export default function GeometryLab({
           )}
           {(kind === 'slope' || kind === 'residuals') && (
             <>
+              {kind === 'slope' && (
+                <>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={choice === 'reference'}
+                      onChange={(event) => {
+                        setChoice(
+                          event.currentTarget.checked ? 'reference' : '',
+                        );
+                        setFeedback('');
+                      }}
+                    />{' '}
+                    {fr
+                      ? 'Afficher la droite de référence y = 2x + 1'
+                      : 'Show reference line y = 2x + 1'}
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setV([-0.5, 1, 2]);
+                      setChoice('reference');
+                      setEpoch((e) => e + 1);
+                      setFeedback('');
+                    }}
+                  >
+                    {fr ? 'Changer seulement m' : 'Change only m'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setV([2, 3, 2]);
+                      setChoice('reference');
+                      setEpoch((e) => e + 1);
+                      setFeedback('');
+                    }}
+                  >
+                    {fr ? 'Changer seulement p' : 'Change only p'}
+                  </button>
+                </>
+              )}
               {number(0, 'm', -2, 3, 0.25)}
               {number(1, 'p', -2, 4, kind === 'residuals' ? 'any' : 0.25)}
               {kind === 'slope' && number(2, 'Δx', -3, 3, 0.5)}
@@ -1291,6 +1457,30 @@ export default function GeometryLab({
                 ['open', 'x + 2y < 6'],
                 ['triangle', fr ? 'Triangle fermé' : 'Closed triangle'],
               ])}
+              {choice === 'triangle' && (
+                <>
+                  <button
+                    type="button"
+                    disabled={regionStage === 1}
+                    onClick={() => {
+                      setRegionStage(regionStage - 1);
+                      setFeedback('');
+                    }}
+                  >
+                    {fr ? 'Retirer une contrainte' : 'Remove a constraint'}
+                  </button>
+                  <button
+                    type="button"
+                    disabled={regionStage === 3}
+                    onClick={() => {
+                      setRegionStage(regionStage + 1);
+                      setFeedback('');
+                    }}
+                  >
+                    {fr ? 'Ajouter une contrainte' : 'Add a constraint'}
+                  </button>
+                </>
+              )}
               {number(0, 'x', -3, 6)}
               {number(1, 'y', -3, 6)}
             </>
@@ -1346,8 +1536,9 @@ export default function GeometryLab({
           <button
             type="button"
             disabled={
-              kind === 'raster' &&
-              (!choice || !bresenham(v[0]!, v[1]!) || v[2] === v[0])
+              (kind === 'region' && choice === 'triangle' && regionStage < 3) ||
+              (kind === 'raster' &&
+                (!choice || !bresenham(v[0]!, v[1]!) || v[2] === v[0]))
             }
             onClick={(event) => {
               const inputs = event.currentTarget
@@ -1375,6 +1566,7 @@ export default function GeometryLab({
             type="button"
             onClick={() => {
               setStage(0);
+              setRegionStage(3);
               setV([...spec.initial]);
               setChoice(spec.choice);
               setFeedback('');
