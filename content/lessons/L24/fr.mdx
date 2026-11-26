@@ -1,7 +1,7 @@
 ---
 lessonId: L24
 locale: fr
-version: 4
+version: 5
 status: extended
 title: "Équations et inéquations"
 summary: "Transformer une condition sans perdre de solutions ni ajouter de valeurs interdites."
@@ -34,73 +34,132 @@ Prérequis : L21, L22, L23. Les domaines et restrictions précisés ci-dessous f
 
 <span id="pdf-19" class="source-topic-marker"></span>
 
-## Résoudre une équation : garder les mêmes solutions
+## 1. Comprendre — Trouver toutes les entrées autorisées
 
-Une inconnue est une valeur à chercher. Les deux **membres** sont les expressions de part et d’autre du signe égal. Résoudre ne veut pas dire deviner un nombre : il faut trouver toutes les solutions. Le symbole $\Leftrightarrow$ signifie ici « ces deux équations ont les mêmes solutions sur le domaine annoncé ».
+Trois tickets identiques et des frais fixes de 5 euros coûtent 11 euros. Quel est le prix d'un ticket ? Si x représente ce prix, l'équation $3x+5=11$ décrit une égalité à satisfaire. Si le budget est de 11 euros au maximum, on obtient plutôt $3x+5\le11$. Dans ce contexte le prix est non négatif ; les exercices du PDF qui suivent sont résolus sur les réels.
 
-**Exemple du PDF, pages 19–20.** $3x+5=11\Leftrightarrow3x=6\Leftrightarrow x=2$. On soustrait d’abord $5$ aux deux membres, puis on divise les deux par $3$. Vérification : $3\cdot2+5=11$.
+Une équation cherche toutes les valeurs qui rendent une égalité vraie ; une inéquation cherche toutes celles qui satisfont un ordre. Le symbole $\Leftrightarrow$ signifie que les deux conditions ont exactement les mêmes solutions sur le domaine annoncé. Tester un candidat ne suffit pas à prouver qu'on a trouvé toutes les solutions.
 
-Le piège du PDF est $x^2=x$. Diviser par $x$ sans vérifier son signe n’est pas le problème principal : il faut vérifier qu’il est **non nul**. La bonne transformation est $x^2-x=0\Leftrightarrow x(x-1)=0$ ; les solutions sont $0$ et $1$. On dit qu’un produit est nul si au moins un de ses facteurs est nul.
+## 2. Visualiser — Équilibre et ordre
 
-## Une équation décrit un ensemble
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l24-balance.svg" alt="Trois balances successives : 3x plus 5 égale 11, puis 3x égale 6, puis x égale 2." width="640" height="220" loading="lazy" />
+<figcaption>Enlever 5 des deux plateaux, puis partager les deux membres en trois parts égales, conserve l'équilibre. Le dessin représente cet exemple positif.</figcaption>
+</figure>
 
-Résoudre une équation réelle consiste à trouver toutes les valeurs qui la rendent vraie. Ajouter le même réel aux deux membres ou multiplier par une constante non nulle conserve les solutions. Diviser par une expression dépendant de l’inconnue demande une restriction supplémentaire. L’équivalence doit porter sur le même domaine aux deux étapes ; une formule plus courte n’est pas automatiquement une condition équivalente.
+Un terme ne traverse pas le signe égal : on applique une opération aux deux membres. Pour une inégalité, ajouter le même nombre conserve l'ordre ; multiplier par un négatif retourne la droite graduée.
 
-## Exemple guidé : isoler puis vérifier
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l24-order-reversal.svg" alt="Deux droites graduées : 2 est à gauche de 3 ; après multiplication par moins 1, moins 2 est à droite de moins 3." width="480" height="210" loading="lazy" />
+<figcaption>Le sens de l'ordre est inversé, pas seulement le signe des nombres.</figcaption>
+</figure>
 
-Pour $x\in\mathbb{R}$, $4(x-1)+2=14$ donne $4x-2=14$, puis $4x=16$ et $x=4$. Substituer dans l’énoncé donne $4(4-1)+2=14$. Le calcul de substitution vérifie le candidat ; les opérations réversibles montrent qu’il n’existe pas d’autre solution. Ces deux rôles sont distincts.
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l24-intervals.svg" alt="Quatre demi-droites avec borne 2 : gauche ouverte, gauche fermée, droite ouverte, droite fermée, et leurs intervalles." width="540" height="300" loading="lazy" />
+<figcaption>Cercle vide : exclu. Disque plein : inclus. L'infini n'est jamais une valeur à inclure.</figcaption>
+</figure>
 
-## Pourquoi un terme semble-t-il changer de signe ?
+## 3. Calculer — Une transformation à la fois
 
-Dans $3x+5=11$, le nombre $5$ ne « traverse » pas le signe égal. On soustrait $5$ **aux deux membres** : $3x+5-5=11-5$, donc $3x=6$. Puis on divise les deux membres par le même nombre non nul : $3x/3=6/3$, donc $x=2$.
+**A — Équation : isoler et vérifier (PDF, pages 19–20).**
 
-La transformation reste réversible : on peut multiplier par $3$, puis ajouter $5$ pour revenir au départ. Pour une équation générale $ax+b=c$, il faut traiter $a=0$ avant toute division : la condition se réduit alors à $b=c$, vraie pour tous les réels ou fausse pour tous. Contrairement à une inégalité, une égalité ne demande pas d’inverser un sens quand on divise par un nombre négatif.
+| Opération | Équation |
+| --- | --- |
+| Départ | $3x+5=11$ |
+| Soustraire 5 aux deux membres | $3x+5-5=11-5$ |
+| Réduire | $3x=6$ |
+| Diviser les deux membres par 3 | $3x/3=6/3$ |
+| Écrire la solution | $x=2,\quad S=\{2\}$ |
 
-<AlgebraMethodLab kind="equation" locale="fr" client:visible />
+Contrôle dans l'équation de départ : $3\cdot2+5=11$. Les transformations sont réversibles : multiplier par 3 puis ajouter 5 permet de revenir au départ. C'est ce qui garantit qu'aucune solution n'a été perdue.
+
+Exemple supplémentaire avec parenthèses : $4(x-1)+2=14\Leftrightarrow4x-2=14\Leftrightarrow4x=16\Leftrightarrow x=4$. Contrôle : $4(4-1)+2=14$.
+
+Pour $ax+b=c$, ne jamais diviser avant d'avoir vérifié a :
+
+| Cas | Résultat |
+| --- | --- |
+| $a\ne0$ | $S=\{(c-b)/a\}$ |
+| $a=0,\ b=c$ | $S=\mathbb R$ |
+| $a=0,\ b\ne c$ | $S=\varnothing$ |
+
+Diviser une égalité par une constante négative ne change pas le signe égal.
+
+**B — Ne pas perdre une solution (PDF, page 20).**
+
+Le piège du professeur : $x^2=x$. Diviser par x suppose x non nul et fait disparaître la solution zéro. Factoriser plutôt :
+
+$$x^2=x\Leftrightarrow x^2-x=0\Leftrightarrow x(x-1)=0.$$
+
+$$x=0\quad\lor\quad x=1,\qquad S=\{0,1\}.$$
+
+Les deux candidats vérifient l'équation initiale. Même méthode pour $x^2=3x\Leftrightarrow x(x-3)=0$, $S=\{0,3\}$.
 
 <p class="source-next"><a href="/fr/lessons/L24/#pdf-21">Suite du PDF : Inéquations →</a></p>
 
 <span id="pdf-21" class="source-topic-marker"></span>
 
-## Inéquations : pourquoi le sens s’inverse
+**C — Inéquations : vérifier le signe du diviseur (PDF, pages 21–22).**
 
-**Exemple du PDF, pages 21–22.** $-2x+4>0\Leftrightarrow-2x>-4\Leftrightarrow x<2$. La dernière étape divise par $-2$ et inverse donc le sens. Sur une droite graduée, multiplier par un nombre négatif retourne l’ordre : $2<3$ mais $-2>-3$.
+Le PDF montre $2<3$ mais $-2>-3$. Multiplier par un négatif inverse l'ordre ; diviser par un négatif revient à multiplier par son inverse négatif.
 
-La solution s’écrit $]-\infty;2[$. Le crochet ouvert en $2$ indique que $2$ est exclu : le membre gauche serait zéro, alors qu’on demande strictement plus que zéro. Le point $0$ convient ; le point $3$ ne convient pas. On ne ferme jamais un intervalle sur l’infini : ce n’est pas un nombre réel à inclure.
+| Opération | Effet sur l'ordre |
+| --- | --- |
+| Ajouter ou soustraire la même quantité | Conserver |
+| Multiplier ou diviser par un positif | Conserver |
+| Multiplier ou diviser par un négatif | Inverser |
+| Multiplier par zéro | Perte d'information, pas une équivalence |
+| Diviser par zéro | Interdit |
 
-**Exemple supplémentaire.** $3x-6\ge0\Leftrightarrow x\ge2$. Cette fois le bord est inclus, donc la solution est $[2;+\infty[$.
+Exemple du professeur :
+
+$$-2x+4>0\Leftrightarrow-2x>-4\Leftrightarrow x<2.$$
+
+La dernière étape divise par −2. La solution est $S=]-\infty;2[$. Testons trois valeurs dans la condition initiale :
+
+| x | $-2x+4$ | Satisfait la condition ? |
+| --- | --- | --- |
+| 0 | 4 | Oui |
+| 2 | 0 | Non : strict |
+| 3 | −2 | Non |
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/inequality.svg" alt="Une demi-droite vers la gauche, avec un cercle ouvert en 2, représente x inférieur à 2." width="440" height="360" loading="lazy" />
 <figcaption>Le cercle ouvert exclut la borne 2.</figcaption>
 </figure>
 
+Les tests aident à repérer une erreur ; l'équivalence justifie la demi-droite entière. Pour une borne incluse, $3x-6\ge0\Leftrightarrow x\ge2$, $S=[2;+\infty[$. Autre exemple : $-4x+3\le11\Leftrightarrow-4x\le8\Leftrightarrow x\ge-2$, $S=[-2;+\infty[$.
+
+| Inégalité | Intervalle | Borne 2 |
+| --- | --- | --- |
+| $x<2$ | $]-\infty;2[$ | Exclue |
+| $x\le2$ | $]-\infty;2]$ | Incluse |
+| $x>2$ | $]2;+\infty[$ | Exclue |
+| $x\ge2$ | $[2;+\infty[$ | Incluse |
+
+Nous gardons la notation française des intervalles dans les deux langues. Pour un coefficient de signe inconnu, distinguer les cas. Par exemple, pour $ax>2$ :
+
+- $a>0$ : $x>2/a$.
+- $a<0$ : $x<2/a$.
+- $a=0$ : $0>2$ est faux, donc $S=\varnothing$.
+
+**D — Domaine et candidats supplémentaires (compléments du projet).**
+
+Avant de simplifier $(x^2-4)/(x-2)=4$, écrire $x\ne2$. La factorisation donne $x+2=4$, donc x = 2 serait le seul candidat. Il est exclu, d'où $S=\varnothing$.
+
+Élever au carré peut ajouter des candidats : $x=2\Rightarrow x^2=4$ mais la seconde condition autorise aussi −2. Pour une équation avec racine, noter les restrictions de domaine et de signe avant le carré ; vérifier dans l'original. Le troisième exercice applique cette méthode.
+
+## 4. Expérimenter — Modifier les deux membres, puis l'ordre
+
+Dans l'atelier d'équations, gardez les valeurs initiales et parcourez les étapes. La balance suit l'exemple positif ; pour les coefficients ou résultats négatifs, l'affichage reste symbolique. Essayez ensuite a = 0 avec des constantes égales puis différentes. Prévoyez le nombre de solutions avant de lire le résultat.
+
+<AlgebraMethodLab kind="equation" locale="fr" client:visible />
+
+Dans l'atelier d'inéquations, gardez a = −2 et c = 4. Testez x = 2, puis incluez l'égalité. Changez a en +2 puis en 0 : observez la direction, la borne et la justification de la transformation.
+
 <AlgebraExplorer kind="inequality" locale="fr" client:visible />
 
-## Inégalités et intervalles
-
-Ajouter un réel conserve l’ordre. Multiplier par un réel positif le conserve aussi ; multiplier par un réel négatif l’inverse. Ainsi $-4x+3\le11$ équivaut à $-4x\le8$, puis $x\ge-2$. L’ensemble est $[-2;+\infty[$ : la borne est incluse. On utilise cette notation française aussi en anglais. Un facteur de signe inconnu ne permet pas de choisir un sens sans distinguer les cas.
-
-## Exemple guidé : ne pas perdre zéro
-
-L’équation $x^2=3x$ sur les réels devient $x(x-3)=0$. Les solutions sont $0$ et $3$. Diviser directement par $x$ aurait perdu zéro. Un produit nul a au moins un facteur nul. À l’inverse, élever au carré peut ajouter des candidats : après une étape non réversible, vérifiez chaque candidat dans l’équation initiale.
-
-## Domaine avant simplification
-
-Dans $(x^2-4)/(x-2)=4$, le domaine exclut $2$. La simplification donne $x+2=4$, dont le seul candidat est justement exclu : l’ensemble de solutions est vide. Ce n’est pas une erreur de calcul ; c’est le résultat de la restriction initiale. Conservez les bornes strictes ou larges avec la même attention lorsque l’inconnue doit ensuite être entière.
-
-<p class="source-next"><a href="/fr/lessons/L25/#pdf-23">Suite du PDF : Systèmes de deux équations →</a></p>
-
-## Comment faire ? Une méthode réutilisable
-
-1. Annoncez le domaine. Développez ou factorisez selon la forme utile.
-2. Appliquez la même opération aux deux membres et dites pourquoi elle est réversible.
-3. Avant une division, exigez un diviseur non nul. Pour une inégalité, vérifiez aussi son signe ; si le signe dépend d’un paramètre, distinguez les cas.
-4. Écrivez l’ensemble de solutions, puis testez les candidats et les bornes dans la condition initiale.
-
-**Lire un intervalle.** $]-\infty;2[$ se lit « tous les réels strictement inférieurs à deux ». Le crochet tourné vers l’extérieur exclut la borne finie ; un point plein la représente quand elle est incluse.
-
-## S’entraîner pas à pas
+## 5. Pratiquer — Isoler, inverser, vérifier
 
 <div className="algebra-exercise">
 
@@ -170,24 +229,28 @@ Il faut $x\ge-2$ et, par le signe de la racine, $x\ge0$. Le carré donne $x+2=x^
 
 </div>
 
-## Pratique et bilan
+**Pratique et bilan**
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
 
+## 6. Retenir — Fiche de révision à imprimer
+
 <div className="algebra-revision">
 
-## À retenir et auto-évaluation
+- Écrire le domaine, développer ou factoriser, transformer les deux membres, écrire S, vérifier.
+- $ax+b=c$ : $x=(c-b)/a$ si $a\ne0$. Si a = 0, comparer b et c.
+- Inéquation : positif conserve l'ordre ; négatif inverse l'ordre ; coefficient nul à traiter séparément.
+- Borne stricte : cercle vide ; borne large : disque plein. Toujours exclure les infinis.
+- Ne pas diviser par l'inconnue sans traiter zéro. Un carré peut ajouter des candidats ; contrôler dans l'original. Les valeurs interdites restent interdites.
 
-- Une équivalence conserve toutes les solutions sur le même domaine.
-- Diviser par un négatif inverse une inégalité ; diviser par zéro est interdit.
-- Un carré peut ajouter des candidats ; une division par l’inconnue peut en perdre.
+**Auto-évaluation.** Refaire l'exemple de la balance, expliquer le retournement de l'ordre, écrire les quatre intervalles puis justifier pourquoi un candidat peut être rejeté.
 
-**Auto-évaluation.** Isoler une inconnue en justifiant chaque opération ; écrire le deuxième exercice en intervalle ; expliquer le rejet du candidat négatif au troisième exercice. Reprendre « Domaine avant simplification » en cas d’oubli. [L25](../L25/) demande de satisfaire deux conditions à la fois.
-
-**Pour imprimer :** utilisez la commande Imprimer du navigateur. Les activités montrent un exemple fixe et les indices et solutions sont développés sur papier.
+**Pour imprimer:** utilisez la commande Imprimer du navigateur. Les ateliers montrent un exemple fixe ; indices et solutions sont développés sur papier.
 
 </div>
+
+<p class="source-next"><a href="/fr/lessons/L25/#pdf-23">Suite du PDF : Systèmes de deux équations →</a></p>
 
 </div>
