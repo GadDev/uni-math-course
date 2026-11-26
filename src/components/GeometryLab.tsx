@@ -951,11 +951,30 @@ function LabView({
     }
     if (kind === 'residuals') {
       const r = residualTable(v[0]!, v[1]!);
+      const absolute = r.rows.reduce((sum, row) => sum + Math.abs(row.e), 0);
       result = (
         <>
           <p>
             ŷ ≈ ({f(v[0]!)})x + ({f(v[1]!)}). Σe ≈ {f(r.sum)} ; S ≈ {f(r.loss)}{' '}
             ; MSE = S/3 ≈ {f(r.mse!)}.
+          </p>
+          <p data-residual-criteria>
+            {fr ? 'Somme absolue' : 'Absolute sum'} : Σ|eᵢ| ≈ {f(absolute)}.{' '}
+            {fr ? 'Somme des carrés' : 'Sum of squares'} :{' '}
+            {r.rows.map((row) => f(row.square)).join(' + ')} ≈ {f(r.loss)}.
+          </p>
+          <p data-residual-interpretation>
+            {r.loss === 0
+              ? fr
+                ? 'Toutes les prédictions sont exactes.'
+                : 'Every prediction is exact.'
+              : Math.abs(r.sum) < 1e-10
+                ? fr
+                  ? 'Les erreurs signées se compensent, mais S reste positif.'
+                  : 'Signed errors cancel, but S remains positive.'
+                : fr
+                  ? 'Le modèle présente des erreurs de prédiction.'
+                  : 'The model has prediction errors.'}
           </p>
           <p>
             {fr
@@ -974,7 +993,14 @@ function LabView({
             </caption>
             <thead>
               <tr>
-                {['xᵢ', 'yᵢ', 'ŷᵢ', 'eᵢ = yᵢ − ŷᵢ', 'eᵢ²'].map((h) => (
+                {[
+                  'xᵢ',
+                  'yᵢ',
+                  'ŷᵢ',
+                  'eᵢ = yᵢ − ŷᵢ',
+                  'eᵢ²',
+                  fr ? 'Interprétation' : 'Interpretation',
+                ].map((h) => (
                   <th key={h} scope="col">
                     {h}
                   </th>
@@ -989,6 +1015,19 @@ function LabView({
                       <td key={j}>{f(n)}</td>
                     ),
                   )}
+                  <td>
+                    {row.e === 0
+                      ? fr
+                        ? 'Exacte'
+                        : 'Exact'
+                      : row.e > 0
+                        ? fr
+                          ? 'Sous-estimation'
+                          : 'Underestimate'
+                        : fr
+                          ? 'Surestimation'
+                          : 'Overestimate'}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -1269,16 +1308,25 @@ export default function GeometryLab({
               {number(1, 'p', -2, 4, kind === 'residuals' ? 'any' : 0.25)}
               {kind === 'slope' && number(2, 'Δx', -3, 3, 0.5)}
               {kind === 'residuals' && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setV([0.5, 7 / 6]);
-                    setEpoch((e) => e + 1);
-                    setFeedback('');
-                  }}
-                >
-                  {fr ? 'Essayer m = 1/2, p = 7/6' : 'Try m = 1/2, p = 7/6'}
-                </button>
+                <>
+                  {[
+                    { m: 1, p: 1, label: 'y = x + 1' },
+                    { m: 0, p: 2, label: 'y = 2' },
+                    { m: 0.5, p: 7 / 6, label: 'm = 1/2, p = 7/6' },
+                  ].map((model) => (
+                    <button
+                      key={model.label}
+                      type="button"
+                      onClick={() => {
+                        setV([model.m, model.p]);
+                        setEpoch((e) => e + 1);
+                        setFeedback('');
+                      }}
+                    >
+                      {fr ? 'Essayer' : 'Try'} {model.label}
+                    </button>
+                  ))}
+                </>
               )}
             </>
           )}
