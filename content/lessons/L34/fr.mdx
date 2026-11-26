@@ -1,7 +1,7 @@
 ---
 lessonId: L34
 locale: fr
-version: 6
+version: 7
 status: extended
 title: "Modèles affines et résidus"
 summary: "Mesurer l’erreur verticale d’un modèle et construire une perte quadratique."
@@ -32,137 +32,171 @@ Prérequis : L26, L29. Les domaines et restrictions précisés ci-dessous font p
 
 <span id="pdf-66" class="source-topic-marker"></span>
 
-## Le modèle : pourquoi comparer plusieurs droites ?
+## 1. Comprendre — Prédire n'est pas observer
 
-**Situation du PDF, pages 65–67.** Les dix observations de consommation de margarine et de divorces forment un nuage de points ; aucune droite ne passe par tous. Le [tableau de départ](../L36/#pdf-65) ouvre cette partie dans le parcours du PDF. On cherche une relation approximative $y\approx mx+p$, pas une égalité vraie pour chaque observation.
+Imaginez un programme qui prédit le temps d'attente d'un service à partir de sa charge. Trois observations fictives nous serviront dans toute la leçon : $(0,1),(1,2),(2,2)$. Le modèle $\hat y=x+1$ annonce 3 pour une charge de 2, mais on mesure 2. Comment mesurer l'écart ?
 
-Une droite peut passer près d’un point et loin des autres. Pour comparer honnêtement deux modèles, il faut appliquer le **même critère** à toutes les observations. La droite verte du dessin est un ajustement aux dix points ; la droite pointillée est une autre candidate. Le dessin aide à poser la question, puis les résidus permettent de mesurer la réponse.
-
-**Exemple supplémentaire.** Pour $(0,1),(1,2),(2,2)$, comparer les modèles $\hat y=x+1$ et $\hat y=2$. Le premier se trompe d’une unité au dernier point ; le second d’une unité au premier. Ils ont ici la même somme d’erreurs au carré, même s’ils ne produisent pas les mêmes prédictions.
+Dans le PDF fourni, p. 62–64, dix observations associent consommation de margarine et taux de divorce. Aucune droite ne passe par tous les points ; il faut un critère pour comparer les candidates. On cherche $y\approx mx+p$. Une association ne démontre pas une causalité. Le [tableau original](../L36/#pdf-65) sera repris en L36.
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/regression-models.svg" alt="Dix observations et deux droites candidates, l’une ajustée aux données et l’autre plus plate." width="440" height="360" loading="lazy" />
 <figcaption>Comparer une droite au nuage entier, pas à un seul point.</figcaption>
 </figure>
 
-## Un modèle n’est pas une égalité des données
-
-À chaque entrée $x_i$, le modèle prédit $\hat y_i=mx_i+p$. L’observation $y_i$ peut différer. Le résidu est $e_i=y_i-\hat y_i$. Un résidu positif signifie que le point observé est au-dessus de la droite, et donc que le modèle sous-estime cette observation. Nous ajustons les erreurs verticales, pas les distances perpendiculaires à la droite.
+## 2. Visualiser — Observé, prédit, résidu
 
 <p class="source-next"><a href="/fr/lessons/L34/#pdf-68">Suite du PDF : Mesurer l’erreur →</a></p>
 
 <span id="pdf-68" class="source-topic-marker"></span>
 
-## Mesurer l’erreur : observation, prédiction et résidu
+L'indice i numérote les données. Le symbole $x_i$ est l'entrée, $y_i$ est la valeur mesurée et $\hat y_i$ se lit « y chapeau indice i » : c'est la prédiction. On compare deux hauteurs à la même abscisse.
 
-Le petit chapeau de $\hat y_i$ se lit « y chapeau indice i » : c’est la valeur **prédite** pour la donnée numéro $i$. La valeur $y_i$ sans chapeau est **observée**. Le résidu du PDF est $e_i=y_i-\hat y_i=y_i-(mx_i+p)$.
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l34-signed-residuals.svg" alt="Modèle horizontal 1,5 : résidus −0,5, +0,5, +0,5 ; flèches de la prédiction vers l'observation." width="440" height="300" loading="lazy" />
+<figcaption>Monter depuis la prédiction donne un résidu positif ; descendre donne un résidu négatif.</figcaption>
+</figure>
 
-**Exemple supplémentaire détaillé.** Avec $x_i=2$, $y_i=6$, $m=2$ et $p=1$, le modèle prédit $\hat y_i=2\cdot2+1=5$. Le résidu vaut $e_i=6-5=1$ : le point observé est une unité au-dessus de la droite. Avec l’observation $y_i=4$, le même modèle donnerait $e_i=-1$. Sur le dessin, les segments sont verticaux, car l’entrée $x_i$ reste fixée.
-
-**Le résidu est défini page 68 ; la comparaison des critères ci-dessous est un complément.** Additionner les résidus signés peut masquer les erreurs : $-2+2=0$. Additionner leurs valeurs absolues est un autre critère possible : $|-2|+|2|=4$. Les moindres carrés choisissent $(-2)^2+2^2=8$ ; les erreurs ne se compensent plus et les grandes erreurs pèsent davantage. Il s’agit d’un choix de critère, pas de la seule manière de mesurer une erreur.
+| Observation | Résidu | Interprétation |
+| --- | --- | --- |
+| Au-dessus | + | Sous-estimation |
+| Sur la droite | 0 | Prédiction exacte |
+| En dessous | − | Surestimation |
 
 <figure class="teaching-figure">
 <img src="/diagrams/droites/fr/residuals.svg" alt="Trois observations et la droite y égale x plus 1 ; segments verticaux marqués e1, e2 et e3." width="440" height="360" loading="lazy" />
 <figcaption>Un résidu compare observation et prédiction à la même abscisse.</figcaption>
 </figure>
 
-## Exemple guidé : calculer les résidus
+Le résidu est vertical, pas une distance perpendiculaire : x ne change pas.
 
-Pour les données $(0,1),(1,2),(2,2)$ et le modèle $\hat y=x+1$, les prédictions sont $1,2,3$. Les résidus sont $0,0,-1$ et leur somme des carrés vaut $1$. Le dernier résidu négatif indique une surestimation. Changer de convention de signe ne changerait pas les carrés, mais changerait l’interprétation du signe.
+## 3. Calculer — Une opération à la fois
 
-## Comment construire une mesure d’erreur ?
+### A. Prédire, soustraire, élever au carré
 
-L’indice $i$ numérote les observations ; $n$ est leur nombre. Le symbole $\sum_{i=1}^n$ demande d’additionner les termes pour les indices de 1 à $n$. On part d’un calcul concret avant de le condenser en formule :
+Définition du PDF fourni, p. 65–66 :
 
-1. Pour chaque abscisse observée, calculez la prédiction $\hat y_i=mx_i+p$.
-2. Soustrayez **prédiction à observation** : $e_i=y_i-\hat y_i$.
-3. Élevez chaque résidu au carré avant d’additionner : $S=\sum_{i=1}^n e_i^2$.
-4. Si l’on veut une moyenne par observation, divisez par $n>0$ : $\mathrm{MSE}=S/n$.
+$$\hat y_i=mx_i+p,\qquad e_i=y_i-\hat y_i=y_i-(mx_i+p).$$
 
-Pourquoi des carrés ? Ils sont positifs ou nuls, donc des erreurs opposées ne s’annulent plus. Un résidu doublé contribue quatre fois plus au total. Ce choix privilégie les petites erreurs et pénalise fortement les grandes ; une somme de valeurs absolues serait un autre critère.
+Pour le modèle $\hat y=x+1$, la dernière observation est $(2,2)$. La prédiction est $1\cdot2+1=3$. Le résidu vaut $2-3=-1$. Le modèle surestime ; le carré vaut $(-1)^2=1$.
 
-**Vérification :** $S=0$ implique que chaque carré vaut zéro, donc que chaque observation égale sa prédiction. En revanche, $\sum e_i=0$ dit seulement que les erreurs signées se compensent. Le dessin utilise des segments verticaux parce qu’on compare les deux hauteurs à la même abscisse.
+| i | x | Observé | Prédit | Résidu | Carré |
+| --- | --- | --- | --- | --- | --- |
+| 1 | 0 | 1 | $0+1=1$ | $1-1=0$ | 0 |
+| 2 | 1 | 2 | $1+1=2$ | $2-2=0$ | 0 |
+| 3 | 2 | 2 | $2+1=3$ | $2-3=-1$ | 1 |
 
-<GeometryLab kind="residuals" locale="fr" client:visible />
+La somme des carrés vaut 0 + 0 + 1 = 1. Le symbole sigma demande de répéter et additionner les termes. Ici, n vaut 3.
 
-## Une perte qui ne se compense pas
+$$S=e_1^2+e_2^2+e_3^2=\sum_{i=1}^3e_i^2=1.$$
 
-La perte des moindres carrés est $S(m,p)=\sum_{i=1}^n(y_i-mx_i-p)^2$, avec $n\ge1$. Elle est positive ou nulle, et vaut zéro exactement si toutes les prédictions sont exactes sur les données. L’erreur quadratique moyenne est $\mathrm{MSE}=S/n$. Pour un même jeu de données, minimiser l’une ou l’autre donne les mêmes paramètres. Les carrés amplifient les grands résidus.
+Attention : élever chaque résidu au carré avant d'additionner n'est pas élever la somme au carré.
 
-## Exemple guidé : une somme trompeuse
+### B. Pourquoi des carrés ? Trois critères
 
-Les résidus $-2,2$ ont une somme nulle mais une perte $8$. Les résidus $1,1$ ont une somme $2$ mais une perte $2$. Choisir seulement la plus petite somme signée favoriserait à tort le premier modèle ; des résidus négatifs très grands pourraient même rendre ce critère arbitrairement négatif.
+Le PDF fourni (p. 66) compare la somme signée, la somme absolue et la somme des carrés. Appliquons-les aux mêmes trois données.
+
+| Modèle | Résidus | Signée | Absolue | Carrés |
+| --- | --- | --- | --- | --- |
+| $\hat y=x+1$ | 0, 0, −1 | −1 | 1 | 1 |
+| $\hat y=2$ | −1, 0, 0 | −1 | 1 | 1 |
+| $\hat y=(1/2)x+7/6$ | −1/6, 1/3, −1/6 | 0 | 2/3 | 1/6 |
+
+Pour le troisième modèle, les prédictions sont $7/6,5/3,13/6$. Les erreurs signées s'annulent, mais $1/36+1/9+1/36=1/6$. Ce n'est pas une prédiction parfaite. Plus simplement, les résidus −2 et +2 donnent une somme signée de 0, absolue de 4 et quadratique de 8. La somme signée peut devenir arbitrairement négative si p augmente. La somme absolue est possible ; les carrés sont commodes algébriquement et pénalisent davantage les gros écarts.
 
 <p class="source-next"><a href="/fr/lessons/L34/#pdf-69">Suite du PDF : La méthode des moindres carrés →</a></p>
 
 <span id="pdf-69" class="source-topic-marker"></span>
 
-## Centrer : soustraire une moyenne avant de multiplier
+### C. Les moindres carrés : une perte globale
 
-La barre désigne une **moyenne arithmétique** : $\bar x=(x_1+\cdots+x_n)/n$ et $\bar y=(y_1+\cdots+y_n)/n$. Centrer signifie soustraire cette moyenne à chaque valeur. On mesure ainsi une position par rapport au centre du nuage, plutôt que par rapport à zéro.
+Le PDF fourni, p. 67, définit la droite de régression en minimisant
 
-Pour les trois données de l’activité, $\bar x=1$ et $\bar y=5/3$. Voici le calcul exact, avant tout arrondi :
+$$S(m,p)=\sum_{i=1}^n(y_i-mx_i-p)^2,\qquad n\ge1.$$
 
-| $x_i$ | $y_i$ | $x_i-\bar x$ | $y_i-\bar y$ | $(x_i-\bar x)^2$ | $(x_i-\bar x)(y_i-\bar y)$ |
-| --- | --- | --- | --- | --- | --- |
-| $0$ | $1$ | $-1$ | $-2/3$ | $1$ | $2/3$ |
-| $1$ | $2$ | $0$ | $1/3$ | $0$ | $0$ |
-| $2$ | $2$ | $1$ | $1/3$ | $1$ | $1/3$ |
+Complément du projet : l'erreur quadratique moyenne vaut $\mathrm{MSE}=S/n$. Pour les deux premiers modèles, elle vaut $1/3$ ; pour le troisième, $1/18$. Sur les mêmes données, minimiser S ou MSE revient au même. Si $S=0$, chaque prédiction est exacte. Une somme signée nulle ne suffit pas. Doubler un résidu multiplie son carré par quatre. Le troisième modèle est meilleur selon S que les deux autres, mais cela ne prouve pas son optimalité.
 
-Les deux dernières colonnes donnent $S_{xx}=2$ et $S_{xy}=1$. En mettant les écarts verticaux au carré, on obtient aussi $S_{yy}=4/9+1/9+1/9=2/3$. Les écarts centrés ont une somme nulle ; leurs carrés, eux, peuvent avoir une somme positive. Ces calculs préparent la formule de la leçon suivante sans supposer qu’elle est déjà connue.
+### D. Centrer : déplacer l'origine vers le nuage
 
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l34-centering.svg" alt="Les trois points sont translatés pour que G(1,5/3) devienne l'origine." width="640" height="300" loading="lazy" />
+<figcaption>Centrer conserve la forme du nuage ; on change seulement l'origine.</figcaption>
+</figure>
 
+La barre indique une moyenne. On calcule $\bar x=(0+1+2)/3=1$ et $\bar y=(1+2+2)/3=5/3$. Puis on soustrait ces moyennes à chaque point.
 
-## Les moindres carrés et les trois sommes centrées
+| $x_i$ | $y_i$ | $x_i-\bar x$ | $y_i-\bar y$ | $(x_i-\bar x)^2$ | $(x_i-\bar x)(y_i-\bar y)$ | $(y_i-\bar y)^2$ |
+| --- | --- | --- | --- | --- | --- | --- |
+| 0 | 1 | −1 | −2/3 | 1 | 2/3 | 4/9 |
+| 1 | 2 | 0 | 1/3 | 0 | 0 | 1/9 |
+| 2 | 2 | 1 | 1/3 | 1 | 1/3 | 1/9 |
+| Sommes | | 0 | 0 | 2 | 1 | 2/3 |
 
-**Définition du PDF, pages 69–70.** Choisir les paramètres $m,p$ pour rendre $S(m,p)=\sum_{i=1}^n e_i^2$ aussi petit que possible. Le nom signifie « plus petite somme des carrés », pas « choisir les plus petits points ».
+Les trois dernières colonnes donnent les notations du PDF fourni, p. 67 :
 
-Les notations de la page 70 condensent des calculs répétés ; $S_{yy}$ est un complément pour la preuve et la corrélation :
+$$S_{xx}=\sum_{i=1}^n(x_i-\bar x)^2$$
 
-| Notation | Calcul | Lecture |
-| --- | --- | --- |
-| $S_{xx}$ | $\sum_{i=1}^n(x_i-\bar x)^2$ | Somme des écarts horizontaux au carré. |
-| $S_{xy}$ | $\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)$ | Somme des produits d’écarts. |
-| $S_{yy}$ | $\sum_{i=1}^n(y_i-\bar y)^2$ | Somme des écarts verticaux au carré. |
+$$S_{xy}=\sum_{i=1}^n(x_i-\bar x)(y_i-\bar y)$$
 
-**Exemple supplémentaire.** Pour $(0,1)$ et $(2,3)$, les moyennes sont $\bar x=1$, $\bar y=2$. Les deux écarts horizontaux sont $-1,1$, comme les écarts verticaux. Donc $S_{xx}=1+1=2$, $S_{xy}=1+1=2$ et $S_{yy}=1+1=2$. Dans la leçon suivante, un tableau garde ces colonnes visibles pour quatre observations.
+$$S_{yy}=\sum_{i=1}^n(y_i-\bar y)^2$$
 
-Modifiez une observation à la fois et regardez le déplacement des moyennes et les colonnes du tableau. Passez ensuite en coordonnées centrées : le centre du nuage arrive à l’origine. Une somme nulle d’écarts ne doit pas être confondue avec une somme de carrés nulle.
+Les sommes de carrés ne sont jamais négatives ; la somme des produits peut être négative. Si tous les x sont égaux, $S_{xx}=0$. La formule de pente de L35 exige un traitement séparé de ce cas.
+
+## 4. Expérimenter — Comparer puis centrer
+
+Essayez les trois modèles avec les boutons. Comparez les résidus, la somme signée, la somme absolue et S. Avant de modifier m ou p, prévoyez le signe des erreurs. Le tableau explique chaque résidu.
+
+<GeometryLab kind="residuals" locale="fr" client:visible />
+
+Dans le second atelier, gardez les trois observations, passez en coordonnées centrées, puis modifiez un point. Les écarts centrés s'additionnent à zéro, pas nécessairement leurs carrés.
 
 <GeometryExtensions kind="centering" locale="fr" client:visible />
 
-## Trois sommes utiles
+## 5. Pratiquer — Du résidu aux sommes centrées
 
-Les sommes de carrés $S_{xx}$ et $S_{yy}$ ne sont jamais négatives, mais la somme croisée $S_{xy}$ peut être négative. Le tableau ci-dessus sera réutilisé pour la droite de régression.
+**Facile.** Pour $\hat y=x+1$ et l'observation $(2,2)$, calculer la prédiction, le résidu et son carré.
 
-<p class="source-next"><a href="/fr/lessons/L35/#pdf-71">Suite du PDF : La formule →</a></p>
+<details>
+<summary>Vérifier la réponse</summary>
 
-## À vous de jouer sur papier
+Prédiction $3$, résidu $2-3=-1$, carré $1$. Le modèle surestime.
 
-Pour $(0,1),(1,2),(2,2)$, calculez les résidus, $S$ et MSE du modèle horizontal $\hat y=2$. Comparez avec $\hat y=x+1$ sans conclure que le meilleur modèle possible a été trouvé.
+</details>
+
+**Intermédiaire.** Calculer S et MSE pour $\hat y=2$ sur les trois observations. Comparer à $\hat y=x+1$.
+
+<details>
+<summary>Vérifier la réponse</summary>
+
+Les résidus sont $-1,0,0$. Donc $S=1$, MSE = $1/3$. Les deux candidats sont à égalité selon S.
+
+</details>
+
+**Défi.** Pour les points $(0,3),(2,1)$, calculer les moyennes et les trois sommes centrées.
 
 <details>
 <summary>Afficher la correction expliquée</summary>
 
-Les prédictions valent $2,2,2$ ; les résidus valent $-1,0,0$. Donc $S=1$ et MSE vaut $1/3$, comme pour le modèle $\hat y=x+1$. Cela établit seulement une égalité entre ces deux candidats. Le réglage $m=1/2$, $p=7/6$ donne des résidus $-1/6,1/3,-1/6$, donc $S=1/6<1$. Une bonne adéquation numérique ne démontre aucune causalité.
+$\bar x=1$, $\bar y=2$. Écarts: $(-1,1),(1,-1)$. Donc $S_{xx}=2$, $S_{xy}=-2$, $S_{yy}=2$. La somme croisée peut être négative.
 
 </details>
 
+La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
+
+Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Le PDF fourni couvre ces notions aux pages 62–67. Les identifiants de pages et métadonnées hérités restent en place pour la compatibilité ; leur pagination diffère de celle du fichier fourni.
+
 <section className="geometry-revision">
 
-## Fiche de révision à imprimer
+## 6. Retenir — Fiche de révision à imprimer
 
-- **Prédiction et résidu :** $\hat y_i=mx_i+p$, $e_i=y_i-\hat y_i$ ; positif signifie observation au-dessus du modèle.
-- **Perte :** $S=\sum e_i^2\ge0$, MSE vaut $S/n$ pour $n>0$ ; comparer sur les mêmes observations.
-- **Centrage :** calculer les moyennes, soustraire, puis former carrés et produits.
-- **Pièges :** somme signée nulle n’est pas perte nulle ; résidu vertical n’est pas distance perpendiculaire ; ajustement n’est pas causalité.
+- Prédiction: $\hat y_i=mx_i+p$ ; résidu: $e_i=y_i-\hat y_i$.
+- Positif : sous-estimation ; négatif : surestimation.
+- Perte: $S=\sum e_i^2\ge0$ ; MSE = $S/n$ pour $n>0$.
+- Centrage : calculer les moyennes, soustraire, former les carrés et produits.
+- $S_{xx}=\sum(x_i-\bar x)^2$, $S_{xy}=\sum(x_i-\bar x)(y_i-\bar y)$, $S_{yy}=\sum(y_i-\bar y)^2$.
+- Pièges : inverser le résidu, mettre la somme entière au carré, confondre compensation et ajustement parfait, confondre ajustement et causalité.
 
 </section>
 
-## Pratique et bilan
-
-La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
-
-Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
+<p class="source-next"><a href="/fr/lessons/L35/#pdf-71">Continuer : La droite de régression →</a></p>
 
 </div>
