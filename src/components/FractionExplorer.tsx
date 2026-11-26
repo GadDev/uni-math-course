@@ -132,6 +132,21 @@ function FractionView({
               'Reduced fraction; the sign is placed in the numerator.',
             )}
       </p>
+      {operation === 'divide' && (
+        <div data-fraction-division-check>
+          <p>
+            {t(
+              'Contrôle : multiplier le quotient par le diviseur redonne la première fraction.',
+              'Check: multiplying the quotient by the divisor recovers the first fraction.',
+            )}
+          </p>
+          <div className="method-math" tabIndex={0}>
+            <Tex
+              text={String.raw`$\displaystyle ${texFraction(result)}\times\left(${texFraction(second)}\right)=${texFraction(first)}$`}
+            />
+          </div>
+        </div>
+      )}
       {strips ? (
         <figure className="fraction-strips">
           <svg

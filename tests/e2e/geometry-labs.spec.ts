@@ -227,15 +227,19 @@ test('touch controls, dark theme and paired section anchors', async ({
   await lab.getByRole('button', { name: 'Réinitialiser' }).tap();
   await expect(numbers(lab).first()).toHaveValue('2');
   const heading = page.getByRole('heading', {
-    name: 'D’où vient la pente ?',
+    name: '3. Calculer — Une opération à la fois',
     exact: true,
   });
   const id = await heading.getAttribute('id');
   await page.goto(`/fr/lessons/L29/#${id}`);
   await page.locator('a[hreflang="en"]').click();
-  await expect(page).toHaveURL(
-    /\/en\/lessons\/L29\/#where-does-slope-come-from/,
-  );
+  await expect(page).toHaveURL(/\/en\/lessons\/L29\/#.+/);
+  const englishHeading = page.getByRole('heading', {
+    name: '3. Calculate — One operation at a time',
+    exact: true,
+  });
+  const englishId = await englishHeading.getAttribute('id');
+  expect(decodeURIComponent(new URL(page.url()).hash.slice(1))).toBe(englishId);
   await context.close();
 });
 
@@ -280,6 +284,117 @@ for (const locale of ['fr', 'en']) {
 }
 
 for (const locale of ['fr', 'en']) {
+  test(`${locale}: L32 links mathematical and screen frames`, async ({
+    page,
+  }) => {
+    await page.goto(`/${locale}/lessons/L32/`);
+    const lab = page.locator('[data-geometry-lab="screen"]');
+    const live = lab.locator('.geo-live');
+    await lab.scrollIntoViewIfNeeded();
+    await expect(lab.locator('fieldset')).toBeVisible();
+    await expect(live.locator('.geo-screen-pair svg')).toHaveCount(2);
+    await values(lab, [2, 1, 50, 50]);
+    await expect(live.locator('[data-screen-forward]')).toContainText('= 300');
+    await expect(live.locator('[data-screen-forward]')).toContainText('= 100');
+    await expect(live.locator('[data-screen-offset]')).toContainText('= -50');
+    await values(lab, [-2, -1, 50, 30]);
+    await expect(live.locator('[data-screen-forward]')).toContainText('= 100');
+    await expect(live.locator('[data-screen-forward]')).toContainText('= 180');
+    await expect(live.locator('[data-screen-inverse]')).toContainText('= -2');
+    await expect(live.locator('[data-screen-offset]')).toContainText('= 30');
+    await expect(live.locator('[data-screen-slope]')).toContainText(
+      locale === 'fr' ? '≈ -1,2' : '≈ -1.2',
+    );
+    await values(lab, [6, 6, 60, 60]);
+    await expect(live.locator('[data-visibility]')).toContainText(
+      locale === 'fr' ? 'hors image' : 'outside the image',
+    );
+    await lab.getByRole('button', { name: /Réinitialiser|Reset/ }).click();
+    await expect(live.locator('[data-screen-forward]')).toContainText('= 280');
+    await expect(live.locator('[data-screen-forward]')).toContainText('= 110');
+  });
+
+  test(`${locale}: L31 boundary and cumulative triangle constraints`, async ({
+    page,
+  }) => {
+    const fr = locale === 'fr';
+    await page.goto(`/${locale}/lessons/L31/`);
+    const lab = page.locator('[data-geometry-lab="region"]');
+    const live = lab.locator('.geo-live');
+    const decision = live.locator('[data-region-decision]');
+    await lab.scrollIntoViewIfNeeded();
+    await expect(lab.locator('fieldset')).toBeVisible();
+    await values(lab, [2, 2]);
+    await lab.locator('select').selectOption('open');
+    await expect(live.locator('[data-region-substitution]')).toContainText(
+      fr ? 'sur la frontière' : 'on the boundary',
+    );
+    await expect(decision).toContainText(fr ? 'exclu' : 'excluded');
+    await lab.locator('select').selectOption('closed');
+    await expect(decision).toContainText(fr ? 'accepté' : 'accepted');
+    await lab.locator('select').selectOption('triangle');
+    await values(lab, [3, 2]);
+    await expect(decision).toContainText(fr ? 'exclu' : 'excluded');
+    const remove = lab.getByRole('button', {
+      name: /Retirer une contrainte|Remove a constraint/,
+    });
+    const add = lab.getByRole('button', {
+      name: /Ajouter une contrainte|Add a constraint/,
+    });
+    await remove.click();
+    await remove.click();
+    await expect(live.locator('[data-region-steps] li')).toHaveCount(1);
+    await expect(decision).toContainText(fr ? 'accepté' : 'accepted');
+    await add.click();
+    await expect(live.locator('[data-region-steps] li')).toHaveCount(2);
+    await expect(decision).toContainText(fr ? 'accepté' : 'accepted');
+    await add.click();
+    await expect(live.locator('[data-region-steps] li')).toHaveCount(3);
+    await expect(decision).toContainText(fr ? 'exclu' : 'excluded');
+    await values(lab, [1, 1]);
+    await expect(decision).toContainText(fr ? 'accepté' : 'accepted');
+    await lab.getByRole('button', { name: /Réinitialiser|Reset/ }).click();
+    await expect(live.locator('[data-region-steps]')).toHaveCount(0);
+  });
+}
+
+for (const locale of ['fr', 'en']) {
+  test(`${locale}: L29 separates slope, intercept and signed displacement`, async ({
+    page,
+  }) => {
+    await page.goto(`/${locale}/lessons/L29/`);
+    const lab = page.locator('[data-geometry-lab="slope"]');
+    const live = lab.locator('.geo-live');
+    const reference = live.locator('[data-slope-reference]');
+    await lab.scrollIntoViewIfNeeded();
+    await expect(lab.locator('fieldset')).toBeVisible();
+    await lab
+      .getByRole('button', { name: /Changer seulement m|Change only m/ })
+      .click();
+    await expect(reference).toContainText(
+      locale === 'fr' ? 'Même départ' : 'Same start',
+    );
+    await expect(live.locator('[data-slope-change]')).toContainText('= -1');
+    await lab
+      .getByRole('button', { name: /Changer seulement p|Change only p/ })
+      .click();
+    await expect(reference).toContainText(
+      locale === 'fr' ? 'parallèles distinctes' : 'distinct parallel lines',
+    );
+    await expect(live.locator('[data-slope-intercept]')).toContainText(
+      '(0 ; 3)',
+    );
+    await values(lab, [-0.5, 2, -2]);
+    await expect(live.locator('[data-slope-change]')).toContainText('= 1');
+    await values(lab, [0, 2, 2]);
+    await expect(live.locator('[data-slope-change]')).toContainText('= 0');
+    await values(lab, [2, 1, 0]);
+    await expect(live.locator('[data-results]')).toContainText('0/0');
+    await lab.getByRole('button', { name: /Réinitialiser|Reset/ }).click();
+    await expect(reference).toHaveCount(0);
+    await expect(numbers(lab).first()).toHaveValue('2');
+  });
+
   test(`${locale}: L34 compares models on identical observations`, async ({
     page,
   }) => {
