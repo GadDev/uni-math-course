@@ -396,3 +396,9 @@
     object-fit: contain;
   }
 }
+
+@media print {
+  [data-temperature-lab] fieldset {
+    display: none;
+  }
+}
