@@ -276,6 +276,7 @@ export default function DerivativeExplorer({
   const [h, setH] = useState(2);
   const [revision, setRevision] = useState(0);
   const [announcement, setAnnouncement] = useState('');
+  const [prediction, setPrediction] = useState<boolean | null>(null);
   useEffect(() => setReady(true), []);
   const result = tangent(model, x0);
   const secant = secantSlope(model, x0, h);
@@ -311,6 +312,7 @@ export default function DerivativeExplorer({
     return () => window.clearTimeout(timeout);
   }, [summary, ready]);
   const reset = (next = initial) => {
+    setPrediction(null);
     setModel(next);
     setX0(1);
     setH(2);
@@ -339,8 +341,8 @@ export default function DerivativeExplorer({
             ? 'Prédisez les pentes pour h = 0,1 et h = −0,1. Sont-elles égales ? Vers quel nombre se rapprochent-elles ?'
             : 'Predict the slopes for h = 0.1 and h = −0.1. Are they equal? Which number do they approach?'
           : fr
-            ? 'Avant de modifier c, prédisez : la courbe, la dérivée et la tangente vont-elles toutes changer ?'
-            : 'Before changing c, predict: will the curve, derivative and tangent all change?'}
+            ? 'Avant de modifier c, prédisez : la pente de la tangente changera-t-elle ?'
+            : 'Before changing c, predict: will the tangent slope change?'}
       </p>
       <div className="l38-plots">
         <Plot
@@ -463,6 +465,64 @@ export default function DerivativeExplorer({
             {fr ? 'Réinitialiser : x²/2, x₀ = 1' : 'Reset: x²/2, x₀ = 1'}
           </button>
         </div>
+        <div data-l38-prediction>
+          <p>
+            <strong>
+              {secantMode
+                ? fr
+                  ? 'Les pentes pour h = −0,1 et h = 0,1 sont-elles égales ?'
+                  : 'Are the slopes for h = −0.1 and h = 0.1 equal?'
+                : fr
+                  ? 'Pour f(x) = x²/2, ajouter 2 à c change-t-il la pente en x₀ = 1 ?'
+                  : 'For f(x) = x²/2, does adding 2 to c change the slope at x₀ = 1?'}
+            </strong>
+          </p>
+          <div className="l38-actions">
+            {[true, false].map((choice) => (
+              <button
+                type="button"
+                key={String(choice)}
+                data-prediction={String(choice)}
+                aria-pressed={prediction === choice}
+                onClick={() => {
+                  reset(secantMode ? initial : { ...initial, c: 2 });
+                  if (secantMode) setH(0.1);
+                  setPrediction(choice);
+                }}
+              >
+                {choice ? (fr ? 'Oui' : 'Yes') : fr ? 'Non' : 'No'}
+              </button>
+            ))}
+          </div>
+          {prediction !== null && (
+            <div data-prediction-feedback role="status">
+              <p>
+                <strong>
+                  {prediction
+                    ? fr
+                      ? 'À revoir.'
+                      : 'Try again.'
+                    : fr
+                      ? 'Bonne réponse !'
+                      : 'Correct!'}
+                </strong>{' '}
+                {secantMode
+                  ? fr
+                    ? 'Les pentes diffèrent, mais elles approchent la même limite.'
+                    : 'The slopes differ, but approach the same limit.'
+                  : fr
+                    ? 'La hauteur passe de 0,5 à 2,5 ; la pente reste 1. La tangente se translate.'
+                    : 'The height changes from 0.5 to 2.5; the slope stays 1. The tangent shifts.'}
+              </p>
+              {secantMode && (
+                <p data-paired-slopes>
+                  h = −{format(0.1, locale)} → {format(0.95, locale)} ; h ={' '}
+                  {format(0.1, locale)} → {format(1.05, locale)}.
+                </p>
+              )}
+            </div>
+          )}
+        </div>
       </fieldset>
       <div className="l38-values">
         {secantMode ? (
@@ -478,6 +538,11 @@ export default function DerivativeExplorer({
               </strong>
               .
             </p>
+            {secant !== null && (
+              <p data-slope-error>
+                |m − 1| = |h|/2 ≈ {format(Math.abs(h) / 2, locale)}.
+              </p>
+            )}
             <p data-zero-explanation>
               {secant === null
                 ? fr
