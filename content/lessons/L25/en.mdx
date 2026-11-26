@@ -1,7 +1,7 @@
 ---
 lessonId: L25
 locale: en
-version: 4
+version: 5
 status: extended
 title: "Systems of two equations"
 summary: "Substitution, elimination and interpreting the number of solutions."
@@ -34,63 +34,98 @@ Prerequisites: L24. Domains and restrictions stated below are part of every rule
 
 <span id="pdf-23" class="source-topic-marker"></span>
 
-## Systems: from coffee to two equations
+## 1. Understand — Satisfy two pieces of information together
 
-**PDF example, pages 23–24.** Let $c$ be the price of a coffee and $k$ the price of a croissant, in euros. Both purchases must hold: $c+k=4{,}5$ and $2c+k=7$.
+The professor poses this problem on PDF pages 23–24: a coffee and a croissant cost 4.50 euros; two coffees and a croissant cost 7 euros. What does a coffee cost?
 
-| Purchase | Equation |
+Let c be the coffee price and k the croissant price, in euros. Prices are nonnegative. Translate the purchases:
+
+$$\begin{cases}c+k=4{,}5 &(L_1)\\2c+k=7 &(L_2)\end{cases}$$
+
+One equation is insufficient: a coffee at 1.50 euros and croissant at 3 euros, or a coffee at 2.50 euros and croissant at 2 euros satisfy the first purchase. Check the second too. The brace means AND; a solution pair satisfies both rows in the same order.
+
+## 2. Visualise — Make one unknown disappear
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l25-purchases.svg" alt="First purchase: coffee and croissant, 4.50 euros. Second: two coffees and croissant, 7 euros. Their difference is one coffee, 2.50 euros." width="600" height="260" loading="lazy" />
+<figcaption>Subtracting the first purchase from the second removes one coffee and one croissant from the comparison.</figcaption>
+</figure>
+
+Eliminate means combine equations to remove an unknown. Substitute means replace an unknown with an equal expression. In both cases, retain enough information to recover the second unknown.
+
+A graph is an optional preview: a point represents a pair of numbers, x horizontally and y vertically. Each line represents all pairs satisfying an equation. A solution belongs to both lines. The PDF states three possible solution counts; the diagram below is a project extension for systems of two genuine lines.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/en/l25-three-outcomes.svg" alt="Three graphs: intersecting lines with one common point, distinct parallel lines, coincident lines." width="600" height="240" loading="lazy" />
+<figcaption>One common point, no common point, or an entire line of common points. Coordinates and lines are studied in L27–L28.</figcaption>
+</figure>
+
+## 3. Calculate — Two methods, the same problem
+
+**A — Elimination and substitution side by side.**
+
+| Elimination | Substitution |
 | --- | --- |
-| One coffee, one croissant | $c+k=4{,}5$ |
-| Two coffees, one croissant | $2c+k=7$ |
+| Retain the first row; subtract it from the second. | Isolate k in the first row. |
+| $(2c+k)-(c+k)=7-4{,}5$ | $k=4{,}5-c$ |
+| $2c+k-c-k=2{,}5$ | $2c+(4{,}5-c)=7$ |
+| $c=2{,}5$ | $c=7-4{,}5=2{,}5$ |
+| $k=4{,}5-2{,}5=2$ | $k=4{,}5-2{,}5=2$ |
 
-Subtract the first row from the second to remove the same croissant: $(2c+k)-(c+k)=7-4{,}5$, so $c=2{,}5$. Return to the first row: $k=4{,}5-2{,}5=2$. Check the purchases: $2{,}5+2=4{,}5$ and $2\cdot2{,}5+2=7$.
+In elimination, the k terms cancel; in substitution, the entire expression in parentheses replaces k. The operations remain reversible if the first condition is retained. Both methods give:
 
-The solution pair is $(c,k)=(2{,}5;2)$, in that order. **Substitution** replaces an unknown with an equal expression; **elimination** combines equations to remove an unknown. The following examples show both methods with different numbers.
+$$S=\{(2{,}5;2)\}.$$
 
-## Two simultaneous conditions
+Coffee costs 2.50 euros and the croissant 2 euros. Check both purchases and context: $2{,}5+2=4{,}5$ and $2\cdot2{,}5+2=7$. Swapping the pair changes which price is which.
 
-Seek pairs $(x,y)\in\mathbb{R}^2$ satisfying two equations simultaneously. Checking one row is insufficient. Pair order matters: the first coordinate replaces $x$. A solution may be negative; only context constraints, such as nonnegative prices, allow it to be discarded.
+**B — Choose a method and align coefficients.**
 
-## Guided example: substitution
+If an unknown is isolated or easy to isolate, try substitution. If two coefficients are identical or opposite, subtract or add. Otherwise multiply an entire row by a nonzero number to align coefficients. Never multiply a single term alone.
+
+Additional example:
+
+$$\begin{cases}2x+3y=13\\3x+2y=12\end{cases}$$
+
+Multiply the first row by 2 and the second by 3: $4x+6y=26$, $9x+6y=36$. Subtract the first new row from the second: $5x=10$, $x=2$. Return to an original equation: $4+3y=13$, $y=3$. Check: $2\cdot2+3\cdot3=13$, $3\cdot2+2\cdot3=12$.
+
+**Guided example: substitution**
 
 For $x+y=9$ and $2x-y=3$, the first row gives $y=9-x$. Substitution in the second gives $2x-(9-x)=3$, so $3x=12$. This yields $x=4$, then $y=5$. Pair $(4,5)$ satisfies both rows. The steps are reversible, so it is the unique solution.
 
-## Guided example: elimination and units
+**Guided example: elimination and units**
 
 Two adult tickets and one child ticket cost $19$ euros; an adult and a child cost $12$ euros. Let $a$ and $e$ be prices in euros; the equations are $2a+e=19$ and $a+e=12$. Subtracting the second from the first gives $a=7$, then $e=5$. Reconstructing both purchases checks the model as well as the arithmetic.
 
-## Choose and follow a method
+**C — Interpret the elimination result.**
 
-**Substitution:** choose it when an unknown is already isolated, or easy to isolate. **Elimination:** look for opposite coefficients to add, or identical coefficients to subtract. The method changes the route, not the solution set.
+| System | After elimination | Solution set |
+| --- | --- | --- |
+| $x+y=3$, $x-y=1$ | $2y=2$ | $S=\{(2;1)\}$ |
+| $x+y=2$, $2x+2y=5$ | $0=1$ | $S=\varnothing$ |
+| $x+y=6$, $2x+2y=12$ | $0=0$ | $S=\{(t;6-t):t\in\mathbb R\}$ |
 
-The workshop uses $x+y=s$ and $x-y=d$, where $s$ and $d$ are fixed numbers during solving. Adding the rows cancels $+y$ and $-y$. For substitution, the first row gives $y=s-x$; in the second, the **entire** group replaces $y$. Here the unknowns are unrestricted real numbers, not prices: negative or fractional results are allowed.
+In the first case, keep one equation to obtain x. In the last, one equation remains: freely choose t then calculate y. If both equations reduce to identities with no unknowns, every real pair works; a contradiction always rules out every pair. The three diagrams assume each equation defines a line.
+
+**D — Parameters and constraints.**
+
+In $x+y=5$ and $x+ay=5$, subtracting the rows gives $(a-1)y=0$. Handle the coefficient before dividing:
+
+- $a\ne1$ : $y=0$, $x=5$, $S=\{(5;0)\}$.
+- $a=1$ : $S=\{(t;5-t):t\in\mathbb R\}$.
+
+Dividing by a−1 without a restriction would lose an entire family of solutions. After the calculation, check context restrictions, including units and price signs.
+
+## 4. Experiment — Compare methods and outcomes
+
+The workshop uses $x+y=s$ and $x-y=d$. Keep s = 7 and d = 1. Predict the pair, then walk through elimination. Change method without changing s or d: compare calculations. The new table presents both paths for the same inputs. Try s = 2 and d = 5: negative or fractional values are allowed over the reals.
 
 <AlgebraMethodLab kind="elimination" locale="en" client:visible />
 
-## Three possible outcomes
-
-Elimination can yield a specific value, a contradiction such as $0=2$, or an identity such as $0=0$. A contradiction means no pair works. An identity may indicate two versions of the same condition, leaving a free unknown. For example, $x+y=6$ and $2x+2y=12$ describe the same pairs. Do not arbitrarily choose one pair as if it were unique.
-
-**Read the graph (optional).** A point has two coordinates: horizontal x and vertical y. Each line gathers the pairs satisfying one equation. A common point satisfies both; the calculation below the drawing is sufficient without graph reading. Lines are studied in detail in [L28](../L28/).
+In the second workshop one line is fixed: $y=x+1$. The other is $y=mx+b$. Try m = −1, b = 3; then m = 1, b = 3; finally m = 1, b = 1. Before checking the result, predict the number of common points. The algebraic explanation indicates a unique value, a contradiction or an identity.
 
 <AlgebraExplorer kind="system" locale="en" client:visible />
 
-## Parameters and constraints
-
-In $x+y=5$ and $x+ay=5$, subtraction gives $(a-1)y=0$. If $a\ne1$, then $y=0$ and $x=5$. If $a=1$, the rows are identical and infinitely many pairs work. Dividing prematurely by $a-1$ would remove this case. After algebraic calculation, always return to the original problem constraints.
-
-<p class="source-next"><a href="/en/lessons/L26/#pdf-25">Next in the PDF : Sigma notation (Σ) →</a></p>
-
-## How to: a reusable method
-
-1. Define unknowns, units and context constraints.
-2. If an unknown is already isolated, substitute its expression in the other equation. Otherwise seek coefficients that cancel when adding or subtracting rows.
-3. Retain an original equation to recover the second unknown. Do not replace both conditions with only their difference.
-4. Before dividing by a parameter, handle its zero case. Check the pair in both equations and in context.
-
-**Common mistake.** From $x+y=3$ and $x-y=1$, subtraction gives $2y=2$. That equation alone allows any $x$; retain the first to obtain $x=2$.
-
-## Practise step by step
+## 5. Practise — Solve, count, justify
 
 <div className="algebra-exercise">
 
@@ -160,24 +195,28 @@ Subtraction gives $(a-1)y=0$. If $a\ne1$, then $y=0$ and $x=2$. If $a=1$, all pa
 
 </div>
 
-## Practice and recap
+**Practice and recap**
 
 The bank contains 15 original questions: 5 easy, 5 medium and 5 hard. Start without a hint; after feedback, explain why each other proposal fails. Hard questions require transfer or analysis, not merely longer arithmetic. A hint or retry still helps learning, but does not provide fresh independent mastery evidence. Attempts are retained in your progress after sign-in.
 
 Original project text, examples and solutions; concepts follow Bruno Teheux’s Droites course. Source pages are PDF pages, counting the title as page 1.
 
+## 6. Remember — Printable revision sheet
+
 <div className="algebra-revision">
 
-## Essentials and self-check
+- Define both unknowns, units and domain. Translate the two simultaneous conditions.
+- Substitution: isolate, replace the whole group, solve, recover the second unknown.
+- Elimination: align coefficients by multiplying entire rows by nonzero constants; add or subtract, retain an equation.
+- Contradiction: empty set. Identity: examine the remaining condition and describe the family. Handle zero coefficients before dividing.
+- Check both original equations and constraints; respect pair order.
 
-- A solution pair satisfies every equation simultaneously.
-- Substitution and elimination reduce unknowns without forgetting a condition.
-- A contradiction excludes all solutions; two identical conditions leave a family of pairs.
+**Self-check.** Solve the first exercise using both methods, explain the three outcomes, then handle the parameter in the third without premature division.
 
-**Self-check.** Explain why checking one row is insufficient; solve the first exercise using the other method; describe both cases in the third. Revisit “Three possible outcomes” if needed. The graph previews [coordinates in L27](../L27/) and [lines in L28](../L28/); algebra is sufficient here.
-
-**To print:** use the browser’s Print command. Activities show a fixed example and hints and solutions are expanded on paper.
+**To print:** use the browser's Print command. Workshops show a fixed example; hints and solutions are expanded on paper.
 
 </div>
+
+<p class="source-next"><a href="/en/lessons/L26/#pdf-25">Next in the PDF : Sigma notation (Σ) →</a></p>
 
 </div>

@@ -1,7 +1,7 @@
 ---
 lessonId: L21
 locale: fr
-version: 4
+version: 5
 status: extended
 title: "Calculer dans les réels"
 summary: "Priorités, signes et opérations réversibles : poser des bases fiables avant les équations."
@@ -34,70 +34,120 @@ Prérequis : L10. Les domaines et restrictions précisés ci-dessous font partie
 
 <span id="pdf-4" class="source-topic-marker"></span>
 
-## Priorité des opérations : un calcul, une étape
+## 1. Comprendre — Lire une consigne avant de calculer
 
-**Exemple du PDF, pages 4–5 — explication réécrite.** Dans $2+3\cdot4^2$, le carré porte sur $4$, pas sur $3\cdot4$.
+Imaginez deux achats : un article à 2 euros et trois articles dont le prix est le carré de 4 euros (16 euros chacun, dans cet exemple fictif). L'expression $2+3\cdot4^2$ décrit le total. Il ne suffit pas de lire de gauche à droite : il faut savoir quelle opération porte sur quel groupe. Les pages 4–5 du PDF donnent précisément cet exemple numérique.
 
-1. Puissance : $4^2=16$.
-2. Multiplication : $3\cdot16=48$.
-3. Addition : $2+48=50$.
+Un signe moins peut avoir trois rôles : une soustraction entre deux nombres, l'opposé d'un nombre ou d'un groupe, et le signe d'un nombre négatif. Avant de calculer, demandez-vous ce qu'il désigne.
 
-On lit « deux plus trois fois le carré de quatre ». À l’inverse, $(2+3)\cdot4^2=80$ : les parenthèses changent la consigne. Pour l’écriture $8\div2(2+2)$, la convention annoncée dans ce cours traite multiplication et division au même niveau, de gauche à droite : $8\div2\cdot4=16$. Écrivez $8/(2(2+2))$ si vous voulez obtenir $1$ ; rendez l’intention visible.
+## 2. Visualiser — Priorités, groupes et signes
 
-**Exemple supplémentaire.** $-3^2+(-3)^2=-9+9=0$. Dans le premier terme, on prend l’opposé du carré ; dans le second, on élève le nombre négatif au carré. La base d’une puissance est le nombre ou le groupe qui reçoit l’exposant.
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l21-priority-ladder.svg" alt="Quatre niveaux : parenthèses, puissances, produits et quotients, sommes et différences. À même niveau, de gauche à droite pour les deux derniers." width="480" height="250" loading="lazy" />
+<figcaption>Les parenthèses et la barre de fraction délimitent des groupes ; à l'intérieur, les mêmes règles s'appliquent.</figcaption>
+</figure>
 
-<AlgebraExplorer kind="precedence" locale="fr" client:visible />
+Sur une droite graduée, l'opposé est le nombre situé à la même distance de zéro de l'autre côté. Ajouter un négatif fait reculer ; soustraire un négatif revient à ajouter son opposé.
 
-## Le contrat de calcul
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l21-negative-subtraction.svg" alt="Deux droites graduées : 2 plus moins 3 va de 2 à moins 1 ; 2 moins moins 3 va de 2 à 5." width="480" height="240" loading="lazy" />
+<figcaption>Même départ, deux opérations différentes. La soustraction de −3 est un déplacement de +3.</figcaption>
+</figure>
 
-On travaille dans $\mathbb{R}$. Une expression est une consigne de calcul, pas une suite à lire uniquement de gauche à droite. Parenthèses, puissances, produits et quotients, puis sommes et différences fixent l’ordre. À niveau égal, produits et quotients se traitent de gauche à droite, comme sommes et différences. Écrivez les regroupements : une barre de fraction regroupe tout son numérateur et son dénominateur.
+Pour une puissance, encadrez mentalement sa base : dans $-3^2$ la base est 3 ; dans $(-3)^2$ la base est −3. Le signe ne disparaît pas : il participe ou non à la multiplication.
+
+## 3. Calculer — Une opération à la fois
+
+### A. Les priorités du PDF, pages 4–5
+
+| Expression | Opération effectuée |
+| --- | --- |
+| $2+3\cdot4^2$ | Départ : repérer la base 4. |
+| $2+3\cdot16$ | Puissance. |
+| $2+48$ | Multiplication. |
+| $50$ | Addition. |
+
+Recopiez les parties inchangées à chaque ligne. Avec des parenthèses, $(2+3)\cdot4^2=5\cdot16=80$. Autre exemple : $18-2(3+1)^2/4=18-2\cdot16/4=18-8=10$.
+
+À priorité égale, multiplication et division se font de gauche à droite, comme addition et soustraction. Le PDF tranche son exemple $8\div2(2+2)=8\div2\cdot4=16$ selon cette convention. Pour éviter l'ambiguïté de la multiplication implicite, écrire $(8/2)(2+2)$ ou $8/(2(2+2))=1$ selon l'intention. Une barre de fraction regroupe tout son numérateur et son dénominateur.
 
 <p class="source-next"><a href="/fr/lessons/L21/#pdf-6">Suite du PDF : Les règles de base →</a></p>
 
 <span id="pdf-6" class="source-topic-marker"></span>
 
-## Les règles de base : opposé et inverse
+### B. Opposé, inverse et éléments neutres (PDF, page 6)
 
-L’opposé de $a$ est $-a$ : leur somme vaut zéro, $a+(-a)=0$. Pour $a\ne0$, son inverse est $1/a$ : leur produit vaut un, $a(1/a)=1$. Ainsi l’opposé de $4$ est $-4$, tandis que son inverse est $1/4$. Soustraire et diviser utilisent ces deux idées différentes : $a-b=a+(-b)$ et $a/b=a(1/b)$ pour $b\ne0$.
+| Notion | Exemple pour 4 | Vérification |
+| --- | --- | --- |
+| Opposé | $-4$ | $4+(-4)=0$ |
+| Inverse | $1/4$ | $4\cdot(1/4)=1$ |
 
-Les nombres $0$ et $1$ jouent des rôles précis : $a+0=a$, $a\cdot1=a$ et $a\cdot0=0$. Un moins devant un groupe multiplie **tout** le groupe par $-1$ : $-(a+b)=-a-b$ et $a-(b-c)=a-b+c$. Par exemple, $7-(2-5)=7-2+5=10$. Le résultat reste le même si l’on calcule d’abord $2-5=-3$.
+L'opposé de $a$ est $-a$ ; il existe même pour zéro. L'inverse est $1/a$ uniquement si $a\ne0$. Soustraire, c'est additionner l'opposé ; diviser, c'est multiplier par l'inverse :
 
-## Signes et opérations
+$$a-b=a+(-b),\qquad a/b=a(1/b)\quad(b\ne0).$$
 
-Soustraire $b$ signifie ajouter $-b$. Ainsi $a-b=a+(-b)$ et $a-(-b)=a+b$. Le signe moins devant une puissance n’entre pas automatiquement dans sa base : $-4^2=-16$, tandis que $(-4)^2=16$. Un produit de deux nombres négatifs est positif ; cela ne transforme pas une somme de deux nombres négatifs en nombre positif.
+Zéro est neutre pour l'addition, un est neutre pour la multiplication et zéro annule un produit : $a+0=a$, $a\cdot1=a$, $a\cdot0=0$.
 
-## Comprendre : signe, base et exposant
+### C. Pourquoi les signes fonctionnent-ils ?
 
-Dans une puissance, posez d’abord la question : **quel nombre est multiplié par lui-même ?** Si $a\ge0$ et si $n$ est un entier positif, $-a^n=-(a^n)$ demande de calculer la puissance de $a$, puis son opposé. En revanche, $(-a)^n$ multiplie le nombre $-a$ par lui-même $n$ fois.
+Attention à la règle « deux moins font plus » : l'opération compte.
 
-Pour $a=3$ et $n=2$ : $-3^2=-(3\cdot3)=-9$, mais $(-3)^2=(-3)(-3)=9$. Pour $n=3$, les deux écritures valent $-27$ : ce cas d’accord ne rend pas les deux consignes identiques. Chaque paire de facteurs négatifs donne un produit positif ; avec un nombre impair de facteurs, il reste un signe moins.
+| Opération | Calcul |
+| --- | --- |
+| Addition de deux négatifs | $(-2)+(-3)=-5$ |
+| Soustraction d'un négatif | $2-(-3)=2+3=5$ |
+| Produit de deux négatifs | $(-2)(-3)=6$ |
+
+Le PDF donne la règle générale $(-a)(-b)=ab$. Voici une justification originale à partir de la distributivité :
+
+$$0=(-3)(2+(-2))$$
+
+$$0=(-3)\cdot2+(-3)(-2)=-6+(-3)(-2)$$
+
+$$6=(-3)(-2).$$
+
+Le produit recherché doit compenser −6. Les signes ne sont pas effacés par convention : le résultat découle des règles de calcul. En particulier, un moins devant un groupe multiplie chaque terme par −1 : $-(a+b)=-a-b$, $a-(b-c)=a-b+c$.
+
+Exemple : $7-(2-5)=7-2+5=10$. On retrouve le même résultat en calculant d'abord $2-5=-3$.
+
+### D. Signe, base et exposant
+
+| Écriture | Facteurs et signe | Résultat |
+| --- | --- | --- |
+| $-3^2$ | $-(3\cdot3)$ | $-9$ |
+| $(-3)^2$ | $(-3)(-3)$ | $9$ |
+| $-3^3$ | $-(3\cdot3\cdot3)$ | $-27$ |
+| $(-3)^3$ | $(-3)(-3)(-3)$ | $-27$ |
+
+Pour a strictement positif, une puissance paire de −a est positive ; une puissance impaire est négative. Si a vaut zéro, les deux écritures valent zéro pour tout exposant entier positif. L'égalité dans le cas impair ne permet pas de supprimer les parenthèses en général.
+
+### E. Changer l'écriture sans changer la valeur
+
+Le PDF, page 6, donne trois propriétés. Pour tous réels :
+
+| Propriété | Règle | Exemple |
+| --- | --- | --- |
+| Commutativité : échanger | $a+b=b+a$, $ab=ba$ | $2+3=3+2$ |
+| Associativité : regrouper | $(a+b)+c=a+(b+c)$, $(ab)c=a(bc)$ | $(2+3)+4=2+(3+4)$ |
+| Distributivité : multiplier chaque terme | $a(b+c)=ab+ac$ | $2(3+4)=6+8$ |
+
+La soustraction et la division ne sont ni commutatives ni associatives en général. Par exemple $12/(3/2)=8$, mais $(12/3)/2=2$. Ne changez pas arbitrairement les groupes.
+
+### F. Pourquoi ne peut-on pas diviser par zéro ?
+
+Diviser, c'est retrouver le nombre qui, multiplié par le diviseur, donne le dividende. Pour $6/0$, aucun réel u ne vérifie $0u=6$. Pour $0/0$, tous les réels u vérifient $0u=0$. Dans les deux cas, il n'y a pas de quotient unique. Ainsi $a/a=1$ seulement si $a\ne0$. On ne peut pas conclure $u=v$ à partir de $0u=0v$.
+
+## 4. Expérimenter — Prédire, manipuler, expliquer
+
+Dans le premier atelier, prédisez le résultat avant de changer le regroupement. Comparez les parenthèses et justifiez chaque opération.
+
+<AlgebraExplorer kind="precedence" locale="fr" client:visible />
+
+Dans le second, gardez a = 3 et choisissez n = 2. Parcourez les étapes : base positive puis opposé, et produit de facteurs négatifs. Essayez n = 3, puis a = 0. Expliquez pourquoi les résultats peuvent coïncider.
 
 <AlgebraMethodLab kind="powers" locale="fr" client:visible />
 
-## Exemple guidé : conserver la structure
-
-Calculons $18-2(3+1)^2/4$. D’abord $3+1=4$, puis $4^2=16$. Le produit et le quotient donnent $2\cdot16/4=8$. Finalement $18-8=10$. On peut vérifier par une autre écriture : $2/4=1/2$, donc on retire la moitié de $16$. Ce regroupement concerne ici des produits, pas une addition que l’on pourrait déplacer arbitrairement.
-
-## Ce qui change et ce qui reste
-
-Addition et multiplication sont **commutatives** (on peut échanger les deux nombres : $a+b=b+a$, $ab=ba$) et **associatives** (on peut changer les groupes : $(a+b)+c=a+(b+c)$, $(ab)c=a(bc)$). Les valeurs restent les mêmes. Soustraction et division ne le sont pas. Par exemple $12/(3/2)=8$, mais $(12/3)/2=2$. La distributivité relie les deux opérations : $a(b+c)=ab+ac$. Changer une écriture est utile seulement si la valeur et le domaine restent conservés.
-
-## Exemple guidé : le zéro n’est pas une permission
-
-Pour $a\ne0$, $a/a=1$. À $a=0$, cette écriture n’est pas définie. L’égalité $0\cdot u=0$ est vraie pour tout réel $u$ : elle ne permet donc pas de déterminer un quotient $0/0$. De même, l’égalité $0u=0v$ ne permet pas de conclure $u=v$. Avant toute simplification, nommez le facteur par lequel vous divisez et vérifiez qu’il n’est pas nul.
-
-<p class="source-next"><a href="/fr/lessons/L22/#pdf-7">Suite du PDF : Développer et factoriser →</a></p>
-
-## Comment faire ? Une méthode réutilisable
-
-1. Repérez les groupes et la base de chaque puissance.
-2. Calculez parenthèses, puissances, produits et quotients, puis sommes et différences. À même priorité, avancez de gauche à droite.
-3. Recopiez les morceaux encore inchangés : une ligne doit rester égale à la précédente.
-4. Avant une division, vérifiez que le dénominateur est non nul. Contrôlez le résultat par un autre regroupement autorisé.
-
-**Erreur à débusquer.** « Deux moins font plus » concerne un produit ou la soustraction d’un négatif : $(-2)+(-3)=-5$, tandis que $(-2)(-3)=6$.
-
-## S’entraîner pas à pas
+## 5. Pratiquer — Du calcul au raisonnement
 
 <div className="algebra-exercise">
 
@@ -167,24 +217,29 @@ Non : $u=1$ et $v=2$ donnent $0=0$ sans être égaux. Diviser par zéro n’est 
 
 </div>
 
-## Pratique et bilan
+### Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
 
+## 6. Retenir — Fiche de révision à imprimer
+
 <div className="algebra-revision">
 
-## À retenir et auto-évaluation
+- Priorités : groupes, puissances, produits/quotients, sommes/différences ; à même niveau pour les deux derniers, de gauche à droite.
+- Opposé : somme égale à zéro ; inverse : produit égal à un, pour un nombre non nul.
+- $a-(-b)=a+b$ ; $(-a)(-b)=ab$ ; $-(a+b)=-a-b$.
+- Identifier la base : $-3^2=-9$, $(-3)^2=9$.
+- Addition et multiplication : commutativité, associativité ; distributivité : chaque terme reçoit le facteur.
+- Jamais de division par zéro. Vérifier le domaine et recopier chaque morceau inchangé.
 
-- Une expression se lit par groupes et priorités, pas seulement de gauche à droite.
-- L’opposé annule une somme ; l’inverse annule un produit et exige un nombre non nul.
-- Un signe devant un groupe concerne tout le groupe.
+**Auto-évaluation.** Sans regarder, distinguer opposé et inverse de 4, expliquer le signe de chaque puissance et donner un contre-exemple à une division par zéro. Si une réponse hésite, reprendre la partie correspondante de Calculer.
 
-**Auto-évaluation.** Sans regarder : expliquer la différence entre $-3^2$ et $(-3)^2$ ; refaire le premier exercice ; donner un contre-exemple à une division par zéro. Si une réponse hésite, revenir à « Signes et opérations » ou « Le zéro n’est pas une permission ».
-
-**Pour imprimer :** utilisez la commande Imprimer du navigateur. Les activités montrent un exemple fixe et les indices et solutions sont développés sur papier.
+**Pour imprimer:** utilisez la commande Imprimer du navigateur. Les ateliers montrent un exemple fixe ; indices et solutions sont développés sur papier.
 
 </div>
+
+<p class="source-next"><a href="/fr/lessons/L22/#pdf-7">Suite du PDF : Développer et factoriser →</a></p>
 
 </div>

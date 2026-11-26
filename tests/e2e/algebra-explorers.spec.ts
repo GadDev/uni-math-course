@@ -163,7 +163,7 @@ for (const locale of ['fr', 'en']) {
         kinds[index]!,
       );
       await expect(page.locator('.katex-error')).toHaveCount(0);
-      await expect(page.locator('.algebra-study h3')).toHaveCount(3);
+      await expect(page.locator('.algebra-exercise h3')).toHaveCount(3);
       expect(
         await page.evaluate(() => document.documentElement.scrollWidth),
         id,
@@ -188,7 +188,7 @@ for (const locale of ['fr', 'en']) {
       await expect(page.locator('.algebra-live')).toBeHidden();
       await expect(page.locator('.algebra-print')).toBeVisible();
       await expect(
-        page.locator('.algebra-study details').first().locator('p'),
+        page.locator('.algebra-exercise details').first().locator('p'),
       ).toBeVisible();
       await expect(page.locator('.algebra-revision')).toBeVisible();
       await page.emulateMedia({ media: 'screen' });
@@ -206,7 +206,7 @@ for (const locale of ['fr', 'en']) {
       await expect(lab).toContainText(
         locale === 'fr' ? 'Exemple fixe' : 'Fixed example',
       );
-      const solution = page.locator('.algebra-study details').nth(1);
+      const solution = page.locator('.algebra-exercise details').nth(1);
       await solution.locator('summary').click();
       await expect(solution.locator('p')).toBeVisible();
       await page.emulateMedia({ media: 'print' });

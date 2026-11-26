@@ -377,6 +377,34 @@ function LabView({
             />
           )}
         </svg>
+        <figure>
+          <svg
+            viewBox="0 0 400 115"
+            role="img"
+            aria-label={t(
+              `Distance de ${a} à zéro : ${Math.abs(a)}`,
+              `Distance from ${a} to zero: ${Math.abs(a)}`,
+            )}
+          >
+            <path className="algebra-axis" d="M20 70H380" />
+            {Array.from({ length: 11 }, (_, i) => i - 5).map((n) => (
+              <g key={n}>
+                <path className="algebra-axis" d={`M${200 + 32 * n} 65v10`} />
+                <text x={200 + 32 * n} y="96" textAnchor="middle">
+                  {n}
+                </text>
+              </g>
+            ))}
+            <path className="algebra-line" d={`M200 38H${200 + 32 * a}V65`} />
+            <circle cx={200 + 32 * a} cy="70" r="5" fill="currentColor" />
+            <text x="200" y="23" textAnchor="middle">
+              |x| = {f(Math.abs(a))}
+            </text>
+          </svg>
+          <figcaption data-root-distance>
+            √(x²) = |x| = {f(Math.abs(a))}
+          </figcaption>
+        </figure>
         <table>
           <caption>
             {t(
@@ -456,6 +484,22 @@ function LabView({
                 'The left side is constant: no division by zero.',
               )
             : `(${f(a)})x ${rel} ${f(-b)} → ${condition}`}
+        </p>
+        <p data-inequality-reason>
+          {a === 0
+            ? t(
+                'Coefficient nul : comparer la constante à zéro.',
+                'Zero coefficient: compare the constant with zero.',
+              )
+            : a < 0
+              ? t(
+                  'Diviseur négatif : inverser le sens de l’inégalité.',
+                  'Negative divisor: reverse the inequality.',
+                )
+              : t(
+                  'Diviseur positif : conserver le sens de l’inégalité.',
+                  'Positive divisor: preserve the inequality.',
+                )}
         </p>
         <p data-solution aria-live="polite" aria-atomic="true">
           <strong>{condition}</strong>
@@ -581,6 +625,22 @@ function LabView({
         <p>
           {t('Éliminer y donne', 'Eliminating y gives')} : ({f(1 - a)})x ={' '}
           {f(b - 1)}.
+        </p>
+        <p data-system-reason>
+          {data.kind === 'unique'
+            ? t(
+                'Coefficient non nul : une seule valeur de x, puis une seule valeur de y.',
+                'Nonzero coefficient: one value of x, then one value of y.',
+              )
+            : data.kind === 'same'
+              ? t(
+                  '0 = 0 : une condition reste ; x est libre, y = x + 1.',
+                  '0 = 0: one condition remains; x is free, y = x + 1.',
+                )
+              : t(
+                  'Contradiction : 0 ne peut pas être égal à une constante non nulle.',
+                  'Contradiction: 0 cannot equal a nonzero constant.',
+                )}
         </p>
         <p data-solution aria-live="polite" aria-atomic="true">
           {data.kind === 'unique'
