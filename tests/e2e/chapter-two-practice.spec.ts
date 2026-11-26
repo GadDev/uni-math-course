@@ -78,10 +78,15 @@ for (const locale of ['fr', 'en']) {
                 ? number === 29
                   ? 1
                   : 2
-                : number === 36
+                : number === 35 || number === 36
                   ? 1
                   : 0;
         await expect(page.locator('astro-island')).toHaveCount(activityCount);
+        if (number === 35) {
+          await expect(
+            page.locator('astro-island[component-url*="RegressionExplorer"]'),
+          ).toHaveCount(1);
+        }
         if (number === 36) {
           await expect(
             page.locator('astro-island[component-url*="ModelLimitsExplorer"]'),
@@ -119,7 +124,7 @@ for (const locale of ['fr', 'en']) {
         width === 320 ? '.mobile-contents' : '.section-nav',
       );
       await links
-        .getByRole('link', { name: /^(Exemple guidé|Guided example)/ })
+        .getByRole('link', { name: /^3\. (Calculer|Calculate)/ })
         .first()
         .click();
       const alternate = locale === 'fr' ? 'en' : 'fr';
@@ -128,7 +133,7 @@ for (const locale of ['fr', 'en']) {
         .click();
       expect(new URL(page.url()).pathname).toBe(`/${alternate}/lessons/L35/`);
       expect(decodeURIComponent(new URL(page.url()).hash)).toMatch(
-        /^#(exemple-guidé|guided-example)/,
+        /^#3-(calculer|calculate)/,
       );
     });
   }
