@@ -254,7 +254,16 @@ for (const locale of ['fr', 'en']) {
       locale === 'fr' ? 'À revoir' : 'Try again',
     );
     await expect(lab.locator('[data-rule-reveal]')).toBeDisabled();
-    const expected = ['constant', 'power', 'sum', 'factor', 'product', 'quotient', 'chain', 'quotient'];
+    const expected = [
+      'constant',
+      'power',
+      'sum',
+      'factor',
+      'product',
+      'quotient',
+      'chain',
+      'quotient',
+    ];
     for (const [i, rule] of expected.entries()) {
       await lab.locator('[data-rule-choice]').selectOption(rule);
       await lab.locator('[data-rule-check]').click();
