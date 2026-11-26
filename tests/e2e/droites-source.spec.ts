@@ -19,6 +19,7 @@ for (const locale of ['fr', 'en']) {
     const next = page.locator('.source-next a[href$="L22/#pdf-15"]');
     await next.click();
     await expect(page.locator('#pdf-15')).toBeInViewport();
+    await page.locator('.teaching-figure img').first().scrollIntoViewIfNeeded();
     await expect
       .poll(() =>
         page
