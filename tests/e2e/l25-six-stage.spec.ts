@@ -9,7 +9,9 @@ for (const locale of ['fr', 'en']) {
     await expect(
       page.locator('.algebra-study h2').filter({ hasText: /^[1-6]\. / }),
     ).toHaveCount(6);
-    const methods = page.locator('[data-method-lab="elimination"] .method-live');
+    const methods = page.locator(
+      '[data-method-lab="elimination"] .method-live',
+    );
     await methods.scrollIntoViewIfNeeded();
     await expect(methods.locator('fieldset')).toBeVisible();
     const comparison = methods.locator('[data-system-comparison]');
@@ -29,7 +31,9 @@ for (const locale of ['fr', 'en']) {
     await graph.scrollIntoViewIfNeeded();
     await expect(graph.locator('fieldset')).toBeVisible();
     const reason = graph.locator('[data-system-reason]');
-    await expect(reason).toContainText(fr ? 'Coefficient non nul' : 'Nonzero coefficient');
+    await expect(reason).toContainText(
+      fr ? 'Coefficient non nul' : 'Nonzero coefficient',
+    );
     const m = graph.getByRole('slider').first();
     await m.press('Home');
     for (let i = 0; i < 3; i++) await m.press('ArrowRight');
