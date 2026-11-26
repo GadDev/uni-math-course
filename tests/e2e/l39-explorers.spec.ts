@@ -238,3 +238,34 @@ test('L39 section language anchors stay paired', async ({ page }) => {
   await page.getByRole('link', { name: 'EN', exact: true }).click();
   await expect(page).toHaveURL('/en/lessons/L39/#the-chain-rule');
 });
+
+for (const locale of ['fr', 'en']) {
+  test(`${locale}: L39 recognises rules and reveals steps progressively`, async ({
+    page,
+  }) => {
+    await page.goto(`/${locale}/lessons/L39/`);
+    await expect(page.locator('.lesson-prose h2')).toHaveCount(6);
+    const lab = page.locator('[data-l39-rule-lab]');
+    await lab.scrollIntoViewIfNeeded();
+    await expect(lab.locator('fieldset')).toBeVisible();
+    await lab.locator('[data-rule-choice]').selectOption('product');
+    await lab.locator('[data-rule-check]').click();
+    await expect(lab.locator('[data-rule-feedback]')).toContainText(
+      locale === 'fr' ? 'À revoir' : 'Try again',
+    );
+    await expect(lab.locator('[data-rule-reveal]')).toBeDisabled();
+    const expected = ['constant', 'power', 'sum', 'factor', 'product', 'quotient', 'chain', 'quotient'];
+    for (const [i, rule] of expected.entries()) {
+      await lab.locator('[data-rule-choice]').selectOption(rule);
+      await lab.locator('[data-rule-check]').click();
+      await expect(lab.locator('[data-rule-feedback]')).toContainText('Correct');
+      await expect(lab.locator('[data-rule-steps] li')).toHaveCount(0);
+      await lab.locator('[data-rule-reveal]').click();
+      await expect(lab.locator('[data-rule-steps] li')).toHaveCount(1);
+      if (i < expected.length - 1) await lab.locator('[data-rule-next]').click();
+    }
+    await lab.locator('[data-rule-reset]').click();
+    await expect(lab.locator('[data-rule-choice]')).toHaveValue('');
+    await expect(page.locator('.katex-error')).toHaveCount(0);
+  });
+}
