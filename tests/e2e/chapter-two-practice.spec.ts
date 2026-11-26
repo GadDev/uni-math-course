@@ -72,13 +72,15 @@ for (const locale of ['fr', 'en']) {
         const activityCount =
           number <= 27
             ? 2
-            : number <= 34
-              ? number === 29
-                ? 1
-                : 2
-              : number === 36
-                ? 1
-                : 0;
+            : number === 30
+              ? 3
+              : number <= 34
+                ? number === 29
+                  ? 1
+                  : 2
+                : number === 36
+                  ? 1
+                  : 0;
         await expect(page.locator('astro-island')).toHaveCount(activityCount);
         if (number === 36) {
           await expect(
@@ -88,7 +90,13 @@ for (const locale of ['fr', 'en']) {
         for (const island of await page.locator('astro-island').all()) {
           await expect(island).toHaveAttribute('client', 'visible');
           if (number >= 28 && number <= 34)
-            await expect(island.locator('[data-geometry-lab]')).toHaveCount(1);
+            await expect(
+              island.locator(
+                number === 30
+                  ? '[data-geometry-lab], [data-temperature-lab="interactive"]'
+                  : '[data-geometry-lab]',
+              ),
+            ).toHaveCount(1);
         }
         if (number <= 27) {
           await expect(
