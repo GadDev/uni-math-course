@@ -424,6 +424,134 @@ function methodWork(
   };
 }
 
+function SystemComparison({
+  values,
+  locale,
+}: {
+  values: number[];
+  locale: Locale;
+}) {
+  const [s = 0, d = 0] = values;
+  const fr = locale === 'fr';
+  const elimination = methodWork('elimination', [s, d, 0], locale);
+  const substitution = methodWork('elimination', [s, d, 1], locale);
+  return (
+    <details data-system-comparison>
+      <summary>
+        {fr
+          ? 'Comparer les deux méthodes pour ces mêmes valeurs'
+          : 'Compare both methods for these same values'}
+      </summary>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">{fr ? 'Élimination' : 'Elimination'}</th>
+            <th scope="col">Substitution</th>
+          </tr>
+        </thead>
+        <tbody>
+          {[1, 2, 3, 4].map((index) => (
+            <tr key={index}>
+              {[elimination, substitution].map((work, column) => (
+                <td key={column}>
+                  <p>{work.steps[index]!.note}</p>
+                  <div className="method-math" tabIndex={0}>
+                    <Tex
+                      text={String.raw`$\displaystyle ${work.steps[index]!.tex}$`}
+                    />
+                  </div>
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p data-comparison-result>{elimination.summary}</p>
+      <p>
+        {fr
+          ? 'Les deux chemins vérifient les mêmes conditions initiales.'
+          : 'Both paths satisfy the same original conditions.'}
+      </p>
+    </details>
+  );
+}
+
+function EquationBalance({
+  values,
+  step,
+  fr,
+}: {
+  values: number[];
+  step: number;
+  fr: boolean;
+}) {
+  const [a = 0, b = 0, c = 0] = values;
+  if (a <= 0 || b < 0 || c < b) return null;
+  const count = step >= 3 ? 1 : a;
+  const extra = step === 0 ? b : 0;
+  const right =
+    step === 0
+      ? String(c)
+      : step >= 3 && (c - b) % a !== 0
+        ? `${c - b}/${a}`
+        : String(step >= 3 ? (c - b) / a : c - b);
+  const left = `${count === 1 ? '' : count}x${extra ? ' + ' + extra : ''}`;
+  const label = `${left} = ${right}`;
+  return (
+    <figure data-equation-balance>
+      <svg viewBox="0 0 400 170" role="img" aria-label={label}>
+        <title>{label}</title>
+        <path className="algebra-axis" d="M65 45H335M200 45V140M178 140H222" />
+        <path
+          className="algebra-axis"
+          d="M85 45L25 110H145ZM315 45L255 110H375Z"
+        />
+        <rect x="20" y="110" width="130" height="8" fill="currentColor" />
+        <rect x="250" y="110" width="130" height="8" fill="currentColor" />
+        {Array.from({ length: count }, (_, i) => (
+          <g key={i}>
+            <rect
+              x={28 + i * 28}
+              y="82"
+              width="24"
+              height="24"
+              rx="3"
+              className="algebra-hole"
+            />
+            <text x={40 + i * 28} y="99" textAnchor="middle">
+              x
+            </text>
+          </g>
+        ))}
+        {extra > 0 && (
+          <text x="85" y="77" textAnchor="middle">
+            + {extra}
+          </text>
+        )}
+        <text x="315" y="99" textAnchor="middle">
+          {right}
+        </text>
+        <text x="200" y="163" textAnchor="middle">
+          {label}
+        </text>
+      </svg>
+      <figcaption>
+        {step === 0
+          ? fr
+            ? 'Équilibre initial.'
+            : 'Initial balance.'
+          : step < 3
+            ? fr
+              ? 'Même quantité retirée des deux membres.'
+              : 'Same amount removed from both sides.'
+            : fr
+              ? 'Deux membres partagés en parts égales.'
+              : 'Both sides divided into equal shares.'}
+      </figcaption>
+    </figure>
+  );
+}
+
 function WorkView({
   kind,
   values,
@@ -447,6 +575,9 @@ function WorkView({
   const fr = locale === 'fr';
   return (
     <>
+      {kind === 'equation' && (
+        <EquationBalance values={values} step={active} fr={fr} />
+      )}
       <ol className="method-steps">
         {work.steps.map((s, i) => (
           <li key={i} data-active={i === active}>
@@ -512,6 +643,9 @@ function WorkView({
             Y (m)
           </text>
         </svg>
+      )}
+      {kind === 'elimination' && (
+        <SystemComparison values={values} locale={locale} />
       )}
       {showSummary && (
         <p data-method-result role="status">
