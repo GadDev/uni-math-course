@@ -488,13 +488,14 @@ function LabView({
           if (kind === 'slope')
             return (
               <>
+                {choice === 'reference' && line(X, Y, 2, 1, true)}
                 {line(X, Y, v[0]!, v[1]!)}
                 <path
                   className="geo-dashed"
                   d={`M${X(0)},${Y(v[1]!)}H${X(v[2]!)}V${Y(v[2]! * v[0]! + v[1]!)}`}
                 />
-                {point(X, Y, 0, v[1]!, 'A')}
-                {point(X, Y, v[2]!, v[2]! * v[0]! + v[1]!, 'B')}
+                {point(X, Y, 0, v[1]!, v[2] === 0 ? 'A = B' : 'A')}
+                {v[2] !== 0 && point(X, Y, v[2]!, v[2]! * v[0]! + v[1]!, 'B')}
               </>
             );
           if (kind === 'points') {
@@ -704,12 +705,56 @@ function LabView({
           <p>
             y = ({f(v[0]!)})x + ({f(v[1]!)}).
           </p>
-          <p>
-            A = {pt(0, v[1]!)} ; B = {pt(v[2]!, v[2]! * v[0]! + v[1]!)}.
+          <p data-slope-intercept>
+            A = {pt(0, v[1]!)} ; B = {pt(v[2]!, v[2]! * v[0]! + v[1]!)}.{' '}
+            {fr ? 'Départ p' : 'Starting value p'} = {f(v[1]!)}.
           </p>
           <p>
             Δx = {f(v[2]!)} ; Δy = {f(v[2]! * v[0]!)}.
           </p>
+          <p data-slope-change>
+            Δy = m × Δx = ({f(v[0]!)}) × ({f(v[2]!)}) = {f(v[2]! * v[0]!)}.
+          </p>
+          <p>
+            {v[0]! > 0
+              ? fr
+                ? 'La droite monte vers la droite.'
+                : 'The line rises to the right.'
+              : v[0]! < 0
+                ? fr
+                  ? 'La droite descend vers la droite.'
+                  : 'The line falls to the right.'
+                : fr
+                  ? 'La droite est horizontale.'
+                  : 'The line is horizontal.'}
+          </p>
+          {choice === 'reference' && (
+            <p data-slope-reference>
+              {fr ? 'Référence en tirets' : 'Dashed reference'} : y = 2x + 1.{' '}
+              {v[0] === 2 && v[1] === 1
+                ? fr
+                  ? 'Les droites coïncident.'
+                  : 'The lines coincide.'
+                : v[1] === 1
+                  ? fr
+                    ? 'Même départ (0 ; 1), pente différente.'
+                    : 'Same start (0 ; 1), different slope.'
+                  : v[0] === 2
+                    ? fr
+                      ? 'Même pente, départ différent : parallèles distinctes.'
+                      : 'Same slope, different start: distinct parallel lines.'
+                    : fr
+                      ? 'La pente et le départ ont tous deux changé.'
+                      : 'Both slope and starting value have changed.'}
+            </p>
+          )}
+          {(v[2]! * v[0]! + v[1]! < -4 || v[2]! * v[0]! + v[1]! > 8) && (
+            <p>
+              {fr
+                ? 'B est hors de la fenêtre ; son calcul reste valable.'
+                : 'B is outside the window; its calculation remains valid.'}
+            </p>
+          )}
           <p>
             {v[2] === 0
               ? fr
@@ -1298,6 +1343,47 @@ export default function GeometryLab({
           )}
           {(kind === 'slope' || kind === 'residuals') && (
             <>
+              {kind === 'slope' && (
+                <>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={choice === 'reference'}
+                      onChange={(event) => {
+                        setChoice(
+                          event.currentTarget.checked ? 'reference' : '',
+                        );
+                        setFeedback('');
+                      }}
+                    />{' '}
+                    {fr
+                      ? 'Afficher la droite de référence y = 2x + 1'
+                      : 'Show reference line y = 2x + 1'}
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setV([-0.5, 1, 2]);
+                      setChoice('reference');
+                      setEpoch((e) => e + 1);
+                      setFeedback('');
+                    }}
+                  >
+                    {fr ? 'Changer seulement m' : 'Change only m'}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setV([2, 3, 2]);
+                      setChoice('reference');
+                      setEpoch((e) => e + 1);
+                      setFeedback('');
+                    }}
+                  >
+                    {fr ? 'Changer seulement p' : 'Change only p'}
+                  </button>
+                </>
+              )}
               {number(0, 'm', -2, 3, 0.25)}
               {number(1, 'p', -2, 4, kind === 'residuals' ? 'any' : 0.25)}
               {kind === 'slope' && number(2, 'Δx', -3, 3, 0.5)}
