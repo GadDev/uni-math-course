@@ -107,7 +107,7 @@ test('PDF reading links, diagrams and examples work without JavaScript', async (
     await page25.locator('a[href$="L26/#pdf-25"]').click();
     await expect(page.locator('#pdf-25')).toBeInViewport();
     await expect(page.locator('article')).toContainText(
-      'indice, pas un exposant',
+      /indice désigne une position, pas un exposant/,
     );
     const image = page.locator('img[src$="/sigma.svg"]');
     await image.scrollIntoViewIfNeeded();

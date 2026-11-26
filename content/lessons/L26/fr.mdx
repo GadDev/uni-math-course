@@ -1,7 +1,7 @@
 ---
 lessonId: L26
 locale: fr
-version: 5
+version: 6
 status: extended
 title: "La notation sigma, les sommes et les moyennes"
 summary: "Lire la notation sigma, calculer une moyenne et comprendre les écarts centrés."
@@ -34,18 +34,59 @@ Prérequis : L21, L23. Les domaines et restrictions précisés ci-dessous font p
 
 <span id="pdf-25" class="source-topic-marker"></span>
 
-## La notation sigma (Σ) : lire le symbole
+## 1. Comprendre — Additionner puis partager
 
-La lettre grecque majuscule sigma, $\sum$, signifie **additionner les termes indiqués**. Ce n’est ni une nouvelle multiplication ni une inconnue à résoudre. Dans $\sum_{i=1}^n a_i$ :
+Trois trajets durent 2, 5 et 8 minutes : le total est 15 minutes et la durée moyenne 5 minutes. Avec 100 trajets, écrire chaque addition devient fastidieux. Sigma est une instruction compacte pour parcourir une liste. La moyenne partage le total équitablement ; elle n'est pas forcément une observation de la liste.
 
-| Morceau | Comment le lire |
+Le PDF, pages 25–26, définit la somme, ses propriétés, la moyenne et la compensation des écarts. Les exemples numériques, la programmation et les moyennes de groupes sont des compléments du projet.
+
+## 2. Visualiser — Indice, accumulation, équilibre
+
+Lire $\sum_{i=1}^n a_i$ comme la somme des a indice i, de 1 à n. L'indice désigne une position, pas un exposant.
+
+| Morceau | Rôle |
 | --- | --- |
-| $i$ | L’indice : il compte les positions. |
-| $i=1$ | On commence à la position 1. |
-| $n$ | On termine à la position n, incluse. |
-| $a_i$ | Le nombre à additionner à la position i. |
+| $i$ | Indice local. |
+| $i=1$ | Début inclus. |
+| $n$ | Fin incluse. |
+| $a_i$ | Terme à ajouter. |
 
-On lit « somme des a indice i, pour i allant de un à n ». Si $a_1=2$, $a_2=5$ et $a_3=8$, alors $\sum_{i=1}^3a_i=2+5+8=15$. Le petit $i$ de $a_i$ est un **indice**, pas un exposant : $a_2$ désigne le deuxième nombre, pas le carré de $a$.
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/sigma.svg" alt="Les valeurs i égales à 1, 2 et 3 sélectionnent a1, a2 et a3, puis on additionne 2, 5 et 8." width="440" height="360" loading="lazy" />
+<figcaption>L’indice parcourt une liste ; chaque valeur est ajoutée une fois.</figcaption>
+</figure>
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l26-running-total.svg" alt="Indices 2, 3, 4 ; termes 3, 5, 7 ; total cumulé 0, 3, 8, 15." width="600" height="240" loading="lazy" />
+<figcaption>À chaque tour, ajouter le terme au total précédent.</figcaption>
+</figure>
+
+La moyenne est un point d'équilibre : les écarts à gauche sont négatifs, ceux à droite positifs.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/mean.svg" alt="Les observations 2, 5 et 8 sont placées sur une droite ; les écarts de moins 3 et plus 3 se compensent autour de 5." width="440" height="360" loading="lazy" />
+<figcaption>La moyenne 5 équilibre les écarts signés.</figcaption>
+</figure>
+
+## 3. Calculer — Dérouler, additionner, centrer
+
+**A — Bornes incluses et termes.**
+
+Pour une liste, $\sum_{i=1}^n a_i=a_1+\cdots+a_n$. Si $a_1=2$, $a_2=5$, $a_3=8$, alors $\sum_{i=1}^3a_i=15$. Pour des bornes entières $r\le s$, le nombre de termes est $s-r+1$. Exemple : $\sum_{i=2}^4(2i-1)$.
+
+| i | Calcul du terme | Total cumulé |
+| --- | --- | --- |
+| 2 | $2\cdot2-1=3$ | $0+3=3$ |
+| 3 | $2\cdot3-1=5$ | $3+5=8$ |
+| 4 | $2\cdot4-1=7$ | $8+7=15$ |
+
+$$\sum_{i=2}^4(2i-1)=3+5+7=15.$$
+
+Trois termes, pas quatre. Les bornes égales donnent un seul terme. L'atelier exige r inférieur ou égal à s ; hors de l'atelier, une somme vide vaut zéro par convention, tandis qu'une moyenne vide est indéfinie.
+
+Renommer l'indice partout ne change pas la somme : $\sum_{i=2}^4(2i-1)=\sum_{j=2}^4(2j-1)$. Un terme constant est répété, pas remplacé par l'indice : $\sum_{i=2}^4 5=5+5+5=15$.
+
+**B — Linéarité.**
 
 **Les trois propriétés du PDF, pages 25–26.** Pour des listes de longueur $n\ge1$ et une constante réelle $c$ :
 
@@ -55,34 +96,33 @@ On lit « somme des a indice i, pour i allant de un à n ». Si $a_1=2$, $a_2=5$
 
 **Exemples supplémentaires.** Pour les listes $(2,5)$ et $(1,3)$, la première règle donne $(2+1)+(5+3)=(2+5)+(1+3)=11$. La deuxième donne $3\cdot2+3\cdot5=3(2+5)=21$. La troisième donne $4+4+4=3\cdot4=12$. Ces règles viennent de l’addition et de la distributivité ; elles ne demandent pas de nouvelle recette mystérieuse.
 
-<figure class="teaching-figure">
-<img src="/diagrams/droites/fr/sigma.svg" alt="Les valeurs i égales à 1, 2 et 3 sélectionnent a1, a2 et a3, puis on additionne 2, 5 et 8." width="440" height="360" loading="lazy" />
-<figcaption>L’indice parcourt une liste ; chaque valeur est ajoutée une fois.</figcaption>
-</figure>
+Vérifier la première somme par linéarité :
 
-## Sigma est une instruction de répétition
+$$2\sum_{i=2}^4i-\sum_{i=2}^41=2(2+3+4)-3=15.$$
 
-Pour une suite finie de réels, $\sum_{i=1}^n a_i=a_1+\cdots+a_n$. L’indice est une variable locale : le renommer ne change pas la somme si toutes ses occurrences changent ensemble. De $i=r$ à $i=s$ avec $r\le s$, il existe $s-r+1$ termes. Ici les moyennes portent toujours sur un nombre entier $n\ge1$ de données.
-
-## Exemple guidé : dérouler avant de simplifier
-
-La somme $\sum_{i=2}^4(2i-1)$ vaut $3+5+7=15$. Il y a trois termes, pas quatre. Une vérification utilise la linéarité : $2\sum_{i=2}^4i-\sum_{i=2}^41=2(2+3+4)-3=15$. Le terme constant est répété autant de fois que l’indice prend de valeurs.
-
-## Lire une somme sans sauter les bornes
-
-Dans $\sum_{i=r}^{s} a_i$, $r$ est l’indice de départ et $s$ l’indice d’arrivée, inclus. Pour des bornes entières avec $r\le s$, compter donne $s-r+1$ termes : il faut compter le premier terme lui aussi. De $2$ à $4$, la liste des indices est $2,3,4$.
-
-L’indice est une étiquette locale : $\sum_{i=2}^4(2i-1)=\sum_{j=2}^4(2j-1)$. Il faut changer **toutes** ses occurrences ensemble. En revanche, remplacer le terme par une constante change l’instruction : dans $\sum_{i=2}^4 5$, on ajoute toujours $5$, trois fois, et non les valeurs de l’indice.
-
-<AlgebraMethodLab kind="sigma" locale="fr" client:visible />
+Seul un facteur indépendant de l'indice peut sortir ainsi.
 
 <p class="source-next"><a href="/fr/lessons/L26/#pdf-26">Suite du PDF : Moyenne et écarts centrés →</a></p>
 
 <span id="pdf-26" class="source-topic-marker"></span>
 
-## Moyenne et écarts : pourquoi la somme est nulle
+**C — Moyenne et écarts.**
 
-La barre dans $\bar x$ se lit « x barre » et désigne la moyenne. On additionne les $n$ observations puis on partage par $n$ : $\bar x=\frac{x_1+\cdots+x_n}{n}$. Pour $2,5,8$, on calcule $(2+5+8)/3=5$. Les écarts $-3,0,3$ se compensent autour de cette valeur.
+Pour $n\ge1$, $\bar x=\frac1n\sum_{i=1}^n x_i$. La moyenne garde l'unité des données. Pour 2, 5 et 8, la moyenne vaut 5 et les écarts −3, 0, 3. Pour 1, 2 et 6 :
+
+$$\bar x=(1+2+6)/3=3.$$
+
+| $x_i$ | $x_i-\bar x$ | $\lvert x_i-\bar x\rvert$ | $(x_i-\bar x)^2$ |
+| --- | --- | --- | --- |
+| 1 | −2 | 2 | 4 |
+| 2 | −1 | 1 | 1 |
+| 6 | 3 | 3 | 9 |
+| Sommes | 0 | 6 | 14 |
+
+Les écarts signés se compensent, mais pas les valeurs absolues ni les carrés. Pour 1 et −1, $(1+(-1))^2=0$ mais $1^2+(-1)^2=2$.
+
+<details>
+<summary>Preuve du PDF (page 26) — pourquoi les écarts se compensent</summary>
 
 **Pourquoi cela fonctionne-t-il pour toutes les listes non vides ?** Pendant cette preuve, la liste est fixée : sa moyenne est donc une constante, même si les observations diffèrent.
 
@@ -93,39 +133,60 @@ La barre dans $\bar x$ se lit « x barre » et désigne la moyenne. On additionn
 
 Plus loin, $\sum_i$ abrège une somme sur toutes les observations, de $1$ à $n$. Cette compensation concerne les écarts **signés**, pas leurs valeurs absolues ni leurs carrés.
 
-**Exemple supplémentaire avec groupes.** Deux personnes ont une moyenne $10$, huit autres une moyenne $20$. La moyenne globale est $(2\cdot10+8\cdot20)/(2+8)=18$, pas $15$. Pondérer signifie compter la taille de chaque groupe. Si les deux moyennes étaient toutes deux $10$, le résultat serait $10$ malgré les tailles différentes : des tailles égales garantissent le raccourci, sans être nécessaires dans chaque cas particulier.
+</details>
+
+**D — Moyenne pondérée : compter les individus.**
 
 <figure class="teaching-figure">
-<img src="/diagrams/droites/fr/mean.svg" alt="Les observations 2, 5 et 8 sont placées sur une droite ; les écarts de moins 3 et plus 3 se compensent autour de 5." width="440" height="360" loading="lazy" />
-<figcaption>La moyenne 5 équilibre les écarts signés.</figcaption>
+<img src="/diagrams/droites/fr/l26-weighted-mean.svg" alt="Deux personnes de moyenne 10, huit de moyenne 20 : totaux 20 et 160 ; moyenne globale 18." width="600" height="240" loading="lazy" />
+<figcaption>Chaque case représente une personne ; les nombres sont les moyennes des groupes, pas nécessairement les valeurs individuelles.</figcaption>
 </figure>
+
+| Groupe | Effectif | Moyenne | Total |
+| --- | --- | --- | --- |
+| A | 2 | 10 | 20 |
+| B | 8 | 20 | 160 |
+| Ensemble | 10 | ? | 180 |
+
+$$\bar x=\frac{2\cdot10+8\cdot20}{2+8}=18.$$
+
+La moyenne simple des deux moyennes donne 15. Des tailles égales garantissent que ce raccourci fonctionne ; des moyennes identiques aussi. Pour des groupes non vides de tailles $n_j$ et moyennes $m_j$, utiliser $\frac{\sum_j n_jm_j}{\sum_j n_j}$. Le total des effectifs doit être strictement positif.
+
+**E — Préparer la régression.**
+
+Nous retrouverons en L34–L36 trois observations fictives : $(0,1),(1,2),(2,2)$.
+
+$$\bar x=(0+1+2)/3=1,\qquad \bar y=(1+2+2)/3=5/3.$$
+
+| $x_i$ | $y_i$ | $x_i-\bar x$ | $y_i-\bar y$ |
+| --- | --- | --- | --- |
+| 0 | 1 | −1 | −2/3 |
+| 1 | 2 | 0 | 1/3 |
+| 2 | 2 | 1 | 1/3 |
+| Sommes des écarts | | 0 | 0 |
+
+Conserver les fractions exactes évite les erreurs d'arrondi. Ce tableau prépare les sommes centrées de la régression et de la corrélation. L27 réutilise aussi la moyenne pour les coordonnées d'un milieu.
+
+## 4. Expérimenter — Une boucle et un point d'équilibre
+
+L'équivalent Python de la somme de 2 à 4 inclut 4 : range s'arrête avant sa borne supérieure, donc utiliser 5. Le nouveau tableau de l'atelier affiche le terme et le total après chaque tour.
+
+```python
+total = 0
+for i in range(2, 5):
+    total += 2 * i - 1
+print(total)  # 15
+```
+
+Prédisez le résultat avant de modifier les bornes. Comparez le terme 2i − 1 au terme constant 5 ; essayez aussi des bornes égales ou inversées.
+
+<AlgebraMethodLab kind="sigma" locale="fr" client:visible />
+
+Dans l'atelier de moyenne, changez les données 2, 5, 8 en 1, 2, 6, puis essayez une seule observation. Comparez les sommes des écarts signés, absolus et quadratiques. La moyenne se déplace, mais la somme signée reste exactement nulle.
 
 <AlgebraExplorer kind="mean" locale="fr" client:visible />
 
-## Moyenne et unités
-
-La moyenne possède la même unité que les observations. Un échantillon vide n’a pas de moyenne définie par cette formule.
-
-## Exemple guidé : les écarts à la moyenne
-
-Pour les données $1,4,7$, la moyenne vaut $4$ et les écarts valent $-3,0,3$. Leur somme est nulle. Cette propriété ne signifie pas que chaque écart est nul. Des données dispersées peuvent avoir des écarts qui se compensent exactement.
-
-## Somme des carrés et carré de la somme
-
-Pour $1$ et $-1$, la somme vaut zéro, mais la somme des carrés vaut $2$. Le carré de la somme contient des termes croisés ; il ne s’obtient pas en élevant chaque terme séparément au carré. Cette distinction sera essentielle pour mesurer des erreurs de prédiction sans que leurs signes se compensent.
-
-<p class="source-next"><a href="/fr/lessons/L27/#pdf-28">Suite du PDF : Le repère cartésien →</a></p>
-
-## Comment faire ? Une méthode réutilisable
-
-1. Lisez l’indice, la borne de départ et la borne d’arrivée incluse.
-2. Comptez les termes, puis remplacez l’indice successivement par chaque valeur. Un indice peut se renommer, mais une borne ne se change pas sans modifier les termes.
-3. Pour la moyenne, additionnez toutes les observations et divisez par leur nombre, en gardant l’unité.
-4. Pour des groupes, retrouvez d’abord chaque total par « effectif × moyenne », puis divisez le total général par l’effectif général.
-
-**Erreur fréquente.** $\sum_{i=2}^4 5=15$, et non $20$ : l’indice prend trois valeurs. La constante ne prend pas la valeur de l’indice.
-
-## S’entraîner pas à pas
+## 5. Pratiquer — Calculer et justifier
 
 <div className="algebra-exercise">
 
@@ -195,24 +256,29 @@ $(3\cdot10+1\cdot18)/(3+1)=48/4=12$. La moyenne non pondérée $14$ accorderait 
 
 </div>
 
-## Pratique et bilan
+**Pratique et bilan**
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
 
+## 6. Retenir — Fiche de révision à imprimer
+
 <div className="algebra-revision">
 
-## À retenir et auto-évaluation
+- Lire les deux bornes incluses, compter, substituer, additionner.
+- $s-r+1$ termes si les bornes entières vérifient $r\le s$.
+- $\sum_{i=1}^n(a_i+b_i)=\sum_{i=1}^na_i+\sum_{i=1}^nb_i$ ; $\sum_{i=1}^nca_i=c\sum_{i=1}^na_i$ ; $\sum_{i=1}^nc=nc$.
+- $\bar x=\frac1n\sum_{i=1}^nx_i$ pour $n\ge1$ ; $\sum_{i=1}^n(x_i-\bar x)=0$.
+- Groupes : retrouver les totaux par effectif × moyenne, puis partager par l'effectif global.
+- Ne pas confondre somme des carrés et carré de la somme ; garder les unités et les fractions exactes.
 
-- Sigma compacte une addition ; les bornes sont incluses.
-- La moyenne est un total divisé par un effectif non nul.
-- Les écarts signés à la moyenne ont une somme nulle, pas nécessairement des valeurs nulles.
+**Auto-évaluation.** Dérouler une somme, refaire les trois exercices et expliquer pourquoi les écarts signés seuls se compensent.
 
-**Auto-évaluation.** Lire une somme à voix haute et la dérouler ; refaire le deuxième exercice ; expliquer les poids du troisième. Reprendre la preuve détaillée si la constante répétée reste floue. [L27](../L27/) réutilise la moyenne pour les coordonnées d’un milieu.
-
-**Pour imprimer :** utilisez la commande Imprimer du navigateur. Les activités montrent un exemple fixe et les indices et solutions sont développés sur papier.
+**Pour imprimer:** utilisez la commande Imprimer du navigateur. Les ateliers montrent un exemple fixe ; indices et solutions sont développés sur papier.
 
 </div>
+
+<p class="source-next"><a href="/fr/lessons/L27/#pdf-28">Suite du PDF : Le repère cartésien →</a></p>
 
 </div>
