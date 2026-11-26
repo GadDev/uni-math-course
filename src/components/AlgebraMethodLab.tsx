@@ -430,7 +430,9 @@ function SigmaTrace({ values, fr }: { values: number[]; fr: boolean }) {
   if (!sum) return null;
   return (
     <table data-sigma-trace>
-      <caption>{fr ? 'Total cumulé par itération' : 'Running total by iteration'}</caption>
+      <caption>
+        {fr ? 'Total cumulé par itération' : 'Running total by iteration'}
+      </caption>
       <thead>
         <tr>
           <th scope="col">i</th>
@@ -444,7 +446,9 @@ function SigmaTrace({ values, fr }: { values: number[]; fr: boolean }) {
             <th scope="row">{term.index}</th>
             <td>{term.value}</td>
             <td>
-              {sum.terms.slice(0, index + 1).reduce((total, item) => total + item.value, 0)}
+              {sum.terms
+                .slice(0, index + 1)
+                .reduce((total, item) => total + item.value, 0)}
             </td>
           </tr>
         ))}
@@ -542,9 +546,7 @@ function WorkView({
           </text>
         </svg>
       )}
-      {kind === 'sigma' && (
-        <SigmaTrace values={values} fr={fr} />
-      )}
+      {kind === 'sigma' && <SigmaTrace values={values} fr={fr} />}
       {showSummary && (
         <p data-method-result role="status">
           {work.summary}
