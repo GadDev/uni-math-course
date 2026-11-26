@@ -163,7 +163,7 @@ for (const locale of ['fr', 'en']) {
         kinds[index]!,
       );
       await expect(page.locator('.katex-error')).toHaveCount(0);
-      await expect(page.locator('.algebra-study h3')).toHaveCount(3);
+      await expect(page.locator('.algebra-exercise h3')).toHaveCount(3);
       expect(
         await page.evaluate(() => document.documentElement.scrollWidth),
         id,
