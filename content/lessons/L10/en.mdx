@@ -1,0 +1,224 @@
+---
+lessonId: L10
+locale: en
+version: 4
+status: extended
+title: "Number sets, enumeration, membership and inclusion"
+summary: "Order the number sets, list a set by enumeration, use the empty set, and tell membership ∈ from inclusion ⊆."
+minutes: 25
+objectives: [L10-O01, L10-O02, L10-O03, L10-O04, L10-O05, L10-O06]
+prerequisites: [L09]
+sourcePages: [41, 42, 43, 57]
+---
+
+import SetExplorer from '../../../src/components/SetExplorer';
+
+# Number sets, enumeration, membership and inclusion
+
+## 1. Understand — Objects and number families
+
+### Your objective
+
+By the end of this lesson, you can order the number sets $\mathbb{N}$, $\mathbb{Z}$, $\mathbb{Q}$ and $\mathbb{R}$, list a set by enumeration, use the empty set, and tell $\in$ from $\subseteq$.
+
+**Prerequisites:** L09 (what a set is).
+
+### Putting examples behind the letters
+
+![Nested sets: naturals lie inside integers, integers inside rationals, rationals inside reals; zero, minus three, three halves and square root of two show the differences.](/diagrams/number-families.svg)
+
+The natural numbers are $0,1,2,\ldots$; integers add negative numbers such as $-3$. A rational number is a fraction of two integers with a nonzero denominator, such as $\frac{3}{2}$. The reals also include irrational numbers such as $\sqrt{2}$, which cannot be written as such a fraction.
+
+In the symbolic definition of inclusion, read $\forall$ as “for every” and $\Rightarrow$ as “if… then…”: for every object, if it belongs to $B$, it belongs to $A$. Read $\exists$ as “there exists”. You can use this English reading before working through these symbols in L11; L05 explains implication. If an object of $B$ is missing from $A$, inclusion fails.
+
+### Number sets
+
+The natural numbers $\mathbb{N}$, the integers $\mathbb{Z}$, the rationals $\mathbb{Q}$ and the reals $\mathbb{R}$ satisfy
+$$
+\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}.
+$$
+In this course, $\mathbb{N} = \{0, 1, 2, \ldots\}$ contains zero. Programming languages represent these sets differently, and common floating-point numbers approximate many real values. Some numbers, including small integers, are represented exactly; rational and symbolic representations also exist.
+
+The **empty set** $\varnothing$ has no element.
+
+### Read the number families
+
+| Number | Smallest family | Other families |
+| --- | --- | --- |
+| $0$ | $\mathbb N$ | $\mathbb Z,\mathbb Q,\mathbb R$ |
+| $-3$ | $\mathbb Z$ | $\mathbb Q,\mathbb R$ |
+| $\frac32$ | $\mathbb Q$ | $\mathbb R$ |
+| $\sqrt2$ | $\mathbb R$ | None of the preceding three |
+
+A number may belong to several families; “smallest set” asks for the innermost family containing it. Simplify expressions first: $6/3=2\in\mathbb N$.
+
+### Sets by enumeration
+
+A set can be defined by listing its elements, such as $\{1, 2, 4\}$. A set is determined by its elements, so $\{4, 1, 2\}$ is the same set. This remark is prerequisite support rather than source-taught.
+
+## 2. Visualise — An object or a subset?
+
+### Membership and inclusion
+
+Membership and inclusion are previewed here as reading support; the recall from page 57 returns with power sets in L14.
+
+For sets $A$ and $B$:
+
+- $a \in A$ means that $a$ is an element of $A$;
+- $B \subseteq A$ means that every element of $B$ is an element of $A$, that is,
+$$
+\forall b\ (b \in B \Rightarrow b \in A).
+$$
+
+We then say that $B$ is a **part** or **subset** of $A$. Membership relates an object to a set; inclusion relates two sets.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L10-membership-en.svg" alt="A contains 1 and 2. B contains 0 and the singleton {0}. The singleton {0} is both an element and a subset of B." width="560" height="260" /><figcaption>A tile represents one directly listed object; a dashed outline selects elements to form a subset.</figcaption></figure>
+
+### Three sets to keep distinct
+
+$\varnothing$ is empty (0 elements), $\{0\}$ contains the number 0 (1 element), and $\{\varnothing\}$ contains the empty set (1 element). Thus $\varnothing\in\{\varnothing\}$, whereas $\varnothing\subseteq A$ for every set A. Inclusion allows equality: $A\subseteq A$. Two reciprocal inclusions establish equality.
+
+## 3. Calculate and reason — Check the elements
+
+### Guided example: telling the symbols apart
+
+Let $A = \{1, 2, 3\}$.
+
+1. $2 \in A$ is true: $2$ is an element of $A$.
+2. $\{2\} \subseteq A$ is true: the only element of $\{2\}$ is in $A$.
+3. $\{2\} \in A$ is false: the singleton $\{2\}$ is not directly listed.
+4. $\varnothing \subseteq A$ is true: $\varnothing$ has no element that could fail to be in $A$.
+
+This guided work, whose solution is visible, is not an independent response for mastery evidence.
+
+### Trap: element or part?
+
+For $A=\{1,2,3\}$, $2\in A$ and $\{2\}\subseteq A$ are true, but $\{2\}\in A$ is false: A does not contain that singleton. This does not forbid a set from being an element. If $B=\{\{2\}\}$, then $\{2\}\in B$ is true.
+
+Ask what is being compared: $\in$ tests an object among the elements; $\subseteq$ compares two sets. Under this course’s numerical convention, $2\subseteq A$ is not an appropriate inclusion test: $2$ is a number, not the set $\{2\}$.
+
+## 4. Experiment — Change objects and sets
+
+Predict before clicking: is the candidate listed directly in A? If the candidate is a set, are all its elements listed in A? Change A to observe the four possible combinations. A number alone is not a candidate for inclusion under the course's numerical convention.
+
+<SetExplorer locale="en" client:visible />
+
+Try $A=\{0,\{0\}\}$ and candidate $\{0\}$: both tests are true. Then try an empty A and empty candidate: only inclusion is true.
+
+## 5. Practise — Construct and justify
+
+These six public exercises are ungraded. Write your reasoning before opening hints and solutions.
+
+### 1. Give the smallest set in the chain containing each of these numbers: $0$, $-7$, $\frac{8}{4}$, $\frac{-5}{3}$, $\sqrt{3}$. Justify.
+
+<details>
+<summary>Hint</summary>
+
+Simplify fractions before classifying.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+$\mathbb N,\mathbb Z,\mathbb N,\mathbb Q,\mathbb R$ respectively: $8/4=2$, $-5/3$ is rational but not an integer, and $\sqrt{3}$ is irrational.
+
+</details>
+
+### 2. Enumerate the elements of $\{4,1,4,2,1\}$ without repetition, then count them.
+
+<details>
+<summary>Hint</summary>
+
+Order and repetition do not change a set.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+$\{1,2,4\}$: three distinct elements.
+
+</details>
+
+### 3. Let $C=\{2,\{3\},\varnothing\}$. Decide whether $3\in C$, $\{3\}\in C$, $\{3\}\subseteq C$ and $\{\varnothing\}\subseteq C$. Justify.
+
+<details>
+<summary>Hint</summary>
+
+First identify the three directly listed elements.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+False, true, false, true: $3$ is not directly listed, but $\{3\}$ and $\varnothing$ are.
+
+</details>
+
+### 4. Compare $\varnothing$, $\{0\}$ and $\{\varnothing\}$: how many elements does each contain? Show that $\varnothing\subseteq\varnothing$.
+
+<details>
+<summary>Hint</summary>
+
+An empty box and a box containing an empty box are different.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+Respectively 0, 1 and 1; no element of $\varnothing$ can violate inclusion.
+
+</details>
+
+### 5. Let $A=\{2,4,8\}$ and $B=\{2,6\}$. Refute $B\subseteq A$ with a witness, then refute $A\subseteq B$.
+
+<details>
+<summary>Hint</summary>
+
+Find an element of the first set missing from the second.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+$6\in B$ and $6\notin A$; $4\in A$ and $4\notin B$ (8 also works).
+
+</details>
+
+### 6. Construct distinct sets $A$ and $B$ such that $B\in A$ and $B\subseteq A$. Explain both relations.
+
+<details>
+<summary>Hint</summary>
+
+A must contain B as an object and all its elements.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+For example $B=\{2\}$ and $A=\{2,\{2\}\}$: B occurs in A, and so does its only element 2.
+
+</details>
+
+### Independent practice
+
+The selected exercises cover the number-set chain, enumeration, the empty set, telling $\in$ from $\subseteq$, the definition of inclusion and finding a non-subset.
+
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
+
+## 6. Remember — Revision sheet
+
+### Takeaway
+
+$\mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$, with $0 \in \mathbb{N}$. Use $\in$ for elements and $\subseteq$ for parts, and remember that $\varnothing \subseteq A$ for every set $A$.
+
+**Quick method:** for $x\in A$, look for x among directly listed objects; for $B\subseteq A$, check every element of B. A single witness $b\in B$ and $b\notin A$ refutes inclusion. The public workshop and written exercises do not produce a recorded grade.
+
+[Printable L10 sheet (A4)](/revision/l10-en.html) — recap and exercises. You can also print this lesson.
+
+Verified source: Logique_01.pdf, physical pages 41–43 and 57. Diagrams, workshop, detailed methods and written exercises are original project extensions. The quantified definition on page 57 prepares L11 and L14.
