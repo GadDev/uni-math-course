@@ -1,0 +1,157 @@
+---
+lessonId: L02
+locale: en
+version: 4
+status: pilot
+title: "Logical connectives: and, or, not"
+summary: "Read the connectives ∧, ∨ and ¬ with their constants, evaluate them on given values, apply the precedence of ¬, and tell inclusive “or” from exclusive “or”."
+minutes: 18
+objectives: [L02-O01, L02-O02, L02-O03, L02-O04, L02-O05, L02-O06]
+prerequisites: [L01]
+sourcePages: [6, 7, 8, 9, 10, 11, 12]
+---
+import LogicalOperatorLab from '../../../src/components/LogicalOperatorLab';
+
+# Logical connectives: and, or, not
+
+## 1. Understand — Combine assertions
+
+### Your objective
+
+By the end of this lesson, you can read $\land$, $\lor$, $\neg$ and $\top$, evaluate them on given values, apply the precedence of $\neg$, and tell inclusive “or” from exclusive “or”.
+
+**Prerequisites:** L01, where an assertion has one truth value, written $1$ or $0$.
+
+### From symbols to a concrete situation
+
+Fix a person and a cinema screening. Let $A$ mean “they have a ticket” and $B$ mean “they have an invitation”. $A \lor B$ says they have at least one, possibly both. $A \land B$ requires both. $\neg A$ says they have no ticket; it says nothing about their invitation.
+
+Watch out: the $+$ sign used for OR is Boolean notation. Here $1 \lor 1 = 1$; this is not ordinary integer addition. For the next lessons, keep the symbols $\lor$ and $\land$ to avoid this confusion.
+
+The assertions from L01 become inputs to a logical operation. Once their values are fixed, the connective determines one output: 0 or 1. As in a program, the result can then be used as input to another operation.
+
+## 2. Visualise — Two inputs, several results
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L02-operators-en.svg" alt="For the four pairs 00, 01, 10, 11, AND is 0001, OR is 0111, XOR is 0110 and NOT A is 1100." width="560" height="280" /><figcaption>Each column represents an assignment. Only case 11 distinguishes inclusive OR from XOR. NOT A does not depend on B.</figcaption></figure>
+
+### Conjunction: and
+
+$A \land B$ is true exactly when both $A$ and $B$ are true.
+
+| A | B | A ∧ B |
+| --- | --- | --- |
+| 0 | 0 | 0 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
+
+### Disjunction: inclusive or
+
+$A \lor B$ is true exactly when at least one of $A$ and $B$ is true. It is also true when both are true.
+
+| A | B | A ∨ B |
+| --- | --- | --- |
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 1 |
+
+### Trap: inclusive or is not exclusive
+
+In $A \lor B$, the case $A = B = 1$ counts as true. An exclusive “either … or …”, often called XOR, is false in that case because it requires exactly one true part. Mathematical “or” in this course is inclusive unless stated otherwise.
+
+## 3. Calculate and reason — Read, substitute, evaluate
+
+### Notation and the constant $\top$
+
+Letters $A$, $B$, $C$, and so on name assertions, or variables interpreted by assertions. New assertions are built from existing ones with connectives. The constant $\top$ is an assertion that is always true, whatever the other assertions are.
+
+You will meet several notations for the same connective:
+
+- $A \land B$, also written $A \cdot B$, read “A and B”.
+- $A \lor B$, also written $A + B$, read “A or B”.
+- $\neg A$, also written $A'$, read “not A”.
+
+### Negation and precedence
+
+$\neg A$ is true exactly when $A$ is false.
+
+| A | ¬A |
+| --- | --- |
+| 0 | 1 |
+| 1 | 0 |
+
+In this course, $\neg$ takes priority over the other connectives. So $\neg A \lor B$ means $(\neg A) \lor B$, not $\neg (A \lor B)$. The course does not give a default order between $\land$ and $\lor$, so write parentheses whenever they appear together, as in $(A \land B) \lor C$.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L02-scope-en.svg" alt="For A=B=1, negate A then OR with B to get 1; OR first then negate the group to get 0." width="560" height="240" /><figcaption>Parentheses delimit the scope of negation. The two calculations do not have the same meaning.</figcaption></figure>
+
+### Guided example: a mixed formula
+
+Evaluate $\neg A \lor B$ when $A = 1$ and $B = 1$.
+
+1. Compute the negation first: $\neg A = 0$.
+2. Compute $(\neg A) \lor B = 0 \lor 1$.
+3. One part is true, so the result is $1$.
+
+The other reading, $\neg (A \lor B)$, gives $\neg 1 = 0$. The two readings differ, which is why precedence matters.
+
+This guided work, whose solution is visible, is not an independent response for mastery evidence.
+
+**Method:** copy the parentheses, substitute the values, evaluate negations at the correct level, then combine subexpression results. Never treat OR as integer addition.
+
+## 4. Experiment — Predict then check
+
+Choose values of A and B, then a formula. Predict 0 or 1 before showing the answer. Then change just one input. Compare OR and XOR when both inputs are true, then compare the two scopes of NOT. The true constant does not depend on any input. The comparison table is optional: try first without consulting it.
+
+<LogicalOperatorLab locale="en" client:visible />
+
+## 5. Practise — Justify without controls
+
+Write a calculation or justification before opening the answer.
+
+1. For $A=0$ and $B=1$, calculate $A\lor B$ and $\neg B$.
+2. With $A=B=1$, compare $A\lor B$ and XOR. Explain the difference.
+3. For $A=0$, $B=0$, $C=1$, compare $A\land(B\lor C)$ and $(A\land B)\lor C$.
+4. Translate “no ticket, but an invitation” using the letters from the cinema example. Evaluate for $A=0$, $B=1$.
+
+<details className="operator-correction">
+<summary>Explained answers</summary>
+
+1. $0\lor1=1$ ; $\neg1=0$.
+2. $1\lor1=1$ ; XOR is 0 because both parts are true, rather than exactly one.
+3. $0\land(0\lor1)=0\land1=0$ ; $(0\land0)\lor1=0\lor1=1$. Grouping changes the result.
+4. $(\neg A)\land B$ ; $(\neg0)\land1=1\land1=1$.
+
+</details>
+
+### Independent practice
+
+The six pilot exercises cover the conjunction, the notations, inclusive or, precedence, the constant $\top$ and the need for parentheses.
+
+The workshop above is public and ungraded. Graded practice requires sign-in. Availability depends on this lesson’s selected version and release status.
+
+## 6. Remember — Revision sheet
+
+<div className="operator-revision">
+
+### Takeaway
+
+$\land$ needs both parts, $\lor$ needs at least one part, and $\neg$ flips a value. $\neg$ binds tightest, and mixed formulas need parentheses.
+
+| A | B | A ∧ B | A ∨ B | XOR | ¬A | ⊤ |
+| --- | --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 | 0 | 1 |
+| 1 | 1 | 1 | 1 | 0 | 0 | 1 |
+
+Reminder: OR is inclusive, NOT has priority, and mixes of AND/OR need explicit grouping in this course. The alternative symbols + and · are Boolean, not arithmetic.
+
+Print the sheet using the browser Print command. The table and diagrams remain available without JavaScript.
+
+</div>
+
+In L03, we will enumerate all assignments systematically in a truth table. [L03](/en/lessons/L03/).
+
+Verified source: Logique_01.pdf, physical pages 6–12. Definitions, alternative notations, the true constant, tables and NOT precedence follow the PDF. Diagrams, workshop, full XOR table and additional exercises are original project extensions.
+
