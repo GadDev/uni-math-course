@@ -1,0 +1,156 @@
+---
+lessonId: L06
+locale: fr
+version: 5
+status: extended
+title: "Réciproque, contraposée et langage de tous les jours"
+summary: "Écrire la réciproque et la contraposée d’une implication, savoir laquelle lui est équivalente, et éviter de lire « si » comme « seulement si » dans le langage courant."
+minutes: 24
+objectives: [L06-O01, L06-O02, L06-O03, L06-O04, L06-O05, L06-O06]
+prerequisites: [L05]
+sourcePages: [24, 25, 26, 27, 28, 29]
+---
+import ImplicationTransformLab from '../../../src/components/ImplicationTransformLab';
+
+# Réciproque, contraposée et langage de tous les jours
+
+## 1. Comprendre — Changer une règle, ou nier sa vérité ?
+
+### Votre objectif
+
+À la fin de cette leçon, vous savez écrire la réciproque et la contraposée de $A \Rightarrow B$, dire laquelle lui est équivalente, et éviter de lire « si » comme « seulement si » dans le langage courant.
+
+**Prérequis :** la leçon L05, où $A \Rightarrow B$ et sa table de vérité sont introduites.
+
+### Réciproque et contraposée
+
+Pour une implication $A \Rightarrow B$ :
+
+- sa **réciproque** est $B \Rightarrow A$ ;
+- sa **contraposée** est $\neg B \Rightarrow \neg A$.
+
+La réciproque échange les deux côtés. La contraposée les échange et nie les deux.
+
+La page 24 du cours utilise une promesse de prime après l'achèvement d'un projet. Échanger les deux parties ne conserve pas forcément la promesse. La contraposée, en revanche, conserve exactement le cas d'échec. Ne confondez pas ces transformations avec la négation de toute la règle (L05).
+
+## 2. Visualiser — Échanger et nier
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L06-transform-fr.svg" alt="Départ A implique B ; réciproque B implique A ; inverse NON A implique NON B ; contraposée NON B implique NON A ; négation A ET NON B." width="560" height="300" /><figcaption>La réciproque échange ; l'inverse nie les deux termes ; la contraposée fait les deux. La négation change de connecteur. L'inverse est un complément utile, pas une nouvelle définition exigée sur ces pages du PDF.</figcaption></figure>
+
+| Transformation | Formule | Équivalente au départ en général ? |
+| --- | --- | --- |
+| Départ | $A\Rightarrow B$ | Oui |
+| Réciproque | $B\Rightarrow A$ | Non |
+| Contraposée | $\neg B\Rightarrow\neg A$ | Oui |
+| Inverse (complément) | $\neg A\Rightarrow\neg B$ | Non |
+| Négation | $A\land\neg B$ | Non |
+
+## 3. Calculer et raisonner — Démontrer l'équivalence
+
+### La contraposée est équivalente
+
+Toute implication est sémantiquement équivalente à sa contraposée :
+$$
+(A \Rightarrow B) \equiv (\neg B \Rightarrow \neg A).
+$$
+
+| A | B | A ⇒ B | ¬B ⇒ ¬A | B ⇒ A |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 1 | 1 |
+| 0 | 1 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 | 1 |
+| 1 | 1 | 1 | 1 | 1 |
+
+Les colonnes de $A \Rightarrow B$ et de sa contraposée coïncident sur chaque ligne. La réciproque diffère aux lignes $01$ et $10$ : les deux schémas ne sont donc **pas équivalents en général**. Certaines assertions particulières peuvent toutefois vérifier les deux sens. Cette explication est un travail original du projet.
+
+La page 25 énonce le théorème et laisse la preuve à faire. Voici une démonstration algébrique originale, en utilisant L04 et L05 :
+
+$$\neg B\Rightarrow\neg A\equiv\neg\neg B\lor\neg A$$
+
+Élimination de l'implication.
+
+$$\equiv B\lor\neg A\equiv\neg A\lor B\equiv A\Rightarrow B.$$
+
+Double négation, commutativité de OU, puis identité de l'implication. L'inverse est la contraposée de la réciproque, donc ces deux formes sont également équivalentes entre elles. Cela ne les rend pas équivalentes au départ.
+
+### Exemple guidé : divisible par 4
+
+Soit $n$ un entier naturel. Soit $A$ « $n$ est divisible par 4 » et $B$ « $n$ est pair ».
+
+1. $A \Rightarrow B$ est vraie : tout multiple de 4 est un multiple de 2.
+2. La réciproque $B \Rightarrow A$ dit « si $n$ est pair, alors $n$ est divisible par 4 ». Elle est fausse : $n = 2$ est pair et n’est pas divisible par 4.
+3. La contraposée $\neg B \Rightarrow \neg A$ dit « si $n$ est impair, alors $n$ n’est pas divisible par 4 ». Elle est vraie, comme il se doit.
+
+Ce travail guidé, dont la solution est visible, n’est pas une réponse indépendante pour mesurer la maîtrise.
+
+### Piège : le « si » du langage courant
+
+Une responsable dit : « Si tu termines le rapport, tu as un jour de congé. » Un employé n’a pas de jour de congé. Par la contraposée, le rapport n’a pas été terminé, et cette déduction est valide si l'on suppose la règle vraie.
+
+Mais la responsable voulait peut-être exprimer l’autre sens de l’implication : un jour de congé **seulement** pour ceux qui ont terminé le rapport. C’est $B \Rightarrow A$, où $A$ est « tu termines le rapport » et $B$ est « tu as un jour de congé ». La phrase réellement prononcée, $A \Rightarrow B$, ne dit rien des personnes qui n’ont pas terminé.
+
+Pour dire ce que vous pensez, écrivez l’implication dans le sens voulu, puis examinez sa réciproque et sa contraposée.
+
+Pages 26–29 : le professeur illustre précisément ce piège avec une récompense (une orange) et des haricots. La règle annoncée suffit pour déduire, en l'absence de récompense, que la condition n'a pas été satisfaite. Mais si l'intention était de réserver la récompense à ceux qui satisfont la condition, il fallait annoncer l'autre direction. Cela ne dit pas que cette autre direction est toujours vraie.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L06-evidence-fr.svg" alt="Colonnes dans l'ordre 00, 01, 10, 11 : départ et contraposée 1101 ; réciproque et inverse 1011 ; négation 0010." width="560" height="255" /><figcaption>Une seule différence réfute une équivalence ; quatre lignes identiques la démontrent pour ces deux variables.</figcaption></figure>
+
+### Lire la comparaison
+
+Pour relire une table, revenez à L03 ; pour le symbole $\equiv$, revenez à L04. Sur la ligne $01$, l’implication de départ est vraie et sa réciproque fausse. Sur la ligne $10$, c’est l’inverse. Aucune des deux directions ne garantit donc l’autre à elle seule.
+
+## 4. Expérimenter — Prédire la transformation et vérifier les preuves
+
+Choisissez la transformation demandée, puis sa formule. Vérifiez avant de comparer les valeurs. Une fois la formule validée, choisissez une affectation et prédisez son résultat. Les lignes vérifiées restent visibles. Une ligne différente suffit à réfuter l'équivalence ; aucune preuve d'équivalence n'est annoncée avant les quatre lignes. Changez de transformation ou recommencez pour effacer les observations. L'atelier est public et non noté.
+
+<ImplicationTransformLab locale="fr" client:visible />
+
+## 5. Pratiquer — Traduire, justifier, réfuter
+
+L'exercice 2 de Revision.pdf (pages physiques 6–7) demande d'écrire en français la réciproque, la contraposée et la négation d'une règle de compilation, puis de repérer l'équivalence. Le conséquent est déjà négatif : il faut donc savoir nier une phrase négative. Seule la contraposée est équivalente en général. Les exercices ci-dessous sont originaux et entraînent cette même compétence.
+
+1. Règle : « Si le test réussit, alors le journal ne contient aucune erreur. » Poser A et B, écrire les trois transformations en symboles puis en français, et indiquer l'équivalence.
+2. Traduire « Un rapport est publié seulement si les données sont validées » avec P : rapport publié et V : données validées. Écrire la contraposée.
+3. Sur les entiers naturels, « être multiple de 12 implique être multiple de 3 ». Écrire la réciproque et donner un contre-exemple justifié.
+4. Écrire la contraposée et la négation de $(A\lor B)\Rightarrow C$. Utiliser De Morgan et conserver les parenthèses nécessaires.
+
+<details className="transform-correction">
+<summary>Corrections expliquées</summary>
+
+1. A : le test réussit ; B : le journal ne contient aucune erreur. Réciproque : $B\Rightarrow A$ — si le journal ne contient aucune erreur, le test réussit. Contraposée : $\neg B\Rightarrow\neg A$ — si le journal contient au moins une erreur, le test ne réussit pas. Négation : $A\land\neg B$ — le test réussit et le journal contient au moins une erreur. Seule la contraposée est équivalente au schéma initial.
+2. $P\Rightarrow V$, $\neg V\Rightarrow\neg P$. La validation est nécessaire, pas forcément suffisante.
+3. La réciproque dit qu'un multiple de 3 est multiple de 12. Le nombre 6 réfute cette règle : divisible par 3, non divisible par 12.
+4. Contraposée : $\neg C\Rightarrow\neg(A\lor B)\equiv\neg C\Rightarrow(\neg A\land\neg B)$. Négation : $(A\lor B)\land\neg C$.
+
+</details>
+
+### Pratique indépendante
+
+Les exercices sélectionnés portent sur la réciproque, la contraposée, les énoncés équivalents, une table de vérité pour la réciproque, une déduction valide à partir d’une règle et la lecture d’une phrase courante.
+
+L'atelier ci-dessus est public et non noté. La pratique notée nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
+
+## 6. Retenir — Fiche de révision
+
+<section className="transform-revision">
+
+### À retenir
+
+Une implication est équivalente à sa contraposée. Elle n’est pas équivalente à sa réciproque en général, même si les deux peuvent coïncider pour certaines assertions. Exiger les deux sens à la fois est une condition plus forte que chacun séparément. Dans le langage courant, vérifiez si « si » voulait dire « seulement si ».
+
+| Forme | Expression | Colonne 00, 01, 10, 11 |
+| --- | --- | --- |
+| Départ | $A\Rightarrow B$ | 1101 |
+| Réciproque | $B\Rightarrow A$ | 1011 |
+| Contraposée | $\neg B\Rightarrow\neg A$ | 1101 |
+| Inverse | $\neg A\Rightarrow\neg B$ | 1011 |
+| Négation | $A\land\neg B$ | 0010 |
+
+**Méthode express :** définir A et B exactement → transformer les symboles → traduire chaque partie en mots → justifier par une loi ou une table complète. Pour réfuter, une affectation différente suffit. Ne pas confondre « si » et « seulement si ».
+
+Imprimez la fiche et les schémas depuis le navigateur. Un exemple fixe reste lisible sans JavaScript.
+
+</section>
+
+Source vérifiée : Logique_01.pdf, pages physiques 24–29 ; Revision.pdf, exercice 2, pages physiques 6–7. La preuve algébrique, l'inverse, les illustrations, les ateliers et les nouveaux exercices sont des compléments originaux. En L07, nous étudierons les deux sens réunis. [L07](/fr/lessons/L07/).
+
