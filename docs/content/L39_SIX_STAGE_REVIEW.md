@@ -1,0 +1,9 @@
+# L39 six-stage review
+
+AI-assisted implementing-author self-check; not independent mathematical review or hosted acceptance. Base 9eff7a2ebf42c140b1fa5c99042fcf87973b9cbf.
+
+Directly inspected supplied Fonctions_01.pdf physical page 13, text and rendered image: constant, positive integer power, sum, constant factor, product, quotient with nonzero denominator, and composition. Preserve all seven formulas and differentiability assumptions. All examples, negative integer power derivation via quotient, expression-tree diagrams, method recognition workshop, tangent recap and written challenges are original teaching extensions. Retain old section headings as H3, both original graphical workshops, four original quick-check questions and prior bank review docs/content/L39_REVIEW.md. Move repeated L38 derivations to optional recap; essential rules remain visible.
+
+Reading v2→v3. Bank v1 unchanged. New standalone rule-recognition island uses eight original ungraded examples (not imported from bank), identifies outer rule as written, gives feedback and reveals intermediate steps. Static and print example available. Two additional independent written challenges and formula table. Three bilingual illustrations. No engine, grading, dependencies or database changes.
+
+Arithmetic self-check: D(x^-2)=-2x^-3 for nonzero x; product x³(x−2) gives 4x³−6x²; quotient (x+2)/(x−2) gives −4/(x−2)²; chain (3x−2)^4 gives 12(3x−2)³; nested quotients apply chain at numerator, restrictions x≠4 and x≠3 respectively. Cancellation r(x)=x+2 retains x≠2. Existing worked examples unchanged. Exact paired mathematical strings and heading counts checked. Original tests retained; add bilingual rule choice/feedback/reveal/reset tests. Full pnpm check and pnpm test:e2e not executed through connector; CI and manual browser/mobile/print checks required.
