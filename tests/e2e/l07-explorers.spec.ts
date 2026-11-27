@@ -130,6 +130,18 @@ for (const locale of ['fr', 'en']) {
     try {
       await page.goto(`http://127.0.0.1:4321/${locale}/lessons/L07/`);
       await expect(page.locator('.l07-static')).toHaveCount(2);
+      await expect(page.locator('.lesson-prose img')).toHaveCount(2);
+      await expect(page.locator('.l07-recap[open]')).toHaveCount(0);
+      await expect(page.locator('.l07-exercise')).toHaveCount(10);
+      await expect(page.locator('.l07-revision')).toBeVisible();
+      for (const image of await page.locator('.lesson-prose img').all()) {
+        await expect(image).toHaveAttribute('alt', /.+/);
+        await expect
+          .poll(() =>
+            image.evaluate((img) => (img as HTMLImageElement).naturalWidth),
+          )
+          .toBeGreaterThan(0);
+      }
       for (const example of await page.locator('.l07-static').all())
         await expect(example).toBeVisible();
       await expect(page.locator('.l07-live:visible')).toHaveCount(0);
@@ -145,6 +157,7 @@ for (const locale of ['fr', 'en']) {
         await page.evaluate(() => document.documentElement.scrollWidth),
       ).toBeLessThanOrEqual(320);
       await page.emulateMedia({ media: 'print' });
+      await expect(page.locator('.l07-revision')).toBeVisible();
       // Closed native details must still print their complete content.
       await expect(
         page.locator('.l07-exercise').nth(3).locator('table'),
@@ -203,13 +216,14 @@ for (const locale of ['fr', 'en']) {
     page,
   }) => {
     await page.goto(`/${locale}/lessons/L07/`);
-    await page
-      .locator('.section-nav')
-      .getByRole('link', {
-        name: fr ? 'Deux niveaux différents' : 'Two different levels',
-        exact: true,
-      })
-      .click();
+    await expect(page.locator('.lesson-prose h2')).toHaveCount(6);
+    const heading = page.getByRole('heading', {
+      name: fr ? 'Deux niveaux différents' : 'Two different levels',
+      exact: true,
+    });
+    const anchor = await heading.getAttribute('id');
+    expect(anchor).toBeTruthy();
+    await page.goto(`/${locale}/lessons/L07/#${anchor}`);
     const other = fr ? 'en' : 'fr';
     await page
       .getByRole('link', { name: other.toUpperCase(), exact: true })
