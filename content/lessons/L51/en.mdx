@@ -1,7 +1,7 @@
 ---
 lessonId: L51
 locale: en
-version: 1
+version: 2
 status: extended
 title: "Kraft–McMillan: which lengths are possible?"
 summary: "Calculate the Kraft sum and distinguish existence from decodability."
@@ -12,6 +12,7 @@ sourcePages: [44, 45]
 ---
 
 import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+import '../../../src/styles/information-guides.css';
 
 # Can everyone have a short word?
 
@@ -32,6 +33,30 @@ $$K(c)=\sum_{i=1}^m2^{-\ell_i}.$$
 **Kraft–McMillan.** If the code uniquely decodes finite messages without separators, then $K(c)\le1$. This theorem does not use source probabilities. In particular, $K(c)>1$ proves that unique decodability is impossible.
 
 Examples: for lengths $(1,2,2)$, $K=1/2+1/4+1/4=1$. For $(1,1,2)$, $K=1/2+1/2+1/4=5/4>1$: no assignment works.
+
+## Visualize space before the proof
+
+A negative exponent is shorthand: $2^{-\ell}=1/2^{\ell}$. For $\ell=3$, this is $1/8$ of the available space. The number $M$ is the largest length; for $M=3$, draw the eight positions of length 3.
+
+<figure className="info-concept-figure">
+<div className="info-figure-scroll" role="region" aria-label="Diagram: scroll horizontally if needed" tabIndex={0}>
+<img src="/diagrams/information/l51-prefix-space-en.svg" width="480" height="490" alt="0 reserves 000 through 011; 10 reserves 100 and 101; 11 reserves 110 and 111. Below, 0 and 01 both reserve 010 and 011." loading="lazy" />
+</div>
+<figcaption>A length-1 leaf reserves 4 of 8 positions; a length-2 leaf reserves 2. The groups are disjoint for prefix code 0, 10, 11. The overlap below shows why a particular table also needs checking.</figcaption>
+</figure>
+
+<div className="info-guided">
+
+**Fill the gap.** For words 00, 01, 10 and M = 3, how many positions are reserved? What fraction remains free?
+
+<details className="info-answer">
+<summary>Check and understand</summary>
+
+Each word reserves $2^{3-2}=2$ positions. The three words reserve $6$ distinct positions out of $8$: $K=6/8=3/4$. The remaining share is $2/8=1/4$. A sum strictly below 1 does not prevent unique decoding. In the lab, try four lengths 2, 3, 3, 3: first predict why space remains free.
+
+</details>
+
+</div>
 
 ## 02 · Why a prefix tree satisfies the inequality
 

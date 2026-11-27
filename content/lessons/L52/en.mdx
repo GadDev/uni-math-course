@@ -1,7 +1,7 @@
 ---
 lessonId: L52
 locale: en
-version: 1
+version: 2
 status: extended
 title: "From logarithms to Gibbs’ lemma"
 summary: "Prove the logarithm inequality and compare two distributions."
@@ -12,6 +12,7 @@ sourcePages: [46, 47, 48]
 ---
 
 import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+import '../../../src/styles/information-guides.css';
 
 # What does a wrong model cost?
 
@@ -35,6 +36,24 @@ $$\ln x\le x-1\qquad(x>0),$$
 
 with equality **if and only if** $x=1$. Geometrically, the logarithm curve stays below its tangent at 1. Do not directly replace the natural logarithm by base 2: divide by $\ln2>0$.
 
+<figure className="info-concept-figure">
+<div className="info-figure-scroll" role="region" aria-label="Diagram: scroll horizontally if needed" tabIndex={0}>
+<img src="/diagrams/information/l52-log-tangent-en.svg" width="480" height="460" alt="The dashed line x minus 1 stays above the solid ln(x) curve, touching at (1, 0)." loading="lazy" />
+</div>
+<figcaption>Computed plot on 0.25 ≤ x ≤ 3 using the same axes for both functions. The vertical gap is g(x): zero at 1 and positive elsewhere. The lemma holds for every strictly positive x.</figcaption>
+</figure>
+
+**Read the proof.** A negative derivative makes g decrease; a positive one makes it increase. Review this rule in [L39](/en/lessons/L39/). Here the denominator x is positive: only x − 1 determines the sign.
+
+<div className="info-table-scroll" role="region" aria-label="Calculation table" tabIndex={0}>
+
+| x | $0<x<1$ | $x=1$ | $x>1$ |
+| --- | --- | --- | --- |
+| $g'(x)$ | $-$ | $0$ | $+$ |
+| g | decreases toward 0 | minimum 0 | increases from 0 |
+
+</div>
+
 ## 02 · State Gibbs with all assumptions
 
 Take two lists of the same size $p_i>0$, $q_i>0$, with $\sum_i p_i=\sum_i q_i=1$. The lemma states
@@ -42,6 +61,36 @@ Take two lists of the same size $p_i>0$, $q_i>0$, with $\sum_i p_i=\sum_i q_i=1$
 $$-\sum_i p_i\log_2q_i\ge-\sum_i p_i\log_2p_i=H(p).$$
 
 On the left, model-q surprise is averaged using the **actual weights p**. This quantity is also called cross entropy. Equality holds exactly when $p_i=q_i$ for every i. We remain in the strictly positive setting; no logarithm of zero is used.
+
+## Try Gibbs with two terms
+
+Before the general proof, take $p=(1/2,1/2)$ and $q=(1/4,3/4)$. Index i takes only values 1 and 2. Write the two-term sum in full:
+
+$$\sum_{i=1}^2p_i\ln(q_i/p_i)=\frac12\ln(1/2)+\frac12\ln(3/2).$$
+
+<div className="info-table-scroll" role="region" aria-label="Calculation table" tabIndex={0}>
+
+| i | $q_i/p_i$ | $p_i\ln(q_i/p_i)$ | $q_i-p_i$ |
+| --- | --- | --- | --- |
+| 1 | $1/2$ | $\frac12\ln(1/2)$ | $-1/4$ |
+| 2 | $3/2$ | $\frac12\ln(3/2)$ | $1/4$ |
+
+</div>
+
+Adding the two inequalities makes the right side $-1/4+1/4=0$. The left side is $\frac12\ln(3/4)<0$. Normalization cancels the sum on the right; it does not force equality on the left.
+
+<div className="info-guided">
+
+**Follow the sign.** To turn a sum at most 0 into a bound on its negative, do we keep the inequality direction?
+
+<details className="info-answer">
+<summary>Check and understand</summary>
+
+No: multiplying by $-1$ reverses the direction. From $A\le0$, we get $-A\ge0$. Then dividing by $\ln2>0$ keeps the direction. In the lab, try raw counts p = (2, 2, 2) and q = (1, 1, 1): the lists differ but their normalized distributions are equal.
+
+</details>
+
+</div>
 
 ## 03 · Four proof steps
 
