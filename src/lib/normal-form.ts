@@ -99,7 +99,9 @@ export function rowBits(row: number, count: number) {
 export function minterm(variables: Variable[], row: number): Formula {
   const bits = rowBits(row, variables.length);
   return join(
-    variables.map((variable, i) => (bits[i] === '1' ? variable : not(variable))),
+    variables.map((variable, i) =>
+      bits[i] === '1' ? variable : not(variable),
+    ),
     'and',
   );
 }
