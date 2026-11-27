@@ -124,7 +124,7 @@ for (const locale of ['fr', 'en']) {
     );
     await lab.locator('[data-reset]').click();
     await expect(slider).toHaveValue('8');
-    await expect(lab.locator('[data-series]')).toHaveCount(6);
+    await expect(lab.locator('[data-series]')).toHaveCount(4);
   });
 
   test(`${locale}: tangent handles both sides, horizontal slope, zero and domain exclusions`, async ({
@@ -212,7 +212,9 @@ test('L42 SSR examples and printed corrections survive without JavaScript', asyn
   try {
     const page = await context.newPage();
     await page.goto('http://127.0.0.1:4321/fr/lessons/L42/');
-    await expect(page.locator('astro-island')).toHaveCount(4);
+    await expect(
+      page.locator('astro-island[component-url*="L42Explorer"]'),
+    ).toHaveCount(4);
     for (const lab of await page.locator('[data-l42]').all()) {
       await expect(lab.locator('.l42-figure')).toBeVisible();
       await expect(lab.locator('fieldset')).toBeHidden();

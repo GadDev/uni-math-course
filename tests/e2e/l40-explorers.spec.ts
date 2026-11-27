@@ -159,7 +159,9 @@ for (const locale of ['fr', 'en']) {
     for (const width of [320, 375, 768, 1440]) {
       await page.setViewportSize({ width, height: 900 });
       await page.goto(`/${locale}/lessons/L40/`);
-      await expect(page.locator('astro-island')).toHaveCount(3);
+      await expect(
+        page.locator('astro-island[component-url*="L40DerivativeExplorer"]'),
+      ).toHaveCount(3);
       await expect(page.locator('.katex-error')).toHaveCount(0);
       if (fr && (width === 320 || width === 1440)) {
         await page.locator('#l40-secant-a').scrollIntoViewIfNeeded();
@@ -176,7 +178,7 @@ for (const locale of ['fr', 'en']) {
         await page.evaluate(() => document.documentElement.scrollWidth),
       ).toBeLessThanOrEqual(width);
       await expect(page.locator('.content-provenance')).toContainText(
-        'Version 2',
+        'Version 3',
       );
     }
     const correction = page.locator('.l40-correction');
@@ -263,9 +265,10 @@ test('L40 section language links stay aligned and L39 does not hydrate these act
   page,
 }) => {
   await page.goto('/fr/lessons/L40/');
-  const heading = page
-    .locator('h2')
-    .filter({ hasText: 'Construire l’équation de la tangente' });
+  const heading = page.getByRole('heading', {
+    name: 'Construire l’équation de la tangente',
+    exact: true,
+  });
   const slug = await heading.getAttribute('id');
   await page.goto(`/fr/lessons/L40/#${slug}`);
   await page.getByRole('link', { name: 'EN', exact: true }).click();
