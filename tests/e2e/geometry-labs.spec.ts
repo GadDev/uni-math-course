@@ -427,3 +427,46 @@ for (const locale of ['fr', 'en']) {
     await expect(live.locator('tbody tr')).toHaveCount(3);
   });
 }
+
+for (const locale of ['fr', 'en']) {
+  test(`${locale}: L33 reveals a trace progressively and supports backward steps`, async ({
+    page,
+  }) => {
+    await page.goto(`/${locale}/lessons/L33/`);
+    const lab = page.locator('[data-geometry-lab="raster"]');
+    const live = lab.locator('.geo-live');
+    const rows = live.locator('[data-raster-trace] tbody tr');
+    await lab.scrollIntoViewIfNeeded();
+    await expect(lab.locator('fieldset')).toBeVisible();
+    await values(lab, [5, 2, 0]);
+    await expect(rows).toHaveCount(0);
+    await expect(live.locator('[data-decision]')).toContainText('d = -1');
+    await lab.locator('select').selectOption('E');
+    await lab
+      .getByRole('button', { name: /Vérifier le défi|Check challenge/ })
+      .click();
+    await expect(rows).toHaveCount(1);
+    await expect(rows.first().locator('td')).toHaveText([
+      '(0 ; 0)',
+      '-1',
+      'E',
+      '4',
+      '(1 ; 0)',
+      '3',
+    ]);
+    await lab
+      .getByRole('button', {
+        name: /Passer au pixel suivant|Advance to the next pixel/,
+      })
+      .click();
+    await expect(live.locator('[data-decision]')).toContainText('d = 3');
+    await expect(rows).toHaveCount(1);
+    await lab
+      .getByRole('button', {
+        name: /Revenir au pixel précédent|Return to the previous pixel/,
+      })
+      .click();
+    await expect(rows).toHaveCount(0);
+    await expect(live.locator('[data-decision]')).toContainText('d = -1');
+  });
+}
