@@ -129,3 +129,38 @@ test('chapter and LZW links resolve only to existing locale-aware Astro sources'
     await rm(root, { recursive: true, force: true });
   }
 });
+
+test('logic workshop links resolve only for supported locales and an existing source', async () => {
+  const root = await mkdtemp(join(tmpdir(), 'uni-math-workshop-links-'));
+  try {
+    await mkdir(join(root, 'src/pages/[locale]'), { recursive: true });
+    const source = join(root, 'src/pages/[locale]/logic-workshop.astro');
+    await writeFile(source, '<main/>');
+    for (const target of ['/fr/logic-workshop/', '/en/logic-workshop/']) {
+      await writeFile(
+        join(root, 'README.md'),
+        `# Test\n\n[route](${target})\n`,
+      );
+      assert.equal(await validateRepository(root, []), 1);
+    }
+    for (const target of [
+      '/de/logic-workshop/',
+      '/fr/logic-workshop/missing/',
+      '/fr/missing-workshop/',
+    ]) {
+      await writeFile(
+        join(root, 'README.md'),
+        `# Test\n\n[missing](${target})\n`,
+      );
+      await assert.rejects(validateRepository(root, []));
+    }
+    await rm(source);
+    await writeFile(
+      join(root, 'README.md'),
+      '# Test\n\n[missing](/fr/logic-workshop/)\n',
+    );
+    await assert.rejects(validateRepository(root, []));
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
+});
