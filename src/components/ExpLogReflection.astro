@@ -1,0 +1,139 @@
+---
+import type { Locale } from '../lib/i18n';
+import { functionChapterCopy } from '../lib/functions-cheat-sheet';
+interface Props {
+  locale: Locale;
+  idPrefix?: string;
+}
+const { locale, idPrefix = 'functions-inverse' } = Astro.props;
+const text = functionChapterCopy[locale];
+const ix = (x: number) => 105 + 45 * x;
+const iy = (y: number) => 200 - 45 * y;
+const path = (from: number, to: number, fn: (x: number) => number) =>
+  Array.from({ length: 81 }, (_, i) => {
+    const x = from + ((to - from) * i) / 80;
+    return `${i ? 'L' : 'M'}${ix(x).toFixed(1)},${iy(fn(x)).toFixed(1)}`;
+  }).join(' ');
+const expCurve = path(-2, 1.4, Math.exp);
+const logCurve = path(0.14, 4, Math.log);
+---
+
+<figure class="function-plot function-inverse-plot">
+  <svg
+    viewBox="0 0 410 310"
+    role="img"
+    aria-labelledby={`${idPrefix}-title ${idPrefix}-desc`}
+  >
+    <title id={`${idPrefix}-title`}>{text.inversePlot}</title>
+    <desc id={`${idPrefix}-desc`}>{text.inverseCaption}</desc>
+    <g class="function-plot-grid" aria-hidden="true">
+      {[-2, -1, 0, 1, 2, 3, 4].map((x) => (
+        <line x1={ix(x)} y1="13" x2={ix(x)} y2="295" />
+      ))}
+      {[-2, -1, 0, 1, 2, 3, 4].map((y) => (
+        <line x1="10" y1={iy(y)} x2="306" y2={iy(y)} />
+      ))}
+    </g>
+    <g class="function-plot-axes" aria-hidden="true">
+      <line x1="10" y1={iy(0)} x2="321" y2={iy(0)} />
+      <line x1={ix(0)} y1="10" x2={ix(0)} y2="296" />
+      <text x="316" y={iy(0) + 15}>
+        x
+      </text>
+      <text x={ix(0) - 16} y="17">
+        y
+      </text>
+      <text x={ix(1)} y={iy(0) + 15}>
+        1
+      </text>
+      <text x={ix(0) - 12} y={iy(1) + 4}>
+        1
+      </text>
+    </g>
+    <line
+      x1={ix(-2)}
+      y1={iy(-2)}
+      x2={ix(4)}
+      y2={iy(4)}
+      class="function-reflection"
+    />
+    <path d={expCurve} class="function-curve" />
+    <path d={logCurve} class="function-tangent" />
+    <g class="function-markers" aria-hidden="true">
+      <circle cx={ix(0)} cy={iy(1)} r="4" />
+      <circle cx={ix(1)} cy={iy(0)} r="4" />
+      <text x="314" y="51">
+        eˣ
+      </text>
+      <text x="312" y="124">
+        ln(x)
+      </text>
+      <text x="215" y="106">
+        y = x
+      </text>
+    </g>
+  </svg>
+  <figcaption>{text.inverseCaption}</figcaption>
+</figure>
+
+<style>
+  figure {
+    margin: 1.25rem 0;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    background: var(--card);
+  }
+  svg {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    margin: auto;
+  }
+  svg text {
+    fill: var(--ink);
+    font: 13px sans-serif;
+  }
+  .function-plot-grid {
+    stroke: var(--soft-line);
+    stroke-width: 0.5;
+  }
+  .function-plot-axes {
+    stroke: var(--ink);
+    stroke-width: 1;
+  }
+  .function-plot-axes text {
+    stroke: none;
+  }
+  .function-curve {
+    stroke: var(--blue-accent);
+    stroke-width: 2.5;
+    fill: none;
+  }
+  .function-tangent {
+    stroke: var(--ink);
+    stroke-width: 2.5;
+    stroke-dasharray: 7 3;
+    fill: none;
+  }
+  .function-reflection {
+    stroke: var(--muted);
+    stroke-width: 1.5;
+    stroke-dasharray: 3 4;
+  }
+  .function-markers {
+    fill: var(--ink);
+  }
+  figcaption {
+    font-size: 0.9rem;
+  }
+  @media print {
+    figure {
+      break-inside: avoid;
+      background: white;
+    }
+    svg {
+      max-width: 120mm;
+    }
+  }
+</style>
