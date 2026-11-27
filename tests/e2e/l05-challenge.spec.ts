@@ -53,5 +53,36 @@ for (const locale of ['fr', 'en'] as const) {
     await page.emulateMedia({ media: 'print' });
     await expect(lab.locator('fieldset')).toBeHidden();
     await expect(lab.locator('[data-challenge-static]')).toBeVisible();
+    await expect(page.locator('.implication-revision')).toBeVisible();
+    await expect(page.locator('.katex-error')).toHaveCount(0);
+  });
+
+  test(`L05 diagrams and static challenge fit without JS (${locale})`, async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({
+      javaScriptEnabled: false,
+      viewport: { width: 320, height: 900 },
+    });
+    try {
+      const page = await context.newPage();
+      await page.goto(`http://127.0.0.1:4321/${locale}/lessons/L05/`);
+      await expect(page.locator('[data-challenge-static]')).toBeVisible();
+      const figures = page.locator('.lesson-prose img');
+      await expect(figures).toHaveCount(3);
+      for (const figure of await figures.all()) {
+        await expect(figure).toHaveAttribute('alt', /.+/);
+        await expect
+          .poll(() =>
+            figure.evaluate((img) => (img as HTMLImageElement).naturalWidth),
+          )
+          .toBeGreaterThan(0);
+      }
+      expect(
+        await page.evaluate(() => document.documentElement.scrollWidth),
+      ).toBeLessThanOrEqual(320);
+    } finally {
+      await context.close();
+    }
   });
 }

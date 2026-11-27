@@ -108,7 +108,7 @@ import '../styles/implication-explorers.css';
       marker.setAttribute('x2', String(x));
       lab.querySelector<HTMLElement>('[data-number-result]')!.textContent = fr
         ? `n = ${n} : A (« n > 10 ») : ${truth(a)} ; B (« n > 5 ») : ${truth(b)}. A ⇒ B vaut ${bit(implicationValues(a, b).implication)} ; B ⇒ A vaut ${bit(implicationValues(b, a).implication)}. ${b && !a ? 'Ce nombre réfute la réciproque B ⇒ A.' : 'Ce nombre ne réfute pas la réciproque. Cherchez entre les deux seuils.'}`
-        : `n = ${n}: A (“n > 10”) is ${truth(a)}; B (“n > 5”) is ${truth(b)}. A ⇒ B is ${bit(!a || b)}; B ⇒ A is ${bit(implicationValues(b, a).implication)}. ${b && !a ? 'This number refutes the converse B ⇒ A.' : 'This number does not refute the converse. Look between the two thresholds.'}`;
+        : `n = ${n}: A (“n > 10”) is ${truth(a)}; B (“n > 5”) is ${truth(b)}. A ⇒ B is ${bit(implicationValues(a, b).implication)}; B ⇒ A is ${bit(implicationValues(b, a).implication)}. ${b && !a ? 'This number refutes the converse B ⇒ A.' : 'This number does not refute the converse. Look between the two thresholds.'}`;
     };
     slider.disabled = false;
     slider.addEventListener('input', update);
@@ -122,12 +122,9 @@ import '../styles/implication-explorers.css';
       '[data-challenge-controls]',
     )!;
     const task = lab.querySelector<HTMLSelectElement>('[data-task]')!;
-    const aInput =
-      lab.querySelector<HTMLSelectElement>('[data-challenge-a]')!;
-    const bInput =
-      lab.querySelector<HTMLSelectElement>('[data-challenge-b]')!;
-    const prediction =
-      lab.querySelector<HTMLSelectElement>('[data-prediction]')!;
+    const aInput = lab.querySelector<HTMLSelectElement>('[data-challenge-a]')!;
+    const bInput = lab.querySelector<HTMLSelectElement>('[data-challenge-b]')!;
+    const prediction = lab.querySelector<HTMLSelectElement>('[data-prediction]')!;
     const label = lab.querySelector<HTMLElement>('[data-prediction-label]')!;
     const check = lab.querySelector<HTMLButtonElement>(
       '[data-challenge-check]',
@@ -157,9 +154,7 @@ import '../styles/implication-explorers.css';
       const consequent = reverse ? a : b;
       const value = challengeValue(task.value, a, b);
       const correct =
-        task.value === 'predict'
-          ? prediction.value === bit(value)
-          : !value;
+        task.value === 'predict' ? prediction.value === bit(value) : !value;
       const rule = reverse ? 'B ⇒ A' : 'A ⇒ B';
       const reason = !antecedent
         ? fr
