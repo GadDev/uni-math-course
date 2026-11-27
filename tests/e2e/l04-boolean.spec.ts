@@ -264,7 +264,13 @@ test('touch and reduced motion preserve controls, and L03 has no Boolean hydrati
     await region.getByRole('button', { name: 'Réinitialiser' }).tap();
     await expect(region.getByRole('checkbox')).not.toBeChecked();
     await page.goto('http://127.0.0.1:4321/fr/lessons/L03/');
-    await expect(page.locator('astro-island')).toHaveCount(0);
+    await expect(page.locator('astro-island')).toHaveCount(1);
+    await expect(
+      page.locator('astro-island[component-url*="TruthTableBuilder"]'),
+    ).toHaveCount(1);
+    await expect(
+      page.locator('astro-island[component-url*="BooleanLab"]'),
+    ).toHaveCount(0);
     await expect(page.locator('script[src*="BooleanLab"]')).toHaveCount(0);
   } finally {
     await context.close();

@@ -1,0 +1,72 @@
+.truth-builder,
+.truth-builder-revision,
+.truth-builder-correction {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  background: var(--card);
+  min-width: 0;
+}
+.truth-builder fieldset {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+.truth-builder legend {
+  font-weight: 700;
+}
+.truth-builder-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.truth-builder-scroll table {
+  width: max-content;
+  min-width: 100%;
+}
+.truth-builder-scroll :is(th, td) {
+  white-space: nowrap;
+}
+.truth-builder-scroll [data-active='true'] {
+  box-shadow: inset 0 -2px var(--blue-accent);
+}
+.truth-builder :is(select, button) {
+  min-height: 44px;
+  min-width: 44px;
+  max-width: 100%;
+  padding: 0.4rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.truth-builder select[aria-invalid='true'] {
+  border: 2px solid currentColor;
+  font-weight: 700;
+}
+.truth-builder-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.truth-builder :is(select, button, [tabindex]):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.truth-builder [hidden] {
+  display: none !important;
+}
+.truth-builder-print {
+  display: none;
+}
+@media print {
+  .truth-builder fieldset,
+  .truth-builder [data-truth-static] {
+    display: none !important;
+  }
+  .truth-builder-print {
+    display: block;
+  }
+  .truth-builder-revision {
+    break-inside: avoid;
+  }
+}
