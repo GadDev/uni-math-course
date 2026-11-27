@@ -40,7 +40,8 @@ export default function TruthTableBuilder({ locale }: { locale: Locale }) {
     if (issue) {
       const label = columnLabel(columns[active]!);
       const row = rows[issue.row]!;
-      const prefix = (fr ? 'Ligne ' : 'Row ') + name(row) + ' — ' + label + ': ';
+      const prefix =
+        (fr ? 'Ligne ' : 'Row ') + name(row) + ' — ' + label + ': ';
       const operands = operandValues(columns[active]!, row).join(' ; ');
       setErrorRow(issue.row);
       setFeedback(

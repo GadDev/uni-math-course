@@ -1,0 +1,192 @@
+.c03-depths,
+.c03-refresher,
+.c03-extension,
+.c03-correction,
+.equation-task {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--blue-accent);
+  padding: 0.8rem 1rem;
+  margin-block: 1.25rem;
+  background: var(--card);
+  min-width: 0;
+}
+:is(.c03-refresher, .c03-extension, .c03-correction, .equation-correction)
+  summary {
+  min-height: 44px;
+  padding-block: 0.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.equation-task fieldset {
+  margin: 1rem 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.equation-task [hidden] {
+  display: none !important;
+}
+.equation-task label {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.5rem;
+  border: 1px solid var(--soft-line);
+  margin-top: 0.5rem;
+  cursor: pointer;
+}
+.equation-task input {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  accent-color: var(--blue-accent);
+}
+.equation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block: 0.8rem;
+}
+.equation-actions button {
+  min-height: 44px;
+  padding: 0.5rem 0.8rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+.equation-actions button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.equation-feedback {
+  font-weight: 700;
+}
+:is(.c03-refresher, .c03-extension, .c03-correction, .equation-task)
+  :is(summary, button, input):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+@media print {
+  @page {
+    margin: 16mm;
+  }
+  :root:has(
+    [data-lesson-id='L40'],
+    [data-lesson-id='L41'],
+    [data-lesson-id='L42']
+  ) {
+    color-scheme: light !important;
+    background: #fff !important;
+    color: #111 !important;
+  }
+  body:has(
+    [data-lesson-id='L40'],
+    [data-lesson-id='L41'],
+    [data-lesson-id='L42']
+  ) {
+    --ink: #111;
+    --paper: #fff;
+    --card: #fff;
+    --muted: #333;
+    --line: #777;
+    --soft-line: #ccc;
+    --blue-accent: #174ea6;
+    color: #111 !important;
+    background: #fff !important;
+  }
+  body:has(
+      [data-lesson-id='L40'],
+      [data-lesson-id='L41'],
+      [data-lesson-id='L42']
+    )
+    :is(
+      .site-header,
+      .site-footer,
+      .course-outline,
+      .mobile-contents,
+      .reading-geometry,
+      .breadcrumb,
+      .reading-notice,
+      .lesson-completion,
+      .primary-link
+    ) {
+    display: none !important;
+  }
+  body:has(
+      [data-lesson-id='L40'],
+      [data-lesson-id='L41'],
+      [data-lesson-id='L42']
+    )
+    :is(.lesson-page, .reading-column) {
+    display: block;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+  .lesson-prose:is(
+    [data-lesson-id='L40'],
+    [data-lesson-id='L41'],
+    [data-lesson-id='L42']
+  ) {
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  .c03-refresher {
+    display: none !important;
+  }
+  :is(.c03-extension, .c03-correction, .equation-correction)::details-content {
+    display: block !important;
+    content-visibility: visible !important;
+  }
+  :is(.c03-extension, .c03-correction, .equation-correction) > :not(summary) {
+    display: block !important;
+  }
+  .equation-task fieldset,
+  .equation-feedback {
+    display: none !important;
+  }
+  .equation-task {
+    break-inside: avoid;
+  }
+  .c03-revision {
+    break-before: page;
+  }
+  .lesson-prose .c03-revision {
+    font-size: 10pt;
+  }
+  .c03-revision :is(h2, h3) {
+    break-after: avoid;
+  }
+}
+
+@media print {
+  :is(.l40-correction, .l41-correction, .l42-answer)::details-content {
+    display: block !important;
+    content-visibility: visible !important;
+  }
+  :is(.l40-correction, .l41-correction, .l42-answer) > :not(summary) {
+    display: block !important;
+  }
+}
+@media print {
+  .lesson-prose:is(
+      [data-lesson-id='L40'],
+      [data-lesson-id='L41'],
+      [data-lesson-id='L42']
+    )
+    fieldset,
+  .l40-static-note {
+    display: none !important;
+  }
+  .l40-linked::details-content {
+    display: block !important;
+    content-visibility: visible !important;
+  }
+  .l40-linked > :not(summary) {
+    display: block !important;
+  }
+}

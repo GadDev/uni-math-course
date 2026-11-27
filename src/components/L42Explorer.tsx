@@ -392,14 +392,7 @@ export function LogExplorer({ locale }: Props) {
 export function ComplexityExplorer({ locale }: Props) {
   const fr = locale === 'fr';
   const [n, setN] = useState(8);
-  const defaults: CostId[] = [
-    'constant',
-    'log',
-    'linear',
-    'nlog',
-    'square',
-    'exp',
-  ];
+  const defaults: CostId[] = ['log', 'linear', 'square', 'exp'];
   const [selected, setSelected] = useState<CostId[]>(defaults);
   const [logScale, setLogScale] = useState(true);
   const lab = useLab(() => {

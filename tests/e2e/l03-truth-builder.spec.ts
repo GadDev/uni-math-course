@@ -9,6 +9,7 @@ for (const locale of ['fr', 'en'] as const) {
     await expect(lab.locator('fieldset')).toBeVisible();
     const check = lab.locator('[data-truth-check]');
     const feedback = lab.locator('[data-truth-feedback]');
+    const progress = lab.locator('[data-truth-progress]');
     await check.click();
     await expect(feedback).toContainText(
       locale === 'fr' ? 'cellule vide' : 'empty cell',
@@ -22,7 +23,7 @@ for (const locale of ['fr', 'en'] as const) {
       'aria-invalid',
       'true',
     );
-    await expect(lab.locator('[data-truth-progress]')).toContainText('0/3');
+    await expect(progress).toContainText('0/3');
     for (const [i, column] of ['1100', '1101', '0001'].entries()) {
       if (i === 1) {
         await lab.locator('[data-truth-cell="0"]').selectOption('0');
@@ -32,35 +33,25 @@ for (const locale of ['fr', 'en'] as const) {
         );
         await expect(feedback).toContainText('B = 0');
         await expect(feedback).toContainText('¬A = 1');
-        await expect(lab.locator('[data-truth-progress]')).toContainText(
-          '1/3',
-        );
+        await expect(progress).toContainText('1/3');
       }
       for (const [row, value] of [...column].entries()) {
         await lab.locator(`[data-truth-cell="${row}"]`).selectOption(value);
       }
       await check.click();
-      await expect(lab.locator('[data-truth-progress]')).toContainText(
-        `${i + 1}/3`,
-      );
+      await expect(progress).toContainText(`${i + 1}/3`);
     }
     await expect(check).toBeDisabled();
     await expect(lab.locator('[data-truth-cell]')).toHaveCount(0);
     await lab.locator('[data-truth-example]').selectOption('2');
     await expect(lab.locator('[data-truth-cell]')).toHaveCount(8);
-    for (const [i, column] of [
-      '11001100',
-      '11001111',
-      '01110111',
-      '01000111',
-    ].entries()) {
+    const columns = ['11001100', '11001111', '01110111', '01000111'];
+    for (const [i, column] of columns.entries()) {
       for (const [row, value] of [...column].entries()) {
         await lab.locator(`[data-truth-cell="${row}"]`).selectOption(value);
       }
       await check.click();
-      await expect(lab.locator('[data-truth-progress]')).toContainText(
-        `${i + 1}/4`,
-      );
+      await expect(progress).toContainText(`${i + 1}/4`);
     }
     await lab.locator('[data-truth-reset]').click();
     await expect(lab.locator('[data-truth-cell]')).toHaveCount(8);
