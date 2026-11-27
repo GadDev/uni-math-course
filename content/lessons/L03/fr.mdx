@@ -1,0 +1,170 @@
+---
+lessonId: L03
+locale: fr
+version: 5
+status: pilot
+title: "Tables de vérité : calculer une formule ligne par ligne"
+summary: "Lister toutes les affectations, construire une table colonne par colonne à partir des sous-formules, évaluer une formule sur une ligne et vérifier une table complétée."
+minutes: 24
+objectives: [L03-O01, L03-O02, L03-O03, L03-O04, L03-O05, L03-O06]
+prerequisites: [L01, L02]
+sourcePages: [13, 14]
+---
+import TruthTableBuilder from '../../../src/components/TruthTableBuilder';
+
+# Tables de vérité : calculer une formule ligne par ligne
+
+## 1. Comprendre — Une formule, toutes les entrées
+
+### Votre objectif
+
+À la fin de cette leçon, vous savez lister toutes les affectations de plusieurs assertions, construire une table de vérité colonne par colonne, évaluer une formule sur une ligne et vérifier une table complétée.
+
+**Prérequis :** L01 (valeurs de vérité $1$ et $0$) et L02 (les connecteurs $\land$, $\lor$, $\neg$).
+
+### Assertions atomiques et composées
+
+Une assertion est **atomique** lorsqu’elle n’est pas construite à partir d’autres assertions avec $\lor$, $\land$ ou $\neg$. Sinon, elle est **composée**.
+
+- $A$, $B$ et $C$ sont atomiques.
+- $(A \land B) \lor \neg C$ est composée : elle est construite à partir de $A$, $B$ et $C$.
+
+Une table de vérité décrit une assertion composée pour toutes les affectations de valeurs à ses assertions atomiques. On infère de proche en proche la valeur d’une assertion composée à partir de ses parties, et la table organise ce calcul.
+
+Imaginez un programme qui décide si une condition d'accès est satisfaite. Un seul test ne suffit pas : il faut examiner chaque combinaison des entrées booléennes. Une table de vérité est précisément cette liste exhaustive.
+
+## 2. Visualiser — Arbre des affectations et arbre de calcul
+
+### Pourquoi doubler le nombre de lignes ?
+
+![Arbre des affectations : A vaut zéro ou un ; chaque branche se divise selon B, donnant 00, 01, 10 et 11.](/diagrams/truth-assignments.svg)
+
+Une variable donne deux lignes, deux variables en donnent quatre et trois en donnent huit. Pour ajouter $C$ à une ligne déjà fixée pour $A$ et $B$, faites deux copies : une avec $C = 0$, l’autre avec $C = 1$. Vous n’avez pas besoin de connaître le calcul binaire pour appliquer cette méthode.
+
+### Lister les lignes
+
+Une **affectation** est un choix de valeur pour chaque variable : par exemple $A = 0$, $B = 1$. Avec $n$ variables propositionnelles distinctes et librement assignables, il y a $2^n$ affectations. Répéter une lettre dans une formule ne crée pas une nouvelle variable ; la constante $\top$ ne crée aucun choix. Listez-les de façon systématique : commencez par tous les zéros et comptez en binaire. Pour trois assertions $A$, $B$, $C$, les huit lignes sont $000$, $001$, $010$, $011$, $100$, $101$, $110$ et $111$.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L03-expression-fr.svg" alt="Arbre de A ET (B OU NON A) : calculer NON A en premier, puis B OU NON A, enfin le ET avec A." width="560" height="310" /><figcaption>L'arbre des affectations organise les lignes ; l'arbre de calcul organise les colonnes. Les deux occurrences de A partagent la même valeur sur une ligne.</figcaption></figure>
+
+Pour trois variables, A change toutes les quatre lignes, B toutes les deux lignes, C à chaque ligne. Pour quatre variables, on obtient seize lignes. Le nombre de lignes dépend des variables distinctes, non du nombre de symboles.
+
+## 3. Calculer et raisonner — Des feuilles vers la racine
+
+### Retour à l’exemple de la page 14
+
+La formule du PDF est $A \land (B \lor \neg A)$. Voici son calcul complété, rédigé pour cette application :
+
+| A | B | ¬A | B ∨ ¬A | A ∧ (B ∨ ¬A) |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 1 | 0 |
+| 0 | 1 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 | 0 |
+| 1 | 1 | 0 | 1 | 1 |
+
+Quand A est fausse, le ET final échoue ; quand A est vraie, le résultat dépend de B. Les colonnes intermédiaires permettent de comprendre chaque ligne, au lieu de mémoriser la dernière.
+
+Décomposons la ligne 10 en trois opérations, dans l'ordre des dépendances :
+
+| Étape | Calcul |
+| --- | --- |
+| 1 | $\neg1=0$ |
+| 2 | $0\lor0=0$ |
+| 3 | $1\land0=0$ |
+
+Pour la ligne 11, la négation vaut encore zéro, mais le OU vaut un, donc le ET vaut un. Recalculez chaque ligne sans emprunter les résultats d'une autre ligne.
+
+### Construire une table colonne par colonne
+
+Calculez d’abord les sous-formules, puis combinez-les. Prenons $(A \lor B) \land \neg A$ avec deux assertions.
+
+| A | B | A ∨ B | ¬A | (A ∨ B) ∧ ¬A |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 1 | 0 |
+| 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 1 | 0 | 0 |
+| 1 | 1 | 1 | 0 | 0 |
+
+Chaque colonne utilise seulement des colonnes déjà calculées ou les colonnes atomiques $A$ et $B$.
+
+### Exemple guidé : lire la table terminée
+
+La dernière colonne est vraie seulement à la ligne $01$ : là, $A = 0$ et $B = 1$. La formule $(A \lor B) \land \neg A$ est donc vraie exactement lorsque $A$ est fausse et $B$ est vraie.
+
+Ce travail guidé, dont la solution est visible, n’est pas une réponse indépendante pour mesurer la maîtrise.
+
+### Piège : une ligne n’est pas toute la table
+
+Évaluer une formule sur une seule ligne ne la décrit pas. Il faut couvrir toutes les affectations. Une erreur fréquente consiste à écrire trop peu de lignes, ou à recopier une valeur de la ligne précédente au lieu de la recalculer.
+
+## 4. Expérimenter — Construire et corriger une colonne
+
+L'atelier reprend d'abord la formule de la page 14, puis propose deux nouvelles formules dont une à trois variables. Remplissez la colonne active avec 0 ou 1. Vérifiez-la : le premier emplacement vide ou incorrect est signalé avec son affectation et ses opérandes. Les colonnes suivantes restent bloquées tant que la colonne actuelle n'est pas correcte. Les résultats déjà validés servent de données pour la suite.
+
+<TruthTableBuilder locale="fr" client:visible />
+
+Le premier exemple est guidé par le cours ; les deux autres sont des entraînements originaux non notés. Pour travailler sur papier, la table complétée de la page 14 reste disponible ci-dessus.
+
+## 5. Pratiquer — Construire sans modèle
+
+1. Combien de lignes pour $A\land(A\lor\top)$ ? Justifiez.
+2. Construire la table entière de $\neg(A\lor\neg B)$, avec les colonnes intermédiaires.
+3. Sur la ligne $A=1$, $B=0$, $C=0$, un élève calcule $\neg B=1$, $A\lor\neg B=0$, puis $(A\lor\neg B)\land C=0$. Identifier la première erreur, la corriger et vérifier le résultat final.
+4. Écrire les huit affectations de A, B, C dans l'ordre binaire et calculer la colonne de $A\land(B\lor\neg C)$.
+
+<details className="truth-builder-correction">
+<summary>Corrections expliquées</summary>
+
+1. Une seule variable distincte A ; la constante ne crée pas de choix. $2^1=2$.
+2. Dans l'ordre 00, 01, 10, 11 : NON B donne 1010 ; le OU donne 1011 ; sa négation donne 0100.
+
+| A | B | ¬B | A ∨ ¬B | ¬(A ∨ ¬B) |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 1 | 0 |
+| 0 | 1 | 0 | 0 | 1 |
+| 1 | 0 | 1 | 1 | 0 |
+| 1 | 1 | 0 | 1 | 0 |
+
+3. La première erreur est le OU : $1\lor1=1$. Le résultat final demeure zéro : $1\land0=0$. Une réponse finale correcte ne garantit pas des calculs intermédiaires corrects.
+4. Ordre 000, 001, 010, 011, 100, 101, 110, 111. NON C : 10101010 ; OU : 10111011 ; ET final : 00001011.
+
+</details>
+
+### Pratique indépendante
+
+Les exercices sélectionnés portent sur le comptage des lignes, l’identification des assertions atomiques, la construction et la lecture de tables à trois assertions, l’évaluation d’une ligne et la vérification de la table d’un élève.
+
+L'atelier est public et non noté. La pratique notée nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
+
+## 6. Retenir — Fiche de révision
+
+<div className="truth-builder-revision">
+
+### À retenir
+
+Une table de vérité liste toutes les affectations, calcule les sous-formules d’abord, puis donne la valeur de la formule entière sur chaque ligne. C’est la table complète, et non une seule ligne, qui donne le sens complet de la formule.
+
+| Variables distinctes | Lignes |
+| --- | --- |
+| 1 | 2 |
+| 2 | 4 |
+| 3 | 8 |
+| 4 | 16 |
+| $n$ | $2^n$ |
+
+**Méthode express**
+
+1. Compter les variables distinctes ; une constante n'ajoute aucune variable.
+2. Énumérer toutes les affectations sans doublon.
+3. Décomposer la formule en sous-expressions selon les parenthèses.
+4. Remplir les colonnes de l'intérieur vers l'extérieur ; vérifier chaque ligne.
+5. Lire la dernière colonne seulement après avoir validé les précédentes.
+
+À l'examen, une colonne finale juste ne suffit pas à valider un raisonnement erroné. Gardez les colonnes intermédiaires. Imprimez cette fiche et les exemples avec la commande Imprimer du navigateur.
+
+</div>
+
+En L04, nous comparerons les dernières colonnes de deux formules pour étudier leur équivalence. [L04](/fr/lessons/L04/).
+
+Source vérifiée : Logique_01.pdf, pages physiques 13–14 (assertions atomiques, évaluation de proche en proche et exemple à deux variables). Les tables complétées, arbres, atelier et exercices supplémentaires sont des explications et compléments du projet.
+
