@@ -1,0 +1,207 @@
+---
+lessonId: L09
+locale: en
+version: 4
+status: extended
+title: "Sets and Russell’s paradox"
+summary: "Explore collections, test a naive definition, construct a proof by contradiction and understand restricted comprehension."
+minutes: 25
+objectives: [L09-O01, L09-O02, L09-O03, L09-O04, L09-O05, L09-O06]
+prerequisites: [L01]
+sourcePages: [37, 38, 39, 40]
+---
+
+import RussellWorkshop, { RussellDiagrams } from '../../../src/components/RussellWorkshop';
+
+# Sets and Russell’s paradox
+
+## 1. Understand — Can we define any set?
+
+**Goal:** discover why an apparently reasonable definition can be impossible, then learn how to prove it. Recall L01: a classical assertion is 0 (false) or 1 (true); $\neg$ reverses these values.
+
+Informally, a set is a collection of objects. The distinct letters in “maths” form $\{m,a,t,h,s\}$, for example. Order and repetitions do not matter: $\{2,1,2\}=\{1,2\}$.
+
+In $A=\{1,2,3\}$, $2\in A$ means “2 belongs to A”, and $4\notin A$ means “4 does not belong to A”. $\{2\}\subseteq A$ means every element of this small set belongs to A; that is not the same question as $\{2\}\in A$.
+
+## 2. Visualise — A set can be an element
+
+<RussellDiagrams locale="en" />
+
+In $B=\{1,\{2,3\}\}$, the two directly listed elements are $1$ and $\{2,3\}$. Thus $\{2,3\}\in B$, but $2\notin B$ and $3\notin B$. Membership is not transitive.
+
+A collection can therefore contain sets. But can we accept any construction rule, including one requiring us to check whether a set is its own element? The loop in the diagram represents this hypothesis only; it does not assert that such a set exists.
+
+## 3. Calculate and reason — Translate a rule
+
+In an admission rule, “if and only if” requires both directions (L07). For example, for $C=\{2,4\}$, an object belongs to C exactly when it equals 2 or 4.
+
+Now suppose, to test the naive definition, that **every property allows us to form the set of all objects satisfying it**. Take the property $x\notin x$ for sets x:
+
+$$
+E=\{x\mid x\notin x\}.
+$$
+
+Read: “the collection of sets x such that x does not belong to x”. The vertical bar means “such that”. Under our assumption, E would be a set and the rule would also apply to E:
+
+$$
+x\in E\ \Leftrightarrow\ x\notin x.
+$$
+
+Mentally replace x with E. Before reading the proof, predict: does E belong to E?
+
+## 4. Experiment — Test both assumptions
+
+<RussellWorkshop locale="en" client:visible />
+
+<details>
+<summary>Formal proof — read after both attempts</summary>
+
+Suppose E exists as a set and apply its rule to x = E.
+
+- If $E\in E$, the necessary admission condition forces $E\notin E$. Contradiction.
+- If $E\notin E$, the sufficient admission condition forces $E\in E$. Contradiction.
+
+Classical logic leaves no other case. Let v be the truth value of “$E\in E$”; we obtain $v=\neg v$; neither 0 nor 1 works. This has the same logical structure as the liar sentence in L01, without confusing the two paradoxes.
+
+**Conclusion:** the assumption that E exists as a set is impossible. This is proof by contradiction: assume what you want to refute, derive an impossibility, and reject the assumption. It is neither a third truth value nor proof that all sets are contradictory.
+
+</details>
+
+### Repair the rule: start from a given set
+
+The course works with four families: number sets (for example the natural numbers, including zero, and real numbers), enumerations, comprehensions over a given set and sets built from the previous ones.
+
+| Construction | What we do |
+| --- | --- |
+| $\{x\mid x\notin x\}$ | Attempt to select without a source set; this rule produces Russell's contradiction. |
+| $\{x\in X\mid P(x)\}$ | Keep elements of an already given set X that pass test P. |
+
+For $X=\{1,2,3,4,5,6\}$ and P(x) = “x is even”, we obtain $\{2,4,6\}$. Imagine a filter: X → parity test → result. The result is a subset of X. A property alone does not guarantee existence of a set; restriction to X is essential. This is not a complete axiomatization of set theory.
+
+<details>
+<summary>Go further — why restriction changes the proof</summary>
+
+For a given set X, let $R=\{x\in X\mid x\notin x\}$. Then
+
+$$
+R\in R\ \Leftrightarrow\ (R\in X\land R\notin R).
+$$
+
+If $R\in X$, both cases lead to Russell's contradiction. Hence $R\notin X$. And because $R\subseteq X$, we also have $R\notin R$. The restricted definition is not contradictory: it never promises that R belongs to X.
+
+</details>
+
+## 5. Practise — Write and justify without answer choices
+
+These public exercises are ungraded. Try on paper before opening a hint, then compare your justification with the solution.
+
+### 1. Enumerate $\{3,1,3,2\}$ without repetition.
+
+<details>
+<summary>Hint</summary>
+
+Order does not matter.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+$\{1,2,3\}$.
+
+</details>
+
+### 2. Let $D=\{0,\{1,2\}\}$. Decide whether $1\in D$ and whether $\{1,2\}\in D$. Justify.
+
+<details>
+<summary>Hint</summary>
+
+Find the directly listed elements.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+$1\notin D$ but $\{1,2\}\in D$: the small set is one element.
+
+</details>
+
+### 3. Let $X=\{0,1,2,3,4\}$. Enumerate $\{x\in X\mid x>2\}$.
+
+<details>
+<summary>Hint</summary>
+
+Test each element of X.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+$\{3,4\}$: only 3 and 4 pass the test.
+
+</details>
+
+### 4. Assume E exists and $E\notin E$. Derive the consequence of Russell's rule.
+
+<details>
+<summary>Hint</summary>
+
+Replace x with E in the sufficient condition.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+$E\notin E$ passes the test; hence $E\in E$, a contradiction.
+
+</details>
+
+### 5. A student says: “The first case is impossible, so E does not contain itself and the problem is solved.” Refute the argument.
+
+<details>
+<summary>Hint</summary>
+
+The second case still needs testing.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+If $E\notin E$, the rule forces $E\in E$. Both cases fail. Reject the existence of E as a set.
+
+</details>
+
+### 6. For a given set X, let $R=\{x\in X\mid x\notin x\}$. Show that $R\notin X$. (Challenge)
+
+<details>
+<summary>Hint</summary>
+
+Assume the opposite and substitute R for x.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+Under $R\in X$, the rule becomes $R\in R\Leftrightarrow R\notin R$, impossible. Hence $R\notin X$.
+
+</details>
+
+The 21 selected exercises remain available through “Practise” with an account when sign-in is configured. The workshop and written exercises above do not measure recorded mastery.
+
+## 6. Remember — Revision sheet
+
+- $\in$: belongs to; $\notin$: does not belong to; $\subseteq$: is a subset of.
+- To refute a definition, assume existence, apply its rule, derive a contradiction and reject the assumption.
+- For Russell, test both cases: $E\in E$ and $E\notin E$. Neither works.
+- To construct by comprehension, start from a known set X and filter its elements.
+
+[Printable L09 sheet (A4)](/revision/l09-en.html) — recap and recall questions, no account required. The lesson can also be printed from the browser.
+
+L10 develops membership, inclusion and number sets; L13 develops comprehension.
+
+Source: Logique_01.pdf, physical pages 37–40. Diagrams, workshop, detailed proofs and written exercises are original project extensions.
