@@ -211,7 +211,9 @@ for (const locale of ['fr', 'en']) {
     await expect(region.locator('.l04-print-example')).not.toContainText(
       locale === 'fr' ? 'Pas d’équivalence' : 'Not equivalent',
     );
-    const solution = page.locator('article > details.l04-solution').first();
+    const solution = page
+      .locator('article > details.l04-solution:has(ol)')
+      .first();
     await expect(solution).not.toHaveAttribute('open');
     expect(
       await solution
@@ -231,6 +233,8 @@ for (const locale of ['fr', 'en']) {
     try {
       const page = await context.newPage();
       await page.goto(`http://127.0.0.1:4321/${locale}/lessons/L04/`);
+      await expect(page.locator('[data-proof-static]')).toBeVisible();
+      await expect(page.locator('.l04-proof-screen')).toBeHidden();
       for (const kind of ['rewrite', 'morgan', 'distribute']) {
         const region = page.locator(`[data-lab="${kind}"]`);
         await expect(region.locator('.l04-controls').first()).toBeHidden();
