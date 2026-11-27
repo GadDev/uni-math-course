@@ -168,7 +168,7 @@ test('only L05 loads its implication script; L04 uses separate Boolean islands',
   for (const lesson of ['L05', 'L04']) {
     await page.goto(`/fr/lessons/${lesson}/`);
     await expect(page.locator('astro-island')).toHaveCount(
-      lesson === 'L05' ? 0 : 3,
+      lesson === 'L05' ? 0 : 4,
     );
     // Astro can inline small modules; inspect both inline and external code.
     const scripts = await page.locator('script').evaluateAll((elements) =>
