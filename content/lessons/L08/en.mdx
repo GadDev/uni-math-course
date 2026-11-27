@@ -1,0 +1,210 @@
+---
+lessonId: L08
+locale: en
+version: 5
+status: extended
+title: "Functional completeness: every table from OR and NOT"
+summary: "Turn any truth table into a formula that uses only ∨ and ¬, by describing each true row and applying De Morgan to remove ∧."
+minutes: 35
+objectives: [L08-O01, L08-O02, L08-O03, L08-O04, L08-O05, L08-O06]
+prerequisites: [L03, L04]
+sourcePages: [32, 33, 34, 35]
+---
+import NormalFormLab from '../../../src/components/NormalFormLab';
+
+# Functional completeness: every table from OR and NOT
+
+In this lesson, the number of variables satisfies $n \geq 1$. We use only variables, OR and NOT; formulas without variables are outside the theorem.
+
+## 1. Understand — From table to formula
+
+### Your objective
+
+By the end of this lesson, you can read a truth table as a function, describe each true row by a conjunction, combine those with $\lor$, and remove $\land$ using De Morgan, so that the formula uses only $\lor$ and $\neg$.
+
+**Prerequisites:** L03 (truth tables) and L04 (Boolean laws, De Morgan).
+
+### Decoding the theorem
+
+Think of a machine: it receives a row of zeros and ones, then returns a zero or a one. $f$ names this rule. $\{0,1\}$ is the set of the two values; $\{0,1\}^n$ means all choices of $n$ inputs. The arrow $\to$ indicates “inputs to result”. The theorem says that any such rule can be built with OR and NOT.
+
+Start with two inputs and four rows. One true row supplies one condition; several true rows supply several possibilities joined by OR. If every row is false, $\neg(x \lor \neg x)$ indeed gives zero for both values of $x$.
+
+Like a program implementing an acceptance rule exactly, the formula must accept every output-1 row and reject every output-0 row. You do not need the shortest formula at the start.
+
+## 2. Visualise — One row, one minterm
+
+### The problem
+
+A function $f$ gives a value $0$ or $1$ for each assignment of $x$, $y$, $z$. The question is whether some assertion has exactly $f$ as its truth table. The answer is yes, and the construction below always works.
+
+For two inputs, exclusive OR gives us a first table to construct. Each true row has a description that equals $1$ on that row alone.
+
+| x | y | f(x,y) | Description of the true row |
+| --- | --- | --- | --- |
+| 0 | 0 | 0 | none |
+| 0 | 1 | 1 | $\neg x\land y$ |
+| 1 | 0 | 1 | $x\land\neg y$ |
+| 1 | 1 | 0 | none |
+
+Try row $11$ in each description: both give $0$. Labels and values, without colour coding, connect the table to the following construction.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L08-minterm-en.svg" alt="Row 010: x becomes NOT x, y stays y, z becomes NOT z. Their AND is 1 only at 010." width="560" height="200" /><figcaption>An input zero gives a negated letter; an input one gives an unnegated letter. Select rows by output f, not by the inputs.</figcaption></figure>
+
+### Step 1: one conjunction per true row
+
+A **literal** is a letter or its negation. For a row where $f = 1$, write the conjunction of literals that is true on that row and on no other. For the row $x = 0$, $y = 1$, $z = 1$, it is $\neg x \land y \land z$.
+
+### Step 2: join the true rows with OR
+
+If $f$ is $1$ on several rows, take the disjunction of their conjunctions. The result is $1$ on exactly the rows where $f$ is $1$.
+
+A disjunction of conjunctions of literals is disjunctive normal form (DNF). The canonical construction uses every variable in each minterm; a simplified form may use fewer. Select only output-1 rows.
+
+## 3. Calculate and reason — Construct, simplify, eliminate AND
+
+### Returning to the table on pages 32 to 35
+
+In the PDF’s table, the output is one exactly for $010$ and $110$, in x, y, z order. Each row gives one branch: $(\neg x \land y \land \neg z) \lor (x \land y \land \neg z)$. In both cases, y is one and z is zero; x is unrestricted. A shorter formula is therefore $y \land \neg z$, then $\neg(\neg y \lor z)$ using only OR and NOT. This simplification and explanation are original.
+
+Here is the simplification justified by factoring (L04):
+
+$$ (\neg x\land y\land\neg z)\lor(x\land y\land\neg z)
+\equiv(\neg x\lor x)\land y\land\neg z $$
+
+Distributivity in the factoring direction.
+
+$$\equiv\top\land y\land\neg z\equiv y\land\neg z.$$
+
+Excluded middle, then AND identity. The x term disappears because the two rows differ only in x. Do not delete a literal without such justification.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L08-pipeline-en.svg" alt="Table true at 010 and 110, two minterms joined by OR, factoring, then NOT(NOT y OR z)." width="560" height="290" /><figcaption>Construct first, simplify if useful, then remove AND if the question permits only OR and NOT.</figcaption></figure>
+
+### Step 3: remove AND with De Morgan
+
+For any $C$ and $D$,
+$$
+C \land D \equiv \neg(\neg C \lor \neg D).
+$$
+Applying this repeatedly leaves a formula that uses only $\lor$ and $\neg$.
+
+### Guided example: exclusive or
+
+Let $f(x, y)$ be $1$ exactly on the rows $01$ and $10$.
+
+1. Row $01$ gives $\neg x \land y$. Row $10$ gives $x \land \neg y$.
+2. Join them: $(\neg x \land y) \lor (x \land \neg y)$.
+3. Remove $\land$: $\neg x \land y \equiv \neg(x \lor \neg y)$ and $x \land \neg y \equiv \neg(\neg x \lor y)$.
+
+So $f$ is the table of $\neg(x \lor \neg y) \lor \neg(\neg x \lor y)$, which uses only $\lor$ and $\neg$.
+
+This guided work, whose solution is visible, is not an independent response for mastery evidence.
+
+### The theorem
+
+Every function $f : \{0,1\}^n \to \{0,1\}$ is the truth table of an assertion in $n$ propositional variables that uses only $\lor$ and $\neg$.
+
+If $f$ is $1$ on no row, there is no true row to describe; take $\neg(x \lor \neg x)$, which is always false.
+
+If every output is 1, the full DNF also works, but the formula $x\lor\neg x$ is shorter. For constant 0, negate that tautology. Both formulas use only OR and NOT. The n = 0 case remains outside our scope here.
+
+<details className="l08-extension">
+<summary>Further study — why OR and NOT separately do not suffice</summary>
+
+### Watch out: both connectives are needed
+
+Using $\lor$ alone on a letter $x$ gives only $x$ again, because $x \lor x \equiv x$. So $\lor$ alone cannot build $\neg x$. The negation is essential.
+
+NOT alone never combines two independent inputs: a formula built from one variable by negations remains that variable or its negation. It therefore cannot express $A \land B$. OR alone gives a disjunction of variables, which cannot express $\neg A$.
+
+</details>
+
+## 4. Experiment — Build a normal form
+
+Choose an example. Select the true rows, then construct each minterm by choosing each literal's sign. Check each step before joining terms. Then choose a simplification and a formula restricted to OR and NOT. When wrong, correct the indicated row or literal; a non-equivalent formula receives the first counterexample. Constant examples are included. This is a guided path, not a universal simplifier.
+
+<NormalFormLab locale="en" client:visible />
+
+The workshop is public and ungraded. For other activities, open [the logic workshop](/en/logic-workshop/).
+
+## 5. Practise — Construct as in the exam
+
+In Revision.pdf exercise 4 (physical pages 10–12), the lecturer asks for an assertion with the given table, then offers simplification as a bonus. The true rows are 001, 101 and 111, in x,y,z order. The solution combines three minterms and obtains $z\land(y\Rightarrow x)$. Do not confuse that instruction with the theorem: the exercise does not require OR and NOT only. The exercises below are original variants.
+
+1. For three variables x,y,z, the output is 1 exactly at 000, 010 and 011. Construct canonical DNF, simplify using laws, then remove AND.
+2. A two-variable function is 0 on all four rows. Another is 1 on all four rows. Give an OR/NOT-only formula for each and explain why it works.
+3. A student claims the minterm for row 100 is $x\lor(\neg y\land\neg z)$. Refute using an assignment and correct the minterm.
+4. For x,y,z, the true rows are 000, 001, 100 and 101. Build the complete DNF, factor and justify a minimal expression.
+
+<details className="l08-extension">
+<summary>Explained answers</summary>
+
+1.
+
+$$ (\neg x\land\neg y\land\neg z)\lor(\neg x\land y\land\neg z)\lor(\neg x\land y\land z) $$
+
+$$\equiv\neg x\land[(\neg y\land\neg z)\lor(y\land(\neg z\lor z))]$$
+
+Factoring.
+
+$$\equiv\neg x\land[(\neg y\land\neg z)\lor y]$$
+
+Excluded middle, then AND identity.
+
+$$\equiv\neg x\land[(y\lor\neg y)\land(y\lor\neg z)]\equiv\neg x\land(y\lor\neg z)$$
+
+Distributivity and commutativity, then excluded middle and identity.
+
+$$\equiv\neg(x\lor\neg(y\lor\neg z)).$$
+
+De Morgan and double negation. The expected column is 10110000.
+
+2. $f_0\equiv\neg(x\lor\neg x)$ ; $f_1\equiv x\lor\neg x$. Excluded middle is always 1, its negation always 0.
+
+3. At 111, the student's term is 1 because of x, although the target row is 100. The correct minterm is $x\land\neg y\land\neg z$.
+
+4.
+
+$$ (\neg x\land\neg y\land\neg z)\lor(\neg x\land\neg y\land z)\lor(x\land\neg y\land\neg z)\lor(x\land\neg y\land z) $$
+
+$$\equiv\neg y\land[(\neg x\land(\neg z\lor z))\lor(x\land(\neg z\lor z))]$$
+
+$$\equiv\neg y\land(\neg x\lor x)\equiv\neg y.$$
+
+Factoring, excluded middle and identity. The output depends only on y; x and z are free. A constant formula would not work.
+
+</details>
+
+### Independent practice
+
+The selected exercises cover reading the true rows, a conjunction for one row, joining rows, removing $\land$, the statement of the theorem and building a three-variable table.
+
+The workshop above is public. Graded practice requires sign-in. Availability depends on this lesson’s selected version and release status.
+
+## 6. Remember — Revision sheet
+
+<section className="l08-revision">
+
+### Takeaway
+
+Describe each true row, join the descriptions with $\lor$, and replace $\land$ using De Morgan. Every truth table is reachable with $\lor$ and $\neg$ alone.
+
+| Step | Method |
+| --- | --- |
+| 1 | Mark rows where f = 1. |
+| 2 | Input 0 → negated letter; input 1 → positive letter. |
+| 3 | Join a row's literals with AND. |
+| 4 | Join minterms with OR. |
+| 5 | Factor if useful and justify each law. |
+| 6 | If required, remove AND then verify the table. |
+
+$$C\land D\equiv\neg(\neg C\lor\neg D).$$
+
+$$f_0\equiv\neg(x\lor\neg x),\qquad f_1\equiv x\lor\neg x.$$
+
+Warning: canonical DNF need not be minimal. Output 0 adds no minterm. Treat both constants explicitly; do not leave an empty formula. Print the memo and diagrams from the browser.
+
+</section>
+
+Verified source: Logique_01.pdf, physical pages 32–35; Revision.pdf, exercise 4, physical pages 10–12. The constructive proof, the n ≥ 1 restriction already adopted in this lesson, explained simplifications, workshop, diagrams and variants are project developments.
+
