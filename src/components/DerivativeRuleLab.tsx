@@ -55,7 +55,7 @@ const examples = [
       'Both factors vary: keep an undifferentiated factor in each term.',
     ],
     steps: [
-      "u=x^3,\\quad v=x-2",
+      'u=x^3,\\quad v=x-2',
       "u'=3x^2,\\quad v'=1",
       '3x^2(x-2)+x^3',
       '4x^3-6x^2',
@@ -132,7 +132,9 @@ export default function DerivativeRuleLab({ locale }: { locale: Locale }) {
           ? 'Atelier : quelle règle choisir ?'
           : 'Workshop: which rule to choose?'}
       </p>
-      <p>{index + 1} / {examples.length}</p>
+      <p>
+        {index + 1} / {examples.length}
+      </p>
       <p className="l39-rule-math">
         <MathLine value={example.expression} />
       </p>
@@ -215,11 +217,7 @@ export default function DerivativeRuleLab({ locale }: { locale: Locale }) {
           >
             {fr ? 'Exemple suivant' : 'Next example'}
           </button>
-          <button
-            type="button"
-            data-rule-reset
-            onClick={() => reset(0)}
-          >
+          <button type="button" data-rule-reset onClick={() => reset(0)}>
             {fr ? 'Réinitialiser' : 'Reset'}
           </button>
         </div>
@@ -241,7 +239,9 @@ export default function DerivativeRuleLab({ locale }: { locale: Locale }) {
       </div>
       <div className="l39-rule-print">
         <p>
-          {fr ? 'Exemple de révision : composition' : 'Revision example: composition'}
+          {fr
+            ? 'Exemple de révision : composition'
+            : 'Revision example: composition'}
         </p>
         <p>
           <MathLine value="(3x-2)^4" />

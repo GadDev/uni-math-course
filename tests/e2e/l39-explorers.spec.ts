@@ -267,11 +267,14 @@ for (const locale of ['fr', 'en']) {
     for (const [i, rule] of expected.entries()) {
       await lab.locator('[data-rule-choice]').selectOption(rule);
       await lab.locator('[data-rule-check]').click();
-      await expect(lab.locator('[data-rule-feedback]')).toContainText('Correct');
+      await expect(lab.locator('[data-rule-feedback]')).toContainText(
+        'Correct',
+      );
       await expect(lab.locator('[data-rule-steps] li')).toHaveCount(0);
       await lab.locator('[data-rule-reveal]').click();
       await expect(lab.locator('[data-rule-steps] li')).toHaveCount(1);
-      if (i < expected.length - 1) await lab.locator('[data-rule-next]').click();
+      if (i < expected.length - 1)
+        await lab.locator('[data-rule-next]').click();
     }
     await lab.locator('[data-rule-reset]').click();
     await expect(lab.locator('[data-rule-choice]')).toHaveValue('');
