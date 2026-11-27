@@ -24,6 +24,18 @@ for (const locale of ['fr', 'en'] as const) {
     );
     await expect(lab.locator('[data-truth-progress]')).toContainText('0/3');
     for (const [i, column] of ['1100', '1101', '0001'].entries()) {
+      if (i === 1) {
+        await lab.locator('[data-truth-cell="0"]').selectOption('0');
+        await check.click();
+        await expect(feedback).toContainText(
+          locale === 'fr' ? 'Ligne 00' : 'Row 00',
+        );
+        await expect(feedback).toContainText('B = 0');
+        await expect(feedback).toContainText('¬A = 1');
+        await expect(lab.locator('[data-truth-progress]')).toContainText(
+          '1/3',
+        );
+      }
       for (const [row, value] of [...column].entries()) {
         await lab.locator(`[data-truth-cell="${row}"]`).selectOption(value);
       }
