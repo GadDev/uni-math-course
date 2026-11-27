@@ -58,7 +58,8 @@
   margin: 0.75rem 0 0;
 }
 .l07-lab :is(select, button):focus-visible,
-.l07-exercise summary:focus-visible {
+.l07-exercise summary:focus-visible,
+.l07-recap summary:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
 }
@@ -92,12 +93,14 @@
   font-weight: 700;
   overflow-wrap: anywhere;
 }
-.l07-exercise {
+.l07-exercise,
+.l07-recap {
   border-left: 3px solid var(--line);
   padding: 0.5rem 1rem;
   margin: 1rem 0;
 }
-.l07-exercise summary {
+.l07-exercise summary,
+.l07-recap summary {
   cursor: pointer;
   min-height: 44px;
   padding: 0.5rem 0;
@@ -229,17 +232,31 @@
   .l07-lab .l07-static > p:last-child {
     display: none;
   }
-  .l07-exercise::details-content {
+  :is(.l07-exercise, .l07-recap)::details-content {
     content-visibility: visible;
     height: auto;
   }
-  .l07-exercise > :not(summary) {
+  :is(.l07-exercise, .l07-recap) > :not(summary) {
     display: block !important;
   }
-  .l07-exercise summary {
+  :is(.l07-exercise, .l07-recap) summary {
     min-height: 0;
   }
-  .l07-exercise summary::marker {
+  :is(.l07-exercise, .l07-recap) summary::marker {
     content: '';
+  }
+}
+
+.l07-revision {
+  border: 1px solid var(--line);
+  padding: 0.75rem;
+  margin-block: 1rem;
+}
+@media print {
+  .l07-revision {
+    break-inside: avoid;
+  }
+  .lesson-prose[data-lesson-id='L07'] :is(#à-retenir, #takeaway) {
+    break-before: auto;
   }
 }
