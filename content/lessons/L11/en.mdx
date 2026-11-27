@@ -1,0 +1,230 @@
+---
+lessonId: L11
+locale: en
+version: 4
+status: extended
+title: "Predicates and quantifiers"
+summary: "Read a predicate P(x) on a set, evaluate ∀ and ∃ over a domain, and see why the domain changes the truth value."
+minutes: 28
+objectives: [L11-O01, L11-O02, L11-O03, L11-O04, L11-O05, L11-O06]
+prerequisites: [L01, L10]
+sourcePages: [44, 45, 46, 47, 48]
+---
+
+import QuantifierLab from '../../../src/components/QuantifierLab';
+
+# Predicates and quantifiers
+
+## 1. Understand — A statement depending on x
+
+### Your objective
+
+By the end of this lesson, you can read a predicate $P(x)$ on a set $X$, evaluate $\forall x\ P(x)$ and $\exists x\ P(x)$, and explain how the domain changes the truth value.
+
+**Prerequisites:** L01 (assertions) and L10 (sets and membership).
+
+### Start with a finite domain
+
+Let $X = \{1,2,4\}$ and let $P(x)$ mean “x is even”.
+
+| x | 1 | 2 | 4 |
+| --- | --- | --- | --- |
+| P(x) | false | true | true |
+
+The “for every” is false because of one; the “there exists” is true, for example because of two. A **witness** passes the test; a **counterexample** makes the general rule fail.
+
+### Predicates
+
+A **predicate** $P(x)$ on a set $X$ is a statement that becomes an assertion as soon as the variable $x$ is interpreted by an element of $X$. Its truth value depends on that interpretation. The definition extends to predicates with several variables, such as $P(x, y)$.
+
+For example, on $\mathbb{R}$, let $P(x)$ be $x > 2$. It is true when $x$ is interpreted by $3$ and false when $x$ is interpreted by $1$.
+
+A predicate with a free variable does not yet have a fixed truth value. The domain specifies permitted values, the variable denotes the object tested, and the predicate describes the test. For a two-variable predicate, for example $Q(x,y):x+y=4$ on pairs of integers, $Q(1,3)$ is true but $Q(1,1)$ is false. All free variables must be interpreted or quantified to obtain an assertion.
+
+Supporting the geographical example on page 46: on $X=\{\text{Wiltz},\text{Luxembourg},\text{Arlon}\}$, state the necessary facts: Wiltz and Luxembourg are in Luxembourg, Arlon is in Belgium. The predicate “x is a Luxembourgish city” therefore gives two true values and one false value.
+
+## 2. Visualise — For all or there exists?
+
+### Quantifiers
+
+If $P(x)$ is a predicate on $X$:
+
+- $\forall x\ P(x)$ is true exactly when $P(a)$ is true for every choice of $a$ in $X$;
+- $\exists x\ P(x)$ is true exactly when there is a choice of $a$ in $X$ such that $P(a)$ is true.
+
+The symbol $\forall$ reads “for all” and $\exists$ reads “there exists”.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L11-quantifiers-en.svg" alt="Domain X contains 1, 2 and 4. P(x) means x is even. 1 is a counterexample to for all, 2 and 4 are witnesses for there exists." width="560" height="260" /><figcaption>A witness proves an existential; a counterexample refutes a universal. Both must belong to X.</figcaption></figure>
+
+In the professor's notation, the domain X is fixed and implicit. We can also write it explicitly: $\forall x\in X\ P(x)$ and $\exists x\in X\ P(x)$. The symbol $\exists$ means “at least one”, not “exactly one”.
+
+| Assertion | To prove it true | To prove it false |
+| --- | --- | --- |
+| $\forall x\in X\ P(x)$ | Justify P for every element of X. | Find a counterexample in X. |
+| $\exists x\in X\ P(x)$ | Give a witness in X and verify P. | Justify that no element of X satisfies P. |
+
+## 3. Calculate and reason — Justify the truth value
+
+### Guided example: one predicate, two domains
+
+Let $P(x)$ be $x > 2$.
+
+In the second case below, $[10,+\infty[$ means the reals greater than or equal to ten: the bracket beside ten includes it.
+
+1. On $\mathbb{R}$: $\exists x\ P(x)$ is true, with witness $3$. $\forall x\ P(x)$ is false, with counterexample $1$.
+2. On $[10, +\infty[$: $\forall x\ P(x)$ is true, because every number from $10$ upward exceeds $2$. $\exists x\ P(x)$ is also true.
+
+The same predicate gives a different value for $\forall$ when the domain changes.
+
+This guided work, whose solution is visible, is not an independent response for mastery evidence.
+
+### Four cases on a finite domain
+
+With $P(x)$ meaning “x is even”, compare:
+
+| Domain X | $\forall x\ P(x)$ | $\exists x\ P(x)$ |
+| --- | --- | --- |
+| $\{2,4\}$ | True | True |
+| $\{1,2\}$ | False | True |
+| $\{1,3\}$ | False | False |
+| $\varnothing$ | True | False |
+
+On the empty domain, no element can violate the universal rule: it is **vacuously true**. No witness can exist: the existential is false. This case is a teaching extension to the course pages and prepares L16 and L19.
+
+On a finite domain, an exhaustive table can justify both truth values. On an infinite domain, a few trials cannot prove a universal or refute an existential: a general argument is required. For example, on $[10,+\infty[$, every x satisfies $x\geq10>2$, and 10 is a witness for $x>2$.
+
+### Trap: forgetting the domain
+
+An assertion with a quantifier is only meaningful once the set $X$ is named. Always state the domain before deciding $\forall x\ P(x)$ or $\exists x\ P(x)$.
+
+### A caution about the source
+
+Page 48 states that $\exists x\forall y\ P(x,y)$ would be true on the set of humans, where P(x,y) means “x is strictly older than y”. But for every candidate x, we may choose $y=x$: comparing x strictly with itself is false. The statement is therefore false as written. Excluding y = x would change the statement and would not by itself guarantee someone strictly older than everyone else. We retain this distinction without assuming the author's intention.
+
+## 4. Experiment — Build the domain and test the predicate
+
+Choose the members of X, then the predicate. Before revealing each value, calculate it mentally. Next predict the truth values of both assertions and propose a witness and a counterexample, or state that none qualifies.
+
+<QuantifierLab locale="en" client:visible />
+
+**Challenges:** keep “x is even” and successively construct a domain where both assertions are true, a domain where only the existential is true, a domain where both are false, and a domain where only the universal is true. Also try a number outside X as a witness: even if it satisfies the predicate, it is inadmissible.
+
+This workshop is public and ungraded. It does not replace a written justification.
+
+## 5. Practise — Construct evidence
+
+Try the following six exercises on paper before opening hints and solutions. This work is ungraded.
+
+### 1. On $X=\{-2,0,3\}$, let $P(x):x<0$. Evaluate $P(-2)$, $P(0)$ and $P(3)$, then both quantified assertions.
+
+<details>
+<summary>Hint</summary>
+
+Test each value separately.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+$P(-2)=1$, $P(0)=0$, $P(3)=0$. The universal is false (0 is a counterexample); the existential is true (−2 is a witness).
+
+</details>
+
+### 2. On $X=\{0,2,4\}$, let $P(x):x>3$. A student proposes 5 as a witness for $\exists x\in X\ P(x)$. Is the argument valid? Find a valid witness.
+
+<details>
+<summary>Hint</summary>
+
+A witness must satisfy two conditions.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+No: $5\notin X$. However, $4\in X$ and $4>3$, so 4 is a valid witness.
+
+</details>
+
+### 3. Let $P(x):x^2<9$. Construct a nonempty finite domain on which $\forall x\ P(x)$ is true, then add one element to make it false without making $\exists x\ P(x)$ false.
+
+<details>
+<summary>Hint</summary>
+
+Keep a witness and add a counterexample.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+For example $X=\{0,1,2\}$; then $Y=\{0,1,2,3\}$. The first three squares are less than 9; $3^2=9$ refutes the universal on Y. 0 remains a witness.
+
+</details>
+
+### 4. On $X=\varnothing$, what are the truth values of $\forall x\in X\ P(x)$ and $\exists x\in X\ P(x)$? Justify without choosing a value of x.
+
+<details>
+<summary>Hint</summary>
+
+Ask whether a witness or counterexample can exist.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+True and false respectively: no counterexample, no witness. This is not a value of P(x) for a nonexistent object.
+
+</details>
+
+### 5. On $\mathbb R$, decide and justify $\forall x\ (x^2\geq0)$, $\exists x\ (x^2=-1)$ and $\exists x\ (x^2=16)$.
+
+<details>
+<summary>Hint</summary>
+
+Use the property of real squares; one witness suffices for the last statement.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+True, false, true. Every real square is nonnegative, so no real has square −1. The real 4 is a witness for the last statement.
+
+</details>
+
+### 6. On $\mathbb Z$, let $Q(x,y):x+y=0$. Evaluate $Q(2,-2)$ and $Q(2,2)$. Is the statement “every integer has an opposite integer” true? Justify with a choice of y depending on x.
+
+<details>
+<summary>Hint</summary>
+
+Choose y after fixing x.
+
+</details>
+
+<details>
+<summary>Worked solution</summary>
+
+$Q(2,-2)=1$, $Q(2,2)=0$. For every integer x, choose $y=-x\in\mathbb Z$: $x+y=0$. This previews L17.
+
+</details>
+
+### Independent practice
+
+The selected exercises cover predicates, evaluating one value, $\forall$ on a finite domain, $\exists$ with a witness, the effect of the domain and a place-name predicate.
+
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
+
+## 6. Remember — Revision sheet
+
+### Takeaway
+
+A predicate becomes an assertion once its variable has a value. $\forall x\ P(x)$ needs every element of the domain; $\exists x\ P(x)$ needs one. Name the domain first.
+
+**Quick method:** write the domain, read the predicate, identify the quantifier, then produce the appropriate evidence. One true example is not enough for $\forall$; one false example is not enough to refute $\exists$. A witness or counterexample must belong to the domain. Check the empty case.
+
+[Printable L11 sheet (A4)](/revision/l11-en.html) — method, table and practice. You can also print the lesson.
+
+Verified source: Logique_01.pdf, physical pages 44–48. Diagrams, the workshop, the empty case and written exercises are original project extensions. L12 addresses negation of quantifiers.
