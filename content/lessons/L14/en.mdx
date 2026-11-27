@@ -1,0 +1,167 @@
+---
+lessonId: L14
+locale: en
+version: 4
+status: extended
+title: "Power sets"
+summary: "List the subsets of a small set, use the notation 𝒫(A) and 2^A, and avoid confusing an element with a subset."
+minutes: 12
+objectives: [L14-O01, L14-O02, L14-O03, L14-O04, L14-O05, L14-O06]
+prerequisites: [L10]
+sourcePages: [58]
+---
+import FiniteSetLab from '../../../src/components/FiniteSetLab';
+
+# Power sets
+
+
+## 1. Understand — Ask the right question
+
+### Your objective
+
+By the end of this lesson, you can define $\mathcal{P}(A)$, list its elements for a small set, and tell an element of $A$ from an element of $\mathcal{P}(A)$.
+
+**Prerequisites:** L10 (membership and inclusion).
+
+
+### Diagnostic — read the braces
+
+For $A=\{1,2\}$, compare $1\in A$ and $\{1\}\subseteq A$. Which object goes into $\mathcal P(A)$?
+
+<details className="sets-diagnostic">
+<summary>Check prerequisites</summary>
+
+Both statements are true. The **subset** $\{1\}$ is an element of $\mathcal P(A)$. To decide $B\in\mathcal P(A)$, check $B\subseteq A$. Revisit [L10](/en/lessons/L10/).
+
+</details>
+
+To form a team from two people, include or exclude each person. The empty team counts too: choose nobody.
+
+
+<aside className="sets-depths">
+
+**Essentials:** read and understand. **Mastery:** calculate and justify. **Go further:** open the labelled extensions.
+
+</aside>
+
+## 2. Visualise — Follow the objects
+
+![Two include-or-exclude decisions produce the four subsets of two elements.](/diagrams/sets-learning/l14-en.svg)
+
+### Build the subsets without missing one
+
+For $A = \{a,b\}$, decide separately whether to keep each element.
+
+| Keep a? | Keep b? | Resulting subset |
+| --- | --- | --- |
+| no | no | $\varnothing$ |
+| yes | no | $\{a\}$ |
+| no | yes | $\{b\}$ |
+| yes | yes | $\{a,b\}$ |
+
+Each result is a set: $\{a\}\subseteq A$, so $\{a\}\in\mathcal{P}(A)$. The braces make the move from an element to a subset visible.
+
+Two choices per element give four results. With zero elements, there is nothing to choose: there is still one subset, the empty set. A set and its power set can share an element: with $A = \{\varnothing\}$, the empty set belongs to both. The distinction is their role, not a prohibition on shared elements.
+
+## 3. Calculate — Work through and justify
+
+### Definition
+
+If $A$ is a set, $2^A$ or $\mathcal{P}(A)$ denotes the set whose elements are the subsets of $A$. Its elements are sets: each one is a subset of $A$.
+
+For example:
+$$
+\mathcal{P}(\{1, 2\}) = \{\varnothing, \{1\}, \{2\}, \{1, 2\}\}.
+$$
+
+### Two subsets that are always there
+
+For every set $A$, both $\varnothing$ and $A$ itself belong to $\mathcal{P}(A)$, because $\varnothing \subseteq A$ and $A \subseteq A$.
+
+### How many subsets?
+
+A set with $n$ elements has $2^n$ subsets: each element is either in a subset or not. This remark explains the notation $2^A$ and is supporting enrichment, not a stated source result.
+
+### Guided example: three elements
+
+Let $A = \{a, b, c\}$. Its subsets are $\varnothing$, $\{a\}$, $\{b\}$, $\{c\}$, $\{a, b\}$, $\{a, c\}$, $\{b, c\}$ and $\{a, b, c\}$. That is $2^3 = 8$ subsets.
+
+### Trap: element or subset?
+
+The elements of $\mathcal{P}(\{1, 2\})$ are sets. So $\{1\} \in \mathcal{P}(\{1, 2\})$ is true, while $1 \in \mathcal{P}(\{1, 2\})$ is false: $1$ is an element of $\{1, 2\}$, not a subset of it. Also $\mathcal{P}(\varnothing) = \{\varnothing\}$ has one element, so it is not empty.
+
+### Recall at the location of page 57
+
+The source recalls the two relations here: $a \in A$ means that an object belongs to A; $B \subseteq A$ means that every element of B belongs to A. L10 previewed them to support reading. The new step now gathers **all subsets** into one set: $B \in \mathcal{P}(A)$ exactly when $B \subseteq A$.
+
+
+### A method that avoids omissions
+
+For $A=\{p,q,r\}$, group subsets by size:
+
+| Subset size | Subsets | Count |
+| --- | --- | --- |
+| 0 | $\varnothing$ | 1 |
+| 1 | $\{p\},\{q\},\{r\}$ | 3 |
+| 2 | $\{p,q\},\{p,r\},\{q,r\}$ | 3 |
+| 3 | $\{p,q,r\}$ | 1 |
+
+The check $1+3+3+1=8=2^3$ detects omissions, but the count alone does not prove the list is correct: check that all subsets are distinct and contained in A. Reordering elements does not create a new subset.
+
+**Complete:** enumerate $\mathcal P(\{0,3\})$ and give its number of elements.
+
+<details className="sets-correction">
+<summary>Complete and count</summary>
+
+$\mathcal P(\{0,3\})=\{\varnothing,\{0\},\{3\},\{0,3\}\}$. Four elements; the number 0 is an ordinary element of the original set, not the empty set.
+
+</details>
+
+### Empty or a box containing the empty set?
+
+$\varnothing$ has no elements; $\{\varnothing\}$ has one. Thus $\mathcal P(\varnothing)=\{\varnothing\}$, whereas $\mathcal P(\{\varnothing\})=\{\varnothing,\{\varnothing\}\}$ has two elements. Count **elements of the outer set**, not the symbols written down.
+
+## 4. Experiment — Predict, check, explain
+
+<FiniteSetLab lesson="L14" locale="en" client:visible />
+
+## 5. Practise — Answer without the model
+
+### Two paper questions
+
+Write a justification before opening the solutions. These new examples are not graded or saved.
+
+1. Enumerate $\mathcal P(\{u,v,w\})$ by size, then check the subset count.
+2. Decide $\varnothing\in\varnothing$, $\varnothing\subseteq\varnothing$ and $\varnothing\in\mathcal P(\varnothing)$. Justify each answer.
+
+<details className="sets-correction">
+<summary>Explained solutions</summary>
+
+1. $\{\varnothing,\{u\},\{v\},\{w\},\{u,v\},\{u,w\},\{v,w\},\{u,v,w\}\}$. Eight subsets: $2^3=8$.
+2. False: the empty set has no elements. True: no element of the empty set can refute inclusion. True: the empty set is a subset of itself, hence an element of its power set.
+
+</details>
+
+### Independent practice
+
+The selected exercises cover counting subsets, recognising a subset, the empty set as a subset, the count $2^n$, the power set of the empty set and the element-versus-subset distinction.
+
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
+
+<section className="sets-revision">
+
+## 6. Remember — Revision sheet
+
+### Takeaway
+
+$\mathcal{P}(A)$ is the set of all subsets of $A$. It always contains $\varnothing$ and $A$, and a set with $n$ elements has $2^n$ subsets.
+
+Original project text and examples. Coverage follows PDF page 58 in the repository’s course map; the counting remark is supporting enrichment.
+
+**Method and traps :** $B\in\mathcal P(A)\Longleftrightarrow B\subseteq A$. List by size; check duplicates and $2^n$ for a finite n-element set. $\mathcal P(\varnothing)=\{\varnothing\}$ has one element.
+
+**Finite count:** $|\mathcal P(A)|=2^{|A|}$, where bars give the number of elements. For $A=\{a,b\}$: four subsets, including the empty set and A.
+
+Shared reference: [logic and sets](https://uni-math-course.vercel.app/en/cheat-sheet/). To test yourself, hide this sheet and redo a paper question.
+
+</section>

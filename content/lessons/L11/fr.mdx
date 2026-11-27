@@ -1,0 +1,173 @@
+---
+lessonId: L11
+locale: fr
+version: 4
+status: extended
+title: "Prédicats et quantificateurs"
+summary: "Lire un prédicat P(x) sur un ensemble, évaluer ∀ et ∃ sur un domaine, et voir pourquoi le domaine change la valeur de vérité."
+minutes: 18
+objectives: [L11-O01, L11-O02, L11-O03, L11-O04, L11-O05, L11-O06]
+prerequisites: [L01, L10]
+sourcePages: [44, 45, 46, 47, 48]
+---
+import FiniteSetLab from '../../../src/components/FiniteSetLab';
+
+# Prédicats et quantificateurs
+
+
+## 1. Comprendre — Poser la bonne question
+
+### Votre objectif
+
+À la fin de cette leçon, vous savez lire un prédicat $P(x)$ sur un ensemble $X$, évaluer $\forall x\ P(x)$ et $\exists x\ P(x)$, et expliquer comment le domaine change la valeur de vérité.
+
+**Prérequis :** L01 (assertions) et L10 (ensembles et appartenance).
+
+
+### Diagnostic — phrase ouverte ou assertion ?
+
+Sur $X=\{0,1,2\}$, « x est pair » a-t-il déjà une valeur de vérité unique ? Et « 2 est pair » ?
+
+<details className="sets-diagnostic">
+<summary>Vérifier les prérequis</summary>
+
+Sans valeur de x, la première phrase est un prédicat ; $P(2)$ est une assertion vraie. L’assertion $\forall x\in X\ P(x)$ est déjà complète, mais elle est fausse à cause de 1. Revoir [L01](/fr/lessons/L01/) et [L10](/fr/lessons/L10/).
+
+</details>
+
+Pensez à un contrôle de billets : **∀** demande que chaque billet passe ; **∃** demande qu’au moins un passe. « Au moins un » permet plusieurs réussites ; cela ne veut pas dire « exactement un ».
+
+
+<aside className="sets-depths">
+
+**L’essentiel :** lire et comprendre. **Maîtriser :** calculer et justifier. **Aller plus loin :** ouvrir les prolongements signalés.
+
+</aside>
+
+## 2. Visualiser — Suivre les objets
+
+![Un même test, trois entrées et deux questions : toutes réussissent ou au moins une réussit.](/diagrams/sets-learning/l11-fr.svg)
+
+### Commencer par un domaine fini
+
+Soit $X = \{1,2,4\}$ et $P(x)$ : « x est pair ».
+
+| x | 1 | 2 | 4 |
+| --- | --- | --- | --- |
+| P(x) | faux | vrai | vrai |
+
+Le « pour tout » est faux à cause de un ; le « il existe » est vrai, par exemple grâce à deux. Un **témoin** est un élément qui réussit le test ; un **contre-exemple** est un élément qui fait échouer la règle générale.
+
+## 3. Calculer — Détailler et justifier
+
+### Prédicats
+
+Un **prédicat** $P(x)$ sur un ensemble $X$ est un énoncé qui devient une assertion dès que la variable $x$ est interprétée par un élément de $X$. Sa valeur de vérité dépend de cette interprétation. La définition s’étend aux prédicats à plusieurs variables, comme $P(x, y)$.
+
+Par exemple, sur $\mathbb{R}$, soit $P(x)$ : $x > 2$. Il est vrai lorsque $x$ est interprété par $3$ et faux lorsque $x$ est interprété par $1$.
+
+### Quantificateurs
+
+Si $P(x)$ est un prédicat sur $X$ :
+
+- $\forall x\ P(x)$ est vraie exactement lorsque $P(a)$ est vrai quel que soit le choix de $a$ dans $X$ ;
+- $\exists x\ P(x)$ est vraie exactement lorsqu’il existe un choix de $a$ dans $X$ tel que $P(a)$ est vrai.
+
+Le symbole $\forall$ se lit « pour tout » et $\exists$ se lit « il existe ».
+
+### Exemple guidé : un prédicat, deux domaines
+
+Soit $P(x)$ : $x > 2$.
+
+Dans le second cas ci-dessous, $[10,+\infty[$ signifie les réels supérieurs ou égaux à dix : le crochet près de dix l’inclut.
+
+1. Sur $\mathbb{R}$ : $\exists x\ P(x)$ est vraie, avec le témoin $3$. $\forall x\ P(x)$ est fausse, avec le contre-exemple $1$.
+2. Sur $[10, +\infty[$ : $\forall x\ P(x)$ est vraie, car tout nombre à partir de $10$ dépasse $2$. $\exists x\ P(x)$ est aussi vraie.
+
+Le même prédicat donne une valeur différente pour $\forall$ lorsque le domaine change.
+
+### Piège : oublier le domaine
+
+Une assertion avec un quantificateur n’a de sens qu’une fois l’ensemble $X$ nommé. Précisez toujours le domaine avant de décider de $\forall x\ P(x)$ ou de $\exists x\ P(x)$.
+
+### Une précaution sur la source
+
+L’exemple de l’âge à la page 48 de la source mêle des quantificateurs imbriqués et une comparaison « plus vieux que ». Lu littéralement, personne n’est plus vieux que soi-même : l’énoncé imbriqué évalué n’est donc pas vrai tel qu’il est écrit. Cette leçon n’utilise pas cet exemple ; voir les notes de relecture.
+
+
+### Quatre objectifs, quatre preuves
+
+| Assertion à établir | Ce qui suffit | Ce qui ne suffit pas |
+| --- | --- | --- |
+| ∀ vrai | argument pour chaque élément | un seul exemple favorable |
+| ∀ faux | un contre-exemple du domaine | un objet hors du domaine |
+| ∃ vrai | un témoin du domaine | un candidat sans vérification |
+| ∃ faux | montrer qu’aucun élément ne convient | un seul essai qui échoue |
+
+Sur un domaine fini, inspectez toutes les lignes si nécessaire. Sur les réels, tester quelques nombres ne prouve jamais un « pour tout » : il faut un argument général.
+
+**Exemple à compléter :** sur $X=\{-2,0,3\}$, soit $Q(x)$ : $x^2>1$. Remplissez les trois valeurs, puis décidez de ∀ et ∃ en nommant votre preuve.
+
+<details className="sets-correction">
+<summary>Compléter et justifier</summary>
+
+$Q(-2)$ est vraie car $4>1$ ; $Q(0)$ est fausse car $0\not>1$ ; $Q(3)$ est vraie car $9>1$. Le « pour tout » est faux avec contre-exemple 0 ; « il existe » est vrai avec témoin −2 ou 3.
+
+</details>
+
+<details className="sets-extension">
+<summary>Aller plus loin — L’ordre des quantificateurs (aperçu de L16)</summary>
+
+Sur $X=\{0,1,2\}$, considérez $R(x,y)$ : $x=y$. Dans $\forall x\in X\ \exists y\in X\ R(x,y)$, y peut dépendre de x : choisir $y=x$ marche à chaque ligne. En revanche, $\exists y\in X\ \forall x\in X\ R(x,y)$ exige **un même y** pour toutes les lignes : impossible, puisqu’il ne peut égaler à la fois 0 et 1.
+
+Le premier énoncé est vrai, le second faux. Garder deux noms distincts évite de confondre les rôles. La notation bornée et les traductions imbriquées seront développées en [L16](/fr/lessons/L16/).
+
+</details>
+
+
+Sur $X=\varnothing$, ∀ est vrai car aucun contre-exemple n’existe ; ∃ est faux car aucun témoin n’existe. Ce cas ne demande pas de déclarer une valeur P(x) hors du domaine.
+
+## 4. Expérimenter — Prédire, vérifier, expliquer
+
+<FiniteSetLab lesson="L11" locale="fr" client:visible />
+
+## 5. Pratiquer — Répondre sans le modèle
+
+### Deux questions sur papier
+
+Écrivez une justification avant d’ouvrir les corrections. Ces nouveaux exemples ne sont pas notés ni enregistrés.
+
+1. Sur $X=\{-3,0,2\}$, $P(x)$ signifie $x\ge0$. Décider ∀ et ∃, en donnant une preuve adaptée.
+2. Sur $\mathbb R$, décider $\forall x\ \exists y\ (y>x)$ et $\exists y\ \forall x\ (y>x)$. Dire si y peut dépendre de x.
+
+<details className="sets-correction">
+<summary>Corrections expliquées</summary>
+
+1. ∀ est faux avec contre-exemple −3 ; ∃ est vrai avec témoin 0 ou 2.
+2. Le premier est vrai : pour x donné, $y=x+1$ convient. Le second est faux : pour tout y proposé, choisir $x=y$ réfute $y>x$. Cet exercice est un prolongement lié aux quantificateurs imbriqués.
+
+</details>
+
+### Pratique indépendante
+
+Les exercices sélectionnés portent sur les prédicats, l’évaluation d’une valeur, $\forall$ sur un domaine fini, $\exists$ avec un témoin, l’effet du domaine et un prédicat sur des noms de lieux.
+
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
+
+<section className="sets-revision">
+
+## 6. Retenir — Fiche de révision
+
+### À retenir
+
+Un prédicat devient une assertion une fois sa variable fixée. $\forall x\ P(x)$ demande tous les éléments du domaine ; $\exists x\ P(x)$ en demande un. Nommez d’abord le domaine.
+
+Texte et exemples originaux du projet. La couverture suit les pages 44 à 48 du PDF selon la carte du cours du dépôt ; aucun texte d’enseignant n’est reproduit.
+
+**Méthode et pièges :** Domaine → prédicat → quantificateur → preuve. Un témoin prouve ∃ ; un contre-exemple réfute ∀. Pour prouver ∀ sur les réels, donner un argument général. Sur le vide : ∀ vrai, ∃ faux.
+
+**Exemple repère :** sur $X=\{0,1,2\}$, avec P(x) « x est pair », ∀ est faux (contre-exemple 1) et ∃ est vrai (témoin 0 ou 2).
+
+Référence commune : [logique et ensembles](https://uni-math-course.vercel.app/fr/cheat-sheet/). Pour vous tester, cachez cette fiche et refaites une question sur papier.
+
+</section>

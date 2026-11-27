@@ -1,7 +1,7 @@
 ---
 lessonId: L15
 locale: en
-version: 3
+version: 4
 status: extended
 title: "Set operations, relative complements and algebra"
 summary: "Compute intersections, unions and complements relative to a named set, and connect the laws of set algebra to the Boolean laws."
@@ -10,15 +10,45 @@ objectives: [L15-O01, L15-O02, L15-O03, L15-O04, L15-O05, L15-O06]
 prerequisites: [L04, L10]
 sourcePages: [59, 60, 61, 62, 63, 64, 65]
 ---
+import FiniteSetLab from '../../../src/components/FiniteSetLab';
+
 # Set operations, relative complements and algebra
 
-## Your objective
+
+## 1. Understand — Ask the right question
+
+### Your objective
 
 By the end of this lesson, you can compute $A \cap B$, $A \cup B$ and a complement relative to a named set, apply the laws of set algebra, and connect them to the Boolean laws.
 
 **Prerequisites:** L04 (Boolean laws) and L10 (sets and inclusion).
 
-## See the operations and recover the Boolean laws
+
+### Diagnostic — OR includes both
+
+If $A=\{1,2\}$ and $B=\{2,3\}$, does 2 belong to the union, the intersection, or both?
+
+<details className="sets-diagnostic">
+<summary>Check prerequisites</summary>
+
+Both: union uses inclusive OR. Intersection requires both memberships. Revisit [L02](/en/lessons/L02/) and [L10](/en/lessons/L10/).
+
+</details>
+
+Two guest lists: intersection keeps shared names; union collects names without duplicates. To say “not invited”, first name the list of everyone being considered.
+
+
+<aside className="sets-depths">
+
+**Essentials:** read and understand. **Mastery:** calculate and justify. **Go further:** open the labelled extensions.
+
+</aside>
+
+## 2. Visualise — Follow the objects
+
+![Both De Morgan laws: hatched regions agree on each side of each equality.](/diagrams/sets-learning/l15-en.svg)
+
+### See the operations and recover the Boolean laws
 
 In the diagrams, the rectangle is the ambient set U and the circles are A and B. Hatched regions indicate the result; the descriptions also state it without depending on a colour.
 
@@ -38,7 +68,9 @@ Take $U = \{1,2,3,4\}$, $A = \{1,2\}$ and $B = \{2,3\}$. Elements outside their 
 
 To see why this works for every element, fix $x \in U$. Saying it is outside the union means it is in neither A nor B: this is De Morgan applied to the two membership assertions. The finite calculation illustrates the law; this argument for an arbitrary element explains the general law. The same laws let you expand an intersection with a union or factor a union of intersections, as in L04.
 
-## Three operations
+## 3. Calculate — Work through and justify
+
+### Three operations
 
 Let $A$, $B$ and $C$ be sets with $A \subseteq C$.
 
@@ -48,7 +80,7 @@ Let $A$, $B$ and $C$ be sets with $A \subseteq C$.
 
 The complement always needs its ambient set $C$: it means “not in $A$, among the elements of $C$”.
 
-## Guided example: computing
+### Guided example: computing
 
 Let $A = \{1, 2, 4\}$, $B = \{2, 4, 6, 8\}$ and $C = \{1, 2, 3, 4, 5, 6, 7, 8\}$.
 
@@ -56,9 +88,7 @@ Let $A = \{1, 2, 4\}$, $B = \{2, 4, 6, 8\}$ and $C = \{1, 2, 3, 4, 5, 6, 7, 8\}$
 2. $A \cup B = \{1, 2, 4, 6, 8\}$.
 3. $\overline{A \cup B}^{\,C} = \{3, 5, 7\}$: the elements of $C$ that are not in $A \cup B$.
 
-This guided work, whose solution is visible, is not an independent response for mastery evidence.
-
-## Algebra of sets
+### Algebra of sets
 
 The operations satisfy identities that come from the Boolean laws. For sets $A$, $B$, $C$:
 
@@ -67,22 +97,85 @@ The operations satisfy identities that come from the Boolean laws. For sets $A$,
 - distributivity: $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ and $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$;
 - De Morgan, when $A, B \subseteq C$: $\overline{A \cup B}^{\,C} = \overline{A}^{\,C} \cap \overline{B}^{\,C}$ and $\overline{A \cap B}^{\,C} = \overline{A}^{\,C} \cup \overline{B}^{\,C}$.
 
-## The link with logic
+### The link with logic
 
 Membership turns each set operation into a connective: $x \in A \cap B$ means “$x \in A$ and $x \in B$”, $x \in A \cup B$ means “$x \in A$ or $x \in B$”, and $x \in \overline{A}^{\,C}$ means “$x \in C$ and not $x \in A$”. This is why the Boolean laws reappear.
 
-## Trap: the missing ambient set
+### Trap: the missing ambient set
 
 A complement means nothing until you name the set it is taken in. With $A = \{1, 2\}$, the complement is $\{3\}$ in $\{1, 2, 3\}$ but $\{3, 4\}$ in $\{1, 2, 3, 4\}$. De Morgan’s laws also require $A$ and $B$ to be inside $C$.
 
-## Independent practice
+
+### Move from an example to a proof
+
+Assume $A,B\subseteq C$ and fix **an arbitrary element** $x\in C$. Then:
+
+$$
+\begin{aligned}
+x\in\overline{A\cup B}^{\,C}
+&\Longleftrightarrow x\notin A\cup B\\
+&\Longleftrightarrow\neg(x\in A\lor x\in B)\\
+&\Longleftrightarrow(x\notin A\land x\notin B)\\
+&\Longleftrightarrow x\in\overline A^{\,C}\cap\overline B^{\,C}.
+\end{aligned}
+$$
+
+The third line uses logical De Morgan. Both sets have exactly the same elements in C and are contained in C, so they are equal. Checking one finite example does not replace this general argument.
+
+**Complete:** prove the other law starting from $x\notin A\cap B$. Which connective appears after negating?
+
+<details className="sets-correction">
+<summary>Complete the proof</summary>
+
+Still for $x\in C$, $\neg(x\in A\land x\in B)\equiv(x\notin A\lor x\notin B)$. Hence $\overline{A\cap B}^{\,C}=\overline A^{\,C}\cup\overline B^{\,C}$. This is OR: an element outside the intersection may belong to just one of the two sets.
+
+</details>
+
+## 4. Experiment — Predict, check, explain
+
+<FiniteSetLab lesson="L15" locale="en" client:visible />
+
+## 5. Practise — Answer without the model
+
+### Two paper questions
+
+Write a justification before opening the solutions. These new examples are not graded or saved.
+
+1. For $C=\{0,1,2,3,4,5\}$, $A=\{0,2,4\}$ and $B=\{2,3\}$, compute intersection, union and the union’s complement in C.
+2. Recompute the complement in $D=C\cup\{6\}$. What changes? Verify De Morgan in both ambient sets.
+
+<details className="sets-correction">
+<summary>Explained solutions</summary>
+
+1. $A\cap B=\{2\}$; $A\cup B=\{0,2,3,4\}$; $\overline{A\cup B}^{\,C}=\{1,5\}$. The complements are $\{1,3,5\}$ and $\{0,1,4,5\}$; their intersection is $\{1,5\}$.
+2. In D, the union’s complement is $\{1,5,6\}$. Both individual complements gain 6, so their intersection does too. The law remains true; its concrete result depends on the ambient set.
+
+</details>
+
+### Independent practice
 
 The selected exercises cover the intersection, the union, a relative complement, De Morgan’s law for sets, the role of the ambient set and the link with connectives.
 
 Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
 
-## Takeaway
+<section className="sets-revision">
+
+## 6. Remember — Revision sheet
+
+### Takeaway
 
 $\cap$ matches “and”, $\cup$ matches “or”, and a complement matches “not” relative to a named set $C$. The Boolean laws carry over to sets.
 
 Original project text and examples. Coverage follows PDF pages 59–65 in the repository’s course map; no professor-authored text is reproduced.
+
+**Method and traps :** Name C → compute memberships → apply AND/OR/NOT. A complement in C stays inside C. For a general proof, take an arbitrary element and translate into logic.
+
+**De Morgan, with $A,B\subseteq C$:**
+
+$$\overline{A\cup B}^{\,C}=\overline A^{\,C}\cap\overline B^{\,C},\qquad\overline{A\cap B}^{\,C}=\overline A^{\,C}\cup\overline B^{\,C}.$$
+
+**Anchor example:** for $C=\{0,1,2,3\}$, $A=\{1,2\}$ and $B=\{2,3\}$, the intersection is $\{2\}$, the union $\{1,2,3\}$ and its complement in C is $\{0\}$.
+
+Shared reference: [logic and sets](https://uni-math-course.vercel.app/en/cheat-sheet/). To test yourself, hide this sheet and redo a paper question.
+
+</section>

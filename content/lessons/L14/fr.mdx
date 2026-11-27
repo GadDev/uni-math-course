@@ -1,0 +1,167 @@
+---
+lessonId: L14
+locale: fr
+version: 4
+status: extended
+title: "Ensembles des parties"
+summary: "Lister les parties d’un petit ensemble, utiliser la notation 𝒫(A) et 2^A, et ne pas confondre un élément avec une partie."
+minutes: 12
+objectives: [L14-O01, L14-O02, L14-O03, L14-O04, L14-O05, L14-O06]
+prerequisites: [L10]
+sourcePages: [58]
+---
+import FiniteSetLab from '../../../src/components/FiniteSetLab';
+
+# Ensembles des parties
+
+
+## 1. Comprendre — Poser la bonne question
+
+### Votre objectif
+
+À la fin de cette leçon, vous savez définir $\mathcal{P}(A)$, lister ses éléments pour un petit ensemble, et distinguer un élément de $A$ d’un élément de $\mathcal{P}(A)$.
+
+**Prérequis :** L10 (appartenance et inclusion).
+
+
+### Diagnostic — lire les accolades
+
+Pour $A=\{1,2\}$, comparez $1\in A$ et $\{1\}\subseteq A$. Quel objet place-t-on dans $\mathcal P(A)$ ?
+
+<details className="sets-diagnostic">
+<summary>Vérifier les prérequis</summary>
+
+Les deux assertions sont vraies. C’est la **partie** $\{1\}$ qui est un élément de $\mathcal P(A)$. Pour décider $B\in\mathcal P(A)$, vérifier $B\subseteq A$. Revoir [L10](/fr/lessons/L10/).
+
+</details>
+
+Pour composer une équipe avec deux personnes, chacune est choisie ou non. L’équipe vide compte aussi : on peut ne choisir personne.
+
+
+<aside className="sets-depths">
+
+**L’essentiel :** lire et comprendre. **Maîtriser :** calculer et justifier. **Aller plus loin :** ouvrir les prolongements signalés.
+
+</aside>
+
+## 2. Visualiser — Suivre les objets
+
+![Deux décisions garder ou non produisent les quatre parties de deux éléments.](/diagrams/sets-learning/l14-fr.svg)
+
+### Construire les parties sans en oublier
+
+Pour $A = \{a,b\}$, décidez séparément de garder ou non chaque élément.
+
+| Garder a ? | Garder b ? | Partie obtenue |
+| --- | --- | --- |
+| non | non | $\varnothing$ |
+| oui | non | $\{a\}$ |
+| non | oui | $\{b\}$ |
+| oui | oui | $\{a,b\}$ |
+
+Chaque résultat est un ensemble : $\{a\}\subseteq A$, donc $\{a\}\in\mathcal{P}(A)$. Les accolades rendent visible le passage d’un élément à un sous-ensemble.
+
+Deux choix par élément donnent quatre résultats. Pour zéro élément, on ne choisit rien : on obtient quand même une partie, l’ensemble vide. Un ensemble et son ensemble des parties peuvent partager un élément : avec $A = \{\varnothing\}$, l’ensemble vide appartient aux deux. La distinction est leur rôle, pas l’interdiction d’un élément commun.
+
+## 3. Calculer — Détailler et justifier
+
+### Définition
+
+Si $A$ est un ensemble, $2^A$ ou $\mathcal{P}(A)$ désigne l’ensemble dont les éléments sont les parties de $A$. Ses éléments sont des ensembles : chacun est un sous-ensemble de $A$.
+
+Par exemple :
+$$
+\mathcal{P}(\{1, 2\}) = \{\varnothing, \{1\}, \{2\}, \{1, 2\}\}.
+$$
+
+### Deux parties toujours présentes
+
+Pour tout ensemble $A$, $\varnothing$ et $A$ lui-même appartiennent à $\mathcal{P}(A)$, car $\varnothing \subseteq A$ et $A \subseteq A$.
+
+### Combien de parties ?
+
+Un ensemble à $n$ éléments a $2^n$ parties : chaque élément est soit dans une partie, soit en dehors. Cette remarque explique la notation $2^A$ ; c’est un complément d’enrichissement, et non un résultat énoncé par la source.
+
+### Exemple guidé : trois éléments
+
+Soit $A = \{a, b, c\}$. Ses parties sont $\varnothing$, $\{a\}$, $\{b\}$, $\{c\}$, $\{a, b\}$, $\{a, c\}$, $\{b, c\}$ et $\{a, b, c\}$. Cela fait $2^3 = 8$ parties.
+
+### Piège : élément ou partie ?
+
+Les éléments de $\mathcal{P}(\{1, 2\})$ sont des ensembles. Donc $\{1\} \in \mathcal{P}(\{1, 2\})$ est vrai, tandis que $1 \in \mathcal{P}(\{1, 2\})$ est faux : $1$ est un élément de $\{1, 2\}$, et non une partie. De plus, $\mathcal{P}(\varnothing) = \{\varnothing\}$ a un élément : il n’est donc pas vide.
+
+### Rappel à l’endroit de la page 57
+
+La source rappelle ici les deux relations : $a \in A$ signifie qu’un objet appartient à A ; $B \subseteq A$ signifie que chaque élément de B appartient à A. L10 les a anticipées pour faciliter la lecture. La nouveauté est maintenant de rassembler **toutes les parties** dans un seul ensemble : $B \in \mathcal{P}(A)$ exactement lorsque $B \subseteq A$.
+
+
+### Une méthode qui évite les oublis
+
+Pour $A=\{p,q,r\}$, classer par nombre d’éléments :
+
+| Taille de la partie | Parties | Nombre |
+| --- | --- | --- |
+| 0 | $\varnothing$ | 1 |
+| 1 | $\{p\},\{q\},\{r\}$ | 3 |
+| 2 | $\{p,q\},\{p,r\},\{q,r\}$ | 3 |
+| 3 | $\{p,q,r\}$ | 1 |
+
+Le contrôle $1+3+3+1=8=2^3$ détecte un oubli, mais le nombre seul ne prouve pas que la liste est correcte : vérifier aussi que chaque partie est différente et incluse dans A. L’ordre des éléments ne crée pas une nouvelle partie.
+
+**À compléter :** énumérer $\mathcal P(\{0,3\})$ et préciser son nombre d’éléments.
+
+<details className="sets-correction">
+<summary>Compléter et compter</summary>
+
+$\mathcal P(\{0,3\})=\{\varnothing,\{0\},\{3\},\{0,3\}\}$. Quatre éléments ; le nombre 0 est un élément ordinaire de l’ensemble de départ, pas l’ensemble vide.
+
+</details>
+
+### Vide ou boîte contenant le vide ?
+
+$\varnothing$ n’a aucun élément ; $\{\varnothing\}$ en a un. Donc $\mathcal P(\varnothing)=\{\varnothing\}$, tandis que $\mathcal P(\{\varnothing\})=\{\varnothing,\{\varnothing\}\}$ a deux éléments. Comptez les **éléments de l’ensemble extérieur**, pas les symboles écrits.
+
+## 4. Expérimenter — Prédire, vérifier, expliquer
+
+<FiniteSetLab lesson="L14" locale="fr" client:visible />
+
+## 5. Pratiquer — Répondre sans le modèle
+
+### Deux questions sur papier
+
+Écrivez une justification avant d’ouvrir les corrections. Ces nouveaux exemples ne sont pas notés ni enregistrés.
+
+1. Énumérer $\mathcal P(\{u,v,w\})$ par taille, puis contrôler le nombre de parties.
+2. Décider $\varnothing\in\varnothing$, $\varnothing\subseteq\varnothing$ et $\varnothing\in\mathcal P(\varnothing)$. Justifier chaque réponse.
+
+<details className="sets-correction">
+<summary>Corrections expliquées</summary>
+
+1. $\{\varnothing,\{u\},\{v\},\{w\},\{u,v\},\{u,w\},\{v,w\},\{u,v,w\}\}$. Huit parties : $2^3=8$.
+2. Faux : le vide n’a aucun élément. Vrai : aucun élément du vide ne peut contredire l’inclusion. Vrai : le vide est une partie du vide, donc un élément de son ensemble des parties.
+
+</details>
+
+### Pratique indépendante
+
+Les exercices sélectionnés portent sur le comptage des parties, la reconnaissance d’une partie, l’ensemble vide comme partie, le nombre $2^n$, l’ensemble des parties de l’ensemble vide et la distinction entre élément et partie.
+
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
+
+<section className="sets-revision">
+
+## 6. Retenir — Fiche de révision
+
+### À retenir
+
+$\mathcal{P}(A)$ est l’ensemble de toutes les parties de $A$. Il contient toujours $\varnothing$ et $A$, et un ensemble à $n$ éléments a $2^n$ parties.
+
+Texte et exemples originaux du projet. La couverture suit la page 58 du PDF selon la carte du cours du dépôt ; la remarque de dénombrement est un complément d’enrichissement.
+
+**Méthode et pièges :** $B\in\mathcal P(A)\Longleftrightarrow B\subseteq A$. Lister par taille ; contrôler les doublons et $2^n$ pour un ensemble fini de n éléments. $\mathcal P(\varnothing)=\{\varnothing\}$ contient un élément.
+
+**Comptage fini :** $|\mathcal P(A)|=2^{|A|}$, où les barres désignent le nombre d’éléments. Pour $A=\{a,b\}$ : quatre parties, dont le vide et A.
+
+Référence commune : [logique et ensembles](https://uni-math-course.vercel.app/fr/cheat-sheet/). Pour vous tester, cachez cette fiche et refaites une question sur papier.
+
+</section>

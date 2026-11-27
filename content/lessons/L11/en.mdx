@@ -1,0 +1,173 @@
+---
+lessonId: L11
+locale: en
+version: 4
+status: extended
+title: "Predicates and quantifiers"
+summary: "Read a predicate P(x) on a set, evaluate ∀ and ∃ over a domain, and see why the domain changes the truth value."
+minutes: 18
+objectives: [L11-O01, L11-O02, L11-O03, L11-O04, L11-O05, L11-O06]
+prerequisites: [L01, L10]
+sourcePages: [44, 45, 46, 47, 48]
+---
+import FiniteSetLab from '../../../src/components/FiniteSetLab';
+
+# Predicates and quantifiers
+
+
+## 1. Understand — Ask the right question
+
+### Your objective
+
+By the end of this lesson, you can read a predicate $P(x)$ on a set $X$, evaluate $\forall x\ P(x)$ and $\exists x\ P(x)$, and explain how the domain changes the truth value.
+
+**Prerequisites:** L01 (assertions) and L10 (sets and membership).
+
+
+### Diagnostic — open sentence or assertion?
+
+On $X=\{0,1,2\}$, does “x is even” already have one truth value? What about “2 is even”?
+
+<details className="sets-diagnostic">
+<summary>Check prerequisites</summary>
+
+Without a value for x, the first sentence is a predicate; $P(2)$ is a true assertion. The assertion $\forall x\in X\ P(x)$ is already complete, but it is false because of 1. Revisit [L01](/en/lessons/L01/) and [L10](/en/lessons/L10/).
+
+</details>
+
+Think of checking tickets: **∀** requires every ticket to pass; **∃** requires at least one to pass. “At least one” allows several successes; it does not mean “exactly one”.
+
+
+<aside className="sets-depths">
+
+**Essentials:** read and understand. **Mastery:** calculate and justify. **Go further:** open the labelled extensions.
+
+</aside>
+
+## 2. Visualise — Follow the objects
+
+![One test, three inputs and two questions: do all pass or does at least one pass?](/diagrams/sets-learning/l11-en.svg)
+
+### Start with a finite domain
+
+Let $X = \{1,2,4\}$ and let $P(x)$ mean “x is even”.
+
+| x | 1 | 2 | 4 |
+| --- | --- | --- | --- |
+| P(x) | false | true | true |
+
+The “for every” is false because of one; the “there exists” is true, for example because of two. A **witness** passes the test; a **counterexample** makes the general rule fail.
+
+## 3. Calculate — Work through and justify
+
+### Predicates
+
+A **predicate** $P(x)$ on a set $X$ is a statement that becomes an assertion as soon as the variable $x$ is interpreted by an element of $X$. Its truth value depends on that interpretation. The definition extends to predicates with several variables, such as $P(x, y)$.
+
+For example, on $\mathbb{R}$, let $P(x)$ be $x > 2$. It is true when $x$ is interpreted by $3$ and false when $x$ is interpreted by $1$.
+
+### Quantifiers
+
+If $P(x)$ is a predicate on $X$:
+
+- $\forall x\ P(x)$ is true exactly when $P(a)$ is true for every choice of $a$ in $X$;
+- $\exists x\ P(x)$ is true exactly when there is a choice of $a$ in $X$ such that $P(a)$ is true.
+
+The symbol $\forall$ reads “for all” and $\exists$ reads “there exists”.
+
+### Guided example: one predicate, two domains
+
+Let $P(x)$ be $x > 2$.
+
+In the second case below, $[10,+\infty[$ means the reals greater than or equal to ten: the bracket beside ten includes it.
+
+1. On $\mathbb{R}$: $\exists x\ P(x)$ is true, with witness $3$. $\forall x\ P(x)$ is false, with counterexample $1$.
+2. On $[10, +\infty[$: $\forall x\ P(x)$ is true, because every number from $10$ upward exceeds $2$. $\exists x\ P(x)$ is also true.
+
+The same predicate gives a different value for $\forall$ when the domain changes.
+
+### Trap: forgetting the domain
+
+An assertion with a quantifier is only meaningful once the set $X$ is named. Always state the domain before deciding $\forall x\ P(x)$ or $\exists x\ P(x)$.
+
+### A caution about the source
+
+The source’s age example on page 48 mixes nested quantifiers with a comparison “older than”. Read literally, nobody is older than themselves, so the nested statement it evaluates is not true as written. This lesson does not use that example; see the review notes.
+
+
+### Four goals, four kinds of evidence
+
+| Assertion to establish | What suffices | What does not suffice |
+| --- | --- | --- |
+| ∀ true | argument covering every element | one favourable example |
+| ∀ false | one counterexample in the domain | an object outside the domain |
+| ∃ true | one witness in the domain | a candidate without checking |
+| ∃ false | show that no element works | one failed attempt |
+
+On a finite domain, inspect every row when needed. Over the reals, checking a few numbers never proves “for all”: use a general argument.
+
+**Complete:** on $X=\{-2,0,3\}$, let $Q(x)$ be $x^2>1$. Fill the three truth values, then decide ∀ and ∃, naming your evidence.
+
+<details className="sets-correction">
+<summary>Complete and justify</summary>
+
+$Q(-2)$ is true because $4>1$; $Q(0)$ is false because $0\not>1$; $Q(3)$ is true because $9>1$. “For all” is false with counterexample 0; “there exists” is true with witness −2 or 3.
+
+</details>
+
+<details className="sets-extension">
+<summary>Go further — Quantifier order (preview of L16)</summary>
+
+On $X=\{0,1,2\}$, consider $R(x,y)$: $x=y$. In $\forall x\in X\ \exists y\in X\ R(x,y)$, y may depend on x: choosing $y=x$ works on every row. However, $\exists y\in X\ \forall x\in X\ R(x,y)$ requires **one same y** for every row: impossible, since it cannot equal both 0 and 1.
+
+The first statement is true, the second false. Two distinct variable names keep their roles clear. Bounded notation and nested translations are developed in [L16](/en/lessons/L16/).
+
+</details>
+
+
+On $X=\varnothing$, ∀ is true because there is no counterexample; ∃ is false because there is no witness. This case does not evaluate P(x) outside its domain.
+
+## 4. Experiment — Predict, check, explain
+
+<FiniteSetLab lesson="L11" locale="en" client:visible />
+
+## 5. Practise — Answer without the model
+
+### Two paper questions
+
+Write a justification before opening the solutions. These new examples are not graded or saved.
+
+1. Over $X=\{-3,0,2\}$, $P(x)$ means $x\ge0$. Decide ∀ and ∃ with appropriate evidence.
+2. Over $\mathbb R$, decide $\forall x\ \exists y\ (y>x)$ and $\exists y\ \forall x\ (y>x)$. Explain whether y may depend on x.
+
+<details className="sets-correction">
+<summary>Explained solutions</summary>
+
+1. ∀ is false with counterexample −3; ∃ is true with witness 0 or 2.
+2. The first is true: for a given x, $y=x+1$ works. The second is false: for any proposed y, choose $x=y$ to refute $y>x$. This is an extension on nested quantifiers.
+
+</details>
+
+### Independent practice
+
+The selected exercises cover predicates, evaluating one value, $\forall$ on a finite domain, $\exists$ with a witness, the effect of the domain and a place-name predicate.
+
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
+
+<section className="sets-revision">
+
+## 6. Remember — Revision sheet
+
+### Takeaway
+
+A predicate becomes an assertion once its variable has a value. $\forall x\ P(x)$ needs every element of the domain; $\exists x\ P(x)$ needs one. Name the domain first.
+
+Original project text and examples. Coverage follows PDF pages 44–48 in the repository’s course map; no professor-authored text is reproduced.
+
+**Method and traps :** Domain → predicate → quantifier → evidence. A witness proves ∃; a counterexample refutes ∀. Prove ∀ over the reals with a general argument. On the empty domain: ∀ true, ∃ false.
+
+**Anchor example:** on $X=\{0,1,2\}$, with P(x) “x is even”, ∀ is false (counterexample 1) and ∃ true (witness 0 or 2).
+
+Shared reference: [logic and sets](https://uni-math-course.vercel.app/en/cheat-sheet/). To test yourself, hide this sheet and redo a paper question.
+
+</section>

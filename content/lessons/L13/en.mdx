@@ -1,0 +1,164 @@
+---
+lessonId: L13
+locale: en
+version: 4
+status: extended
+title: "Set comprehension"
+summary: "Read and compute a set defined by comprehension, including intervals and the even numbers, and separate the domain from the filter."
+minutes: 16
+objectives: [L13-O01, L13-O02, L13-O03, L13-O04, L13-O05, L13-O06]
+prerequisites: [L10, L11]
+sourcePages: [52, 53, 54, 55, 56]
+---
+import FiniteSetLab from '../../../src/components/FiniteSetLab';
+
+# Set comprehension
+
+
+## 1. Understand — Ask the right question
+
+### Your objective
+
+By the end of this lesson, you can read $\{a \in X \mid P(a)\}$, compute it for a finite $X$, recognise intervals and the even numbers written this way, and separate the domain $X$ from the filter $P$.
+
+**Prerequisites:** L10 (sets and enumeration) and L11 (predicates).
+
+
+### Diagnostic — candidate and condition
+
+Let $X=\{1,3,5\}$. Zero is even: is that enough for it to belong to $\{x\in X\mid \exists k\in\mathbb N\ x=2k\}$?
+
+<details className="sets-diagnostic">
+<summary>Check prerequisites</summary>
+
+No: zero is not in X. Be a candidate **and** pass the test. No candidate is even here, so the result is empty. Revisit [L10](/en/lessons/L10/) and [L11](/en/lessons/L11/).
+
+</details>
+
+Set-builder notation works like filtering a list: choose the list first, then apply the condition. A filter does not create new candidates.
+
+
+<aside className="sets-depths">
+
+**Essentials:** read and understand. **Mastery:** calculate and justify. **Go further:** open the labelled extensions.
+
+</aside>
+
+## 2. Visualise — Follow the objects
+
+![Candidates 0 to 5 pass through the even test; only 0, 2 and 4 are retained.](/diagrams/sets-learning/l13-en.svg)
+
+### Watch the filter work
+
+![Open interval from two to four: excluded endpoints, open circles; closed interval: included endpoints, filled dots.](/diagrams/interval-endpoints.svg)
+
+For $X = \{1,2,3,4\}$ and the test “greater than two”, one and two are rejected; three and four are kept. The result set contains only three and four. The symbol $\mid$ separates candidate objects from the test and reads “such that”.
+
+In an interval, $+\infty$ is not a real number that could be included: that end always has an open bracket. Compare $]2,4[$ (without two or four) and $[2,4]$ (with both endpoints).
+
+## 3. Calculate — Work through and justify
+
+### Definition
+
+If $P(x)$ is a predicate on $X$, the set of elements $a$ of $X$ for which $P(a)$ is true is written
+$$
+\{a \in X \mid P(a)\}.
+$$
+It reads “the set of $a$ in $X$ such that $P(a)$”.
+
+### Intervals
+
+With French notation, an outward bracket excludes an endpoint and an inward bracket includes it:
+$$
+\{x \in \mathbb{R} \mid x > 2\} = ]2, +\infty[.
+$$
+The interval $[10, +\infty[$ contains $10$ and every larger real number.
+
+### The even numbers
+
+$$
+\{n \in \mathbb{N} \mid \exists k \in \mathbb{N}\ n = 2k\} = \{0, 2, 4, \ldots\}.
+$$
+Here $\exists k \in \mathbb{N}$ reads “there exists $k$ in $\mathbb{N}$”. Zero is included, since $0 = 2 \cdot 0$.
+
+### Guided example: the primes up to 8
+
+A **prime number** is an integer at least $2$ with exactly two positive divisors: $1$ and itself. Thus $1$ is excluded, $2$ qualifies, and $4$ fails because $2$ is also a divisor.
+
+Let $X = \{1, 2, 3, 4, 5, 6, 7, 8\}$ and let $P(n)$ be “$n$ is prime”.
+
+1. Test each element of $X$ against $P$.
+2. The elements that pass are $2$, $3$, $5$ and $7$.
+3. So $\{n \in X \mid P(n)\} = \{2, 3, 5, 7\}$.
+
+### Trap: domain and filter
+
+The result depends on both parts. $\{n \in \{1, 2, 3\} \mid n > 5\} = \varnothing$, because the filter removes every element. And $\{x \in \mathbb{N} \mid x > 2\}$ is not the same set as $\{x \in \mathbb{R} \mid x > 2\}$: the domain differs.
+
+
+### Decode the notation, then test every row
+
+In $E=\{x\in X\mid P(x)\}$: E **names the result**, x is the **candidate**, X the **domain**, and P the **test**. Renaming the variable does not change the set: $\{x\in X\mid x>2\}=\{t\in X\mid t>2\}$.
+
+For $X=\{-2,-1,0,1,2,3\}$ and $P(x)$: $x^2\le4$, calculate:
+
+| x | −2 | −1 | 0 | 1 | 2 | 3 |
+| --- | --- | --- | --- | --- | --- | --- |
+| x² | 4 | 1 | 0 | 1 | 4 | 9 |
+| x² ≤ 4 | true | true | true | true | true | false |
+
+The result is $\{-2,-1,0,1,2\}$. Both endpoints −2 and 2 pass because equality is allowed.
+
+**Complete:** write $\{x\in\mathbb R\mid -1<x\le3\}$ as an interval, then replace the domain with $\mathbb Z$ and enumerate.
+
+<details className="sets-correction">
+<summary>Complete and check endpoints</summary>
+
+Over the reals: $]-1,3]$. Over integers: $\{0,1,2,3\}$. The real number $1.5$ belongs to the first set but not the second. Same test, different domain.
+
+</details>
+
+## 4. Experiment — Predict, check, explain
+
+<FiniteSetLab lesson="L13" locale="en" client:visible />
+
+## 5. Practise — Answer without the model
+
+### Two paper questions
+
+Write a justification before opening the solutions. These new examples are not graded or saved.
+
+1. Enumerate $\{n\in\{0,1,2,3,4,5,6,7,8\}\mid\exists k\in\mathbb N\ n=2k+1\}$.
+2. Write “the reals whose square is at most 4” in set-builder and interval notation. Are −2 and 2 included?
+
+<details className="sets-correction">
+<summary>Explained solutions</summary>
+
+1. $\{1,3,5,7\}$: test the domain’s candidates; 9 satisfies the property but is not a candidate.
+2. $\{x\in\mathbb R\mid x^2\le4\}=[-2,2]$. Both endpoints are included. Over $\mathbb Z$, the result would be only $\{-2,-1,0,1,2\}$.
+
+</details>
+
+### Independent practice
+
+The selected exercises cover a finite comprehension, two intervals, the even numbers, an empty result and a prime filter.
+
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
+
+<section className="sets-revision">
+
+## 6. Remember — Revision sheet
+
+### Takeaway
+
+$\{a \in X \mid P(a)\}$ keeps the elements of the given set $X$ that satisfy $P$. Name the domain, apply the filter, and expect the result to be empty when nothing passes.
+
+Original project text and examples. Coverage follows PDF pages 52–56 in the repository’s course map; no professor-authored text is reproduced.
+
+**Method and traps :** Domain → test → list retained elements → check endpoints. The result is contained in the domain. An intermediate real need not be an integer. Zero belongs to $\mathbb N$.
+
+**Anchor example:** $\{x\in\mathbb R\mid x^2\le4\}=[-2,2]$. With domain $\mathbb Z$, keep only $\{-2,-1,0,1,2\}$.
+
+Shared reference: [logic and sets](https://uni-math-course.vercel.app/en/cheat-sheet/). To test yourself, hide this sheet and redo a paper question.
+
+</section>

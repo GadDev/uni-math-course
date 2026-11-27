@@ -1,7 +1,7 @@
 ---
 lessonId: L15
 locale: fr
-version: 3
+version: 4
 status: extended
 title: "Opérations sur les ensembles, complémentaires relatifs et algèbre"
 summary: "Calculer intersections, unions et complémentaires relatifs à un ensemble nommé, et relier les lois de l’algèbre des ensembles aux lois booléennes."
@@ -10,15 +10,45 @@ objectives: [L15-O01, L15-O02, L15-O03, L15-O04, L15-O05, L15-O06]
 prerequisites: [L04, L10]
 sourcePages: [59, 60, 61, 62, 63, 64, 65]
 ---
+import FiniteSetLab from '../../../src/components/FiniteSetLab';
+
 # Opérations sur les ensembles, complémentaires relatifs et algèbre
 
-## Votre objectif
+
+## 1. Comprendre — Poser la bonne question
+
+### Votre objectif
 
 À la fin de cette leçon, vous savez calculer $A \cap B$, $A \cup B$ et un complémentaire relatif à un ensemble nommé, appliquer les lois de l’algèbre des ensembles, et les relier aux lois booléennes.
 
 **Prérequis :** L04 (lois booléennes) et L10 (ensembles et inclusion).
 
-## Voir les opérations et retrouver les lois de Boole
+
+### Diagnostic — OU comprend le cas des deux
+
+Si $A=\{1,2\}$ et $B=\{2,3\}$, 2 appartient-il à l’union, à l’intersection, ou aux deux ?
+
+<details className="sets-diagnostic">
+<summary>Vérifier les prérequis</summary>
+
+Aux deux : le OU de l’union est inclusif. L’intersection exige les deux appartenances. Revoir [L02](/fr/lessons/L02/) et [L10](/fr/lessons/L10/).
+
+</details>
+
+Deux listes d’invités : l’intersection garde les noms communs ; l’union rassemble les noms sans doublon. Pour dire « non invité », il faut d’abord nommer la liste de toutes les personnes considérées.
+
+
+<aside className="sets-depths">
+
+**L’essentiel :** lire et comprendre. **Maîtriser :** calculer et justifier. **Aller plus loin :** ouvrir les prolongements signalés.
+
+</aside>
+
+## 2. Visualiser — Suivre les objets
+
+![Les deux lois de de Morgan : les régions hachurées sont identiques de chaque côté de chaque égalité.](/diagrams/sets-learning/l15-fr.svg)
+
+### Voir les opérations et retrouver les lois de Boole
 
 Dans les schémas, le rectangle est l’ensemble ambiant U et les cercles sont A et B. Les zones hachurées indiquent le résultat ; les descriptions donnent aussi ce résultat sans dépendre d’une couleur.
 
@@ -38,7 +68,9 @@ Prenons $U = \{1,2,3,4\}$, $A = \{1,2\}$ et $B = \{2,3\}$. Les éléments hors d
 
 Pour comprendre pourquoi cela fonctionne pour tout élément, fixez $x \in U$. Dire qu’il est hors de l’union signifie qu’il n’est ni dans A ni dans B : c’est de Morgan appliqué aux deux assertions d’appartenance. Le calcul fini illustre la loi ; cet argument pour un élément arbitraire explique la loi générale. Les mêmes lois permettent de développer une intersection avec une union ou de factoriser une union d’intersections, comme en L04.
 
-## Trois opérations
+## 3. Calculer — Détailler et justifier
+
+### Trois opérations
 
 Soient $A$, $B$ et $C$ des ensembles avec $A \subseteq C$.
 
@@ -48,7 +80,7 @@ Soient $A$, $B$ et $C$ des ensembles avec $A \subseteq C$.
 
 Le complémentaire a toujours besoin de son ensemble ambiant $C$ : il signifie « pas dans $A$, parmi les éléments de $C$ ».
 
-## Exemple guidé : calculer
+### Exemple guidé : calculer
 
 Soient $A = \{1, 2, 4\}$, $B = \{2, 4, 6, 8\}$ et $C = \{1, 2, 3, 4, 5, 6, 7, 8\}$.
 
@@ -56,9 +88,7 @@ Soient $A = \{1, 2, 4\}$, $B = \{2, 4, 6, 8\}$ et $C = \{1, 2, 3, 4, 5, 6, 7, 8\
 2. $A \cup B = \{1, 2, 4, 6, 8\}$.
 3. $\overline{A \cup B}^{\,C} = \{3, 5, 7\}$ : les éléments de $C$ qui ne sont pas dans $A \cup B$.
 
-Ce travail guidé, dont la solution est visible, n’est pas une réponse indépendante pour mesurer la maîtrise.
-
-## Algèbre des ensembles
+### Algèbre des ensembles
 
 Les opérations vérifient des identités qui découlent des lois booléennes. Pour des ensembles $A$, $B$, $C$ :
 
@@ -67,22 +97,85 @@ Les opérations vérifient des identités qui découlent des lois booléennes. P
 - distributivité : $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ et $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ ;
 - de Morgan, lorsque $A, B \subseteq C$ : $\overline{A \cup B}^{\,C} = \overline{A}^{\,C} \cap \overline{B}^{\,C}$ et $\overline{A \cap B}^{\,C} = \overline{A}^{\,C} \cup \overline{B}^{\,C}$.
 
-## Le lien avec la logique
+### Le lien avec la logique
 
 L’appartenance transforme chaque opération sur les ensembles en connecteur : $x \in A \cap B$ signifie « $x \in A$ et $x \in B$ », $x \in A \cup B$ signifie « $x \in A$ ou $x \in B$ », et $x \in \overline{A}^{\,C}$ signifie « $x \in C$ et non $x \in A$ ». C’est pourquoi les lois booléennes réapparaissent.
 
-## Piège : l’ensemble ambiant oublié
+### Piège : l’ensemble ambiant oublié
 
 Un complémentaire ne veut rien dire tant que l’on n’a pas nommé l’ensemble dans lequel on le prend. Avec $A = \{1, 2\}$, le complémentaire est $\{3\}$ dans $\{1, 2, 3\}$ mais $\{3, 4\}$ dans $\{1, 2, 3, 4\}$. Les lois de de Morgan exigent aussi que $A$ et $B$ soient dans $C$.
 
-## Pratique indépendante
+
+### Passer d’un exemple à une preuve
+
+Supposons $A,B\subseteq C$ et fixons **un élément arbitraire** $x\in C$. Alors :
+
+$$
+\begin{aligned}
+x\in\overline{A\cup B}^{\,C}
+&\Longleftrightarrow x\notin A\cup B\\
+&\Longleftrightarrow\neg(x\in A\lor x\in B)\\
+&\Longleftrightarrow(x\notin A\land x\notin B)\\
+&\Longleftrightarrow x\in\overline A^{\,C}\cap\overline B^{\,C}.
+\end{aligned}
+$$
+
+La troisième ligne utilise de Morgan en logique. Comme les deux ensembles ont les mêmes éléments dans C et sont inclus dans C, ils sont égaux. Une vérification sur un seul exemple fini ne remplace pas cet argument général.
+
+**À compléter :** prouver l’autre loi en partant de $x\notin A\cap B$. Quel connecteur apparaît après la négation ?
+
+<details className="sets-correction">
+<summary>Compléter la preuve</summary>
+
+Toujours pour $x\in C$, $\neg(x\in A\land x\in B)\equiv(x\notin A\lor x\notin B)$. Donc $\overline{A\cap B}^{\,C}=\overline A^{\,C}\cup\overline B^{\,C}$. C’est OU : un élément hors de l’intersection peut appartenir à un seul des deux ensembles.
+
+</details>
+
+## 4. Expérimenter — Prédire, vérifier, expliquer
+
+<FiniteSetLab lesson="L15" locale="fr" client:visible />
+
+## 5. Pratiquer — Répondre sans le modèle
+
+### Deux questions sur papier
+
+Écrivez une justification avant d’ouvrir les corrections. Ces nouveaux exemples ne sont pas notés ni enregistrés.
+
+1. Pour $C=\{0,1,2,3,4,5\}$, $A=\{0,2,4\}$ et $B=\{2,3\}$, calculer intersection, union et complémentaire de l’union dans C.
+2. Refaire le complémentaire dans $D=C\cup\{6\}$. Qu’est-ce qui change ? Vérifier de Morgan dans les deux ambiants.
+
+<details className="sets-correction">
+<summary>Corrections expliquées</summary>
+
+1. $A\cap B=\{2\}$ ; $A\cup B=\{0,2,3,4\}$ ; $\overline{A\cup B}^{\,C}=\{1,5\}$. Les complémentaires sont $\{1,3,5\}$ et $\{0,1,4,5\}$ ; leur intersection est $\{1,5\}$.
+2. Dans D, le complémentaire de l’union est $\{1,5,6\}$. Chacun des deux complémentaires gagne 6, donc leur intersection aussi. La loi reste vraie ; son résultat concret dépend de l’ambiant.
+
+</details>
+
+### Pratique indépendante
 
 Les exercices sélectionnés portent sur l’intersection, l’union, un complémentaire relatif, la loi de de Morgan pour les ensembles, le rôle de l’ensemble ambiant et le lien avec les connecteurs.
 
 La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
 
-## À retenir
+<section className="sets-revision">
+
+## 6. Retenir — Fiche de révision
+
+### À retenir
 
 $\cap$ correspond à « et », $\cup$ correspond à « ou », et un complémentaire correspond à « non » relativement à un ensemble nommé $C$. Les lois booléennes se transposent aux ensembles.
 
 Texte et exemples originaux du projet. La couverture suit les pages 59 à 65 du PDF selon la carte du cours du dépôt ; aucun texte d’enseignant n’est reproduit.
+
+**Méthode et pièges :** Nommer C → calculer les appartenances → appliquer ET/OU/NON. Un complément dans C reste inclus dans C. Pour une preuve générale, prendre un élément arbitraire et traduire en logique.
+
+**De Morgan, avec $A,B\subseteq C$ :**
+
+$$\overline{A\cup B}^{\,C}=\overline A^{\,C}\cap\overline B^{\,C},\qquad\overline{A\cap B}^{\,C}=\overline A^{\,C}\cup\overline B^{\,C}.$$
+
+**Exemple repère :** pour $C=\{0,1,2,3\}$, $A=\{1,2\}$ et $B=\{2,3\}$, l’intersection vaut $\{2\}$, l’union $\{1,2,3\}$ et son complémentaire dans C vaut $\{0\}$.
+
+Référence commune : [logique et ensembles](https://uni-math-course.vercel.app/fr/cheat-sheet/). Pour vous tester, cachez cette fiche et refaites une question sur papier.
+
+</section>
