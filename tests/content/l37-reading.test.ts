@@ -55,6 +55,6 @@ test('lesson-authoring helpers can read L37 MDX and preserve its metadata', asyn
   for (const locale of ['fr', 'en'] as const) {
     const data = lesson.locales[locale];
     assert.ok(!('error' in data));
-    assert.equal(data.fields.version, '2');
+    assert.equal(data.fields.version, '3');
   }
 });
