@@ -1,0 +1,51 @@
+.applied-lab {
+  border: 1px solid currentColor;
+  border-radius: 0.75rem;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+.applied-lab fieldset {
+  min-width: 0;
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+}
+.applied-lab legend,
+.applied-lab td {
+  overflow-wrap: anywhere;
+}
+.applied-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.applied-lab button,
+.applied-lab select {
+  border: 1px solid currentColor;
+  border-radius: 0.4rem;
+  background: var(--color-background, transparent);
+  color: inherit;
+  font: inherit;
+  min-height: 44px;
+  padding: 0.5rem;
+  max-width: 100%;
+}
+.applied-lab button[aria-pressed='true'] {
+  outline: 2px solid currentColor;
+  font-weight: bold;
+}
+.applied-lab :is(button, input, select):focus-visible {
+  outline: 3px dashed currentColor;
+  outline-offset: 3px;
+}
+.applied-query {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+@media print {
+  .applied-live {
+    display: none !important;
+  }
+  .applied-static[hidden] {
+    display: block !important;
+  }
+}
