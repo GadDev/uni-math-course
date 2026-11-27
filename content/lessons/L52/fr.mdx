@@ -1,7 +1,7 @@
 ---
 lessonId: L52
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Du logarithme au lemme de Gibbs"
 summary: "Démontrer l’inégalité logarithmique puis comparer deux distributions."
@@ -12,6 +12,7 @@ sourcePages: [46, 47, 48]
 ---
 
 import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+import '../../../src/styles/information-guides.css';
 
 # Quel est le coût d'un mauvais modèle ?
 
@@ -35,6 +36,24 @@ $$\ln x\le x-1\qquad(x>0),$$
 
 avec égalité **si et seulement si** $x=1$. Géométriquement, la courbe du logarithme reste sous sa tangente en 1. Ne remplacez pas directement le logarithme naturel par celui de base 2 : il faut diviser par $\ln2>0$.
 
+<figure className="info-concept-figure">
+<div className="info-figure-scroll" role="region" aria-label="Schéma : défiler horizontalement si nécessaire" tabIndex={0}>
+<img src="/diagrams/information/l52-log-tangent-fr.svg" width="480" height="460" alt="La droite pointillée x moins 1 reste au-dessus de la courbe continue ln(x), avec contact en (1, 0)." loading="lazy" />
+</div>
+<figcaption>Tracé calculé sur 0,25 ≤ x ≤ 3, avec les mêmes axes pour les deux fonctions. La distance verticale est g(x) : nulle en 1 et positive ailleurs. Le lemme vaut pour tout x strictement positif.</figcaption>
+</figure>
+
+**Lire la preuve.** Une dérivée négative fait descendre g ; une dérivée positive la fait monter. Pour retrouver cette règle, revoir [L39](/fr/lessons/L39/). Ici, le dénominateur x est positif : le signe vient seulement de x − 1.
+
+<div className="info-table-scroll" role="region" aria-label="Tableau de calcul" tabIndex={0}>
+
+| x | $0<x<1$ | $x=1$ | $x>1$ |
+| --- | --- | --- | --- |
+| $g'(x)$ | $-$ | $0$ | $+$ |
+| g | décroît vers 0 | minimum 0 | croît depuis 0 |
+
+</div>
+
 ## 02 · Énoncer Gibbs sans oublier les hypothèses
 
 Prenons deux listes de même taille $p_i>0$, $q_i>0$, avec $\sum_i p_i=\sum_i q_i=1$. Le lemme affirme
@@ -42,6 +61,36 @@ Prenons deux listes de même taille $p_i>0$, $q_i>0$, avec $\sum_i p_i=\sum_i q_
 $$-\sum_i p_i\log_2q_i\ge-\sum_i p_i\log_2p_i=H(p).$$
 
 À gauche, on moyenne la surprise du modèle q avec les **vraies pondérations p**. Cette quantité est aussi appelée entropie croisée. L'égalité a lieu exactement lorsque $p_i=q_i$ pour tout i. Nous restons dans le cadre strictement positif ; aucune expression avec le logarithme de zéro n'est utilisée.
+
+## Essayer Gibbs avec deux termes
+
+Avant la preuve générale, prenons $p=(1/2,1/2)$ et $q=(1/4,3/4)$. L’indice i prend seulement les valeurs 1 et 2. Une somme à deux termes s’écrit en entier :
+
+$$\sum_{i=1}^2p_i\ln(q_i/p_i)=\frac12\ln(1/2)+\frac12\ln(3/2).$$
+
+<div className="info-table-scroll" role="region" aria-label="Tableau de calcul" tabIndex={0}>
+
+| i | $q_i/p_i$ | $p_i\ln(q_i/p_i)$ | $q_i-p_i$ |
+| --- | --- | --- | --- |
+| 1 | $1/2$ | $\frac12\ln(1/2)$ | $-1/4$ |
+| 2 | $3/2$ | $\frac12\ln(3/2)$ | $1/4$ |
+
+</div>
+
+En additionnant les deux inégalités, le membre de droite devient $-1/4+1/4=0$. Le membre de gauche vaut $\frac12\ln(3/4)<0$. La normalisation annule la somme à droite ; elle ne force pas l’égalité à gauche.
+
+<div className="info-guided">
+
+**Suivre le signe.** Pour transformer une somme inférieure ou égale à 0 en une borne sur son opposé, conserve-t-on le sens de l’inégalité ?
+
+<details className="info-answer">
+<summary>Vérifier et comprendre</summary>
+
+Non : multiplier par $-1$ inverse le sens. De $A\le0$, on passe à $-A\ge0$. Ensuite, diviser par $\ln2>0$ conserve le sens. Dans le laboratoire, essayer p = (2, 2, 2) et q = (1, 1, 1) en effectifs : les listes diffèrent, mais après normalisation les distributions sont égales.
+
+</details>
+
+</div>
 
 ## 03 · Quatre étapes pour la preuve
 

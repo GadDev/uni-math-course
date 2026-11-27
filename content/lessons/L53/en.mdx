@@ -1,9 +1,9 @@
 ---
 lessonId: L53
 locale: en
-version: 1
+version: 3
 status: extended
-title: "Why average length is bounded by entropy"
+title: "Why entropy is a lower bound on average codeword length"
 summary: "Combine McMillan and Gibbs to prove the bound and its equality case."
 minutes: 40
 objectives: [L53-O01, L53-O02, L53-O03, L53-O04, L53-O05, L53-O06]
@@ -12,10 +12,11 @@ sourcePages: [49, 50, 51, 52, 53, 54]
 ---
 
 import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+import '../../../src/styles/information-guides.css';
 
 # A limit a code cannot cross
 
-Could an even cleverer code beat Huffman and go below entropy? For a binary uniquely decodable code and a fixed source, no. Here is why, without skipping the PDF's normalisation factor.
+Could an even cleverer code beat Huffman and go below entropy? For a binary uniquely decodable symbol-by-symbol code and a fixed source, no. Here is why, without skipping the PDF's normalisation factor.
 
 **Source: PDF, pp. 49–54**, using the tools from pp. 45–48. The result concerns average length, not each isolated symbol.
 
@@ -30,6 +31,69 @@ A source has a finite alphabet of at least two symbols with $p_i>0$ and $\sum_i 
 $$L(c)=\sum_i p_i\ell_i,\qquad H(S)=-\sum_i p_i\log_2p_i.$$
 
 No temporal independence is needed for this symbol-by-symbol bound. Unique decodability is essential, however: the impossible code giving the same short word to every symbol could have a small mean but would not transmit the information.
+
+## Give each symbol a role
+
+<div className="info-table-scroll" role="region" aria-label="Calculation table" tabIndex={0}>
+
+| Object | What it represents |
+| --- | --- |
+| $p_i$ | given probability of symbol i |
+| $\ell_i$ | integer length of its codeword |
+| $K$ | sum of weights $2^{-\ell_i}$, not necessarily 1 |
+| $q_i$ | normalized weight constructed for Gibbs |
+| $H(S)$ | source mean surprisal |
+| $L(c)$ | chosen code mean length |
+
+</div>
+
+<figure className="info-concept-figure">
+<div className="info-figure-scroll" role="region" aria-label="Diagram: scroll horizontally if needed" tabIndex={0}>
+<img src="/diagrams/information/l53-proof-map-en.svg" width="480" height="475" alt="McMillan bounds K; normalize the weights to apply Gibbs, giving H ≤ L + log2 K ≤ L." loading="lazy" />
+</div>
+<figcaption>The tools serve different purposes: McMillan controls lengths; Gibbs compares distributions. Normalization connects them.</figcaption>
+</figure>
+
+**Worked route.** Keep $p=(1/2,1/4,1/4)$ and prefix words `00`, `010`, `011`, with lengths $(2,3,3)$. Before the general proof, work through these three steps.
+
+<div className="info-guided">
+
+**1 · Weigh.** Calculate the three binary weights and their sum K.
+
+<details className="info-answer">
+<summary>Check and understand</summary>
+
+$2^{-2}=1/4$, $2^{-3}=1/8$, $2^{-3}=1/8$ ; $K=1/4+1/8+1/8=1/2$.
+
+</details>
+
+</div>
+
+<div className="info-guided">
+
+**2 · Normalize.** Can we use these weights directly as q in Gibbs?
+
+<details className="info-answer">
+<summary>Check and understand</summary>
+
+No: they sum to $1/2$. Dividing each by $K=1/2$ gives $q=(1/2,1/4,1/4)$ and $\sum_iq_i=1$. Probabilities p were given; q comes from lengths.
+
+</details>
+
+</div>
+
+<div className="info-guided">
+
+**3 · Compare.** Calculate L, then identify the strict inequality.
+
+<details className="info-answer">
+<summary>Check and understand</summary>
+
+$L=\frac12\cdot2+\frac14\cdot3+\frac14\cdot3=5/2$. Here $H=3/2$ and $\log_2K=-1$, so $3/2=5/2-1<5/2$. Gibbs is an equality because p = q; the second inequality is strict because K &lt; 1. In the lab, use counts 2, 1, 1 and lengths 2, 3, 3 to check.
+
+</details>
+
+</div>
 
 ## 02 · Build a distribution from lengths
 
@@ -78,6 +142,19 @@ An individual length may be smaller than its symbol's surprise: the bound concer
 **Goal.** Observe the two inequalities separately. **Prediction.** If you add a bit to every word without changing p, which inequality becomes strict? Edit three counts from 1 to 20 and three lengths from 1 to 8. The panel constructs a prefix code when the sum permits, normalises q and displays the proof's three terms. It refuses to apply the chain when the sum exceeds 1.
 
 <InformationTheoryLab mode="bound" locale="en" client:visible />
+
+<div className="info-guided">
+
+**Reconstruct without the formula.** A classmate writes H ≤ L − log₂ K. Identify the first transformation to check and explain the role of the sign of log₂ K.
+
+<details className="info-answer">
+<summary>Check and understand</summary>
+
+First expand $\log_2q_i=-\ell_i-\log_2K$. Its negative weighted sum becomes $L+\log_2K$: the two minus signs cancel before the logarithm of K. Since $\log_2K\le0$, this term is at most L. With the wrong sign, the final step would not prove the required bound.
+
+</details>
+
+</div>
 
 ## Exercises and solutions
 

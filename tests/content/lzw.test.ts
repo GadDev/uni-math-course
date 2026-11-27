@@ -197,9 +197,14 @@ test('new banks cover all six objectives, preserve bilingual feedback, and keep 
       'LZW coûte 32 bits, soit 8 bits de plus',
     ],
   ];
+  const releases = JSON.parse(
+    readFileSync('content/releases.json', 'utf8'),
+  ).lessons;
   for (const [index, id] of ['L55', 'L56', 'L57'].entries()) {
     const bank = validateBank(
-      JSON.parse(readFileSync(`exercises/${id}/v1.json`, 'utf8')),
+      JSON.parse(
+        readFileSync(`exercises/${id}/v${releases[id].version}.json`, 'utf8'),
+      ),
     );
     for (const [n, exercise] of bank.exercises.entries()) {
       assert.equal(exercise.type, 'single-choice');
@@ -214,4 +219,28 @@ test('new banks cover all six objectives, preserve bilingual feedback, and keep 
     }
   }
   assert.equal(chapterForPath('chapters/C04/lzw/')?.id, 'C04');
+});
+
+test('released ABA question matches final-flush behavior and preserves its archived identity', () => {
+  const original = JSON.parse(readFileSync('exercises/L55/v1.json', 'utf8'));
+  const revised = validateBank(
+    JSON.parse(readFileSync('exercises/L55/v2.json', 'utf8')),
+  );
+  const result = encodeLzw('ABA', 'AB');
+  assert.deepEqual(result.codes, [1, 2, 1]);
+  assert.deepEqual(
+    result.steps.flatMap((s) => (s.added ? [s.added] : [])),
+    [
+      { code: 3, word: 'AB' },
+      { code: 4, word: 'BA' },
+    ],
+  );
+  assert.equal(result.steps.at(-1)!.added, null);
+  assert.deepEqual(
+    revised.exercises.map((e) => [e.id, e.answer]),
+    original.exercises.map((e: { id: string; answer: string }) => [
+      e.id,
+      e.answer,
+    ]),
+  );
 });

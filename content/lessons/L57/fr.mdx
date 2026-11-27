@@ -1,21 +1,21 @@
 ---
 lessonId: L57
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "LZW : le cas particulier et le vrai coût du codage"
 summary: "Résoudre une entrée incomplète, rejeter un code impossible et comparer les coûts en bits."
-minutes: 25
+minutes: 35
 objectives: [L57-O01, L57-O02, L57-O03, L57-O04, L57-O05, L57-O06]
 prerequisites: [L55, L56, L47]
-sourcePages: [82, 83, 84, 85, 86, 87, 88, 89, 90]
+sourcePages: [82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93]
 ---
 
 # Le code qui arrive juste avant sa définition
 
 Vous recevez un code absent des entrées complètes. Est-ce forcément une erreur ? Pas si ce code est précisément celui de l’entrée en attente : sa première lettre permet de terminer sa propre définition.
 
-**Source : `coding.pdf`, pages physiques 82–90.** Le cas ABABABA apparaît en plusieurs étapes, suivi de l’exercice ANANAS et du bilan. Les pages 91–93 contiennent une comparaison expérimentale supplémentaire, hors de la plage demandée.
+**Source : `coding.pdf`, pages physiques 82–93.** Le cas ABABABA apparaît en plusieurs étapes, suivi de l’exercice ANANAS et du bilan. Les pages 91–93 comparent ensuite les coûts sur un texte et expliquent pourquoi LZW peut passer sous l’entropie des lettres.
 
 ## Objectifs et prérequis
 
@@ -62,6 +62,37 @@ La répétition peut rendre les morceaux plus longs sur de grands messages, mais
 
 L’atelier utilise des codes entiers, sans empaquetage binaire, remise à zéro ni saturation. Les détails d’un format réel doivent préciser ces règles. Avec une numérotation depuis 1, b bits permettent les codes 1 à 2ᵇ−1 si 0 reste inutilisé : ne confondez pas cette convention scolaire avec les codes réservés d’un format industriel.
 
+## 05 · LZW peut-il passer sous l’entropie des lettres ?
+
+**PDF, pp. 91–93 : un exemple rapporté, pas une garantie.** Le document compare des codages sur un texte de la Bible King James : 4 047 392 caractères et 63 symboles distincts. Voici les coûts moyens qu’il annonce. Ces résultats ne sont pas une mesure reproduite dans l’atelier ; le PDF ne précise pas tous les paramètres du format, notamment la gestion d’un dictionnaire plein et les frais inclus.
+
+| Représentation | Coût annoncé (bits par caractère) |
+| --- | --- |
+| ASCII sur un octet | 8 |
+| Code fixe pour 63 symboles | 6 |
+| Huffman lettre par lettre | 4,39 |
+| LZW, codes de 12 bits | 3,63 |
+| LZW, codes de 16 bits | 2,82 |
+
+Six bits suffisent pour 63 symboles, car $2^5=32<63\le64=2^6$. Pour le modèle des lettres de cet exemple, le PDF annonce $H(S)\approx4{,}34$ bits par caractère. Huffman reste au-dessus, mais les deux résultats LZW sont en dessous. **Est-ce une contradiction avec [L53](/fr/lessons/L53/) ?**
+
+Non : L53 étudie un code fixe attribué à **chaque symbole individuel**, dont la longueur moyenne est $\sum_i p_i\ell_i$. LZW remplace des **phrases apprises** par des indices ; la représentation d’une lettre dépend de ce qui a déjà été lu. Les répétitions d’un texte apportent une structure que les seules fréquences de lettres ne décrivent pas. L’entropie des lettres n’est donc pas une borne universelle pour tous les compresseurs de ce texte.
+
+La distinction apparaît déjà en [L46](/fr/lessons/L46/) : une source qui alterne toujours A et B, après un premier choix équiprobable, a les mêmes probabilités par position qu’une suite de tirages équitables indépendants. Pourtant, connaître une lettre fixe toutes les suivantes dans la première source. [L54](/fr/lessons/L54/) utilise explicitement le modèle indépendant pour multiplier les probabilités des blocs ; on ne doit pas imposer ce modèle à tout texte réel.
+
+**Prédire, puis justifier.** En prenant le code fixe de 6 bits comme référence et le coût LZW annoncé de 3,63 bits par caractère, quel pourcentage de bits est économisé ? Expliquez ensuite pourquoi le résultat ne garantit pas ce gain sur un autre message.
+
+<details className="info-answer">
+<summary>Comparer les coûts et les hypothèses</summary>
+
+La différence vaut $6-3{,}63=2{,}37$ bits par caractère. Le gain relatif est :
+
+$$\frac{6-3{,}63}{6}\times100=39{,}5\%.$$
+
+Le dénominateur est le coût de référence, pas le coût LZW. Ce calcul compare les valeurs annoncées pour cet exemple ; il ne précise pas les frais absents du protocole de mesure. Un autre texte, une autre largeur de code ou une autre gestion du dictionnaire peut donner un autre résultat. Le court message de la section 04 montre même une augmentation du coût. Passer sous l’entropie des lettres ne signifie pas passer sous une limite établie pour le même modèle et la même famille de codes.
+
+</details>
+
 ## Exercices progressifs et corrigés
 
 1. **Démarrage.** Avec `A=1`, décoder `1 2`. Pourquoi 2 est-il autorisé ?
@@ -79,4 +110,4 @@ L’atelier utilise des codes entiers, sans empaquetage binaire, remise à zéro
 
 ## À retenir et suite
 
-Le code de l’attente se résout avec **w + première lettre de w**. Tout autre code inconnu est invalide. Mesurez ensuite les coûts dans la même unité. [Retourner à l’atelier pour un nouveau défi](/fr/chapters/C04/lzw/), puis revenir au [chapitre 4](/fr/chapters/C04/).
+Le code de l’attente se résout avec **w + première lettre de w**. Tout autre code inconnu est invalide. Mesurez ensuite les coûts dans la même unité, avec une référence et des frais explicites. L’entropie des lettres borne le coût moyen des codes symbole par symbole étudiés en L53 ; LZW exploite des phrases et des répétitions. [Retourner à l’atelier pour un nouveau défi](/fr/chapters/C04/lzw/), puis revenir au [chapitre 4](/fr/chapters/C04/).
