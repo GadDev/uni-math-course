@@ -1,4 +1,5 @@
 ---
+import ExpLogReflection from '../ExpLogReflection.astro';
 import type { Locale } from '../../lib/i18n';
 import {
   domainChecks,
@@ -38,10 +39,6 @@ const plotPath = (
 const sx = (x: number) => 75 + (x + 0.5) * 128;
 const sy = (y: number) => 247 - y * 49;
 const parabola = plotPath(-0.5, 2.12, 70, (x) => x * x, sx, sy);
-const ix = (x: number) => 105 + 45 * x;
-const iy = (y: number) => 200 - 45 * y;
-const expCurve = plotPath(-2.0, 1.4, 80, (x) => Math.exp(x), ix, iy);
-const logCurve = plotPath(0.14, 4.0, 80, (x) => Math.log(x), ix, iy);
 ---
 
 <section
@@ -325,63 +322,7 @@ const logCurve = plotPath(0.14, 4.0, 80, (x) => Math.log(x), ix, iy);
         <p>{text.inverseCaption}</p>
       </div>
     </div>
-    <figure class="function-plot function-inverse-plot">
-      <svg
-        viewBox="0 0 410 310"
-        role="img"
-        aria-labelledby="functions-inverse-title functions-inverse-desc"
-      >
-        <title id="functions-inverse-title">{text.inversePlot}</title>
-        <desc id="functions-inverse-desc">{text.inverseCaption}</desc>
-        <g class="function-plot-grid" aria-hidden="true">
-          {[-2, -1, 0, 1, 2, 3, 4].map((x) => (
-            <line x1={ix(x)} y1="13" x2={ix(x)} y2="295" />
-          ))}
-          {[-2, -1, 0, 1, 2, 3, 4].map((y) => (
-            <line x1="10" y1={iy(y)} x2="306" y2={iy(y)} />
-          ))}
-        </g>
-        <g class="function-plot-axes" aria-hidden="true">
-          <line x1="10" y1={iy(0)} x2="321" y2={iy(0)} />
-          <line x1={ix(0)} y1="10" x2={ix(0)} y2="296" />
-          <text x="316" y={iy(0) + 15}>
-            x
-          </text>
-          <text x={ix(0) - 16} y="17">
-            y
-          </text>
-          <text x={ix(1)} y={iy(0) + 15}>
-            1
-          </text>
-          <text x={ix(0) - 12} y={iy(1) + 4}>
-            1
-          </text>
-        </g>
-        <line
-          x1={ix(-2)}
-          y1={iy(-2)}
-          x2={ix(4)}
-          y2={iy(4)}
-          class="function-reflection"
-        />
-        <path d={expCurve} class="function-curve" />
-        <path d={logCurve} class="function-tangent" />
-        <g class="function-markers" aria-hidden="true">
-          <circle cx={ix(0)} cy={iy(1)} r="4" />
-          <circle cx={ix(1)} cy={iy(0)} r="4" />
-          <text x="314" y="51">
-            eˣ
-          </text>
-          <text x="312" y="124">
-            ln(x)
-          </text>
-          <text x="215" y="106">
-            y = x
-          </text>
-        </g>
-      </svg>
-      <figcaption>{text.inverseCaption}</figcaption>
-    </figure>
+    <ExpLogReflection locale={locale} />
     <h4>{text.lawsTitle}</h4>
     <div
       class="cheat-sheet-table-scroll"
