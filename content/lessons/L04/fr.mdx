@@ -1,7 +1,7 @@
 ---
 lessonId: L04
 locale: fr
-version: 5
+version: 6
 status: extended
 title: "Équivalence sémantique et lois booléennes"
 summary: "Vérifier que deux formules ont la même table de vérité, appliquer les lois booléennes, reconnaître les tautologies et les contradictions, et réfuter une équivalence par une seule ligne."
@@ -11,12 +11,18 @@ prerequisites: [L01, L02, L03]
 sourcePages: [15, 16, 17, 18, 19]
 ---
 import BooleanLab from '../../../src/components/BooleanLab';
+import BooleanProofLab from '../../../src/components/BooleanProofLab';
 
 # Équivalence sémantique et lois booléennes
 
-## Votre objectif
+## 1. Comprendre — Même sens, écritures différentes
+
+### Votre objectif
 
 À la fin de cette leçon, vous savez vérifier que deux formules sont sémantiquement équivalentes, appliquer les lois booléennes, reconnaître les tautologies et les contradictions, et réfuter une équivalence par une seule ligne.
+
+<details className="l04-solution">
+<summary>Rappel facultatif — L01 à L03</summary>
 
 **Prérequis :** <a href="/fr/lessons/L01/">L01</a> à <a href="/fr/lessons/L03/">L03</a> : valeurs de vérité et tables complètes. Voici le petit mémo nécessaire :
 
@@ -29,9 +35,13 @@ import BooleanLab from '../../../src/components/BooleanLab';
 
 Une **affectation** est un choix de valeurs pour toutes les variables. Avec deux variables, il y a $2^2=4$ choix ; avec trois, $2^3=8$. Les parenthèses indiquent les groupes à calculer ; la négation porte sur la formule qui la suit.
 
+</details>
+
 **Comment utiliser cette leçon :** prédisez d’abord un résultat sur papier, manipulez ensuite une activité, puis expliquez le résultat avec vos mots. Les activités sont publiques et ne nécessitent pas de compte. Pour imprimer, utilisez la commande d’impression du navigateur : des exemples fixes remplacent les commandes, et les corrections sont développées.
 
-## Équivalence : la même table de vérité
+**Parcours essentiel :** lire les définitions et les lois, puis réaliser la preuve guidée. Pour maîtriser, essayer les trois explorateurs et les exercices sur papier. Les tables de vérification supplémentaires et le lien avec L05 sont des approfondissements.
+
+### Équivalence : la même table de vérité
 
 Imaginez deux contrôles d’accès : « avoir un billet ET une invitation » et « avoir une invitation ET un billet ». Ils acceptent exactement les mêmes personnes. L’ordre de la phrase change, la condition reste la même.
 
@@ -52,13 +62,17 @@ Deux assertions $A$ et $B$ sont **sémantiquement équivalentes**, ce qu’on é
 
 Par exemple, $A\land B$ et $A\lor B$ valent toutes deux 1 pour A = B = 1. Pourtant elles diffèrent pour A = 1, B = 0 : 0 contre 1. Un accord ne prouve donc rien au-delà de sa ligne.
 
-## L’équivalence n’est pas un connecteur
+### L’équivalence n’est pas un connecteur
 
 $\equiv$ est une affirmation sur deux formules, et non un opérateur à l’intérieur d’une formule. L’énoncé $A \equiv B$ est vrai exactement lorsque les deux tables de vérité coïncident.
 
 Ne le confondez pas avec $\Leftrightarrow$, la biconditionnelle étudiée dans la leçon L07. La formule $A \Leftrightarrow B$ est une assertion construite à partir de $A$ et $B$ ; l’énoncé $A \equiv B$ compare deux formules.
 
-## Premier exemple : deux négations
+## 2. Visualiser — Comparer toutes les affectations
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L04-equivalence-fr.svg" alt="Deux colonnes 0001 identiques et une colonne 0111 différente : une seule ligne différente suffit à réfuter." width="560" height="260" /><figcaption>Comparer les colonnes sur les mêmes affectations. L'accord local n'est pas une preuve.</figcaption></figure>
+
+### Premier exemple : deux négations
 
 Avant de comparer huit lignes, essayez une seule variable. NON inverse la valeur ; une seconde négation la rétablit.
 
@@ -69,7 +83,22 @@ Avant de comparer huit lignes, essayez une seule variable. NON inverse la valeur
 
 Les première et dernière colonnes coïncident sur toutes les lignes : $\neg\neg A\equiv A$. Vérifiez chaque étape avant de lire les lois suivantes.
 
-## Algèbre de Boole : réécrire sans changer le sens
+### Tautologies et contradictions
+
+Une **tautologie** est une assertion vraie pour toute affectation. Une **contradiction** est fausse pour toute affectation. La constante $\top$ est une tautologie, et $\neg\top$ est une contradiction.
+
+- $A \lor \neg A$ est une tautologie.
+- $A \land \neg A$ est une contradiction.
+
+### Piège : nier chaque partie
+
+$\neg (A \land B)$ n’est pas équivalent à $\neg A \land \neg B$. Une seule ligne suffit à le réfuter : avec $A = 1$ et $B = 0$, le membre de gauche vaut $\neg 0 = 1$, tandis que celui de droite vaut $0 \land 1 = 0$.
+
+Une seule ligne différente suffit à réfuter une équivalence. Pour l’établir, il faut l’accord sur toutes les lignes.
+
+## 3. Calculer et raisonner — Algèbre de Boole
+
+### Algèbre de Boole : réécrire sans changer le sens
 
 Une loi booléenne est un outil pour remplacer une formule par une autre qui donne toujours le même résultat. Pensez à deux recettes différentes qui produisent la même colonne finale. Ici $A$, $B$ et $C$ peuvent aussi désigner des formules entières : une loi reste valable quand on remplace chaque occurrence d’une même lettre par la même formule.
 
@@ -77,15 +106,15 @@ Une affectation fixe une valeur pour chaque variable. Un calcul sur une seule af
 
 Nous utilisons les symboles logiques, sans remplacer ET par une multiplication ni OU par une addition. En particulier, $1\lor1=1$, tandis que $1+1=2$ dans l’arithmétique ordinaire.
 
-<BooleanLab kind="rewrite" locale="fr" client:visible />
 
-### Commutativité : changer l’ordre
+
+#### Commutativité : changer l’ordre
 
 $A \lor B \equiv B \lor A$ et $A \land B \equiv B \land A$.
 
 « Avoir un billet ET une invitation » demande la même chose que « avoir une invitation ET un billet ». OU fonctionne aussi dans les deux sens : seul compte le nombre de parties vraies, pas leur place. Si $A = 0$ et $B = 1$, les deux disjonctions valent $1$ et les deux conjonctions valent $0$.
 
-### Associativité : changer le groupement
+#### Associativité : changer le groupement
 
 $A \lor (B \lor C) \equiv (A \lor B) \lor C$ et $A \land (B \land C) \equiv (A \land B) \land C$.
 
@@ -93,11 +122,11 @@ Avec seulement des OU, les deux écritures demandent au moins une partie vraie ;
 
 Cette règle ne permet pas de déplacer librement des parenthèses dans une formule mixte. Avec $A = 0$, $B = 1$, $C = 1$, $A \land (B \lor C)$ vaut $0$, mais $(A \land B) \lor C$ vaut $1$.
 
-### Pause : deux lois, deux vérifications
+#### Pause : deux lois, deux vérifications
 
 Avec $A=1$ et $B=0$, comparez $A\lor B$ et $B\lor A$ : les deux valent $1$. Puis, avec $A=0$, $B=1$, $C=1$, comparez $A\land(B\lor C)$ et $(A\land B)\lor C$ : $0$ contre $1$. La commutativité permet un échange ; l’associativité ne permet pas de mélanger les connecteurs. Une ligne suffit pour réfuter, mais pas pour prouver une loi.
 
-### Distributivité : développer et factoriser
+#### Distributivité : développer et factoriser
 
 ![Arbre de A ET (B OU C) : le ET principal relie A au groupe B OU C ; B et C sont les deux entrées du OU.](/diagrams/formula-grouping.svg)
 
@@ -123,15 +152,15 @@ Les deux lois se lisent aussi de droite à gauche : c’est **factoriser**. Par 
 
 </aside>
 
-<BooleanLab kind="distribute" locale="fr" client:visible />
 
-### Double négation : annuler deux inversions
+
+#### Double négation : annuler deux inversions
 
 $\neg\neg A \equiv A$.
 
 NON inverse une valeur, puis le second NON l’inverse à nouveau : $0$ devient $1$, puis $0$ ; $1$ devient $0$, puis $1$. En logique classique, « il est faux que je n’ai pas de billet » dit donc « j’ai un billet ». Il faut que les deux négations portent bien sur la même assertion.
 
-### Tiers exclu et non-contradiction : toujours vrai ou toujours faux
+#### Tiers exclu et non-contradiction : toujours vrai ou toujours faux
 
 $A \lor \neg A \equiv \top$ et $A \land \neg A \equiv \neg\top$.
 
@@ -144,7 +173,7 @@ Dans le cadre classique, pour une assertion précise, soit elle est vraie, soit 
 | 0 | 1 | 1 | 0 |
 | 1 | 0 | 1 | 0 |
 
-### De Morgan : nier un groupe entier
+#### De Morgan : nier un groupe entier
 
 $\neg(A \lor B) \equiv \neg A \land \neg B$ et $\neg(A \land B) \equiv \neg A \lor \neg B$.
 
@@ -160,6 +189,9 @@ Avec $A$ : « j’ai un billet » et $B$ : « j’ai une invitation », nier « 
 **Pourquoi ça marche ?** Pour que « A ET B » échoue, au moins une condition doit échouer. Pour que « A OU B » échoue, les deux doivent échouer. Le OU est inclusif : il permet aussi que les deux conditions manquent.
 
 La table suivante vérifie la première situation sur les quatre choix :
+
+<details className="l04-solution">
+<summary>Vérification facultative : les deux tables de De Morgan</summary>
 
 | A | B | ¬(A ∧ B) | ¬A ∨ ¬B |
 | --- | --- | --- | --- |
@@ -177,15 +209,73 @@ La seconde loi se vérifie elle aussi sur quatre lignes :
 | 1 | 0 | 0 | 0 |
 | 1 | 1 | 0 | 0 |
 
+</details>
+
+#### Exemple de réécriture en deux étapes
+
+Partons de $\neg(\neg A \lor B)$. De Morgan donne $\neg\neg A \land \neg B$. La double négation donne ensuite $A \land \neg B$. Chaque étape conserve la table de vérité : écrivez le nom de la loi à côté de chaque transformation pour pouvoir la vérifier.
+
+Deux lois utiles supplémentaires, déduites des tables :
+
+$$X\land\top\equiv X,\qquad X\lor\neg\top\equiv X.$$
+
+Ce sont les éléments neutres. Avec une constante vraie, ET conserve X ; avec une constante fausse, OU conserve X. Le PDF de révision les utilise implicitement. Pour une preuve, nommez-les aussi.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L04-proof-fr.svg" alt="Réécriture de B OU (A ET NON B) en (B OU A) ET (B OU NON B), puis en (B OU A) ET vrai, puis B OU A." width="560" height="290" /><figcaption>Une ligne, une loi : recopier les parties inchangées, puis justifier le changement.</figcaption></figure>
+
+Une preuve algébrique est une chaîne d'équivalences, pas une simple suite d'égalités numériques. Pour transformer un groupe à l'intérieur d'une formule, conservez tout son contexte. Une table complète peut vérifier votre résultat, mais si la consigne interdit les tables, votre rédaction doit uniquement invoquer des lois.
+
+### Développer la preuve proposée page 19
+
+La source propose de démontrer $A \land (B \lor C) \equiv (A \land B) \lor (A \land C)$ sans fournir la preuve. Voici une justification originale par cas.
+
+Si $A = 0$, le membre de gauche vaut zéro et les deux conjonctions du membre de droite valent zéro. Si $A = 1$, le membre de gauche vaut $B \lor C$ et le membre de droite aussi. A n’a que ces deux valeurs : la justification couvre toutes les affectations de B et C. Elle complète le travail de la source sans attribuer cette solution au professeur.
+
+<details className="l04-solution">
+<summary>Approfondissement — vérifier la distributivité sur huit lignes</summary>
+
+### Exemple guidé : vérifier une loi de distributivité
+
+Vérifions que $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$. Avant de lire les huit lignes, essayez A = 0, B = 1, C = 0. À gauche : $0\lor(1\land0)=0$. À droite : $(0\lor1)\land(0\lor0)=1\land0=0$.
+
+Pour remplir la table, gardez A fixe sur quatre lignes, B sur deux lignes, et alternez C à chaque ligne. Cela énumère exactement les huit affectations.
+
+| A | B | C | A ∨ (B ∧ C) | (A ∨ B) ∧ (A ∨ C) |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 0 |
+| 0 | 1 | 0 | 0 | 0 |
+| 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 |
+| 1 | 0 | 1 | 1 | 1 |
+| 1 | 1 | 0 | 1 | 1 |
+| 1 | 1 | 1 | 1 | 1 |
+
+Les deux colonnes coïncident sur chaque ligne : l’équivalence est donc vraie. Cette vérification utilise des tables de vérité ; dériver la loi à partir des autres est une méthode différente, qui n’est pas demandée ici.
+
+Cachez ensuite les deux dernières colonnes et reconstruisez-les sur papier. N’utilisez le corrigé qu’après votre essai.
+
+</details>
+
+## 4. Expérimenter — Construire une preuve
+
+Dans le nouvel atelier, choisissez d'abord une loi, puis la prochaine ligne de la preuve. Vérifiez les deux choix. Une bonne formule avec un mauvais nom de loi ne suffit pas. L'atelier propose un chemin guidé ; d'autres preuves sont possibles. Pour une réécriture fausse, un contre-exemple est disponible après la vérification, mais la preuve elle-même n'utilise que les lois.
+
+<BooleanProofLab locale="fr" client:visible />
+
+Les trois explorateurs d'origine restent disponibles. Utilisez-les pour comparer les affectations, tester une réécriture ou explorer les deux sens de la distributivité.
+
+<BooleanLab kind="rewrite" locale="fr" client:visible />
+
+<BooleanLab kind="distribute" locale="fr" client:visible />
+
 <BooleanLab kind="morgan" locale="fr" client:visible />
 
 La carte de l’activité représente un **univers U** très simple : les quatre affectations possibles de A et B. Chaque case est un cas complet ; les hachures indiquent où la formule de gauche est vraie. Aucun cas extérieur à U n’est sous-entendu.
 
-### Exemple de réécriture en deux étapes
+## 5. Pratiquer — Justifier sans table
 
-Partons de $\neg(\neg A \lor B)$. De Morgan donne $\neg\neg A \land \neg B$. La double négation donne ensuite $A \land \neg B$. Chaque étape conserve la table de vérité : écrivez le nom de la loi à côté de chaque transformation pour pouvoir la vérifier.
-
-### Petite pause : essayez avant de lire
+#### Petite pause : essayez avant de lire
 
 1. Réordonnez $B \land A$ pour commencer par $A$.
 2. Factorisez $(C \land A) \lor (C \land B)$.
@@ -209,55 +299,55 @@ Commencez par nier le OU principal : $\neg A\land\neg(B\land C)$. Il reste une n
 
 </details>
 
-## Exemple guidé : vérifier une loi de distributivité
+Nouveau défi sur papier : simplifier l'expression suivante uniquement avec les lois. Écrivez le nom de chaque loi et ne supprimez aucun terme sans justification.
 
-Vérifions que $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$. Avant de lire les huit lignes, essayez A = 0, B = 1, C = 0. À gauche : $0\lor(1\land0)=0$. À droite : $(0\lor1)\land(0\lor0)=1\land0=0$.
+$$(C\land\neg C)\lor(A\land\top)$$
 
-Pour remplir la table, gardez A fixe sur quatre lignes, B sur deux lignes, et alternez C à chaque ligne. Cela énumère exactement les huit affectations.
+<details className="l04-solution">
+<summary>Correction expliquée</summary>
 
-| A | B | C | A ∨ (B ∧ C) | (A ∨ B) ∧ (A ∨ C) |
-| --- | --- | --- | --- | --- |
-| 0 | 0 | 0 | 0 | 0 |
-| 0 | 0 | 1 | 0 | 0 |
-| 0 | 1 | 0 | 0 | 0 |
-| 0 | 1 | 1 | 1 | 1 |
-| 1 | 0 | 0 | 1 | 1 |
-| 1 | 0 | 1 | 1 | 1 |
-| 1 | 1 | 0 | 1 | 1 |
-| 1 | 1 | 1 | 1 | 1 |
+$$(C\land\neg C)\lor(A\land\top)\equiv\neg\top\lor(A\land\top)$$
 
-Les deux colonnes coïncident sur chaque ligne : l’équivalence est donc vraie. Cette vérification utilise des tables de vérité ; dériver la loi à partir des autres est une méthode différente, qui n’est pas demandée ici.
+Non-contradiction.
 
-Cachez ensuite les deux dernières colonnes et reconstruisez-les sur papier. N’utilisez le corrigé qu’après votre essai.
+$$\equiv\neg\top\lor A\equiv A\lor\neg\top\equiv A.$$
 
-## Tautologies et contradictions
+Élément neutre de ET, commutativité de OU, élément neutre de OU.
 
-Une **tautologie** est une assertion vraie pour toute affectation. Une **contradiction** est fausse pour toute affectation. La constante $\top$ est une tautologie, et $\neg\top$ est une contradiction.
+</details>
 
-- $A \lor \neg A$ est une tautologie.
-- $A \land \neg A$ est une contradiction.
+<details className="l04-solution">
+<summary>Défi d'examen — aperçu de L05, Revision.pdf exercice 3</summary>
 
-## Piège : nier chaque partie
+Le professeur demande une preuve sans table (pages physiques 8–9 du PDF de révision). Il fournit le rappel suivant, qui sera expliqué en L05 :
 
-$\neg (A \land B)$ n’est pas équivalent à $\neg A \land \neg B$. Une seule ligne suffit à le réfuter : avec $A = 1$ et $B = 0$, le membre de gauche vaut $\neg 0 = 1$, tandis que celui de droite vaut $0 \land 1 = 0$.
+$$\neg(A\Rightarrow B)\equiv A\land\neg B.$$
 
-Une seule ligne différente suffit à réfuter une équivalence. Pour l’établir, il faut l’accord sur toutes les lignes.
+Ainsi, pour prouver $\neg(A\Rightarrow B)\lor B\equiv A\lor B$, on commence par remplacer la négation de l'implication, puis on applique les lois de L04. Essayez la seconde preuve de l'atelier avant de lire la chaîne suivante.
 
-## Développer la preuve proposée page 19
+$$\neg(A\Rightarrow B)\lor B\equiv(A\land\neg B)\lor B$$
 
-La source propose de démontrer $A \land (B \lor C) \equiv (A \land B) \lor (A \land C)$ sans fournir la preuve. Voici une justification originale par cas.
+$$\equiv B\lor(A\land\neg B)$$
 
-Si $A = 0$, le membre de gauche vaut zéro et les deux conjonctions du membre de droite valent zéro. Si $A = 1$, le membre de gauche vaut $B \lor C$ et le membre de droite aussi. A n’a que ces deux valeurs : la justification couvre toutes les affectations de B et C. Elle complète le travail de la source sans attribuer cette solution au professeur.
+$$\equiv(B\lor A)\land(B\lor\neg B)$$
 
-## Pratique indépendante
+$$\equiv(B\lor A)\land\top\equiv B\lor A\equiv A\lor B.$$
+
+Justifications dans l'ordre : rappel fourni, commutativité, distributivité, tiers exclu, élément neutre de ET (rendu explicite ici), commutativité. Le corrigé de la source condense les deux dernières transformations.
+
+</details>
+
+### Pratique indépendante
 
 Les exercices sélectionnés travaillent l’équivalence, les tables complètes, les lois de Boole, les tautologies, les contradictions et les contre-exemples. Le nombre et la version actuels sont indiqués dans la pratique.
 
 Les laboratoires ci-dessus sont libres d’accès. Pour la pratique enregistrée, utilisez le lien « S’exercer » : elle nécessite un compte et dépend de la version publiée.
 
+## 6. Retenir — Fiche de révision
+
 <section className="l04-revision">
 
-## À retenir
+### À retenir
 
 **Ma fiche de révision — L04**
 
@@ -275,6 +365,11 @@ Les laboratoires ci-dessus sont libres d’accès. Pour la pratique enregistrée
 
 **Auto-évaluation :** sans regarder la leçon, expliquez pourquoi $\neg(A\land B)$ peut être vraie même si A est vraie. Réponse : B peut être fausse ; la conjonction vaut alors 0 et sa négation vaut 1.
 
+**Preuve sans table :** écrire la formule de départ → sélectionner un sous-groupe → appliquer une loi → recopier le reste → noter la justification → répéter jusqu'à la cible. Les éléments neutres $X\land\top\equiv X$ et $X\lor\neg\top\equiv X$ évitent de sauter une étape.
+
 </section>
 
-Texte et exemples originaux du projet. La couverture suit les pages 15 à 19 du PDF selon la carte du cours du dépôt. La justification par cas de l’objectif de la page 19 et les vérifications complétées sont des développements originaux du projet.
+Source vérifiée : Logique_01.pdf, pages physiques 15–19 ; Revision.pdf, exercice 3, pages physiques 8–9. Les schémas, les ateliers, les tables complétées, la justification par cas et les exercices ajoutés sont des développements originaux du projet. Le défi d'examen reprend le sujet et la méthode de la source avec l'élément neutre explicité.
+
+En L05, nous étudierons l'implication et sa négation. [L05](/fr/lessons/L05/).
+
