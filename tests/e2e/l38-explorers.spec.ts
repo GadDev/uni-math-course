@@ -244,3 +244,43 @@ test('L38 touch controls and dark theme preserve interaction', async ({
     await context.close();
   }
 });
+
+for (const locale of ['fr', 'en']) {
+  test(`L38 six stages and prediction feedback (${locale})`, async ({
+    page,
+  }) => {
+    const fr = locale === 'fr';
+    await page.goto(`/${locale}/lessons/L38/`);
+    await expect(
+      page.locator('.lesson-prose h2').filter({ hasText: /^[1-6]\. / }),
+    ).toHaveCount(6);
+    const secant = page.locator('[data-l38-explorer="secant"]');
+    await secant.scrollIntoViewIfNeeded();
+    await secant.locator('[data-prediction="true"]').click();
+    await expect(secant.locator('[data-prediction-feedback]')).toContainText(
+      fr ? 'À revoir' : 'Try again',
+    );
+    await secant.locator('[data-prediction="false"]').click();
+    await expect(secant.locator('[data-prediction-feedback]')).toContainText(
+      fr ? 'Bonne réponse' : 'Correct',
+    );
+    await expect(secant.locator('[data-paired-slopes]')).toContainText(
+      fr ? '0,95' : '0.95',
+    );
+    await expect(secant.locator('[data-slope-error]')).toContainText(
+      fr ? '0,05' : '0.05',
+    );
+    await secant.locator('[data-h="0"]').click();
+    await expect(secant.locator('[data-slope-error]')).toHaveCount(0);
+    await secant.locator('[data-reset]').click();
+    await expect(secant.locator('[data-prediction-feedback]')).toHaveCount(0);
+    const tangent = page.locator('[data-l38-explorer="tangent"]');
+    await tangent.scrollIntoViewIfNeeded();
+    await tangent.locator('[data-prediction="false"]').click();
+    await expect(tangent.locator('[data-y0]')).toHaveText(fr ? '2,5' : '2.5');
+    await expect(tangent.locator('[data-slope]')).toHaveText('1');
+    await tangent.locator('[data-reset]').click();
+    await expect(tangent.locator('[data-prediction-feedback]')).toHaveCount(0);
+    await expect(page.locator('.katex-error')).toHaveCount(0);
+  });
+}
