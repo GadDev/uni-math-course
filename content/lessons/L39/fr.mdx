@@ -1,7 +1,7 @@
 ---
 lessonId: L39
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Calculer les dérivées"
 summary: "Relier pente, dérivée et tangente, puis appliquer les règles de dérivation pas à pas."
@@ -11,12 +11,15 @@ prerequisites: [L23, L37, L38]
 sourcePages: [13]
 ---
 import DerivativePanel from '../../../src/components/DerivativePanel';
+import DerivativeRuleLab from '../../../src/components/DerivativeRuleLab';
 
 # Calculer les dérivées
 
 *Matériel pédagogique original fondé sur* Bruno Teheux, Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026, page 13. Les rappels, schémas et activités sont des ajouts originaux du projet.
 
-## Objectifs et prérequis
+## 1. Comprendre — Reconnaître avant de dériver
+
+### Objectifs et prérequis
 
 La dérivée répond à une question : **à quelle vitesse la valeur d’une fonction change-t-elle près d’une entrée donnée ?** Sur un graphique, cette information devient la pente d’une tangente. Nous allons relier ces deux idées, puis calculer des dérivées sans recommencer une limite à chaque fois.
 
@@ -30,7 +33,224 @@ Avant de commencer, vérifiez que vous pouvez :
 
 Dans cette leçon, les fonctions ont des valeurs réelles. Nous étudions la dérivée en un point intérieur à leur domaine : on peut approcher ce point par la gauche et par la droite.
 
-## D’une pente moyenne à une pente instantanée
+En L38, nous avons justifié la dérivée à partir d'une limite. Ici, le but est de choisir une règle qui évite de recommencer ce calcul. Imaginez une expression comme un programme : repérez la dernière opération exécutée, puis ses entrées. Une même expression peut parfois être réécrite pour faciliter la dérivation.
+
+Rappel essentiel : $f'(a)$ est une pente, pas une hauteur. Pour la définition et ses conditions, revoir [L38](/fr/lessons/L38/).
+
+## 2. Visualiser — Lire la structure d'une expression
+
+<figure className="teaching-figure"><img src="/diagrams/functions/l39-structure-fr.svg" alt="Trois arbres : produit de x² et x+1, quotient de x par x+1, composition du cube avec 2x+1." width="600" height="255" /><figcaption>La racine de l'arbre indique l'opération extérieure. Les branches indiquent les morceaux à dériver.</figcaption></figure>
+
+| Expression | Dernière opération | Règle |
+| --- | --- | --- |
+| $3x^2+2x+5$ | Addition | Somme |
+| $x^2(x+1)$ | Multiplication | Produit |
+| $x/(x+1)$ | Division | Quotient |
+| $(2x+1)^3$ | Cube d'une expression | Chaîne |
+
+Un facteur constant est un cas plus simple : $D(5x^2)=5D(x^2)$. Un produit de deux fonctions variables exige en revanche deux termes. Le tableau décrit les expressions telles qu'elles sont écrites ; développer ou simplifier peut donner une autre méthode valable.
+
+## 3. Calculer — Une règle à la fois
+
+### Les premières règles : constante, puissance et somme
+
+Les règles suivantes évitent de refaire la limite. Elles s’appliquent là où les fonctions concernées sont dérivables. Dans les formules, c est un nombre constant et n un entier positif ; les constantes sont traitées séparément.
+
+$$D(c)=0,\qquad D(x^n)=nx^{n-1}$$
+
+Une constante ne change pas lorsque x bouge : sa dérivée est zéro. Pour une puissance, multipliez par l’exposant puis diminuez cet exposant de 1. Par exemple, la dérivée du carré est bien 2x.
+
+Pour une somme et un coefficient constant :
+
+$$D(f+g)=Df+Dg,\qquad D(cf)=cDf$$
+
+Dérivez chaque terme séparément. Dans notre exemple, le domaine est l’ensemble des réels :
+
+$$D(3x^2+2x+5)=3\times2x+2\times1+0=6x+2$$
+
+Le coefficient 3 reste devant la dérivée du carré ; la dérivée de 2x est 2 ; celle de 5 est 0. **La dérivée d’une constante n’est pas la constante.**
+
+La page 13 du PDF limite la règle de puissance aux entiers positifs. Comme complément, on peut retrouver les puissances entières négatives par le quotient :
+
+$$D(x^{-2})=D(1/x^2)=-2x/(x^2)^2=-2x^{-3},\qquad x\ne0.$$
+
+Le domaine initial reste obligatoire. Pour les constantes, utiliser directement la règle D(c) = 0.
+
+### La règle du produit
+
+Pour un produit, les deux facteurs peuvent changer en même temps : il faut deux termes. Si f et g sont dérivables :
+
+$$D(fg)=(Df)g+f(Dg)$$
+
+Dans l’exemple suivant, défini sur les réels, identifiez le premier facteur et le second avant de calculer :
+
+1. Premier facteur : le carré ; sa dérivée est 2x.
+2. Second facteur : x + 1 ; sa dérivée est 1.
+3. Dérivez le premier en gardant le second, puis ajoutez le premier multiplié par la dérivée du second.
+
+$$D\bigl(x^2(x+1)\bigr)=2x(x+1)+x^2\times1=3x^2+2x$$
+
+**Contrôle indépendant :** développer d’abord donne un polynôme dont on peut dériver les termes :
+
+$$x^2(x+1)=x^3+x^2,\qquad D(x^3+x^2)=3x^2+2x$$
+
+Multiplier uniquement les deux dérivées aurait donné 2x : il manquerait des termes.
+
+<figure className="teaching-figure"><img src="/diagrams/functions/l39-product-fr.svg" alt="Deux lignes : dériver le premier facteur en gardant le second, puis garder le premier et dériver le second ; additionner." width="560" height="210" /><figcaption>Chaque terme garde exactement un facteur non dérivé. Le signe entre les deux termes est plus.</figcaption></figure>
+
+### La règle du quotient
+
+Le dénominateur doit rester non nul. Pour deux fonctions dérivables, la règle est :
+
+$$D\left(\frac fg\right)=\frac{(Df)g-f(Dg)}{g^2},\qquad g(x)\ne0$$
+
+Pour le quotient de x par x + 1 :
+
+1. Domaine : tous les réels sauf −1, car le dénominateur y est nul.
+2. Dérivée du numérateur : 1 ; dérivée du dénominateur : 1.
+3. Au numérateur : « dérivée du haut × bas − haut × dérivée du bas ». Au dénominateur : le carré du bas.
+
+$$D\left(\frac{x}{x+1}\right)=\frac{1\times(x+1)-x\times1}{(x+1)^2}=\frac{1}{(x+1)^2},\qquad x\ne-1$$
+
+<aside className="l39-callout" aria-label="Attention au quotient">
+<p><strong>Attention</strong></p>
+
+L’ordre de la soustraction compte. Le dénominateur est au carré. Les restrictions de la fonction initiale restent valables après simplification ; la formule dérivée ne rétablit pas une entrée interdite.
+
+</aside>
+
+### La règle de la chaîne
+
+Une composition est un calcul en deux étapes : on applique d’abord la fonction intérieure g, puis la fonction extérieure f. La notation $f\circ g$ se lit « f composée avec g » et signifie $f(g(x))$.
+
+La règle multiplie le taux de changement de l’extérieur, évalué à la sortie intérieure, par celui de l’intérieur. Elle suppose que g est dérivable en x et f en g(x) :
+
+$$D(f\circ g)(x)=Df(g(x))\,Dg(x)$$
+
+Pour le cube de 2x + 1, défini sur les réels :
+
+1. Intérieur : 2x + 1 ; sa dérivée est 2.
+2. Extérieur : élever au cube ; sa dérivée est trois fois le carré de son entrée.
+3. Garder 2x + 1 comme entrée de l’extérieur, puis multiplier par 2.
+
+$$D\bigl((2x+1)^3\bigr)=3(2x+1)^2\times2=6(2x+1)^2$$
+
+Oublier le dernier facteur 2 revient à oublier que l’entrée intérieure change elle aussi.
+
+<figure className="teaching-figure"><img src="/diagrams/functions/l39-chain-fr.svg" alt="Entrée x, fonction intérieure 2x+1, fonction extérieure u³. Les taux 2 et 3u² sont multipliés." width="560" height="220" /><figcaption>La sortie intérieure devient l'entrée extérieure : conserver le groupe et multiplier par la dérivée intérieure.</figcaption></figure>
+
+### Choisir une règle et vérifier son calcul
+
+<aside className="l39-callout" aria-label="Méthode de dérivation">
+<p><strong>Méthode</strong></p>
+
+1. Écrire le domaine de la fonction.
+2. Repérer la dernière opération : somme, produit, quotient ou composition.
+3. Identifier les morceaux, appliquer la règle extérieure, puis dériver les morceaux.
+4. Simplifier en conservant les restrictions.
+5. Contrôler avec une autre expression quand c’est possible.
+
+</aside>
+
+Par exemple, le dénominateur suivant est toujours strictement positif sur les réels :
+
+$$x^2+1>0$$
+
+La dernière opération est un quotient. Les dérivées du haut et du bas valent toutes deux 2x :
+
+$$D\left(\frac{x^2}{x^2+1}\right)=\frac{2x(x^2+1)-x^2(2x)}{(x^2+1)^2}=\frac{2x}{(x^2+1)^2}$$
+
+Au numérateur, les deux termes cubiques s’annulent. Tester une valeur simple peut révéler une erreur, mais quelques tests ne prouvent pas que deux formules sont égales pour toutes les entrées.
+
+Autre contrôle sur les réels : développer ce produit avant de dériver donne :
+
+$$D\bigl((x+1)(x^2-x+1)\bigr)=D(x^3+1)=3x^2$$
+
+La règle du produit donne aussi :
+
+$$(x^2-x+1)+(x+1)(2x-1)=3x^2$$
+
+## 4. Expérimenter — Choisir, vérifier, expliquer
+
+Dans le nouvel atelier, choisissez l'opération principale de l'expression telle qu'elle est écrite, sans la développer. Vérifiez votre choix, puis révélez les calculs un à un. Les exemples d'entraînement ne font pas partie de la banque notée.
+
+<DerivativeRuleLab locale="fr" client:visible />
+
+Les deux ateliers graphiques d'origine sont conservés pour relier le calcul aux pentes. Dans le premier, comparez les quotients des deux côtés ; dans le second, cherchez une tangente horizontale et comparez hauteur et pente.
+
+<DerivativePanel kind="secant" locale="fr" client:visible />
+
+<DerivativePanel kind="tangent" locale="fr" client:visible />
+
+## 5. Pratiquer — Dériver sans indication de méthode
+
+### Vérification rapide et essentiel à retenir
+
+Essayez avant d’ouvrir les corrections :
+
+1. Pour le polynôme $p(x)=3x^2+2x+5$, calculez p′, puis la hauteur et la pente en a = 1. Écrivez la tangente.
+2. La dérivée d’un produit est-elle le produit des dérivées ? Écrivez les deux termes corrects dans notre exemple.
+3. Pour le quotient de x par x + 1, l’entrée −1 devient-elle autorisée après dérivation ?
+4. Pourquoi le cube de 2x + 1 produit-il un facteur 2 supplémentaire ?
+
+5. Dérivez $q(x)=\frac{(x^2+2)^3}{x-3}$ en identifiant d'abord la règle extérieure, puis la règle nécessaire au numérateur. Précisez le domaine.
+6. Pour $r(x)=\frac{x^2-4}{x-2}$, simplifiez puis dérivez sans perdre la restriction.
+
+<details className="l39-correction">
+<summary>Afficher les corrections expliquées</summary>
+
+1. Sur les réels :
+
+$$p'(x)=6x+2,\qquad p(1)=10,\qquad p'(1)=8,\qquad y=10+8(x-1)=8x+2$$
+
+La hauteur 10 situe le point ; la pente 8 oriente la droite.
+
+2. Non. Il faut garder un facteur non dérivé dans chacun des deux termes : dans notre exemple, on additionne 2x(x + 1) et le carré de x.
+3. Non : la fonction initiale n’est pas définie en −1. Le domaine reste privé de cette entrée.
+4. L’intérieur 2x + 1 a pour dérivée 2 : la règle de la chaîne impose ce facteur.
+
+5. $x\ne3$. Quotient à l'extérieur, chaîne au numérateur : $u'(x)=3(x^2+2)^2\cdot2x$, $v'(x)=1$.
+
+$$q'(x)=\frac{6x(x^2+2)^2(x-3)-(x^2+2)^3}{(x-3)^2},\qquad x\ne3.$$
+
+6. $r(x)=x+2$ pour $x\ne2$ ; $r'(x)=1$ sur ce même domaine. En 2, la fonction initiale n'existe pas.
+
+</details>
+
+## 6. Retenir — Formules et méthode à imprimer
+
+<aside className="l39-callout" data-kind="essential" aria-label="L’essentiel à retenir">
+<p><strong>L’essentiel à retenir</strong></p>
+
+- **Sens :** la dérivée en a est une limite de pentes moyennes et donne la pente instantanée.
+- **Objets :** la valeur f(a) est une hauteur ; f′(a) est une pente ; f′ est la fonction des pentes.
+- **Calcul :** domaine → opération extérieure → règle → simplification → contrôle.
+- **Tangente :** calculer séparément f(a) et f′(a), puis les insérer dans l’équation :
+
+$$y=f(a)+f'(a)(x-a)$$
+
+- **Pièges :** ne pas diviser par zéro, multiplier simplement les dérivées d’un produit, oublier le carré du dénominateur ou la dérivée intérieure.
+
+</aside>
+
+| Règle | Formule |
+| --- | --- |
+| Constante | $D(c)=0$ |
+| Puissance entière positive | $D(x^n)=nx^{n-1}$ |
+| Somme | $D(f+g)=Df+Dg$ |
+| Facteur constant | $D(cf)=cDf$ |
+| Produit | $D(fg)=(Df)g+f(Dg)$ |
+| Quotient | $D(f/g)=((Df)g-f(Dg))/g^2$ |
+| Composition | $D(f\circ g)(x)=Df(g(x))Dg(x)$ |
+
+Conditions : les fonctions doivent être dérivables aux entrées considérées ; le dénominateur doit être non nul. Pour la composition, vérifier que la sortie intérieure appartient au domaine de dérivabilité de l'extérieur. La règle de puissance du PDF suppose n entier positif.
+
+Pour revoir les justifications et les notions de L38, les rappels ci-dessous sont facultatifs. Les exercices et règles nécessaires restent dans le parcours principal.
+
+<details>
+<summary>Rappel facultatif — Sécante, limite et tangente (L38)</summary>
+
+### D’une pente moyenne à une pente instantanée
 
 Imaginez une route courbe : sa pente entre deux endroits donne une information moyenne. Pour connaître sa pente à un endroit précis, on regarde des endroits de plus en plus proches.
 
@@ -54,9 +274,7 @@ $$\frac{f(2)-f(1)}{2-1}=\frac{4-1}{1}=3$$
 
 Mais avec $h=0{,}1$, cette pente vaut $2{,}1$. Quelle valeur approche-t-on lorsque l’écart devient de plus en plus petit ?
 
-<DerivativePanel kind="secant" locale="fr" client:visible />
-
-## Définition : la dérivée en un point
+### Définition : la dérivée en un point
 
 <aside className="l39-callout" aria-label="Intuition">
 <p><strong>Intuition</strong></p>
@@ -91,7 +309,7 @@ Une courbe n’est pas forcément dérivable partout. Pour $u(x)=|x|$ sur les r�
 
 </aside>
 
-## Du nombre dérivé à la fonction dérivée
+### Du nombre dérivé à la fonction dérivée
 
 Il faut distinguer trois objets :
 
@@ -103,7 +321,7 @@ Pour la fonction carré, la formule valable pour toutes les entrées réelles s�
 
 On rencontre aussi la notation $Df=f'$, où D désigne l’opération « dériver ». Par exemple, $D(x^2)=2x$ est un raccourci pour « la dérivée de la fonction qui associe son carré à x est la fonction qui associe 2x à x ». Le symbole D n’est pas le domaine de la fonction dans cette notation.
 
-## La tangente : une droite déterminée par un point et une pente
+### La tangente : une droite déterminée par un point et une pente
 
 Une droite de pente m passant par le point A s’écrit $y-f(a)=m(x-a)$. Pour la tangente, on utilise la pente instantanée.
 
@@ -130,150 +348,7 @@ Le symbole $\approx$ signifie « approximativement égal ». Pour le carré en a
 
 Une tangente peut **traverser** la courbe ou la rencontrer ailleurs. Sa définition repose sur la pente locale, pas sur l’idée qu’elle « touche une seule fois ».
 
-<DerivativePanel kind="tangent" locale="fr" client:visible />
-
-## Les premières règles : constante, puissance et somme
-
-Les règles suivantes évitent de refaire la limite. Elles s’appliquent là où les fonctions concernées sont dérivables. Dans les formules, c est un nombre constant et n un entier positif ; les constantes sont traitées séparément.
-
-$$D(c)=0,\qquad D(x^n)=nx^{n-1}$$
-
-Une constante ne change pas lorsque x bouge : sa dérivée est zéro. Pour une puissance, multipliez par l’exposant puis diminuez cet exposant de 1. Par exemple, la dérivée du carré est bien 2x.
-
-Pour une somme et un coefficient constant :
-
-$$D(f+g)=Df+Dg,\qquad D(cf)=cDf$$
-
-Dérivez chaque terme séparément. Dans notre exemple, le domaine est l’ensemble des réels :
-
-$$D(3x^2+2x+5)=3\times2x+2\times1+0=6x+2$$
-
-Le coefficient 3 reste devant la dérivée du carré ; la dérivée de 2x est 2 ; celle de 5 est 0. **La dérivée d’une constante n’est pas la constante.**
-
-## La règle du produit
-
-Pour un produit, les deux facteurs peuvent changer en même temps : il faut deux termes. Si f et g sont dérivables :
-
-$$D(fg)=(Df)g+f(Dg)$$
-
-Dans l’exemple suivant, défini sur les réels, identifiez le premier facteur et le second avant de calculer :
-
-1. Premier facteur : le carré ; sa dérivée est 2x.
-2. Second facteur : x + 1 ; sa dérivée est 1.
-3. Dérivez le premier en gardant le second, puis ajoutez le premier multiplié par la dérivée du second.
-
-$$D\bigl(x^2(x+1)\bigr)=2x(x+1)+x^2\times1=3x^2+2x$$
-
-**Contrôle indépendant :** développer d’abord donne un polynôme dont on peut dériver les termes :
-
-$$x^2(x+1)=x^3+x^2,\qquad D(x^3+x^2)=3x^2+2x$$
-
-Multiplier uniquement les deux dérivées aurait donné 2x : il manquerait des termes.
-
-## La règle du quotient
-
-Le dénominateur doit rester non nul. Pour deux fonctions dérivables, la règle est :
-
-$$D\left(\frac fg\right)=\frac{(Df)g-f(Dg)}{g^2},\qquad g(x)\ne0$$
-
-Pour le quotient de x par x + 1 :
-
-1. Domaine : tous les réels sauf −1, car le dénominateur y est nul.
-2. Dérivée du numérateur : 1 ; dérivée du dénominateur : 1.
-3. Au numérateur : « dérivée du haut × bas − haut × dérivée du bas ». Au dénominateur : le carré du bas.
-
-$$D\left(\frac{x}{x+1}\right)=\frac{1\times(x+1)-x\times1}{(x+1)^2}=\frac{1}{(x+1)^2},\qquad x\ne-1$$
-
-<aside className="l39-callout" aria-label="Attention au quotient">
-<p><strong>Attention</strong></p>
-
-L’ordre de la soustraction compte. Le dénominateur est au carré. Les restrictions de la fonction initiale restent valables après simplification ; la formule dérivée ne rétablit pas une entrée interdite.
-
-</aside>
-
-## La règle de la chaîne
-
-Une composition est un calcul en deux étapes : on applique d’abord la fonction intérieure g, puis la fonction extérieure f. La notation $f\circ g$ se lit « f composée avec g » et signifie $f(g(x))$.
-
-La règle multiplie le taux de changement de l’extérieur, évalué à la sortie intérieure, par celui de l’intérieur. Elle suppose que g est dérivable en x et f en g(x) :
-
-$$D(f\circ g)(x)=Df(g(x))\,Dg(x)$$
-
-Pour le cube de 2x + 1, défini sur les réels :
-
-1. Intérieur : 2x + 1 ; sa dérivée est 2.
-2. Extérieur : élever au cube ; sa dérivée est trois fois le carré de son entrée.
-3. Garder 2x + 1 comme entrée de l’extérieur, puis multiplier par 2.
-
-$$D\bigl((2x+1)^3\bigr)=3(2x+1)^2\times2=6(2x+1)^2$$
-
-Oublier le dernier facteur 2 revient à oublier que l’entrée intérieure change elle aussi.
-
-## Choisir une règle et vérifier son calcul
-
-<aside className="l39-callout" aria-label="Méthode de dérivation">
-<p><strong>Méthode</strong></p>
-
-1. Écrire le domaine de la fonction.
-2. Repérer la dernière opération : somme, produit, quotient ou composition.
-3. Identifier les morceaux, appliquer la règle extérieure, puis dériver les morceaux.
-4. Simplifier en conservant les restrictions.
-5. Contrôler avec une autre expression quand c’est possible.
-
-</aside>
-
-Par exemple, le dénominateur suivant est toujours strictement positif sur les réels :
-
-$$x^2+1>0$$
-
-La dernière opération est un quotient. Les dérivées du haut et du bas valent toutes deux 2x :
-
-$$D\left(\frac{x^2}{x^2+1}\right)=\frac{2x(x^2+1)-x^2(2x)}{(x^2+1)^2}=\frac{2x}{(x^2+1)^2}$$
-
-Au numérateur, les deux termes cubiques s’annulent. Tester une valeur simple peut révéler une erreur, mais quelques tests ne prouvent pas que deux formules sont égales pour toutes les entrées.
-
-Autre contrôle sur les réels : développer ce produit avant de dériver donne :
-
-$$D\bigl((x+1)(x^2-x+1)\bigr)=D(x^3+1)=3x^2$$
-
-La règle du produit donne aussi :
-
-$$(x^2-x+1)+(x+1)(2x-1)=3x^2$$
-
-## Vérification rapide et essentiel à retenir
-
-Essayez avant d’ouvrir les corrections :
-
-1. Pour le polynôme $p(x)=3x^2+2x+5$, calculez p′, puis la hauteur et la pente en a = 1. Écrivez la tangente.
-2. La dérivée d’un produit est-elle le produit des dérivées ? Écrivez les deux termes corrects dans notre exemple.
-3. Pour le quotient de x par x + 1, l’entrée −1 devient-elle autorisée après dérivation ?
-4. Pourquoi le cube de 2x + 1 produit-il un facteur 2 supplémentaire ?
-
-<details className="l39-correction">
-<summary>Afficher les corrections expliquées</summary>
-
-1. Sur les réels :
-
-$$p'(x)=6x+2,\qquad p(1)=10,\qquad p'(1)=8,\qquad y=10+8(x-1)=8x+2$$
-
-La hauteur 10 situe le point ; la pente 8 oriente la droite.
-
-2. Non. Il faut garder un facteur non dérivé dans chacun des deux termes : dans notre exemple, on additionne 2x(x + 1) et le carré de x.
-3. Non : la fonction initiale n’est pas définie en −1. Le domaine reste privé de cette entrée.
-4. L’intérieur 2x + 1 a pour dérivée 2 : la règle de la chaîne impose ce facteur.
-
 </details>
 
-<aside className="l39-callout" data-kind="essential" aria-label="L’essentiel à retenir">
-<p><strong>L’essentiel à retenir</strong></p>
+Pour imprimer, utilisez la commande Imprimer du navigateur. Les rappels sont consultables aussi sans JavaScript. En L40, nous appliquerons ces règles à l'exponentielle. [L40](/fr/lessons/L40/).
 
-- **Sens :** la dérivée en a est une limite de pentes moyennes et donne la pente instantanée.
-- **Objets :** la valeur f(a) est une hauteur ; f′(a) est une pente ; f′ est la fonction des pentes.
-- **Calcul :** domaine → opération extérieure → règle → simplification → contrôle.
-- **Tangente :** calculer séparément f(a) et f′(a), puis les insérer dans l’équation :
-
-$$y=f(a)+f'(a)(x-a)$$
-
-- **Pièges :** ne pas diviser par zéro, multiplier simplement les dérivées d’un produit, oublier le carré du dénominateur ou la dérivée intérieure.
-
-</aside>

@@ -126,3 +126,21 @@
     font-size: 26px;
   }
 }
+
+.l39-rule-math {
+  overflow-x: auto;
+  max-width: 100%;
+  padding-block: 0.3rem;
+}
+.l39-rule-print {
+  display: none;
+}
+@media print {
+  .l39-rule-lab fieldset,
+  .l39-rule-lab [data-rule-static] {
+    display: none !important;
+  }
+  .l39-rule-print {
+    display: block;
+  }
+}

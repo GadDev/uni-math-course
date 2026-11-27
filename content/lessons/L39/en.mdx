@@ -1,7 +1,7 @@
 ---
 lessonId: L39
 locale: en
-version: 2
+version: 3
 status: extended
 title: "Computing derivatives"
 summary: "Connect slope, derivative and tangent, then apply differentiation rules step by step."
@@ -11,12 +11,15 @@ prerequisites: [L23, L37, L38]
 sourcePages: [13]
 ---
 import DerivativePanel from '../../../src/components/DerivativePanel';
+import DerivativeRuleLab from '../../../src/components/DerivativeRuleLab';
 
 # Computing derivatives
 
 *Original course explanations based on* Bruno Teheux, Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026, page 13. Recaps, diagrams and activities are original project additions.
 
-## Goals and prerequisites
+## 1. Understand — Recognise before differentiating
+
+### Goals and prerequisites
 
 A derivative answers a question: **how quickly does a function’s value change near a given input?** On a graph, this information becomes the slope of a tangent. We will connect these ideas, then calculate derivatives without starting a new limit each time.
 
@@ -30,7 +33,224 @@ Before starting, check that you can:
 
 The functions in this lesson have real values. We study derivatives at interior points of their domains: we can approach from both the left and the right.
 
-## From average slope to instantaneous slope
+In L38, we justified derivatives using a limit. Here the aim is to select a rule that avoids repeating that calculation. Think of an expression as a program: identify the last operation executed, then its inputs. Sometimes rewriting an expression makes differentiation easier.
+
+Essential recap: $f'(a)$ is a slope, not a height. For the definition and its conditions, revisit [L38](/en/lessons/L38/).
+
+## 2. Visualise — Read expression structure
+
+<figure className="teaching-figure"><img src="/diagrams/functions/l39-structure-en.svg" alt="Three trees: product of x² and x+1, quotient of x by x+1, composition of cubing with 2x+1." width="600" height="255" /><figcaption>The root identifies the outer operation. Branches identify the parts to differentiate.</figcaption></figure>
+
+| Expression | Last operation | Rule |
+| --- | --- | --- |
+| $3x^2+2x+5$ | Addition | Sum |
+| $x^2(x+1)$ | Multiplication | Product |
+| $x/(x+1)$ | Division | Quotient |
+| $(2x+1)^3$ | Cube of an expression | Chain |
+
+A constant factor is a simpler case: $D(5x^2)=5D(x^2)$. A product of two variable functions instead needs two terms. The table describes expressions as written; expansion or simplification may provide another valid method.
+
+## 3. Calculate — One rule at a time
+
+### First rules: constants, powers and sums
+
+The following rules avoid repeating the limit. They apply where the functions involved are differentiable. In these formulas, c is a constant number and n a positive integer; constants are handled separately.
+
+$$D(c)=0,\qquad D(x^n)=nx^{n-1}$$
+
+A constant does not change when x moves: its derivative is zero. For a power, multiply by its exponent, then reduce the exponent by 1. For example, the derivative of the square function is indeed 2x.
+
+For a sum and a constant coefficient:
+
+$$D(f+g)=Df+Dg,\qquad D(cf)=cDf$$
+
+Differentiate each term separately. In our example, the domain is all real numbers:
+
+$$D(3x^2+2x+5)=3\times2x+2\times1+0=6x+2$$
+
+Coefficient 3 stays in front of the derivative of the square; the derivative of 2x is 2; that of 5 is 0. **A constant’s derivative is not that constant.**
+
+Page 13 of the PDF limits the power rule to positive integers. As an extension, negative integer powers can be derived using the quotient:
+
+$$D(x^{-2})=D(1/x^2)=-2x/(x^2)^2=-2x^{-3},\qquad x\ne0.$$
+
+The original domain still applies. For constants, use D(c) = 0 directly.
+
+### The product rule
+
+In a product, both factors can change at the same time: two terms are needed. If f and g are differentiable:
+
+$$D(fg)=(Df)g+f(Dg)$$
+
+In this example, defined on the reals, identify the first and second factors before calculating:
+
+1. First factor: the square; its derivative is 2x.
+2. Second factor: x + 1; its derivative is 1.
+3. Differentiate the first while keeping the second, then add the first times the derivative of the second.
+
+$$D\bigl(x^2(x+1)\bigr)=2x(x+1)+x^2\times1=3x^2+2x$$
+
+**Independent check:** expand first to obtain a polynomial whose terms can be differentiated:
+
+$$x^2(x+1)=x^3+x^2,\qquad D(x^3+x^2)=3x^2+2x$$
+
+Multiplying only the two derivatives would have given 2x: terms would be missing.
+
+<figure className="teaching-figure"><img src="/diagrams/functions/l39-product-en.svg" alt="Two rows: differentiate the first factor while keeping the second, then keep the first and differentiate the second; add." width="560" height="210" /><figcaption>Each term keeps exactly one undifferentiated factor. The sign between the terms is plus.</figcaption></figure>
+
+### The quotient rule
+
+The denominator must remain nonzero. For two differentiable functions, the rule is:
+
+$$D\left(\frac fg\right)=\frac{(Df)g-f(Dg)}{g^2},\qquad g(x)\ne0$$
+
+For the quotient of x by x + 1:
+
+1. Domain: all real numbers except −1, where the denominator is zero.
+2. Numerator derivative: 1; denominator derivative: 1.
+3. In the numerator: “top derivative × bottom − top × bottom derivative”. In the denominator: the bottom squared.
+
+$$D\left(\frac{x}{x+1}\right)=\frac{1\times(x+1)-x\times1}{(x+1)^2}=\frac{1}{(x+1)^2},\qquad x\ne-1$$
+
+<aside className="l39-callout" aria-label="Quotient warning">
+<p><strong>Warning</strong></p>
+
+The subtraction order matters. The denominator is squared. Restrictions from the original function remain after simplification; a derivative formula does not restore a forbidden input.
+
+</aside>
+
+### The chain rule
+
+A composition is a two-stage calculation: first apply the inner function g, then the outer function f. Notation $f\circ g$ is read “f composed with g” and means $f(g(x))$.
+
+The rule multiplies the outer rate of change, evaluated at the inner output, by the inner rate. It requires g to be differentiable at x and f at g(x):
+
+$$D(f\circ g)(x)=Df(g(x))\,Dg(x)$$
+
+For the cube of 2x + 1, defined on the reals:
+
+1. Inside: 2x + 1; its derivative is 2.
+2. Outside: cubing; its derivative is three times the square of its input.
+3. Keep 2x + 1 as the outer function’s input, then multiply by 2.
+
+$$D\bigl((2x+1)^3\bigr)=3(2x+1)^2\times2=6(2x+1)^2$$
+
+Omitting the final factor 2 forgets that the inner input changes too.
+
+<figure className="teaching-figure"><img src="/diagrams/functions/l39-chain-en.svg" alt="Input x, inner function 2x+1, outer function u³. Rates 2 and 3u² multiply." width="560" height="220" /><figcaption>The inner output becomes the outer input: keep the group and multiply by the inner derivative.</figcaption></figure>
+
+### Choosing a rule and checking the calculation
+
+<aside className="l39-callout" aria-label="Differentiation method">
+<p><strong>Method</strong></p>
+
+1. Write the function’s domain.
+2. Identify the last operation: sum, product, quotient or composition.
+3. Identify the parts, apply the outer rule, then differentiate the parts.
+4. Simplify while keeping the restrictions.
+5. Check using another expression where possible.
+
+</aside>
+
+For example, the following denominator is strictly positive for every real input:
+
+$$x^2+1>0$$
+
+The last operation is a quotient. Both top and bottom derivatives are 2x:
+
+$$D\left(\frac{x^2}{x^2+1}\right)=\frac{2x(x^2+1)-x^2(2x)}{(x^2+1)^2}=\frac{2x}{(x^2+1)^2}$$
+
+The two cubic terms cancel in the numerator. Testing a simple input can reveal a mistake, but a few tests cannot prove that two formulas agree for every input.
+
+Another check on the reals: expanding this product before differentiating gives:
+
+$$D\bigl((x+1)(x^2-x+1)\bigr)=D(x^3+1)=3x^2$$
+
+The product rule also gives:
+
+$$(x^2-x+1)+(x+1)(2x-1)=3x^2$$
+
+## 4. Experiment — Choose, check, explain
+
+In the new workshop, select the main operation of the expression as written, without expanding it. Check your choice, then reveal the calculations one at a time. These training examples are not part of the graded bank.
+
+<DerivativeRuleLab locale="en" client:visible />
+
+The two original graph workshops are retained to connect calculation to slopes. In the first, compare quotients from both sides; in the second, find a horizontal tangent and compare height with slope.
+
+<DerivativePanel kind="secant" locale="en" client:visible />
+
+<DerivativePanel kind="tangent" locale="en" client:visible />
+
+## 5. Practise — Differentiate without method hints
+
+### Quick check and essentials to remember
+
+Try before opening the corrections:
+
+1. For polynomial $p(x)=3x^2+2x+5$, calculate p′, then height and slope at a = 1. Write the tangent equation.
+2. Is the derivative of a product the product of the derivatives? Write the two correct terms in our example.
+3. For the quotient of x by x + 1, does input −1 become allowed after differentiation?
+4. Why does the cube of 2x + 1 produce an additional factor 2?
+
+5. Differentiate $q(x)=\frac{(x^2+2)^3}{x-3}$ by identifying the outer rule first, then the rule needed in the numerator. State the domain.
+6. For $r(x)=\frac{x^2-4}{x-2}$, simplify and differentiate without losing the restriction.
+
+<details className="l39-correction">
+<summary>Show explained corrections</summary>
+
+1. On the reals:
+
+$$p'(x)=6x+2,\qquad p(1)=10,\qquad p'(1)=8,\qquad y=10+8(x-1)=8x+2$$
+
+Height 10 locates the point; slope 8 determines the line’s direction.
+
+2. No. Keep one undifferentiated factor in each of the two terms: in our example, add 2x(x + 1) and the square of x.
+3. No: the original function is undefined at −1. The domain still excludes that input.
+4. The derivative of the inside 2x + 1 is 2: the chain rule requires this factor.
+
+5. $x\ne3$. Quotient outside, chain in the numerator: $u'(x)=3(x^2+2)^2\cdot2x$, $v'(x)=1$.
+
+$$q'(x)=\frac{6x(x^2+2)^2(x-3)-(x^2+2)^3}{(x-3)^2},\qquad x\ne3.$$
+
+6. $r(x)=x+2$ for $x\ne2$ ; $r'(x)=1$ on that same domain. The original function is undefined at 2.
+
+</details>
+
+## 6. Remember — Printable rules and method
+
+<aside className="l39-callout" data-kind="essential" aria-label="Essentials to remember">
+<p><strong>Essentials to remember</strong></p>
+
+- **Meaning:** the derivative at a is a limit of average slopes and gives instantaneous slope.
+- **Objects:** value f(a) is height; f′(a) is slope; f′ is the function of slopes.
+- **Calculation:** domain → outer operation → rule → simplification → check.
+- **Tangent:** calculate f(a) and f′(a) separately, then substitute them into the equation:
+
+$$y=f(a)+f'(a)(x-a)$$
+
+- **Pitfalls:** do not divide by zero, simply multiply the derivatives of a product, forget to square the denominator, or omit the inner derivative.
+
+</aside>
+
+| Rule | Formula |
+| --- | --- |
+| Constant | $D(c)=0$ |
+| Positive integer power | $D(x^n)=nx^{n-1}$ |
+| Sum | $D(f+g)=Df+Dg$ |
+| Constant factor | $D(cf)=cDf$ |
+| Product | $D(fg)=(Df)g+f(Dg)$ |
+| Quotient | $D(f/g)=((Df)g-f(Dg))/g^2$ |
+| Composition | $D(f\circ g)(x)=Df(g(x))Dg(x)$ |
+
+Conditions: functions must be differentiable at the relevant inputs; denominators must be nonzero. For composition, verify that the inner output belongs to the differentiability domain of the outer function. The PDF power rule assumes a positive integer n.
+
+For the justifications and L38 concepts, the recaps below are optional. Required exercises and rules remain in the main path.
+
+<details>
+<summary>Optional recap — Secant, limit and tangent (L38)</summary>
+
+### From average slope to instantaneous slope
 
 Imagine a curved road: its slope between two places gives average information. To find its slope at one precise place, consider increasingly nearby places.
 
@@ -54,9 +274,7 @@ $$\frac{f(2)-f(1)}{2-1}=\frac{4-1}{1}=3$$
 
 But with $h=0{,}1$, the slope is $2{,}1$. Which value do we approach as the gap becomes increasingly small?
 
-<DerivativePanel kind="secant" locale="en" client:visible />
-
-## Definition: the derivative at a point
+### Definition: the derivative at a point
 
 <aside className="l39-callout" aria-label="Intuition">
 <p><strong>Intuition</strong></p>
@@ -91,7 +309,7 @@ A curve need not be differentiable everywhere. For $u(x)=|x|$ on the reals, the 
 
 </aside>
 
-## From a derivative value to the derivative function
+### From a derivative value to the derivative function
 
 Distinguish three objects:
 
@@ -103,7 +321,7 @@ For the square function, the formula valid for every real input is $f'(x)=2x$. A
 
 You may also see $Df=f'$, where D means the operation “differentiate”. For example, $D(x^2)=2x$ is shorthand for “the derivative of the function mapping x to its square is the function mapping x to 2x”. In this notation D is not the function’s domain.
 
-## The tangent: a line determined by a point and a slope
+### The tangent: a line determined by a point and a slope
 
 A line with slope m through point A has equation $y-f(a)=m(x-a)$. For the tangent, use the instantaneous slope.
 
@@ -130,150 +348,7 @@ The symbol $\approx$ means “approximately equal”. For the square function at
 
 A tangent may **cross** the curve or meet it elsewhere. Its definition concerns local slope, not “touching just once”.
 
-<DerivativePanel kind="tangent" locale="en" client:visible />
-
-## First rules: constants, powers and sums
-
-The following rules avoid repeating the limit. They apply where the functions involved are differentiable. In these formulas, c is a constant number and n a positive integer; constants are handled separately.
-
-$$D(c)=0,\qquad D(x^n)=nx^{n-1}$$
-
-A constant does not change when x moves: its derivative is zero. For a power, multiply by its exponent, then reduce the exponent by 1. For example, the derivative of the square function is indeed 2x.
-
-For a sum and a constant coefficient:
-
-$$D(f+g)=Df+Dg,\qquad D(cf)=cDf$$
-
-Differentiate each term separately. In our example, the domain is all real numbers:
-
-$$D(3x^2+2x+5)=3\times2x+2\times1+0=6x+2$$
-
-Coefficient 3 stays in front of the derivative of the square; the derivative of 2x is 2; that of 5 is 0. **A constant’s derivative is not that constant.**
-
-## The product rule
-
-In a product, both factors can change at the same time: two terms are needed. If f and g are differentiable:
-
-$$D(fg)=(Df)g+f(Dg)$$
-
-In this example, defined on the reals, identify the first and second factors before calculating:
-
-1. First factor: the square; its derivative is 2x.
-2. Second factor: x + 1; its derivative is 1.
-3. Differentiate the first while keeping the second, then add the first times the derivative of the second.
-
-$$D\bigl(x^2(x+1)\bigr)=2x(x+1)+x^2\times1=3x^2+2x$$
-
-**Independent check:** expand first to obtain a polynomial whose terms can be differentiated:
-
-$$x^2(x+1)=x^3+x^2,\qquad D(x^3+x^2)=3x^2+2x$$
-
-Multiplying only the two derivatives would have given 2x: terms would be missing.
-
-## The quotient rule
-
-The denominator must remain nonzero. For two differentiable functions, the rule is:
-
-$$D\left(\frac fg\right)=\frac{(Df)g-f(Dg)}{g^2},\qquad g(x)\ne0$$
-
-For the quotient of x by x + 1:
-
-1. Domain: all real numbers except −1, where the denominator is zero.
-2. Numerator derivative: 1; denominator derivative: 1.
-3. In the numerator: “top derivative × bottom − top × bottom derivative”. In the denominator: the bottom squared.
-
-$$D\left(\frac{x}{x+1}\right)=\frac{1\times(x+1)-x\times1}{(x+1)^2}=\frac{1}{(x+1)^2},\qquad x\ne-1$$
-
-<aside className="l39-callout" aria-label="Quotient warning">
-<p><strong>Warning</strong></p>
-
-The subtraction order matters. The denominator is squared. Restrictions from the original function remain after simplification; a derivative formula does not restore a forbidden input.
-
-</aside>
-
-## The chain rule
-
-A composition is a two-stage calculation: first apply the inner function g, then the outer function f. Notation $f\circ g$ is read “f composed with g” and means $f(g(x))$.
-
-The rule multiplies the outer rate of change, evaluated at the inner output, by the inner rate. It requires g to be differentiable at x and f at g(x):
-
-$$D(f\circ g)(x)=Df(g(x))\,Dg(x)$$
-
-For the cube of 2x + 1, defined on the reals:
-
-1. Inside: 2x + 1; its derivative is 2.
-2. Outside: cubing; its derivative is three times the square of its input.
-3. Keep 2x + 1 as the outer function’s input, then multiply by 2.
-
-$$D\bigl((2x+1)^3\bigr)=3(2x+1)^2\times2=6(2x+1)^2$$
-
-Omitting the final factor 2 forgets that the inner input changes too.
-
-## Choosing a rule and checking the calculation
-
-<aside className="l39-callout" aria-label="Differentiation method">
-<p><strong>Method</strong></p>
-
-1. Write the function’s domain.
-2. Identify the last operation: sum, product, quotient or composition.
-3. Identify the parts, apply the outer rule, then differentiate the parts.
-4. Simplify while keeping the restrictions.
-5. Check using another expression where possible.
-
-</aside>
-
-For example, the following denominator is strictly positive for every real input:
-
-$$x^2+1>0$$
-
-The last operation is a quotient. Both top and bottom derivatives are 2x:
-
-$$D\left(\frac{x^2}{x^2+1}\right)=\frac{2x(x^2+1)-x^2(2x)}{(x^2+1)^2}=\frac{2x}{(x^2+1)^2}$$
-
-The two cubic terms cancel in the numerator. Testing a simple input can reveal a mistake, but a few tests cannot prove that two formulas agree for every input.
-
-Another check on the reals: expanding this product before differentiating gives:
-
-$$D\bigl((x+1)(x^2-x+1)\bigr)=D(x^3+1)=3x^2$$
-
-The product rule also gives:
-
-$$(x^2-x+1)+(x+1)(2x-1)=3x^2$$
-
-## Quick check and essentials to remember
-
-Try before opening the corrections:
-
-1. For polynomial $p(x)=3x^2+2x+5$, calculate p′, then height and slope at a = 1. Write the tangent equation.
-2. Is the derivative of a product the product of the derivatives? Write the two correct terms in our example.
-3. For the quotient of x by x + 1, does input −1 become allowed after differentiation?
-4. Why does the cube of 2x + 1 produce an additional factor 2?
-
-<details className="l39-correction">
-<summary>Show explained corrections</summary>
-
-1. On the reals:
-
-$$p'(x)=6x+2,\qquad p(1)=10,\qquad p'(1)=8,\qquad y=10+8(x-1)=8x+2$$
-
-Height 10 locates the point; slope 8 determines the line’s direction.
-
-2. No. Keep one undifferentiated factor in each of the two terms: in our example, add 2x(x + 1) and the square of x.
-3. No: the original function is undefined at −1. The domain still excludes that input.
-4. The derivative of the inside 2x + 1 is 2: the chain rule requires this factor.
-
 </details>
 
-<aside className="l39-callout" data-kind="essential" aria-label="Essentials to remember">
-<p><strong>Essentials to remember</strong></p>
+Use the browser Print command. Recaps are also available without JavaScript. In L40, we apply these rules to the exponential function. [L40](/en/lessons/L40/).
 
-- **Meaning:** the derivative at a is a limit of average slopes and gives instantaneous slope.
-- **Objects:** value f(a) is height; f′(a) is slope; f′ is the function of slopes.
-- **Calculation:** domain → outer operation → rule → simplification → check.
-- **Tangent:** calculate f(a) and f′(a) separately, then substitute them into the equation:
-
-$$y=f(a)+f'(a)(x-a)$$
-
-- **Pitfalls:** do not divide by zero, simply multiply the derivatives of a product, forget to square the denominator, or omit the inner derivative.
-
-</aside>
