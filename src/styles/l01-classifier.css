@@ -1,0 +1,66 @@
+.l01-classifier,
+.l01-revision,
+.l01-correction {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  background: var(--card);
+  min-width: 0;
+}
+.l01-classifier fieldset {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+.l01-classifier legend {
+  font-weight: 700;
+}
+.l01-options {
+  display: grid;
+  gap: 0.5rem;
+}
+.l01-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.l01-classifier button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem;
+  font: inherit;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  overflow-wrap: anywhere;
+}
+.l01-classifier button[aria-pressed='true'] {
+  border: 2px solid var(--blue-accent);
+  font-weight: 700;
+}
+.l01-classifier button:focus-visible,
+.l01-correction summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.l01-classifier button:disabled {
+  opacity: 0.6;
+}
+.l01-classifier [hidden] {
+  display: none !important;
+}
+.l01-correction summary {
+  cursor: pointer;
+  min-height: 44px;
+}
+@media print {
+  .l01-classifier fieldset {
+    display: none !important;
+  }
+  .l01-classifier [data-classifier-static] {
+    display: block !important;
+  }
+  .l01-revision {
+    break-inside: avoid;
+  }
+}
