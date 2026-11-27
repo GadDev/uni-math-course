@@ -1,0 +1,59 @@
+.l09-figure,
+.l09-lab {
+  border: 1px solid currentColor;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.l09-figure svg {
+  display: block;
+  max-width: 28rem;
+  width: 100%;
+  margin: auto;
+}
+.l09-figure figcaption {
+  margin: 0.5rem 0 1rem;
+}
+.l09-lab fieldset {
+  min-width: 0;
+  padding: 0.75rem;
+  margin: 0.75rem 0;
+}
+.l09-lab button {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  margin: 0.25rem;
+  min-height: 44px;
+  cursor: pointer;
+}
+.l09-lab button[aria-pressed='true'] {
+  outline: 2px solid currentColor;
+  font-weight: bold;
+}
+.l09-lab button:focus-visible {
+  outline: 3px dashed currentColor;
+  outline-offset: 3px;
+}
+.l09-formula {
+  font-weight: bold;
+  font-size: 1.15rem;
+}
+@media print {
+  .l09-live {
+    display: none !important;
+  }
+  .l09-static[hidden] {
+    display: block !important;
+  }
+  .l09-static details > * {
+    display: block !important;
+  }
+  .l09-figure,
+  .l09-lab {
+    break-inside: avoid;
+  }
+}
