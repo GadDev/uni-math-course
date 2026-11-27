@@ -1,0 +1,67 @@
+.transform-lab,
+.transform-revision,
+.transform-correction {
+  margin-block: 1rem;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  background: var(--card);
+  min-width: 0;
+}
+.transform-lab fieldset {
+  min-width: 0;
+  border: 0;
+  padding: 0;
+}
+.transform-lab label {
+  display: block;
+  margin-block-start: 0.75rem;
+}
+.transform-lab :is(select, button) {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0.5rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.transform-lab select {
+  display: block;
+  width: 100%;
+}
+.transform-lab button {
+  margin-block: 0.5rem;
+}
+.transform-lab button:disabled {
+  opacity: 0.6;
+}
+.transform-lab :is(select, button):focus-visible,
+.transform-correction summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.transform-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.transform-scroll table {
+  width: 100%;
+}
+.transform-lab [hidden] {
+  display: none !important;
+}
+.transform-correction summary {
+  cursor: pointer;
+  min-height: 44px;
+}
+@media print {
+  .transform-lab fieldset {
+    display: none !important;
+  }
+  .transform-lab [data-transform-static] {
+    display: block !important;
+  }
+  .transform-revision {
+    break-inside: avoid;
+  }
+}
