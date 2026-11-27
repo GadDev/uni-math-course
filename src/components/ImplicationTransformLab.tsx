@@ -10,7 +10,11 @@ import {
 } from '../lib/implication-transforms';
 import '../styles/implication-transform-lab.css';
 
-export default function ImplicationTransformLab({ locale }: { locale: Locale }) {
+export default function ImplicationTransformLab({
+  locale,
+}: {
+  locale: Locale;
+}) {
   const fr = locale === 'fr';
   const id = useId();
   const [ready, setReady] = useState(false);
