@@ -1078,6 +1078,14 @@ function LabView({
                     : `${fr ? 'prochain pas' : 'next step'} : ${step.choice} (${step.d > 0 ? 'd > 0' : 'd ≤ 0'}). ${fr ? 'Mise à jour' : 'Update'} : d ← d + ${step.choice === 'E' ? 2 * v[1]! : 2 * v[1]! - 2 * v[0]!}.`}
               </p>
             )}
+            {step && step.choice !== 'end' && (
+              <p data-midpoint-heights>
+                {fr ? 'Hauteur idéale' : 'Ideal height'} ≈{' '}
+                {f((v[1]! * (step.x + 1)) / v[0]!)} ;{' '}
+                {fr ? 'hauteur du milieu' : 'midpoint height'} ={' '}
+                {f(step.y + 0.5)}.
+              </p>
+            )}
             {kind === 'sampling' && (
               <p>
                 {fr
@@ -1086,6 +1094,46 @@ function LabView({
               </p>
             )}
           </>
+        );
+      }
+    }
+    if (kind === 'raster') {
+      const trace = bresenham(v[0]!, v[1]!);
+      if (trace) {
+        const count = Math.min(v[2]! + (reveal ? 1 : 0), trace.length - 1);
+        table = (
+          <div className="geo-table">
+            <table data-raster-trace>
+              <caption>
+                {fr ? 'Trace des pas révélés' : 'Trace of revealed steps'}
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">{fr ? 'Courant' : 'Current'}</th>
+                  <th scope="col">d</th>
+                  <th scope="col">{fr ? 'Choix' : 'Choice'}</th>
+                  <th scope="col">{fr ? 'Ajout' : 'Add'}</th>
+                  <th scope="col">{fr ? 'Suivant' : 'Next'}</th>
+                  <th scope="col">{fr ? 'Nouveau d' : 'New d'}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {trace.slice(0, count).map((row, i) => {
+                  const next = trace[i + 1]!;
+                  return (
+                    <tr key={row.x}>
+                      <td>{pt(row.x, row.y)}</td>
+                      <td>{row.d}</td>
+                      <td>{row.choice}</td>
+                      <td>{next.d - row.d}</td>
+                      <td>{pt(next.x, next.y)}</td>
+                      <td>{next.d}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         );
       }
     }
@@ -1614,13 +1662,24 @@ export default function GeometryLab({
             {fr ? 'Vérifier le défi' : 'Check challenge'}
           </button>
           {kind === 'raster' && (
-            <button
-              type="button"
-              disabled={!feedback || v[2]! >= v[0]!}
-              onClick={() => set(2, v[2]! + 1)}
-            >
-              {fr ? 'Passer au pixel suivant' : 'Advance to the next pixel'}
-            </button>
+            <>
+              <button
+                type="button"
+                disabled={v[2]! === 0}
+                onClick={() => set(2, v[2]! - 1)}
+              >
+                {fr
+                  ? 'Revenir au pixel précédent'
+                  : 'Return to the previous pixel'}
+              </button>
+              <button
+                type="button"
+                disabled={!feedback || v[2]! >= v[0]!}
+                onClick={() => set(2, v[2]! + 1)}
+              >
+                {fr ? 'Passer au pixel suivant' : 'Advance to the next pixel'}
+              </button>
+            </>
           )}
           <p role="status" data-feedback>
             {feedback}
