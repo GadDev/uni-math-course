@@ -1,0 +1,207 @@
+---
+lessonId: L09
+locale: fr
+version: 4
+status: extended
+title: "Ensembles naïfs et paradoxe de Russell"
+summary: "Explorer les collections, tester une définition naïve, construire une preuve par contradiction et comprendre la compréhension restreinte."
+minutes: 25
+objectives: [L09-O01, L09-O02, L09-O03, L09-O04, L09-O05, L09-O06]
+prerequisites: [L01]
+sourcePages: [37, 38, 39, 40]
+---
+
+import RussellWorkshop, { RussellDiagrams } from '../../../src/components/RussellWorkshop';
+
+# Ensembles naïfs et paradoxe de Russell
+
+## 1. Comprendre — Peut-on définir n'importe quel ensemble ?
+
+**Objectif :** découvrir pourquoi une définition apparemment raisonnable peut être impossible, puis apprendre à le démontrer. Rappel de L01 : une assertion classique vaut 0 (faux) ou 1 (vrai) ; $\neg$ inverse ces valeurs.
+
+Informellement, un ensemble est une collection d'objets. Les lettres distinctes du mot « maths » forment par exemple $\{m,a,t,h,s\}$. L'ordre et les répétitions ne comptent pas : $\{2,1,2\}=\{1,2\}$.
+
+Dans $A=\{1,2,3\}$, $2\in A$ signifie « 2 appartient à A », et $4\notin A$ signifie « 4 n'appartient pas à A ». $\{2\}\subseteq A$ signifie que chaque élément de ce petit ensemble est dans A ; ce n'est pas la même question que $\{2\}\in A$.
+
+## 2. Visualiser — Un ensemble peut être un élément
+
+<RussellDiagrams locale="fr" />
+
+Dans $B=\{1,\{2,3\}\}$, les deux éléments directement listés sont $1$ et $\{2,3\}$. Ainsi $\{2,3\}\in B$, mais $2\notin B$ et $3\notin B$. L'appartenance n'est pas transitive.
+
+Une collection peut donc contenir des ensembles. Mais peut-on accepter n'importe quelle règle de construction, y compris une règle qui oblige à examiner si un ensemble est son propre élément ? La boucle du schéma représente uniquement cette hypothèse ; elle n'affirme pas l'existence d'un tel ensemble.
+
+## 3. Calculer et raisonner — Traduire une règle
+
+Dans une règle d'admission, « si et seulement si » signifie que les deux sens sont exigés (L07). Par exemple, pour $C=\{2,4\}$, un objet appartient à C exactement lorsqu'il vaut 2 ou 4.
+
+Supposons maintenant, pour mettre à l'épreuve la définition naïve, que **toute propriété permette de former l'ensemble de tous les objets qui la vérifient**. Prenons la propriété $x\notin x$ pour les ensembles x :
+
+$$
+E=\{x\mid x\notin x\}.
+$$
+
+On lit : « la collection des ensembles x tels que x n'appartient pas à x ». Le trait vertical signifie « tel que ». Sous notre hypothèse, E serait un ensemble et la règle s'appliquerait aussi à lui :
+
+$$
+x\in E\ \Leftrightarrow\ x\notin x.
+$$
+
+Remplacez mentalement x par E. Avant de lire la démonstration, faites une prédiction : E appartient-il à E ?
+
+## 4. Expérimenter — Tester les deux hypothèses
+
+<RussellWorkshop locale="fr" client:visible />
+
+<details>
+<summary>Démonstration formelle — à lire après les deux essais</summary>
+
+Supposons que E existe comme ensemble et appliquons sa règle à x = E.
+
+- Si $E\in E$, la condition nécessaire d'admission impose $E\notin E$. Contradiction.
+- Si $E\notin E$, la condition suffisante d'admission impose $E\in E$. Contradiction.
+
+La logique classique ne laisse aucun autre cas. En posant v la valeur de l'assertion « $E\in E$ », on obtient $v=\neg v$ ; ni 0 ni 1 ne convient. C'est la même structure logique que la phrase menteuse de L01, sans confondre les deux paradoxes.
+
+**Conclusion :** l'hypothèse d'existence de E comme ensemble est impossible. C'est une preuve par contradiction : supposer ce que l'on veut réfuter, déduire une impossibilité, puis rejeter l'hypothèse. Ce n'est ni une troisième valeur de vérité, ni la preuve que tous les ensembles sont contradictoires.
+
+</details>
+
+### Réparer la règle : partir d'un ensemble donné
+
+Le cours travaille avec quatre familles : ensembles de nombres (par exemple les naturels, zéro compris, et les réels), énumérations, compréhensions sur un ensemble déjà donné et ensembles construits à partir des précédents.
+
+| Construction | Ce que l'on fait |
+| --- | --- |
+| $\{x\mid x\notin x\}$ | Tenter de sélectionner sans ensemble de départ ; cette règle produit la contradiction de Russell. |
+| $\{x\in X\mid P(x)\}$ | Garder dans un ensemble X déjà donné les éléments qui satisfont le test P. |
+
+Pour $X=\{1,2,3,4,5,6\}$ et P(x) = « x est pair », on obtient $\{2,4,6\}$. Imaginez un filtre : X → test de parité → résultat. Le résultat est inclus dans X. Une propriété seule ne garantit pas l'existence d'un ensemble ; la restriction à X est essentielle. Il ne s'agit pas ici d'une axiomatisation complète de la théorie des ensembles.
+
+<details>
+<summary>Aller plus loin — pourquoi la restriction change la preuve</summary>
+
+Pour un ensemble X donné, posons $R=\{x\in X\mid x\notin x\}$. Alors
+
+$$
+R\in R\ \Leftrightarrow\ (R\in X\land R\notin R).
+$$
+
+Si $R\in X$, les deux cas conduisent à la contradiction de Russell. On déduit donc $R\notin X$. Et comme $R\subseteq X$, on a aussi $R\notin R$. La définition restreinte n'est pas contradictoire : elle ne promet jamais que R appartient à X.
+
+</details>
+
+## 5. Pratiquer — Écrire et justifier sans choix proposés
+
+Ces exercices publics ne sont pas notés. Essayez sur papier avant d'ouvrir un indice, puis comparez votre justification à la solution.
+
+### 1. Énumérer $\{3,1,3,2\}$ sans répétition.
+
+<details>
+<summary>Indice</summary>
+
+L'ordre ne compte pas.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+$\{1,2,3\}$.
+
+</details>
+
+### 2. Soit $D=\{0,\{1,2\}\}$. Décider si $1\in D$ et si $\{1,2\}\in D$. Justifier.
+
+<details>
+<summary>Indice</summary>
+
+Cherchez les éléments directement listés.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+$1\notin D$ mais $\{1,2\}\in D$ : le petit ensemble est un seul élément.
+
+</details>
+
+### 3. Soit $X=\{0,1,2,3,4\}$. Énumérer $\{x\in X\mid x>2\}$.
+
+<details>
+<summary>Indice</summary>
+
+Tester chaque élément de X.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+$\{3,4\}$ : seuls 3 et 4 passent le test.
+
+</details>
+
+### 4. Supposer que E existe et que $E\notin E$. Déduire la conséquence de la règle de Russell.
+
+<details>
+<summary>Indice</summary>
+
+Remplacer x par E dans la condition suffisante.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+$E\notin E$ satisfait le test ; donc $E\in E$, contradiction.
+
+</details>
+
+### 5. Un élève dit : « Le premier cas est impossible, donc E ne se contient pas et le problème est résolu. » Réfuter son argument.
+
+<details>
+<summary>Indice</summary>
+
+Il reste à tester le second cas.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Si $E\notin E$, la règle impose $E\in E$. Les deux cas échouent. Il faut rejeter l'existence de E comme ensemble.
+
+</details>
+
+### 6. Pour un ensemble X donné, soit $R=\{x\in X\mid x\notin x\}$. Montrer que $R\notin X$. (Défi)
+
+<details>
+<summary>Indice</summary>
+
+Supposer le contraire et substituer R à x.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Sous $R\in X$, la règle devient $R\in R\Leftrightarrow R\notin R$, impossible. Donc $R\notin X$.
+
+</details>
+
+Les 21 exercices sélectionnés restent accessibles via « S’exercer » avec un compte lorsque la connexion est configurée. L'atelier et les exercices écrits ci-dessus ne mesurent pas la maîtrise enregistrée.
+
+## 6. Retenir — Fiche de révision
+
+- $\in$ : appartient à ; $\notin$ : n'appartient pas à ; $\subseteq$ : est inclus dans.
+- Pour réfuter une définition, supposer son existence, appliquer sa règle, dériver une contradiction et rejeter l'hypothèse.
+- Pour Russell, tester les deux cas : $E\in E$ et $E\notin E$. Aucun ne fonctionne.
+- Pour construire par compréhension, partir d'un ensemble X connu et filtrer ses éléments.
+
+[Fiche L09 imprimable (A4)](/revision/l09-fr.html) — fiche et questions de rappel, sans compte. La leçon peut aussi être imprimée depuis le navigateur.
+
+En L10, nous approfondirons l'appartenance, l'inclusion et les ensembles de nombres ; en L13, la compréhension.
+
+Source : Logique_01.pdf, pages physiques 37–40. Les schémas, l'atelier, les preuves détaillées et les exercices écrits sont des compléments originaux du projet.
