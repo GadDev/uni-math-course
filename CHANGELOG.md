@@ -2,6 +2,40 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.22.0](https://github.com/GadDev/uni-math-course/compare/v0.21.0...v0.22.0) (2026-11-27)
+
+
+### Features
+
+* **learning:** clarify L40–L42 equations and review Chapter 3 ([#204](https://github.com/GadDev/uni-math-course/issues/204)) ([1f30b0b](https://github.com/GadDev/uni-math-course/commit/1f30b0bf6e7231bcc4fdbf524dd85f9597660b20))
+* **learning:** pilot six-stage lesson structure in L30 ([#180](https://github.com/GadDev/uni-math-course/issues/180)) ([1166cf3](https://github.com/GadDev/uni-math-course/commit/1166cf33028f81ab2e09e7757cc46cae242b47d4))
+* **learning:** redesign L01 assertions in six stages ([#205](https://github.com/GadDev/uni-math-course/issues/205)) ([3093440](https://github.com/GadDev/uni-math-course/commit/3093440c06229d32767127114308222f6a5b666f))
+* **learning:** redesign L02 logical connectives in six stages ([#206](https://github.com/GadDev/uni-math-course/issues/206)) ([63ab037](https://github.com/GadDev/uni-math-course/commit/63ab0378124f568208282322882465b9b6e87b94))
+* **learning:** redesign L03 truth table construction ([#207](https://github.com/GadDev/uni-math-course/issues/207)) ([4172f0b](https://github.com/GadDev/uni-math-course/commit/4172f0bb099f2a06143c8f929e4b27b7d8ca0fcc))
+* **learning:** redesign L06 implication transformations ([#210](https://github.com/GadDev/uni-math-course/issues/210)) ([4af7107](https://github.com/GadDev/uni-math-course/commit/4af71070cfd803b855998f06b28616367e6f9c7c))
+* **learning:** redesign L21 real-number arithmetic and signs ([#191](https://github.com/GadDev/uni-math-course/issues/191)) ([ca93df6](https://github.com/GadDev/uni-math-course/commit/ca93df6eb2b9951f9b53ca0d9435bd5d738a3550))
+* **learning:** redesign L22 expansion and factorisation ([#192](https://github.com/GadDev/uni-math-course/issues/192)) ([c90688f](https://github.com/GadDev/uni-math-course/commit/c90688fbc9daffbf3ea1381c84a9b369f387d8da))
+* **learning:** redesign L24 equations and inequalities ([#194](https://github.com/GadDev/uni-math-course/issues/194)) ([449f3d0](https://github.com/GadDev/uni-math-course/commit/449f3d065d729579b90b37f17ea3e6b1ba097496))
+* **learning:** redesign L37 functions and domains in six stages ([#198](https://github.com/GadDev/uni-math-course/issues/198)) ([48527aa](https://github.com/GadDev/uni-math-course/commit/48527aa4d7284fe62b5be920ea3acaade181b5cc))
+* **learning:** redesign L38 secants and derivatives in six stages ([#200](https://github.com/GadDev/uni-math-course/issues/200)) ([a808633](https://github.com/GadDev/uni-math-course/commit/a808633ed06035fd258ecb83c2d067fe56c67f1b))
+* **learning:** redesign L39 differentiation rule recognition ([#202](https://github.com/GadDev/uni-math-course/issues/202)) ([1911a45](https://github.com/GadDev/uni-math-course/commit/1911a45daba65681bb9eb81045a19ecd0fed09dc))
+* **learning:** teach affine models and residuals in six stages ([#187](https://github.com/GadDev/uni-math-course/issues/187)) ([04d45d3](https://github.com/GadDev/uni-math-course/commit/04d45d3c137ab4f9c0f3ad710f5cc7af663a32a6))
+* **learning:** teach correlation and model limits in six stages ([#190](https://github.com/GadDev/uni-math-course/issues/190)) ([bfccdf8](https://github.com/GadDev/uni-math-course/commit/bfccdf8c36889178cef26b0a163cf8a7891c39c9))
+* **learning:** teach fractions powers and roots in six stages ([#193](https://github.com/GadDev/uni-math-course/issues/193)) ([c794481](https://github.com/GadDev/uni-math-course/commit/c7944817f469f78bb677fb383400fc489466e2c6))
+* **learning:** teach half-planes and triangles in six stages ([#184](https://github.com/GadDev/uni-math-course/issues/184)) ([0db9c91](https://github.com/GadDev/uni-math-course/commit/0db9c91139ddecd4c3adf44f4dffc14b6517b33b))
+* **learning:** teach rasterisation and Bresenham in six stages ([#186](https://github.com/GadDev/uni-math-course/issues/186)) ([5596be5](https://github.com/GadDev/uni-math-course/commit/5596be53d6875ea96e374191275df393dbccc627))
+* **learning:** teach screen coordinates and pixels in six stages ([#185](https://github.com/GadDev/uni-math-course/issues/185)) ([6dd7d09](https://github.com/GadDev/uni-math-course/commit/6dd7d09983537226883bf0a683d70b09e3b129c7))
+* **learning:** teach sigma and means in six stages ([#197](https://github.com/GadDev/uni-math-course/issues/197)) ([9eff7a2](https://github.com/GadDev/uni-math-course/commit/9eff7a2ebf42c140b1fa5c99042fcf87973b9cbf))
+* **learning:** teach slope and intercept in six stages ([#183](https://github.com/GadDev/uni-math-course/issues/183)) ([e1bd31e](https://github.com/GadDev/uni-math-course/commit/e1bd31e0bef660a09913c4efb81c417a7ea5f96a))
+* **learning:** teach systems of two equations in six stages ([#196](https://github.com/GadDev/uni-math-course/issues/196)) ([f8c2dbd](https://github.com/GadDev/uni-math-course/commit/f8c2dbd246fa20ca229b878f486f52574900c412))
+* **learning:** teach the regression line in six stages ([#189](https://github.com/GadDev/uni-math-course/issues/189)) ([cec0c2a](https://github.com/GadDev/uni-math-course/commit/cec0c2af4a0e340babbb9a85838b7cb65856e3cf))
+
+
+### Bug Fixes
+
+* **content:** complete C04 source coverage and assessment outputs ([#199](https://github.com/GadDev/uni-math-course/issues/199)) ([c37ae18](https://github.com/GadDev/uni-math-course/commit/c37ae1887e179e49cfd3d007feec3509642e5f5b))
+* **printables:** restore English chapter 3 challenge questions ([#201](https://github.com/GadDev/uni-math-course/issues/201)) ([75b6569](https://github.com/GadDev/uni-math-course/commit/75b656965c4156c061a1ec5d0f97d89a3a7bda6f))
+
 ## [0.21.0](https://github.com/GadDev/uni-math-course/compare/v0.20.0...v0.21.0) (2026-11-25)
 
 
