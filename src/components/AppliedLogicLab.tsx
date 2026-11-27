@@ -110,11 +110,13 @@ export default function AppliedLogicLab({
   const [list, setList] = useState(2);
   const [sql, setSql] = useState('prog');
   const [reveal, setReveal] = useState(false);
+  const [cursor, setCursor] = useState(0);
   const [revision, setRevision] = useState(0);
   useEffect(() => setReady(true), []);
 
   function clear() {
     setReveal(false);
+    setCursor(0);
     setRevision((r) => r + 1);
   }
   function toggle(i: number, j: number) {
@@ -134,6 +136,8 @@ export default function AppliedLogicLab({
   const relation = relationFacts(grid);
   const t = listPresets[list]!;
   const listResult = listFacts(t);
+  const inspected = listResult.adjacent.slice(0, cursor);
+  const stopped = inspected.some((row) => !row.pass) || cursor >= listResult.adjacent.length;
   const access = accessFacts(grid, admins);
   const set = (names: readonly string[]) => names.length ? '{' + names.join(', ') + '}' : '∅';
   const namedPairs = (pairs: readonly (readonly [number, number])[]) =>
@@ -154,6 +158,10 @@ export default function AppliedLogicLab({
         )}
         {mode === 'relation' && (
           <div key={revision}>
+            <button type="button" onClick={() => {
+              setGrid([[true, false], [false, true], [false, true]]);
+              clear();
+            }}>{fr ? 'Chaque étudiant, un cours différent' : 'Each student, possibly different course'}</button>
             <p>{fr ? 'Produit : 6 couples. Relation :' : 'Product: 6 pairs. Relation:'} {grid.flat().filter(Boolean).length}</p>
             <Prediction fr={fr} formula="∀ x ∈ E ∃ c ∈ C I(x,c)" truth={relation.every}
               reason={relation.every ? (fr ? 'Chaque ligne contient un 1.' : 'Every row contains a 1.') : (fr ? 'Lignes vides : ' : 'Empty rows: ') + set(relation.missing)} />
@@ -176,6 +184,15 @@ export default function AppliedLogicLab({
             <button type="button" onClick={() => setReveal(!reveal)}>{fr ? 'Afficher / masquer la trace' : 'Show / hide trace'}</button>
             {reveal && (
               <div data-sql-result>
+                {sql === 'prog' && (
+                  <table>
+                    <caption>{fr ? 'Parcours des lignes Inscrit' : 'Scan Enrolled rows'}</caption>
+                    <thead><tr><th scope="col">id</th><th scope="col">cours</th><th scope="col">WHERE</th></tr></thead>
+                    <tbody>{grid.flatMap((row, i) => row.flatMap((cell, j) =>
+                      cell ? [<tr key={i + '-' + j}><td>{students[i]}</td><td>{courses[j]}</td><td>{j === 1 ? 'TRUE' : 'FALSE'}</td></tr>] : [],
+                    ))}</tbody>
+                  </table>
+                )}
                 <table>
                   <thead><tr><th scope="col">id</th><th scope="col">{fr ? 'Inscriptions' : 'Enrolments'}</th><th scope="col">{sql === 'prog' ? "cours = 'prog'" : 'NOT EXISTS'}</th></tr></thead>
                   <tbody>{students.map((s, i) => (
@@ -194,6 +211,17 @@ export default function AppliedLogicLab({
               {listPresets.map((values, i) => <option value={i} key={i}>{JSON.stringify(values)}</option>)}
             </select>
             <p>n = {t.length} ; J = {set(t.map((_, i) => String(i)))} ; K = {set(listResult.adjacent.map(({ i }) => String(i)))}</p>
+            <fieldset data-python-trace>
+              <legend>{fr ? 'Exécuter all, une comparaison à la fois' : 'Execute all, one comparison at a time'}</legend>
+              <p className="applied-actions">{t.map((value, i) => <span key={i}>[{i}] = {value}</span>)}</p>
+              <ol>{inspected.map(({ i, j, pass }) => <li key={i}>t[{i}] ≤ t[{j}] : {t[i]} ≤ {t[j]} → {pass ? 'True' : 'False'}</li>)}</ol>
+              <p role="status">{stopped ? (inspected.some((row) => !row.pass)
+                ? (fr ? 'Arrêt au premier échec : False.' : 'Stopped at first failure: False.')
+                : (fr ? 'Tous les tests réussissent : True.' : 'All tests pass: True.'))
+                : (fr ? 'Comparaisons restantes.' : 'Comparisons remain.')}</p>
+              <button type="button" disabled={stopped} onClick={() => setCursor((i) => i + 1)}>{fr ? 'Étape suivante' : 'Next step'}</button>
+              <button type="button" onClick={() => setCursor(0)}>{fr ? 'Rejouer la trace' : 'Replay trace'}</button>
+            </fieldset>
             <div key={revision}>
               <Prediction fr={fr} formula="all(t[i] <= t[i+1] for i in range(n-1))" truth={listResult.sorted}
                 reason={listResult.adjacent.map(({ i, j, pass }) => t[i] + ' ≤ ' + t[j] + ' : ' + String(pass)).join(' ; ') || (fr ? 'Aucune comparaison : all = True.' : 'No comparisons: all = True.')} />
