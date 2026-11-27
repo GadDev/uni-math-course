@@ -190,6 +190,7 @@ export default function FunctionPanel({
   const id = `l37-${kind}`;
   const panel = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
+  const [prediction, setPrediction] = useState<boolean | null>(null);
   const [ambiguous, setAmbiguous] = useState(false);
   const [x, setX] = useState(kind === 'domain' ? 1 : 0);
   const [constant, setConstant] = useState(3);
@@ -237,6 +238,7 @@ export default function FunctionPanel({
 
   const selectX = (value: number) => {
     setPlaying(false);
+    setPrediction(null);
     setX(value);
   };
   let result: string;
@@ -277,7 +279,7 @@ export default function FunctionPanel({
     alt = fr
       ? 'Courbe de f(x) = x³ + 2x + 3 passant par (−2 ; −9), (−1 ; 0), (0 ; 3), (1 ; 6) et (2 ; 15).'
       : 'Curve of f(x) = x³ + 2x + 3 through (−2; −9), (−1; 0), (0; 3), (1; 6) and (2; 15).';
-    result = `${name}(${format(x)}) = (${format(x)})³ + 2 × (${format(x)}) + ${constant} = ${format(x ** 3)} + (${format(2 * x)}) + ${constant} = ${format(y)}. Point : (${format(x)} ; ${format(y)}).`;
+    result = `${name}(${format(x)}) = (${format(x)})³ + 2 × (${format(x)}) + ${constant} = ${format(x ** 3)} + (${format(2 * x)}) + ${constant} = ${format(y)}. ${fr ? 'Point : ' : 'Point: '}(${format(x)} ; ${format(y)}).`;
   }
   return (
     <div
@@ -341,9 +343,10 @@ export default function FunctionPanel({
             <select
               id={`${id}-select`}
               value={ambiguous ? 'ambiguous' : 'square'}
-              onChange={(event) =>
-                setAmbiguous(event.target.value === 'ambiguous')
-              }
+              onChange={(event) => {
+                setPrediction(null);
+                setAmbiguous(event.target.value === 'ambiguous');
+              }}
             >
               <option value="square">
                 {fr ? 'Fonction g : x ↦ x²' : 'Function g: x ↦ x²'}
@@ -396,6 +399,7 @@ export default function FunctionPanel({
                   aria-pressed={playing}
                   disabled={reducedMotion}
                   onClick={() => {
+                    setPrediction(null);
                     if (!playing) setX(-2);
                     setPlaying(!playing);
                   }}
@@ -449,6 +453,7 @@ export default function FunctionPanel({
                     aria-describedby="l37-constant-question"
                     onChange={(event) => {
                       setPlaying(false);
+                      setPrediction(null);
                       setConstant(Number(event.target.value));
                     }}
                   />
@@ -457,6 +462,7 @@ export default function FunctionPanel({
                     data-reset-rule
                     onClick={() => {
                       setPlaying(false);
+                      setPrediction(null);
                       setConstant(3);
                       setX(0);
                     }}
@@ -470,6 +476,80 @@ export default function FunctionPanel({
             )}
           </>
         )}
+        <div className="l37-theory" data-l37-challenge>
+          <p>
+            <strong>
+              {kind === 'mapping'
+                ? fr
+                  ? 'Prédiction : une entrée peut-elle avoir deux images ?'
+                  : 'Predict: can one input have two outputs?'
+                : kind === 'domain'
+                  ? fr
+                    ? 'Prédiction : peut-on calculer r(2) ?'
+                    : 'Predict: can r(2) be evaluated?'
+                  : fr
+                    ? 'Prédiction : pour f (c = 3), le point d’image 15 a-t-il pour abscisse 2 ?'
+                    : 'Predict: for f (c = 3), does the point with output 15 have input 2?'}
+            </strong>
+          </p>
+          <div className="l37-actions">
+            {[true, false].map((choice) => (
+              <button
+                type="button"
+                key={String(choice)}
+                data-prediction={String(choice)}
+                aria-pressed={prediction === choice}
+                onClick={() => {
+                  setPlaying(false);
+                  if (kind === 'mapping') setAmbiguous(true);
+                  else if (kind === 'domain') setX(2);
+                  else {
+                    setConstant(3);
+                    setX(2);
+                  }
+                  setPrediction(choice);
+                }}
+              >
+                {choice ? (fr ? 'Oui' : 'Yes') : fr ? 'Non' : 'No'}
+              </button>
+            ))}
+            <button
+              type="button"
+              data-prediction-reset
+              onClick={() => {
+                setPrediction(null);
+                setPlaying(false);
+                setAmbiguous(false);
+                setConstant(3);
+                setX(kind === 'domain' ? 1 : 0);
+              }}
+            >
+              {fr ? 'Recommencer le défi' : 'Restart challenge'}
+            </button>
+          </div>
+          {prediction !== null && (
+            <p data-prediction-feedback role="status">
+              {prediction === (kind === 'graph')
+                ? fr
+                  ? 'Exact. '
+                  : 'Correct. '
+                : fr
+                  ? 'À revoir. '
+                  : 'Try again. '}
+              {kind === 'mapping'
+                ? fr
+                  ? 'Le schéma à deux flèches pour −1 ne définit pas une fonction.'
+                  : 'The diagram with two arrows from −1 is not a function.'
+                : kind === 'domain'
+                  ? fr
+                    ? 'À x = 2, le dénominateur vaut zéro ; aucune image.'
+                    : 'At x = 2 the denominator is zero; there is no output.'
+                  : fr
+                    ? 'Le calcul f(2) = 15 confirme le point (2 ; 15).'
+                    : 'The calculation f(2) = 15 confirms the point (2; 15).'}
+            </p>
+          )}
+        </div>
       </fieldset>
       <output aria-live={playing ? 'off' : 'polite'} aria-atomic="true">
         {result}
