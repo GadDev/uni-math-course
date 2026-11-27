@@ -120,7 +120,10 @@ export function checkProofStep(
   if (!correctFormula) {
     const before = index === 0 ? proof.start : proof.steps[index - 1]!.next;
     const result = compare(before, step.wrong, ['A', 'B', 'C']);
-    return { status: 'formula' as const, counterexample: result.counterexample };
+    return {
+      status: 'formula' as const,
+      counterexample: result.counterexample,
+    };
   }
   if (law !== step.law) return { status: 'law' as const };
   return { status: 'correct' as const };

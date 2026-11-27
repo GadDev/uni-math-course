@@ -247,8 +247,10 @@
   .l04-solution > :not(summary) {
     display: block !important;
   }
-  .l04-revision {
+  .lesson-prose[data-lesson-id='L04'] h2:has(+ .l04-revision) {
     break-before: page;
+  }
+  .l04-revision {
     break-inside: avoid;
   }
   body:has([data-lesson-id='L04']) .lesson-prose {
@@ -309,6 +311,7 @@
   .l04-proof-screen {
     display: none !important;
   }
+  .l04-proof-static[hidden],
   .l04-proof-static {
     display: block !important;
   }

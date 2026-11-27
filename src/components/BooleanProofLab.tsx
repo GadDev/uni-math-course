@@ -86,7 +86,7 @@ export default function BooleanProofLab({ locale }: { locale: Locale }) {
           </option>
         </select>
         <p>
-          {fr ? 'Objectif :' : 'Target:'}{' '}
+          {fr ? 'Objectif :' : 'Target:'}
           <span className="l04-formula">{formulaText(target)}</span>
         </p>
         <p data-proof-progress>
@@ -96,9 +96,7 @@ export default function BooleanProofLab({ locale }: { locale: Locale }) {
           <li className="l04-formula">{formulaText(proof.start)}</li>
           {proof.steps.slice(0, stepIndex).map((item, i) => (
             <li key={i}>
-              <span className="l04-formula">
-                ≡ {formulaText(item.next)}
-              </span>
+              <span className="l04-formula">≡ {formulaText(item.next)}</span>
               <span>{proofLaws[item.law][locale]}</span>
             </li>
           ))}
@@ -173,9 +171,7 @@ export default function BooleanProofLab({ locale }: { locale: Locale }) {
           <li className="l04-formula">{formulaText(proofs[0]!.start)}</li>
           {proofs[0]!.steps.map((item, i) => (
             <li key={i}>
-              <span className="l04-formula">
-                ≡ {formulaText(item.next)}
-              </span>
+              <span className="l04-formula">≡ {formulaText(item.next)}</span>
               <span>{proofLaws[item.law][locale]}</span>
             </li>
           ))}
