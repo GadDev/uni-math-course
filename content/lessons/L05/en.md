@@ -230,7 +230,7 @@ Original exercises inspired by the skills in Revision.pdf exercises 1–3: write
 1. Being a multiple of 8 is sufficient; being even is necessary. The number 2 is even but not a multiple of 8: it refutes the converse.
 2. The backup is verified AND its hash does not match. The negation is $A\land\neg B$.
 3. In order 00, 01, 10, 11, the implication columns are 1011 and 1110; their AND is 1010. Neither tautology nor contradiction; equivalent to $\neg B$.
-4. 
+4.
 
 $$\neg(B\Rightarrow A)\lor A\equiv(B\land\neg A)\lor A$$
 
@@ -276,4 +276,3 @@ Print this memo and the diagrams from the browser. The new workshop's fixed exam
 </section>
 
 Verified source: Logique_01.pdf, physical pages 20–23 (inclusive thresholds, definition, necessary and sufficient conditions, elimination and negation); Revision.pdf, exercises 1–3, pages 4–9. Card and strict-threshold examples, diagrams and extra exercises are project extensions. L06 develops converse and contrapositive.
-

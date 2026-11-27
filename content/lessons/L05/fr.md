@@ -230,7 +230,7 @@ Exercices originaux inspirés des compétences des exercices 1 à 3 de Revision.
 1. Être multiple de 8 suffit ; être pair est nécessaire. Le nombre 2 est pair mais n'est pas multiple de 8 : il réfute la réciproque.
 2. La sauvegarde est vérifiée ET son empreinte ne correspond pas. La négation est $A\land\neg B$.
 3. Dans l'ordre 00, 01, 10, 11, les colonnes des implications valent 1011 et 1110 ; leur ET vaut 1010. Ni tautologie ni contradiction ; équivalente à $\neg B$.
-4. 
+4.
 
 $$\neg(B\Rightarrow A)\lor A\equiv(B\land\neg A)\lor A$$
 
@@ -276,4 +276,3 @@ Imprimez cette fiche et les schémas depuis le navigateur. L'exemple fixe du nou
 </section>
 
 Source vérifiée : Logique_01.pdf, pages physiques 20–23 (seuils inclusifs, définition, conditions nécessaires et suffisantes, élimination et négation) ; Revision.pdf, exercices 1–3, pages 4–9. Les exemples de carte et de seuils stricts, les schémas et les exercices supplémentaires sont des compléments du projet. L06 approfondira réciproque et contraposée.
-
