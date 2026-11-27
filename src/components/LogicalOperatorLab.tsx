@@ -75,7 +75,8 @@ export default function LogicalOperatorLab({ locale }: { locale: Locale }) {
           ))}
         </select>
         <p>
-          {example.label} : {fr ? 'Quelle est la valeur ?' : 'What is its value?'}
+          {example.label} :{' '}
+          {fr ? 'Quelle est la valeur ?' : 'What is its value?'}
         </p>
         <div className="operator-actions">
           {[0, 1].map((choice) => (
@@ -150,8 +151,8 @@ export default function LogicalOperatorLab({ locale }: { locale: Locale }) {
       </div>
       <div className="operator-print">
         <p>
-          A = B = 1 : A ∧ B = 1 ; A ∨ B = 1 ; A XOR B = 0 ; ¬A = 0 ;
-          (¬A) ∨ B = 1 ; ¬(A ∨ B) = 0 ; ⊤ = 1.
+          A = B = 1 : A ∧ B = 1 ; A ∨ B = 1 ; A XOR B = 0 ; ¬A = 0 ; (¬A) ∨ B =
+          1 ; ¬(A ∨ B) = 0 ; ⊤ = 1.
         </p>
       </div>
     </section>
