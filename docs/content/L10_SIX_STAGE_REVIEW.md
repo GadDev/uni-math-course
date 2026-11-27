@@ -1,0 +1,11 @@
+# L10 six-stage reading review
+
+AI-assisted scoped author self-check, not independent peer review or hosted acceptance. Base 4ba2f5b9d276b46685778bbf16bb92750f6955e6.
+
+Source reopened: physical pages 41–43 and 57 of supplied Logique_01.pdf, text and all four rendered slides. Page 41 presents the number-family inclusion chain, programming representation caveat and empty set. Pages 42–43 define enumeration and give number and rock-paper-scissors examples. Page 57 recalls membership, inclusion and its universal implication definition. Preserve the existing number-family diagram and the course convention of zero as natural. Nested-set examples, equality, counterexamples, workshop and written practice are original pedagogical extensions.
+
+Existing readings are broadly correct. Refine the explanation of singleton non-membership to checking direct enumeration rather than suggesting sets cannot be elements. Add a classification table, empty-set versus singleton distinction, bilingual membership diagrams, six-stage reading, interactive prediction and counterexample feedback, six public written questions with separate hints and solutions, print-ready A4 HTML sheets. Reading v3 to v4; all objectives, prerequisite, status and source-page references retained. The workshop uses a fixed finite catalogue of structurally distinct object labels; it is not a general set parser. Membership checks a direct element, inclusion checks every candidate element; empty candidate is always a subset; numbers are not subset candidates under course convention. All four combinations are possible in the presets (membership only, inclusion only, both, neither). No client import of graded answers.
+
+Reviewed all 21 French prompts, answer keys and explanations in selected v2. No incorrect key found; not an exhaustive bilingual feedback review. Verified selected bank SHA-256 against registry; no bank edits or release promotion. Retain both unreviewed exceptions and renew reading fingerprints and translation source fingerprint with scoped evidence. No auth, grading, dependency or database changes.
+
+Added bilingual browser coverage for prediction, both-true case, empty set, number candidate, reset and print fallback. Local pnpm check, formatting, browser, mobile and print-layout checks have not been run via connector. Review CI before merging.
