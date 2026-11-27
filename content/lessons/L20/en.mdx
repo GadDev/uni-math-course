@@ -1,0 +1,142 @@
+---
+lessonId: L20
+locale: en
+version: 4
+status: extended
+title: "Access control and the trap of “only”"
+summary: "Translate access-control rules with ∀, ∃ and ⇒, avoid the reversal hidden in “only”, and negate nested statements."
+minutes: 28
+objectives: [L20-O01, L20-O02, L20-O03, L20-O04, L20-O05, L20-O06]
+prerequisites: [L05, L16, L17]
+sourcePages: [95, 96]
+---
+
+import AppliedLogicLab from '../../../src/components/AppliedLogicLab';
+
+# Access control and the trap of “only”
+
+## 1. Understand — Rules, permissions and proofs
+
+### Your objective
+
+By the end of this lesson, you can translate “only managers can approve a request” into a formula, explain that the rule imposes a necessary condition without guaranteeing sufficiency, and negate nested quantified statements.
+
+**Prerequisites:** L05 (implication), L16 (bounded quantifiers) and L17 (quantifier order).
+
+**Reading support:** [L17](../L17/) compares quantifier order. “For each user there is a request” allows a different request for each user; “there is a request for every user” requires the same request. For the nonempty sets in the model below, before reading the resolution, explain which condition is stronger. The second implies the first; the converse is not guaranteed.
+
+## 2. Visualise
+
+### A small model
+
+Let $U$ be the set of users and $R$ the set of requests. Let $M(u)$ mean “$u$ is a manager” and $V(u, r)$ mean “$u$ can approve $r$”.
+
+For the examples, take users ana, ben and cleo; only ana is a manager; the requests are r1 and r2; and the approvals are (ana, r1), (ana, r2) and (ben, r1).
+
+## 3. Calculate and reason
+
+### The trap of “only”
+
+“Only managers can approve a request” says that anyone who can approve is a manager:
+$$
+\forall u \in U\ \forall r \in R\ (V(u, r) \Rightarrow M(u)).
+$$
+Being a manager is a **necessary** condition for approving; the rule alone does not guarantee that it is sufficient. The sentence does not say that every manager can approve. Reading “only” the wrong way round gives $\forall u\ (M(u) \Rightarrow \ldots)$, which is a different statement.
+
+### Guided example: evaluating on the model
+
+1. The statement says: whoever approves is a manager.
+2. In the model, ben approves r1 and is not a manager.
+3. So $\forall u \in U\ \forall r \in R\ (V(u, r) \Rightarrow M(u))$ is false, with counterexample $(\text{ben}, \text{r1})$.
+
+This guided work, whose solution is visible, is not an independent response for mastery evidence.
+
+### Two more translations and their negations
+
+These examples are original solutions to the kind of exercise the source poses.
+
+- “Every manager can approve all requests”: $\forall u \in U\ (M(u) \Rightarrow \forall r \in R\ V(u, r))$. Its negation is $\exists u \in U\ (M(u) \land \exists r \in R\ \neg V(u, r))$.
+- “There is a request nobody can approve”: $\exists r \in R\ \forall u \in U\ \neg V(u, r)$. Its negation is $\forall r \in R\ \exists u \in U\ V(u, r)$.
+
+### Do not confuse “not guaranteed” with “false”
+
+A system giving every permission to managers and none to others respects the “only managers” rule. Another system leaving a manager with no permissions respects it too. The rule is compatible with both situations: it does not decide sufficiency.
+
+To negate the first translation, first negate “for every user”: seek a user. Failure of the implication then requires a manager for whom the conclusion fails. Finally, failure of “every request” supplies at least one request that cannot be approved. This sequence explains the negation formula, one quantifier at a time.
+
+## 4. Experiment
+
+The PDF uses U for users, F for files, A(u) for administrator role and S(u,f) for permission to delete f. The approval model in the lesson is a second example of the same structure. Here a cell marked 1 means permission, not an actual deletion.
+
+<AppliedLogicLab locale="en" mode="access" client:visible />
+
+Construct a matrix satisfying only administrators can delete, but where an administrator cannot delete a file. Then construct a violation: a non-administrator has permission. Translate the violation into an existential statement.
+
+The workshop is public, ungraded and does not replace written evidence.
+
+## 5. Practise — Write and justify
+
+Try on paper before revealing the solution.
+
+### Exercise 1
+
+Translate and negate only administrators can delete a file.
+
+<details>
+<summary>Worked solution</summary>
+
+∀u∈U ∀f∈F (S(u,f) ⇒ A(u)). Negation: ∃u∈U ∃f∈F (S(u,f) ∧ ¬A(u)).
+
+</details>
+
+### Exercise 2
+
+Translate and negate every administrator can delete every file.
+
+<details>
+<summary>Worked solution</summary>
+
+∀u∈U (A(u) ⇒ ∀f∈F S(u,f)). Negation: ∃u∈U (A(u) ∧ ∃f∈F ¬S(u,f)).
+
+</details>
+
+### Exercise 3
+
+Translate and negate there exists a file nobody can delete.
+
+<details>
+<summary>Worked solution</summary>
+
+∃f∈F ∀u∈U ¬S(u,f). Negation: ∀f∈F ∃u∈U S(u,f).
+
+</details>
+
+### Exercise 4
+
+Does an administrator without permission refute the only administrators rule? Justify.
+
+<details>
+<summary>Worked solution</summary>
+
+No: when S is false, S ⇒ A is true. This may refute the sufficiency rule if a file exists.
+
+</details>
+
+### Independent practice
+
+The selected exercises cover the translation of “only”, necessary versus sufficient, an evaluation, and two translations with a negation.
+
+Interactive practice is available with an account when sign-in is configured. The “Practise” button opens exercises with feedback and attempts saved in your private progress.
+
+## 6. Remember — Revision sheet
+
+### Takeaway
+
+Only A can S: S ⇒ A. Violation: S ∧ ¬A. A necessary condition does not guarantee permission. To negate a statement, switch quantifiers and apply ¬(P ⇒ Q) ≡ P ∧ ¬Q.
+
+[Printable L20 sheet (A4)](/revision/l20-en.html)
+
+
+“Only $A$ can $B$” means $B \Rightarrow A$: $A$ is necessary for $B$. Translate with $\forall$ and $\Rightarrow$, and negate by swapping quantifiers and negating the predicate.
+
+Original project text and examples. Coverage follows PDF pages 95–96 in the repository’s course map; the model, sentences and solutions are original and do not reproduce the source exercise.
