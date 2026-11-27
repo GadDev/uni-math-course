@@ -1,0 +1,184 @@
+---
+lessonId: L19
+locale: fr
+version: 5
+status: extended
+title: "Python all et any : tri, doublons et maximum"
+summary: "Traduire des énoncés sur une liste en ∀ et ∃ puis en all et any de Python, et traiter les cas limites des listes courtes."
+minutes: 28
+objectives: [L19-O01, L19-O02, L19-O03, L19-O04, L19-O05, L19-O06]
+prerequisites: [L16]
+sourcePages: [90, 91, 92, 93, 94]
+---
+
+import AppliedLogicLab from '../../../src/components/AppliedLogicLab';
+
+# Python all et any : tri, doublons et maximum
+
+## 1. Comprendre — Indices, comparaisons et arrêt anticipé
+
+### Votre objectif
+
+À la fin de cette leçon, vous savez traduire « la liste est triée », « la liste contient un doublon » et « la liste contient son maximum » en $\forall$ et $\exists$, les écrire avec `all` et `any` de Python, et énoncer les cas limites.
+
+**Prérequis :** L16 (quantificateurs bornés).
+
+## 2. Visualiser
+
+### Lire les indices avant la formule
+
+Pour `t = [1, 3, 2]`, voici où se trouvent les valeurs :
+
+| indice i | 0 | 1 | 2 |
+| --- | --- | --- | --- |
+| t[i] | 1 | 3 | 2 |
+
+Le premier indice est zéro et `n = len(t)` est le nombre d’éléments. `range(n-1)` produit les départs des paires voisines, sans inclure sa borne d’arrêt. `for i in ...` fait parcourir ces départs ; `all` demande que chaque test soit vrai et `any` qu’au moins un le soit. J regroupe toutes les positions et K seulement celles qui ont une suivante. Pour les listes de zéro ou un élément, K est vide : interprétez aussi la notation $\{0,\ldots,n-2\}$ des exercices comme ce domaine de départs valide, jamais comme des indices négatifs à parcourir.
+
+Relisez séparément les trois objectifs : trier compare des voisins, détecter un doublon compare deux positions distinctes et chercher un maximum compare un candidat à toutes les valeurs. Un maximum peut apparaître plusieurs fois.
+
+## 3. Calculer et raisonner
+
+### Une liste et ses indices
+
+Soit `t` une liste Python finie de longueur $n = \mathrm{len}(t)$, composée de réels comparables sans NaN. Les comparaisons suivent un ordre total ; les complexes et les valeurs non comparables sont exclus. Les indices valides forment $J = \{i \in \mathbb{Z} \mid 0 \leq i < n\}$ ; les départs de paires voisines forment $K = \{i \in J \mid i+1 < n\}$. Ces deux ensembles sont vides lorsque $n = 0$. L’élément d’indice `i` est `t[i]`.
+
+### Triée et non triée
+
+« `t` est triée » (croissante au sens large) se traduit par
+$$
+\forall i \in K\ t[i] \leq t[i+1],
+$$
+ce que Python écrit
+```python
+all(t[i] <= t[i+1] for i in range(n-1))
+```
+« `t` n’est pas triée » en est la négation :
+$$
+\exists i \in K\ t[i] > t[i+1],
+$$
+écrite
+```python
+any(t[i] > t[i+1] for i in range(n-1))
+```
+Il y a $\max(n-1, 0)$ paires voisines. Pour $n \geq 1$, leurs indices de départ vont de $0$ à $n-2$ ; pour la liste vide, aucun indice ne convient. `range(n-1)` énumère exactement ces départs, y compris `range(-1)`, qui est vide.
+
+### Exemple guidé : une liste de trois nombres
+
+Prenons `t = [1, 3, 2]`, donc $n = 3$ et les indices de comparaison sont $0$ et $1$.
+
+1. `t[0] <= t[1]` est `1 <= 3`, vrai.
+2. `t[1] <= t[2]` est `3 <= 2`, faux.
+3. Donc `all(...)` vaut `False` et `any(t[i] > t[i+1] ...)` vaut `True` : la liste n’est pas triée, avec le témoin $i = 1$.
+
+Ce travail guidé, dont la solution est visible, n’est pas une réponse indépendante pour mesurer la maîtrise.
+
+**Lire une expression Python.** `len(t)` donne le nombre d’éléments ; `range(n)` parcourt les indices de $0$ à $n-1$, sans inclure $n$. `True` et `False` sont les valeurs booléennes. Dans `test for i in ... for j in ...`, fixer un `i`, parcourir ses `j`, puis passer au `i` suivant. Dans `any(all(...))`, le `all` intérieur termine le test d’un candidat avant que le `any` extérieur cherche un autre candidat.
+
+### Doublons et maximum
+
+Ce sont des traductions originales ; la source du cours ne les pose que comme exercices.
+
+- « `t` contient un doublon » : $\exists i \in J\ \exists j \in J\ (i < j \land t[i] = t[j])$.
+- « `t` contient son maximum » : $\exists i \in J\ \forall j \in J\ t[j] \leq t[i]$.
+
+La condition $i < j$ compte : sans elle, chaque élément est égal à lui-même.
+
+Avec ces domaines d’indices, les traductions Python sont :
+
+```python
+any(t[i] == t[j] for i in range(n) for j in range(i+1, n))
+any(all(t[j] <= t[i] for j in range(n)) for i in range(n))
+```
+
+La première recherche deux positions distinctes de même valeur ; la seconde recherche une position dont la valeur domine toutes les autres.
+
+### Tracer les deux niveaux
+
+Avec `t=[1,3,1]` et `n=3`, les paires d’indices distincts sont :
+
+| i | j | Comparaison | Résultat |
+| --- | --- | --- | --- |
+| 0 | 1 | `1 == 3` | `False` |
+| 0 | 2 | `1 == 1` | `True` : témoin du doublon |
+| 1 | 2 | `3 == 1` | `False` |
+
+`any` peut s’arrêter dès le témoin `(0,2)` ; le tableau expose toutes les paires pour expliquer le domaine. Pour chercher un maximum, voici le candidat d’indice `i=1`, donc de valeur `3` :
+
+| j | `t[j] <= t[1]` | Résultat |
+| --- | --- | --- |
+| 0 | `1 <= 3` | `True` |
+| 1 | `3 <= 3` | `True` |
+| 2 | `1 <= 3` | `True` |
+
+Le `all` intérieur vaut `True`, donc le `any` extérieur possède le témoin `i=1`. **À vous :** pourquoi le candidat `i=0` échoue-t-il ? Le test `j=1` demande `3 <= 1`, faux. Un candidat doit réussir toutes les comparaisons, pas une seule.
+
+### Cas limites
+
+Pour une liste vide, la plage est vide. Alors `all(...)` sur une plage vide vaut `True` et `any(...)` sur une plage vide vaut `False`. Une liste de longueur $0$ ou $1$ est donc triée. L’énoncé « contient son maximum » exige une liste finie et non vide de nombres : une liste vide n’a pas de maximum, et la traduction donne bien faux.
+
+## 4. Expérimenter
+
+Les listes de l'atelier sont finies et contiennent des entiers. Pour all, une comparaison fausse suffit à arrêter l'évaluation ; pour any, un succès suffit. Une trace exhaustive peut être utile pour expliquer le raisonnement, mais Python n'exécute pas forcément toutes les comparaisons.
+
+<AppliedLogicLab locale="fr" mode="python" client:visible />
+
+Essayez [1,3,2], [1,2,2], [5] et []. Avant chaque étape, calculez la comparaison. Repérez l'arrêt au premier échec. Cherchez ensuite deux indices distincts pour un doublon et tous les indices d'un maximum.
+
+L'atelier est public, non noté et ne remplace pas une preuve écrite.
+
+## 5. Pratiquer — Écrire et justifier
+
+Essayez sur papier avant de dévoiler la correction.
+
+### Exercice 1
+
+Pour t = [1,3,2], donnez les indices valides de départ, puis les comparaisons exécutées par all.
+
+<details>
+<summary>Correction expliquée</summary>
+
+K = \{0,1\}. 1 ≤ 3 est vraie, puis 3 ≤ 2 est fausse : arrêt, all vaut False.
+
+</details>
+
+### Exercice 2
+
+Pour t = [2,2,5,5], donnez une paire témoin de doublon et tous les indices maximaux.
+
+<details>
+<summary>Correction expliquée</summary>
+
+(0,1) ou (2,3) sont des paires témoins. Les indices 2 et 3 portent la valeur maximale 5.
+
+</details>
+
+### Exercice 3
+
+Pour t = [], donnez les valeurs de triée, non triée, doublon et contient son maximum.
+
+<details>
+<summary>Correction expliquée</summary>
+
+True, False, False, False. Aucun indice et aucune paire ne sont disponibles.
+
+</details>
+
+### Pratique indépendante
+
+Les exercices sélectionnés portent sur la traduction avec `all`, la négation, le nombre de comparaisons, les doublons, le maximum et la liste vide.
+
+La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
+
+## 6. Retenir — Fiche de révision
+
+### À retenir
+
+Tri : comparer les voisins i et i+1, i dans K. Doublon : chercher i &lt; j de même valeur. Maximum : chercher un indice i dominant tous les j. all sur vide = True ; any sur vide = False.
+
+[Fiche imprimable L19 (A4)](/revision/l19-fr.html)
+
+
+$\forall$ sur des indices est `all`, $\exists$ sur des indices est `any`. Vérifiez la plage d’indices, et rappelez-vous ce que renvoient `all` et `any` sur une plage vide.
+
+Texte et exemples originaux du projet. La couverture suit les pages 90 à 94 du PDF selon la carte du cours du dépôt ; les traductions des doublons et du maximum sont des solutions originales à l’exercice ouvert de la source.
