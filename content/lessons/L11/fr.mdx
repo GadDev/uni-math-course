@@ -1,0 +1,230 @@
+---
+lessonId: L11
+locale: fr
+version: 4
+status: extended
+title: "Prédicats et quantificateurs"
+summary: "Lire un prédicat P(x) sur un ensemble, évaluer ∀ et ∃ sur un domaine, et voir pourquoi le domaine change la valeur de vérité."
+minutes: 28
+objectives: [L11-O01, L11-O02, L11-O03, L11-O04, L11-O05, L11-O06]
+prerequisites: [L01, L10]
+sourcePages: [44, 45, 46, 47, 48]
+---
+
+import QuantifierLab from '../../../src/components/QuantifierLab';
+
+# Prédicats et quantificateurs
+
+## 1. Comprendre — Une phrase qui dépend de x
+
+### Votre objectif
+
+À la fin de cette leçon, vous savez lire un prédicat $P(x)$ sur un ensemble $X$, évaluer $\forall x\ P(x)$ et $\exists x\ P(x)$, et expliquer comment le domaine change la valeur de vérité.
+
+**Prérequis :** L01 (assertions) et L10 (ensembles et appartenance).
+
+### Commencer par un domaine fini
+
+Soit $X = \{1,2,4\}$ et $P(x)$ : « x est pair ».
+
+| x | 1 | 2 | 4 |
+| --- | --- | --- | --- |
+| P(x) | faux | vrai | vrai |
+
+Le « pour tout » est faux à cause de un ; le « il existe » est vrai, par exemple grâce à deux. Un **témoin** est un élément qui réussit le test ; un **contre-exemple** est un élément qui fait échouer la règle générale.
+
+### Prédicats
+
+Un **prédicat** $P(x)$ sur un ensemble $X$ est un énoncé qui devient une assertion dès que la variable $x$ est interprétée par un élément de $X$. Sa valeur de vérité dépend de cette interprétation. La définition s’étend aux prédicats à plusieurs variables, comme $P(x, y)$.
+
+Par exemple, sur $\mathbb{R}$, soit $P(x)$ : $x > 2$. Il est vrai lorsque $x$ est interprété par $3$ et faux lorsque $x$ est interprété par $1$.
+
+Un prédicat avec une variable libre ne possède pas encore une valeur de vérité fixée. Le domaine indique les valeurs autorisées, la variable désigne l'objet testé et le prédicat décrit le test. Pour un prédicat binaire, par exemple $Q(x,y):x+y=4$ sur les couples d'entiers, $Q(1,3)$ est vraie, mais $Q(1,1)$ est fausse. Toutes les variables libres doivent être interprétées ou quantifiées pour obtenir une assertion.
+
+Complément à l'exemple géographique de la page 46 : sur $X=\{\text{Wiltz},\text{Luxembourg},\text{Arlon}\}$, fixons les faits utiles : Wiltz et Luxembourg sont au Luxembourg, Arlon est en Belgique. Le prédicat « x est une ville luxembourgeoise » donne donc deux valeurs vraies et une fausse.
+
+## 2. Visualiser — Pour tout ou il existe ?
+
+### Quantificateurs
+
+Si $P(x)$ est un prédicat sur $X$ :
+
+- $\forall x\ P(x)$ est vraie exactement lorsque $P(a)$ est vrai quel que soit le choix de $a$ dans $X$ ;
+- $\exists x\ P(x)$ est vraie exactement lorsqu’il existe un choix de $a$ dans $X$ tel que $P(a)$ est vrai.
+
+Le symbole $\forall$ se lit « pour tout » et $\exists$ se lit « il existe ».
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L11-quantifiers-fr.svg" alt="Domaine X contient 1, 2 et 4. P(x) signifie x est pair. 1 est un contre-exemple à pour tout, 2 et 4 sont des témoins de il existe." width="560" height="260" /><figcaption>Un témoin prouve une existentielle ; un contre-exemple réfute une universelle. Ils doivent appartenir à X.</figcaption></figure>
+
+Dans la notation du professeur, le domaine X est fixé et sous-entendu. On peut aussi l'écrire explicitement : $\forall x\in X\ P(x)$ et $\exists x\in X\ P(x)$. Le symbole $\exists$ signifie « au moins un », pas « exactement un ».
+
+| Assertion | Pour prouver qu'elle est vraie | Pour prouver qu'elle est fausse |
+| --- | --- | --- |
+| $\forall x\in X\ P(x)$ | Justifier P pour tout élément de X. | Trouver un contre-exemple dans X. |
+| $\exists x\in X\ P(x)$ | Donner un témoin dans X et vérifier P. | Justifier qu'aucun élément de X ne satisfait P. |
+
+## 3. Calculer et raisonner — Justifier la valeur de vérité
+
+### Exemple guidé : un prédicat, deux domaines
+
+Soit $P(x)$ : $x > 2$.
+
+Dans le second cas ci-dessous, $[10,+\infty[$ signifie les réels supérieurs ou égaux à dix : le crochet près de dix l’inclut.
+
+1. Sur $\mathbb{R}$ : $\exists x\ P(x)$ est vraie, avec le témoin $3$. $\forall x\ P(x)$ est fausse, avec le contre-exemple $1$.
+2. Sur $[10, +\infty[$ : $\forall x\ P(x)$ est vraie, car tout nombre à partir de $10$ dépasse $2$. $\exists x\ P(x)$ est aussi vraie.
+
+Le même prédicat donne une valeur différente pour $\forall$ lorsque le domaine change.
+
+Ce travail guidé, dont la solution est visible, n’est pas une réponse indépendante pour mesurer la maîtrise.
+
+### Les quatre cas sur un domaine fini
+
+Avec $P(x)$ : « x est pair », comparez :
+
+| Domaine X | $\forall x\ P(x)$ | $\exists x\ P(x)$ |
+| --- | --- | --- |
+| $\{2,4\}$ | Vrai | Vrai |
+| $\{1,2\}$ | Faux | Vrai |
+| $\{1,3\}$ | Faux | Faux |
+| $\varnothing$ | Vrai | Faux |
+
+Sur le domaine vide, aucun élément ne peut violer la règle universelle : elle est vraie **par vacuité**. Aucun témoin ne peut exister : l'existentielle est fausse. Ce cas est un complément pédagogique aux pages du cours et prépare L16 et L19.
+
+Sur un domaine fini, un tableau exhaustif peut justifier les deux valeurs. Sur un domaine infini, quelques essais ne suffisent pas à prouver une universelle ni à réfuter une existentielle : il faut un argument général. Par exemple, sur $[10,+\infty[$, tout x vérifie $x\geq10>2$, et 10 est un témoin de $x>2$.
+
+### Piège : oublier le domaine
+
+Une assertion avec un quantificateur n’a de sens qu’une fois l’ensemble $X$ nommé. Précisez toujours le domaine avant de décider de $\forall x\ P(x)$ ou de $\exists x\ P(x)$.
+
+### Une précaution sur la source
+
+La page 48 indique que $\exists x\forall y\ P(x,y)$ serait vraie sur l'ensemble des humains, avec P(x,y) : « x est strictement plus vieux que y ». Or, pour tout candidat x, on peut choisir $y=x$ : la comparaison stricte de x avec lui-même est fausse. L'assertion est donc fausse telle qu'elle est écrite. Exclure y = x changerait l'énoncé et ne suffirait pas à garantir l'existence d'une personne strictement plus âgée que toutes les autres. Nous conservons cette distinction sans supposer l'intention de l'auteur.
+
+## 4. Expérimenter — Construire le domaine et tester le prédicat
+
+Choisissez les éléments de X, puis le prédicat. Avant de révéler chaque valeur, calculez-la mentalement. Prédisez ensuite les valeurs des deux assertions et proposez un témoin et un contre-exemple, ou indiquez qu'aucun ne convient.
+
+<QuantifierLab locale="fr" client:visible />
+
+**Défis :** gardez le prédicat « x est pair » et construisez successivement un domaine où les deux assertions sont vraies, un domaine où seule l'existentielle est vraie, un domaine où les deux sont fausses et un domaine où seule l'universelle est vraie. Essayez aussi un nombre hors de X comme témoin : même s'il satisfait le prédicat, il n'est pas admissible.
+
+Cet atelier est public et non noté. Il ne remplace pas une justification écrite.
+
+## 5. Pratiquer — Construire une preuve
+
+Essayez les six exercices suivants sur papier avant d'ouvrir les indices et les solutions. Ce travail est non noté.
+
+### 1. Sur $X=\{-2,0,3\}$, soit $P(x):x<0$. Calculez $P(-2)$, $P(0)$ et $P(3)$, puis les deux assertions quantifiées.
+
+<details>
+<summary>Indice</summary>
+
+Testez chaque valeur séparément.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+$P(-2)=1$, $P(0)=0$, $P(3)=0$. L'universelle est fausse (0 est un contre-exemple) ; l'existentielle est vraie (−2 est un témoin).
+
+</details>
+
+### 2. Sur $X=\{0,2,4\}$, soit $P(x):x>3$. Un étudiant propose 5 comme témoin de $\exists x\in X\ P(x)$. Son argument est-il valide ? Trouvez un témoin valide.
+
+<details>
+<summary>Indice</summary>
+
+Un témoin doit satisfaire deux conditions.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Non : $5\notin X$. En revanche $4\in X$ et $4>3$, donc 4 est un témoin valide.
+
+</details>
+
+### 3. Soit $P(x):x^2<9$. Construisez un domaine fini non vide sur lequel $\forall x\ P(x)$ est vraie, puis ajoutez un seul élément pour la rendre fausse sans rendre $\exists x\ P(x)$ fausse.
+
+<details>
+<summary>Indice</summary>
+
+Gardez un témoin et ajoutez un contre-exemple.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Par exemple $X=\{0,1,2\}$ ; puis $Y=\{0,1,2,3\}$. Les trois premiers carrés sont inférieurs à 9 ; $3^2=9$ réfute l'universelle sur Y. 0 reste un témoin.
+
+</details>
+
+### 4. Sur $X=\varnothing$, que valent $\forall x\in X\ P(x)$ et $\exists x\in X\ P(x)$ ? Justifiez sans choisir de valeur de x.
+
+<details>
+<summary>Indice</summary>
+
+Cherchez si un témoin ou un contre-exemple peut exister.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Vrai et faux respectivement : aucun contre-exemple, aucun témoin. Il ne s'agit pas d'une valeur de P(x) pour un objet inexistant.
+
+</details>
+
+### 5. Sur $\mathbb R$, décidez et justifiez $\forall x\ (x^2\geq0)$, $\exists x\ (x^2=-1)$ et $\exists x\ (x^2=16)$.
+
+<details>
+<summary>Indice</summary>
+
+Utilisez la propriété du carré d'un réel ; un témoin suffit pour la dernière assertion.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+Vrai, faux, vrai. Le carré de tout réel est non négatif, donc aucun réel n'a pour carré −1. Le réel 4 est un témoin de la dernière assertion.
+
+</details>
+
+### 6. Sur $\mathbb Z$, soit $Q(x,y):x+y=0$. Calculez $Q(2,-2)$ et $Q(2,2)$. L'assertion « chaque entier possède un entier qui lui est opposé » est-elle vraie ? Justifiez avec un choix de y en fonction de x.
+
+<details>
+<summary>Indice</summary>
+
+Choisissez y après avoir fixé x.
+
+</details>
+
+<details>
+<summary>Solution expliquée</summary>
+
+$Q(2,-2)=1$, $Q(2,2)=0$. Pour tout entier x, choisissez $y=-x\in\mathbb Z$ : $x+y=0$. C'est une anticipation de L17.
+
+</details>
+
+### Pratique indépendante
+
+Les exercices sélectionnés portent sur les prédicats, l’évaluation d’une valeur, $\forall$ sur un domaine fini, $\exists$ avec un témoin, l’effet du domaine et un prédicat sur des noms de lieux.
+
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
+
+## 6. Retenir — Fiche de révision
+
+### À retenir
+
+Un prédicat devient une assertion une fois sa variable fixée. $\forall x\ P(x)$ demande tous les éléments du domaine ; $\exists x\ P(x)$ en demande un. Nommez d’abord le domaine.
+
+**Méthode express :** écrire le domaine, lire le prédicat, identifier le quantificateur, puis produire la preuve adaptée. Un exemple vrai ne suffit pas pour $\forall$ ; un exemple faux ne suffit pas pour réfuter $\exists$. Un témoin ou contre-exemple doit appartenir au domaine. Vérifiez le cas vide.
+
+[Fiche L11 imprimable (A4)](/revision/l11-fr.html) — méthode, tableau et entraînement. Vous pouvez aussi imprimer la leçon.
+
+Source vérifiée : Logique_01.pdf, pages physiques 44–48. Les schémas, l'atelier, le cas vide et les exercices écrits sont des compléments originaux du projet. L12 abordera la négation des quantificateurs.
