@@ -1,0 +1,9 @@
+# L38 six-stage review
+
+AI-assisted implementing-author self-check, not independent mathematical review or hosted acceptance. Base 9eff7a2ebf42c140b1fa5c99042fcf87973b9cbf.
+
+Directly read and rendered supplied Fonctions_01.pdf physical pages 5–12. Page 5: speed difference quotient and limit; page 6: derivative as finite limit on an open interval, differentiability across the interval and derivative function; pages 7–12: f(x)=x²/2, fixed x₀=1, h=2,1,0.5,0.25,0.1 approaching zero and tangent slope 1. Retain all original explanations, source metadata, original ten heading slugs as subsections, both original workshops, all four memos and three original practice questions. Signed displacement clarification, negative h, absolute-value counterexample, tangent equation and quadratic family are project teaching extensions. New slope-versus-h diagram makes the distinction between the original curve and the quotient graph explicit.
+
+Reading v2→v3; bank v1 and prior bank evidence docs/content/CHAPTER_03_REVIEW.md preserved by reference; prior reading/translation review docs/content/L38_REVIEW.md retained by reference. Six H2 stages, two bilingual SVGs, absolute slope-error identity, two additional independent written challenges in the original correction disclosure, prediction feedback for opposite gaps and vertical translation using existing controls. No engine, dependency, grading or database changes.
+
+Arithmetic checked: P=(1,1/2); m=1+h/2 for h≠0, ±0.1 gives 0.95 and 1.05, error 0.05, |h|<0.02 gives error <0.01 with h≠0. The tangent is y=x−1/2. Adding 2 changes height to 2.5 with slope 1, adding 3 gives 7/2 and tangent y=x+5/2. At zero, |h|/h has unequal one-sided limits. Exact paired math strings and headings checked; existing browser tests retained, new bilingual prediction/error/reset checks added. Full pnpm check and pnpm test:e2e not executed through connector; CI and manual browser/keyboard/mobile/print checks required before merge.

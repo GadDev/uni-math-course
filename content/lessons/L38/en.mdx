@@ -1,7 +1,7 @@
 ---
 lessonId: L38
 locale: en
-version: 2
+version: 3
 status: extended
 title: "From secants to derivatives"
 summary: "Understand instantaneous slope, approach a limit and construct a tangent."
@@ -17,7 +17,9 @@ import SpeedFormulaDiagram from '../../../src/components/SpeedFormulaDiagram.ast
 
 *Original course explanations based on* Bruno Teheux, Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026, pages 5 to 12. Diagrams and activities are original project additions.
 
-## Goals and prerequisites
+## 1. Understand — Measure change
+
+### Goals and prerequisites
 
 A slope between **two points** describes an average change. How can we speak of slope **at a single point** on a curve? We will bring the points closer, observe the slopes and give their limiting value a precise meaning.
 
@@ -31,7 +33,7 @@ Before starting, check that you can:
 
 <p>For coordinates and functions, revisit <a href="/en/lessons/L27/">L27</a> and <a href="/en/lessons/L37/">L37</a>. No limit-calculation technique is assumed here.</p>
 
-## Why begin with speed?
+### Why begin with speed?
 
 A car's speedometer shows speed at an instant, whereas a calculation from two positions gives an average velocity. The derivative connects these ideas.
 
@@ -45,7 +47,11 @@ For example, if $s(t)=t^2$ for $t\ge0$ and $t_0=2$, the quotient is 5 for $h=1$,
 
 <SpeedFormulaDiagram locale="en" />
 
-## Reading a secant slope
+**Essential path** — Understand slope between two points, calculate the limit, then construct the tangent. The derivative function and challenges then deepen the reasoning. For expanding a square and slope, revisit [L22](/en/lessons/L22/) and [L29](/en/lessons/L29/).
+
+## 2. Visualise — Two points, two changes
+
+### Reading a secant slope
 
 Return to a function $f$, which assigns an output to each allowed input. Fix an input $x_0$ (“x subscript zero”) and take another input $x_0+h$. Here $h$ is a **horizontal gap**, not a height.
 
@@ -61,7 +67,19 @@ The symbol $\Delta$ (“delta”) indicates a change: $\Delta x=h$ and $\Delta y
 
 <aside className="l38-memo"><p><strong>Remember — Two points</strong></p><p>The secant measures an average change. Its slope is a quotient defined only when the horizontal coordinates differ.</p></aside>
 
-## Running example: a parabola
+| Object | Meaning |
+| --- | --- |
+| $f(x_0)$ | Height of fixed point P. |
+| $h$ | Signed horizontal displacement from P to Q. |
+| $f(x_0+h)-f(x_0)$ | Signed vertical displacement. |
+| $m_{\mathrm{sec}}(h)$ | Average slope between the two points. |
+| $f'(x_0)$ | Instantaneous slope if the limit exists. |
+
+In the PDF example, P stays fixed at input 1. Q moves closer: it is not its height alone that tends to zero, but its horizontal displacement from P. The secant slope approaches a definite value.
+
+## 3. Calculate — From quotient to limit and tangent
+
+### Running example: a parabola
 
 Keep the lesson's example: $f(x)=x^2/2$, defined on $\mathbb R$, the set of real numbers. Fix $x_0=1$. Thus $f(1)=1/2$ and $P=(1,1/2)$.
 
@@ -81,7 +99,7 @@ $$m_{\mathrm{sec}}(h)=\frac{h+h^2/2}{h}=1+\frac h2,\qquad h\ne0$$
 
 For $h=2$, the slope is 2. For $h=0{,}1$, it is 1.05. These are still slopes **between two points**, not the derivative.
 
-## From numbers to the tangent
+### From numbers to the tangent
 
 As $Q$ approaches $P$, it is the **absolute value** $|h|$, the distance of $h$ from zero, that decreases. This can happen through positive or negative values.
 
@@ -89,11 +107,11 @@ As $Q$ approaches $P$, it is the **absolute value** $|h|$, the distance of $h$ f
 
 The table suggests a limiting value of 1. The formula justifies it: the difference between the slope and 1 is $h/2$, which becomes as small as desired when $h$ is sufficiently close to zero. Observed values alone do not prove that a limit exists.
 
-<DerivativeExplorer kind="secant" locale="en" client:visible />
+<figure className="teaching-figure"><img src="/diagrams/functions/l38-two-sided-limit-en.svg" alt="Graph of slope 1+h/2 as a function of h. Both branches approach the open point (0; 1). At h = 0 the quotient is undefined." width="560" height="300" /><figcaption>This is not the graph of f: the horizontal axis represents h and the vertical axis the secant slope. The open circle marks the undefined quotient; the limit is 1.</figcaption></figure>
 
-**Check:** moving from $h=0{,}1$ to $h=-0{,}1$ changes the slope from 1.05 to 0.95. The slopes differ but are close to the same number: 1.
+For both signs of h, the absolute error relative to the limiting slope is $|m_{\mathrm{sec}}(h)-1|=|h|/2$ for $h\ne0$. For example, $h=\pm0{,}1$ gives error 0.05 on both sides. Dividing the gap size by ten also divides this error by ten.
 
-## Definition of the derivative
+### Definition of the derivative
 
 Saying a quotient **tends to** a number means its values become as close as desired to that number for all sufficiently small nonzero gaps, from both sides. There is no need to reach zero.
 
@@ -113,7 +131,25 @@ The line through $P$ with this limiting slope is the **tangent** to the graph th
 
 <aside className="l38-memo"><p><strong>Remember — One point</strong></p><p>The derivative at a point is the finite limit of secant slopes. The quotient remains undefined at a zero gap; its limit may nevertheless exist.</p></aside>
 
-## Equation of the tangent
+As in the PDF (page 6), a function is differentiable on an open interval if it is differentiable at every point in that interval. Its derivative function then assigns each point its instantaneous slope.
+
+### Approach from either side
+
+For the original parabola, the approaches agree:
+
+$$\lim_{h\to0^-}\left(1+\frac h2\right)=\lim_{h\to0^+}\left(1+\frac h2\right)=1$$
+
+The superscripts $-$ and $+$ on zero indicate approaches through negative and positive values respectively. The quotients need not be equal before the limit.
+
+**Counterexample: a corner.** For $g(x)=|x|$ at $x_0=0$, the quotient is $|h|/h$:
+
+$$\frac{|h|}{h}=\begin{cases}-1&h<0\\1&h>0\end{cases}$$
+
+The two limits differ: there is no derivative at zero, even though the graph is continuous there. Checking only positive gaps would have hidden the problem.
+
+<figure className="teaching-figure"><img src="/diagrams/functions/l38-corner.svg" alt="V-shaped graph of g(x) = |x|. Left of zero the slope is −1; right of zero it is 1. The two directions have no common limiting slope." width="600" height="320" /><figcaption>At the corner of the V, the two directions disagree: a continuous graph need not be differentiable.</figcaption></figure>
+
+### Equation of the tangent
 
 A line of slope $m$ through $P=(x_0,f(x_0))$ satisfies the point–slope form. If $f$ is differentiable at $x_0$, replace $m$ by $f'(x_0)$:
 
@@ -133,7 +169,7 @@ Check **position and slope**: at $x=1$, we obtain $y=1/2$; the coefficient of $x
 
 <aside className="l38-memo"><p><strong>Remember — Constructing a tangent</strong></p><p>Find the point's ordinate, find the derivative at that point, then use the point–slope form. The derivative is a slope; it is not the line's equation.</p></aside>
 
-## Exploring the derivative function
+### Exploring the derivative function
 
 So far, $f'(1)$ is **a number**. When the point varies, the rule $x\mapsto f'(x)$ is a **function**, called the derivative function, defined at inputs where the derivative exists.
 
@@ -155,6 +191,20 @@ General differentiation rules come in L39; here, the formula comes directly from
 
 On the left, $P$ follows the graph of $f$ with its tangent. On the right, $R=(x_0,f'(x_0))$ follows the derivative graph: **its height gives the tangent slope on the left**. If $f'(x_0)>0$, the tangent rises from left to right; if $f'(x_0)<0$, it falls; if $f'(x_0)=0$, it is horizontal.
 
+## 4. Experiment — Predict, observe, explain
+
+**A — Approach the limit**
+
+Predict whether the slopes for two opposite gaps are equal. Check your answer in the workshop, then try smaller and smaller gaps from both sides. Also compare with h = 0: the secant disappears, but the tangent remains.
+
+<DerivativeExplorer kind="secant" locale="en" client:visible />
+
+**Check:** moving from $h=0{,}1$ to $h=-0{,}1$ changes the slope from 1.05 to 0.95. The slopes differ but are close to the same number: 1.
+
+**B — Separate height and slope**
+
+Predict what happens when the parabola is shifted vertically. The challenge fixes the other parameters and changes only c. Compare the height of P with that of R on the derivative graph.
+
 <DerivativeExplorer kind="tangent" locale="en" client:visible />
 
 Predict, then check:
@@ -163,35 +213,16 @@ Predict, then check:
 - **Move the point.** If $a\ne0$, the vertex is at $x_0=-b/(2a)$. The derivative there is zero: the tangent is horizontal. A parabola's vertex may be a minimum or maximum depending on the sign of $a$.
 - **Set the quadratic coefficient to zero.** If $a=0$, the function becomes affine and $f'(x)=b$. If also $b=0$, it is constant. The tangent is then the line itself.
 
-## Approach from either side
-
-For the original parabola, the approaches agree:
-
-$$\lim_{h\to0^-}\left(1+\frac h2\right)=\lim_{h\to0^+}\left(1+\frac h2\right)=1$$
-
-The superscripts $-$ and $+$ on zero indicate approaches through negative and positive values respectively. The quotients need not be equal before the limit.
-
-**Counterexample: a corner.** For $g(x)=|x|$ at $x_0=0$, the quotient is $|h|/h$:
-
-$$\frac{|h|}{h}=\begin{cases}-1&h<0\\1&h>0\end{cases}$$
-
-The two limits differ: there is no derivative at zero, even though the graph is continuous there. Checking only positive gaps would have hidden the problem.
-
-<figure className="teaching-figure"><img src="/diagrams/functions/l38-corner.svg" alt="V-shaped graph of g(x) = |x|. Left of zero the slope is −1; right of zero it is 1. The two directions have no common limiting slope." width="600" height="320" /><figcaption>At the corner of the V, the two directions disagree: a continuous graph need not be differentiable.</figcaption></figure>
-
-## Essentials and quick check
-
-<aside className="l38-memo"><p><strong>Remember — Essential reference</strong></p><ul><li><strong>Secant:</strong> average change between two distinct points.</li><li><strong>Derivative at a point:</strong> common finite real limit from both sides; a number.</li><li><strong>Derivative function:</strong> assigns the corresponding slope to each differentiable input.</li><li><strong>Tangent:</strong> line through the chosen point with slope given by the derivative.</li><li><strong>Method:</strong> identify the point → calculate the quotient for a nonzero gap → find the limit → write the point–slope form → check point and slope.</li><li><strong>Pitfalls:</strong> substituting zero into the quotient, confusing output with slope, or checking only one side.</li></ul></aside>
-
-**The two formulas to keep handy.** For $f$ defined on an open interval $I$ and $x_0\in I$, the first formula defines a derivative only if the finite real limit exists. The second then gives the tangent:
-
-$$f'(x_0)=\lim_{\substack{h\to0\\h\ne0}}\frac{f(x_0+h)-f(x_0)}{h},\qquad y=f(x_0)+f'(x_0)(x-x_0)$$
+## 5. Practise — Justify without controls
 
 Try without the controls or corrections:
 
 1. For the original parabola, what is the secant slope when $h=-0{,}2$? Is this already the derivative?
 2. For $f(x)=x^2$ at $x_0=1$, give the output, the derivative at that point and the tangent equation.
 3. Why is the absolute-value function not differentiable at zero?
+
+4. For the professor's parabola at $x_0=1$, choose a bound on $|h|$ that guarantees a slope error strictly below 0.01. Why is the zero gap still excluded?
+5. For $f(x)=x^2/2+3$ at the same input, calculate the height, slope and tangent equation. Compare with the original parabola.
 
 <details className="l38-correction">
 <summary>Show the corrections</summary>
@@ -200,4 +231,20 @@ Try without the controls or corrections:
 2. $f(1)=1$, $f'(1)=2$; the tangent is $y=1+2(x-1)=2x-1$.
 3. The quotient is −1 on the left and 1 on the right; no common limit exists.
 
+4. $|m_{\mathrm{sec}}(h)-1|=|h|/2<0{,}01$ if $0<|h|<0{,}02$. The quotient at h = 0 is still 0/0, undefined.
+5. $f(1)=7/2$, $f'(1)=1$, $y=7/2+(x-1)=x+5/2$. The vertical shift of 3 changes the height and intercept, but not the slope.
+
 </details>
+
+## 6. Remember — Printable revision sheet
+
+### Essentials and quick check
+
+<aside className="l38-memo"><p><strong>Remember — Essential reference</strong></p><ul><li><strong>Secant:</strong> average change between two distinct points.</li><li><strong>Derivative at a point:</strong> common finite real limit from both sides; a number.</li><li><strong>Derivative function:</strong> assigns the corresponding slope to each differentiable input.</li><li><strong>Tangent:</strong> line through the chosen point with slope given by the derivative.</li><li><strong>Method:</strong> identify the point → calculate the quotient for a nonzero gap → find the limit → write the point–slope form → check point and slope.</li><li><strong>Pitfalls:</strong> substituting zero into the quotient, confusing output with slope, or checking only one side.</li></ul></aside>
+
+**The two formulas to keep handy.** For $f$ defined on an open interval $I$ and $x_0\in I$, the first formula defines a derivative only if the finite real limit exists. The second then gives the tangent:
+
+$$f'(x_0)=\lim_{\substack{h\to0\\h\ne0}}\frac{f(x_0+h)-f(x_0)}{h},\qquad y=f(x_0)+f'(x_0)(x-x_0)$$
+
+Use the browser Print command; the figures and initial values remain available without JavaScript. L39 builds on this definition to introduce differentiation rules. [L39](/en/lessons/L39/).
+
