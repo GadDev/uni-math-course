@@ -28,7 +28,7 @@ for (const locale of ['fr', 'en']) {
       const page = await context.newPage();
       for (const [lesson, count] of [
         ['L03', 1],
-        ['L04', 1],
+        ['L04', 3],
         ['L10', 1],
         ['L13', 1],
         ['L15', 3],

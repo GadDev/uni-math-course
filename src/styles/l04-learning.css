@@ -294,3 +294,22 @@
     margin-top: 0 !important;
   }
 }
+
+.l04-proof-screen[hidden],
+.l04-proof-static[hidden] {
+  display: none !important;
+}
+.l04-proof-lines {
+  padding-inline-start: 1.2rem;
+}
+.l04-proof-lines li {
+  margin-block: 0.5rem;
+}
+@media print {
+  .l04-proof-screen {
+    display: none !important;
+  }
+  .l04-proof-static {
+    display: block !important;
+  }
+}
