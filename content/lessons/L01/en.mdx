@@ -1,0 +1,141 @@
+---
+lessonId: L01
+locale: en
+version: 5
+status: pilot
+title: "Assertions: statements with one truth value"
+summary: "Recognise an assertion, separate it from questions, vague sentences and paradoxical self-reference, and write its truth value as 1 or 0."
+minutes: 15
+objectives: [L01-O01, L01-O02, L01-O03, L01-O04, L01-O05, L01-O06]
+prerequisites: [reading simple French or English statements]
+sourcePages: [3, 4, 5]
+---
+import AssertionClassifier from '../../../src/components/AssertionClassifier';
+
+# Assertions: statements with one truth value
+
+## 1. Understand — What can be true or false?
+
+### Your objective
+
+By the end of this lesson, you can decide whether a sentence is an assertion, fix its context, and write its truth value as $1$ or $0$.
+
+**Prerequisites:** the ability to read simple statements in French or English. No earlier lesson is required.
+
+### What is an assertion?
+
+An **assertion** is a statement that is either true or false. Classical propositional logic (LPC in the course) studies these objects because they are the building blocks of valid reasoning.
+
+- “Two is an even number.” This is an assertion, and it is true.
+- “Ten is a prime number.” This is an assertion, and it is false.
+
+You do not need to know the value to recognise an assertion. You need to know that exactly one of the two values applies.
+
+PDF page 4: the examples about a person's age and physical characteristics are assertions once the speaker and time are fixed. You need not know the person to recognise the kind of statement.
+
+## 2. Visualise — Two questions, two decisions
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L01-decision-en.svg" alt="Decision tree: determine whether a statement has exactly one consistent truth value, then whether that value is known. An assertion of unknown value still equals 0 or 1." width="560" height="320" /><figcaption>Do not confuse having a truth value with knowing that value.</figcaption></figure>
+
+### Sentences that are not assertions
+
+Three common kinds of sentence are not assertions.
+
+- **Questions and commands:** “What time is it?” and “Close the window.” are neither true nor false.
+- **Vague sentences:** “It is hot.” depends on an unstated threshold, place and time. Different listeners may give different answers.
+- **Paradoxical self-reference:** “This sentence is false.” is discussed in the trap below.
+
+A sentence about itself need not be paradoxical: “This sentence is written in English.” is a true assertion. The liar sentence’s contradiction is what prevents a consistent value.
+
+Opinions such as “This lesson is beautiful.” are also not assertions in this course, because their truth value depends on taste.
+
+## 3. Calculate and reason — Fix the meaning, then justify
+
+### Context and notation
+
+In the course’s classical setting, a precise, non-paradoxical declarative statement has exactly one truth value once its meaning and all relevant context are fixed, even if we do not know that value. Fixing only the speaker, place and time does not turn a question, a vague sentence or the liar sentence into an assertion. The sentence “It rains in Luxembourg City on 14 October 2026 at noon.” is therefore an assertion: it is either true or false.
+
+We name assertions with letters: $A$, $B$, $C$, and so on. We write the truth values as $1$ for true and $0$ for false. If $A$ is “Two is an even number.”, then $A = 1$.
+
+### Guided example: from a vague sentence to an assertion
+
+Start with “It is hot.”
+
+1. Ask what “hot” means: 20 °C? 25 °C? 30 °C?
+2. Fix the place and time: Luxembourg City, 14 October 2026, 14:00.
+3. Fix the threshold: more than $25$ °C.
+4. The result is now a single assertion: “It is more than 25 °C in Luxembourg City on 14 October 2026 at 14:00.” A reliable measurement recorded at that time could establish its truth value. Without it, we do not claim to know the result.
+
+This guided work, whose solution is visible, is not an independent response for mastery evidence.
+
+### Trap: the liar sentence
+
+Consider “This sentence is false.”
+
+- If it is true, then what it says holds, so it is false. Contradiction.
+- If it is false, then what it says fails, so it is true. Contradiction.
+
+No single value can be assigned consistently. So this sentence is not an assertion in the course’s sense.
+
+A second trap: not knowing a value does not mean there is no value. An assertion can be unknown to us and still be true or false.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L01-liar-en.svg" alt="Two assumptions for the liar sentence: true implies false; false implies true. Both lead to a contradiction." width="560" height="225" /><figcaption>The liar sentence has no consistent truth value in the course's classical setting.</figcaption></figure>
+
+## 4. Experiment — Classify before checking
+
+For each sentence, first ask whether it can have exactly one truth value in the course setting. If so, can you establish that value from the information given? Choose an answer before reading the explanation. “Value not established” describes our knowledge, not a third truth value.
+
+<AssertionClassifier locale="en" client:visible />
+
+## 5. Practise — Classify and justify on paper
+
+### Pause: true, false or not an assertion?
+
+For each exercise, justify your decision before opening the answer.
+
+1. “Twenty-seven is divisible by nine.” Assertion or not? If so, what value?
+2. “Fourteen is odd.” Assertion or not? Justify.
+3. Turn “This file is large” into a testable assertion without inventing its size.
+4. A sensor recorded a temperature at a specified instant; its reading is not supplied. Is “The recorded temperature exceeds 20 °C” an assertion? Can we determine its value?
+
+<details className="l01-correction">
+<summary>Explained answers</summary>
+
+1. $27=3\times9$ : true assertion, value $1$.
+2. $14=2\times7$ : false assertion, value $0$.
+3. For example, identify a file and a specific version, then state that its size exceeds 1000 bytes. The truth value depends on the measurement; we do not guess it.
+4. Yes, if the record and instant are fixed. The value is one of the two classical values, but the information given does not establish which.
+
+</details>
+
+### Independent practice
+
+The six pilot exercises cover recognising assertions, excluding questions, fixing a context, the liar sentence, notation and a further statement to assess.
+
+The workshop above is public, ungraded and requires no account. Graded practice requires sign-in. Availability depends on this lesson’s selected version and release status.
+
+## 6. Remember — Revision sheet
+
+<div className="l01-revision">
+
+### Takeaway
+
+In the course’s classical setting, an assertion is a precise, non-paradoxical declarative statement with exactly one truth value once its meaning and relevant context are fixed. Fix the context, write the assertion with a letter, and then decide its value if the information allows it: $1$ or $0$.
+
+| Situation | Decision |
+| --- | --- |
+| Precise and true statement | $1$ |
+| Precise and false statement | $0$ |
+| Precise statement, value not established | Assertion: unknown value 0 or 1 |
+| Question, command, vague or paradoxical sentence | Not an assertion in this setting |
+
+**Quick method:** Identify the sentence type → fix its meaning and context → check that exactly one consistent value applies → justify its value if possible.
+
+Print this sheet using the browser Print command. Diagrams and a fixed workshop example remain available without JavaScript.
+
+</div>
+
+In L02, we will combine these values using connectives. [L02](/en/lessons/L02/).
+
+Verified source: Logique_01.pdf, physical pages 3–5 (definition, examples and exclusions). The 0/1 notation, diagrams, workshop and additional exercises are original project explanations and extensions.
+

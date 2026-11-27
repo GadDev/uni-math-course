@@ -1,0 +1,141 @@
+---
+lessonId: L01
+locale: fr
+version: 5
+status: pilot
+title: "Assertions : des énoncés à une seule valeur de vérité"
+summary: "Reconnaître une assertion, la distinguer des questions, des phrases vagues et des phrases auto-référentes paradoxales, puis noter sa valeur de vérité 1 ou 0."
+minutes: 15
+objectives: [L01-O01, L01-O02, L01-O03, L01-O04, L01-O05, L01-O06]
+prerequisites: [lecture d’énoncés simples en français ou en anglais]
+sourcePages: [3, 4, 5]
+---
+import AssertionClassifier from '../../../src/components/AssertionClassifier';
+
+# Assertions : des énoncés à une seule valeur de vérité
+
+## 1. Comprendre — Que peut-on déclarer vrai ou faux ?
+
+### Votre objectif
+
+À la fin de cette leçon, vous savez décider si une phrase est une assertion, fixer son contexte et noter sa valeur de vérité $1$ ou $0$.
+
+**Prérequis :** savoir lire des énoncés simples en français ou en anglais. Aucune leçon précédente n’est nécessaire.
+
+### Qu’est-ce qu’une assertion ?
+
+Une **assertion** est un énoncé qui est soit vrai, soit faux. La logique propositionnelle classique (LPC) étudie ces objets, car ce sont les briques de base du raisonnement valide.
+
+- « Deux est un nombre pair. » C’est une assertion, et elle est vraie.
+- « Dix est un nombre premier. » C’est une assertion, et elle est fausse.
+
+Il n’est pas nécessaire de connaître la valeur pour reconnaître une assertion. Il suffit de savoir qu’exactement une des deux valeurs s’applique.
+
+Page 4 du PDF : les exemples portant sur l'âge et les caractéristiques physiques d'une personne sont des assertions une fois le locuteur et le moment fixés. Il n'est pas nécessaire de connaître la personne pour reconnaître le type d'énoncé.
+
+## 2. Visualiser — Deux questions, deux décisions
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L01-decision-fr.svg" alt="Arbre de décision : déterminer si un énoncé admet une valeur cohérente unique, puis si sa valeur est connue. Une assertion de valeur inconnue vaut néanmoins 0 ou 1." width="560" height="320" /><figcaption>Ne confondez pas l'existence d'une valeur de vérité avec la connaissance de cette valeur.</figcaption></figure>
+
+### Phrases qui ne sont pas des assertions
+
+Trois types de phrases courants ne sont pas des assertions.
+
+- **Questions et ordres :** « Quelle heure est-il ? » et « Ferme la fenêtre. » ne sont ni vrais ni faux.
+- **Phrases vagues :** « Il fait chaud. » dépend d’un seuil, d’un lieu et d’un moment non précisés. Deux personnes peuvent répondre différemment.
+- **Auto-référence paradoxale :** « Cette phrase est fausse. » est étudiée dans le piège ci-dessous.
+
+Une phrase qui parle d’elle-même n’est pas toujours paradoxale : « Cette phrase est écrite en français. » est une assertion vraie. C’est la contradiction de la phrase menteuse qui empêche une valeur cohérente.
+
+Les avis comme « Cette leçon est magnifique. » ne sont pas non plus des assertions dans ce cours, car leur valeur de vérité dépend du goût.
+
+## 3. Calculer et raisonner — Fixer le sens, puis justifier
+
+### Contexte et notation
+
+Dans le cadre classique du cours, un énoncé déclaratif précis et non paradoxal a exactement une valeur de vérité lorsque son sens et tout son contexte pertinent sont fixés, même si nous ne connaissons pas cette valeur. Fixer seulement le locuteur, le lieu et le moment ne suffit pas à transformer une question, une phrase vague ou la phrase menteuse en assertion. La phrase « Il pleut à Luxembourg-Ville le 14 octobre 2026 à midi. » est donc une assertion : elle est vraie ou fausse.
+
+On nomme les assertions avec des lettres : $A$, $B$, $C$, etc. On note les valeurs de vérité $1$ pour vrai et $0$ pour faux. Si $A$ est « Deux est un nombre pair. », alors $A = 1$.
+
+### Exemple guidé : d’une phrase vague à une assertion
+
+Partons de « Il fait chaud. »
+
+1. Demandez-vous ce que veut dire « chaud » : 20 °C ? 25 °C ? 30 °C ?
+2. Fixez le lieu et le moment : Luxembourg-Ville, 14 octobre 2026, 14 h.
+3. Fixez le seuil : plus de $25$ °C.
+4. Le résultat est maintenant une assertion unique : « Il fait plus de 25 °C à Luxembourg-Ville le 14 octobre 2026 à 14 h. » Une mesure fiable enregistrée à ce moment permettrait de vérifier sa valeur. Sans cette mesure, on ne prétend pas connaître le résultat.
+
+Ce travail guidé, dont la solution est visible, n’est pas une réponse indépendante pour mesurer la maîtrise.
+
+### Piège : la phrase menteuse
+
+Considérons « Cette phrase est fausse. »
+
+- Si elle est vraie, alors ce qu’elle affirme est exact, donc elle est fausse. Contradiction.
+- Si elle est fausse, alors ce qu’elle affirme est inexact, donc elle est vraie. Contradiction.
+
+Aucune valeur unique ne peut lui être attribuée de façon cohérente. Cette phrase n’est donc pas une assertion au sens du cours.
+
+Second piège : ignorer une valeur ne signifie pas qu’il n’y en a pas. Une assertion peut nous être inconnue tout en étant vraie ou fausse.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L01-liar-fr.svg" alt="Deux hypothèses pour la phrase menteuse : vraie implique fausse ; fausse implique vraie. Les deux donnent une contradiction." width="560" height="225" /><figcaption>La phrase menteuse n'a pas de valeur cohérente dans le cadre classique du cours.</figcaption></figure>
+
+## 4. Expérimenter — Classer avant de vérifier
+
+Pour chaque phrase, demandez d'abord si elle peut avoir exactement une valeur de vérité dans le cadre du cours. Si oui, pouvez-vous établir cette valeur avec les informations données ? Choisissez une réponse avant de lire l'explication. « Valeur non établie » décrit nos connaissances, pas une troisième valeur de vérité.
+
+<AssertionClassifier locale="fr" client:visible />
+
+## 5. Pratiquer — Classer et justifier sur papier
+
+### Petite pause : vrai, faux ou pas une assertion ?
+
+Pour chaque exercice, expliquez votre décision avant d'ouvrir la correction.
+
+1. « Vingt-sept est divisible par neuf. » Assertion ou non ? Si oui, quelle valeur ?
+2. « Quatorze est impair. » Assertion ou non ? Justifiez.
+3. Transformez « Ce fichier est gros » en assertion vérifiable, sans inventer sa taille.
+4. Un capteur a enregistré une température à un instant précis ; sa valeur n'est pas fournie. La phrase « La température enregistrée dépasse 20 °C » est-elle une assertion ? Peut-on en déduire sa valeur ?
+
+<details className="l01-correction">
+<summary>Corrections expliquées</summary>
+
+1. $27=3\times9$ : assertion vraie, valeur $1$.
+2. $14=2\times7$ : assertion fausse, valeur $0$.
+3. Par exemple, identifier un fichier et une version précise, puis dire que sa taille dépasse 1000 octets. La valeur dépend de la mesure ; on ne la devine pas.
+4. Oui, si l'enregistrement et l'instant sont fixés. La valeur est l'une des deux valeurs classiques, mais les informations données ne permettent pas de choisir laquelle.
+
+</details>
+
+### Pratique indépendante
+
+Les six exercices pilotes portent sur la reconnaissance des assertions, l’exclusion des questions, la fixation d’un contexte, la phrase menteuse, la notation et une affirmation nouvelle à vérifier.
+
+L'atelier ci-dessus est public, non noté et sans compte. La pratique notée nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
+
+## 6. Retenir — Fiche de révision
+
+<div className="l01-revision">
+
+### À retenir
+
+Dans le cadre classique du cours, une assertion est un énoncé déclaratif précis et non paradoxal qui a exactement une valeur de vérité une fois son sens et son contexte pertinent fixés. Fixez le contexte, nommez l’assertion par une lettre, puis décidez sa valeur si les informations le permettent : $1$ ou $0$.
+
+| Situation | Décision |
+| --- | --- |
+| Énoncé précis et vrai | $1$ |
+| Énoncé précis et faux | $0$ |
+| Énoncé précis, valeur non établie | Assertion : valeur 0 ou 1 inconnue |
+| Question, ordre, phrase vague ou paradoxale | Pas une assertion dans ce cadre |
+
+**Méthode express :** Identifier le type de phrase → fixer le sens et le contexte → vérifier qu'une seule valeur cohérente s'applique → justifier la valeur si possible.
+
+Imprimez cette fiche avec la commande Imprimer du navigateur. Les schémas et un exemple fixe de l'atelier restent disponibles sans JavaScript.
+
+</div>
+
+En L02, nous combinerons ces valeurs à l'aide de connecteurs. [L02](/fr/lessons/L02/).
+
+Source vérifiée : Logique_01.pdf, pages physiques 3 à 5 (définition, exemples et exclusions). La notation 0/1, les schémas, l'atelier et les exercices supplémentaires sont des explications et compléments originaux du projet.
+
