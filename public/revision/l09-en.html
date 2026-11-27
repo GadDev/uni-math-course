@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L09 — Revision sheet</title>
+<style>
+@page { size: A4; margin: 15mm; }
+body { font: 16px/1.5 system-ui, sans-serif; color: #171717; background: white; max-width: 680px; margin: 24px auto; padding: 0 12px; }
+h1 { font-size: 26px; line-height: 1.2; } h2 { font-size: 18px; border-bottom: 1px solid; }
+figure { margin: 12px 0; } svg { width: 100%; max-width: 460px; } .proof { border: 1px solid; padding: 10px; } .line { border-bottom: 1px dotted; height: 24px; }
+@media print { body { margin: 0; padding: 0; font-size: 12pt; } nav { display: none; } section { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<nav><a href="/en/lessons/L09/">Back to L09</a> · Print from the browser (A4, 100%).</nav>
+<h1>L09 — Sets and Russell’s paradox</h1>
+<p>Understand • Reason • Justify</p>
+<section><h2>1. Membership</h2>
+<figure><svg viewBox="0 0 320 75" role="img" aria-label="A contains 1, 2 and 3; 4 is outside"><rect x="2" y="2" width="240" height="70" rx="12" fill="none" stroke="currentColor"/><g fill="currentColor" font-size="16" text-anchor="middle"><text x="22" y="22">A</text><text x="65" y="45">1</text><text x="125" y="45">2</text><text x="185" y="45">3</text><text x="280" y="45">4</text></g></svg><figcaption>A = {1, 2, 3} : 2 ∈ A ; 4 ∉ A ; {2} ⊆ A.</figcaption></figure>
+<p>∈: element; ⊆: subset. A set can be an element of another set.</p></section>
+<section><h2>2. Russell: proof by contradiction</h2>
+<div class="proof"><p>E = {x | x ∉ x}</p><p>Assume E exists as a set; apply its rule to x = E.</p><p>E ∈ E ⇒ E ∉ E<br>E ∉ E ⇒ E ∈ E</p><p>Both cases contradict their assumptions. Reject E’s existence as a set, not sets in general.</p></div></section>
+<section><h2>3. Restricted construction</h2><p>X = {1, 2, 3, 4} → even? → {2, 4}</p><p>Start from a known set: {x ∈ X | P(x)}. Four course families: number sets, enumeration, restricted comprehension, constructions from the preceding sets.</p></section>
+<section><h2>4. Your turn — without looking at the lesson</h2><p>Explain why one case is not enough for the paradox.</p><div class="line"></div><div class="line"></div><p>Enumerate {x ∈ {0, 1, 2, 3, 4} | x > 2}. Justify.</p><div class="line"></div></section>
+<footer><small>Logique_01.pdf, pp. 37–40 · Original unofficial supplement. Solutions in L09.</small></footer>
+</body></html>
