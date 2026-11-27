@@ -1,0 +1,1102 @@
+{
+  "lessonId": "L44",
+  "version": 3,
+  "exerciseCount": 15,
+  "exercises": [
+    {
+      "id": "L44-E01",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O01",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→0, y→01, z→011, coder le mot source xyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→01, z→011, encode source word xyz with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "101011 ; 6 bits",
+            "en": "101011 ; 6 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 0 | 01 | 011 → 001011, soit 6 bits.",
+            "en": "Incorrect answer. Concatenate: 0 | 01 | 011 → 001011, which is 6 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "001011 ; 3 bits",
+            "en": "001011 ; 3 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 3 compte les symboles source. Il faut compter les bits transmis : 6. Concaténation : 0 | 01 | 011 → 001011, soit 6 bits.",
+            "en": "The encoded word is correct, but 3 counts source symbols. Count transmitted bits instead: 6. Concatenate: 0 | 01 | 011 → 001011, which is 6 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "001011 ; 6 bits",
+            "en": "001011 ; 6 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 0 | 01 | 011 → 001011, soit 6 bits.",
+            "en": "Concatenate: 0 | 01 | 011 → 001011, which is 6 bits."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Concaténation : 0 | 01 | 011 → 001011, soit 6 bits.",
+        "en": "Concatenate: 0 | 01 | 011 → 001011, which is 6 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E02",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O02",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→1, y→10, z→100, coder le mot source zyx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→10, z→100, encode source word zyx with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "1001010 ; 7 bits",
+            "en": "1001010 ; 7 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 100 | 10 | 1 → 100101, soit 6 bits.",
+            "en": "Incorrect answer. Concatenate: 100 | 10 | 1 → 100101, which is 6 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "100101 ; 6 bits",
+            "en": "100101 ; 6 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 100 | 10 | 1 → 100101, soit 6 bits.",
+            "en": "Concatenate: 100 | 10 | 1 → 100101, which is 6 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "100101 ; 3 bits",
+            "en": "100101 ; 3 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 3 compte les symboles source. Il faut compter les bits transmis : 6. Concaténation : 100 | 10 | 1 → 100101, soit 6 bits.",
+            "en": "The encoded word is correct, but 3 counts source symbols. Count transmitted bits instead: 6. Concatenate: 100 | 10 | 1 → 100101, which is 6 bits."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Concaténation : 100 | 10 | 1 → 100101, soit 6 bits.",
+        "en": "Concatenate: 100 | 10 | 1 → 100101, which is 6 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E03",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O03",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→0, y→10, z→11, coder le mot source xxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→10, z→11, encode source word xxy with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "0010 ; 4 bits",
+            "en": "0010 ; 4 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 0 | 0 | 10 → 0010, soit 4 bits.",
+            "en": "Concatenate: 0 | 0 | 10 → 0010, which is 4 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "1010 ; 4 bits",
+            "en": "1010 ; 4 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 0 | 0 | 10 → 0010, soit 4 bits.",
+            "en": "Incorrect answer. Concatenate: 0 | 0 | 10 → 0010, which is 4 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "0010 ; 3 bits",
+            "en": "0010 ; 3 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 3 compte les symboles source. Il faut compter les bits transmis : 4. Concaténation : 0 | 0 | 10 → 0010, soit 4 bits.",
+            "en": "The encoded word is correct, but 3 counts source symbols. Count transmitted bits instead: 4. Concatenate: 0 | 0 | 10 → 0010, which is 4 bits."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Concaténation : 0 | 0 | 10 → 0010, soit 4 bits.",
+        "en": "Concatenate: 0 | 0 | 10 → 0010, which is 4 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E04",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O04",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→00, y→01, z→1, coder le mot source yyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→01, z→1, encode source word yyz with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "11011 ; 5 bits",
+            "en": "11011 ; 5 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 01 | 01 | 1 → 01011, soit 5 bits.",
+            "en": "Incorrect answer. Concatenate: 01 | 01 | 1 → 01011, which is 5 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "01011 ; 3 bits",
+            "en": "01011 ; 3 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 3 compte les symboles source. Il faut compter les bits transmis : 5. Concaténation : 01 | 01 | 1 → 01011, soit 5 bits.",
+            "en": "The encoded word is correct, but 3 counts source symbols. Count transmitted bits instead: 5. Concatenate: 01 | 01 | 1 → 01011, which is 5 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "01011 ; 5 bits",
+            "en": "01011 ; 5 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 01 | 01 | 1 → 01011, soit 5 bits.",
+            "en": "Concatenate: 01 | 01 | 1 → 01011, which is 5 bits."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Concaténation : 01 | 01 | 1 → 01011, soit 5 bits.",
+        "en": "Concatenate: 01 | 01 | 1 → 01011, which is 5 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E05",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O05",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→01, y→0, z→11, coder le mot source zzy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→01, y→0, z→11, encode source word zzy with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "111100 ; 6 bits",
+            "en": "111100 ; 6 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 11 | 11 | 0 → 11110, soit 5 bits.",
+            "en": "Incorrect answer. Concatenate: 11 | 11 | 0 → 11110, which is 5 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "11110 ; 5 bits",
+            "en": "11110 ; 5 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 11 | 11 | 0 → 11110, soit 5 bits.",
+            "en": "Concatenate: 11 | 11 | 0 → 11110, which is 5 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "11110 ; 3 bits",
+            "en": "11110 ; 3 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 3 compte les symboles source. Il faut compter les bits transmis : 5. Concaténation : 11 | 11 | 0 → 11110, soit 5 bits.",
+            "en": "The encoded word is correct, but 3 counts source symbols. Count transmitted bits instead: 5. Concatenate: 11 | 11 | 0 → 11110, which is 5 bits."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Concaténation : 11 | 11 | 0 → 11110, soit 5 bits.",
+        "en": "Concatenate: 11 | 11 | 0 → 11110, which is 5 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E06",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O06",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→10, y→0, z→11, coder le mot source xyxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→10, y→0, z→11, encode source word xyxy with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "100100 ; 6 bits",
+            "en": "100100 ; 6 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 10 | 0 | 10 | 0 → 100100, soit 6 bits.",
+            "en": "Concatenate: 10 | 0 | 10 | 0 → 100100, which is 6 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "000100 ; 6 bits",
+            "en": "000100 ; 6 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 10 | 0 | 10 | 0 → 100100, soit 6 bits.",
+            "en": "Incorrect answer. Concatenate: 10 | 0 | 10 | 0 → 100100, which is 6 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "100100 ; 4 bits",
+            "en": "100100 ; 4 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 4 compte les symboles source. Il faut compter les bits transmis : 6. Concaténation : 10 | 0 | 10 | 0 → 100100, soit 6 bits.",
+            "en": "The encoded word is correct, but 4 counts source symbols. Count transmitted bits instead: 6. Concatenate: 10 | 0 | 10 | 0 → 100100, which is 6 bits."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Concaténation : 10 | 0 | 10 | 0 → 100100, soit 6 bits.",
+        "en": "Concatenate: 10 | 0 | 10 | 0 → 100100, which is 6 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E07",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O01",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→001, y→01, z→0, coder le mot source yxz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→001, y→01, z→0, encode source word yxz with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "110010 ; 6 bits",
+            "en": "110010 ; 6 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 01 | 001 | 0 → 010010, soit 6 bits.",
+            "en": "Incorrect answer. Concatenate: 01 | 001 | 0 → 010010, which is 6 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "010010 ; 3 bits",
+            "en": "010010 ; 3 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 3 compte les symboles source. Il faut compter les bits transmis : 6. Concaténation : 01 | 001 | 0 → 010010, soit 6 bits.",
+            "en": "The encoded word is correct, but 3 counts source symbols. Count transmitted bits instead: 6. Concatenate: 01 | 001 | 0 → 010010, which is 6 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "010010 ; 6 bits",
+            "en": "010010 ; 6 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 01 | 001 | 0 → 010010, soit 6 bits.",
+            "en": "Concatenate: 01 | 001 | 0 → 010010, which is 6 bits."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Concaténation : 01 | 001 | 0 → 010010, soit 6 bits.",
+        "en": "Concatenate: 01 | 001 | 0 → 010010, which is 6 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E08",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O02",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→0, y→1, z→10, coder le mot source zxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→1, z→10, encode source word zxx with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "10000 ; 5 bits",
+            "en": "10000 ; 5 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 10 | 0 | 0 → 1000, soit 4 bits.",
+            "en": "Incorrect answer. Concatenate: 10 | 0 | 0 → 1000, which is 4 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "1000 ; 4 bits",
+            "en": "1000 ; 4 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 10 | 0 | 0 → 1000, soit 4 bits.",
+            "en": "Concatenate: 10 | 0 | 0 → 1000, which is 4 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "1000 ; 3 bits",
+            "en": "1000 ; 3 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 3 compte les symboles source. Il faut compter les bits transmis : 4. Concaténation : 10 | 0 | 0 → 1000, soit 4 bits.",
+            "en": "The encoded word is correct, but 3 counts source symbols. Count transmitted bits instead: 4. Concatenate: 10 | 0 | 0 → 1000, which is 4 bits."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Concaténation : 10 | 0 | 0 → 1000, soit 4 bits.",
+        "en": "Concatenate: 10 | 0 | 0 → 1000, which is 4 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E09",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O03",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→1, y→11, z→0, coder le mot source yyy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→11, z→0, encode source word yyy with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "111111 ; 6 bits",
+            "en": "111111 ; 6 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 11 | 11 | 11 → 111111, soit 6 bits.",
+            "en": "Concatenate: 11 | 11 | 11 → 111111, which is 6 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "011111 ; 6 bits",
+            "en": "011111 ; 6 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 11 | 11 | 11 → 111111, soit 6 bits.",
+            "en": "Incorrect answer. Concatenate: 11 | 11 | 11 → 111111, which is 6 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "111111 ; 3 bits",
+            "en": "111111 ; 3 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 3 compte les symboles source. Il faut compter les bits transmis : 6. Concaténation : 11 | 11 | 11 → 111111, soit 6 bits.",
+            "en": "The encoded word is correct, but 3 counts source symbols. Count transmitted bits instead: 6. Concatenate: 11 | 11 | 11 → 111111, which is 6 bits."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Concaténation : 11 | 11 | 11 → 111111, soit 6 bits.",
+        "en": "Concatenate: 11 | 11 | 11 → 111111, which is 6 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E10",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O04",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→00, y→101, z→11, coder le mot source zzxx sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→101, z→11, encode source word zzxx with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "01110000 ; 8 bits",
+            "en": "01110000 ; 8 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 11 | 11 | 00 | 00 → 11110000, soit 8 bits.",
+            "en": "Incorrect answer. Concatenate: 11 | 11 | 00 | 00 → 11110000, which is 8 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "11110000 ; 4 bits",
+            "en": "11110000 ; 4 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 4 compte les symboles source. Il faut compter les bits transmis : 8. Concaténation : 11 | 11 | 00 | 00 → 11110000, soit 8 bits.",
+            "en": "The encoded word is correct, but 4 counts source symbols. Count transmitted bits instead: 8. Concatenate: 11 | 11 | 00 | 00 → 11110000, which is 8 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "11110000 ; 8 bits",
+            "en": "11110000 ; 8 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 11 | 11 | 00 | 00 → 11110000, soit 8 bits.",
+            "en": "Concatenate: 11 | 11 | 00 | 00 → 11110000, which is 8 bits."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Concaténation : 11 | 11 | 00 | 00 → 11110000, soit 8 bits.",
+        "en": "Concatenate: 11 | 11 | 00 | 00 → 11110000, which is 8 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E11",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O05",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→0, y→01, z→011, coder le mot source xxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→01, z→011, encode source word xxy with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "00010 ; 5 bits",
+            "en": "00010 ; 5 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 0 | 0 | 01 → 0001, soit 4 bits.",
+            "en": "Incorrect answer. Concatenate: 0 | 0 | 01 → 0001, which is 4 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "0001 ; 4 bits",
+            "en": "0001 ; 4 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 0 | 0 | 01 → 0001, soit 4 bits.",
+            "en": "Concatenate: 0 | 0 | 01 → 0001, which is 4 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "0001 ; 3 bits",
+            "en": "0001 ; 3 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 3 compte les symboles source. Il faut compter les bits transmis : 4. Concaténation : 0 | 0 | 01 → 0001, soit 4 bits.",
+            "en": "The encoded word is correct, but 3 counts source symbols. Count transmitted bits instead: 4. Concatenate: 0 | 0 | 01 → 0001, which is 4 bits."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Concaténation : 0 | 0 | 01 → 0001, soit 4 bits.",
+        "en": "Concatenate: 0 | 0 | 01 → 0001, which is 4 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E12",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O06",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→1, y→10, z→100, coder le mot source yyz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→1, y→10, z→100, encode source word yyz with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "1010100 ; 7 bits",
+            "en": "1010100 ; 7 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 10 | 10 | 100 → 1010100, soit 7 bits.",
+            "en": "Concatenate: 10 | 10 | 100 → 1010100, which is 7 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "0010100 ; 7 bits",
+            "en": "0010100 ; 7 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 10 | 10 | 100 → 1010100, soit 7 bits.",
+            "en": "Incorrect answer. Concatenate: 10 | 10 | 100 → 1010100, which is 7 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "1010100 ; 3 bits",
+            "en": "1010100 ; 3 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 3 compte les symboles source. Il faut compter les bits transmis : 7. Concaténation : 10 | 10 | 100 → 1010100, soit 7 bits.",
+            "en": "The encoded word is correct, but 3 counts source symbols. Count transmitted bits instead: 7. Concatenate: 10 | 10 | 100 → 1010100, which is 7 bits."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Concaténation : 10 | 10 | 100 → 1010100, soit 7 bits.",
+        "en": "Concatenate: 10 | 10 | 100 → 1010100, which is 7 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E13",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O01",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→0, y→10, z→11, coder le mot source zzy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→0, y→10, z→11, encode source word zzy with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "011110 ; 6 bits",
+            "en": "011110 ; 6 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 11 | 11 | 10 → 111110, soit 6 bits.",
+            "en": "Incorrect answer. Concatenate: 11 | 11 | 10 → 111110, which is 6 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "111110 ; 3 bits",
+            "en": "111110 ; 3 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 3 compte les symboles source. Il faut compter les bits transmis : 6. Concaténation : 11 | 11 | 10 → 111110, soit 6 bits.",
+            "en": "The encoded word is correct, but 3 counts source symbols. Count transmitted bits instead: 6. Concatenate: 11 | 11 | 10 → 111110, which is 6 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "111110 ; 6 bits",
+            "en": "111110 ; 6 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 11 | 11 | 10 → 111110, soit 6 bits.",
+            "en": "Concatenate: 11 | 11 | 10 → 111110, which is 6 bits."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Concaténation : 11 | 11 | 10 → 111110, soit 6 bits.",
+        "en": "Concatenate: 11 | 11 | 10 → 111110, which is 6 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E14",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O02",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→00, y→01, z→1, coder le mot source xyxy sans séparateurs et donner sa longueur.",
+        "en": "Using code x→00, y→01, z→1, encode source word xyxy with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "000100010 ; 9 bits",
+            "en": "000100010 ; 9 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 00 | 01 | 00 | 01 → 00010001, soit 8 bits.",
+            "en": "Incorrect answer. Concatenate: 00 | 01 | 00 | 01 → 00010001, which is 8 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "00010001 ; 8 bits",
+            "en": "00010001 ; 8 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 00 | 01 | 00 | 01 → 00010001, soit 8 bits.",
+            "en": "Concatenate: 00 | 01 | 00 | 01 → 00010001, which is 8 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "00010001 ; 4 bits",
+            "en": "00010001 ; 4 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 4 compte les symboles source. Il faut compter les bits transmis : 8. Concaténation : 00 | 01 | 00 | 01 → 00010001, soit 8 bits.",
+            "en": "The encoded word is correct, but 4 counts source symbols. Count transmitted bits instead: 8. Concatenate: 00 | 01 | 00 | 01 → 00010001, which is 8 bits."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Concaténation : 00 | 01 | 00 | 01 → 00010001, soit 8 bits.",
+        "en": "Concatenate: 00 | 01 | 00 | 01 → 00010001, which is 8 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L44-E15",
+      "lessonId": "L44",
+      "version": 3,
+      "objectiveId": "L44-O03",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec le code x→01, y→0, z→11, coder le mot source yxz sans séparateurs et donner sa longueur.",
+        "en": "Using code x→01, y→0, z→11, encode source word yxz with no separators and give the length."
+      },
+      "hint": {
+        "fr": "Reprenez la définition et calculez étape par étape.",
+        "en": "Review the definition and calculate one step at a time."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "00111 ; 5 bits",
+            "en": "00111 ; 5 bits"
+          },
+          "feedback": {
+            "fr": "Concaténation : 0 | 01 | 11 → 00111, soit 5 bits.",
+            "en": "Concatenate: 0 | 01 | 11 → 00111, which is 5 bits."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "10111 ; 5 bits",
+            "en": "10111 ; 5 bits"
+          },
+          "feedback": {
+            "fr": "Réponse incorrecte. Concaténation : 0 | 01 | 11 → 00111, soit 5 bits.",
+            "en": "Incorrect answer. Concatenate: 0 | 01 | 11 → 00111, which is 5 bits."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "00111 ; 3 bits",
+            "en": "00111 ; 3 bits"
+          },
+          "feedback": {
+            "fr": "Le mot codé est correct, mais 3 compte les symboles source. Il faut compter les bits transmis : 5. Concaténation : 0 | 01 | 11 → 00111, soit 5 bits.",
+            "en": "The encoded word is correct, but 3 counts source symbols. Count transmitted bits instead: 5. Concatenate: 0 | 01 | 11 → 00111, which is 5 bits."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Concaténation : 0 | 01 | 11 → 00111, soit 5 bits.",
+        "en": "Concatenate: 0 | 01 | 11 → 00111, which is 5 bits."
+      },
+      "prerequisites": ["L43"],
+      "misconceptions": ["c04-t02-concept"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [5, 7, 8, 9],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information",
+        "referenceBasis": "Original assessment; mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

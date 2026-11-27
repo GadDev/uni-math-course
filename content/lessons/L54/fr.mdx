@@ -1,7 +1,7 @@
 ---
 lessonId: L54
 locale: fr
-version: 1
+version: 2
 status: extended
 title: "Extensions de source et théorème de Shannon"
 summary: "Coder des blocs indépendants et comparer efficacité et taille du dictionnaire."
@@ -12,6 +12,7 @@ sourcePages: [55, 56, 57, 58, 59, 60]
 ---
 
 import InformationTheoryLab from '../../../src/components/InformationTheoryLab';
+import '../../../src/styles/information-guides.css';
 
 # Regrouper pour se rapprocher de la limite
 
@@ -35,9 +36,39 @@ Sans indépendance, cette multiplication n'est pas justifiée. Exemple : une sui
 
 La longueur du bloc n est connue du décodeur. Pour un message fini dont la taille n'est pas multiple de n, il faut convenir du traitement du reste ; les formules ci-dessous décrivent les blocs complets et ne comptent pas un en-tête, un dictionnaire transmis ou un remplissage final.
 
+## Lire le produit et former les paires
+
+Le symbole $\prod$ demande de **multiplier** un facteur par position ; $\sum$ demandait d’additionner. Par exemple, pour trois positions indépendantes :
+
+$$P(aba)=p(a)\,p(b)\,p(a)=\frac23\cdot\frac13\cdot\frac23=\frac4{27}.$$
+
+Pour deux positions, chaque case du tableau multiplie la probabilité de sa ligne par celle de sa colonne.
+
+<figure className="info-concept-figure">
+<div className="info-figure-scroll" role="region" aria-label="Schéma : défiler horizontalement si nécessaire" tabIndex={0}>
+<img src="/diagrams/information/l54-pair-grid-fr.svg" width="480" height="480" alt="Les probabilités des paires indépendantes sont 4/9, 2/9, 2/9 et 1/9. Un bloc contient deux symboles : diviser le coût par bloc par deux." loading="lazy" />
+</div>
+<figcaption>Le message aaba se découpe en deux blocs aa et ba. Avec la table ci-dessous, il utilise quatre bits. Ce coût particulier n’est pas la moyenne 17/18 par symbole de la source.</figcaption>
+</figure>
+
+<div className="info-guided">
+
+**Prédire les unités.** Si un bloc de deux lettres coûte en moyenne 17/9 bits, faut-il multiplier ou diviser par deux pour obtenir le coût par lettre ?
+
+<details className="info-answer">
+<summary>Vérifier et comprendre</summary>
+
+Diviser : $L_2/2=17/18$ bit par symbole initial. Vérification : deux symboles coûtent en moyenne $2\cdot17/18=17/9$ bits. Le nombre 2 est la taille du bloc source, pas le nombre de bits d’un mot code.
+
+</details>
+
+</div>
+
 ## 02 · L'exemple du PDF sans mélanger les unités
 
 Prenons $p(a)=2/3$, $p(b)=1/3$. En codant les symboles séparément par `0` et `1`, la moyenne vaut 1 bit par symbole. Pour les paires indépendantes :
+
+<div className="info-table-scroll" role="region" aria-label="Tableau de calcul" tabIndex={0}>
 
 | Bloc | Probabilité | Mot code | Longueur |
 | --- | --- | --- | --- |
@@ -45,6 +76,8 @@ Prenons $p(a)=2/3$, $p(b)=1/3$. En codant les symboles séparément par `0` et `
 | ab | 2/9 | 10 | 2 |
 | ba | 2/9 | 110 | 3 |
 | bb | 1/9 | 111 | 3 |
+
+</div>
 
 Huffman fusionne les poids $1+2=3$, puis $2+3=5$, puis $4+5=9$. Les ex æquo permettent d'échanger les rôles de ab et ba sans changer le coût optimal.
 
@@ -57,6 +90,14 @@ Un bloc représente deux symboles :
 $$\frac{L_2}{2}=\frac{17}{18}\approx0{,}9444\text{ bit/symbole}.$$
 
 On gagne face à 1, mais l'entropie initiale reste $H(S)\approx0{,}9183$. La page 58 note le coût déjà ramené au caractère ; nous séparons les deux unités pour éviter de comparer 17/9 directement à 1.
+
+## Déplier l’additivité pour une paire
+
+Pour chaque paire uv, l’indépendance donne $P(uv)=p(u)p(v)$ ; le logarithme transforme ce produit en somme. La contribution de la première position, après regroupement des quatre paires, est :
+
+$$-p(a)\log_2p(a)\,[p(a)+p(b)]-p(b)\log_2p(b)\,[p(a)+p(b)]=H(S).$$
+
+Les crochets valent 1. La seconde position contribue de la même manière : $H(S^2)=H(S)+H(S)=2H(S)$. La preuve générale ci-dessous répète ce regroupement pour chacune des n positions.
 
 ## 03 · Pourquoi l'entropie du bloc est multipliée par n
 
@@ -74,7 +115,16 @@ Cette identité utilise le modèle i.i.d. ; elle ne résulte pas simplement du n
 
 Pour chaque n, construisons un code de Huffman sur les blocs. Sa moyenne optimale est $L_n$. La borne précédente appliquée à l'alphabet des blocs donne $L_n\ge H(S^n)$.
 
-Pour la borne supérieure, choisissons d'abord les longueurs de Shannon
+**Résultat à utiliser (Huffman, source i.i.d.).**
+
+$$H(S)\le\frac{L_n}{n}<H(S)+\frac1n.$$
+
+Le théorème d’approche est énoncé dans le PDF. La démonstration quantitative qui suit est un complément ; elle ne remplace pas les hypothèses et les unités à retenir.
+
+<details className="info-answer">
+<summary>Aller plus loin : construire la borne supérieure</summary>
+
+Pour la borne supérieure, choisissons d’abord les longueurs de Shannon
 
 $$\ell(w)=\lceil-\log_2P(w)\rceil.$$
 
@@ -87,6 +137,8 @@ Divisez par n, positif, et utilisez l'additivité :
 $$H(S)\le\frac{L_n}{n}<H(S)+\frac1n.$$
 
 L'écart garanti par symbole tend vers zéro. Pour une marge positive $\varepsilon$, choisir $n>1/\varepsilon$ suffit à garantir un écart strictement inférieur à cette marge. C'est une garantie générale, pas la taille minimale nécessaire pour une source particulière. La suite des coûts n'est pas nécessairement strictement décroissante à chaque n.
+
+</details>
 
 ## Expérimenter et expliquer
 

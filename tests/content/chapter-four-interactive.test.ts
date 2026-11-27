@@ -13,12 +13,12 @@ test('all twelve Chapter 4 practice banks have 15 exercises, six objectives and 
   const releases = readJson('content/releases.json').lessons;
   for (let number = 43; number <= 54; number++) {
     const id = `L${number}`;
-    const version = number >= 50 ? 1 : number === 48 ? 3 : 2;
+    const version = number >= 50 ? 1 : number === 48 || number === 44 ? 3 : 2;
     assert.equal(releases[id].version, version);
     assert.equal(releases[id].practice, true);
     assert.equal(
       releases[id].review,
-      number >= 48 ? 'self-checked' : 'unreviewed-exception',
+      number >= 48 || number === 44 ? 'self-checked' : 'unreviewed-exception',
     );
     const bank = validateBank(readJson(`exercises/${id}/v${version}.json`));
     assert.equal(bank.exerciseCount, 15);
@@ -110,4 +110,40 @@ test('the original Huffman example combines weights and yields a prefix code', (
     28,
   );
   assert.equal(bank.items[7].answer, '7/4');
+});
+
+test('released substitution choices assess both encoding and bit length with one valid pair', () => {
+  const release = readJson('content/releases.json').lessons.L44;
+  assert.equal(release.version, 3);
+  const bank = validateBank(readJson(`exercises/L44/v${release.version}.json`));
+  for (const item of bank.exercises) {
+    assert.equal(item.type, 'single-choice');
+    if (item.type !== 'single-choice') throw Error('Unexpected item');
+    const table = Object.fromEntries(
+      [...item.prompt.fr.matchAll(/([xyz])→([01]+)/g)].map((m) => [m[1], m[2]]),
+    );
+    const message = item.prompt.fr.match(/mot source ([xyz]+)/)![1]!;
+    // Reconstruct from the stated table rather than trusting the stored key.
+    const bits = [...message].map((s) => table[s]).join('');
+    const valid = item.options.filter((o) => {
+      const match = o.label.fr.match(/^([01]+) ; (\d+) bits$/);
+      assert.ok(match, `${item.id}: both requested outputs must be offered`);
+      assert.equal(o.label.en, o.label.fr);
+      return match[1] === bits && Number(match[2]) === bits.length;
+    });
+    assert.deepEqual(
+      valid.map((o) => o.id),
+      [item.answer],
+      item.id,
+    );
+    assert.ok(
+      item.options.some(
+        (o) => o.label.fr === `${bits} ; ${message.length} bits`,
+      ),
+      `${item.id}: distinguish source length from transmitted length`,
+    );
+    const projected = publicExercise(item);
+    assert.equal('answer' in projected, false);
+    assert.equal('explanation' in projected, false);
+  }
 });

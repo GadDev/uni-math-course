@@ -1,21 +1,21 @@
 ---
 lessonId: L57
 locale: en
-version: 1
+version: 2
 status: extended
 title: "LZW: the special case and the real coding cost"
 summary: "Resolve an incomplete entry, reject impossible codes and compare costs in bits."
-minutes: 25
+minutes: 35
 objectives: [L57-O01, L57-O02, L57-O03, L57-O04, L57-O05, L57-O06]
 prerequisites: [L55, L56, L47]
-sourcePages: [82, 83, 84, 85, 86, 87, 88, 89, 90]
+sourcePages: [82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93]
 ---
 
 # The code that arrives just before its definition
 
 You receive a code missing from complete entries. Is it necessarily an error? Not if it is exactly the pending entry’s code: its first letter lets it finish its own definition.
 
-**Source: `coding.pdf`, physical pages 82–90.** ABABABA is revealed in stages, followed by the ANANAS exercise and the summary. Pages 91–93 contain an additional experimental comparison, outside the requested range.
+**Source: `coding.pdf`, physical pages 82–93.** ABABABA is revealed in stages, followed by the ANANAS exercise and the summary. Pages 91–93 then compare costs on a text and explain why LZW can beat single-letter entropy.
 
 ## Objectives and prerequisites
 
@@ -62,6 +62,37 @@ Repetition can produce longer phrases on large messages, but a gain is not guara
 
 The workshop uses integer codes without bit packing, resets or saturation. A real format must specify these details. With indexing from 1, b bits allow codes 1 through 2ᵇ−1 when 0 is unused: do not confuse this classroom convention with an industrial format’s reserved codes.
 
+## 05 · Can LZW beat single-letter entropy?
+
+**PDF, pp. 91–93: a reported example, not a guarantee.** The document compares encodings of the King James Bible: 4,047,392 characters and 63 distinct symbols. These are its reported average costs. They are not measurements reproduced in the workshop; the PDF does not specify every format parameter, including full-dictionary handling and included overhead.
+
+| Representation | Reported cost (bits per character) |
+| --- | --- |
+| ASCII in one byte | 8 |
+| Fixed code for 63 symbols | 6 |
+| Letter-by-letter Huffman | 4.39 |
+| LZW, 12-bit codes | 3.63 |
+| LZW, 16-bit codes | 2.82 |
+
+Six bits suffice for 63 symbols because $2^5=32<63\le64=2^6$. For this example’s letter model, the PDF reports $H(S)\approx4{,}34$ bits per character. Huffman stays above it, but both LZW results fall below it. **Does this contradict [L53](/en/lessons/L53/)?**
+
+No: L53 studies a fixed code assigned to **each individual symbol**, with average length $\sum_i p_i\ell_i$. LZW replaces **learned phrases** with indices; a letter’s representation depends on what has already been read. Text repetitions provide structure that letter frequencies alone do not describe. Single-letter entropy is therefore not a universal lower bound for every compressor of this text.
+
+The distinction already appears in [L46](/en/lessons/L46/): a source always alternating A and B after an equally likely first choice has the same probabilities at each position as independent fair draws. Yet knowing one letter determines all subsequent letters in the first source. [L54](/en/lessons/L54/) explicitly uses independence to multiply block probabilities; that model must not be imposed on every real text.
+
+**Predict, then justify.** Using the fixed 6-bit code as the baseline and the reported LZW cost of 3.63 bits per character, what percentage of bits is saved? Then explain why this does not guarantee the same saving on another message.
+
+<details className="info-answer">
+<summary>Compare costs and assumptions</summary>
+
+The difference is $6-3{,}63=2{,}37$ bits per character. The relative saving is:
+
+$$\frac{6-3{,}63}{6}\times100=39{,}5\%.$$
+
+The denominator is the baseline cost, not the LZW cost. This calculation compares the values reported for this example; it does not specify overhead missing from the measurement protocol. Another text, code width or dictionary policy can produce a different result. The short message in section 04 even increases the cost. Beating single-letter entropy does not mean beating a limit established for the same model and code family.
+
+</details>
+
 ## Progressive exercises and solutions
 
 1. **Starter.** With `A=1`, decode `1 2`. Why is 2 allowed?
@@ -79,4 +110,4 @@ The workshop uses integer codes without bit packing, resets or saturation. A rea
 
 ## Remember and continue
 
-Resolve the pending entry’s code using **w + first letter of w**. Any other unknown code is invalid. Then measure costs in the same unit. [Return to the workshop for a new challenge](/en/chapters/C04/lzw/), then revisit [Chapter 4](/en/chapters/C04/).
+Resolve the pending entry’s code using **w + first letter of w**. Any other unknown code is invalid. Then measure costs in the same unit, with an explicit baseline and overhead. Single-letter entropy bounds the average cost of the symbol-by-symbol codes studied in L53; LZW exploits phrases and repetitions. [Return to the workshop for a new challenge](/en/chapters/C04/lzw/), then revisit [Chapter 4](/en/chapters/C04/).
