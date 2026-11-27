@@ -1,0 +1,157 @@
+---
+lessonId: L02
+locale: fr
+version: 4
+status: pilot
+title: "Connecteurs logiques : et, ou, non"
+summary: "Lire les connecteurs ∧, ∨ et ¬ avec leur constante, les évaluer sur des valeurs données, appliquer la priorité de ¬, et distinguer le « ou » inclusif du « ou » exclusif."
+minutes: 18
+objectives: [L02-O01, L02-O02, L02-O03, L02-O04, L02-O05, L02-O06]
+prerequisites: [L01]
+sourcePages: [6, 7, 8, 9, 10, 11, 12]
+---
+import LogicalOperatorLab from '../../../src/components/LogicalOperatorLab';
+
+# Connecteurs logiques : et, ou, non
+
+## 1. Comprendre — Combiner des assertions
+
+### Votre objectif
+
+À la fin de cette leçon, vous savez lire $\land$, $\lor$, $\neg$ et $\top$, les évaluer sur des valeurs données, appliquer la priorité de $\neg$, et distinguer le « ou » inclusif du « ou » exclusif.
+
+**Prérequis :** la leçon L01, où une assertion a une seule valeur de vérité, notée $1$ ou $0$.
+
+### Des symboles à une situation concrète
+
+Fixons une personne et une séance de cinéma. Soit $A$ : « elle a un billet » et $B$ : « elle a une invitation ». $A \lor B$ dit qu’elle a au moins l’un des deux, éventuellement les deux. $A \land B$ exige les deux. $\neg A$ dit qu’elle n’a pas de billet ; cela ne dit rien de son invitation.
+
+Attention : le signe $+$ utilisé pour OU est une notation booléenne. Ici $1 \lor 1 = 1$ ; on ne fait pas l’addition ordinaire des entiers. Pour la suite, gardez les symboles $\lor$ et $\land$ pour éviter cette confusion.
+
+Les assertions de L01 deviennent les entrées d'une opération logique. Une fois les valeurs fixées, le connecteur détermine une seule sortie : 0 ou 1. Comme dans un programme, le résultat peut ensuite servir d'entrée à une autre opération.
+
+## 2. Visualiser — Deux entrées, plusieurs résultats
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L02-operators-fr.svg" alt="Pour les quatre couples 00, 01, 10, 11, ET vaut 0001, OU vaut 0111, XOR vaut 0110 et NON A vaut 1100." width="560" height="280" /><figcaption>Chaque colonne représente une affectation. Seul le cas 11 distingue OU inclusif et XOR. NON A ne dépend pas de B.</figcaption></figure>
+
+### Conjonction : et
+
+$A \land B$ est vraie exactement lorsque $A$ et $B$ sont toutes deux vraies.
+
+| A | B | A ∧ B |
+| --- | --- | --- |
+| 0 | 0 | 0 |
+| 0 | 1 | 0 |
+| 1 | 0 | 0 |
+| 1 | 1 | 1 |
+
+### Disjonction : ou inclusif
+
+$A \lor B$ est vraie exactement lorsqu’au moins une des assertions $A$ et $B$ est vraie. Elle est aussi vraie lorsque les deux le sont.
+
+| A | B | A ∨ B |
+| --- | --- | --- |
+| 0 | 0 | 0 |
+| 0 | 1 | 1 |
+| 1 | 0 | 1 |
+| 1 | 1 | 1 |
+
+### Piège : le ou inclusif n’est pas exclusif
+
+Dans $A \lor B$, le cas $A = B = 1$ est vrai. Un « ou » exclusif, souvent appelé XOR, est faux dans ce cas, car il exige qu’exactement une partie soit vraie. Dans ce cours, le « ou » mathématique est inclusif, sauf mention contraire.
+
+## 3. Calculer et raisonner — Lire, substituer, évaluer
+
+### Notation et la constante $\top$
+
+Les lettres $A$, $B$, $C$, etc. désignent des assertions, ou des variables interprétées par des assertions. On construit de nouvelles assertions à partir d’assertions existantes à l’aide de connecteurs. La constante $\top$ est une assertion toujours vraie, quelles que soient les autres assertions.
+
+Vous rencontrerez plusieurs notations pour le même connecteur :
+
+- $A \land B$, aussi noté $A \cdot B$, se lit « A et B ».
+- $A \lor B$, aussi noté $A + B$, se lit « A ou B ».
+- $\neg A$, aussi noté $A'$, se lit « non A ».
+
+### Négation et priorité
+
+$\neg A$ est vraie exactement lorsque $A$ est fausse.
+
+| A | ¬A |
+| --- | --- |
+| 0 | 1 |
+| 1 | 0 |
+
+Dans ce cours, $\neg$ est prioritaire sur les autres connecteurs. Ainsi $\neg A \lor B$ signifie $(\neg A) \lor B$, et non $\neg (A \lor B)$. Le cours ne fixe pas d’ordre par défaut entre $\land$ et $\lor$ : écrivez donc des parenthèses dès qu’ils apparaissent ensemble, comme dans $(A \land B) \lor C$.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L02-scope-fr.svg" alt="Pour A=B=1, nier A puis faire OU avec B donne 1 ; faire OU puis nier le groupe donne 0." width="560" height="240" /><figcaption>Les parenthèses délimitent la portée de la négation. Les deux calculs n'ont pas le même sens.</figcaption></figure>
+
+### Exemple guidé : une formule mixte
+
+Évaluons $\neg A \lor B$ lorsque $A = 1$ et $B = 1$.
+
+1. Calculez d’abord la négation : $\neg A = 0$.
+2. Calculez $(\neg A) \lor B = 0 \lor 1$.
+3. Une partie est vraie, donc le résultat est $1$.
+
+L’autre lecture, $\neg (A \lor B)$, donne $\neg 1 = 0$. Les deux lectures diffèrent, et c’est pourquoi la priorité compte.
+
+Ce travail guidé, dont la solution est visible, n’est pas une réponse indépendante pour mesurer la maîtrise.
+
+**Méthode :** recopier les parenthèses, remplacer les lettres par leurs valeurs, calculer les négations au bon niveau, puis combiner les résultats des sous-expressions. Ne jamais traiter OU comme une addition entière.
+
+## 4. Expérimenter — Prédire puis vérifier
+
+Choisissez les valeurs de A et B, puis une formule. Prédisez 0 ou 1 avant d'afficher la correction. Changez ensuite une seule entrée. Comparez OU et XOR pour les deux entrées vraies, puis comparez les deux portées de NON. La constante vraie ne dépend d'aucune entrée. Le tableau de comparaison est facultatif : essayez d'abord sans le consulter.
+
+<LogicalOperatorLab locale="fr" client:visible />
+
+## 5. Pratiquer — Justifier sans les commandes
+
+Écrivez une ligne de calcul ou une justification avant d'ouvrir la correction.
+
+1. Pour $A=0$ et $B=1$, calculer $A\lor B$ et $\neg B$.
+2. Avec $A=B=1$, comparer $A\lor B$ et le XOR. Expliquer la différence.
+3. Pour $A=0$, $B=0$, $C=1$, comparer $A\land(B\lor C)$ et $(A\land B)\lor C$.
+4. Traduire « pas de billet, mais une invitation » en utilisant les lettres de l'exemple du cinéma. Évaluer pour $A=0$, $B=1$.
+
+<details className="operator-correction">
+<summary>Corrections expliquées</summary>
+
+1. $0\lor1=1$ ; $\neg1=0$.
+2. $1\lor1=1$ ; XOR vaut 0 car les deux parties sont vraies, et non exactement une.
+3. $0\land(0\lor1)=0\land1=0$ ; $(0\land0)\lor1=0\lor1=1$. Le groupement change le résultat.
+4. $(\neg A)\land B$ ; $(\neg0)\land1=1\land1=1$.
+
+</details>
+
+### Pratique indépendante
+
+Les six exercices pilotes portent sur la conjonction, les notations, le ou inclusif, la priorité, la constante $\top$ et le besoin de parenthèses.
+
+L'atelier ci-dessus est public et non noté. La pratique notée nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
+
+## 6. Retenir — Fiche de révision
+
+<div className="operator-revision">
+
+### À retenir
+
+$\land$ demande les deux parties, $\lor$ demande au moins une partie, et $\neg$ inverse une valeur. $\neg$ est prioritaire, et les formules mixtes demandent des parenthèses.
+
+| A | B | A ∧ B | A ∨ B | XOR | ¬A | ⊤ |
+| --- | --- | --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 | 1 | 1 |
+| 0 | 1 | 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 | 0 | 1 |
+| 1 | 1 | 1 | 1 | 0 | 0 | 1 |
+
+Rappel : OU est inclusif, NON est prioritaire, et les mélanges ET/OU nécessitent un groupement explicite dans ce cours. Les notations alternatives + et · sont booléennes, pas arithmétiques.
+
+Imprimez la fiche avec la commande Imprimer du navigateur. Le tableau et les schémas restent disponibles sans JavaScript.
+
+</div>
+
+En L03, nous systématiserons toutes les affectations dans une table de vérité. [L03](/fr/lessons/L03/).
+
+Source vérifiée : Logique_01.pdf, pages physiques 6 à 12. Les définitions, les notations alternatives, la constante vraie, les tables et la priorité de NON suivent le PDF. Les schémas, l'atelier, la table XOR complète et les exercices supplémentaires sont des compléments originaux du projet.
+
