@@ -1,24 +1,26 @@
 ---
 lessonId: L05
 locale: en
-version: 5
+version: 6
 status: pilot
 title: "Implication: a promise with one failure case"
 summary: "Read A ⇒ B, distinguish necessary and sufficient conditions, and find a counterexample."
-minutes: 18
+minutes: 24
 objectives: [L05-O01, L05-O02, L05-O03, L05-O04, L05-O05, L05-O06]
 prerequisites: [L01, L02, L03, L04]
 sourcePages: [20, 21, 22, 23]
 ---
 # Implication: a promise with one failure case
 
-## Your objective
+## 1. Understand — A rule and its failure
+
+### Your objective
 
 By the end of this lesson, you can read $A \Rightarrow B$, complete its truth table, distinguish “necessary” from “sufficient”, and recognise a **counterexample**: a case sufficient to show that a general rule is false.
 
 **Prerequisites:** an assertion is a statement that is true or false (<a href="/en/lessons/L01/">L01</a>); AND, inclusive OR and NOT combine these values (<a href="/en/lessons/L02/">L02</a>). Reading a table comes from <a href="/en/lessons/L03/">L03</a>; equivalence and De Morgan’s laws, used below, come from <a href="/en/lessons/L04/">L04</a>.
 
-## A precise promise
+### A precise promise
 
 Imagine this rule: “If a card is red, it has a stamp.” Each card has one uniform colour: red or blue, never both.
 
@@ -37,7 +39,39 @@ The four cards above represent all possible combinations. The word “red” and
 
 Mathematical implication relates truth values. By itself, it does not describe a cause or a sequence of events: the colour does not create the stamp.
 
-## Definition and reading
+## 2. Visualise — Sufficient and necessary
+
+<figure class="teaching-figure"><img src="/diagrams/logic/L05-thresholds-en.svg" alt="On the real line, values x at least 10 are included among values x at least 5. From 5 inclusive to 10 exclusive, only B is true." width="560" height="240"><figcaption>Lecturer's example, page 20: A is more restrictive than B. Solid dots include the boundaries.</figcaption></figure>
+
+In the source example, take a real number $x$ : $A:(x\ge10)$, $B:(x\ge5)$. The lecturer's three examples (1, 6, 11) give pairs 00, 01 and 11. Pair 10 is impossible: if x is at least 10, it is at least 5. For the converse, every real number in the interval $[5,10[$ is a counterexample. Do not confuse these inclusive thresholds with the strict thresholds in the next example.
+
+### Necessary and sufficient
+
+This course uses $\mathbb{N} = \{0,1,2,\ldots\}$ for the natural numbers, including zero. Fix a natural number n and let:
+
+- $A$: “n > 10”.
+- $B$: “n > 5”.
+
+If n is greater than 10, it must be greater than 5. This holds for **every** natural number: exceeding 10 is enough to guarantee exceeding 5.
+
+When $A \Rightarrow B$ holds for every element of the domain under consideration:
+
+- A is **sufficient** for B: knowing A is true is enough to conclude B is true.
+- B is **necessary** for A: B must be true for A to be true. But B alone does not guarantee A.
+
+Thus, being greater than 5 is necessary for being greater than 10. It is not sufficient: **8** is greater than 5 but not greater than 10. The **converse**, meaning the implication in the other direction, would be “if n > 5, then n > 10”; 8 refutes it.
+
+**Predict first:** what happens at n = 5 and then at n = 10? Find every natural number that refutes the converse before moving the slider.
+
+
+
+The slider in the workshop below shows only the integers from 0 to 15; the arrows extend both conditions beyond this range. The thresholds 5 and 10 are excluded by “>”. Over all natural numbers, the counterexamples to the converse are exactly **6, 7, 8, 9 and 10**. The drawing helps you see this; the general argument is that the number must exceed 5 without exceeding 10.
+
+To revisit number families: <a href="/en/lessons/L10/">L10</a> and the <a href="/en/numbers/">visual guide</a>.
+
+## 3. Calculate and reason — One forbidden row
+
+### Definition and reading
 
 Read $A \Rightarrow B$ as “A implies B” or “if A, then B”. $A$ is the **antecedent** (the condition); $B$ is the **consequent** (what the condition requires).
 
@@ -65,7 +99,11 @@ $\neg A$ means “NOT A”; $\lor$ means “inclusive OR” (at least one of the
 
 $\equiv$ means that both formulas have the same value for **every choice of values for A and B**: the four rows of the table, also called assignments. $\Rightarrow$ forms an implication; $\equiv$ compares two formulas. The symbols have different roles.
 
-## Guided example: the blue card without a stamp
+Page 22 uses the order $B\lor\neg A$ : commutativity of OR (L04) also permits the form above.
+
+<figure class="teaching-figure"><img src="/diagrams/logic/L05-failure-en.svg" alt="Four pairs A,B: 00, 01, 11 satisfy the implication; only 10 falsifies it. Its negation is 1 only on 10." width="560" height="220"><figcaption>A counterexample is not just the negation of B: A must be true at the same time.</figcaption></figure>
+
+### Guided example: the blue card without a stamp
 
 Before calculating, ask: “Is the red condition met?” No. The rule therefore requires nothing of this card.
 
@@ -78,60 +116,7 @@ This card does not contradict the rule. **It also does not prove that every red 
 
 **Predict first:** keep the card unstamped and change only its colour. When does the implication become false?
 
-<div class="implication-lab" data-logic-lab="cards">
-<fieldset><legend>Explore the four cards</legend>
-<div class="implication-controls">
-<label>Colour — value of A<select data-a disabled><option value="0" selected>Blue: A = 0</option><option value="1">Red: A = 1</option></select></label>
-<label>Stamp — value of B<select data-b disabled><option value="0" selected>Without a stamp: B = 0</option><option value="1">With a stamp: B = 1</option></select></label>
-</div></fieldset>
-<div aria-live="polite" aria-atomic="true">
-<p class="implication-card" data-card data-colour="blue">Blue card, without a stamp.</p>
-<p data-calculation>¬A ∨ B = 1 ∨ 0 = 1</p>
-<p data-reason>A is false: this card does not contradict the rule. This does not prove the rule for all cards.</p>
-</div>
-<p>The row matching your card is outlined in the table above. Both lists also work with a keyboard.</p>
-<noscript><p>Enable JavaScript to manipulate the cards. The drawing and table above already show all four cases.</p></noscript>
-</div>
-
-This guided work, whose solution is visible, is for exploration; it does not measure your mastery independently.
-
-## Necessary and sufficient
-
-This course uses $\mathbb{N} = \{0,1,2,\ldots\}$ for the natural numbers, including zero. Fix a natural number n and let:
-
-- $A$: “n > 10”.
-- $B$: “n > 5”.
-
-If n is greater than 10, it must be greater than 5. This holds for **every** natural number: exceeding 10 is enough to guarantee exceeding 5.
-
-When $A \Rightarrow B$ is true:
-
-- A is **sufficient** for B: knowing A is true is enough to conclude B is true.
-- B is **necessary** for A: B must be true for A to be true. But B alone does not guarantee A.
-
-Thus, being greater than 5 is necessary for being greater than 10. It is not sufficient: **8** is greater than 5 but not greater than 10. The **converse**, meaning the implication in the other direction, would be “if n > 5, then n > 10”; 8 refutes it.
-
-**Predict first:** what happens at n = 5 and then at n = 10? Find every natural number that refutes the converse before moving the slider.
-
-<div class="implication-lab" data-number-lab>
-<fieldset><legend>Explore the thresholds 5 and 10</legend>
-<label for="l05-number">Natural number n (from 0 to 15) : <output for="l05-number">8</output></label>
-<input id="l05-number" type="range" min="0" max="15" step="1" value="8" disabled>
-</fieldset>
-<svg viewBox="0 0 510 175" role="img" aria-label="Two rows of integers: B starts at 6, A starts at 11; 5 and 10 are excluded thresholds. The vertical line marks n.">
-<g stroke="currentColor" fill="none" stroke-width="2"><path d="M170 55H480l-8 -5m8 5l-8 5M310 105H480l-8 -5m8 5l-8 5"/>
-<circle cx="170" cy="55" r="6" fill="var(--card)"/><circle cx="310" cy="105" r="6" fill="var(--card)"/>
-<line data-marker x1="254" x2="254" y1="25" y2="125" stroke-dasharray="4 4" stroke-width="3"/>
-</g><g fill="currentColor" font-size="20" font-family="sans-serif"><text x="30" y="28">B : n &gt; 5</text><text x="30" y="106">A : n &gt; 10</text><text x="25" y="158">0</text><text x="165" y="158">5</text><text x="300" y="158">10</text><text x="440" y="158">15</text></g><circle cx="198" cy="55" r="3" fill="currentColor"/><circle cx="226" cy="55" r="3" fill="currentColor"/><circle cx="254" cy="55" r="3" fill="currentColor"/><circle cx="282" cy="55" r="3" fill="currentColor"/><circle cx="310" cy="55" r="3" fill="currentColor"/><circle cx="338" cy="55" r="3" fill="currentColor"/><circle cx="366" cy="55" r="3" fill="currentColor"/><circle cx="394" cy="55" r="3" fill="currentColor"/><circle cx="422" cy="55" r="3" fill="currentColor"/><circle cx="450" cy="55" r="3" fill="currentColor"/><circle cx="338" cy="105" r="3" fill="currentColor"/><circle cx="366" cy="105" r="3" fill="currentColor"/><circle cx="394" cy="105" r="3" fill="currentColor"/><circle cx="422" cy="105" r="3" fill="currentColor"/><circle cx="450" cy="105" r="3" fill="currentColor"/></svg>
-<p data-number-result aria-live="polite" aria-atomic="true">n = 8: A (“n > 10”) is false; B (“n > 5”) is true. A ⇒ B is 1; B ⇒ A is 0. This number refutes the converse.</p>
-<noscript><p>Enable JavaScript to move n. The drawing remains readable at n = 8.</p></noscript>
-</div>
-
-The slider shows only the integers from 0 to 15; the arrows extend both conditions beyond this range. The thresholds 5 and 10 are excluded by “>”. Over all natural numbers, the counterexamples to the converse are exactly **6, 7, 8, 9 and 10**. The drawing helps you see this; the general argument is that the number must exceed 5 without exceeding 10.
-
-To revisit number families: <a href="/en/lessons/L10/">L10</a> and the <a href="/en/numbers/">visual guide</a>.
-
-## Negating an implication
+### Negating an implication
 
 For **one fixed card**, negating the implication describes its only failure: the condition holds AND the required result is missing.
 $$
@@ -154,6 +139,61 @@ Here is the calculation, one step at a time. Try to predict the next step before
 
 **Predict first:** when A = B = 1, do the negation and the implication between the negated operands have the same value? Then test the other three cases.
 
+### Watch the trap
+
+A counterexample to $A \Rightarrow B$ requires **A true and B false**. A false condition is never sufficient. Similarly, A implies B does not guarantee that B implies A: the number 8 showed this. Lesson <a href="/en/lessons/L06/">L06</a> explores the converse and contrapositive further.
+
+## 4. Experiment — Predict, check, refute
+
+In the first workshop, choose A and B and predict the result before checking. Then switch to refutation: choose an assignment that falsifies the indicated rule. A success never proves a rule over a whole domain. Converse mode prepares L06.
+
+<div class="implication-lab" data-implication-challenge>
+<fieldset disabled data-challenge-controls>
+<legend>Predict and find a counterexample</legend>
+<div class="implication-controls">
+<label>Task<select data-task><option value="predict">Predict A ⇒ B</option><option value="failure">Refute A ⇒ B</option><option value="converse">Refute B ⇒ A (L06 preview)</option></select></label>
+<label>A<select data-challenge-a><option value="0">0</option><option value="1">1</option></select></label>
+<label>B<select data-challenge-b><option value="0">0</option><option value="1">1</option></select></label>
+</div>
+<label data-prediction-label>Your prediction<select data-prediction><option value="">?</option><option value="0">0 — False</option><option value="1">1 — True</option></select></label>
+<button type="button" data-challenge-check>Check</button>
+<button type="button" data-challenge-reset>Reset</button>
+<p role="status" aria-atomic="true" data-challenge-feedback></p>
+</fieldset>
+<p data-challenge-static>Fixed example: A = 1, B = 0. The condition holds, but B is false. A ⇒ B is 0 and its negation is 1.</p>
+</div>
+
+Then explore the three existing workshops: cards, strict integer thresholds, and negation. Compare the boundaries n = 5 and n = 10 before testing n = 8.
+
+<div class="implication-lab" data-logic-lab="cards">
+<fieldset><legend>Explore the four cards</legend>
+<div class="implication-controls">
+<label>Colour — value of A<select data-a disabled><option value="0" selected>Blue: A = 0</option><option value="1">Red: A = 1</option></select></label>
+<label>Stamp — value of B<select data-b disabled><option value="0" selected>Without a stamp: B = 0</option><option value="1">With a stamp: B = 1</option></select></label>
+</div></fieldset>
+<div aria-live="polite" aria-atomic="true">
+<p class="implication-card" data-card data-colour="blue">Blue card, without a stamp.</p>
+<p data-calculation>¬A ∨ B = 1 ∨ 0 = 1</p>
+<p data-reason>A is false: this card does not contradict the rule. This does not prove the rule for all cards.</p>
+</div>
+<p>The row matching your card is outlined in the table above. Both lists also work with a keyboard.</p>
+<noscript><p>Enable JavaScript to manipulate the cards. The drawing and table above already show all four cases.</p></noscript>
+</div>
+
+<div class="implication-lab" data-number-lab>
+<fieldset><legend>Explore the thresholds 5 and 10</legend>
+<label for="l05-number">Natural number n (from 0 to 15) : <output for="l05-number">8</output></label>
+<input id="l05-number" type="range" min="0" max="15" step="1" value="8" disabled>
+</fieldset>
+<svg viewBox="0 0 510 175" role="img" aria-label="Two rows of integers: B starts at 6, A starts at 11; 5 and 10 are excluded thresholds. The vertical line marks n.">
+<g stroke="currentColor" fill="none" stroke-width="2"><path d="M170 55H480l-8 -5m8 5l-8 5M310 105H480l-8 -5m8 5l-8 5"/>
+<circle cx="170" cy="55" r="6" fill="var(--card)"/><circle cx="310" cy="105" r="6" fill="var(--card)"/>
+<line data-marker x1="254" x2="254" y1="25" y2="125" stroke-dasharray="4 4" stroke-width="3"/>
+</g><g fill="currentColor" font-size="20" font-family="sans-serif"><text x="30" y="28">B : n &gt; 5</text><text x="30" y="106">A : n &gt; 10</text><text x="25" y="158">0</text><text x="165" y="158">5</text><text x="300" y="158">10</text><text x="440" y="158">15</text></g><circle cx="198" cy="55" r="3" fill="currentColor"/><circle cx="226" cy="55" r="3" fill="currentColor"/><circle cx="254" cy="55" r="3" fill="currentColor"/><circle cx="282" cy="55" r="3" fill="currentColor"/><circle cx="310" cy="55" r="3" fill="currentColor"/><circle cx="338" cy="55" r="3" fill="currentColor"/><circle cx="366" cy="55" r="3" fill="currentColor"/><circle cx="394" cy="55" r="3" fill="currentColor"/><circle cx="422" cy="55" r="3" fill="currentColor"/><circle cx="450" cy="55" r="3" fill="currentColor"/><circle cx="338" cy="105" r="3" fill="currentColor"/><circle cx="366" cy="105" r="3" fill="currentColor"/><circle cx="394" cy="105" r="3" fill="currentColor"/><circle cx="422" cy="105" r="3" fill="currentColor"/><circle cx="450" cy="105" r="3" fill="currentColor"/></svg>
+<p data-number-result aria-live="polite" aria-atomic="true">n = 8: A (“n > 10”) is false; B (“n > 5”) is true. A ⇒ B is 1; B ⇒ A is 0. This number refutes the converse.</p>
+<noscript><p>Enable JavaScript to move n. The drawing remains readable at n = 8.</p></noscript>
+</div>
+
 <div class="implication-lab" data-logic-lab="negation">
 <fieldset><legend>Compare the negations</legend>
 <div class="implication-controls">
@@ -170,24 +210,70 @@ Here is the calculation, one step at a time. Try to predict the next step before
 <noscript><p>Enable JavaScript to change A and B. The case A = B = 1 already distinguishes the two formulas.</p></noscript>
 </div>
 
-## Watch the trap
+## 5. Practise — Translate and construct a counterexample
 
-A counterexample to $A \Rightarrow B$ requires **A true and B false**. A false condition is never sufficient. Similarly, A implies B does not guarantee that B implies A: the number 8 showed this. Lesson <a href="/en/lessons/L06/">L06</a> explores the converse and contrapositive further.
-
-## A pause to check
+### A pause to check
 
 Without looking at the table, explain why a blue card with a stamp does not contradict the rule. Then complete: “To refute an implication, I need a ___ condition and a ___ conclusion.”
 
 <details><summary>See an explained answer</summary><p>For the blue card, A is false: the rule requires no stamp of it. To refute an implication, you need a true condition and a false conclusion.</p></details>
 
-## Independent practice
+Original exercises inspired by the skills in Revision.pdf exercises 1–3: write a justification before opening the answer.
+
+1. Let n be a natural number. “If n is a multiple of 8, then n is a multiple of 2.” Identify the necessary condition, the sufficient condition and a counterexample to the converse.
+2. “If a backup is verified, then its hash matches the expected hash.” Write the negation in words, then symbolically with A and B.
+3. Build the four rows of $(B\Rightarrow A)\land(A\Rightarrow\neg B)$. Is it a tautology? A contradiction? Find a simpler formula.
+4. Without a table, rewrite and simplify $\neg(B\Rightarrow A)\lor A$ using the L04 laws.
+
+<details><summary>Explained answers</summary>
+
+1. Being a multiple of 8 is sufficient; being even is necessary. The number 2 is even but not a multiple of 8: it refutes the converse.
+2. The backup is verified AND its hash does not match. The negation is $A\land\neg B$.
+3. In order 00, 01, 10, 11, the implication columns are 1011 and 1110; their AND is 1010. Neither tautology nor contradiction; equivalent to $\neg B$.
+4. 
+
+$$\neg(B\Rightarrow A)\lor A\equiv(B\land\neg A)\lor A$$
+
+Negated implication.
+
+$$\equiv A\lor(B\land\neg A)$$
+
+Commutativity.
+
+$$\equiv(A\lor B)\land(A\lor\neg A)$$
+
+Distributivity.
+
+$$\equiv(A\lor B)\land\top\equiv A\lor B.$$
+
+Excluded middle, then AND identity.
+
+</details>
+
+### Independent practice
 
 The selected exercises cover the false case, the truth table, necessary/sufficient conditions, negation, a natural-language rule and a numerical counterexample.
 
 The explorations on this page are freely accessible and are not saved. Practice with feedback and private progress is available with an account when sign-in is configured: use “Practise” after the lesson.
 
-## Takeaway
+## 6. Remember — Revision sheet
+
+<section class="implication-revision">
+
+### Takeaway
 
 Implication is a promise with one failure case: **the condition holds, but the promised result does not**. A is sufficient for B; B is necessary for A. To negate the implication, describe its failure: A AND NOT B.
 
-Original project text, drawings and examples. Coverage follows PDF pages 20–23 in the repository’s course map; no professor-authored exercise is reproduced.
+- **Eliminate implication:** $A\Rightarrow B\equiv(\neg A\lor B)$.
+- **Negate the entire implication:** $\neg(A\Rightarrow B)\equiv A\land\neg B$.
+- **Table in order 00, 01, 10, 11:** 1, 1, 0, 1.
+- **Sufficient condition:** A guarantees B if the rule holds over the domain.
+- **Necessary condition:** B must be true whenever A is true.
+- **Refute:** find A true and B false; one case is enough.
+
+Print this memo and the diagrams from the browser. The new workshop's fixed example remains readable without JavaScript.
+
+</section>
+
+Verified source: Logique_01.pdf, physical pages 20–23 (inclusive thresholds, definition, necessary and sufficient conditions, elimination and negation); Revision.pdf, exercises 1–3, pages 4–9. Card and strict-threshold examples, diagrams and extra exercises are project extensions. L06 develops converse and contrapositive.
+
