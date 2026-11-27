@@ -1,0 +1,156 @@
+---
+lessonId: L06
+locale: en
+version: 5
+status: extended
+title: "Converse, contrapositive and everyday language"
+summary: "Write the converse and contrapositive of an implication, know which one is equivalent to it, and avoid reading “if” as “only if” in everyday language."
+minutes: 24
+objectives: [L06-O01, L06-O02, L06-O03, L06-O04, L06-O05, L06-O06]
+prerequisites: [L05]
+sourcePages: [24, 25, 26, 27, 28, 29]
+---
+import ImplicationTransformLab from '../../../src/components/ImplicationTransformLab';
+
+# Converse, contrapositive and everyday language
+
+## 1. Understand — Change a rule, or deny its truth?
+
+### Your objective
+
+By the end of this lesson, you can write the converse and the contrapositive of $A \Rightarrow B$, say which of them is equivalent to it, and avoid reading “if” as “only if” in everyday language.
+
+**Prerequisites:** L05, where $A \Rightarrow B$ and its truth table are introduced.
+
+### Converse and contrapositive
+
+For an implication $A \Rightarrow B$:
+
+- its **converse** is $B \Rightarrow A$;
+- its **contrapositive** is $\neg B \Rightarrow \neg A$.
+
+The converse swaps the two sides. The contrapositive swaps them and negates both.
+
+Page 24 uses a promise of a bonus after finishing a project. Swapping the two parts does not necessarily preserve the promise. The contrapositive, however, preserves exactly the failure case. Do not confuse these transformations with negating the whole rule (L05).
+
+## 2. Visualise — Swap and negate
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L06-transform-en.svg" alt="Original A implies B; converse B implies A; inverse NOT A implies NOT B; contrapositive NOT B implies NOT A; negation A AND NOT B." width="560" height="300" /><figcaption>The converse swaps; the inverse negates both terms; the contrapositive does both. Negation changes the connective. The inverse is a useful extension, not an additional definition required by these PDF pages.</figcaption></figure>
+
+| Transformation | Formula | Equivalent to the original in general? |
+| --- | --- | --- |
+| Original | $A\Rightarrow B$ | Yes |
+| Converse | $B\Rightarrow A$ | No |
+| Contrapositive | $\neg B\Rightarrow\neg A$ | Yes |
+| Inverse (extension) | $\neg A\Rightarrow\neg B$ | No |
+| Negation | $A\land\neg B$ | No |
+
+## 3. Calculate and reason — Prove equivalence
+
+### The contrapositive is equivalent
+
+Every implication is semantically equivalent to its contrapositive:
+$$
+(A \Rightarrow B) \equiv (\neg B \Rightarrow \neg A).
+$$
+
+| A | B | A ⇒ B | ¬B ⇒ ¬A | B ⇒ A |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 1 | 1 | 1 |
+| 0 | 1 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 0 | 1 |
+| 1 | 1 | 1 | 1 | 1 |
+
+The columns for $A \Rightarrow B$ and its contrapositive agree on every row. The converse differs on rows $01$ and $10$, so the two patterns are **not equivalent in general**. Particular statements can nevertheless satisfy both directions. This explanation is original project work.
+
+Page 25 states the theorem and leaves the proof to be supplied. Here is an original algebraic proof, using L04 and L05:
+
+$$\neg B\Rightarrow\neg A\equiv\neg\neg B\lor\neg A$$
+
+Eliminate implication.
+
+$$\equiv B\lor\neg A\equiv\neg A\lor B\equiv A\Rightarrow B.$$
+
+Double negation, OR commutativity, then the implication identity. The inverse is the contrapositive of the converse, so those two forms are equivalent to each other as well. This does not make them equivalent to the original.
+
+### Guided example: divisible by 4
+
+Let $n$ be a natural number. Let $A$ be “$n$ is divisible by 4” and $B$ be “$n$ is even”.
+
+1. $A \Rightarrow B$ is true: every multiple of 4 is a multiple of 2.
+2. The converse $B \Rightarrow A$ says “if $n$ is even, then $n$ is divisible by 4”. It is false: $n = 2$ is even and not divisible by 4.
+3. The contrapositive $\neg B \Rightarrow \neg A$ says “if $n$ is odd, then $n$ is not divisible by 4”. It is true, as it must be.
+
+This guided work, whose solution is visible, is not an independent response for mastery evidence.
+
+### Trap: “if” in everyday language
+
+A manager says: “If you finish the report, you get a day off.” An employee gets no day off. By the contrapositive, the report was not finished, and this deduction is valid if we assume the rule holds.
+
+But the manager may have intended the other direction of implication: a day off **only** for people who finished the report. That is $B \Rightarrow A$, where $A$ is “you finish the report” and $B$ is “you get a day off”. The sentence actually spoken, $A \Rightarrow B$, says nothing about people who did not finish.
+
+To say what you mean, write the implication in the direction you intend, then check its converse and its contrapositive.
+
+Pages 26–29 illustrate exactly this trap with a reward (an orange) and beans. The stated rule suffices to deduce, when there is no reward, that the condition was not met. But if the intention was to restrict the reward to those meeting the condition, the other direction should have been stated. This does not say that the other direction is always true.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L06-evidence-en.svg" alt="Columns in order 00, 01, 10, 11: original and contrapositive 1101; converse and inverse 1011; negation 0010." width="560" height="255" /><figcaption>One difference refutes equivalence; four matching rows establish it for these two variables.</figcaption></figure>
+
+### Reading the comparison
+
+For reading a table, revisit L03; for the symbol $\equiv$, revisit L04. On row $01$, the original implication is true and its converse false. On row $10$, the reverse happens. Neither direction therefore guarantees the other by itself.
+
+## 4. Experiment — Predict the transformation and check evidence
+
+Choose the requested transformation, then its formula. Check it before comparing values. Once the formula is validated, select an assignment and predict its result. Checked rows remain visible. One differing row refutes equivalence; equivalence is not announced until all four rows are checked. Change the transformation or restart to clear observations. The workshop is public and ungraded.
+
+<ImplicationTransformLab locale="en" client:visible />
+
+## 5. Practise — Translate, justify, refute
+
+Exercise 2 of Revision.pdf (physical pages 6–7) asks for the converse, contrapositive and negation of a compilation rule in words, then the equivalence. The consequent is already negative, so you must know how to negate a negative sentence. Only the contrapositive is equivalent in general. The exercises below are original and practise the same skill.
+
+1. Rule: “If the test passes, the log contains no errors.” Define A and B, write the three transformations symbolically and in words, and identify the equivalence.
+2. Translate “A report is published only if the data are validated” with P: report published and V: data validated. Write the contrapositive.
+3. Over the natural numbers, “being a multiple of 12 implies being a multiple of 3”. Write the converse and give a justified counterexample.
+4. Write the contrapositive and negation of $(A\lor B)\Rightarrow C$. Use De Morgan and retain the necessary parentheses.
+
+<details className="transform-correction">
+<summary>Explained answers</summary>
+
+1. A: the test passes; B: the log contains no errors. Converse: $B\Rightarrow A$ — if the log contains no errors, the test passes. Contrapositive: $\neg B\Rightarrow\neg A$ — if the log contains at least one error, the test does not pass. Negation: $A\land\neg B$ — the test passes and the log contains at least one error. Only the contrapositive is equivalent to the original pattern.
+2. $P\Rightarrow V$, $\neg V\Rightarrow\neg P$. Validation is necessary, not necessarily sufficient.
+3. The converse says that a multiple of 3 is a multiple of 12. The number 6 refutes it: divisible by 3, not divisible by 12.
+4. Contrapositive: $\neg C\Rightarrow\neg(A\lor B)\equiv\neg C\Rightarrow(\neg A\land\neg B)$. Negation: $(A\lor B)\land\neg C$.
+
+</details>
+
+### Independent practice
+
+The selected exercises cover the converse, the contrapositive, which statements are equivalent, a truth table for the converse, a valid deduction from a rule and the reading of an everyday sentence.
+
+The workshop above is public and ungraded. Graded practice requires sign-in. Availability depends on this lesson’s selected version and release status.
+
+## 6. Remember — Revision sheet
+
+<section className="transform-revision">
+
+### Takeaway
+
+An implication is equivalent to its contrapositive. It is not equivalent to its converse in general, although the two may coincide for particular statements. Requiring both directions together is stronger than requiring either one alone. In everyday language, check whether “if” was meant as “only if”.
+
+| Form | Expression | Column 00, 01, 10, 11 |
+| --- | --- | --- |
+| Original | $A\Rightarrow B$ | 1101 |
+| Converse | $B\Rightarrow A$ | 1011 |
+| Contrapositive | $\neg B\Rightarrow\neg A$ | 1101 |
+| Inverse | $\neg A\Rightarrow\neg B$ | 1011 |
+| Negation | $A\land\neg B$ | 0010 |
+
+**Quick method:** define A and B precisely → transform the symbols → translate each part into words → justify by a law or complete table. To refute, one differing assignment suffices. Do not confuse “if” and “only if”.
+
+Print the memo and diagrams using the browser. A fixed example remains readable without JavaScript.
+
+</section>
+
+Verified source: Logique_01.pdf, physical pages 24–29; Revision.pdf, exercise 2, physical pages 6–7. Algebraic proof, inverse, illustrations, workshop and new exercises are original extensions. In L07, we study both directions together. [L07](/en/lessons/L07/).
+
