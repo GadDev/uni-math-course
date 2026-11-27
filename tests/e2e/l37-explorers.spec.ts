@@ -112,10 +112,15 @@ for (const locale of ['fr', 'en']) {
     await expect(slider).toHaveValue('2');
     await expect(activity.locator('[data-current-y]')).toHaveText('15');
     await expect(page.locator('.katex-error')).toHaveCount(0);
-    const summary = page.locator('.l37-correction summary');
-    await summary.focus();
+    const correction = page.locator('.l37-correction').filter({
+      has: page.getByText(
+        fr ? 'Afficher les corrections' : 'Show the answers',
+        { exact: true },
+      ),
+    });
+    await correction.locator('summary').focus();
     await page.keyboard.press('Enter');
-    await expect(page.locator('.l37-correction')).toHaveAttribute('open', '');
+    await expect(correction).toHaveAttribute('open', '');
   });
 
   test(`${locale}: activities fit mobile and larger viewports`, async ({
@@ -130,7 +135,7 @@ for (const locale of ['fr', 'en']) {
         .scrollIntoViewIfNeeded();
       await expect(page.locator('#l37-graph-x')).toBeEnabled();
       await expect(page.locator('.content-provenance')).toContainText(
-        'Version 2',
+        'Version 3',
       );
       expect(
         await page.evaluate(() => document.documentElement.scrollWidth),
@@ -158,7 +163,12 @@ for (const locale of ['fr', 'en']) {
         await expect(activity.locator('fieldset')).toBeHidden();
         await expect(activity.locator('[data-static-note]')).toBeVisible();
       }
-      const correction = page.locator('.l37-correction');
+      const correction = page.locator('.l37-correction').filter({
+        has: page.getByText(
+          fr ? 'Afficher les corrections' : 'Show the answers',
+          { exact: true },
+        ),
+      });
       await expect(correction).not.toHaveAttribute('open');
       await correction.locator('summary').focus();
       await page.keyboard.press('Enter');
@@ -278,3 +288,83 @@ test('L37 section language switch stays aligned', async ({ page }) => {
   await page.getByRole('link', { name: 'EN', exact: true }).click();
   await expect(page).toHaveURL('/en/lessons/L37/#from-formulas-to-graphs');
 });
+
+for (const locale of ['fr', 'en']) {
+  test(`${locale}: L37 diagnostics, range and optional extension support paper study`, async ({
+    page,
+  }) => {
+    const fr = locale === 'fr';
+    await page.goto(`/${locale}/lessons/L37/`);
+    const diagnostic = page.locator('.l37-correction').first();
+    await diagnostic.locator('summary').click();
+    await expect(diagnostic).toContainText(fr ? 'aucun réel' : 'no real');
+    await expect(
+      diagnostic.getByRole('link', { name: 'L21', exact: true }),
+    ).toHaveAttribute('href', `/${locale}/lessons/L21/`);
+    const prose = page.locator('[data-lesson-id="L37"]');
+    await expect(prose).toContainText(
+      fr ? 'valeurs effectivement atteintes' : 'attained range',
+    );
+    const extension = page.locator('.l37-extension');
+    await expect(extension).not.toHaveAttribute('open');
+    await extension.locator('summary').click();
+    await expect(extension.locator('img')).toBeVisible();
+    await extension.locator('summary').click();
+    await page.emulateMedia({ media: 'print', colorScheme: 'dark' });
+    expect(
+      await page.evaluate(
+        () => getComputedStyle(document.documentElement).backgroundColor,
+      ),
+    ).toBe('rgb(255, 255, 255)');
+    await expect(extension.locator('img')).toBeVisible();
+    await expect(page.locator('.l37-revision')).toBeVisible();
+    await expect(page.locator('.l37-depths')).toContainText(
+      fr ? 'Maîtriser' : 'Mastery',
+    );
+    await expect(prose.locator('fieldset').first()).toBeHidden();
+    expect(
+      await page
+        .locator('.l37-revision')
+        .evaluate((el) => getComputedStyle(el).breakBefore),
+    ).toBe('page');
+    await page.emulateMedia({ media: 'screen' });
+    await expect(extension).not.toHaveAttribute('open');
+  });
+
+  test(`${locale}: L37 six stages and prediction feedback follow the example`, async ({
+    page,
+  }) => {
+    await page.goto(`/${locale}/lessons/L37/`);
+    await expect(
+      page.locator('article h2').filter({ hasText: /^[1-6]\. / }),
+    ).toHaveCount(6);
+    for (const kind of ['mapping', 'domain', 'graph']) {
+      const activity = page.locator(`[data-l37-activity="${kind}"]`);
+      await activity.scrollIntoViewIfNeeded();
+      await expect(activity.locator('fieldset')).toBeVisible();
+      const correct = kind === 'graph' ? 'true' : 'false';
+      const wrong = kind === 'graph' ? 'false' : 'true';
+      await activity.locator(`[data-prediction="${wrong}"]`).click();
+      await expect(
+        activity.locator('[data-prediction-feedback]'),
+      ).toContainText(locale === 'fr' ? 'À revoir' : 'Try again');
+      await activity.locator(`[data-prediction="${correct}"]`).click();
+      await expect(
+        activity.locator('[data-prediction-feedback]'),
+      ).toContainText(locale === 'fr' ? 'Exact' : 'Correct');
+      if (kind === 'domain') {
+        await expect(activity.locator('output')).toContainText(
+          locale === 'fr' ? 'n’est pas défini' : 'is undefined',
+        );
+      }
+      if (kind === 'graph') {
+        await expect(activity.locator('[data-current-y]')).toHaveText('15');
+      }
+      await activity.locator('[data-prediction-reset]').click();
+      await expect(activity.locator('[data-prediction-feedback]')).toHaveCount(
+        0,
+      );
+    }
+    await expect(page.locator('.katex-error')).toHaveCount(0);
+  });
+}

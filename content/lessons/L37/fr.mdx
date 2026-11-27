@@ -1,7 +1,7 @@
 ---
 lessonId: L37
 locale: fr
-version: 2
+version: 3
 status: extended
 title: "Fonctions, domaines et graphiques"
 summary: "Comprendre la notion de fonction, trouver un domaine et lire des points sur un graphe."
@@ -16,11 +16,38 @@ import FunctionPanel from '../../../src/components/FunctionPanel';
 
 *Matériel pédagogique original fondé sur* Bruno Teheux, Mathématiques Générales — Fonctions d’une variable réelle, BINFO-FCE 2025–2026, pages 2, 3, 4. Les schémas et activités ci-dessous sont des ajouts originaux du projet.
 
-## Objectifs et prérequis
+## 1. Comprendre — Une entrée, une image
+
+### Objectifs et prérequis
 
 Une fonction relie une **entrée** à une **sortie**. Dans cette leçon, vous apprendrez à vérifier si une entrée est autorisée, à calculer sa sortie et à placer le point correspondant sur un graphique.
 
-Avant de commencer, vérifiez ces trois gestes :
+Un billet coûte 4 €. Pour $n\in\mathbb N$ billets, le prix total est $p(n)=4n$ euros : choisir 3 billets donne un prix de 12 €. Ici, le contexte impose des entrées entières positives ou nulles ; la formule seule pourrait accepter davantage de nombres.
+
+<aside className="l37-depths" aria-label="Choisir sa profondeur de lecture">
+
+- **L’essentiel :** relier une entrée, une image et un point ; suivre l’exemple polynomial et les premières questions.
+- **Maîtriser :** déterminer le domaine rationnel, retrouver des antécédents et conserver les exclusions après simplification.
+- **Aller plus loin :** ouvrir le complément sur les racines et essayer le premier défi supplémentaire. Ce complément est une extension du projet.
+
+</aside>
+
+Avant de commencer, essayez sans lire les réponses :
+
+1. Calculez $(-2)^2$.
+2. Peut-on calculer $1/0$ ? Justifiez avec une multiplication.
+3. Si un point est $(2,15)$, quelle coordonnée donne l’entrée ?
+
+<details className="l37-correction">
+<summary>Vérifier mes prérequis</summary>
+
+1. $(-2)^2=(-2)\times(-2)=4$. Pour revoir les signes : [L21](/fr/lessons/L21/).
+2. Non : aucun réel $q$ ne satisfait $0q=1$. Pour revoir les quotients : [L23](/fr/lessons/L23/).
+3. L’entrée est 2, la première coordonnée. Pour revoir les coordonnées : [L27](/fr/lessons/L27/).
+
+</details>
+
+Les trois gestes à garder sous la main :
 
 - Calculer une puissance avec un nombre négatif : $(-1)^3=-1$.
 - Reconnaître qu’une division par zéro n’est pas définie.
@@ -28,7 +55,7 @@ Avant de commencer, vérifiez ces trois gestes :
 
 <p>Besoin d’un rappel ? Consultez <a href="/fr/lessons/L23/">L23 — fractions et puissances</a> et <a href="/fr/lessons/L27/">L27 — repères et coordonnées</a>.</p>
 
-## Qu’est-ce qu’une fonction ?
+### Qu’est-ce qu’une fonction ?
 
 Imaginez une boîte de calcul : vous choisissez une entrée autorisée, la boîte applique une règle et fournit **exactement une sortie**. La même entrée redonne toujours la même sortie.
 
@@ -45,15 +72,57 @@ $$f:A\longrightarrow\mathbb R,\qquad x\longmapsto f(x)$$
 
 Deux entrées différentes peuvent avoir la même image. Par exemple, pour la fonction carré $g(x)=x^2$ définie sur $A=\{-1,0,1\}$, les accolades énumèrent les trois entrées autorisées et on a $g(-1)=g(1)=1$. En revanche, une entrée ne peut pas avoir deux images distinctes.
 
-<FunctionPanel kind="mapping" locale="fr" client:visible />
-
 Notre exemple principal sera :
 
 $$f(x)=x^3+2x+3,\qquad A=\mathbb R$$
 
 C’est une fonction **polynomiale** : son expression n’utilise que des sommes et des produits de puissances entières positives ou nulles de $x$. Ici, aucune entrée réelle n’est interdite. Par exemple, l’entrée 2 donne la sortie 15 ; nous allons détailler ce calcul.
 
-## Le domaine n’est pas facultatif
+Le PDF (page 2) donne aussi l'exemple de l'exponentielle $x\mapsto3^x$, définie sur les réels. Elle sera étudiée plus loin en L42. Pensez à une fonction informatique pure : à une entrée autorisée correspond une sortie déterminée. Une procédure avec état ou hasard ne suit pas nécessairement ce modèle.
+
+## 2. Visualiser — Relier les représentations
+
+<figure class="teaching-figure"><img src="/diagrams/functions/l37-machine-fr.svg" alt="Entrée 2, boîte x³ + 2x + 3, sortie 15, puis point (2 ; 15)." width="560" height="180" /><figcaption>Une même information sous quatre formes : entrée, formule, image et point.</figcaption></figure>
+
+### Du calcul au graphique
+
+À chaque entrée autorisée $x$, associons le point $(x,f(x))$. La première coordonnée est l’entrée (**abscisse**, axe horizontal) ; la seconde est son image (**ordonnée**, axe vertical).
+
+Par exemple, $f(2)=15$ donne le point $(2,15)$. Pour le placer, repérez 2 sur l’axe horizontal, puis montez jusqu’à la hauteur 15. De même :
+
+$$f(0)=3\quad\Longleftrightarrow\quad (0,3)\in G_f$$
+
+$G_f$ désigne le **graphe** de $f$ et $\in$ signifie « appartient à ». La double flèche se lit « si et seulement si » : le calcul et l’appartenance du point disent la même chose.
+
+Quelques points donnent des repères, mais ne constituent pas tout le graphe. Pour le domaine $A=\mathbb R$, celui-ci contient un point pour **chaque** entrée réelle, y compris entre les valeurs du tableau et au-delà de la fenêtre dessinée.
+
+Cette idée s’écrit :
+
+$$G_f=\{(x,f(x))\mid x\in A\}\subseteq\mathbb R^2$$
+
+Les accolades désignent un ensemble ; la barre $\mid$ se lit « tels que » ; $\subseteq$ signifie « est inclus dans ». Enfin, $\mathbb R^2$ est l’ensemble des couples de nombres réels, que l’on représente dans le plan. La formule dit donc : « le graphe rassemble tous les couples entrée–image, pour les entrées du domaine ».
+
+**Test de la droite verticale.** Une verticale fixe une abscisse. Si elle rencontre un dessin en deux points, cette entrée aurait deux images : le dessin n’est pas le graphe d’une fonction de x. Une verticale peut ne rencontrer aucun point lorsque son abscisse est hors du domaine.
+
+<figure class="teaching-figure"><img src="/diagrams/functions/l37-vertical-fr.svg" alt="Un cercle est coupé par la verticale x = 0 aux points (0 ; 1) et (0 ; −1) : deux ordonnées pour une même abscisse." width="360" height="260" /><figcaption>Le cercle échoue au test : l’entrée 0 aurait deux sorties, 1 et −1. Pour la fonction carré, en revanche, deux entrées peuvent partager une sortie.</figcaption></figure>
+
+Lecture inverse : un antécédent d'une image est une entrée qui la produit. Pour la fonction carré, $g(-1)=g(1)=1$. L'image 1 possède donc deux antécédents dans le domaine donné. Un zéro de la fonction est un antécédent de 0 : le point correspondant est sur l'axe horizontal.
+
+Le **domaine**, l’**ensemble d’arrivée** et les **valeurs effectivement atteintes** répondent à trois questions différentes. Pour notre fonction carré sur le domaine fini :
+
+| Question | Ensemble |
+| --- | --- |
+| Quelles entrées sont autorisées ? | $A=\{-1,0,1\}$ |
+| Dans quel ensemble déclare-t-on les sorties ? | $\mathbb R$ |
+| Quelles sorties obtient-on vraiment ? | $g(A)=\{0,1\}$ |
+
+$g(A)$ se lit « image de l’ensemble A par g » : c’est l’ensemble de toutes les sorties obtenues. Le nombre 2 appartient à l’ensemble d’arrivée mais n’est atteint par aucune entrée de A.
+
+Pour retrouver un antécédent, on résout une équation sur le domaine : [L24 — équations](/fr/lessons/L24/). Pour vérifier un point sur une courbe : [L28 — appartenance](/fr/lessons/L28/).
+
+## 3. Calculer — Domaine, image, puis point
+
+### Le domaine n’est pas facultatif
 
 Avant de calculer une image, demandez-vous : « Ai-je le droit d’utiliser cette entrée ? » Un domaine peut être imposé par l’énoncé. Si seule une formule est donnée et qu’on demande son **domaine naturel réel**, on cherche toutes les entrées réelles pour lesquelles cette formule a un sens.
 
@@ -77,11 +146,29 @@ $$D_r=\mathbb R\setminus\{0,2\}$$
 
 $D_r$ désigne le domaine de $r$. Le symbole $\setminus$ signifie « privé de » : on lit « tous les réels sauf 0 et 2 ». La valeur 1 est donc autorisée et donne $r(1)=-1$.
 
-<FunctionPanel kind="domain" locale="fr" client:visible />
-
 Le domaine naturel dépend de la formule : pour une racine carrée réelle, l’expression sous la racine doit être positive ou nulle. Ici, nous travaillons surtout avec les polynômes et leurs quotients.
 
-## Exemple détaillé : calculer des images
+<details className="l37-extension">
+<summary>Aller plus loin — Combiner des restrictions (complément du projet)</summary>
+
+**Choisir les restrictions**
+
+| Type d'expression | Condition à vérifier |
+| --- | --- |
+| Polynôme | Aucune restriction naturelle réelle |
+| Quotient | Dénominateur non nul |
+| Racine carrée | Radicande positif ou nul |
+| Plusieurs opérations | Toutes les conditions simultanément |
+
+Exemple : $u(x)=\frac{\sqrt{x+1}}{x-2}$. La racine exige $x+1\ge0$, donc $x\ge-1$. Le dénominateur exige $x\ne2$. On prend l'intersection, pas l'union :
+
+$$D_u=[-1;2[\ \cup\ ]2;+\infty[.$$
+
+<figure class="teaching-figure"><img src="/diagrams/functions/l37-combined-domain-fr.svg" alt="Demi-droite à partir de moins 1 inclus, avec un cercle ouvert en 2." width="560" height="150" /><figcaption>−1 est autorisé : la racine vaut zéro. 2 reste interdit.</figcaption></figure>
+
+</details>
+
+### Exemple détaillé : calculer des images
 
 Reprenons $f(x)=x^3+2x+3$. Son domaine est $\mathbb R$ : les trois entrées ci-dessous sont autorisées.
 
@@ -102,31 +189,17 @@ $$f(0)=0^3+2\times0+3=3$$
 
 Dans $f(2)=15$, **2 est l’entrée et 15 est son image**. Dire « l’image de 2 » revient à demander la valeur de $f(2)$. Le tableau et le curseur de la section suivante relient ces calculs à leurs points.
 
-## Du calcul au graphique
+| x | f(x) | Point |
+| --- | --- | --- |
+| −2 | −9 | (−2 ; −9) |
+| −1 | 0 | (−1 ; 0) |
+| 0 | 3 | (0 ; 3) |
+| 1 | 6 | (1 ; 6) |
+| 2 | 15 | (2 ; 15) |
 
-À chaque entrée autorisée $x$, associons le point $(x,f(x))$. La première coordonnée est l’entrée (**abscisse**, axe horizontal) ; la seconde est son image (**ordonnée**, axe vertical).
+Pour vérifier un point proposé, contrôler d'abord son abscisse puis son ordonnée. Par exemple, $(2,14)\notin G_f$ car $f(2)=15\ne14$.
 
-Par exemple, $f(2)=15$ donne le point $(2,15)$. Pour le placer, repérez 2 sur l’axe horizontal, puis montez jusqu’à la hauteur 15. De même :
-
-$$f(0)=3\quad\Longleftrightarrow\quad (0,3)\in G_f$$
-
-$G_f$ désigne le **graphe** de $f$ et $\in$ signifie « appartient à ». La double flèche se lit « si et seulement si » : le calcul et l’appartenance du point disent la même chose.
-
-<FunctionPanel kind="graph" locale="fr" client:visible />
-
-Quelques points donnent des repères, mais ne constituent pas tout le graphe. Pour le domaine $A=\mathbb R$, celui-ci contient un point pour **chaque** entrée réelle, y compris entre les valeurs du tableau et au-delà de la fenêtre dessinée.
-
-Cette idée s’écrit :
-
-$$G_f=\{(x,f(x))\mid x\in A\}\subseteq\mathbb R^2$$
-
-Les accolades désignent un ensemble ; la barre $\mid$ se lit « tels que » ; $\subseteq$ signifie « est inclus dans ». Enfin, $\mathbb R^2$ est l’ensemble des couples de nombres réels, que l’on représente dans le plan. La formule dit donc : « le graphe rassemble tous les couples entrée–image, pour les entrées du domaine ».
-
-**Test de la droite verticale.** Une verticale fixe une abscisse. Si elle rencontre un dessin en deux points, cette entrée aurait deux images : le dessin n’est pas le graphe d’une fonction de x. Une verticale peut ne rencontrer aucun point lorsque son abscisse est hors du domaine.
-
-<figure class="teaching-figure"><img src="/diagrams/functions/l37-vertical-fr.svg" alt="Un cercle est coupé par la verticale x = 0 aux points (0 ; 1) et (0 ; −1) : deux ordonnées pour une même abscisse." width="360" height="260" /><figcaption>Le cercle échoue au test : l’entrée 0 aurait deux sorties, 1 et −1. Pour la fonction carré, en revanche, deux entrées peuvent partager une sortie.</figcaption></figure>
-
-## Deux pièges à éviter
+### Deux pièges à éviter
 
 **1. Simplifier sans garder le domaine de départ.** Considérez :
 
@@ -142,7 +215,27 @@ $$0\notin D_r,\qquad 2\notin D_r$$
 
 Le symbole $\notin$ signifie « n’appartient pas à » : ni $r(0)$ ni $r(2)$ n’est défini. Une division par zéro ne fournit pas une image égale à l’infini.
 
-## Vérification rapide
+<figure class="teaching-figure"><img src="/diagrams/functions/l37-hole-fr.svg" alt="Droite y = x avec un cercle ouvert au point (2 ; 2), qui reste exclu du graphe de h." width="360" height="250" /><figcaption>Simplifier une formule ne remplit pas le trou de son domaine initial.</figcaption></figure>
+
+## 4. Expérimenter — Prédire, manipuler et expliquer
+
+Avant de modifier chaque schéma, formulez votre prédiction. Les nouveaux défis permettent de vérifier un choix avec le schéma ou le calcul correspondant. Les commandes ne limitent pas le domaine mathématique.
+
+**A — Une seule image par entrée**
+
+<FunctionPanel kind="mapping" locale="fr" client:visible />
+
+**B — Domaine avant division**
+
+<FunctionPanel kind="domain" locale="fr" client:visible />
+
+**C — Calcul et lecture inverse du graphe**
+
+<FunctionPanel kind="graph" locale="fr" client:visible />
+
+## 5. Pratiquer — Justifier sans les commandes
+
+### Vérification rapide
 
 Essayez sans déplacer les curseurs et sans ouvrir les corrections :
 
@@ -160,3 +253,37 @@ Essayez sans déplacer les curseurs et sans ouvrir les corrections :
 </details>
 
 Vous êtes prêt pour la suite si vous pouvez expliquer, dans cet ordre : **entrée autorisée → calcul de l’image → point sur le graphe**.
+
+**Deux défis supplémentaires (hors banque notée)**
+
+1. **Aller plus loin — racines :** déterminer le domaine naturel de $v(x)=\frac{\sqrt{4-x}}{x+1}$. Tester x = 4 et x = −1.
+2. Pour la fonction $w(x)=x^2-4$, trouver tous les antécédents de 0 et donner les points du graphe associés.
+
+<details className="l37-correction">
+<summary>Corrections des défis</summary>
+
+1. $4-x\ge0\Leftrightarrow x\le4$, $x\ne-1$. Donc $D_v=]-\infty;-1[\ \cup\ ]-1;4]$. L'entrée 4 est autorisée et donne 0 ; −1 est interdite.
+2. $x^2-4=(x-2)(x+2)=0\Leftrightarrow x\in\{-2,2\}$. Les deux points sont $(-2,0)$ et $(2,0)$.
+
+</details>
+
+<section className="l37-revision">
+
+## 6. Retenir — Fiche de révision
+
+- $f:A\to\mathbb R$ : exactement une image par entrée de A ; plusieurs entrées peuvent partager une image.
+- Domaine naturel : imposer toutes les restrictions de la formule initiale.
+- $G_f=\{(x,f(x))\mid x\in A\}$ ; équation cartésienne : $y=f(x)$.
+- Image : substituer l'entrée. Antécédent : résoudre $f(x)=y$ sur le domaine.
+- Valeurs atteintes : $g(A)=\{0,1\}$ pour le carré sur $A=\{-1,0,1\}$ ; l’ensemble d’arrivée reste $\mathbb R$.
+- Zéro : une entrée où $f(x)=0$ ; le point correspondant est sur l’axe des abscisses. Test vertical : une seule ordonnée par abscisse du domaine.
+- Méthode : domaine → substitution → calcul → couple → vérification. Conserver les exclusions après simplification.
+
+Pour imprimer, utilisez la commande Imprimer du navigateur. Les figures fixes restent disponibles sans JavaScript.
+
+Retrouvez aussi les [formules du chapitre dans la fiche mémo](https://uni-math-course.vercel.app/fr/cheat-sheet/#chapter-functions).
+
+</section>
+
+Étape suivante : à partir de deux points du graphe, calculer une pente de sécante puis approcher une tangente. [L38](/fr/lessons/L38/).
+
