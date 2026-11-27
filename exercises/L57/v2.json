@@ -1,0 +1,445 @@
+{
+  "lessonId": "L57",
+  "version": 2,
+  "exerciseCount": 6,
+  "exercises": [
+    {
+      "id": "L57-E01",
+      "lessonId": "L57",
+      "version": 2,
+      "objectiveId": "L57-O01",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec A=1, B=2, après 1 2 3, AB?=5 est en attente. Quel code absent peut encore être valide ?",
+        "en": "With A=1, B=2, after 1 2 3, AB?=5 is pending. Which missing code can still be valid?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "5 uniquement",
+            "en": "Only 5"
+          },
+          "feedback": {
+            "fr": "Seul le code exact de l’entrée en attente peut être reconstruit par la règle spéciale.",
+            "en": "Only the exact pending-entry code can be reconstructed using the special rule."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "6 uniquement",
+            "en": "Only 6"
+          },
+          "feedback": {
+            "fr": "Seul le code exact de l’entrée en attente peut être reconstruit par la règle spéciale.",
+            "en": "Only the exact pending-entry code can be reconstructed using the special rule."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Tout entier supérieur à 4",
+            "en": "Any integer greater than 4"
+          },
+          "feedback": {
+            "fr": "Seul le code exact de l’entrée en attente peut être reconstruit par la règle spéciale.",
+            "en": "Only the exact pending-entry code can be reconstructed using the special rule."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Seul le code exact de l’entrée en attente peut être reconstruit par la règle spéciale.",
+        "en": "Only the exact pending-entry code can be reconstructed using the special rule."
+      },
+      "prerequisites": ["L55", "L56", "L47"],
+      "misconceptions": ["lzw-57-objective-1"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; renewed mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L57-E02",
+      "lessonId": "L57",
+      "version": 2,
+      "objectiveId": "L57-O02",
+      "difficulty": "easy",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Le morceau précédent est AB et le code reçu désigne AB?. Comment le résoudre ?",
+        "en": "The previous chunk is AB and the received code refers to AB?. How is it resolved?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "AB + AB = ABAB",
+            "en": "AB + AB = ABAB"
+          },
+          "feedback": {
+            "fr": "Le nouveau morceau commence par AB ; sa première lettre est donc A, qui complète le point d’interrogation.",
+            "en": "The new chunk starts with AB, so its first letter is A, which completes the question mark."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "AB + A = ABA",
+            "en": "AB + A = ABA"
+          },
+          "feedback": {
+            "fr": "Le nouveau morceau commence par AB ; sa première lettre est donc A, qui complète le point d’interrogation.",
+            "en": "The new chunk starts with AB, so its first letter is A, which completes the question mark."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "AB + B = ABB",
+            "en": "AB + B = ABB"
+          },
+          "feedback": {
+            "fr": "Le nouveau morceau commence par AB ; sa première lettre est donc A, qui complète le point d’interrogation.",
+            "en": "The new chunk starts with AB, so its first letter is A, which completes the question mark."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "Le nouveau morceau commence par AB ; sa première lettre est donc A, qui complète le point d’interrogation.",
+        "en": "The new chunk starts with AB, so its first letter is A, which completes the question mark."
+      },
+      "prerequisites": ["L55", "L56", "L47"],
+      "misconceptions": ["lzw-57-objective-2"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; renewed mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L57-E03",
+      "lessonId": "L57",
+      "version": 2,
+      "objectiveId": "L57-O03",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec A=1, B=2, décoder 1 2 3 5.",
+        "en": "With A=1, B=2, decode 1 2 3 5."
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "ABABA",
+            "en": "ABABA"
+          },
+          "feedback": {
+            "fr": "Les morceaux sont A, B, AB et ABA. Au code 5, utiliser AB + première lettre de AB.",
+            "en": "The chunks are A, B, AB and ABA. At code 5, use AB + first letter of AB."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "ABABABB",
+            "en": "ABABABB"
+          },
+          "feedback": {
+            "fr": "Les morceaux sont A, B, AB et ABA. Au code 5, utiliser AB + première lettre de AB.",
+            "en": "The chunks are A, B, AB and ABA. At code 5, use AB + first letter of AB."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "ABABABA",
+            "en": "ABABABA"
+          },
+          "feedback": {
+            "fr": "Les morceaux sont A, B, AB et ABA. Au code 5, utiliser AB + première lettre de AB.",
+            "en": "The chunks are A, B, AB and ABA. At code 5, use AB + first letter of AB."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Les morceaux sont A, B, AB et ABA. Au code 5, utiliser AB + première lettre de AB.",
+        "en": "The chunks are A, B, AB and ABA. At code 5, use AB + first letter of AB."
+      },
+      "prerequisites": ["L55", "L56", "L47"],
+      "misconceptions": ["lzw-57-objective-3"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; renewed mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L57-E04",
+      "lessonId": "L57",
+      "version": 2,
+      "objectiveId": "L57-O04",
+      "difficulty": "medium",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Avec A=1, B=2, le premier code reçu est 3. Peut-on appliquer la règle spéciale ?",
+        "en": "With A=1, B=2, the first received code is 3. Can the special rule apply?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Non : aucun morceau précédent",
+            "en": "No: there is no previous chunk"
+          },
+          "feedback": {
+            "fr": "Le premier code doit appartenir au dictionnaire initial. Sans morceau précédent, aucune reconstruction spéciale n’est définie.",
+            "en": "The first code must belong to the initial dictionary. Without a previous chunk, special reconstruction is undefined."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Oui : 3 signifie toujours AB",
+            "en": "Yes: 3 always means AB"
+          },
+          "feedback": {
+            "fr": "Le premier code doit appartenir au dictionnaire initial. Sans morceau précédent, aucune reconstruction spéciale n’est définie.",
+            "en": "The first code must belong to the initial dictionary. Without a previous chunk, special reconstruction is undefined."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Oui : prendre la dernière lettre de l’alphabet",
+            "en": "Yes: take the last alphabet letter"
+          },
+          "feedback": {
+            "fr": "Le premier code doit appartenir au dictionnaire initial. Sans morceau précédent, aucune reconstruction spéciale n’est définie.",
+            "en": "The first code must belong to the initial dictionary. Without a previous chunk, special reconstruction is undefined."
+          }
+        }
+      ],
+      "answer": "a",
+      "explanation": {
+        "fr": "Le premier code doit appartenir au dictionnaire initial. Sans morceau précédent, aucune reconstruction spéciale n’est définie.",
+        "en": "The first code must belong to the initial dictionary. Without a previous chunk, special reconstruction is undefined."
+      },
+      "prerequisites": ["L55", "L56", "L47"],
+      "misconceptions": ["lzw-57-objective-4"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; renewed mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L57-E05",
+      "lessonId": "L57",
+      "version": 2,
+      "objectiveId": "L57-O05",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Quel contrôle vérifie simultanément texte et conventions initiales ?",
+        "en": "Which check verifies both text and initial conventions?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "Trier les codes avant de décoder",
+            "en": "Sort codes before decoding"
+          },
+          "feedback": {
+            "fr": "L’aller-retour doit préserver le texte et l’ordre des codes. Changer l’alphabet ou trier détruit ces informations.",
+            "en": "The round trip must preserve text and code order. Changing the alphabet or sorting destroys that information."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "Décoder puis réencoder avec le même dictionnaire initial",
+            "en": "Decode then re-encode using the same initial dictionary"
+          },
+          "feedback": {
+            "fr": "L’aller-retour doit préserver le texte et l’ordre des codes. Changer l’alphabet ou trier détruit ces informations.",
+            "en": "The round trip must preserve text and code order. Changing the alphabet or sorting destroys that information."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "Compter uniquement les codes",
+            "en": "Only count codes"
+          },
+          "feedback": {
+            "fr": "L’aller-retour doit préserver le texte et l’ordre des codes. Changer l’alphabet ou trier détruit ces informations.",
+            "en": "The round trip must preserve text and code order. Changing the alphabet or sorting destroys that information."
+          }
+        }
+      ],
+      "answer": "b",
+      "explanation": {
+        "fr": "L’aller-retour doit préserver le texte et l’ordre des codes. Changer l’alphabet ou trier détruit ces informations.",
+        "en": "The round trip must preserve text and code order. Changing the alphabet or sorting destroys that information."
+      },
+      "prerequisites": ["L55", "L56", "L47"],
+      "misconceptions": ["lzw-57-objective-5"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; renewed mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    },
+    {
+      "id": "L57-E06",
+      "lessonId": "L57",
+      "version": 2,
+      "objectiveId": "L57-O06",
+      "difficulty": "hard",
+      "type": "single-choice",
+      "prompt": {
+        "fr": "Un message de 12 lettres coûte 24 bits en code fixe. LZW émet 8 codes de 4 bits. Quel bilan avant les frais ?",
+        "en": "A 12-letter message costs 24 bits with a fixed code. LZW emits 8 codes of 4 bits. What is the result before overhead?"
+      },
+      "hint": {
+        "fr": "Reconstituez l’état avant la décision : dictionnaire, morceau précédent et prochain numéro.",
+        "en": "Reconstruct the state before deciding: dictionary, previous chunk and next index."
+      },
+      "options": [
+        {
+          "id": "a",
+          "label": {
+            "fr": "LZW coûte 8 bits",
+            "en": "LZW costs 8 bits"
+          },
+          "feedback": {
+            "fr": "Multiplier nombre de codes et largeur : 8 × 4 = 32 bits. Le nombre de codes seul ne mesure pas une taille binaire.",
+            "en": "Multiply code count by width: 8 × 4 = 32 bits. Code count alone does not measure binary size."
+          }
+        },
+        {
+          "id": "b",
+          "label": {
+            "fr": "LZW économise 16 bits",
+            "en": "LZW saves 16 bits"
+          },
+          "feedback": {
+            "fr": "Multiplier nombre de codes et largeur : 8 × 4 = 32 bits. Le nombre de codes seul ne mesure pas une taille binaire.",
+            "en": "Multiply code count by width: 8 × 4 = 32 bits. Code count alone does not measure binary size."
+          }
+        },
+        {
+          "id": "c",
+          "label": {
+            "fr": "LZW coûte 32 bits, soit 8 bits de plus",
+            "en": "LZW costs 32 bits, which is 8 bits more"
+          },
+          "feedback": {
+            "fr": "Multiplier nombre de codes et largeur : 8 × 4 = 32 bits. Le nombre de codes seul ne mesure pas une taille binaire.",
+            "en": "Multiply code count by width: 8 × 4 = 32 bits. Code count alone does not measure binary size."
+          }
+        }
+      ],
+      "answer": "c",
+      "explanation": {
+        "fr": "Multiplier nombre de codes et largeur : 8 × 4 = 32 bits. Le nombre de codes seul ne mesure pas une taille binaire.",
+        "en": "Multiply code count by width: 8 × 4 = 32 bits. Code count alone does not measure binary size."
+      },
+      "prerequisites": ["L55", "L56", "L47"],
+      "misconceptions": ["lzw-57-objective-6"],
+      "provenance": {
+        "origin": "original-project-work",
+        "coveragePages": [82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93],
+        "sourceTitle": "Mathématiques Générales — Théorie de l’information (coding.pdf, 93 pages)",
+        "referenceBasis": "Original assessment; renewed mathematical and bilingual author self-check documented in docs/content/C04_AUDIT_FOLLOWUP_REVIEW.md. Prior versions remain archived."
+      },
+      "grading": {
+        "kind": "exact-option-id",
+        "rejectUnknownFields": true
+      },
+      "evidence": {
+        "eligibleOnFirstIndependentResponse": true,
+        "hintsOrRevealedSolutionsEligible": false,
+        "retriesEligible": false
+      }
+    }
+  ]
+}

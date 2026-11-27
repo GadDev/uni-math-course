@@ -220,8 +220,13 @@ test('LZW reading and workshop lesson links remain accessible without JavaScript
       .getByRole('link', { name: '3. Cas particulier et bilan' })
       .click();
     await expect(page.locator('article')).toContainText('ABABABA');
-    await page.locator('article summary').click();
-    await expect(page.locator('article')).toContainText('15 codes');
+    await page
+      .locator('article summary')
+      .filter({ hasText: 'Solutions justifiées' })
+      .click();
+    await expect(
+      page.locator('article').getByText('15 codes', { exact: true }),
+    ).toBeVisible();
   } finally {
     await context.close();
   }
