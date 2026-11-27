@@ -54,12 +54,12 @@ export const normalExamples: NormalExample[] = [
     id: 'exam',
     name: { fr: 'Type examen : trois lignes', en: 'Exam style: three rows' },
     variables: ['A', 'B', 'C'],
-    outputs: '10110000',
-    simplified: and(not('A'), or('B', not('C'))),
-    wrong: or(not('A'), or('B', not('C'))),
+    outputs: '00001011',
+    simplified: and('A', or('B', not('C'))),
+    wrong: or('A', or('B', not('C'))),
     reason: {
-      fr: 'Factoriser ¬x, puis utiliser le tiers exclu et la distributivité.',
-      en: 'Factor out ¬x, then use excluded middle and distributivity.',
+      fr: 'Factoriser x, puis utiliser le tiers exclu et la distributivité.',
+      en: 'Factor out x, then use excluded middle and distributivity.',
     },
   },
   {
@@ -118,6 +118,18 @@ export function orNot(formula: Formula): Formula {
   if (formula.op === 'and') return not(or(not(left), not(right)));
   if (formula.op === 'or') return or(left, right);
   throw new Error('Expected a DNF expression');
+}
+
+/** No constants or other connectives in the restricted formula. */
+export function usesOnlyOrNot(formula: Formula): boolean {
+  if (typeof formula === 'string') return true;
+  if (typeof formula === 'boolean') return false;
+  if (formula.op === 'not') return usesOnlyOrNot(formula.term);
+  return (
+    formula.op === 'or' &&
+    usesOnlyOrNot(formula.left) &&
+    usesOnlyOrNot(formula.right)
+  );
 }
 
 export function normalText(formula: Formula) {

@@ -13,6 +13,7 @@ import {
   minterm,
   normalExamples,
   orNot,
+  usesOnlyOrNot,
 } from '../../src/lib/normal-form.ts';
 
 test('L08 constructs every three-variable truth table using OR and NOT', () => {
@@ -27,6 +28,7 @@ test('L08 constructs every three-variable truth table using OR and NOT', () => {
       assert.equal(actual, outputs);
     }
     assert.doesNotMatch(formulaText(restricted), /[∧⇒⇔⊤]/);
+    assert.equal(usesOnlyOrNot(restricted), true);
   }
   for (let i = 0; i < 8; i++) {
     const term = minterm(variables, i);
@@ -54,4 +56,13 @@ test('L08 guided choices preserve the output and reject distractors', () => {
       assert.notEqual(firstMismatch(example, formula), -1, example.id);
     }
   }
+});
+
+test('L08 restricted grammar rejects equivalent formulas with AND', () => {
+  for (const example of normalExamples) {
+    assert.equal(usesOnlyOrNot(orNot(example.simplified)), true);
+  }
+  assert.equal(usesOnlyOrNot(normalExamples[0]!.simplified), false);
+  assert.equal(usesOnlyOrNot(true), false);
+  assert.equal(usesOnlyOrNot(false), false);
 });

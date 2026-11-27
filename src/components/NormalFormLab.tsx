@@ -10,6 +10,7 @@ import {
   orNot,
   rowBits,
   trueRows,
+  usesOnlyOrNot,
 } from '../lib/normal-form';
 import '../styles/normal-form-lab.css';
 
@@ -35,7 +36,13 @@ export default function NormalFormLab({ locale }: { locale: Locale }) {
       ? joinChoices(example)
       : stage === 3
         ? [example.simplified, example.wrong]
-        : [orNot(example.simplified), orNot(example.wrong)];
+        : [
+            orNot(example.simplified),
+            orNot(example.wrong),
+            ...(!usesOnlyOrNot(example.simplified) ? [example.simplified] : []),
+          ];
+  const optionOrder = choices.map((_, i) => i);
+  if ((stage + index) % 2 === 0) optionOrder.reverse();
   const labels = fr
     ? ['Lignes vraies', 'Mintermes', 'FND', 'Simplifier', 'OU et NON']
     : ['True rows', 'Minterms', 'DNF', 'Simplify', 'OR and NOT'];
@@ -97,7 +104,17 @@ export default function NormalFormLab({ locale }: { locale: Locale }) {
           (fr ? 'Contre-exemple : ' : 'Counterexample: ') +
             rowBits(mismatch, count) +
             ' ; f = ' +
-            example.outputs[mismatch],
+            example.outputs[mismatch] +
+            (fr ? ' ; formule = ' : ' ; formula = ') +
+            (example.outputs[mismatch] === '1' ? '0' : '1'),
+        );
+        return;
+      }
+      if (stage === 4 && !usesOnlyOrNot(formula)) {
+        setFeedback(
+          fr
+            ? 'Formule équivalente, mais ET est encore présent. Utilisez de Morgan.'
+            : 'Equivalent formula, but AND remains. Use De Morgan.',
         );
         return;
       }
@@ -106,9 +123,13 @@ export default function NormalFormLab({ locale }: { locale: Locale }) {
       setFeedback(
         stage === 3
           ? example.reason[locale]
-          : fr
-            ? 'Formule équivalente sur toute la table.'
-            : 'Equivalent formula across the whole table.',
+          : stage === 4
+            ? fr
+              ? 'De Morgan : nier le OU des négations. Toute la table concorde.'
+              : 'De Morgan: negate the OR of the negations. Every row agrees.'
+            : fr
+              ? 'Formule équivalente sur toute la table.'
+              : 'Equivalent formula across the whole table.',
       );
     }
   }
@@ -236,7 +257,7 @@ export default function NormalFormLab({ locale }: { locale: Locale }) {
         {stage >= 2 && stage <= 4 && (
           <div>
             <p>{fr ? 'Choisir la formule' : 'Choose the formula'}</p>
-            {[1, 0].map((i) => (
+            {optionOrder.map((i) => (
               <label className="normal-choice" key={i}>
                 <input
                   type="radio"
@@ -248,7 +269,9 @@ export default function NormalFormLab({ locale }: { locale: Locale }) {
                     setFeedback('');
                   }}
                 />
-                <span className="normal-formula">{normalText(choices[i]!)}</span>
+                <span className="normal-formula">
+                  {normalText(choices[i]!)}
+                </span>
               </label>
             ))}
           </div>

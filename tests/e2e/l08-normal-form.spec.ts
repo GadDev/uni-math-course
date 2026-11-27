@@ -32,6 +32,14 @@ for (const locale of ['fr', 'en'] as const) {
       await expect(feedback).toContainText(
         locale === 'fr' ? 'Contre-exemple' : 'Counterexample',
       );
+      if (stage === 4) {
+        await lab.locator('[data-normal-choice="2"]').check();
+        await check.click();
+        await expect(feedback).toContainText(
+          locale === 'fr' ? 'ET est encore présent' : 'AND remains',
+        );
+        await expect(lab.locator('[data-normal-stage="4"]')).toBeVisible();
+      }
       await lab.locator('[data-normal-choice="0"]').check();
       await check.focus();
       await page.keyboard.press('Enter');
@@ -41,6 +49,40 @@ for (const locale of ['fr', 'en'] as const) {
     await lab.locator('[data-normal-example]').selectOption('2');
     await check.click();
     await expect(lab.locator('[data-normal-stage="2"]')).toBeVisible();
+    for (const stage of [2, 3, 4]) {
+      await expect(lab.locator(`[data-normal-stage="${stage}"]`)).toBeVisible();
+      await lab.locator('[data-normal-choice="0"]').check();
+      await check.click();
+    }
+    await expect(lab.locator('[data-normal-result]')).toBeVisible();
+    await lab.locator('[data-normal-example]').selectOption('3');
+    for (const row of [0, 1, 2, 3]) {
+      await lab.locator(`[data-normal-row="${row}"]`).check();
+    }
+    await check.click();
+    for (const bits of ['00', '01', '10', '11']) {
+      for (const [i, bit] of [...bits].entries()) {
+        await lab.locator(`[data-normal-sign="${i}"]`).selectOption(bit);
+      }
+      await check.click();
+    }
+    for (const stage of [2, 3, 4]) {
+      await expect(lab.locator(`[data-normal-stage="${stage}"]`)).toBeVisible();
+      await lab.locator('[data-normal-choice="0"]').check();
+      await check.click();
+    }
+    await expect(lab.locator('[data-normal-result]')).toContainText('x ∨ ¬x');
+    await lab.locator('[data-normal-example]').selectOption('1');
+    for (const row of [4, 6, 7]) {
+      await lab.locator(`[data-normal-row="${row}"]`).check();
+    }
+    await check.click();
+    for (const bits of ['100', '110', '111']) {
+      for (const [i, bit] of [...bits].entries()) {
+        await lab.locator(`[data-normal-sign="${i}"]`).selectOption(bit);
+      }
+      await check.click();
+    }
     for (const stage of [2, 3, 4]) {
       await expect(lab.locator(`[data-normal-stage="${stage}"]`)).toBeVisible();
       await lab.locator('[data-normal-choice="0"]').check();
