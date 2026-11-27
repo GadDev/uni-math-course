@@ -1,7 +1,7 @@
 ---
 lessonId: L22
 locale: fr
-version: 5
+version: 6
 status: extended
 title: "Développer et factoriser"
 summary: "Changer la forme d’une expression sans changer sa valeur."
@@ -34,33 +34,66 @@ Prérequis : L21. Les domaines et restrictions précisés ci-dessous font partie
 
 <span id="pdf-7" class="source-topic-marker"></span>
 
-## Développer et factoriser : les exemples du PDF
+## 1. Comprendre — Deux écritures, une même valeur
 
-Un **terme** est un morceau séparé par une addition ou une soustraction au niveau principal de l’expression. Un **facteur** est un morceau multiplié par un autre. Dans $3x+6$, les termes sont $3x$ et $6$ ; dans $3(x+2)$, les facteurs sont $3$ et $x+2$. Développer fait apparaître les termes ; factoriser fait apparaître les facteurs.
+Trois sachets contiennent chacun x objets et deux objets supplémentaires. On peut compter par sachet, $3(x+2)$, ou par type d'objet, $3x+6$. Le nombre total ne change pas. Développer transforme un produit en somme ; factoriser rassemble une somme en produit.
 
-**PDF, pages 7–12 — calculs repris et expliqués.**
+Un terme est un morceau séparé par addition ou soustraction au niveau principal ; un facteur est un morceau multiplié par un autre. Dans $3x+6$, les termes sont $3x$ et $6$ ; dans $3(x+2)$, les facteurs sont $3$ et $x+2$.
 
-- Développer : $3(x-2)-2(x+1)=3x-6-2x-2=x-8$. Le facteur $-2$ multiplie $x$ **et** $1$.
-- Factoriser : $6x^2-9x=3x(2x-3)$. Chaque terme contient le facteur $3x$ ; redévelopper permet de contrôler.
-- Retirer un groupe : $5-(2x-3)=5-2x+3=8-2x$.
+## 2. Visualiser — Distribuer puis regrouper
 
-La double distributivité est $(a+b)(c+d)=ac+ad+bc+bd$. Chaque terme du premier groupe rencontre chaque terme du second. **Exemple supplémentaire :** $(x+2)(x+3)=x^2+3x+2x+6=x^2+5x+6$. Le coefficient $5$ vient de $3+2$.
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l22-distribution.svg" alt="Trois rangées de x et deux unités ; les trois x et les six unités sont ensuite regroupés." width="600" height="250" loading="lazy" />
+<figcaption>Chaque sachet contribue un x et deux unités. Le regroupement ne change pas le total.</figcaption>
+</figure>
 
-Pour suivre strictement le PDF, lire ensuite les [fractions, puissances et racines](../L23/#pdf-13), puis revenir aux [identités remarquables](#pdf-15).
+Le dessin représente des quantités positives. La distributivité est vraie pour tous les réels, y compris les nombres négatifs :
 
-## Une valeur, plusieurs formes
+$$a(b+c)=ab+ac.$$
 
-Pour $a,b,c\in\mathbb{R}$, $a(b+c)=ab+ac$. Développer lit cette égalité vers la droite ; factoriser la lit vers la gauche. Le facteur multiplie chaque terme avec son signe. Une identité vaut pour toutes les valeurs annoncées, pas seulement pour un exemple favorable. Gardez cette distinction lorsque vous utilisez une calculatrice pour contrôler un résultat.
+De gauche à droite : développer. De droite à gauche : factoriser. Le facteur doit multiplier chaque terme avec son signe. Pour deux parenthèses, chaque terme du premier groupe rencontre chaque terme du second.
 
-## Exemple guidé : développer et réduire
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l22-double-distribution.svg" alt="Tableau de quatre produits : x fois x, x fois 3, 2 fois x, 2 fois 3." width="480" height="250" loading="lazy" />
+<figcaption>Quatre produits avant de réduire : aucun terme ne doit être oublié.</figcaption>
+</figure>
 
-Pour $x\in\mathbb{R}$, $5(x-2)-3(x+4)=5x-10-3x-12=2x-22$. Réunissez les termes de même nature. À $x=2$, les deux expressions donnent $-18$ : c’est un contrôle local. La justification générale reste la distributivité, qui fonctionne pour tout réel. Un signe moins devant un groupe modifie tous ses termes, pas seulement le premier.
+## 3. Calculer — Reconnaître, transformer, vérifier
+
+### A. Développer et réduire (PDF, pages 7–12)
+
+Exemple du professeur :
+
+$$3(x-2)-2(x+1)$$
+
+| Geste | Expression |
+| --- | --- |
+| Distribuer 3 aux deux termes | $3x-6-2(x+1)$ |
+| Distribuer −2 aux deux termes | $3x-6-2x-2$ |
+| Rassembler les termes en x et les constantes | $(3-2)x+(-6-2)$ |
+| Réduire | $x-8$ |
+
+Le signe du facteur −2 appartient aux deux produits. Dans l'autre exemple du PDF, $5-(2x-3)=5-2x+3=8-2x$. Le moins devant la parenthèse correspond à une multiplication par −1.
+
+Pour deux groupes, la formule générale est $(a+b)(c+d)=ac+ad+bc+bd$. Dans notre exemple supplémentaire, $(x+2)(x+3)=x^2+3x+2x+6=x^2+5x+6$. Les termes semblables ont la même partie littérale : on peut ajouter leurs coefficients, mais on ne mélange pas x et x au carré.
+
+Autre contrôle : $5(x-2)-3(x+4)=5x-10-3x-12=2x-22$. Pour x = 2, les deux formes valent −18 ; ce contrôle local ne constitue pas une preuve universelle.
+
+### B. Factoriser : trouver ce qui se répète (PDF, pages 9–10)
+
+Dans l'exemple du professeur, $6x^2-9x$, écrire chaque terme sous forme de produit :
+
+$$6x^2=(3x)(2x),\qquad -9x=(3x)(-3).$$
+
+$$6x^2-9x=3x(2x-3).$$
+
+On a extrait un facteur, pas divisé par x. L'identité reste valable à x = 0. Pour vérifier, redévelopper : $3x(2x-3)=6x^2-9x$.
 
 <p class="source-next"><a href="/fr/lessons/L23/#pdf-13">Suite du PDF : Fractions →</a></p>
 
 <span id="pdf-15" class="source-topic-marker"></span>
 
-## Identités remarquables : comprendre les trois formules
+### Identités remarquables : comprendre les trois formules
 
 Une **identité** est une égalité vraie pour toutes les valeurs de son domaine. Pour tous réels $a,b$ :
 
@@ -83,40 +116,39 @@ Déroulons la première : $(a+b)^2=(a+b)(a+b)=a^2+ab+ba+b^2$. Comme $ab=ba$, les
 <figcaption>Les quatre aires s’additionnent : a², ab, ab et b².</figcaption>
 </figure>
 
+### Reconnaître la bonne identité : trois indices
+
+Pour factoriser un trinôme carré parfait, ne vous contentez pas des premier et dernier carrés : vérifiez le terme du milieu.
+
+| Expression | Indices | Facteurs |
+| --- | --- | --- |
+| $x^2+6x+9$ | $a=x,\ b=3,\ 2ab=6x$ | $(x+3)^2$ |
+| $x^2-6x+9$ | $a=x,\ b=3,\ -2ab=-6x$ | $(x-3)^2$ |
+| $x^2-9$ | $a=x,\ b=3$ | $(x-3)(x+3)$ |
+| $x^2+4$ | Pas de terme croisé ; somme de carrés. | Aucune des trois identités sous cette forme. |
+
+### D. Choisir une méthode de factorisation
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l22-factor-guide.svg" alt="Chercher un facteur commun, le sortir si présent ; chercher une différence de carrés ou un carré parfait, répéter si possible et redévelopper pour vérifier." width="600" height="340" loading="lazy" />
+<figcaption>Si aucun motif ne convient, ces méthodes ne suffisent pas : ne pas inventer une factorisation.</figcaption>
+</figure>
+
+Exemple en deux temps : $3x^3-12x=3x(x^2-4)=3x(x-2)(x+2)$. Étape 1 : facteur commun 3x ; étape 2 : différence de carrés ; étape 3 : vérifier en redéveloppant. La forme factorisée révèle les zéros sans diviser par x.
+
+Une forme développée facilite la réduction, une forme factorisée révèle les zéros, une forme carrée révèle un signe : $x^2+10x+25=(x+5)^2\ge0$. Un seul contre-exemple suffit à réfuter une identité : à a = 2 et b = 3, $(a+b)^2=25$ mais $a^2+b^2=13$.
+
+## 4. Expérimenter — Prédire avant de calculer
+
+Dans l'atelier d'aire, prenez a = 2 et b = 3. Avant de regarder le résultat, calculez les quatre aires, puis comparez leur somme avec le carré du côté total. Modifiez a et b. Le dessin utilise des longueurs positives, tandis que la preuve algébrique est générale.
+
 <AlgebraExplorer kind="area" locale="fr" client:visible />
 
-## Reconstruire les identités
-
-Avant de choisir une identité du tableau, écrivez le carré comme un produit. Cela permet de retrouver les deux termes croisés au lieu de mémoriser une formule isolée.
-
-## Exemple guidé : factoriser en deux temps
-
-Pour $x\in\mathbb{R}$, $3x^3-12x=3x(x^2-4)=3x(x-2)(x+2)$. Extrayez d’abord le facteur commun, puis reconnaissez la différence de carrés. Redévelopper vérifie le résultat. La forme factorisée rend les zéros visibles sans diviser par un facteur qui pourrait justement être nul.
-
-## Comment repérer une factorisation ?
-
-Commencez par chercher ce qui se répète **dans chaque terme**. Dans $6x^2-9x$, on reconnaît $6x^2=(3x)(2x)$ et $9x=(3x)3$. La distributivité, lue à l’envers, donne donc $6x^2-9x=3x(2x-3)$. On n’a pas divisé par $x$ : l’identité reste vraie à $x=0$.
-
-Sans facteur commun utile, cherchez une structure : deux carrés séparés par un moins, ou deux carrés accompagnés de deux fois leur produit. **Vérifier signifie ensuite redévelopper**, pas seulement essayer un nombre. L’atelier distingue cette preuve algébrique de la vérification numérique à une valeur choisie.
+Dans l'atelier de factorisation, choisissez une expression et identifiez d'abord la méthode. Vérifiez votre choix, puis parcourez les étapes. À x = 0, les formes de l'exemple avec facteur commun restent égales : aucun quotient par x n'a été introduit.
 
 <AlgebraMethodLab kind="factor" locale="fr" client:visible />
 
-## Choisir une forme pour une question
-
-Une forme développée facilite l’addition. Une forme factorisée facilite l’étude des zéros. Une forme carrée peut révéler un signe : $x^2+10x+25=(x+5)^2\ge0$. Pour réfuter $(a+b)^2=a^2+b^2$, choisissez par exemple $a=2$ et $b=3$ ; le terme croisé manquant explique l’écart. Un seul contre-exemple réfute une identité universelle.
-
-<p class="source-next"><a href="/fr/lessons/L24/#pdf-19">Suite du PDF : Résoudre une équation →</a></p>
-
-## Comment faire ? Une méthode réutilisable
-
-1. Demandez-vous ce que vous cherchez : additionner, calculer rapidement, trouver des zéros ou étudier un signe ?
-2. Pour développer, distribuez chaque facteur avec son signe, puis regroupez seulement les termes semblables.
-3. Pour factoriser, cherchez d’abord un facteur commun, puis une identité remarquable. N’introduisez pas de division par une expression qui pourrait être nulle.
-4. Redéveloppez pour vérifier une factorisation. Un test numérique détecte certaines erreurs, mais ne prouve pas une identité.
-
-**Erreur fréquente.** $x^2+4$ n’est pas $(x+2)^2$ : à $x=1$, les valeurs sont $5$ et $9$.
-
-## S’entraîner pas à pas
+## 5. Pratiquer — Reconnaître sans indice
 
 <div className="algebra-exercise">
 
@@ -186,24 +218,29 @@ $x^2-6x+9=(x-3)^2\ge0$. Un carré est non négatif. Il vaut zéro exactement pou
 
 </div>
 
-## Pratique et bilan
+### Pratique et bilan
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
 
+## 6. Retenir — Fiche de révision à imprimer
+
 <div className="algebra-revision">
 
-## À retenir et auto-évaluation
+- $a(b+c)=ab+ac$ ; $(a+b)(c+d)=ac+ad+bc+bd$.
+- $(a+b)^2=a^2+2ab+b^2$.
+- $(a-b)^2=a^2-2ab+b^2$.
+- $(a+b)(a-b)=a^2-b^2$.
+- Factoriser : facteur commun, puis identité ; recommencer si possible ; redévelopper pour vérifier.
+- Respecter les signes et ne réduire que les termes semblables. Un exemple numérique ne prouve pas une identité ; un contre-exemple suffit à la réfuter.
 
-- Développer transforme un produit en somme ; factoriser fait le chemin inverse.
-- Dans le carré d’une somme, les deux produits croisés restent présents.
-- La forme utile dépend de la question ; la distributivité justifie l’égalité pour tout le domaine.
+**Auto-évaluation.** Expliquer les quatre aires du carré, factoriser le deuxième exercice sans indice, puis donner un contre-exemple à une fausse identité.
 
-**Auto-évaluation.** Expliquer les quatre aires du dessin ; factoriser le deuxième exercice sans regarder ; réfuter une fausse identité avec un contre-exemple. Si nécessaire, reprendre « Reconstruire les identités ». Prochaine étape : [L23](../L23/) applique les facteurs aux fractions et aux restrictions.
-
-**Pour imprimer :** utilisez la commande Imprimer du navigateur. Les activités montrent un exemple fixe et les indices et solutions sont développés sur papier.
+**Pour imprimer:** utilisez la commande Imprimer du navigateur. Les activités montrent un exemple fixe ; indices et solutions sont développés sur papier.
 
 </div>
+
+<p class="source-next"><a href="/fr/lessons/L24/#pdf-19">Suite du PDF : Résoudre une équation →</a></p>
 
 </div>

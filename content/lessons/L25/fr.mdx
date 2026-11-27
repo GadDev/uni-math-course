@@ -1,7 +1,7 @@
 ---
 lessonId: L25
 locale: fr
-version: 4
+version: 5
 status: extended
 title: "Systèmes de deux équations"
 summary: "Substitution, élimination et interprétation du nombre de solutions."
@@ -34,63 +34,98 @@ Prérequis : L24. Les domaines et restrictions précisés ci-dessous font partie
 
 <span id="pdf-23" class="source-topic-marker"></span>
 
-## Systèmes : du café aux deux équations
+## 1. Comprendre — Deux informations à satisfaire ensemble
 
-**Exemple du PDF, pages 23–24.** Notons $c$ le prix d’un café et $k$ celui d’un croissant, en euros. Les achats imposent simultanément $c+k=4{,}5$ et $2c+k=7$.
+Le professeur pose ce problème aux pages 23–24 du PDF : un café et un croissant coûtent 4,50 euros ; deux cafés et un croissant coûtent 7 euros. Quel est le prix du café ?
 
-| Achat | Équation |
+Notons c le prix du café et k celui du croissant, en euros. Les prix sont non négatifs. Traduire les achats :
+
+$$\begin{cases}c+k=4{,}5 &(L_1)\\2c+k=7 &(L_2)\end{cases}$$
+
+Une seule équation ne suffit pas : un café à 1,50 euro et un croissant à 3 euros, ou un café à 2,50 euros et un croissant à 2 euros satisfont le premier achat. Il faut tester aussi le deuxième. Les accolades signifient « ET » ; un couple solution satisfait les deux lignes dans le même ordre.
+
+## 2. Visualiser — Faire disparaître une inconnue
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l25-purchases.svg" alt="Premier achat : café et croissant, 4,50 euros. Second achat : deux cafés et croissant, 7 euros. Leur différence est un café, 2,50 euros." width="600" height="260" loading="lazy" />
+<figcaption>Soustraire le premier achat au second retire un café et un croissant des deux côtés de la comparaison.</figcaption>
+</figure>
+
+Éliminer signifie combiner des équations pour supprimer une inconnue. Substituer signifie remplacer une inconnue par une expression égale. Dans les deux cas, garder assez d'information pour retrouver la seconde inconnue.
+
+Une représentation graphique est un aperçu facultatif : un point représente un couple de nombres, x horizontal et y vertical. Chaque droite représente tous les couples vérifiant une équation. Une solution appartient aux deux droites. Le PDF indique trois nombres possibles de solutions ; le dessin ci-dessous est un complément du projet pour les systèmes de deux vraies droites.
+
+<figure class="teaching-figure">
+<img src="/diagrams/droites/fr/l25-three-outcomes.svg" alt="Trois graphiques : droites sécantes avec un point commun, droites parallèles distinctes, droites confondues." width="600" height="240" loading="lazy" />
+<figcaption>Un point commun, aucun point commun, ou toute une droite de points communs. Les repères et les droites seront étudiés en L27–L28.</figcaption>
+</figure>
+
+## 3. Calculer — Deux méthodes, le même problème
+
+**A — Élimination et substitution côte à côte.**
+
+| Élimination | Substitution |
 | --- | --- |
-| Un café, un croissant | $c+k=4{,}5$ |
-| Deux cafés, un croissant | $2c+k=7$ |
+| Garder la première ligne ; soustraire la première à la seconde. | Isoler k dans la première ligne. |
+| $(2c+k)-(c+k)=7-4{,}5$ | $k=4{,}5-c$ |
+| $2c+k-c-k=2{,}5$ | $2c+(4{,}5-c)=7$ |
+| $c=2{,}5$ | $c=7-4{,}5=2{,}5$ |
+| $k=4{,}5-2{,}5=2$ | $k=4{,}5-2{,}5=2$ |
 
-Soustraire la première ligne de la seconde enlève exactement le même croissant : $(2c+k)-(c+k)=7-4{,}5$, donc $c=2{,}5$. Revenir à la première ligne donne $k=4{,}5-2{,}5=2$. Vérifier les achats : $2{,}5+2=4{,}5$ et $2\cdot2{,}5+2=7$.
+En élimination, les termes en k s'annulent ; en substitution, toute l'expression entre parenthèses remplace k. Les opérations restent réversibles si l'on conserve la première condition. Les deux méthodes donnent :
 
-Le couple solution est $(c,k)=(2{,}5;2)$, dans cet ordre. Une **substitution** remplace une inconnue par une expression égale ; une **élimination** combine les lignes pour faire disparaître une inconnue. Les exemples suivants montrent les deux méthodes avec d’autres nombres.
+$$S=\{(2{,}5;2)\}.$$
 
-## Deux conditions simultanées
+Le café coûte 2,50 euros et le croissant 2 euros. Vérifier les deux achats et le contexte : $2{,}5+2=4{,}5$ et $2\cdot2{,}5+2=7$. Inverser le couple change le sens des prix.
 
-On cherche des couples $(x,y)\in\mathbb{R}^2$ satisfaisant deux équations à la fois. Vérifier une seule ligne ne suffit pas. L’ordre du couple compte : la première coordonnée remplace $x$. Une solution peut être négative ; seules les contraintes du contexte, par exemple des prix non négatifs, permettent de l’écarter.
+**B — Choisir une méthode et aligner les coefficients.**
 
-## Exemple guidé : substitution
+Si une inconnue est isolée ou facile à isoler, essayer la substitution. Si deux coefficients sont identiques ou opposés, soustraire ou additionner. Sinon, multiplier une ligne entière par un nombre non nul pour aligner les coefficients. Ne multiplier aucun terme isolément.
+
+Exemple supplémentaire :
+
+$$\begin{cases}2x+3y=13\\3x+2y=12\end{cases}$$
+
+Multiplier la première ligne par 2 et la seconde par 3 : $4x+6y=26$, $9x+6y=36$. Soustraire la première nouvelle ligne de la seconde : $5x=10$, $x=2$. Revenir à l'une des équations initiales : $4+3y=13$, $y=3$. Contrôler : $2\cdot2+3\cdot3=13$, $3\cdot2+2\cdot3=12$.
+
+**Exemple guidé : substitution**
 
 Pour $x+y=9$ et $2x-y=3$, la première ligne donne $y=9-x$. Substituer dans la seconde donne $2x-(9-x)=3$, donc $3x=12$. On obtient $x=4$, puis $y=5$. Le couple $(4,5)$ vérifie les deux lignes. Les étapes sont réversibles, donc il s’agit de l’unique solution.
 
-## Exemple guidé : élimination et unités
+**Exemple guidé : élimination et unités**
 
 Deux billets adultes et un billet enfant coûtent $19$ euros ; un adulte et un enfant coûtent $12$ euros. Avec $a$ et $e$ les prix en euros, les équations sont $2a+e=19$ et $a+e=12$. Soustraire la seconde de la première donne $a=7$, puis $e=5$. Reconstituer les deux achats vérifie la modélisation autant que le calcul.
 
-## Choisir et suivre une méthode
+**C — Interpréter le résultat de l'élimination.**
 
-**Substitution :** choisissez-la lorsqu’une inconnue est déjà isolée, ou facile à isoler. **Élimination :** cherchez deux coefficients opposés pour additionner, ou identiques pour soustraire. Le choix de méthode change le chemin, pas l’ensemble des solutions.
+| Système | Après élimination | Ensemble des solutions |
+| --- | --- | --- |
+| $x+y=3$, $x-y=1$ | $2y=2$ | $S=\{(2;1)\}$ |
+| $x+y=2$, $2x+2y=5$ | $0=1$ | $S=\varnothing$ |
+| $x+y=6$, $2x+2y=12$ | $0=0$ | $S=\{(t;6-t):t\in\mathbb R\}$ |
 
-L’atelier utilise $x+y=s$ et $x-y=d$, où $s$ et $d$ sont deux nombres fixés pendant la résolution. En additionnant les lignes, les termes $+y$ et $-y$ s’annulent. Par substitution, la première ligne donne $y=s-x$ ; dans la seconde, **tout** ce groupe remplace $y$. Les inconnues sont ici des réels sans contrainte de prix : un résultat négatif ou fractionnaire est permis.
+Dans le premier cas, conserver une équation pour obtenir x. Dans le dernier, une équation subsiste : choisir librement t puis calculer y. Si les deux équations se réduisent à des identités sans inconnue, tous les couples réels conviennent ; une contradiction exclut toujours tous les couples. Les trois dessins supposent que chaque équation définit une droite.
+
+**D — Paramètres et contraintes.**
+
+Dans $x+y=5$ et $x+ay=5$, soustraire les lignes donne $(a-1)y=0$. Traiter le coefficient avant toute division :
+
+- $a\ne1$ : $y=0$, $x=5$, $S=\{(5;0)\}$.
+- $a=1$ : $S=\{(t;5-t):t\in\mathbb R\}$.
+
+Une division par a−1 sans condition ferait perdre toute une famille de solutions. Après le calcul, vérifier les restrictions du contexte, notamment les unités et le signe des prix.
+
+## 4. Expérimenter — Comparer les méthodes et les résultats
+
+L'atelier utilise $x+y=s$ et $x-y=d$. Gardez s = 7 et d = 1. Prévoyez le couple, puis parcourez les étapes par élimination. Changez de méthode sans changer s ni d : comparez les calculs. Le nouveau tableau présente les deux chemins pour les mêmes entrées. Essayez s = 2 et d = 5 : des valeurs négatives ou fractionnaires sont permises sur les réels.
 
 <AlgebraMethodLab kind="elimination" locale="fr" client:visible />
 
-## Trois issues possibles
-
-Une élimination peut donner une valeur précise, une contradiction comme $0=2$, ou une identité comme $0=0$. La contradiction signifie qu’aucun couple ne convient. L’identité peut signaler deux versions d’une même condition : il reste alors une inconnue libre. Par exemple $x+y=6$ et $2x+2y=12$ décrivent les mêmes couples. Ne choisissez pas arbitrairement un couple comme s’il était unique.
-
-**Lire le graphique (facultatif).** Un point a deux coordonnées : x horizontalement, y verticalement. Chaque droite rassemble les couples qui vérifient une équation. Un point commun vérifie les deux ; le calcul sous le dessin suffit aussi sans lecture graphique. Les droites seront étudiées en détail en [L28](../L28/).
+Dans le second atelier, une droite est fixe : $y=x+1$. L'autre est $y=mx+b$. Testez m = −1, b = 3 ; puis m = 1, b = 3 ; enfin m = 1, b = 1. Avant de regarder le résultat, prévoyez le nombre de points communs. L'explication algébrique indique une valeur unique, une contradiction ou une identité.
 
 <AlgebraExplorer kind="system" locale="fr" client:visible />
 
-## Paramètres et contraintes
-
-Dans $x+y=5$ et $x+ay=5$, soustraire donne $(a-1)y=0$. Si $a\ne1$, on trouve $y=0$ puis $x=5$. Si $a=1$, les deux lignes sont identiques et il existe une infinité de couples. Une division prématurée par $a-1$ aurait supprimé ce cas. Après le calcul algébrique, revenez toujours aux contraintes du problème initial.
-
-<p class="source-next"><a href="/fr/lessons/L26/#pdf-25">Suite du PDF : La notation sigma (Σ) →</a></p>
-
-## Comment faire ? Une méthode réutilisable
-
-1. Définissez les inconnues, leurs unités et les contraintes du contexte.
-2. Si une inconnue est déjà isolée, substituez son expression dans l’autre équation. Sinon, cherchez des coefficients qui s’annulent en additionnant ou soustrayant les lignes.
-3. Conservez une équation initiale pour retrouver la seconde inconnue. Ne remplacez pas les deux conditions par leur seule différence.
-4. Avant de diviser par un paramètre, traitez son cas nul. Vérifiez le couple dans les deux équations et dans le contexte.
-
-**Erreur fréquente.** De $x+y=3$ et $x-y=1$, la différence donne $2y=2$. Cette seule équation permet n’importe quel $x$ ; il faut conserver la première pour obtenir $x=2$.
-
-## S’entraîner pas à pas
+## 5. Pratiquer — Résoudre, compter, justifier
 
 <div className="algebra-exercise">
 
@@ -160,24 +195,28 @@ La différence donne $(a-1)y=0$. Si $a\ne1$, alors $y=0$ et $x=2$. Si $a=1$, tou
 
 </div>
 
-## Pratique et bilan
+**Pratique et bilan**
 
 La banque contient 15 questions originales : 5 faciles, 5 moyennes et 5 difficiles. Commencez sans indice ; après la correction, expliquez pourquoi chaque autre proposition échoue. Les questions difficiles demandent un transfert ou une analyse, pas seulement un calcul plus long. Un indice ou un nouvel essai reste utile pour apprendre, mais ne constitue pas une nouvelle preuve indépendante de maîtrise. Les tentatives sont conservées dans votre progression après connexion.
 
 Texte, exemples et solutions originaux du projet ; concepts suivis dans le cours Droites de Bruno Teheux. Les pages de source sont des pages PDF, titre compté comme page 1.
 
+## 6. Retenir — Fiche de révision à imprimer
+
 <div className="algebra-revision">
 
-## À retenir et auto-évaluation
+- Définir les deux inconnues, unités et domaine. Traduire les deux conditions simultanées.
+- Substitution : isoler, remplacer tout le groupe, résoudre, retrouver la deuxième inconnue.
+- Élimination : aligner les coefficients en multipliant des lignes entières par des constantes non nulles ; additionner ou soustraire, conserver une équation.
+- Contradiction : ensemble vide. Identité : examiner la condition restante et décrire la famille. Traiter les coefficients nuls avant de diviser.
+- Vérifier les deux équations initiales et les contraintes ; respecter l'ordre du couple.
 
-- Un couple solution vérifie simultanément toutes les équations.
-- Substitution et élimination réduisent le nombre d’inconnues sans oublier une condition.
-- Une contradiction exclut toute solution ; deux conditions identiques laissent une famille de couples.
+**Auto-évaluation.** Résoudre le premier exercice par les deux méthodes, expliquer les trois issues, puis traiter le paramètre du troisième sans division prématurée.
 
-**Auto-évaluation.** Expliquer pourquoi une seule vérification ne suffit pas ; résoudre le premier exercice par l’autre méthode ; décrire les deux cas du troisième. Reprendre « Trois issues possibles » si nécessaire. Le graphique anticipe [les coordonnées en L27](../L27/) et [les droites en L28](../L28/) ; l’algèbre reste suffisante ici.
-
-**Pour imprimer :** utilisez la commande Imprimer du navigateur. Les activités montrent un exemple fixe et les indices et solutions sont développés sur papier.
+**Pour imprimer:** utilisez la commande Imprimer du navigateur. Les ateliers montrent un exemple fixe ; indices et solutions sont développés sur papier.
 
 </div>
+
+<p class="source-next"><a href="/fr/lessons/L26/#pdf-25">Suite du PDF : La notation sigma (Σ) →</a></p>
 
 </div>

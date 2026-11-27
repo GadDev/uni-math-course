@@ -70,12 +70,38 @@ for (const locale of ['fr', 'en']) {
         await expect(page.locator('.katex-error')).toHaveCount(0);
         await expect(page.locator('.katex-mathml math').first()).toBeAttached();
         const activityCount =
-          number <= 27 ? 2 : number <= 34 ? (number === 29 ? 1 : 2) : 0;
+          number <= 27
+            ? 2
+            : number === 30
+              ? 3
+              : number <= 34
+                ? number === 29
+                  ? 1
+                  : 2
+                : number === 35 || number === 36
+                  ? 1
+                  : 0;
         await expect(page.locator('astro-island')).toHaveCount(activityCount);
+        if (number === 35) {
+          await expect(
+            page.locator('astro-island[component-url*="RegressionExplorer"]'),
+          ).toHaveCount(1);
+        }
+        if (number === 36) {
+          await expect(
+            page.locator('astro-island[component-url*="ModelLimitsExplorer"]'),
+          ).toHaveCount(1);
+        }
         for (const island of await page.locator('astro-island').all()) {
           await expect(island).toHaveAttribute('client', 'visible');
           if (number >= 28 && number <= 34)
-            await expect(island.locator('[data-geometry-lab]')).toHaveCount(1);
+            await expect(
+              island.locator(
+                number === 30
+                  ? '[data-geometry-lab], [data-temperature-lab="interactive"]'
+                  : '[data-geometry-lab]',
+              ),
+            ).toHaveCount(1);
         }
         if (number <= 27) {
           await expect(
@@ -98,7 +124,7 @@ for (const locale of ['fr', 'en']) {
         width === 320 ? '.mobile-contents' : '.section-nav',
       );
       await links
-        .getByRole('link', { name: /^(Exemple guidé|Guided example)/ })
+        .getByRole('link', { name: /^3\. (Calculer|Calculate)/ })
         .first()
         .click();
       const alternate = locale === 'fr' ? 'en' : 'fr';
@@ -107,7 +133,7 @@ for (const locale of ['fr', 'en']) {
         .click();
       expect(new URL(page.url()).pathname).toBe(`/${alternate}/lessons/L35/`);
       expect(decodeURIComponent(new URL(page.url()).hash)).toMatch(
-        /^#(exemple-guidé|guided-example)/,
+        /^#3-(calculer|calculate)/,
       );
     });
   }

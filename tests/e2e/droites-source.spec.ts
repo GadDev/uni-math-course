@@ -19,6 +19,7 @@ for (const locale of ['fr', 'en']) {
     const next = page.locator('.source-next a[href$="L22/#pdf-15"]');
     await next.click();
     await expect(page.locator('#pdf-15')).toBeInViewport();
+    await page.locator('.teaching-figure img').first().scrollIntoViewIfNeeded();
     await expect
       .poll(() =>
         page
@@ -106,7 +107,7 @@ test('PDF reading links, diagrams and examples work without JavaScript', async (
     await page25.locator('a[href$="L26/#pdf-25"]').click();
     await expect(page.locator('#pdf-25')).toBeInViewport();
     await expect(page.locator('article')).toContainText(
-      'indice, pas un exposant',
+      /indice désigne une position, pas un exposant/,
     );
     const image = page.locator('img[src$="/sigma.svg"]');
     await image.scrollIntoViewIfNeeded();
@@ -141,14 +142,16 @@ for (const locale of ['fr', 'en']) {
       ).toBeVisible();
       await page.locator('.source-next a[href$="L35/#pdf-84"]').click();
       await expect(page.locator('#pdf-84')).toBeInViewport();
-      const solution = page.locator('article details').first();
+      const solution = page.locator('#pdf-84 ~ details').first();
       await expect(solution).not.toHaveAttribute('open');
       await solution.locator('summary').click();
       await expect(solution).toContainText('28');
       await expect(solution.locator('.katex')).not.toHaveCount(0);
-      await expect(
-        page.locator('article > details').nth(1),
-      ).not.toHaveAttribute('open');
+      const proof = page.locator('article details').filter({
+        has: page.locator('#supplement-square'),
+      });
+      await expect(proof).toHaveCount(1);
+      await expect(proof).not.toHaveAttribute('open');
       await page.locator('.source-next a[href$="L36/#pdf-92"]').click();
       await expect(page.locator('#pdf-92')).toBeInViewport();
     } finally {
