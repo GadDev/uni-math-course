@@ -1,7 +1,11 @@
 export const students = ['ana', 'ben', 'cleo'] as const;
 export const courses = ['math', 'prog'] as const;
 export const files = ['f1', 'f2'] as const;
-export const initialRelation = [[true, true], [false, true], [false, false]];
+export const initialRelation = [
+  [true, true],
+  [false, true],
+  [false, false],
+];
 
 export function relationFacts(grid: readonly (readonly boolean[])[]) {
   return {
@@ -47,14 +51,10 @@ export function accessFacts(
   admins: readonly boolean[],
 ) {
   const violations = grid.flatMap((row, u) =>
-    row.flatMap((can, f) =>
-      can && !admins[u] ? [[u, f] as const] : [],
-    ),
+    row.flatMap((can, f) => (can && !admins[u] ? [[u, f] as const] : [])),
   );
   const missing = grid.flatMap((row, u) =>
-    row.flatMap((can, f) =>
-      admins[u] && !can ? [[u, f] as const] : [],
-    ),
+    row.flatMap((can, f) => (admins[u] && !can ? [[u, f] as const] : [])),
   );
   const inaccessible = files.filter((_, f) => grid.every((row) => !row[f]));
   return { violations, missing, inaccessible };
