@@ -1,0 +1,210 @@
+---
+lessonId: L08
+locale: fr
+version: 5
+status: extended
+title: "Complétude fonctionnelle : toute table avec OU et NON"
+summary: "Transformer toute table de vérité en une formule qui n’utilise que ∨ et ¬, en décrivant chaque ligne vraie puis en éliminant ∧ avec de Morgan."
+minutes: 35
+objectives: [L08-O01, L08-O02, L08-O03, L08-O04, L08-O05, L08-O06]
+prerequisites: [L03, L04]
+sourcePages: [32, 33, 34, 35]
+---
+import NormalFormLab from '../../../src/components/NormalFormLab';
+
+# Complétude fonctionnelle : toute table avec OU et NON
+
+Dans cette leçon, le nombre de variables vérifie $n \geq 1$. Nous utilisons seulement des variables, OU et NON ; les formules sans variable ne font pas partie du théorème.
+
+## 1. Comprendre — De la table à la formule
+
+### Votre objectif
+
+À la fin de cette leçon, vous savez lire une table de vérité comme une fonction, décrire chaque ligne vraie par une conjonction, les combiner avec $\lor$, et éliminer $\land$ grâce à de Morgan, de sorte que la formule n’utilise que $\lor$ et $\neg$.
+
+**Prérequis :** L03 (tables de vérité) et L04 (lois booléennes, de Morgan).
+
+### Décoder l’énoncé du théorème
+
+Pensez à une machine : elle reçoit une ligne de zéros et de uns, puis renvoie un zéro ou un un. $f$ est le nom de cette règle. $\{0,1\}$ est l’ensemble des deux valeurs ; $\{0,1\}^n$ désigne tous les choix de $n$ entrées. La flèche $\to$ indique « entrées vers résultat ». Le théorème dit que toute règle de ce type peut être construite avec OU et NON.
+
+Commencez par deux entrées et quatre lignes. Une ligne vraie fournit une condition ; plusieurs lignes vraies fournissent plusieurs possibilités reliées par OU. Si toutes les lignes sont fausses, $\neg(x \lor \neg x)$ donne bien zéro pour les deux valeurs de $x$.
+
+Comme un programme qui doit reproduire exactement une règle d'acceptation, la formule doit accepter toutes les lignes de sortie 1 et refuser toutes les lignes de sortie 0. Il n'est pas nécessaire de trouver la formule la plus courte dès le départ.
+
+## 2. Visualiser — Une ligne, un minterme
+
+### Le problème
+
+Une fonction $f$ donne une valeur $0$ ou $1$ pour chaque affectation de $x$, $y$, $z$. La question est de savoir si une assertion a exactement $f$ pour table de vérité. La réponse est oui, et la construction ci-dessous fonctionne toujours.
+
+Pour deux entrées, le OU exclusif fournit un premier tableau à construire. Chaque ligne vraie possède une description qui ne vaut $1$ que sur cette ligne.
+
+| x | y | f(x,y) | Description de la ligne vraie |
+| --- | --- | --- | --- |
+| 0 | 0 | 0 | aucune |
+| 0 | 1 | 1 | $\neg x\land y$ |
+| 1 | 0 | 1 | $x\land\neg y$ |
+| 1 | 1 | 0 | aucune |
+
+Essayez la ligne $11$ dans chacune des deux descriptions : elles valent toutes deux $0$. Les étiquettes et les valeurs, sans code couleur, relient le tableau à la construction suivante.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L08-minterm-fr.svg" alt="Ligne 010 : x devient NON x, y reste y, z devient NON z. Leur ET vaut 1 uniquement sur 010." width="560" height="200" /><figcaption>Le zéro d'entrée donne une lettre niée ; le un d'entrée donne une lettre non niée. Sélectionnez la ligne d'après la sortie f, pas d'après les entrées.</figcaption></figure>
+
+### Étape 1 : une conjonction par ligne vraie
+
+Un **littéral** est une lettre ou sa négation. Pour une ligne où $f = 1$, écrivez la conjonction de littéraux qui est vraie sur cette ligne et sur aucune autre. Pour la ligne $x = 0$, $y = 1$, $z = 1$, c’est $\neg x \land y \land z$.
+
+### Étape 2 : relier les lignes vraies par OU
+
+Si $f$ vaut $1$ sur plusieurs lignes, prenez la disjonction de leurs conjonctions. Le résultat vaut $1$ exactement sur les lignes où $f$ vaut $1$.
+
+Une disjonction de conjonctions de littéraux est une forme normale disjonctive (FND). La construction canonique utilise toutes les variables dans chaque minterme ; une forme simplifiée peut en utiliser moins. On sélectionne seulement les sorties 1.
+
+## 3. Calculer et raisonner — Construire, simplifier, éliminer ET
+
+### Reprendre la table des pages 32 à 35
+
+Dans la table du PDF, la sortie vaut un exactement pour $010$ et $110$, dans l’ordre x, y, z. Chaque ligne donne une branche : $(\neg x \land y \land \neg z) \lor (x \land y \land \neg z)$. Dans les deux cas, y vaut un et z vaut zéro ; x est libre. Une formule plus courte est donc $y \land \neg z$, puis $\neg(\neg y \lor z)$ avec seulement OU et NON. Cette simplification et son explication sont originales.
+
+Voici la justification de la simplification par factorisation (L04) :
+
+$$ (\neg x\land y\land\neg z)\lor(x\land y\land\neg z)
+\equiv(\neg x\lor x)\land y\land\neg z $$
+
+Distributivité dans le sens de la factorisation.
+
+$$\equiv\top\land y\land\neg z\equiv y\land\neg z.$$
+
+Tiers exclu, puis élément neutre de ET. Le terme x disparaît car les deux lignes ne diffèrent que par x. On ne peut pas effacer une lettre sans une telle justification.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L08-pipeline-fr.svg" alt="Table vraie sur 010 et 110, deux mintermes reliés par OU, factorisation, puis NON(NON y OU z)." width="560" height="290" /><figcaption>Construire d'abord, simplifier ensuite si utile, puis éliminer ET si la consigne impose seulement OU et NON.</figcaption></figure>
+
+### Étape 3 : éliminer ET avec de Morgan
+
+Pour tous $C$ et $D$,
+$$
+C \land D \equiv \neg(\neg C \lor \neg D).
+$$
+En appliquant cette équivalence à plusieurs reprises, on obtient une formule qui n’utilise que $\lor$ et $\neg$.
+
+### Exemple guidé : le ou exclusif
+
+Soit $f(x, y)$ qui vaut $1$ exactement sur les lignes $01$ et $10$.
+
+1. La ligne $01$ donne $\neg x \land y$. La ligne $10$ donne $x \land \neg y$.
+2. Reliez-les : $(\neg x \land y) \lor (x \land \neg y)$.
+3. Éliminez $\land$ : $\neg x \land y \equiv \neg(x \lor \neg y)$ et $x \land \neg y \equiv \neg(\neg x \lor y)$.
+
+Donc $f$ est la table de $\neg(x \lor \neg y) \lor \neg(\neg x \lor y)$, qui n’utilise que $\lor$ et $\neg$.
+
+Ce travail guidé, dont la solution est visible, n’est pas une réponse indépendante pour mesurer la maîtrise.
+
+### Le théorème
+
+Toute fonction $f : \{0,1\}^n \to \{0,1\}$ est la table de vérité d’une assertion à $n$ variables propositionnelles qui n’utilise que $\lor$ et $\neg$.
+
+Si $f$ ne vaut $1$ sur aucune ligne, il n’y a aucune ligne vraie à décrire ; prenez $\neg(x \lor \neg x)$, qui est toujours fausse.
+
+Si toutes les sorties valent 1, la FND complète fonctionne aussi, mais la formule $x\lor\neg x$ est plus courte. Pour la constante 0, on nie cette tautologie. Les deux formules n'utilisent que OU et NON. Le cas n = 0 reste hors du périmètre retenu ici.
+
+<details className="l08-extension">
+<summary>Approfondissement — pourquoi OU et NON séparément ne suffisent pas</summary>
+
+### Attention : les deux connecteurs sont nécessaires
+
+Utiliser $\lor$ seul sur une lettre $x$ ne donne que $x$, car $x \lor x \equiv x$. Donc $\lor$ seul ne peut pas construire $\neg x$. La négation est indispensable.
+
+NON seul ne combine jamais deux entrées indépendantes : toute formule obtenue à partir d’une seule variable par des négations reste cette variable ou sa négation. Il ne peut donc pas exprimer $A \land B$. OU seul donne une disjonction de variables, qui ne peut pas exprimer $\neg A$.
+
+</details>
+
+## 4. Expérimenter — Construire une forme normale
+
+Choisissez un exemple. Sélectionnez les lignes vraies, puis construisez chaque minterme en choisissant le signe de chaque lettre. Vérifiez chaque étape avant de réunir les termes. Choisissez ensuite une simplification, puis une formule limitée à OU et NON. En cas d'erreur, corrigez la ligne ou le littéral signalé ; pour une formule non équivalente, le premier contre-exemple est indiqué. Les exemples constants font aussi partie de l'atelier. L'atelier propose un chemin guidé, pas un moteur de simplification universel.
+
+<NormalFormLab locale="fr" client:visible />
+
+L'atelier est public et non noté. Pour d'autres activités, ouvrez [l'atelier de logique](/fr/logic-workshop/).
+
+## 5. Pratiquer — Construire comme à l'examen
+
+Dans Revision.pdf, exercice 4 (pages physiques 10–12), le professeur demande une assertion ayant la table donnée, puis propose la simplification en bonus. Les lignes vraies sont 001, 101 et 111, en ordre x,y,z. La solution rassemble trois mintermes et aboutit à $z\land(y\Rightarrow x)$. Ne confondez pas cette consigne avec celle du théorème : l'exercice n'impose pas uniquement OU et NON. Les exercices suivants sont des variantes originales.
+
+1. Pour trois variables x,y,z, la sortie vaut 1 exactement sur 000, 010 et 011. Construire la FND canonique, simplifier avec les lois, puis éliminer ET.
+2. Une fonction à deux variables vaut 0 sur les quatre lignes. Une autre vaut 1 sur les quatre lignes. Donner une formule utilisant seulement OU et NON pour chacune ; expliquer pourquoi la construction marche.
+3. Un élève affirme que le minterme de la ligne 100 est $x\lor(\neg y\land\neg z)$. Réfuter par une affectation et corriger le minterme.
+4. Pour x,y,z, les lignes vraies sont 000, 001, 100 et 101. Construire la FND complète, factoriser, puis justifier une expression minimale.
+
+<details className="l08-extension">
+<summary>Corrections expliquées</summary>
+
+1.
+
+$$ (\neg x\land\neg y\land\neg z)\lor(\neg x\land y\land\neg z)\lor(\neg x\land y\land z) $$
+
+$$\equiv\neg x\land[(\neg y\land\neg z)\lor(y\land(\neg z\lor z))]$$
+
+Factorisation.
+
+$$\equiv\neg x\land[(\neg y\land\neg z)\lor y]$$
+
+Tiers exclu, puis élément neutre de ET.
+
+$$\equiv\neg x\land[(y\lor\neg y)\land(y\lor\neg z)]\equiv\neg x\land(y\lor\neg z)$$
+
+Distributivité et commutativité, puis tiers exclu et élément neutre.
+
+$$\equiv\neg(x\lor\neg(y\lor\neg z)).$$
+
+De Morgan et double négation. La colonne attendue est 10110000.
+
+2. $f_0\equiv\neg(x\lor\neg x)$ ; $f_1\equiv x\lor\neg x$. Le tiers exclu vaut toujours 1, sa négation toujours 0.
+
+3. Sur 111, le terme de l'élève vaut 1 à cause de x, alors que la ligne cible est 100. Le minterme correct est $x\land\neg y\land\neg z$.
+
+4.
+
+$$ (\neg x\land\neg y\land\neg z)\lor(\neg x\land\neg y\land z)\lor(x\land\neg y\land\neg z)\lor(x\land\neg y\land z) $$
+
+$$\equiv\neg y\land[(\neg x\land(\neg z\lor z))\lor(x\land(\neg z\lor z))]$$
+
+$$\equiv\neg y\land(\neg x\lor x)\equiv\neg y.$$
+
+Factorisation, tiers exclu et élément neutre. La sortie dépend seulement de y ; les valeurs de x et z sont libres. Une formule constante ne conviendrait pas.
+
+</details>
+
+### Pratique indépendante
+
+Les exercices sélectionnés portent sur la lecture des lignes vraies, la conjonction d’une ligne, la jonction des lignes, l’élimination de $\land$, l’énoncé du théorème et la construction d’une table à trois variables.
+
+L'atelier ci-dessus est public. La pratique notée nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
+
+## 6. Retenir — Fiche de révision
+
+<section className="l08-revision">
+
+### À retenir
+
+Décrivez chaque ligne vraie, reliez les descriptions par $\lor$, puis remplacez $\land$ avec de Morgan. Toute table de vérité est atteignable avec $\lor$ et $\neg$ seuls.
+
+| Étape | Méthode |
+| --- | --- |
+| 1 | Entourer les lignes où f = 1. |
+| 2 | Entrée 0 → lettre niée ; entrée 1 → lettre positive. |
+| 3 | Relier les littéraux d'une ligne par ET. |
+| 4 | Relier les mintermes par OU. |
+| 5 | Factoriser si utile et justifier chaque loi. |
+| 6 | Si demandé, éliminer ET puis vérifier la table. |
+
+$$C\land D\equiv\neg(\neg C\lor\neg D).$$
+
+$$f_0\equiv\neg(x\lor\neg x),\qquad f_1\equiv x\lor\neg x.$$
+
+Attention : la FND canonique n'est pas nécessairement minimale. Une sortie 0 n'ajoute aucun minterme. Les deux constantes demandent un traitement explicite ; ne laissez pas une formule vide. Imprimez la fiche et les schémas depuis le navigateur.
+
+</section>
+
+Source vérifiée : Logique_01.pdf, pages physiques 32–35 ; Revision.pdf, exercice 4, pages physiques 10–12. La preuve constructive, la restriction n ≥ 1 déjà adoptée dans cette leçon, les simplifications expliquées, les ateliers, les diagrammes et les variantes sont des développements du projet.
+

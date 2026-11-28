@@ -1,0 +1,84 @@
+.normal-lab,
+.l08-revision,
+.l08-extension {
+  margin-block: 1rem;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  background: var(--card);
+  min-width: 0;
+}
+.normal-lab fieldset {
+  border: 0;
+  padding: 0;
+  min-width: 0;
+}
+.normal-lab label {
+  display: block;
+  margin-block: 0.5rem;
+}
+.normal-lab :is(select, button) {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0.5rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+.normal-lab button {
+  margin: 0.25rem;
+}
+.normal-lab button:disabled {
+  opacity: 0.6;
+}
+.normal-lab .normal-choice {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+}
+.normal-lab input {
+  accent-color: var(--blue-accent);
+}
+.normal-lab :is(select, button, input):focus-visible,
+.l08-extension summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.normal-formula {
+  overflow-wrap: anywhere;
+}
+.normal-lab table {
+  width: 100%;
+}
+.normal-lab [hidden] {
+  display: none !important;
+}
+.l08-extension summary {
+  cursor: pointer;
+  min-height: 44px;
+}
+@media print {
+  .normal-lab fieldset {
+    display: none !important;
+  }
+  .normal-lab [data-normal-static] {
+    display: block !important;
+  }
+  .l08-revision {
+    break-inside: avoid;
+  }
+  .l08-extension::details-content {
+    content-visibility: visible;
+    height: auto;
+  }
+  .l08-extension > :not(summary) {
+    display: block !important;
+  }
+}
+
+.normal-lab .normal-choice input,
+.normal-lab input[type='checkbox'] {
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+}

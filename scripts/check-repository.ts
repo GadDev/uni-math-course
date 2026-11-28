@@ -216,6 +216,17 @@ export async function validateRepository(
         present = info;
       }
     }
+    if (!present && /^\/(fr|en)\/logic-workshop\/$/.test(urlPath)) {
+      const source = resolve(
+        directory,
+        'src/pages/[locale]/logic-workshop.astro',
+      );
+      const info = await exists(source);
+      if (info?.isFile()) {
+        dest = source;
+        present = info;
+      }
+    }
     // Astro serves files in public/ at root-relative URLs. Resolve only real
     // static files here; missing routes and traversal still fail below.
     if (!present && urlPath.startsWith('/')) {
