@@ -1,7 +1,7 @@
 ---
 lessonId: L07
 locale: en
-version: 5
+version: 6
 status: extended
 title: "The biconditional and semantic equivalence"
 summary: "Build the biconditional from both implications, distinguish one row from a whole table, and prove or refute an equivalence."
@@ -14,11 +14,16 @@ import L07Explorer from '../../../src/components/L07Explorer';
 
 # The biconditional and semantic equivalence
 
-## Your objective
+## 1. Understand — Two directions, one condition
+
+### Your objective
 
 You will learn to require **both implications at once**, then distinguish two questions: “do these formulas agree in this case?” and “do they agree in every case?”.
 
 By the end, you will be able to explain and build the biconditional truth table, read “if and only if”, and use a complete table or a counterexample to decide an equivalence.
+
+<details className="l07-recap">
+<summary>Optional recap — L04 to L06</summary>
 
 **Before starting:** <a href="/en/lessons/L04/">L04 — equivalence and tautologies</a>, <a href="/en/lessons/L05/">L05 — implication</a> and <a href="/en/lessons/L06/">L06 — converse</a>.
 
@@ -29,9 +34,13 @@ By the end, you will be able to explain and build the biconditional truth table,
 
 **Quick check:** if A and B are false, what are the values of both implications? Both are 1: neither has a true antecedent and a false consequent. If this surprises you, revisit L05 before continuing.
 
+</details>
+
 **To work on paper:** use your browser’s Print command. Experiments will be replaced by fixed examples, and hints and solutions will be visible. You can print first, cover the solutions and attempt the exercises.
 
-## Why both directions?
+**Essential path:** understand both directions, read the two-level diagram, then calculate one row and justify equivalence. To build mastery, complete both workshops and the written exercises. Recaps and the second derivation are optional.
+
+### Why both directions?
 
 Return to the cards from L05. For a fixed card, A says “it is red” and B says “it has a stamp”. The rule “if it is red, it has a stamp” still allows a blue card with a stamp.
 
@@ -39,7 +48,7 @@ Add the converse rule: “if it has a stamp, it is red”. We now want **red wit
 
 This double commitment motivates a new connective. It does not require both assertions to be true: it requires them to have **the same value**.
 
-## The biconditional
+### The biconditional
 
 **Definition.** The **biconditional**, written $A\Leftrightarrow B$, is the assertion defined by
 
@@ -49,7 +58,51 @@ $$
 
 Read it as “A if and only if B”. The connective $\Leftrightarrow$ builds a new assertion. To calculate its value, calculate both implications, then their AND. Since AND requires two values of 1, **both directions must hold**.
 
-## Where does the table come from?
+### Reading “if and only if”
+
+“A if B” expresses the direction from B to A. “A only if B” expresses the direction from A to B: B is necessary for A. “A if and only if B” combines both.
+
+In this course, $\mathbb N=\{0,1,2,\ldots\}$ denotes the natural numbers, including zero. For a fixed natural number, “it is even if and only if it is divisible by two” combines two guarantees: being even ensures divisibility by two, and divisibility by two ensures being even.
+
+However, “being divisible by four” implies “being even”, but the converse fails at 2. To prove an “if and only if” property for every natural number, justify **each direction for every integer in the domain**. A few experiments are insufficient.
+
+For a rule that holds over the entire domain, A is sufficient for B when A implies B; A is necessary for B when B implies A. The biconditional therefore requires A to be both necessary AND sufficient for B (and conversely). Do not infer a general rule from one assignment.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L07-directions-en.svg" alt="A to B: A is sufficient for B, B necessary for A. B to A: B sufficient for A, A necessary for B. Both arrows are required." width="560" height="195" /><figcaption>Both directions must be justified over the domain, not merely checked for one example.</figcaption></figure>
+
+## 2. Visualise — One cell or the whole table?
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L07-levels-en.svg" alt="P is 1101, Q is 1011: agreement 1001, not equivalent. P is 1101, R is 1101: agreement 1111, equivalent." width="560" height="300" /><figcaption>The connective ⇔ produces a column; the relation ≡ compares entire columns. Both cases use order 00, 01, 10, 11.</figcaption></figure>
+
+### Two different levels
+
+Saying “same value” is not enough: **at which assignment, or at every assignment?** Introduce letters $P$ and $Q$ for two formulas we want to compare. They may contain the same variables; always evaluate them with the same assignment.
+
+| Notation | What we do | What to examine |
+| --- | --- | --- |
+| $P\Leftrightarrow Q$ | Build an assertion | A value of 0 or 1 on each row |
+| $P\equiv Q$ | Assert semantic equivalence | Agreement of both formulas on every assignment |
+
+The symbol $\equiv$ is a **relation between formulas**, not a connective to calculate in a cell. Equivalence means that both result columns agree everywhere. Intermediate calculation columns need not be identical.
+
+**An example not to generalize too quickly:** when A and B are false, an implication and its converse are both 1. But at row 01, the first is 1 and its converse 0: the formulas are not semantically equivalent.
+
+The precise link is this: $P\equiv Q$ holds **exactly when** $P\Leftrightarrow Q$ is a tautology.
+
+#### Why is this criterion true?
+
+The justification uses only the definitions, in both directions.
+
+1. **Start with equivalence.** If $P\equiv Q$, their values are identical at every assignment. At each one, $P\Leftrightarrow Q$ is therefore 1. This last formula is a tautology.
+2. **Start with a tautology.** If $P\Leftrightarrow Q$ is 1 at every assignment, its two sides have the same value at each one. This is exactly the definition of $P\equiv Q$.
+
+This is a general proof for formulas of classical propositional logic. The workshop in Experiment lets you see the mechanism on particular formulas.
+
+
+
+## 3. Calculate and reason — Construct, compare, conclude
+
+### Where does the table come from?
 
 With two independent variables, each has two possible values: there are four assignments. Keep each variable’s value fixed throughout a row. In the table, 0 means false and 1 means true.
 
@@ -66,43 +119,7 @@ With two independent variables, each has two possible values: there are four ass
 
 Rows 01 and 10 are disagreements; 00 and 11 are agreements. We have derived the reading rule: **the biconditional is true exactly when both sides have the same value**.
 
-<L07Explorer kind="row" locale="en" client:visible />
-
-## Reading “if and only if”
-
-“A if B” expresses the direction from B to A. “A only if B” expresses the direction from A to B: B is necessary for A. “A if and only if B” combines both.
-
-In this course, $\mathbb N=\{0,1,2,\ldots\}$ denotes the natural numbers, including zero. For a fixed natural number, “it is even if and only if it is divisible by two” combines two guarantees: being even ensures divisibility by two, and divisibility by two ensures being even.
-
-However, “being divisible by four” implies “being even”, but the converse fails at 2. To prove an “if and only if” property for every natural number, justify **each direction for every integer in the domain**. A few experiments are insufficient.
-
-## Two different levels
-
-Saying “same value” is not enough: **at which assignment, or at every assignment?** Introduce letters $P$ and $Q$ for two formulas we want to compare. They may contain the same variables; always evaluate them with the same assignment.
-
-| Notation | What we do | What to examine |
-| --- | --- | --- |
-| $P\Leftrightarrow Q$ | Build an assertion | A value of 0 or 1 on each row |
-| $P\equiv Q$ | Assert semantic equivalence | Agreement of both formulas on every assignment |
-
-The symbol $\equiv$ is a **relation between formulas**, not a connective to calculate in a cell. Equivalence means that both result columns agree everywhere. Intermediate calculation columns need not be identical.
-
-**An example not to generalize too quickly:** when A and B are false, an implication and its converse are both 1. But at row 01, the first is 1 and its converse 0: the formulas are not semantically equivalent.
-
-The precise link is this: $P\equiv Q$ holds **exactly when** $P\Leftrightarrow Q$ is a tautology.
-
-### Why is this criterion true?
-
-The justification uses only the definitions, in both directions.
-
-1. **Start with equivalence.** If $P\equiv Q$, their values are identical at every assignment. At each one, $P\Leftrightarrow Q$ is therefore 1. This last formula is a tautology.
-2. **Start with a tautology.** If $P\Leftrightarrow Q$ is 1 at every assignment, its two sides have the same value at each one. This is exactly the definition of $P\equiv Q$.
-
-This is a general proof for formulas of classical propositional logic. The following experiment lets you see the mechanism on particular formulas.
-
-<L07Explorer kind="equivalence" locale="en" client:visible />
-
-## How to proceed, step by step
+### How to proceed, step by step
 
 **When should you choose a table?** For propositional formulas with few variables: it is an exhaustive, mechanical method. With $k$ distinct variables, there are $2^k$ assignments, since each variable offers two choices. The number of rows grows quickly.
 
@@ -114,7 +131,7 @@ This is a general proof for formulas of classical propositional logic. The follo
 
 **Useful check:** the last column is 1 wherever P and Q are equal, including when both are 0. Do not replace this test with an AND between P and Q.
 
-## Guided example: testing an equivalence
+### Guided example: testing an equivalence
 
 Test $(A\Rightarrow B)\equiv(\neg A\lor B)$. Here, $P=(A\Rightarrow B)$ and $Q=(\neg A\lor B)$. Compare them on all four assignments of A and B.
 
@@ -129,7 +146,10 @@ Check row 10 especially: $\neg A\lor B=\neg1\lor0=0\lor0=0$. The implication is 
 
 Both columns agree on every row. The last column is therefore always 1: it is a tautology, and equivalence is established.
 
-### Recover the formula without a table
+<details className="l07-recap">
+<summary>Further study: recover the formula using laws</summary>
+
+#### Recover the formula without a table
 
 An implication fails exactly when A is true and B false. It therefore expresses the negation of that failure. Using the laws from L04:
 
@@ -145,7 +165,9 @@ The first step comes from the unique failure case; the second applies De Morgan;
 
 This guided work, whose solution is visible, supports understanding; it does not measure independent mastery.
 
-## Trap: mixing the two levels
+</details>
+
+### Trap: mixing the two levels
 
 - **“Both sides must be true.”** No: the biconditional is also true at row 00. A conjunction is not.
 - **“One implication is enough.”** No: at row 01, one implication is true and its converse false. Both directions count.
@@ -154,11 +176,21 @@ This guided work, whose solution is visible, supports understanding; it does not
 
 Saying that $A\Leftrightarrow B$ is 0 on a row does not give the relation $A\equiv B$ a value “on that row”: the row witnesses that the two tables do not agree everywhere.
 
-## Practise before reading the solution
+## 4. Experiment — Predict before observing
+
+First workshop: predict which direction fails for A = 1, B = 0, then change one input. Explain why two false inputs give a true biconditional. Second workshop: record a prediction before each click. Find a disagreement to refute; examine every row to establish equivalence. These workshops retain their engine, controls and fixed examples.
+
+<L07Explorer kind="row" locale="en" client:visible />
+
+<L07Explorer kind="equivalence" locale="en" client:visible />
+
+## 5. Practise — Justify both directions and prove
+
+### Practise before reading the solution
 
 These reading exercises are public and ungraded. Try each question, then open the hint only if needed. Solutions are separate to leave you time to work.
 
-### 1. Calculate one row
+#### 1. Calculate one row
 
 For $A=0$ and $B=1$, calculate both implications and then the biconditional. Identify the direction that fails.
 
@@ -175,7 +207,7 @@ $A\Rightarrow B$ is 1 because A is false. $B\Rightarrow A$ is 0 because B is tru
 
 </details>
 
-### 2. Decide with a complete table
+#### 2. Decide with a complete table
 
 Test $\neg(A\land B)\equiv(\neg A\lor\neg B)$. Calculate both sides on all four assignments, then their biconditional. Justify your conclusion.
 
@@ -199,7 +231,7 @@ Agreement on every row establishes equivalence. On the last row, both sides are 
 
 </details>
 
-### 3. Refute a reasoning error
+#### 3. Refute a reasoning error
 
 Someone claims: “An implication and its converse are equivalent: I checked row 11.” Find a counterexample and explain why their method is insufficient.
 
@@ -216,7 +248,7 @@ At row $A=0$, $B=1$, implication $A\Rightarrow B$ is 1 and its converse $B\Right
 
 </details>
 
-### 4. Build another expression
+#### 4. Build another expression
 
 Explain why $A\Leftrightarrow B$ is equivalent to $(A\land B)\lor(\neg A\land\neg B)$. Justify the true and false cases, or use a table.
 
@@ -233,13 +265,68 @@ $A\land B$ is 1 only at 11; $\neg A\land\neg B$ is 1 only at 00. Their OR is the
 
 </details>
 
-## Independent practice
+Two additional paper challenges: the lecturer's revision asks for equivalent columns (exercise 1, pp. 4–5), distinguishes transformations (exercise 2, pp. 6–7), and requires a law-only proof (exercise 3, pp. 8–9). The following original challenges combine these skills.
+
+**5. Prove without a table**
+
+Using L04 and L05, prove using laws only that
+
+$$(A\Leftrightarrow B)\equiv (A\land B)\lor(\neg A\land\neg B).$$
+
+<details className="l07-exercise">
+<summary>Explained solution — exercise 5</summary>
+
+$$A\Leftrightarrow B\equiv(A\Rightarrow B)\land(B\Rightarrow A)$$
+
+Definition.
+
+$$\equiv(\neg A\lor B)\land(\neg B\lor A)$$
+
+Eliminate implications.
+
+$$\equiv [\neg A\land(\neg B\lor A)]\lor[B\land(\neg B\lor A)]$$
+
+Distributivity, then distribute inside each group:
+
+$$\equiv[(\neg A\land\neg B)\lor(\neg A\land A)]\lor[(B\land\neg B)\lor(B\land A)]$$
+
+$$\equiv[(\neg A\land\neg B)\lor\neg\top]\lor[\neg\top\lor(B\land A)]$$
+
+Non-contradiction (with commutativity for the first contradictory term).
+
+$$\equiv(\neg A\land\neg B)\lor(B\land A)\equiv(A\land B)\lor(\neg A\land\neg B).$$
+
+OR identity laws, then commutativity. Every step is a general equivalence; no truth table is needed.
+
+</details>
+
+**6. Justify a necessary and sufficient condition**
+
+For every integer n, show that n is odd if and only if n + 1 is even. Define A and B and write the two proofs separately. The domain is all integers: integer parameters may be negative.
+
+<details className="l07-exercise">
+<summary>Explained solution — exercise 6</summary>
+
+A: n odd; B: n + 1 even.
+
+- $A\Rightarrow B$ : if $n=2k+1$ with integer k, then $n+1=2(k+1)$, so n + 1 is even.
+- $B\Rightarrow A$ : if $n+1=2m$ with integer m, then $n=2m-1=2(m-1)+1$, so n is odd.
+
+Both proofs hold for every integer in the domain. A is therefore necessary and sufficient for B.
+
+</details>
+
+### Independent practice
 
 The two embedded experiments and exercises above work without an account; they do not produce a saved grade. For more questions with correction and progress tracking, open <a href="/en/lessons/L07/practice/">Practise</a>. This account-based practice requires sign-in; availability depends on the selected version and release status.
 
 The selected exercises cover the definition, biconditional table, two levels, tautologies, table testing and detection of misconceptions.
 
-## Takeaway
+## 6. Remember — Revision sheet
+
+<section className="l07-revision">
+
+### Takeaway
 
 **Revision sheet:**
 
@@ -249,7 +336,17 @@ The selected exercises cover the definition, biconditional table, two levels, ta
 - **Decide:** $P\equiv Q$ exactly when $P\Leftrightarrow Q$ is a tautology. One disagreement refutes; agreements establish equivalence only after an exhaustive check or a general proof.
 - **Check:** both sides can be false together. Equivalent does not mean “always true”.
 
-## Self-assessment
+| Sentence form | Direction |
+| --- | --- |
+| A if B | $B\Rightarrow A$ |
+| A only if B | $A\Rightarrow B$ |
+| A if and only if B | $(A\Rightarrow B)\land(B\Rightarrow A)$ |
+
+**Exam method:** for a biconditional over a domain, justify each direction; for propositional equivalence, compare every assignment or apply laws. If the question forbids tables, write algebraic transformations and justify them.
+
+</section>
+
+### Self-assessment
 
 Without consulting the solutions, can you:
 
@@ -260,4 +357,7 @@ Without consulting the solutions, can you:
 
 If a point is still unclear, revisit the relevant example, then redo an exercise without help. This self-assessment is not a mastery certification.
 
-Original project text, derivations, diagrams and experiments. Coverage follows PDF pages 30–31 in the repository’s course map; the source PDF was not consulted for this revision. No proof or illustration is attributed to the source author.
+Verified source: Logique_01.pdf, physical pages 30–31: definition, proposition and distinction between connective and relation; the source leaves the proof to be completed. Revision.pdf, exercises 1–3 (pp. 4–9): comparison and proof skills. Illustrations, completed proofs, workshops and extra exercises are original project developments.
+
+In L08, we construct formulas from tables. [L08](/en/lessons/L08/).
+
