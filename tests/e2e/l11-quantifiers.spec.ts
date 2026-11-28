@@ -15,7 +15,12 @@ for (const locale of ['fr', 'en'] as const) {
     const check = locale === 'fr' ? 'Vérifier' : 'Check';
     const correct = locale === 'fr' ? 'Bonne réponse' : 'Correct';
     await expect(domain).toHaveText('X = {1, 2, 4}');
-    await lab.getByRole('button', { name: locale === 'fr' ? 'Tester 1' : 'Test 1', exact: true }).click();
+    await lab
+      .getByRole('button', {
+        name: locale === 'fr' ? 'Tester 1' : 'Test 1',
+        exact: true,
+      })
+      .click();
     await expect(lab.locator('tbody tr').first()).toContainText(no);
     await all.getByRole('button', { name: no, exact: true }).click();
     await some.getByRole('button', { name: yes, exact: true }).click();
@@ -38,7 +43,9 @@ for (const locale of ['fr', 'en'] as const) {
     await expect(witness.locator('select')).toHaveValue('');
     await all.getByRole('button', { name: yes, exact: true }).click();
     await expect(all.getByRole('status')).toContainText(correct);
-    await lab.getByRole('button', { name: locale === 'fr' ? 'Vider X' : 'Empty X' }).click();
+    await lab
+      .getByRole('button', { name: locale === 'fr' ? 'Vider X' : 'Empty X' })
+      .click();
     await expect(domain).toHaveText('X = ∅');
     await all.getByRole('button', { name: yes, exact: true }).click();
     await some.getByRole('button', { name: no, exact: true }).click();
@@ -50,7 +57,11 @@ for (const locale of ['fr', 'en'] as const) {
     await counter.locator('select').selectOption('none');
     await counter.getByRole('button', { name: check }).click();
     await expect(counter.getByRole('status')).toContainText(correct);
-    await lab.getByRole('button', { name: locale === 'fr' ? 'Réinitialiser' : 'Reset' }).click();
+    await lab
+      .getByRole('button', {
+        name: locale === 'fr' ? 'Réinitialiser' : 'Reset',
+      })
+      .click();
     await expect(domain).toHaveText('X = {1, 2, 4}');
     await lab.locator('select').first().selectOption('greater');
     await expect(all.getByRole('status')).toBeEmpty();

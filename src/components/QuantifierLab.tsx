@@ -126,17 +126,18 @@ export default function QuantifierLab({ locale }: { locale: Locale }) {
         ? 'À revoir. '
         : 'Try again. ';
 
-  const universalReason = domain.length === 0
-    ? fr
-      ? 'Aucun élément du domaine ne peut violer la règle : vérité par vacuité.'
-      : 'No domain element can violate the rule: vacuous truth.'
-    : result.universal
+  const universalReason =
+    domain.length === 0
       ? fr
-        ? 'Chaque élément du domaine vérifie P.'
-        : 'Every element of the domain satisfies P.'
-      : fr
-        ? 'Au moins un élément du domaine échoue au test.'
-        : 'At least one element of the domain fails the test.';
+        ? 'Aucun élément du domaine ne peut violer la règle : vérité par vacuité.'
+        : 'No domain element can violate the rule: vacuous truth.'
+      : result.universal
+        ? fr
+          ? 'Chaque élément du domaine vérifie P.'
+          : 'Every element of the domain satisfies P.'
+        : fr
+          ? 'Au moins un élément du domaine échoue au test.'
+          : 'At least one element of the domain fails the test.';
 
   const existentialReason = result.existential
     ? fr
@@ -158,7 +159,9 @@ export default function QuantifierLab({ locale }: { locale: Locale }) {
       </p>
       <div className="l11-live" hidden={!ready}>
         <fieldset>
-          <legend>{fr ? '1. Construire le domaine X' : '1. Build domain X'}</legend>
+          <legend>
+            {fr ? '1. Construire le domaine X' : '1. Build domain X'}
+          </legend>
           <div className="l11-controls">
             {universe.map((x) => (
               <label key={x}>
@@ -221,7 +224,11 @@ export default function QuantifierLab({ locale }: { locale: Locale }) {
             {domain.map((x) => (
               <tr key={x}>
                 <th scope="row">{x}</th>
-                <td>{tested.includes(x) ? truth(evaluatePredicate(predicate, x)) : '?'}</td>
+                <td>
+                  {tested.includes(x)
+                    ? truth(evaluatePredicate(predicate, x))
+                    : '?'}
+                </td>
                 <td>
                   <button
                     type="button"
@@ -239,16 +246,35 @@ export default function QuantifierLab({ locale }: { locale: Locale }) {
             ))}
             {domain.length === 0 && (
               <tr>
-                <td colSpan={3}>{fr ? 'Aucun élément à tester.' : 'No element to test.'}</td>
+                <td colSpan={3}>
+                  {fr ? 'Aucun élément à tester.' : 'No element to test.'}
+                </td>
               </tr>
             )}
           </tbody>
         </table>
-        {([
-          ['∀ x ∈ X, P(x)', universalGuess, setUniversalGuess, result.universal, universalReason],
-          ['∃ x ∈ X, P(x)', existentialGuess, setExistentialGuess, result.existential, existentialReason],
-        ] as const).map(([formula, guess, setGuess, actual, reason], index) => (
-          <fieldset key={formula} data-quantifier={index === 0 ? 'all' : 'some'}>
+        {(
+          [
+            [
+              '∀ x ∈ X, P(x)',
+              universalGuess,
+              setUniversalGuess,
+              result.universal,
+              universalReason,
+            ],
+            [
+              '∃ x ∈ X, P(x)',
+              existentialGuess,
+              setExistentialGuess,
+              result.existential,
+              existentialReason,
+            ],
+          ] as const
+        ).map(([formula, guess, setGuess, actual, reason], index) => (
+          <fieldset
+            key={formula}
+            data-quantifier={index === 0 ? 'all' : 'some'}
+          >
             <legend>{formula}</legend>
             <div className="l11-controls">
               {[true, false].map((value) => (
@@ -263,12 +289,25 @@ export default function QuantifierLab({ locale }: { locale: Locale }) {
               ))}
             </div>
             <p role="status" aria-atomic="true">
-              {guess !== null && feedback(guess, actual) + truth(actual) + '. ' + reason}
+              {guess !== null &&
+                feedback(guess, actual) + truth(actual) + '. ' + reason}
             </p>
           </fieldset>
         ))}
-        <EvidenceQuestion key={'w' + revision} fr={fr} domain={domain} predicate={predicate} kind="witness" />
-        <EvidenceQuestion key={'c' + revision} fr={fr} domain={domain} predicate={predicate} kind="counterexample" />
+        <EvidenceQuestion
+          key={'w' + revision}
+          fr={fr}
+          domain={domain}
+          predicate={predicate}
+          kind="witness"
+        />
+        <EvidenceQuestion
+          key={'c' + revision}
+          fr={fr}
+          domain={domain}
+          predicate={predicate}
+          kind="counterexample"
+        />
         <button
           type="button"
           onClick={() => {
@@ -280,7 +319,11 @@ export default function QuantifierLab({ locale }: { locale: Locale }) {
         </button>
       </div>
       <div className="l11-static" hidden={ready}>
-        <p>{fr ? 'Exemple fixe : P(x) signifie « x est pair ».' : 'Fixed example: P(x) means “x is even”.'}</p>
+        <p>
+          {fr
+            ? 'Exemple fixe : P(x) signifie « x est pair ».'
+            : 'Fixed example: P(x) means “x is even”.'}
+        </p>
         <p>X = {'{1, 2, 4}'} : ∀ = 0, ∃ = 1 ; P(1) = 0, P(2) = P(4) = 1.</p>
         <p>X = ∅ : ∀ = 1, ∃ = 0.</p>
       </div>
