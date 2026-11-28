@@ -1,0 +1,164 @@
+---
+lessonId: L12
+locale: fr
+version: 4
+status: extended
+title: "Nier des assertions quantifiées"
+summary: "Nier ∀ et ∃ correctement, énoncer des négations en langage courant, et utiliser contre-exemples et témoins."
+minutes: 10
+objectives: [L12-O01, L12-O02, L12-O03, L12-O04, L12-O05, L12-O06]
+prerequisites: [L11]
+sourcePages: [49, 50, 51]
+---
+import FiniteSetLab from '../../../src/components/FiniteSetLab';
+
+# Nier des assertions quantifiées
+
+
+## 1. Comprendre — Poser la bonne question
+
+### Votre objectif
+
+À la fin de cette leçon, vous savez nier $\forall x\ P(x)$ et $\exists x\ P(x)$, énoncer des négations en langage courant, et utiliser contre-exemples et témoins.
+
+**Prérequis :** L11 (prédicats et quantificateurs).
+
+
+### Diagnostic — nier une inégalité
+
+Quelle est la négation de $x>3$ ? Est-ce $x<3$ ou $x\le3$ ? Testez le cas $x=3$.
+
+<details className="sets-diagnostic">
+<summary>Vérifier les prérequis</summary>
+
+C’est $x\le3$. L’égalité doit être incluse : à 3, l’assertion initiale est fausse et sa négation est vraie. Revoir [L04](/fr/lessons/L04/) et [L11](/fr/lessons/L11/).
+
+</details>
+
+Pour réfuter « tous les billets sont valides », on cherche un billet invalide ; on n’a pas besoin de rendre tous les billets invalides.
+
+
+<aside className="sets-depths">
+
+**L’essentiel :** lire et comprendre. **Maîtriser :** calculer et justifier. **Aller plus loin :** ouvrir les prolongements signalés.
+
+</aside>
+
+## 2. Visualiser — Suivre les objets
+
+![Nier la phrase entière échange pour tout et il existe, puis nie la condition.](/diagrams/sets-learning/l12-fr.svg)
+
+### Nier « pour tout »
+
+« À la bibliothèque, tous les livres sont disponibles » échoue dès qu’un livre n’est pas disponible. Sa négation est « À la bibliothèque, un livre n’est pas disponible ».
+
+### Nier « il existe »
+
+« Au club, un membre a moins de 18 ans » échoue quand personne n’a moins de 18 ans. Sa négation est « Au club, tous les membres ont au moins 18 ans ».
+
+## 3. Calculer — Détailler et justifier
+
+### Les deux lois
+
+Si $P(x)$ est un prédicat sur $X$ :
+$$
+\neg \forall x\ P(x) \equiv \exists x\ \neg P(x),
+$$
+$$
+\neg \exists x\ P(x) \equiv \forall x\ \neg P(x).
+$$
+
+La négation échange le quantificateur et nie le prédicat.
+
+### Exemple guidé : les naturels au-dessus de 2
+
+Prenons le domaine $\mathbb{N}$, avec $0 \in \mathbb{N}$, et $P(n)$ : $n > 2$.
+
+1. $\forall n\ P(n)$ est fausse : $n = 0$ est un contre-exemple.
+2. Sa négation est $\exists n\ \neg P(n)$, qui dit $\exists n\ n \leq 2$.
+3. Elle est vraie, et $n = 0$ est un témoin.
+
+### Piège : nier seulement le prédicat
+
+$\neg \forall x\ P(x)$ n’est pas $\forall x\ \neg P(x)$. Sur le domaine $\{1, 2\}$ avec $P(x)$ : $x > 1$, la première est vraie car $P(1)$ échoue, tandis que la seconde est fausse car $P(2)$ est vrai. « Ce ne sont pas tous les oiseaux qui volent » ne veut pas dire « aucun oiseau ne vole ».
+
+### Nier toute la phrase, même sur un domaine vide
+
+$\neg$ signifie NON et porte ici sur toute l’assertion quantifiée. Le symbole $\equiv$ dit que les deux formulations ont la même vérité dans toute interprétation du domaine et du prédicat ; nous étendons ainsi la comparaison des formules de L04 aux assertions quantifiées.
+
+Si $X$ est vide, « tous les éléments vérifient P » est vrai car aucun contre-exemple n’existe ; « un élément vérifie P » est faux car aucun témoin n’existe. Leurs négations donnent respectivement faux et vrai : les deux lois continuent donc à fonctionner. Dans le premier exemple, dites explicitement « il existe au moins un livre indisponible » ; cela ne signifie pas un unique livre.
+
+
+### Faire entrer NON, une couche à la fois
+
+Sur $X=\{-1,0,2,5\}$, nions $\forall x\in X\ [(x>0)\Rightarrow(x<4)]$. La notation $x\in X$ précise le domaine parcouru ; son développement logique sera vu en L16.
+
+1. Entourer toute la proposition : $\neg[\forall x\in X\ ((x>0)\Rightarrow(x<4))]$.
+2. Échanger le quantificateur en gardant le domaine : $\exists x\in X\ \neg[(x>0)\Rightarrow(x<4)]$.
+3. Utiliser $\neg(A\Rightarrow B)\equiv A\land\neg B$ : $\exists x\in X\ [(x>0)\land(x\ge4)]$.
+4. Contrôler : 5 est positif mais n’est pas inférieur à 4. C’est un témoin de la négation et un contre-exemple à l’originale.
+
+**À compléter :** nier $\exists x\in\mathbb R\ [(x<0)\land(x^2>9)]$. Échangez le quantificateur, puis utilisez de Morgan dans les parenthèses.
+
+<details className="sets-correction">
+<summary>Compléter et justifier</summary>
+
+$\forall x\in\mathbb R\ [(x\ge0)\lor(x^2\le9)]$. Le domaine n’a pas changé et chaque négation a atteint son inégalité. L’originale est vraie avec $x=-4$ ; sa négation est donc fausse.
+
+</details>
+
+<details className="sets-extension">
+<summary>Aller plus loin — Plusieurs quantificateurs</summary>
+
+Pour nier $\forall x\in X\ \exists y\in Y\ P(x,y)$, on obtient $\exists x\in X\ \forall y\in Y\ \neg P(x,y)$. On échange chacun des quantificateurs **sans changer leur ordre**, puis on nie la propriété. On ne cherche pas à évaluer la vérité pendant cette transformation. Voir [L16](/fr/lessons/L16/).
+
+</details>
+
+## 4. Expérimenter — Prédire, vérifier, expliquer
+
+<FiniteSetLab lesson="L12" locale="fr" client:visible />
+
+## 5. Pratiquer — Répondre sans le modèle
+
+### Deux questions sur papier
+
+Écrivez une justification avant d’ouvrir les corrections. Ces nouveaux exemples ne sont pas notés ni enregistrés.
+
+1. Nier $\forall x\in\mathbb R\ [(x^2>9)\Rightarrow(x>3)]$ sans laisser de NON devant un quantificateur.
+2. Sur $X=\{0,1,2\}$, nier « il existe x tel que x est impair ». Décider la vérité de l’originale et de sa négation.
+
+<details className="sets-correction">
+<summary>Corrections expliquées</summary>
+
+1. $\exists x\in\mathbb R\ [(x^2>9)\land(x\le3)]$. L’originale est fausse et la négation vraie : témoin $x=-4$.
+2. « Tout x de X est pair ». L’originale est vraie avec témoin 1 ; sa négation est fausse à cause de 1.
+
+</details>
+
+### Pratique indépendante
+
+Les exercices sélectionnés portent sur les deux lois, des négations en langage courant et un contre-exemple, et la négation numérique sur $\mathbb{N}$.
+
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
+
+<section className="sets-revision">
+
+## 6. Retenir — Fiche de révision
+
+### À retenir
+
+Pour nier une assertion quantifiée, échangez $\forall$ et $\exists$ et niez le prédicat. Un contre-exemple réfute un « pour tout » ; un témoin prouve un « il existe ».
+
+Texte et exemples originaux du projet. La couverture suit les pages 49 à 51 du PDF selon la carte du cours du dépôt ; aucun texte d’enseignant n’est reproduit.
+
+**Méthode et pièges :** Parenthéser → échanger chaque quantificateur → garder domaine et ordre → nier le prédicat avec les lois de Boole → vérifier les frontières. $\neg(A\Rightarrow B)\equiv A\land\neg B$.
+
+**Formules à retrouver :**
+
+$$\neg(\forall x\ P(x))\equiv\exists x\ \neg P(x),\qquad\neg(\exists x\ P(x))\equiv\forall x\ \neg P(x).$$
+
+**Frontières :** NON(x > 3) inclut 3 ; NON(x ≥ 3) ne l’inclut pas.
+
+Référence commune : [logique et ensembles](https://uni-math-course.vercel.app/fr/cheat-sheet/). Pour vous tester, cachez cette fiche et refaites une question sur papier.
+
+</section>

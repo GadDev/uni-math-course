@@ -30,8 +30,8 @@ for (const locale of ['fr', 'en']) {
         ['L03', 2],
         ['L04', 3],
         ['L10', 1],
-        ['L13', 1],
-        ['L15', 3],
+        ['L13', 2],
+        ['L15', 4],
       ] as const) {
         await page.goto(`http://127.0.0.1:4321/${locale}/lessons/${lesson}/`);
         const diagrams = page.locator('.lesson-prose img');

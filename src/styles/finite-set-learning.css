@@ -1,0 +1,142 @@
+.finite-lab,
+.sets-diagnostic,
+.sets-depths,
+.sets-correction,
+.sets-extension {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--red-accent);
+  padding: 1rem;
+  margin-block: 1.25rem;
+  background: var(--card);
+  min-width: 0;
+}
+.finite-lab [hidden] {
+  display: none !important;
+}
+.finite-lab fieldset {
+  min-width: 0;
+  border: 0;
+  padding: 0;
+}
+.finite-lab label {
+  display: block;
+  font-weight: 700;
+  margin-top: 0.75rem;
+}
+.finite-lab select,
+.finite-lab button {
+  min-height: 44px;
+  font: inherit;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 0.5rem;
+}
+.finite-lab select {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+.finite-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block: 1rem;
+}
+.finite-lab button:disabled {
+  opacity: 0.55;
+}
+.finite-feedback {
+  font-weight: 700;
+}
+.finite-lab p {
+  overflow-wrap: anywhere;
+}
+:is(.finite-lab, .sets-correction, .sets-extension, .sets-diagnostic) summary {
+  min-height: 44px;
+  cursor: pointer;
+  font-weight: 700;
+  padding-block: 0.5rem;
+}
+:is(.finite-lab, .sets-correction, .sets-extension, .sets-diagnostic)
+  :is(input, select, button, summary):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.sets-revision {
+  border-top: 2px solid var(--line);
+  margin-top: 2rem;
+}
+@media print {
+  @page {
+    margin: 16mm;
+  }
+  :root:has([data-finite-lab]) {
+    color-scheme: light !important;
+    background: white !important;
+  }
+  body:has([data-finite-lab]) {
+    --paper: white;
+    --card: white;
+    --ink: #111;
+    --muted: #333;
+    --line: #777;
+    --soft-line: #ccc;
+    --red-accent: #8f1c14;
+    color: #111 !important;
+    background: white !important;
+  }
+  body:has([data-finite-lab])
+    :is(
+      .site-header,
+      .site-footer,
+      .course-outline,
+      .mobile-contents,
+      .reading-geometry,
+      .breadcrumb,
+      .lesson-completion,
+      .reading-notice,
+      .primary-link
+    ) {
+    display: none !important;
+  }
+  body:has([data-finite-lab]) :is(.lesson-page, .reading-column) {
+    display: block;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+  body:has([data-finite-lab]) .lesson-prose {
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  .finite-lab fieldset,
+  .finite-feedback,
+  [data-finite-results] {
+    display: none !important;
+  }
+  :is(
+    .finite-static,
+    .sets-correction,
+    .sets-diagnostic,
+    .sets-extension
+  )::details-content {
+    content-visibility: visible !important;
+    display: block !important;
+  }
+  :is(.finite-static, .sets-correction, .sets-diagnostic, .sets-extension)
+    > :not(summary) {
+    display: block !important;
+  }
+  .sets-revision {
+    break-before: page;
+  }
+  .sets-revision :is(h2, h3) {
+    break-after: avoid;
+  }
+  .sets-correction,
+  .lesson-prose figure {
+    break-inside: avoid;
+  }
+}

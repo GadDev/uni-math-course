@@ -1,0 +1,164 @@
+---
+lessonId: L13
+locale: fr
+version: 4
+status: extended
+title: "Ensembles définis par compréhension"
+summary: "Lire et calculer un ensemble défini par compréhension, y compris les intervalles et les nombres pairs, et séparer le domaine du filtre."
+minutes: 16
+objectives: [L13-O01, L13-O02, L13-O03, L13-O04, L13-O05, L13-O06]
+prerequisites: [L10, L11]
+sourcePages: [52, 53, 54, 55, 56]
+---
+import FiniteSetLab from '../../../src/components/FiniteSetLab';
+
+# Ensembles définis par compréhension
+
+
+## 1. Comprendre — Poser la bonne question
+
+### Votre objectif
+
+À la fin de cette leçon, vous savez lire $\{a \in X \mid P(a)\}$, le calculer pour un $X$ fini, reconnaître les intervalles et les nombres pairs écrits ainsi, et séparer le domaine $X$ du filtre $P$.
+
+**Prérequis :** L10 (ensembles et énumération) et L11 (prédicats).
+
+
+### Diagnostic — candidat et condition
+
+Soit $X=\{1,3,5\}$. Zéro est pair : cela suffit-il pour qu’il appartienne à $\{x\in X\mid \exists k\in\mathbb N\ x=2k\}$ ?
+
+<details className="sets-diagnostic">
+<summary>Vérifier les prérequis</summary>
+
+Non : zéro n’appartient pas à X. Il faut être candidat **et** réussir le test. Ici aucun candidat n’est pair, donc le résultat est vide. Revoir [L10](/fr/lessons/L10/) et [L11](/fr/lessons/L11/).
+
+</details>
+
+Une compréhension fonctionne comme le filtre d’une liste : choisir la liste d’abord, appliquer la condition ensuite. Un filtre ne crée pas de nouveaux candidats.
+
+
+<aside className="sets-depths">
+
+**L’essentiel :** lire et comprendre. **Maîtriser :** calculer et justifier. **Aller plus loin :** ouvrir les prolongements signalés.
+
+</aside>
+
+## 2. Visualiser — Suivre les objets
+
+![Les candidats 0 à 5 traversent le test pair ; seuls 0, 2 et 4 sont gardés.](/diagrams/sets-learning/l13-fr.svg)
+
+### Voir le filtre agir
+
+![Intervalle ouvert de deux à quatre : bornes exclues, cercles vides ; intervalle fermé : bornes incluses, points pleins.](/diagrams/interval-endpoints.svg)
+
+Pour $X = \{1,2,3,4\}$ et le test « être supérieur à deux », un et deux sont rejetés ; trois et quatre sont gardés. L’ensemble résultat contient seulement trois et quatre. Le symbole $\mid$ sépare les objets candidats du test, et se lit « tels que ».
+
+Dans un intervalle, $+\infty$ n’est pas un nombre réel que l’on pourrait inclure : le crochet de ce côté est toujours ouvert. Comparez $]2,4[$ (sans deux ni quatre) et $[2,4]$ (avec les deux bornes).
+
+## 3. Calculer — Détailler et justifier
+
+### Définition
+
+Si $P(x)$ est un prédicat sur $X$, l’ensemble des éléments $a$ de $X$ pour lesquels $P(a)$ est vrai se note
+$$
+\{a \in X \mid P(a)\}.
+$$
+On lit « l’ensemble des $a$ de $X$ tels que $P(a)$ ».
+
+### Intervalles
+
+Avec la notation française, un crochet tourné vers l’extérieur exclut une borne et un crochet tourné vers l’intérieur l’inclut :
+$$
+\{x \in \mathbb{R} \mid x > 2\} = ]2, +\infty[.
+$$
+L’intervalle $[10, +\infty[$ contient $10$ et tout réel plus grand.
+
+### Les nombres pairs
+
+$$
+\{n \in \mathbb{N} \mid \exists k \in \mathbb{N}\ n = 2k\} = \{0, 2, 4, \ldots\}.
+$$
+Ici $\exists k \in \mathbb{N}$ se lit « il existe $k$ dans $\mathbb{N}$ ». Zéro est inclus, puisque $0 = 2 \cdot 0$.
+
+### Exemple guidé : les nombres premiers jusqu’à 8
+
+Un **nombre premier** est un entier supérieur ou égal à $2$ qui possède exactement deux diviseurs positifs : $1$ et lui-même. Ainsi $1$ est exclu, $2$ convient, et $4$ échoue car $2$ est aussi un diviseur.
+
+Soit $X = \{1, 2, 3, 4, 5, 6, 7, 8\}$ et $P(n)$ : « $n$ est premier ».
+
+1. Testez chaque élément de $X$ avec $P$.
+2. Les éléments qui passent le test sont $2$, $3$, $5$ et $7$.
+3. Donc $\{n \in X \mid P(n)\} = \{2, 3, 5, 7\}$.
+
+### Piège : domaine et filtre
+
+Le résultat dépend des deux parties. $\{n \in \{1, 2, 3\} \mid n > 5\} = \varnothing$, car le filtre élimine tous les éléments. Et $\{x \in \mathbb{N} \mid x > 2\}$ n’est pas le même ensemble que $\{x \in \mathbb{R} \mid x > 2\}$ : le domaine diffère.
+
+
+### Décomposer la lecture, puis tester chaque ligne
+
+Dans $E=\{x\in X\mid P(x)\}$ : E est le **nom du résultat**, x le **candidat**, X le **domaine**, et P le **test**. Changer le nom de la variable ne change pas l’ensemble : $\{x\in X\mid x>2\}=\{t\in X\mid t>2\}$.
+
+Pour $X=\{-2,-1,0,1,2,3\}$ et $P(x)$ : $x^2\le4$, voici les calculs :
+
+| x | −2 | −1 | 0 | 1 | 2 | 3 |
+| --- | --- | --- | --- | --- | --- | --- |
+| x² | 4 | 1 | 0 | 1 | 4 | 9 |
+| x² ≤ 4 | vrai | vrai | vrai | vrai | vrai | faux |
+
+Donc le résultat est $\{-2,-1,0,1,2\}$. Les deux bornes −2 et 2 passent le test grâce à l’égalité.
+
+**À compléter :** écrire $\{x\in\mathbb R\mid -1<x\le3\}$ comme intervalle, puis remplacer le domaine par $\mathbb Z$ et énumérer.
+
+<details className="sets-correction">
+<summary>Compléter et contrôler les bornes</summary>
+
+Sur les réels : $]-1,3]$. Sur les entiers : $\{0,1,2,3\}$. Le réel $1.5$ appartient au premier ensemble mais pas au second. Le test est identique ; le domaine change.
+
+</details>
+
+## 4. Expérimenter — Prédire, vérifier, expliquer
+
+<FiniteSetLab lesson="L13" locale="fr" client:visible />
+
+## 5. Pratiquer — Répondre sans le modèle
+
+### Deux questions sur papier
+
+Écrivez une justification avant d’ouvrir les corrections. Ces nouveaux exemples ne sont pas notés ni enregistrés.
+
+1. Énumérer $\{n\in\{0,1,2,3,4,5,6,7,8\}\mid\exists k\in\mathbb N\ n=2k+1\}$.
+2. Traduire « les réels dont le carré est au plus 4 » par compréhension et par intervalle. −2 et 2 sont-ils inclus ?
+
+<details className="sets-correction">
+<summary>Corrections expliquées</summary>
+
+1. $\{1,3,5,7\}$ : tester les candidats du domaine ; 9 satisfait la propriété mais n’est pas candidat.
+2. $\{x\in\mathbb R\mid x^2\le4\}=[-2,2]$. Les deux bornes sont incluses. Sur $\mathbb Z$, le résultat serait seulement $\{-2,-1,0,1,2\}$.
+
+</details>
+
+### Pratique indépendante
+
+Les exercices sélectionnés portent sur une compréhension finie, deux intervalles, les nombres pairs, un résultat vide et un filtre sur les nombres premiers.
+
+La pratique interactive est disponible avec un compte lorsque la connexion est configurée. Le bouton « S’exercer » ouvre les exercices avec correction et tentatives enregistrées dans votre progression privée.
+
+<section className="sets-revision">
+
+## 6. Retenir — Fiche de révision
+
+### À retenir
+
+$\{a \in X \mid P(a)\}$ garde les éléments de l’ensemble donné $X$ qui satisfont $P$. Nommez le domaine, appliquez le filtre, et attendez-vous à un résultat vide quand rien ne passe.
+
+Texte et exemples originaux du projet. La couverture suit les pages 52 à 56 du PDF selon la carte du cours du dépôt ; aucun texte d’enseignant n’est reproduit.
+
+**Méthode et pièges :** Domaine → test → liste des éléments gardés → contrôle des bornes. Le résultat est inclus dans le domaine. Un réel intermédiaire n’est pas forcément un entier. Zéro appartient à $\mathbb N$.
+
+**Exemple repère :** $\{x\in\mathbb R\mid x^2\le4\}=[-2,2]$. Avec le domaine $\mathbb Z$, garder seulement $\{-2,-1,0,1,2\}$.
+
+Référence commune : [logique et ensembles](https://uni-math-course.vercel.app/fr/cheat-sheet/). Pour vous tester, cachez cette fiche et refaites une question sur papier.
+
+</section>
