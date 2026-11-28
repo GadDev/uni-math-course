@@ -2,6 +2,15 @@
 
 Application release notes are maintained by Release Please. The [pre-automation history](docs/releases/PRE_AUTOMATION.md) preserves the original manual notes; those notes were not versioned application releases.
 
+## [0.23.0](https://github.com/GadDev/uni-math-course/compare/v0.22.0...v0.23.0) (2026-11-28)
+
+
+### Features
+
+* **learning:** guide L11-L15 predicates, quantifiers and sets ([#216](https://github.com/GadDev/uni-math-course/issues/216)) ([0132740](https://github.com/GadDev/uni-math-course/commit/013274053848e73dd690e721d72b7eae0bc94210))
+* **learning:** redesign L04 Boolean proof construction ([#208](https://github.com/GadDev/uni-math-course/issues/208)) ([2682ac2](https://github.com/GadDev/uni-math-course/commit/2682ac21ddb946d9f57e912f19bed456bbc64500))
+* **learning:** redesign L07 biconditional and equivalence ([#211](https://github.com/GadDev/uni-math-course/issues/211)) ([bc82653](https://github.com/GadDev/uni-math-course/commit/bc8265361f4cb0df5509f9eea06ed54ad7ec765e))
+
 ## [0.22.0](https://github.com/GadDev/uni-math-course/compare/v0.21.0...v0.22.0) (2026-11-27)
 
 
