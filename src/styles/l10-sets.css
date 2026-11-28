@@ -1,0 +1,63 @@
+.l10-lab {
+  border: 1px solid currentColor;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.l10-lab label {
+  display: block;
+  margin-top: 0.75rem;
+}
+.l10-lab select,
+.l10-lab button {
+  font: inherit;
+  color: inherit;
+  background: var(--color-background, transparent);
+  border: 1px solid currentColor;
+  border-radius: 0.4rem;
+  padding: 0.5rem;
+  min-height: 44px;
+  max-width: 100%;
+}
+.l10-lab button[aria-pressed='true'] {
+  outline: 2px solid currentColor;
+  font-weight: bold;
+}
+.l10-lab button:focus-visible,
+.l10-lab select:focus-visible {
+  outline: 3px dashed currentColor;
+  outline-offset: 3px;
+}
+.l10-box {
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+  border: 2px solid currentColor;
+  border-radius: 1rem;
+}
+.l10-elements,
+.l10-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.l10-token {
+  border: 1px solid currentColor;
+  border-radius: 0.4rem;
+  padding: 0.5rem;
+}
+.l10-lab fieldset {
+  min-width: 0;
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+}
+@media print {
+  .l10-live {
+    display: none !important;
+  }
+  .l10-static[hidden] {
+    display: block !important;
+  }
+  .l10-lab {
+    break-inside: avoid;
+  }
+}
