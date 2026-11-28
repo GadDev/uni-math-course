@@ -3,7 +3,7 @@ import '../styles/implication-explorers.css';
 ---
 
 <script>
-  import { implicationValues } from '../lib/implication';
+  import { challengeValue, implicationValues } from '../lib/implication';
 
   const fr = document.documentElement.lang === 'fr';
   const bit = (value: boolean) => String(Number(value));
@@ -77,7 +77,7 @@ import '../styles/implication-explorers.css';
       );
       if (lab.dataset.logicLab === 'cards') {
         const rows = document.querySelectorAll<HTMLTableRowElement>(
-          '.lesson-prose > table tbody tr',
+          '.lesson-prose > table:first-of-type tbody tr',
         );
         rows.forEach((row, index) => {
           if (index === Number(a) * 2 + Number(b))
@@ -107,11 +107,91 @@ import '../styles/implication-explorers.css';
       marker.setAttribute('x1', String(x));
       marker.setAttribute('x2', String(x));
       lab.querySelector<HTMLElement>('[data-number-result]')!.textContent = fr
-        ? `n = ${n} : A (« n > 10 ») : ${truth(a)} ; B (« n > 5 ») : ${truth(b)}. A ⇒ B vaut ${bit(!a || b)} ; B ⇒ A vaut ${bit(!b || a)}. ${b && !a ? 'Ce nombre réfute la réciproque B ⇒ A.' : 'Ce nombre ne réfute pas la réciproque. Cherchez entre les deux seuils.'}`
-        : `n = ${n}: A (“n > 10”) is ${truth(a)}; B (“n > 5”) is ${truth(b)}. A ⇒ B is ${bit(!a || b)}; B ⇒ A is ${bit(!b || a)}. ${b && !a ? 'This number refutes the converse B ⇒ A.' : 'This number does not refute the converse. Look between the two thresholds.'}`;
+        ? `n = ${n} : A (« n > 10 ») : ${truth(a)} ; B (« n > 5 ») : ${truth(b)}. A ⇒ B vaut ${bit(implicationValues(a, b).implication)} ; B ⇒ A vaut ${bit(implicationValues(b, a).implication)}. ${b && !a ? 'Ce nombre réfute la réciproque B ⇒ A.' : 'Ce nombre ne réfute pas la réciproque. Cherchez entre les deux seuils.'}`
+        : `n = ${n}: A (“n > 10”) is ${truth(a)}; B (“n > 5”) is ${truth(b)}. A ⇒ B is ${bit(implicationValues(a, b).implication)}; B ⇒ A is ${bit(implicationValues(b, a).implication)}. ${b && !a ? 'This number refutes the converse B ⇒ A.' : 'This number does not refute the converse. Look between the two thresholds.'}`;
     };
     slider.disabled = false;
     slider.addEventListener('input', update);
     update();
+  }
+
+  for (const lab of document.querySelectorAll<HTMLElement>(
+    '[data-implication-challenge]',
+  )) {
+    const controls = lab.querySelector<HTMLFieldSetElement>(
+      '[data-challenge-controls]',
+    )!;
+    const task = lab.querySelector<HTMLSelectElement>('[data-task]')!;
+    const aInput = lab.querySelector<HTMLSelectElement>('[data-challenge-a]')!;
+    const bInput = lab.querySelector<HTMLSelectElement>('[data-challenge-b]')!;
+    const prediction =
+      lab.querySelector<HTMLSelectElement>('[data-prediction]')!;
+    const label = lab.querySelector<HTMLElement>('[data-prediction-label]')!;
+    const check = lab.querySelector<HTMLButtonElement>(
+      '[data-challenge-check]',
+    )!;
+    const feedback = lab.querySelector<HTMLElement>(
+      '[data-challenge-feedback]',
+    )!;
+    const refresh = () => {
+      label.hidden = task.value !== 'predict';
+      prediction.disabled = task.value !== 'predict';
+      prediction.value = '';
+      feedback.textContent = '';
+      check.disabled = task.value === 'predict';
+    };
+    for (const input of [task, aInput, bInput]) {
+      input.addEventListener('change', refresh);
+    }
+    prediction.addEventListener('change', () => {
+      feedback.textContent = '';
+      check.disabled = prediction.value === '';
+    });
+    check.addEventListener('click', () => {
+      const a = aInput.value === '1';
+      const b = bInput.value === '1';
+      const reverse = task.value === 'converse';
+      const antecedent = reverse ? b : a;
+      const consequent = reverse ? a : b;
+      const value = challengeValue(task.value, a, b);
+      const correct =
+        task.value === 'predict' ? prediction.value === bit(value) : !value;
+      const rule = reverse ? 'B ⇒ A' : 'A ⇒ B';
+      const reason = !antecedent
+        ? fr
+          ? 'La condition est fausse : aucun échec.'
+          : 'The antecedent is false: no violation.'
+        : consequent
+          ? fr
+            ? 'La condition et la conclusion sont vraies.'
+            : 'Both antecedent and consequent are true.'
+          : fr
+            ? 'La condition est vraie et la conclusion est fausse.'
+            : 'The antecedent is true and the consequent is false.';
+      feedback.textContent =
+        (correct
+          ? fr
+            ? 'Bonne réponse. '
+            : 'Correct. '
+          : fr
+            ? 'À revoir. '
+            : 'Try again. ') +
+        rule +
+        ' = ' +
+        bit(value) +
+        '. ' +
+        reason;
+    });
+    lab
+      .querySelector<HTMLButtonElement>('[data-challenge-reset]')!
+      .addEventListener('click', () => {
+        task.value = 'predict';
+        aInput.value = '0';
+        bInput.value = '0';
+        refresh();
+      });
+    controls.disabled = false;
+    lab.dataset.ready = 'true';
+    refresh();
   }
 </script>
