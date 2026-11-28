@@ -1,7 +1,7 @@
 ---
 lessonId: L04
 locale: en
-version: 5
+version: 6
 status: extended
 title: "Semantic equivalence and Boolean laws"
 summary: "Check that two formulas have the same truth table, apply the Boolean laws, recognise tautologies and contradictions, and refute an equivalence with one row."
@@ -11,12 +11,18 @@ prerequisites: [L01, L02, L03]
 sourcePages: [15, 16, 17, 18, 19]
 ---
 import BooleanLab from '../../../src/components/BooleanLab';
+import BooleanProofLab from '../../../src/components/BooleanProofLab';
 
 # Semantic equivalence and Boolean laws
 
-## Your objective
+## 1. Understand — Same meaning, different forms
+
+### Your objective
 
 By the end of this lesson, you can check that two formulas are semantically equivalent, apply the Boolean laws, recognise tautologies and contradictions, and refute an equivalence with a single row.
+
+<details className="l04-solution">
+<summary>Optional recap — L01 to L03</summary>
 
 **Prerequisites:** <a href="/en/lessons/L01/">L01</a> to <a href="/en/lessons/L03/">L03</a>: truth values and complete tables. Here is the necessary reminder:
 
@@ -29,9 +35,13 @@ By the end of this lesson, you can check that two formulas are semantically equi
 
 An **assignment** chooses a value for every variable. Two variables have $2^2=4$ choices; three have $2^3=8$. Parentheses identify groups to calculate; negation applies to the formula immediately following it.
 
+</details>
+
 **How to use this lesson:** predict a result on paper, manipulate an activity, then explain the result in your own words. The activities are public and need no account. Use your browser’s print command to study offline: fixed examples replace the controls and solutions are expanded.
 
-## Equivalence: the same truth table
+**Essential path:** read the definitions and laws, then complete the guided proof. To build mastery, try the three explorers and paper exercises. Extra verification tables and the link to L05 are extensions.
+
+### Equivalence: the same truth table
 
 Imagine two admission checks: “have a ticket AND an invitation” and “have an invitation AND a ticket”. They accept exactly the same people. The word order changes; the condition stays the same.
 
@@ -52,13 +62,17 @@ Two assertions $A$ and $B$ are **semantically equivalent**, written $A \equiv B$
 
 For example, $A\land B$ and $A\lor B$ are both 1 for A = B = 1. But for A = 1, B = 0, they differ: 0 versus 1. Agreement on one row establishes nothing beyond that row.
 
-## Equivalence is not a connective
+### Equivalence is not a connective
 
 $\equiv$ is a claim about two formulas, not an operator inside a formula. The statement $A \equiv B$ is true exactly when the two truth tables match.
 
 Do not confuse it with $\Leftrightarrow$, the biconditional connective studied in L07. The formula $A \Leftrightarrow B$ is an assertion built from $A$ and $B$; the statement $A \equiv B$ compares two formulas.
 
-## First example: two negations
+## 2. Visualise — Compare every assignment
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L04-equivalence-en.svg" alt="Two identical 0001 columns and a different 0111 column: a single differing row refutes equivalence." width="560" height="260" /><figcaption>Compare columns over the same assignments. Local agreement is not proof.</figcaption></figure>
+
+### First example: two negations
 
 Before comparing eight rows, try one variable. NOT flips the value; a second negation restores it.
 
@@ -69,7 +83,22 @@ Before comparing eight rows, try one variable. NOT flips the value; a second neg
 
 The first and last columns match on every row: $\neg\neg A\equiv A$. Check each step before reading the following laws.
 
-## Boolean algebra: rewrite while keeping the meaning
+### Tautologies and contradictions
+
+A **tautology** is an assertion that is true under every assignment. A **contradiction** is false under every assignment. The constant $\top$ is a tautology, and $\neg\top$ is a contradiction.
+
+- $A \lor \neg A$ is a tautology.
+- $A \land \neg A$ is a contradiction.
+
+### Trap: negating each part
+
+$\neg (A \land B)$ is not equivalent to $\neg A \land \neg B$. One row refutes the equivalence: with $A = 1$ and $B = 0$, the left side is $\neg 0 = 1$, while the right side is $0 \land 1 = 0$.
+
+A single differing row is enough to refute an equivalence. Agreement must hold on every row to establish one.
+
+## 3. Calculate and reason — Boolean algebra
+
+### Boolean algebra: rewrite while keeping the meaning
 
 A Boolean law lets you replace a formula with another that always gives the same result. Think of two different recipes producing the same final column. Here $A$, $B$ and $C$ may also stand for whole formulas: a law still holds when every occurrence of the same letter is replaced by the same formula.
 
@@ -77,15 +106,15 @@ An assignment fixes a value for every variable. A calculation on one assignment 
 
 We use logical symbols rather than replacing AND with multiplication or OR with addition. In particular, $1\lor1=1$, whereas $1+1=2$ in ordinary arithmetic.
 
-<BooleanLab kind="rewrite" locale="en" client:visible />
 
-### Commutativity: change the order
+
+#### Commutativity: change the order
 
 $A \lor B \equiv B \lor A$ and $A \land B \equiv B \land A$.
 
 “Having a ticket AND an invitation” requires the same things as “having an invitation AND a ticket”. OR also works both ways: what matters is how many parts are true, not their position. If $A = 0$ and $B = 1$, both disjunctions are $1$ and both conjunctions are $0$.
 
-### Associativity: change the grouping
+#### Associativity: change the grouping
 
 $A \lor (B \lor C) \equiv (A \lor B) \lor C$ and $A \land (B \land C) \equiv (A \land B) \land C$.
 
@@ -93,11 +122,11 @@ With OR throughout, both versions need at least one true part; with AND througho
 
 This does not let you move parentheses freely in a mixed formula. With $A = 0$, $B = 1$, $C = 1$, $A \land (B \lor C)$ is $0$, but $(A \land B) \lor C$ is $1$.
 
-### Pause: two laws, two checks
+#### Pause: two laws, two checks
 
 With $A=1$ and $B=0$, compare $A\lor B$ and $B\lor A$: both are $1$. Then, with $A=0$, $B=1$, $C=1$, compare $A\land(B\lor C)$ and $(A\land B)\lor C$: $0$ versus $1$. Commutativity allows a swap; associativity does not allow mixing connectives. One row can refute a law, but cannot prove it.
 
-### Distributivity: expand and factor
+#### Distributivity: expand and factor
 
 ![Tree of A AND (B OR C): the main AND joins A to the B OR C group; B and C are the two OR inputs.](/diagrams/formula-grouping.svg)
 
@@ -123,15 +152,15 @@ Both laws also read from right to left: this is **factoring**. For example, $(A 
 
 </aside>
 
-<BooleanLab kind="distribute" locale="en" client:visible />
 
-### Double negation: undo two flips
+
+#### Double negation: undo two flips
 
 $\neg\neg A \equiv A$.
 
 NOT flips a value, then the second NOT flips it back: $0$ becomes $1$, then $0$; $1$ becomes $0$, then $1$. In classical logic, “it is false that I have no ticket” therefore says “I have a ticket”. Both negations must apply to the same assertion.
 
-### Excluded middle and non-contradiction: always true or always false
+#### Excluded middle and non-contradiction: always true or always false
 
 $A \lor \neg A \equiv \top$ and $A \land \neg A \equiv \neg\top$.
 
@@ -144,7 +173,7 @@ In the classical setting, for a precise assertion, either it is true or its nega
 | 0 | 1 | 1 | 0 |
 | 1 | 0 | 1 | 0 |
 
-### De Morgan: negate a whole group
+#### De Morgan: negate a whole group
 
 $\neg(A \lor B) \equiv \neg A \land \neg B$ and $\neg(A \land B) \equiv \neg A \lor \neg B$.
 
@@ -160,6 +189,9 @@ With $A$ meaning “I have a ticket” and $B$ meaning “I have an invitation�
 **Why does it work?** For “A AND B” to fail, at least one condition must fail. For “A OR B” to fail, both must fail. OR is inclusive: it also allows both conditions to fail.
 
 The following table checks the first situation under all four choices:
+
+<details className="l04-solution">
+<summary>Optional check: both De Morgan tables</summary>
 
 | A | B | ¬(A ∧ B) | ¬A ∨ ¬B |
 | --- | --- | --- | --- |
@@ -177,15 +209,73 @@ The second law also checks out on all four rows:
 | 1 | 0 | 0 | 0 |
 | 1 | 1 | 0 | 0 |
 
+</details>
+
+#### A rewrite in two steps
+
+Start with $\neg(\neg A \lor B)$. De Morgan gives $\neg\neg A \land \neg B$. Double negation then gives $A \land \neg B$. Each step preserves the truth table: write the law’s name beside each transformation so you can check it.
+
+Two useful additional laws, derived from the truth tables:
+
+$$X\land\top\equiv X,\qquad X\lor\neg\top\equiv X.$$
+
+These are the identity laws. AND with true preserves X; OR with false preserves X. The revision PDF uses them implicitly. Name them in a proof as well.
+
+<figure className="teaching-figure"><img src="/diagrams/logic/L04-proof-en.svg" alt="Rewrite B OR (A AND NOT B) to (B OR A) AND (B OR NOT B), then (B OR A) AND true, then B OR A." width="560" height="290" /><figcaption>One line, one law: copy the unchanged parts, then justify the change.</figcaption></figure>
+
+An algebraic proof is a chain of equivalences, not a sequence of numeric equalities. When rewriting a group inside a formula, preserve its context. A complete table can check your result, but if the question forbids tables, your written proof must cite laws only.
+
+### Developing the proof proposed on page 19
+
+The source proposes proving $A \land (B \lor C) \equiv (A \land B) \lor (A \land C)$ without supplying the proof. Here is an original argument by cases.
+
+If $A = 0$, the left side is zero and both conjunctions on the right are zero. If $A = 1$, the left side is $B \lor C$ and so is the right side. A has only these two values: the argument covers every assignment of B and C. It develops the source’s task without attributing this solution to the lecturer.
+
+<details className="l04-solution">
+<summary>Further study — check distributivity on eight rows</summary>
+
+### Guided example: checking a distributive law
+
+Check that $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$. Before reading the eight rows, try A = 0, B = 1, C = 0. On the left: $0\lor(1\land0)=0$. On the right: $(0\lor1)\land(0\lor0)=1\land0=0$.
+
+To fill the table, keep A fixed for four rows and B for two rows, alternating C each row. This enumerates exactly the eight assignments.
+
+| A | B | C | A ∨ (B ∧ C) | (A ∨ B) ∧ (A ∨ C) |
+| --- | --- | --- | --- | --- |
+| 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 0 |
+| 0 | 1 | 0 | 0 | 0 |
+| 0 | 1 | 1 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 1 |
+| 1 | 0 | 1 | 1 | 1 |
+| 1 | 1 | 0 | 1 | 1 |
+| 1 | 1 | 1 | 1 | 1 |
+
+The two columns agree on every row, so the equivalence holds. This check uses truth tables; deriving the law from the others is a different method, not required here.
+
+Then cover the final two columns and reconstruct them on paper. Check the solution only after your attempt.
+
+</details>
+
+## 4. Experiment — Construct a proof
+
+In the new workshop, first choose a law, then the next proof line. Check both choices. A correct formula with the wrong law name is not enough. The workshop offers a guided route; other proofs are possible. For an invalid rewrite, a counterexample is available after checking, but the proof itself uses laws only.
+
+<BooleanProofLab locale="en" client:visible />
+
+All three original explorers remain available. Use them to compare assignments, test a rewrite or explore both directions of distributivity.
+
+<BooleanLab kind="rewrite" locale="en" client:visible />
+
+<BooleanLab kind="distribute" locale="en" client:visible />
+
 <BooleanLab kind="morgan" locale="en" client:visible />
 
 The activity’s map represents a simple **universe U**: all four possible assignments of A and B. Each cell is a complete case; hatching marks where the left formula is true. No case outside U is implied.
 
-### A rewrite in two steps
+## 5. Practise — Justify without a table
 
-Start with $\neg(\neg A \lor B)$. De Morgan gives $\neg\neg A \land \neg B$. Double negation then gives $A \land \neg B$. Each step preserves the truth table: write the law’s name beside each transformation so you can check it.
-
-### Pause: try before reading
+#### Pause: try before reading
 
 1. Reorder $B \land A$ to start with $A$.
 2. Factor $(C \land A) \lor (C \land B)$.
@@ -209,55 +299,55 @@ First negate the main OR: $\neg A\land\neg(B\land C)$. A group is still negated;
 
 </details>
 
-## Guided example: checking a distributive law
+New paper challenge: simplify the following expression using laws only. Name each law and do not drop any term without justification.
 
-Check that $A \lor (B \land C) \equiv (A \lor B) \land (A \lor C)$. Before reading the eight rows, try A = 0, B = 1, C = 0. On the left: $0\lor(1\land0)=0$. On the right: $(0\lor1)\land(0\lor0)=1\land0=0$.
+$$(C\land\neg C)\lor(A\land\top)$$
 
-To fill the table, keep A fixed for four rows and B for two rows, alternating C each row. This enumerates exactly the eight assignments.
+<details className="l04-solution">
+<summary>Explained answer</summary>
 
-| A | B | C | A ∨ (B ∧ C) | (A ∨ B) ∧ (A ∨ C) |
-| --- | --- | --- | --- | --- |
-| 0 | 0 | 0 | 0 | 0 |
-| 0 | 0 | 1 | 0 | 0 |
-| 0 | 1 | 0 | 0 | 0 |
-| 0 | 1 | 1 | 1 | 1 |
-| 1 | 0 | 0 | 1 | 1 |
-| 1 | 0 | 1 | 1 | 1 |
-| 1 | 1 | 0 | 1 | 1 |
-| 1 | 1 | 1 | 1 | 1 |
+$$(C\land\neg C)\lor(A\land\top)\equiv\neg\top\lor(A\land\top)$$
 
-The two columns agree on every row, so the equivalence holds. This check uses truth tables; deriving the law from the others is a different method, not required here.
+Non-contradiction.
 
-Then cover the final two columns and reconstruct them on paper. Check the solution only after your attempt.
+$$\equiv\neg\top\lor A\equiv A\lor\neg\top\equiv A.$$
 
-## Tautologies and contradictions
+AND identity, OR commutativity, OR identity.
 
-A **tautology** is an assertion that is true under every assignment. A **contradiction** is false under every assignment. The constant $\top$ is a tautology, and $\neg\top$ is a contradiction.
+</details>
 
-- $A \lor \neg A$ is a tautology.
-- $A \land \neg A$ is a contradiction.
+<details className="l04-solution">
+<summary>Exam challenge — L05 preview, Revision.pdf exercise 3</summary>
 
-## Trap: negating each part
+The lecturer asks for a proof without a table (physical pages 8–9 of the revision PDF). The supplied reminder will be explained in L05:
 
-$\neg (A \land B)$ is not equivalent to $\neg A \land \neg B$. One row refutes the equivalence: with $A = 1$ and $B = 0$, the left side is $\neg 0 = 1$, while the right side is $0 \land 1 = 0$.
+$$\neg(A\Rightarrow B)\equiv A\land\neg B.$$
 
-A single differing row is enough to refute an equivalence. Agreement must hold on every row to establish one.
+Thus, to prove $\neg(A\Rightarrow B)\lor B\equiv A\lor B$, first replace the negated implication, then apply the L04 laws. Try the second workshop proof before reading the chain below.
 
-## Developing the proof proposed on page 19
+$$\neg(A\Rightarrow B)\lor B\equiv(A\land\neg B)\lor B$$
 
-The source proposes proving $A \land (B \lor C) \equiv (A \land B) \lor (A \land C)$ without supplying the proof. Here is an original argument by cases.
+$$\equiv B\lor(A\land\neg B)$$
 
-If $A = 0$, the left side is zero and both conjunctions on the right are zero. If $A = 1$, the left side is $B \lor C$ and so is the right side. A has only these two values: the argument covers every assignment of B and C. It develops the source’s task without attributing this solution to the lecturer.
+$$\equiv(B\lor A)\land(B\lor\neg B)$$
 
-## Independent practice
+$$\equiv(B\lor A)\land\top\equiv B\lor A\equiv A\lor B.$$
+
+Justifications in order: supplied reminder, commutativity, distributivity, excluded middle, AND identity (made explicit here), commutativity. The source solution compresses the final two transformations.
+
+</details>
+
+### Independent practice
 
 The selected exercises practise equivalence, complete tables, Boolean laws, tautologies, contradictions and counterexamples. The current count and version are shown in practice.
 
 The labs above are freely accessible. Use “Practise” for saved practice: it requires an account and depends on the released version.
 
+## 6. Remember — Revision sheet
+
 <section className="l04-revision">
 
-## Takeaway
+### Takeaway
 
 **My revision sheet — L04**
 
@@ -275,6 +365,11 @@ The labs above are freely accessible. Use “Practise” for saved practice: it 
 
 **Self-check:** without looking at the lesson, explain why $\neg(A\land B)$ can be true even when A is true. Answer: B can be false; the conjunction is then 0 and its negation is 1.
 
+**Proof without a table:** write the starting formula → select a subgroup → apply a law → copy the rest → name the justification → repeat until reaching the target. The identities $X\land\top\equiv X$ and $X\lor\neg\top\equiv X$ avoid skipping a step.
+
 </section>
 
-Original project text and examples. Coverage follows PDF pages 15–19 in the repository’s course map. The case argument developing page 19’s objective and the completed checks are original project developments.
+Verified source: Logique_01.pdf, physical pages 15–19; Revision.pdf, exercise 3, physical pages 8–9. Diagrams, workshops, completed tables, case argument and added exercises are original project developments. The exam challenge follows the source problem and method with the identity law made explicit.
+
+In L05, we study implication and its negation. [L05](/en/lessons/L05/).
+
