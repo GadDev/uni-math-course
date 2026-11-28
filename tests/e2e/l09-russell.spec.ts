@@ -11,21 +11,38 @@ for (const locale of ['fr', 'en'] as const) {
     await expect(assumptions).toBeVisible();
     const status = lab.getByRole('status');
     await expect(status).toContainText('0/2');
-    await assumptions.getByRole('button', { name: 'E ∈ E', exact: true }).click();
+    await assumptions
+      .getByRole('button', { name: 'E ∈ E', exact: true })
+      .click();
     const predictions = lab.locator('fieldset').nth(1);
-    await predictions.getByRole('button', { name: 'E ∈ E', exact: true }).click();
+    await predictions
+      .getByRole('button', { name: 'E ∈ E', exact: true })
+      .click();
     await expect(status).toContainText('0/2');
-    await expect(status).toContainText(locale === 'fr' ? 'Réessayez' : 'Try again');
-    await predictions.getByRole('button', { name: 'E ∉ E', exact: true }).click();
+    await expect(status).toContainText(
+      locale === 'fr' ? 'Réessayez' : 'Try again',
+    );
+    await predictions
+      .getByRole('button', { name: 'E ∉ E', exact: true })
+      .click();
     await expect(status).toContainText('1/2');
     await expect(status).toContainText('E ∈ E ⇒ E ∉ E');
-    await assumptions.getByRole('button', { name: 'E ∉ E', exact: true }).click();
-    const second = predictions.getByRole('button', { name: 'E ∈ E', exact: true });
+    await assumptions
+      .getByRole('button', { name: 'E ∉ E', exact: true })
+      .click();
+    const second = predictions.getByRole('button', {
+      name: 'E ∈ E',
+      exact: true,
+    });
     await second.focus();
     await page.keyboard.press('Enter');
     await expect(status).toContainText('2/2');
     await expect(status).toContainText('E ∉ E ⇒ E ∈ E');
-    await lab.getByRole('button', { name: locale === 'fr' ? 'Réinitialiser' : 'Reset' }).click();
+    await lab
+      .getByRole('button', {
+        name: locale === 'fr' ? 'Réinitialiser' : 'Reset',
+      })
+      .click();
     await expect(status).toContainText('0/2');
     await expect(predictions).toHaveCount(0);
     await page.emulateMedia({ media: 'print' });
