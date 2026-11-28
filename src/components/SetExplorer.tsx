@@ -48,7 +48,13 @@ export default function SetExplorer({ locale }: { locale: Locale }) {
   const truth = (value: boolean) =>
     value ? (fr ? 'Vrai' : 'True') : fr ? 'Faux' : 'False';
   const feedback = (guess: boolean, result: boolean) =>
-    guess === result ? (fr ? 'Bonne réponse. ' : 'Correct. ') : fr ? 'À revoir. ' : 'Try again. ';
+    guess === result
+      ? fr
+        ? 'Bonne réponse. '
+        : 'Correct. '
+      : fr
+        ? 'À revoir. '
+        : 'Try again. ';
 
   return (
     <section className="l10-lab" aria-labelledby={id} data-set-explorer>
@@ -60,37 +66,66 @@ export default function SetExplorer({ locale }: { locale: Locale }) {
       </p>
       <div className="l10-live" hidden={!ready}>
         <label htmlFor={id + '-preset'}>{fr ? 'Ensemble A' : 'Set A'}</label>
-        <select id={id + '-preset'} value={preset} onChange={(event) => {
-          setPreset(Number(event.currentTarget.value));
-          clearGuesses();
-        }}>
+        <select
+          id={id + '-preset'}
+          value={preset}
+          onChange={(event) => {
+            setPreset(Number(event.currentTarget.value));
+            clearGuesses();
+          }}
+        >
           {presets.map((elements, index) => (
-            <option key={index} value={index}>{notation(elements)}</option>
+            <option key={index} value={index}>
+              {notation(elements)}
+            </option>
           ))}
         </select>
         <figure className="l10-box">
           <figcaption>A = {notation(a)}</figcaption>
           <div className="l10-elements">
-            {a.length ? a.map((element) => (
-              <span className="l10-token" key={element}>{element}</span>
-            )) : <span>{fr ? 'Aucun élément' : 'No elements'}</span>}
+            {a.length ? (
+              a.map((element) => (
+                <span className="l10-token" key={element}>
+                  {element}
+                </span>
+              ))
+            ) : (
+              <span>{fr ? 'Aucun élément' : 'No elements'}</span>
+            )}
           </div>
-          <p>{fr ? 'Chaque tuile est un élément direct de A.' : 'Each tile is a direct element of A.'}</p>
+          <p>
+            {fr
+              ? 'Chaque tuile est un élément direct de A.'
+              : 'Each tile is a direct element of A.'}
+          </p>
         </figure>
-        <label htmlFor={id + '-object'}>{fr ? 'Objet à tester' : 'Object to test'}</label>
-        <select id={id + '-object'} value={object} onChange={(event) => {
-          setObject(Number(event.currentTarget.value));
-          clearGuesses();
-        }}>
+        <label htmlFor={id + '-object'}>
+          {fr ? 'Objet à tester' : 'Object to test'}
+        </label>
+        <select
+          id={id + '-object'}
+          value={object}
+          onChange={(event) => {
+            setObject(Number(event.currentTarget.value));
+            clearGuesses();
+          }}
+        >
           {objects.map((entry, index) => (
-            <option key={entry.label} value={index}>{entry.label}</option>
+            <option key={entry.label} value={index}>
+              {entry.label}
+            </option>
           ))}
         </select>
         <fieldset>
           <legend>{candidate.label} ∈ A ?</legend>
           <div className="l10-actions">
             {[true, false].map((value) => (
-              <button key={String(value)} type="button" aria-pressed={memberGuess === value} onClick={() => setMemberGuess(value)}>
+              <button
+                key={String(value)}
+                type="button"
+                aria-pressed={memberGuess === value}
+                onClick={() => setMemberGuess(value)}
+              >
                 {truth(value)}
               </button>
             ))}
@@ -99,24 +134,35 @@ export default function SetExplorer({ locale }: { locale: Locale }) {
             {memberGuess !== null && (
               <>
                 <strong>{feedback(memberGuess, member)}</strong>
-                {candidate.label} {member ? '∈' : '∉'} A.
-                {' '}{member
-                  ? (fr ? 'Cet objet figure directement parmi les éléments.' : 'This object is listed directly among the elements.')
-                  : (fr ? 'Cet objet ne figure pas directement parmi les éléments.' : 'This object is not listed directly among the elements.')}
+                {candidate.label} {member ? '∈' : '∉'} A.{' '}
+                {member
+                  ? fr
+                    ? 'Cet objet figure directement parmi les éléments.'
+                    : 'This object is listed directly among the elements.'
+                  : fr
+                    ? 'Cet objet ne figure pas directement parmi les éléments.'
+                    : 'This object is not listed directly among the elements.'}
               </>
             )}
           </p>
         </fieldset>
         {subset === null ? (
           <p data-not-applicable>
-            {fr ? 'Inclusion : non applicable ici. Le candidat est un nombre, pas un ensemble dans la convention du cours.' : 'Inclusion: not applicable here. The candidate is a number, not a set in the course convention.'}
+            {fr
+              ? 'Inclusion : non applicable ici. Le candidat est un nombre, pas un ensemble dans la convention du cours.'
+              : 'Inclusion: not applicable here. The candidate is a number, not a set in the course convention.'}
           </p>
         ) : (
           <fieldset>
             <legend>{candidate.label} ⊆ A ?</legend>
             <div className="l10-actions">
               {[true, false].map((value) => (
-                <button key={String(value)} type="button" aria-pressed={subsetGuess === value} onClick={() => setSubsetGuess(value)}>
+                <button
+                  key={String(value)}
+                  type="button"
+                  aria-pressed={subsetGuess === value}
+                  onClick={() => setSubsetGuess(value)}
+                >
                   {truth(value)}
                 </button>
               ))}
@@ -125,24 +171,41 @@ export default function SetExplorer({ locale }: { locale: Locale }) {
               {subsetGuess !== null && (
                 <>
                   <strong>{feedback(subsetGuess, subset)}</strong>
-                  {candidate.label} {subset ? '⊆' : '⊈'} A.
-                  {' '}{missing !== undefined
-                    ? (fr ? 'Élément manquant : ' : 'Missing element: ') + missing + ' ∉ A.'
+                  {candidate.label} {subset ? '⊆' : '⊈'} A.{' '}
+                  {missing !== undefined
+                    ? (fr ? 'Élément manquant : ' : 'Missing element: ') +
+                      missing +
+                      ' ∉ A.'
                     : candidate.elements?.length === 0
-                      ? (fr ? 'L’ensemble vide ne contient aucun contre-exemple.' : 'The empty set contains no counterexample.')
-                      : (fr ? 'Tous les éléments du candidat sont dans A.' : 'Every element of the candidate is in A.')}
+                      ? fr
+                        ? 'L’ensemble vide ne contient aucun contre-exemple.'
+                        : 'The empty set contains no counterexample.'
+                      : fr
+                        ? 'Tous les éléments du candidat sont dans A.'
+                        : 'Every element of the candidate is in A.'}
                 </>
               )}
             </p>
           </fieldset>
         )}
-        <button type="button" onClick={() => { setPreset(0); setObject(5); clearGuesses(); }}>
+        <button
+          type="button"
+          onClick={() => {
+            setPreset(0);
+            setObject(5);
+            clearGuesses();
+          }}
+        >
           {fr ? 'Réinitialiser' : 'Reset'}
         </button>
       </div>
       <div className="l10-static" hidden={ready}>
-        <p>A = {'{1, 2}'} : {'{1}'} ∉ A ; {'{1}'} ⊆ A.</p>
-        <p>A = {'{0, {0}}'} : {'{0}'} ∈ A ; {'{0}'} ⊆ A.</p>
+        <p>
+          A = {'{1, 2}'} : {'{1}'} ∉ A ; {'{1}'} ⊆ A.
+        </p>
+        <p>
+          A = {'{0, {0}}'} : {'{0}'} ∈ A ; {'{0}'} ⊆ A.
+        </p>
         <p>A = ∅ : ∅ ∉ A ; ∅ ⊆ A.</p>
       </div>
     </section>
