@@ -1,0 +1,13 @@
+# L11 six-stage reading review
+
+AI-assisted scoped author self-check, not independent peer review or hosted acceptance. Base 4ba2f5b9d276b46685778bbf16bb92750f6955e6.
+
+Reopened supplied Logique_01.pdf physical pages 44–48, text and all five rendered slides. Pages 44–45 define a predicate interpreted on a domain and allow several variables; p46 gives numerical, geographical and binary examples; p47 defines universal and existential quantifiers; p48 contrasts real and half-line domains and gives nested age examples. Preserve source notation with implicit domain alongside explicit bounded notation. The p48 assertion of an individual strictly older than every human is false literally: y=x refutes each possible candidate. Do not infer the author's intent, remove self implicitly or claim that a unique oldest person exists. Original numerical binary example replaces personal age evaluation; stated geographical facts support the source's place predicate.
+
+Six-stage reading v3 to v4, objectives, prerequisites, source pages and status unchanged; retain finite and infinite worked examples, add evidence matrix, all four finite-domain truth patterns including vacuity (extension), explicit membership requirement, six public written exercises with separate hints and solutions, bilingual diagrams and A4 HTML revision sheets. No automatic proof grading. L11 is independent of unmerged L10 changes. L12 and L17 are previewed only.
+
+Workshop finite universe 0–6; selectable domains and three predicates; per-element reveal, separate truth predictions, witness and counterexample selection with out-of-domain and wrong-predicate feedback. Evidence is valid only when in domain and predicate truth matches requested kind; no candidate is valid only when the corresponding evidence set is empty. Empty domain yields universal true, existential false. Domain/predicate changes clear stale guesses and evidence. Static fallback and print styles included. Unit tests enumerate all 128 subsets for each predicate, both types of evidence and all candidates including none; bilingual browser tests exercise domain changes, false evidence, empty-domain case, reset and print fallback. Tests added, not executed locally.
+
+Reviewed 21 French prompts, choices and explanations; no wrong key identified. Existing place questions assume geographical facts; no changes to immutable bank. Bank SHA-256 verified against registry. Preserve both unreviewed exceptions; renew reading fingerprints and translation source fingerprint with this scoped evidence. No grading, auth, database or dependency changes.
+
+Local pnpm check, formatting, browser, mobile and printed layout checks remain unverified through connector. Review CI before merging.
