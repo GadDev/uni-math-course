@@ -1,24 +1,31 @@
 ---
 lessonId: L19
 locale: fr
-version: 4
+version: 5
 status: extended
 title: "Python all et any : tri, doublons et maximum"
 summary: "Traduire des énoncés sur une liste en ∀ et ∃ puis en all et any de Python, et traiter les cas limites des listes courtes."
-minutes: 20
+minutes: 28
 objectives: [L19-O01, L19-O02, L19-O03, L19-O04, L19-O05, L19-O06]
 prerequisites: [L16]
 sourcePages: [90, 91, 92, 93, 94]
 ---
+
+import AppliedLogicLab from '../../../src/components/AppliedLogicLab';
+
 # Python all et any : tri, doublons et maximum
 
-## Votre objectif
+## 1. Comprendre — Indices, comparaisons et arrêt anticipé
+
+### Votre objectif
 
 À la fin de cette leçon, vous savez traduire « la liste est triée », « la liste contient un doublon » et « la liste contient son maximum » en $\forall$ et $\exists$, les écrire avec `all` et `any` de Python, et énoncer les cas limites.
 
 **Prérequis :** L16 (quantificateurs bornés).
 
-## Lire les indices avant la formule
+## 2. Visualiser
+
+### Lire les indices avant la formule
 
 Pour `t = [1, 3, 2]`, voici où se trouvent les valeurs :
 
@@ -30,11 +37,13 @@ Le premier indice est zéro et `n = len(t)` est le nombre d’éléments. `range
 
 Relisez séparément les trois objectifs : trier compare des voisins, détecter un doublon compare deux positions distinctes et chercher un maximum compare un candidat à toutes les valeurs. Un maximum peut apparaître plusieurs fois.
 
-## Une liste et ses indices
+## 3. Calculer et raisonner
+
+### Une liste et ses indices
 
 Soit `t` une liste Python finie de longueur $n = \mathrm{len}(t)$, composée de réels comparables sans NaN. Les comparaisons suivent un ordre total ; les complexes et les valeurs non comparables sont exclus. Les indices valides forment $J = \{i \in \mathbb{Z} \mid 0 \leq i < n\}$ ; les départs de paires voisines forment $K = \{i \in J \mid i+1 < n\}$. Ces deux ensembles sont vides lorsque $n = 0$. L’élément d’indice `i` est `t[i]`.
 
-## Triée et non triée
+### Triée et non triée
 
 « `t` est triée » (croissante au sens large) se traduit par
 $$
@@ -54,7 +63,7 @@ any(t[i] > t[i+1] for i in range(n-1))
 ```
 Il y a $\max(n-1, 0)$ paires voisines. Pour $n \geq 1$, leurs indices de départ vont de $0$ à $n-2$ ; pour la liste vide, aucun indice ne convient. `range(n-1)` énumère exactement ces départs, y compris `range(-1)`, qui est vide.
 
-## Exemple guidé : une liste de trois nombres
+### Exemple guidé : une liste de trois nombres
 
 Prenons `t = [1, 3, 2]`, donc $n = 3$ et les indices de comparaison sont $0$ et $1$.
 
@@ -66,7 +75,7 @@ Ce travail guidé, dont la solution est visible, n’est pas une réponse indép
 
 **Lire une expression Python.** `len(t)` donne le nombre d’éléments ; `range(n)` parcourt les indices de $0$ à $n-1$, sans inclure $n$. `True` et `False` sont les valeurs booléennes. Dans `test for i in ... for j in ...`, fixer un `i`, parcourir ses `j`, puis passer au `i` suivant. Dans `any(all(...))`, le `all` intérieur termine le test d’un candidat avant que le `any` extérieur cherche un autre candidat.
 
-## Doublons et maximum
+### Doublons et maximum
 
 Ce sont des traductions originales ; la source du cours ne les pose que comme exercices.
 
@@ -104,17 +113,71 @@ Avec `t=[1,3,1]` et `n=3`, les paires d’indices distincts sont :
 
 Le `all` intérieur vaut `True`, donc le `any` extérieur possède le témoin `i=1`. **À vous :** pourquoi le candidat `i=0` échoue-t-il ? Le test `j=1` demande `3 <= 1`, faux. Un candidat doit réussir toutes les comparaisons, pas une seule.
 
-## Cas limites
+### Cas limites
 
 Pour une liste vide, la plage est vide. Alors `all(...)` sur une plage vide vaut `True` et `any(...)` sur une plage vide vaut `False`. Une liste de longueur $0$ ou $1$ est donc triée. L’énoncé « contient son maximum » exige une liste finie et non vide de nombres : une liste vide n’a pas de maximum, et la traduction donne bien faux.
 
-## Pratique indépendante
+## 4. Expérimenter
+
+Les listes de l'atelier sont finies et contiennent des entiers. Pour all, une comparaison fausse suffit à arrêter l'évaluation ; pour any, un succès suffit. Une trace exhaustive peut être utile pour expliquer le raisonnement, mais Python n'exécute pas forcément toutes les comparaisons.
+
+<AppliedLogicLab locale="fr" mode="python" client:visible />
+
+Essayez [1,3,2], [1,2,2], [5] et []. Avant chaque étape, calculez la comparaison. Repérez l'arrêt au premier échec. Cherchez ensuite deux indices distincts pour un doublon et tous les indices d'un maximum.
+
+L'atelier est public, non noté et ne remplace pas une preuve écrite.
+
+## 5. Pratiquer — Écrire et justifier
+
+Essayez sur papier avant de dévoiler la correction.
+
+### Exercice 1
+
+Pour t = [1,3,2], donnez les indices valides de départ, puis les comparaisons exécutées par all.
+
+<details>
+<summary>Correction expliquée</summary>
+
+K = \{0,1\}. 1 ≤ 3 est vraie, puis 3 ≤ 2 est fausse : arrêt, all vaut False.
+
+</details>
+
+### Exercice 2
+
+Pour t = [2,2,5,5], donnez une paire témoin de doublon et tous les indices maximaux.
+
+<details>
+<summary>Correction expliquée</summary>
+
+(0,1) ou (2,3) sont des paires témoins. Les indices 2 et 3 portent la valeur maximale 5.
+
+</details>
+
+### Exercice 3
+
+Pour t = [], donnez les valeurs de triée, non triée, doublon et contient son maximum.
+
+<details>
+<summary>Correction expliquée</summary>
+
+True, False, False, False. Aucun indice et aucune paire ne sont disponibles.
+
+</details>
+
+### Pratique indépendante
 
 Les exercices sélectionnés portent sur la traduction avec `all`, la négation, le nombre de comparaisons, les doublons, le maximum et la liste vide.
 
 La pratique interactive nécessite une connexion. Sa disponibilité dépend de la version sélectionnée et du statut de publication de cette leçon.
 
-## À retenir
+## 6. Retenir — Fiche de révision
+
+### À retenir
+
+Tri : comparer les voisins i et i+1, i dans K. Doublon : chercher i &lt; j de même valeur. Maximum : chercher un indice i dominant tous les j. all sur vide = True ; any sur vide = False.
+
+[Fiche imprimable L19 (A4)](/revision/l19-fr.html)
+
 
 $\forall$ sur des indices est `all`, $\exists$ sur des indices est `any`. Vérifiez la plage d’indices, et rappelez-vous ce que renvoient `all` et `any` sur une plage vide.
 
